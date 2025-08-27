@@ -260,32 +260,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-onealgo-blue-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-blue-200 mb-8 max-w-3xl mx-auto animate-fade-in-up">
-            Let's talk about how OneAlgorithm can streamline your operations and accelerate your growth.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-            <Button
-              size="lg"
-              className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              Get Started Today
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              Schedule a Call
-            </Button>
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }
