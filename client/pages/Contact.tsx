@@ -261,7 +261,6 @@ export default function Contact() {
                       <MapPin className="w-5 h-5 text-onealgo-orange-500 mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-gray-600">
-                          One Algorithm IT Solutions Pvt. Ltd<br />
                           2nd Floor, Plot No. 536, 100 Ft Road<br />
                           Ayyappa Society, Madhapur<br />
                           Hyderabad, Telangana 500081, IN<br />
