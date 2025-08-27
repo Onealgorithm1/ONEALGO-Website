@@ -123,6 +123,34 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* OneAlgorithm Brand Colors (Dark Mode) */
+    --onealgo-blue-50: 202 80% 24%;
+    --onealgo-blue-100: 201 96% 20%;
+    --onealgo-blue-200: 201 96% 25%;
+    --onealgo-blue-300: 201 96% 32%;
+    --onealgo-blue-400: 199 89% 48%;
+    --onealgo-blue-500: 201 96% 78%;
+    --onealgo-blue-600: 200 96% 88%;
+    --onealgo-blue-700: 200 100% 93%;
+    --onealgo-blue-800: 200 100% 97%;
+    --onealgo-blue-900: 210 100% 98%;
+    --onealgo-blue-950: 210 100% 21%; /* Primary #005eaa stays same */
+
+    --onealgo-orange-50: 17 88% 15%;
+    --onealgo-orange-100: 21 84% 27%;
+    --onealgo-orange-200: 23 83% 31%;
+    --onealgo-orange-300: 26 90% 37%;
+    --onealgo-orange-400: 32 95% 44%;
+    --onealgo-orange-500: 36 100% 60%; /* Primary #ffa634 stays same */
+    --onealgo-orange-600: 43 100% 57%;
+    --onealgo-orange-700: 45 97% 64%;
+    --onealgo-orange-800: 43 96% 80%;
+    --onealgo-orange-900: 43 96% 90%;
+    --onealgo-orange-950: 38 100% 97%;
+
+    --onealgo-light: 202 80% 24%;
+    --onealgo-lighter: 201 96% 20%;
   }
 }
 
