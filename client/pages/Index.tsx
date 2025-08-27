@@ -149,9 +149,9 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Construction */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full">
+            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Building2 className="w-16 h-16 text-onealgo-blue-950 mb-4" />
+                <Building2 className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">Construction</CardTitle>
               </CardHeader>
               <CardContent>
@@ -166,9 +166,9 @@ export default function Index() {
             </Card>
 
             {/* Manufacturing */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full">
+            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Factory className="w-16 h-16 text-onealgo-blue-950 mb-4" />
+                <Factory className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow" style={{animationDelay: '0.5s'}} />
                 <CardTitle className="text-2xl text-onealgo-blue-950">Manufacturing</CardTitle>
               </CardHeader>
               <CardContent>
@@ -183,9 +183,9 @@ export default function Index() {
             </Card>
 
             {/* Marketing & Commerce */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full">
+            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <ShoppingCart className="w-16 h-16 text-onealgo-blue-950 mb-4" />
+                <ShoppingCart className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow" style={{animationDelay: '1s'}} />
                 <CardTitle className="text-2xl text-onealgo-blue-950">Marketing & Commerce</CardTitle>
               </CardHeader>
               <CardContent>
