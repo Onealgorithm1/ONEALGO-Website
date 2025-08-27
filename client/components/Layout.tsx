@@ -208,12 +208,20 @@ export default function Layout({ children }: LayoutProps) {
             <p className="text-blue-200 text-sm">
               © 2025 OneAlgorithm. All rights reserved.
             </p>
-            <Link
-              to="/privacy"
-              className="text-blue-200 hover:text-white transition-colors text-sm mt-2 md:mt-0"
-            >
-              Privacy Policy
-            </Link>
+            <div className="flex gap-4 mt-2 md:mt-0">
+              <Link
+                to="/privacy"
+                className="text-blue-200 hover:text-white transition-colors text-sm"
+              >
+                Privacy Policy
+              </Link>
+              <a
+                href="mailto:careers@onealgorithm.com"
+                className="text-blue-200 hover:text-white transition-colors text-sm"
+              >
+                Careers
+              </a>
+            </div>
           </div>
         </div>
       </footer>
