@@ -99,36 +99,36 @@ export default function Index() {
             </Card>
 
             {/* Focus on Growth */}
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
               <CardHeader>
-                <TrendingUp className="w-12 h-12 text-onealgo-orange-500 mb-4" />
+                <TrendingUp className="w-12 h-12 text-onealgo-orange-500 mb-4 animate-float" style={{animationDelay: '1s'}} />
                 <CardTitle className="text-onealgo-blue-950">Focus on Growth</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   Automation and streamlined operations free teams to focus on strategy and growth.
                 </p>
-                <div className="space-y-2 text-sm text-gray-500">
-                  <p><strong>Learn more:</strong> Repetitive tasks are replaced with efficient workflows, saving valuable time every week.</p>
-                  <p><strong>Go deeper:</strong> From lead routing to financial reporting, automation reduces errors, increases accountability, and empowers teams to focus on innovation instead of routine admin.</p>
-                </div>
+                <CollapsibleDetails
+                  learnMore="Repetitive tasks are replaced with efficient workflows, saving valuable time every week."
+                  goDeeper="From lead routing to financial reporting, automation reduces errors, increases accountability, and empowers teams to focus on innovation instead of routine admin."
+                />
               </CardContent>
             </Card>
 
             {/* Tailored Solutions */}
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
               <CardHeader>
-                <Settings className="w-12 h-12 text-onealgo-orange-500 mb-4" />
+                <Settings className="w-12 h-12 text-onealgo-orange-500 mb-4 animate-float" style={{animationDelay: '1.5s'}} />
                 <CardTitle className="text-onealgo-blue-950">Tailored Solutions</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   Every implementation is customized to unique processes, industry standards, and long-term vision.
                 </p>
-                <div className="space-y-2 text-sm text-gray-500">
-                  <p><strong>Learn more:</strong> No cookie-cutter setups — technology adapts to the business, not the other way around.</p>
-                  <p><strong>Go deeper:</strong> Specialized solutions are built for complex industries. Construction, finance, healthcare, and beyond — each system is aligned to workflows, compliance needs, and customer expectations.</p>
-                </div>
+                <CollapsibleDetails
+                  learnMore="No cookie-cutter setups — technology adapts to the business, not the other way around."
+                  goDeeper="Specialized solutions are built for complex industries. Construction, finance, healthcare, and beyond — each system is aligned to workflows, compliance needs, and customer expectations."
+                />
               </CardContent>
             </Card>
           </div>
@@ -160,7 +160,7 @@ export default function Index() {
                 </p>
                 <div className="space-y-2 text-sm text-gray-500">
                   <p><strong>Learn more:</strong> Centralize schedules, budgets, and communication to avoid delays and costly missteps.</p>
-                  <p><strong>Go deeper:</strong> Integrations link field teams, subcontractors, and back-office operations ��� delivering a single, clear view of every project milestone.</p>
+                  <p><strong>Go deeper:</strong> Integrations link field teams, subcontractors, and back-office operations — delivering a single, clear view of every project milestone.</p>
                 </div>
               </CardContent>
             </Card>
