@@ -223,9 +223,20 @@ export default function Index() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
                 Annual Maintenance Contract <span className="text-onealgo-orange-500">(AMC)</span>
               </h2>
-              <p className="text-xl text-gray-600 mb-6 animate-fade-in-up">
-                End-to-end management of your systems, so the team can stay focused on driving sales.
-              </p>
+              <DetailedCollapsible
+                title="AMC Benefits"
+                summary="End-to-end system management with proactive monitoring, 24/7 support, and continuous optimization — keeping your team focused on driving sales while technology evolves with your business goals."
+                details={[
+                  "24/7 proactive monitoring and immediate issue resolution",
+                  "Regular system updates and security patches",
+                  "Comprehensive user training and onboarding support",
+                  "Performance tuning and system optimization",
+                  "Troubleshooting and technical support",
+                  "Strategic technology alignment with business goals",
+                  "Backup and disaster recovery management",
+                  "Custom workflow development and refinement"
+                ]}
+              />
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-onealgo-orange-500 mt-1 flex-shrink-0" />
