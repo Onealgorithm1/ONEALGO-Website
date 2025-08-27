@@ -21,33 +21,28 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-lighter via-white to-onealgo-light py-20 lg:py-32">
+      <section
+        className="relative py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 94, 170, 0.7), rgba(0, 94, 170, 0.5)), url('https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1920')`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-8">
-              <OneAlgorithmText size="xl" className="justify-center" />
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-              <span className="text-onealgo-blue-950">Reimagine.</span>{" "}
-              <span className="text-onealgo-orange-500">Connect.</span>{" "}
-              <span className="text-onealgo-blue-950">Accelerate.</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
+              <span className="text-white drop-shadow-lg">Reimagine.</span>{" "}
+              <span className="text-onealgo-orange-500 drop-shadow-lg">Connect.</span>{" "}
+              <span className="text-white drop-shadow-lg">Accelerate.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto drop-shadow-md animate-fade-in-up">
               Think bigger. Build smarter. Move faster — with solutions tailored to you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-8 py-4 text-lg"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
+              <Button
+                size="lg"
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Get Started Today
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-onealgo-blue-950 text-onealgo-blue-950 hover:bg-onealgo-blue-950 hover:text-white px-8 py-4 text-lg"
-              >
-                Learn More
               </Button>
             </div>
           </div>
