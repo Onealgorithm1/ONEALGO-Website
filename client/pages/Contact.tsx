@@ -25,6 +25,10 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -257,7 +261,7 @@ export default function Contact() {
                 <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
                   <CardHeader className="pb-4">
                     <CardTitle className="flex items-center gap-2 text-onealgo-blue-950">
-                      <span className="text-2xl">🇨🇦</span>
+                      <span className="text-2xl">����🇦</span>
                       Canada Office
                     </CardTitle>
                   </CardHeader>
