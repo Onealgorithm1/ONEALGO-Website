@@ -404,6 +404,17 @@ export default function Careers() {
                             </div>
                           </div>
                         </div>
+                        <div className="flex flex-col items-end">
+                          <Badge
+                            className={`text-xs px-3 py-1 ${
+                              job.availablePositions > 0
+                                ? 'bg-green-100 text-green-800 border-green-300'
+                                : 'bg-red-100 text-red-800 border-red-300'
+                            }`}
+                          >
+                            {job.availablePositions} Position{job.availablePositions !== 1 ? 's' : ''} Available
+                          </Badge>
+                        </div>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -423,11 +434,20 @@ export default function Careers() {
                       </Collapsible>
 
                       <div className="mt-6">
-                        <Button 
-                          className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                          onClick={() => window.open(`mailto:careers@onealgorithm.com?subject=Application for ${job.title}`, '_blank')}
+                        <Button
+                          className={`w-full ${
+                            job.availablePositions > 0
+                              ? 'bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white'
+                              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          }`}
+                          onClick={() => {
+                            if (job.availablePositions > 0) {
+                              window.open(`mailto:careers@onealgorithm.com?subject=Application for ${job.title}`, '_blank');
+                            }
+                          }}
+                          disabled={job.availablePositions === 0}
                         >
-                          Apply Now
+                          {job.availablePositions > 0 ? 'Apply Now' : 'Currently Unavailable'}
                         </Button>
                       </div>
                     </CardContent>
