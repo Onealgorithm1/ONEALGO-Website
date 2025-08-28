@@ -47,12 +47,6 @@ export default function Layout({ children }: LayoutProps) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
-                to="/"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-              >
-                Home
-              </Link>
-              <Link
                 to="/about"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
               >
