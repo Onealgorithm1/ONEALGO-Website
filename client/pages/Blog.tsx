@@ -67,6 +67,86 @@ export default function Blog() {
       date: "March 3, 2025",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop"
+    },
+    {
+      id: 7,
+      title: "The Rise of Low-Code/No-Code Solutions in Enterprise",
+      excerpt: "How low-code platforms are democratizing software development and accelerating digital transformation.",
+      category: "Technology",
+      author: "OneAlgorithm Team",
+      date: "February 28, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop"
+    },
+    {
+      id: 8,
+      title: "Data Privacy and GDPR Compliance: A Practical Guide",
+      excerpt: "Essential strategies for ensuring data privacy compliance while maintaining operational efficiency.",
+      category: "Technology",
+      author: "Legal & Compliance Team",
+      date: "February 25, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=400&fit=crop"
+    },
+    {
+      id: 9,
+      title: "Remote Team Collaboration: Tools and Best Practices",
+      excerpt: "Building effective remote teams with the right technology stack and communication strategies.",
+      category: "Technology",
+      author: "HR & Operations",
+      date: "February 22, 2025",
+      readTime: "5 min read",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+    },
+    {
+      id: 10,
+      title: "Sustainable Technology: Green Solutions for Modern Business",
+      excerpt: "How to implement eco-friendly technology solutions that reduce costs and environmental impact.",
+      category: "Technology",
+      author: "Sustainability Team",
+      date: "February 20, 2025",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop"
+    },
+    {
+      id: 11,
+      title: "Construction Tech Trends: Digital Transformation on the Job Site",
+      excerpt: "Exploring how digital tools are revolutionizing construction project management and safety.",
+      category: "Construction",
+      author: "Construction Tech Team",
+      date: "February 18, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop"
+    },
+    {
+      id: 12,
+      title: "E-Commerce Analytics: Turning Data into Revenue",
+      excerpt: "Advanced analytics strategies to optimize conversion rates and customer lifetime value.",
+      category: "E-Commerce",
+      author: "Analytics Team",
+      date: "February 15, 2025",
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    },
+    {
+      id: 13,
+      title: "Cybersecurity Best Practices for Small and Medium Businesses",
+      excerpt: "Essential cybersecurity measures every business should implement to protect against threats.",
+      category: "Technology",
+      author: "Security Team",
+      date: "February 12, 2025",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop"
+    },
+    {
+      id: 14,
+      title: "The Future of Work: Hybrid Models and Digital Workspaces",
+      excerpt: "Adapting to the new normal with flexible work arrangements and digital collaboration tools.",
+      category: "Technology",
+      author: "Future of Work Team",
+      date: "February 10, 2025",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
     }
   ];
 

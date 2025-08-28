@@ -68,13 +68,6 @@ export default function Layout({ children }: LayoutProps) {
                   <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                     <div className="py-2">
                       <Link
-                        to="/industries"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => setIndustriesDropdownOpen(false)}
-                      >
-                        All Industries
-                      </Link>
-                      <Link
                         to="/industries/construction"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
                         onClick={() => setIndustriesDropdownOpen(false)}
@@ -126,6 +119,17 @@ export default function Layout({ children }: LayoutProps) {
               >
                 Careers
               </Link>
+
+              {/* Events - Coming Soon */}
+              <div className="relative group">
+                <span className="text-gray-900 hover:text-onealgo-blue-950 transition-colors cursor-pointer">
+                  Events
+                </span>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-onealgo-orange-500 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
+                  <div className="animate-pulse">Coming Soon</div>
+                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-onealgo-orange-500 rotate-45"></div>
+                </div>
+              </div>
               <Link
                 to="/contact"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -187,6 +191,9 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   Careers
                 </Link>
+                <div className="block px-3 py-2 text-gray-400 cursor-not-allowed">
+                  Events <span className="text-xs text-onealgo-orange-500 animate-pulse ml-2">(Coming Soon)</span>
+                </div>
                 <Link
                   to="/contact"
                   className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"

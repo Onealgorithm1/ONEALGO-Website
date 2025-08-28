@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Layout from "../components/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import { Collapsible } from "../components/ui/collapsible";
+import { Input } from "../components/ui/input";
 import { 
   MapPin, 
   Clock, 
@@ -21,10 +22,13 @@ import {
   Layers,
   Monitor,
   Cloud,
-  GraduationCap
+  GraduationCap,
+  Search
 } from "lucide-react";
 
 export default function Careers() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const jobCategories = [
     {
       title: "Development & Engineering",
@@ -238,6 +242,25 @@ export default function Careers() {
     }
   ];
 
+  // Filter jobs based on search term
+  const filteredCategories = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return jobCategories;
+    }
+
+    return jobCategories.map(category => ({
+      ...category,
+      jobs: category.jobs.filter(job =>
+        job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.level.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    })).filter(category => category.jobs.length > 0);
+  }, [jobCategories, searchTerm]);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -299,9 +322,27 @@ export default function Careers() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Open Positions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 mb-8">
               Explore opportunities to grow your career with us
             </p>
+
+            {/* Search Filter */}
+            <div className="max-w-md mx-auto relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                type="text"
+                placeholder="Search jobs by title, skills, or location..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-4 py-3 text-lg border-2 border-gray-200 focus:border-onealgo-orange-500 rounded-lg"
+              />
+            </div>
+
+            {searchTerm && (
+              <p className="text-sm text-gray-600 mt-4">
+                {filteredCategories.reduce((total, category) => total + category.jobs.length, 0)} positions found
+              </p>
+            )}
           </div>
 
           {jobCategories.map((category, categoryIndex) => (
