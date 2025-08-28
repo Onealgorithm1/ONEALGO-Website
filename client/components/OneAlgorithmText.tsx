@@ -20,10 +20,10 @@ export default function OneAlgorithmText({
   };
 
   const globeSizes = {
-    sm: "sm" as const,
-    md: "md" as const,
-    lg: "lg" as const,
-    xl: "xl" as const,
+    sm: 20,
+    md: 28,
+    lg: 36,
+    xl: 44,
   };
 
   return (
@@ -33,7 +33,7 @@ export default function OneAlgorithmText({
       <span className="text-onealgo-orange-500">One</span>
       <span className="text-onealgo-blue-950">Alg</span>
       {showGlobe ? (
-        <BinaryGlobeSVG size={globeSizes[size]} className="mx-1 inline-block" />
+        <BinaryGlobeSVG size={globeSizes[size]} className="mx-1 inline-block drop-shadow-md" />
       ) : (
         <span className="text-onealgo-blue-950">o</span>
       )}
