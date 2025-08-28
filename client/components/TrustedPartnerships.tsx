@@ -2,8 +2,8 @@ import React from "react";
 
 export default function TrustedPartnerships() {
   const partners = [
-    "Salesforce", "Monday.com", "HubSpot", "Zoho", "Zapier", "MuleSoft", 
-    "Microsoft Dynamics", "Twilio", "Aircall", "QuickBooks", "DocuSign", 
+    "Salesforce", "Monday", "HubSpot", "Zoho", "Zapier", "MuleSoft",
+    "MS Dynamics", "Twilio", "Aircall", "QuickBooks", "DocuSign",
     "OneFlow", "Hootsuite", "Metricool"
   ];
 
