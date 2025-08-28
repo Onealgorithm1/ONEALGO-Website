@@ -172,7 +172,10 @@ export default function ECommerce() {
                 Discover how our e-commerce solutions can increase sales and
                 streamline your online operations.
               </p>
-              <Button asChild className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white">
+              <Button
+                asChild
+                className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
+              >
                 <Link to="/contact">Schedule a Demo</Link>
               </Button>
             </div>
