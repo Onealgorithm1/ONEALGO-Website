@@ -274,7 +274,8 @@ export default function Careers() {
         job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         job.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
         job.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.level.toLowerCase().includes(searchTerm.toLowerCase())
+        job.level.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.availablePositions.toString().includes(searchTerm.toLowerCase())
       )
     })).filter(category => category.jobs.length > 0);
   }, [jobCategories, searchTerm]);
