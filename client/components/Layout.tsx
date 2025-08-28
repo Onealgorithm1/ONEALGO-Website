@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 interface LayoutProps {
@@ -12,6 +12,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -38,12 +39,67 @@ export default function Layout({ children }: LayoutProps) {
               >
                 About
               </Link>
-              <Link
-                to="/industries"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-              >
-                Industries
-              </Link>
+
+              {/* Industries Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIndustriesDropdownOpen(!industriesDropdownOpen)}
+                  className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                >
+                  Industries We Serve
+                  <ChevronDown className={`w-4 h-4 transition-transform ${industriesDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {industriesDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <div className="py-2">
+                      <Link
+                        to="/industries"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        All Industries
+                      </Link>
+                      <Link
+                        to="/industries/construction"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        Construction
+                      </Link>
+                      <Link
+                        to="/industries/manufacturing"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        Manufacturing
+                      </Link>
+                      <Link
+                        to="/industries/marketing"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        Marketing
+                      </Link>
+                      <Link
+                        to="/industries/ecommerce"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        E-Commerce
+                      </Link>
+                      <Link
+                        to="/industries/website-development"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => setIndustriesDropdownOpen(false)}
+                      >
+                        Website Development
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <Link
                 to="/contact"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -89,7 +145,7 @@ export default function Layout({ children }: LayoutProps) {
                   className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Industries
+                  Industries We Serve
                 </Link>
                 <Link
                   to="/contact"
