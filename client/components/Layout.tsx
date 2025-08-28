@@ -220,16 +220,9 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   → Events
                 </Link>
-                <Link
-                  to="/contact"
-                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
                 <div className="px-3 py-2">
                   <Button asChild className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white">
-                    <Link to="/contact">Get Started</Link>
+                    <Link to="/contact">Schedule a Demo</Link>
                   </Button>
                 </div>
               </div>
