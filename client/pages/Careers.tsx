@@ -40,6 +40,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid to Senior",
+          availablePositions: 0,
           summary: "Build scalable software solutions that power business transformation across multiple industries.",
           description: "Join our engineering team to develop cutting-edge applications that streamline business operations. You'll work with modern technologies including React, Node.js, and cloud platforms to create solutions that make a real impact for our clients. Collaborate with cross-functional teams to deliver high-quality software that scales with growing businesses."
         },
@@ -50,6 +51,7 @@ export default function Careers() {
           location: "Remote / On-site",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Create end-to-end web applications from concept to deployment using modern frameworks.",
           description: "Develop complete web applications using both frontend and backend technologies. Work with React, TypeScript, Node.js, and databases to build responsive, user-friendly applications. You'll be involved in the entire development lifecycle, from initial design to deployment and maintenance."
         },
@@ -60,6 +62,7 @@ export default function Careers() {
           location: "Remote",
           type: "Full-time",
           level: "Mid to Senior",
+          availablePositions: 0,
           summary: "Optimize deployment pipelines and infrastructure to ensure reliable, scalable system operations.",
           description: "Design and maintain CI/CD pipelines, manage cloud infrastructure, and implement monitoring solutions. Work with AWS, Docker, Kubernetes, and automation tools to ensure our applications run smoothly in production. Focus on security, scalability, and performance optimization."
         },
@@ -70,6 +73,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Customize and extend Salesforce platforms to meet unique business requirements.",
           description: "Develop custom Salesforce solutions using Apex, Lightning Web Components, and Flow. Create integrations with external systems and implement complex business logic. Work directly with clients to understand requirements and deliver tailored CRM solutions that drive business growth."
         },
@@ -80,6 +84,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid to Senior",
+          availablePositions: 0,
           summary: "Build robust data pipelines and infrastructure to support analytics and business intelligence.",
           description: "Design and implement data pipelines, ETL processes, and data warehouses. Work with big data technologies like Apache Spark, Kafka, and cloud data platforms. Ensure data quality, performance, and security while supporting business analytics and machine learning initiatives."
         },
@@ -90,6 +95,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Develop and customize ServiceNow applications for IT service management and workflow automation.",
           description: "Build custom ServiceNow applications and workflows to automate business processes. Work with ServiceNow platform tools, scripting, and integrations to deliver solutions that improve operational efficiency. Collaborate with IT teams to implement ITSM best practices."
         },
@@ -100,6 +106,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Configure and customize Workday HCM solutions for human resources and talent management.",
           description: "Implement Workday HCM modules including Core HCM, Recruiting, and Performance Management. Create custom reports, configure business processes, and integrate Workday with other enterprise systems. Work with HR teams to optimize workforce management processes."
         }
