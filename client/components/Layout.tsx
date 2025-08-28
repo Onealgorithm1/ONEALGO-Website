@@ -370,49 +370,63 @@ export default function Layout({ children }: LayoutProps) {
               <div className="space-y-2">
                 <Link
                   to="/"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   About
                 </Link>
                 <Link
                   to="/industries"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Industries We Serve
                 </Link>
                 <Link
                   to="/careers"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Careers
                 </Link>
                 <Link
                   to="/blog"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
                 <Link
                   to="/events"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Events
                 </Link>
                 <Link
                   to="/contact"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Contact

@@ -26,7 +26,9 @@ const Construction = lazy(() => import("./pages/industries/Construction"));
 const Manufacturing = lazy(() => import("./pages/industries/Manufacturing"));
 const Marketing = lazy(() => import("./pages/industries/Marketing"));
 const ECommerce = lazy(() => import("./pages/industries/ECommerce"));
-const WebsiteDevelopment = lazy(() => import("./pages/industries/WebsiteDevelopment"));
+const WebsiteDevelopment = lazy(
+  () => import("./pages/industries/WebsiteDevelopment"),
+);
 
 // Loading component
 const LoadingSpinner = () => (
@@ -49,7 +51,10 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/construction" element={<Construction />} />
-            <Route path="/industries/manufacturing" element={<Manufacturing />} />
+            <Route
+              path="/industries/manufacturing"
+              element={<Manufacturing />}
+            />
             <Route path="/industries/marketing" element={<Marketing />} />
             <Route path="/industries/ecommerce" element={<ECommerce />} />
             <Route
