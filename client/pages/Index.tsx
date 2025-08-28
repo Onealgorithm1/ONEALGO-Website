@@ -125,14 +125,14 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-              Industries We Specialize In
+              Industries We Serve
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
-              Tailored Salesforce solutions for your industry's unique challenges.
+              Specialized technology solutions designed for your industry's unique challenges and opportunities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Construction */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
@@ -175,24 +175,46 @@ export default function Index() {
               </CardContent>
             </Card>
 
-            {/* Marketing & Commerce */}
+            {/* Marketing */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <ShoppingCart className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" style={{animationDelay: '1s'}} />
-                <CardTitle className="text-2xl text-onealgo-blue-950">Marketing & Commerce</CardTitle>
+                <svg className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" style={{animationDelay: '1s'}} fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <CardTitle className="text-2xl text-onealgo-blue-950">Marketing</CardTitle>
               </CardHeader>
               <CardContent>
-                <DetailedCollapsible
-                  title="Marketing & Commerce"
-                  summary="Deliver personalized experiences, fuel customer loyalty, and turn data into scalable commerce growth."
-                  details={[
-                    "Create campaigns that adapt instantly to customer behavior and preferences",
-                    "AI-driven insights connect marketing, sales, and commerce platforms",
-                    "Personalized customer journeys from first touch to conversion",
-                    "Advanced analytics for ROI tracking and campaign optimization",
-                    "Automated lead nurturing and customer retention workflows"
-                  ]}
-                />
+                <p className="text-gray-600">
+                  Create campaigns that adapt instantly to customer behavior and preferences. AI-driven insights and automated lead nurturing deliver personalized customer journeys with advanced ROI tracking and optimization.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* E-Commerce */}
+            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <CardHeader>
+                <ShoppingCart className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300" style={{animationDelay: '1.2s'}} />
+                <CardTitle className="text-2xl text-onealgo-blue-950">E-Commerce</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Scale your online business with integrated platforms that connect inventory, payments, and customer data. Streamlined order management and personalized shopping experiences drive conversion and customer loyalty.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Website Development */}
+            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <CardHeader>
+                <svg className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-blue-500 transition-colors duration-300" style={{animationDelay: '1.5s'}} fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm2 4v-2H3a2 2 0 002 2zM3 9h2V7H3v2zm12 12h2v-2h-2v2zm4-18H9a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2zm0 12H9V5h10v10z"/>
+                </svg>
+                <CardTitle className="text-2xl text-onealgo-blue-950">Website Development</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications, we create digital experiences that engage users and drive business results.
+                </p>
               </CardContent>
             </Card>
           </div>
