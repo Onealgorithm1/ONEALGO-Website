@@ -122,6 +122,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Senior",
+          availablePositions: 0,
           summary: "Develop and deploy machine learning models to solve complex business problems.",
           description: "Design, train, and deploy machine learning models for predictive analytics, automation, and intelligent decision-making. Work with TensorFlow, PyTorch, and cloud ML platforms. Collaborate with data scientists and engineers to bring AI solutions from research to production."
         },
@@ -132,6 +133,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Create dashboards and reports that turn data into actionable business insights.",
           description: "Develop business intelligence solutions using tools like Power BI, Tableau, and SQL. Design interactive dashboards, create automated reports, and work with stakeholders to understand analytical requirements. Transform complex data into clear, actionable insights for decision-making."
         },
@@ -142,6 +144,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid to Senior",
+          availablePositions: 0,
           summary: "Ensure data quality, security, and compliance across all organizational data assets.",
           description: "Establish and maintain data governance frameworks, policies, and procedures. Work with cross-functional teams to ensure data quality, privacy, and regulatory compliance. Implement data catalog systems and metadata management to support data discovery and lineage."
         }
@@ -157,6 +160,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Bridge business needs and technology solutions through detailed analysis and requirements gathering.",
           description: "Work closely with stakeholders to understand business requirements and translate them into technical specifications. Conduct process analysis, create documentation, and facilitate communication between business users and development teams. Help identify opportunities for process improvement and automation."
         },
@@ -167,6 +171,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Senior",
+          availablePositions: 0,
           summary: "Drive product strategy and roadmap to deliver solutions that meet market and customer needs.",
           description: "Define product vision, strategy, and roadmap. Work with development teams in an Agile environment to prioritize features and ensure delivery of valuable products. Conduct market research, gather customer feedback, and make data-driven decisions about product direction."
         },
@@ -177,6 +182,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Senior",
+          availablePositions: 0,
           summary: "Coordinate multiple projects and teams to deliver complex initiatives on time and within budget.",
           description: "Lead cross-functional teams to deliver large-scale programs and initiatives. Manage project timelines, budgets, and resources while ensuring alignment with business objectives. Communicate with stakeholders at all levels and remove blockers to keep projects on track."
         },
@@ -187,6 +193,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Senior",
+          availablePositions: 0,
           summary: "Drive financial planning and strategic initiatives to support business growth and profitability.",
           description: "Lead financial analysis, budgeting, and forecasting processes. Develop strategic plans and business cases for new initiatives. Work with leadership to analyze market opportunities and optimize resource allocation. Support decision-making with financial modeling and ROI analysis."
         }
@@ -202,6 +209,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Ensure software quality through comprehensive testing strategies and automation frameworks.",
           description: "Design and execute test plans, create automated testing frameworks, and ensure software quality throughout the development lifecycle. Work with development teams to implement testing best practices and identify potential issues before production deployment."
         },
@@ -212,6 +220,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Ensure organizational compliance with industry regulations and internal policies.",
           description: "Monitor compliance with regulatory requirements and internal policies across all business operations. Conduct risk assessments, develop compliance procedures, and provide training to ensure adherence to standards. Work with legal and audit teams to maintain compliance certifications."
         }
@@ -227,6 +236,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Full-time",
           level: "Mid-level",
+          availablePositions: 0,
           summary: "Drive online presence and lead generation through strategic digital marketing campaigns.",
           description: "Develop and execute digital marketing strategies across multiple channels including SEO, SEM, social media, and content marketing. Analyze campaign performance, optimize conversion rates, and work with sales teams to generate qualified leads. Stay current with digital marketing trends and best practices."
         }
@@ -242,6 +252,7 @@ export default function Careers() {
           location: "Remote / Hybrid",
           type: "Internship",
           level: "Entry-level",
+          availablePositions: 0,
           summary: "Gain hands-on experience in technology and business while contributing to real projects.",
           description: "Our comprehensive internship program offers students and recent graduates the opportunity to work on meaningful projects across various departments. Receive mentorship from experienced professionals, participate in training sessions, and contribute to client solutions. Available in software development, data analysis, business analysis, and digital marketing."
         }
