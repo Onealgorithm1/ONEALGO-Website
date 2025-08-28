@@ -156,12 +156,12 @@ export default function Layout({ children }: LayoutProps) {
                   </div>
                 )}
               </div>
-              <Button
-                asChild
-                className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
+              <Link
+                to="/contact"
+                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
               >
-                <Link to="/contact">Get Started</Link>
-              </Button>
+                Contact
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -217,14 +217,13 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   → Events
                 </Link>
-                <div className="px-3 py-2">
-                  <Button
-                    asChild
-                    className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
-                  >
-                    <Link to="/contact">Get Started</Link>
-                  </Button>
-                </div>
+                <Link
+                  to="/contact"
+                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
               </div>
             </div>
           )}
