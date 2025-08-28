@@ -331,7 +331,16 @@ export default function Layout({ children }: LayoutProps) {
                   About
                 </Link>
                 <Link to="/industries" className="block text-blue-200 hover:text-white transition-colors">
-                  Industries
+                  Industries We Serve
+                </Link>
+                <Link to="/careers" className="block text-blue-200 hover:text-white transition-colors">
+                  Careers
+                </Link>
+                <Link to="/blog" className="block text-blue-200 hover:text-white transition-colors">
+                  Blog
+                </Link>
+                <Link to="/events" className="block text-blue-200 hover:text-white transition-colors">
+                  Events
                 </Link>
                 <Link to="/contact" className="block text-blue-200 hover:text-white transition-colors">
                   Contact

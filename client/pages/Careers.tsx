@@ -430,7 +430,7 @@ export default function Careers() {
                                 : 'bg-red-100 text-red-800 border-red-300'
                             }`}
                           >
-                            {job.availablePositions} Position{job.availablePositions !== 1 ? 's' : ''} Available
+                            {job.availablePositions} Position{job.availablePositions !== 1 ? 's' : ''}
                           </Badge>
                         </div>
                       </div>
