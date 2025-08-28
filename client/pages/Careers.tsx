@@ -1,5 +1,22 @@
 import React, { useState, useMemo } from "react";
 import Layout from "../components/Layout";
+
+interface Job {
+  id: string;
+  title: string;
+  icon: React.ReactNode;
+  location: string;
+  type: string;
+  level: string;
+  availablePositions: number;
+  summary: string;
+  description: string;
+}
+
+interface JobCategory {
+  title: string;
+  jobs: Job[];
+}
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
