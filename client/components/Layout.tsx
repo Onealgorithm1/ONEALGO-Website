@@ -215,14 +215,20 @@ export default function Layout({ children }: LayoutProps) {
                 <Link
                   to="/"
                   className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
                   className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                 >
                   About
                 </Link>
