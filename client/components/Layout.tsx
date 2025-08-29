@@ -191,6 +191,7 @@ export default function Layout({ children }: LayoutProps) {
               <Link
                 to="/contact"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Contact
               </Link>
