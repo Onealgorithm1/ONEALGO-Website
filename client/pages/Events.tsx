@@ -164,13 +164,22 @@ export default function Events() {
                     </div>
                   </div>
 
-                  <Button
-                    className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                    onClick={() => window.open(event.registrationUrl, "_blank")}
-                  >
-                    Register Now
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
+                  {event.isPlaceholder ? (
+                    <Button
+                      disabled
+                      className="w-full bg-gray-300 text-gray-500 cursor-not-allowed"
+                    >
+                      Stay Tuned
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+                      onClick={() => window.open(event.registrationUrl, "_blank")}
+                    >
+                      Register Now
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
