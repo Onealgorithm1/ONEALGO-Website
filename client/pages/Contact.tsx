@@ -223,9 +223,9 @@ export default function Contact() {
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Global Offices</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Our Global Offices</h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {/* USA Office */}
                 <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
                   <CardHeader className="pb-3">
