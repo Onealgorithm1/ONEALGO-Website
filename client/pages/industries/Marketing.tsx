@@ -173,7 +173,7 @@ export default function Marketing() {
                 asChild
                 className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
               >
-                <Link to="/contact">Schedule a Demo</Link>
+                <Link to="/contact">Get Started Today</Link>
               </Button>
             </div>
           </div>
