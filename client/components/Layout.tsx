@@ -87,14 +87,20 @@ export default function Layout({ children }: LayoutProps) {
                       <Link
                         to="/industries/construction"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => setIndustriesDropdownOpen(false)}
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
                       >
                         Construction
                       </Link>
                       <Link
                         to="/industries/manufacturing"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => setIndustriesDropdownOpen(false)}
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
                       >
                         Manufacturing
                       </Link>
