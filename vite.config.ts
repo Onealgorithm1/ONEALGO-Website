@@ -15,6 +15,33 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist/spa",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separate vendor libraries
+          vendor: ["react", "react-dom", "react-router-dom"],
+          ui: [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-alert-dialog",
+            "@radix-ui/react-avatar",
+            "@radix-ui/react-button",
+            "@radix-ui/react-checkbox",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-label",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+            "@radix-ui/react-toast",
+          ],
+          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
+          icons: ["lucide-react"],
+          animation: ["framer-motion"],
+        },
+      },
+    },
+    // Increase chunk size warning limit after optimization
+    chunkSizeWarningLimit: 600,
   },
   plugins: [react(), expressPlugin()],
   resolve: {
