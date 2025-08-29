@@ -100,17 +100,6 @@ export default function Events() {
               help you stay ahead in the rapidly evolving world of business
               technology.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Badge variant="secondary" className="text-lg py-2 px-4">
-                Industry Expert Speakers
-              </Badge>
-              <Badge variant="secondary" className="text-lg py-2 px-4">
-                Hands-on Learning
-              </Badge>
-              <Badge variant="secondary" className="text-lg py-2 px-4">
-                Networking Opportunities
-              </Badge>
-            </div>
           </div>
         </div>
       </section>
