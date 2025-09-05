@@ -64,7 +64,7 @@ export default function Contact() {
     };
     
     addHiddenField('oid', '00Dbn00000plgUf');
-    // addHiddenField('retURL', window.location.origin + '/thank-you'); Redirect after submission
+    addHiddenField('retURL', window.location.origin + '/contact'); Redirect after submission
     
     // Map form data to Salesforce fields
     addHiddenField('first_name', formData.firstName);
