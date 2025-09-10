@@ -17,7 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -30,6 +30,9 @@ export default function Contact() {
     phone: "",
     message: "",
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -44,8 +47,45 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    
+    // Create a form element to submit to Salesforce
+    const salesforceForm = document.createElement('form');
+    salesforceForm.method = 'POST';
+    salesforceForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf';
+    
+    // Add hidden fields
+    const addHiddenField = (name: string, value: string) => {
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = name;
+      hiddenField.value = value;
+      salesforceForm.appendChild(hiddenField);
+    };
+    
+    addHiddenField('oid', '00Dbn00000plgUf');
+    addHiddenField('retURL', window.location.origin + '/contact'); Redirect after submission
+    
+    // Map form data to Salesforce fields
+    addHiddenField('first_name', formData.firstName);
+    addHiddenField('last_name', formData.lastName);
+    addHiddenField('email', formData.email);
+    addHiddenField('company', formData.company);
+    addHiddenField('employees', formData.companySize);
+    addHiddenField('street', formData.companyAddress);
+    addHiddenField('phone', formData.phone);
+    addHiddenField('description', formData.message);
+    
+    // Append to body and submit
+    document.body.appendChild(salesforceForm);
+    salesforceForm.submit();
+    
+    // Clean up
+    document.body.removeChild(salesforceForm);
+    
+    // Show thank you message
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   return (
@@ -72,157 +112,267 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-                Send Your Message
-              </h2>
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <Label htmlFor="firstName" className="text-gray-700">
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      required
-                      placeholder="Enter your first name"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="lastName" className="text-gray-700">
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      required
-                      placeholder="Enter your last name"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="mt-1"
-                    />
-                  </div>
-                </div>
+              {!isSubmitted ? (
+                <>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+                    Send Your Message
+                  </h2>
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <Label htmlFor="firstName" className="text-gray-700">
+                          First Name <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          type="text"
+                          required
+                          placeholder="Enter your first name"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName" className="text-gray-700">
+                          Last Name <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          type="text"
+                          required
+                          placeholder="Enter your last name"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <Label htmlFor="email" className="text-gray-700">
-                    Email Address <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="mt-1"
-                  />
-                </div>
+                    <div>
+                      <Label htmlFor="email" className="text-gray-700">
+                        Email Address <span className="text-red-500">*</span>
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
+                    </div>
 
-                <div>
-                  <Label htmlFor="company" className="text-gray-700">
-                    Company Name
-                  </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    placeholder="Enter your company name"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="mt-1"
-                  />
-                </div>
+                    <div>
+                      <Label htmlFor="company" className="text-gray-700">
+                        Company Name
+                      </Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        type="text"
+                        placeholder="Enter your company name"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
+                    </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <Label htmlFor="companySize" className="text-gray-700">
-                      Company Size
-                    </Label>
-                    <Select
-                      onValueChange={(value) =>
-                        handleSelectChange("companySize", value)
-                      }
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <Label htmlFor="companySize" className="text-gray-700">
+                          Company Size
+                        </Label>
+                        <Select
+                          onValueChange={(value) =>
+                            handleSelectChange("companySize", value)
+                          }
+                          disabled={isSubmitting}
+                        >
+                          <SelectTrigger className="mt-1">
+                            <SelectValue placeholder="Select company size" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="1-10">1-10 employees</SelectItem>
+                            <SelectItem value="11-50">11-50 employees</SelectItem>
+                            <SelectItem value="51-200">51-200 employees</SelectItem>
+                            <SelectItem value="201-500">
+                              201-500 employees
+                            </SelectItem>
+                            <SelectItem value="501-1000">
+                              501-1000 employees
+                            </SelectItem>
+                            <SelectItem value="1000+">1000+ employees</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="companyAddress" className="text-gray-700">
+                          Company Address
+                        </Label>
+                        <Input
+                          id="companyAddress"
+                          name="companyAddress"
+                          type="text"
+                          placeholder="Enter your company address"
+                          value={formData.companyAddress}
+                          onChange={handleInputChange}
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="phone" className="text-gray-700">
+                        Phone Number
+                      </Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="(555) 123-4567"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="message" className="text-gray-700">
+                        Message / Inquiry Details{" "}
+                        <span className="text-red-500">*</span>
+                      </Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        placeholder="Tell us about your project or how we can help you..."
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className="mt-1 min-h-[120px]"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
+                      disabled={isSubmitting}
                     >
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select company size" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1-10">1-10 employees</SelectItem>
-                        <SelectItem value="11-50">11-50 employees</SelectItem>
-                        <SelectItem value="51-200">51-200 employees</SelectItem>
-                        <SelectItem value="201-500">
-                          201-500 employees
-                        </SelectItem>
-                        <SelectItem value="501-1000">
-                          501-1000 employees
-                        </SelectItem>
-                        <SelectItem value="1000+">1000+ employees</SelectItem>
-                      </SelectContent>
-                    </Select>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending Message...
+                        </>
+                      ) : (
+                        "Send My Message"
+                      )}
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                /* Thank You Card */
+                <div className="text-center space-y-6 animate-in fade-in-50 duration-700">
+                  {/* Success Icon */}
+                  <div className="relative mb-8">
+                    <div className="mx-auto w-20 h-20 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                      <CheckCircle className="w-10 h-10 text-white" />
+                    </div>
+                    {/* Animated rings */}
+                    <div className="absolute inset-0 w-20 h-20 mx-auto rounded-full bg-green-400 opacity-20 animate-ping"></div>
                   </div>
 
+                  {/* Thank You Message */}
                   <div>
-                    <Label htmlFor="companyAddress" className="text-gray-700">
-                      Company Address
-                    </Label>
-                    <Input
-                      id="companyAddress"
-                      name="companyAddress"
-                      type="text"
-                      placeholder="Enter your company address"
-                      value={formData.companyAddress}
-                      onChange={handleInputChange}
-                      className="mt-1"
-                    />
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                      Thank You!
+                    </h2>
+                    <p className="text-xl text-gray-700 mb-2 font-medium">
+                      Your message has been sent successfully
+                    </p>
+                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                      We've received your inquiry and our team will get back to you within 24 hours.
+                    </p>
                   </div>
-                </div>
 
-                <div>
-                  <Label htmlFor="phone" className="text-gray-700">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="(555) 123-4567"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="mt-1"
-                  />
-                </div>
+                  {/* What Happens Next */}
+                  <div className="bg-gradient-to-r from-onealgo-blue-950 to-onealgo-blue-900 rounded-xl p-6 text-white text-left">
+                    <h3 className="text-lg font-semibold mb-4 text-center">What happens next?</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-xs">1</span>
+                        </div>
+                        <p className="text-sm">You'll receive a confirmation email shortly</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-xs">2</span>
+                        </div>
+                        <p className="text-sm">Our team will review your requirements</p>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-xs">3</span>
+                        </div>
+                        <p className="text-sm">We'll contact you within 24 hours with next steps</p>
+                      </div>
+                    </div>
+                  </div>
 
-                <div>
-                  <Label htmlFor="message" className="text-gray-700">
-                    Message / Inquiry Details{" "}
-                    <span className="text-red-500">*</span>
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    placeholder="Tell us about your project or how we can help you..."
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="mt-1 min-h-[120px]"
-                  />
-                </div>
+                  {/* Contact for Urgent Matters */}
+                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                    <div className="flex items-center gap-2 justify-center mb-2">
+                      <Clock className="w-4 h-4 text-onealgo-orange-500" />
+                      <span className="text-sm font-medium text-gray-900">Need immediate assistance?</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3">For urgent matters, contact us directly:</p>
+                    <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
+                      <a href="tel:6102989069" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium">
+                        📞 (610) 298-9069
+                      </a>
+                      <span className="hidden sm:inline text-gray-400">|</span>
+                      <a href="mailto:Service@onealgorithm.com" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium">
+                        ✉️ Service@onealgorithm.com
+                      </a>
+                    </div>
+                  </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
-                >
-                  Send My Message
-                </Button>
-              </form>
+                  {/* Send Another Message Button */}
+                  <Button
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        company: "",
+                        companySize: "",
+                        companyAddress: "",
+                        phone: "",
+                        message: "",
+                      });
+                    }}
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-onealgo-orange-500 text-onealgo-orange-500 hover:bg-onealgo-orange-500 hover:text-white"
+                  >
+                    Send Another Message
+                  </Button>
+                </div>
+              )}
             </div>
 
             {/* Contact Information */}
