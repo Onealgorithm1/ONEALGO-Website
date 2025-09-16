@@ -22,83 +22,41 @@
       src="https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"
     ></script>
     <script>
+      // Initialize dataLayer and gtag function
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
 
-      // Configure Google Analytics with Enhanced Conversions
-      gtag("config", "G-RC48CMQ05T", {
-        allow_enhanced_conversions: true,
+      // Initialize Google Analytics
+      gtag('js', new Date());
+      gtag('config', 'G-RC48CMQ05T', {
+        allow_enhanced_conversions: true
       });
 
-      // SHA-256 hashing utility for Enhanced Conversions
-      async function sha256(message) {
-        const msgBuffer = new TextEncoder().encode(message);
-        const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map((b) => ("00" + b.toString(16)).slice(-2)).join("");
-      }
+      // Test gtag is working
+      console.log('🔧 Google Analytics initialized with ID: G-RC48CMQ05T');
 
-      // Enhanced Conversions tracking function
-      window.trackEnhancedConversion = async function (userData) {
+      // Test page view tracking
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+
+      // Basic conversion tracking function
+      window.trackFormSubmission = function() {
         try {
-          console.log(
-            "📊 Enhanced Conversions: Starting tracking...",
-            userData,
-          );
+          console.log('📊 Tracking form submission...');
 
-          // Hash PII data client-side for privacy
-          const hashedData = {
-            email: userData.email
-              ? await sha256(userData.email.toLowerCase().trim())
-              : undefined,
-            phone_number: userData.phone
-              ? await sha256(userData.phone.replace(/\D/g, ""))
-              : undefined,
-            address: {
-              first_name: userData.firstName
-                ? await sha256(userData.firstName.toLowerCase().trim())
-                : undefined,
-              last_name: userData.lastName
-                ? await sha256(userData.lastName.toLowerCase().trim())
-                : undefined,
-              street: userData.address
-                ? await sha256(userData.address.toLowerCase().trim())
-                : undefined,
-            },
-          };
-
-          // Remove undefined values
-          Object.keys(hashedData).forEach((key) => {
-            if (hashedData[key] === undefined) {
-              delete hashedData[key];
-            }
-          });
-          Object.keys(hashedData.address).forEach((key) => {
-            if (hashedData.address[key] === undefined) {
-              delete hashedData.address[key];
-            }
+          gtag('event', 'contact_form_submission', {
+            event_category: 'form',
+            event_label: 'contact',
+            value: 1
           });
 
-          // Send enhanced conversion data to Google Ads
-          gtag("event", "conversion", {
-            send_to: "G-RC48CMQ05T",
-            enhanced_conversion_data: hashedData,
-          });
-
-          // Also track as a regular conversion event for easier monitoring
-          gtag("event", "contact_form_submission", {
-            event_category: "engagement",
-            event_label: "contact_form",
-            value: 1,
-          });
-
-          console.log("✅ Enhanced Conversions: Data sent successfully");
-          console.log("🔐 Hashed data structure:", Object.keys(hashedData));
+          console.log('✅ Form submission tracked successfully');
         } catch (error) {
-          console.error("❌ Enhanced Conversions: Error sending data:", error);
+          console.error('❌ Error tracking form submission:', error);
         }
       };
     </script>
