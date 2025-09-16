@@ -30,7 +30,7 @@ export default function Contact() {
     phone: "",
     message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -56,40 +56,41 @@ export default function Contact() {
 
       // Submit to Salesforce after showing thank you message
       setTimeout(() => {
-        const salesforceForm = document.createElement('form');
-        salesforceForm.method = 'POST';
-        salesforceForm.action = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf';
-        salesforceForm.style.display = 'none'; // Hide the form
+        const salesforceForm = document.createElement("form");
+        salesforceForm.method = "POST";
+        salesforceForm.action =
+          "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf";
+        salesforceForm.style.display = "none"; // Hide the form
 
         // Add hidden fields
         const addHiddenField = (name: string, value: string) => {
-          const hiddenField = document.createElement('input');
-          hiddenField.type = 'hidden';
+          const hiddenField = document.createElement("input");
+          hiddenField.type = "hidden";
           hiddenField.name = name;
           hiddenField.value = value;
           salesforceForm.appendChild(hiddenField);
         };
 
-        addHiddenField('oid', '00Dbn00000plgUf');
-        addHiddenField('retURL', window.location.href); // Keep user on current page
+        addHiddenField("oid", "00Dbn00000plgUf");
+        addHiddenField("retURL", window.location.href); // Keep user on current page
 
         // Map form data to Salesforce fields
-        addHiddenField('first_name', formData.firstName);
-        addHiddenField('last_name', formData.lastName);
-        addHiddenField('email', formData.email);
-        addHiddenField('company', formData.company);
-        addHiddenField('employees', formData.companySize);
-        addHiddenField('street', formData.companyAddress);
-        addHiddenField('phone', formData.phone);
-        addHiddenField('description', formData.message);
+        addHiddenField("first_name", formData.firstName);
+        addHiddenField("last_name", formData.lastName);
+        addHiddenField("email", formData.email);
+        addHiddenField("company", formData.company);
+        addHiddenField("employees", formData.companySize);
+        addHiddenField("street", formData.companyAddress);
+        addHiddenField("phone", formData.phone);
+        addHiddenField("description", formData.message);
 
         // Submit in a hidden iframe to avoid page redirect
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.name = 'salesforce-submit';
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.name = "salesforce-submit";
         document.body.appendChild(iframe);
 
-        salesforceForm.target = 'salesforce-submit';
+        salesforceForm.target = "salesforce-submit";
         document.body.appendChild(salesforceForm);
         salesforceForm.submit();
 
@@ -131,7 +132,10 @@ export default function Contact() {
                   <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                     Send Your Message
                   </h2>
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 sm:space-y-6"
+                  >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <Label htmlFor="firstName" className="text-gray-700">
@@ -216,21 +220,30 @@ export default function Contact() {
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="1-10">1-10 employees</SelectItem>
-                            <SelectItem value="11-50">11-50 employees</SelectItem>
-                            <SelectItem value="51-200">51-200 employees</SelectItem>
+                            <SelectItem value="11-50">
+                              11-50 employees
+                            </SelectItem>
+                            <SelectItem value="51-200">
+                              51-200 employees
+                            </SelectItem>
                             <SelectItem value="201-500">
                               201-500 employees
                             </SelectItem>
                             <SelectItem value="501-1000">
                               501-1000 employees
                             </SelectItem>
-                            <SelectItem value="1000+">1000+ employees</SelectItem>
+                            <SelectItem value="1000+">
+                              1000+ employees
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div>
-                        <Label htmlFor="companyAddress" className="text-gray-700">
+                        <Label
+                          htmlFor="companyAddress"
+                          className="text-gray-700"
+                        >
                           Company Address
                         </Label>
                         <Input
@@ -317,31 +330,46 @@ export default function Contact() {
                       Your message has been sent successfully
                     </p>
                     <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                      We've received your inquiry and our team will get back to you within 24 hours.
+                      We've received your inquiry and our team will get back to
+                      you within 24 hours.
                     </p>
                   </div>
 
                   {/* What Happens Next */}
                   <div className="bg-gradient-to-r from-onealgo-blue-950 to-onealgo-blue-900 rounded-xl p-6 text-white text-left">
-                    <h3 className="text-lg font-semibold mb-4 text-center">What happens next?</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-center">
+                      What happens next?
+                    </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-white font-bold text-xs">1</span>
+                          <span className="text-white font-bold text-xs">
+                            1
+                          </span>
                         </div>
-                        <p className="text-sm">You'll receive a confirmation email shortly</p>
+                        <p className="text-sm">
+                          You'll receive a confirmation email shortly
+                        </p>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-white font-bold text-xs">2</span>
+                          <span className="text-white font-bold text-xs">
+                            2
+                          </span>
                         </div>
-                        <p className="text-sm">Our team will review your requirements</p>
+                        <p className="text-sm">
+                          Our team will review your requirements
+                        </p>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-white font-bold text-xs">3</span>
+                          <span className="text-white font-bold text-xs">
+                            3
+                          </span>
                         </div>
-                        <p className="text-sm">We'll contact you within 24 hours with next steps</p>
+                        <p className="text-sm">
+                          We'll contact you within 24 hours with next steps
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -350,15 +378,25 @@ export default function Contact() {
                   <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
                     <div className="flex items-center gap-2 justify-center mb-2">
                       <Clock className="w-4 h-4 text-onealgo-orange-500" />
-                      <span className="text-sm font-medium text-gray-900">Need immediate assistance?</span>
+                      <span className="text-sm font-medium text-gray-900">
+                        Need immediate assistance?
+                      </span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">For urgent matters, contact us directly:</p>
+                    <p className="text-sm text-gray-600 mb-3">
+                      For urgent matters, contact us directly:
+                    </p>
                     <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
-                      <a href="tel:6102989069" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium">
+                      <a
+                        href="tel:6102989069"
+                        className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
+                      >
                         📞 (610) 298-9069
                       </a>
                       <span className="hidden sm:inline text-gray-400">|</span>
-                      <a href="mailto:Service@onealgorithm.com" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium">
+                      <a
+                        href="mailto:Service@onealgorithm.com"
+                        className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
+                      >
                         ✉️ Service@onealgorithm.com
                       </a>
                     </div>
