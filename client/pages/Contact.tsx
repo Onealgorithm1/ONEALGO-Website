@@ -18,6 +18,20 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Mail, Phone, MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
+import { useState } from "react";
+
+// TypeScript declarations for Enhanced Conversions
+declare global {
+  interface Window {
+    trackEnhancedConversion?: (userData: {
+      email?: string;
+      firstName?: string;
+      lastName?: string;
+      phone?: string;
+      address?: string;
+    }) => void;
+  }
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
