@@ -67,15 +67,9 @@ export default function Contact() {
       setIsSubmitting(false);
       setIsSubmitted(true);
 
-      // Track Enhanced Conversions for Google Ads
-      if (typeof window.trackEnhancedConversion === "function") {
-        window.trackEnhancedConversion({
-          email: formData.email,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          phone: formData.phone,
-          address: formData.companyAddress,
-        });
+      // Track form submission with Google Analytics
+      if (typeof window.trackFormSubmission === "function") {
+        window.trackFormSubmission();
       }
 
       // Submit to Salesforce after showing thank you message
