@@ -69,7 +69,7 @@ export default function Contact() {
       setIsSubmitted(true);
 
       // Track Enhanced Conversions for Google Ads
-      if (typeof window.trackEnhancedConversion === 'function') {
+      if (typeof window.trackEnhancedConversion === "function") {
         window.trackEnhancedConversion({
           email: formData.email,
           firstName: formData.firstName,
