@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Google Tags Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-button { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px 0; }
+        .console-output { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0; font-family: monospace; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Google Tags Test Page</h1>
+    
+    <div>
+        <h2>Test Results:</h2>
+        <div id="results" class="console-output">
+            <div>🔍 Testing Google Tags...</div>
+        </div>
+    </div>
+
+    <div>
+        <button class="test-button" onclick="testGoogleAnalytics()">Test Google Analytics</button>
+        <button class="test-button" onclick="testGTM()">Test Google Tag Manager</button>
+        <button class="test-button" onclick="testFormTracking()">Test Form Tracking</button>
+    </div>
+
+    <script>
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+
+        function testGoogleAnalytics() {
+            addResult('Testing Google Analytics...', 'info');
+            
+            // Check if gtag is defined
+            if (typeof gtag !== 'undefined') {
+                addResult('✅ gtag function is defined', 'success');
+                
+                // Test sending an event
+                try {
+                    gtag('event', 'test_event', {
+                        event_category: 'test',
+                        event_label: 'manual_test',
+                        value: 1
+                    });
+                    addResult('✅ Test event sent successfully', 'success');
+                } catch (error) {
+                    addResult('❌ Error sending test event: ' + error.message, 'error');
+                }
+            } else {
+                addResult('❌ gtag function not found', 'error');
+            }
+
+            // Check if dataLayer exists
+            if (typeof window.dataLayer !== 'undefined') {
+                addResult('✅ dataLayer is defined', 'success');
+                addResult('📊 dataLayer has ' + window.dataLayer.length + ' items', 'info');
+            } else {
+                addResult('❌ dataLayer not found', 'error');
+            }
+        }
+
+        function testGTM() {
+            addResult('Testing Google Tag Manager...', 'info');
+            
+            if (typeof window.dataLayer !== 'undefined') {
+                addResult('✅ GTM dataLayer is available', 'success');
+                
+                // Check for GTM-specific items
+                const gtmItems = window.dataLayer.filter(item => item['gtm.start'] || item.event === 'gtm.js');
+                if (gtmItems.length > 0) {
+                    addResult('✅ GTM initialization detected', 'success');
+                } else {
+                    addResult('⚠️ GTM initialization not detected in dataLayer', 'error');
+                }
+            } else {
+                addResult('❌ GTM dataLayer not found', 'error');
+            }
+        }
+
+        function testFormTracking() {
+            addResult('Testing Form Tracking...', 'info');
+            
+            if (typeof window.trackFormSubmission === 'function') {
+                addResult('✅ trackFormSubmission function is available', 'success');
+                
+                try {
+                    window.trackFormSubmission();
+                    addResult('✅ Form tracking test completed', 'success');
+                } catch (error) {
+                    addResult('❌ Error in form tracking: ' + error.message, 'error');
+                }
+            } else {
+                addResult('❌ trackFormSubmission function not found', 'error');
+            }
+        }
+
+        // Auto-run tests on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                testGoogleAnalytics();
+                setTimeout(() => testGTM(), 1000);
+                setTimeout(() => testFormTracking(), 2000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
