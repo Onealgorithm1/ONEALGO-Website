@@ -19,16 +19,10 @@ import {
 } from "../components/ui/card";
 import { Mail, Phone, MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
 
-// TypeScript declarations for Enhanced Conversions
+// TypeScript declarations for Google Analytics tracking
 declare global {
   interface Window {
-    trackEnhancedConversion?: (userData: {
-      email?: string;
-      firstName?: string;
-      lastName?: string;
-      phone?: string;
-      address?: string;
-    }) => void;
+    trackFormSubmission?: () => void;
   }
 }
 
