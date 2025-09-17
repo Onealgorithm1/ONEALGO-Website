@@ -15,10 +15,17 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist/spa",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
-          // Separate vendor libraries
+          // Separate vendor libraries for better caching
           vendor: ["react", "react-dom", "react-router-dom"],
           ui: [
             "@radix-ui/react-accordion",
@@ -37,10 +44,18 @@ export default defineConfig(({ mode }) => ({
           icons: ["lucide-react"],
           animation: ["framer-motion"],
         },
+        // Optimize file names for better caching
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       },
     },
     // Increase chunk size warning limit after optimization
     chunkSizeWarningLimit: 600,
+    // Enable gzip compression
+    reportCompressedSize: true,
+    // Optimize CSS
+    cssCodeSplit: true,
   },
   plugins: [react(), expressPlugin()],
   resolve: {
