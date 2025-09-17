@@ -28,6 +28,11 @@ export default function Industries() {
   });
   return (
     <Layout>
+      <StructuredData data={createWebPageSchema(
+        "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
+        "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services.",
+        "https://onealgorithm.com/industries"
+      )} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
