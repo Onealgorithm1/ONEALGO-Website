@@ -126,6 +126,26 @@ export default function Layout({ children }: LayoutProps) {
                       >
                         Staff Augmentation
                       </Link>
+                      <Link
+                        to="/services/it-consulting"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        IT Consulting
+                      </Link>
+                      <Link
+                        to="/services/operations-technology"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Operations Technology
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -308,6 +328,26 @@ export default function Layout({ children }: LayoutProps) {
                   }}
                 >
                   → Staff Augmentation
+                </Link>
+                <Link
+                  to="/services/it-consulting"
+                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  → IT Consulting
+                </Link>
+                <Link
+                  to="/services/operations-technology"
+                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  → Operations Technology
                 </Link>
                 <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100">
                   Industries We Serve
