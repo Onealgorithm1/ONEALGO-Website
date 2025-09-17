@@ -11,6 +11,7 @@ import { Suspense, lazy } from "react";
 // Lazy load components for better performance
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -18,11 +19,12 @@ const Careers = lazy(() => import("./pages/Careers"));
 const Events = lazy(() => import("./pages/Events"));
 const Construction = lazy(() => import("./pages/industries/Construction"));
 const Manufacturing = lazy(() => import("./pages/industries/Manufacturing"));
-const Marketing = lazy(() => import("./pages/industries/Marketing"));
 const ECommerce = lazy(() => import("./pages/industries/ECommerce"));
 const WebsiteDevelopment = lazy(
-  () => import("./pages/industries/WebsiteDevelopment"),
+  () => import("./pages/services/WebsiteDevelopment"),
 );
+const Marketing = lazy(() => import("./pages/services/Marketing"));
+const StaffAugmentation = lazy(() => import("./pages/services/StaffAugmentation"));
 const Blog = lazy(() => import("./pages/Blog"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
