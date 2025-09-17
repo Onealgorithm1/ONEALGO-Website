@@ -33,9 +33,9 @@ declare global {
 
 export default function Contact() {
   useSEO({
-    title: "Contact OneAlgorithm - Get Started with Technology Solutions",
+    title: "Contact OneAlgorithm - Get Started Today",
     description:
-      "Contact OneAlgorithm for expert IT consulting, website development, operations technology, and staff augmentation services. Get a free consultation for your business technology needs.",
+      "Contact OneAlgorithm for expert IT consulting, website development, and operations technology. Get a free consultation for your business needs.",
     canonical: getCanonicalUrl("/contact"),
     keywords:
       "contact OneAlgorithm, IT consulting inquiry, technology consultation, business automation quote, website development contact",
