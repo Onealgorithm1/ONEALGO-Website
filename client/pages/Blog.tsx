@@ -691,15 +691,14 @@ Accessibility compliance ensures websites work effectively for users with disabi
             <Card className="border-2 border-onealgo-orange-500 overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative h-64 lg:h-auto">
-                  <img
+                  <LazyImage
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchpriority="high"
-                    decoding="async"
-                    width="600"
-                    height="400"
+                    width={600}
+                    height={400}
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
