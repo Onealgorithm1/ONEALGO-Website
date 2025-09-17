@@ -622,6 +622,58 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
+            {/* Services */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <div className="space-y-2">
+                <Link
+                  to="/services/website-development"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Website Development
+                </Link>
+                <Link
+                  to="/services/marketing"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Marketing
+                </Link>
+                <Link
+                  to="/services/staff-augmentation"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Staff Augmentation
+                </Link>
+                <Link
+                  to="/services/it-consulting"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  IT Consulting
+                </Link>
+                <Link
+                  to="/services/operations-technology"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Operations Technology
+                </Link>
+              </div>
+            </div>
+
             {/* Contact Info */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
