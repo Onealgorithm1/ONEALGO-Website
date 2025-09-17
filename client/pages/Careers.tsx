@@ -361,6 +361,11 @@ export default function Careers() {
 
   return (
     <Layout>
+      <StructuredData data={createWebPageSchema(
+        "Careers at OneAlgorithm - Join Our Technology Team",
+        "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more.",
+        "https://onealgorithm.com/careers"
+      )} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
