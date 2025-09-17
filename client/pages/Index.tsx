@@ -324,11 +324,16 @@ export default function Index() {
             <div>
               <h3 className="text-2xl font-bold text-onealgo-blue-950 mb-6">Operations Technology Solutions</h3>
               <p className="text-gray-700 mb-4">
-                Transform your operations with industrial automation, IoT integration, SCADA systems, and process optimization solutions. Our operations technology experts design and implement systems that improve efficiency, reduce downtime, and enhance operational visibility.
+                Transform your operations with industrial automation, IoT integration, SCADA systems, and process optimization solutions.
               </p>
-              <p className="text-gray-700">
-                From manufacturing automation to construction project management systems, we deliver OT solutions that integrate seamlessly with existing infrastructure while providing real-time insights and predictive maintenance capabilities.
-              </p>
+              <Collapsible trigger="Read More">
+                <p className="text-gray-700 mb-4">
+                  Our operations technology experts design and implement systems that improve efficiency, reduce downtime, and enhance operational visibility. We specialize in integrating cutting-edge OT solutions with existing enterprise systems for seamless data flow and comprehensive insights.
+                </p>
+                <p className="text-gray-700">
+                  From manufacturing automation to construction project management systems, we deliver OT solutions that integrate seamlessly with existing infrastructure while providing real-time insights and predictive maintenance capabilities. Our implementations typically result in 30-50% reduction in operational downtime and significant improvements in overall equipment effectiveness (OEE).
+                </p>
+              </Collapsible>
             </div>
           </div>
 
