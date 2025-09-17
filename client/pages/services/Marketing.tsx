@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import SocialShare from "../../components/SocialShare";
 import { Target, TrendingUp, Users, Zap, BarChart3, Mail } from "lucide-react";
 
 export default function Marketing() {
