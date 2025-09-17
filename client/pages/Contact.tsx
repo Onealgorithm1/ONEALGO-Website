@@ -595,6 +595,86 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Why Choose OneAlgorithm for Your Technology Needs?
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  OneAlgorithm is a leading technology consultancy specializing in IT consulting, website development, operations technology, and staff augmentation services. Our expert team has helped hundreds of businesses across Construction, Manufacturing, and E-Commerce industries transform their operations through intelligent technology solutions.
+                </p>
+                <p>
+                  We understand that every business faces unique challenges. That's why our approach begins with a comprehensive assessment of your current systems, processes, and goals. Our certified consultants work closely with your team to develop customized technology roadmaps that align with your business objectives and drive measurable results.
+                </p>
+                <p>
+                  From strategic IT planning and cybersecurity assessments to custom website development and industrial automation, OneAlgorithm delivers end-to-end technology solutions. Our proven methodologies have helped clients reduce operational costs by up to 40% while improving efficiency and scalability.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Our Comprehensive Technology Services
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">IT Consulting & Strategic Planning</h4>
+                  <p className="text-gray-700 text-sm">
+                    Technology audits, digital transformation strategies, cybersecurity assessments, cloud migration planning, and business process optimization to align IT infrastructure with business goals.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">Website Development & Design</h4>
+                  <p className="text-gray-700 text-sm">
+                    Custom website development, responsive design, e-commerce platforms, SEO optimization, content management systems, and performance optimization for enhanced user experience.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">Operations Technology Solutions</h4>
+                  <p className="text-gray-700 text-sm">
+                    Industrial automation, SCADA systems, IoT integration, process optimization, equipment monitoring, predictive maintenance, and operational efficiency improvements.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">Staff Augmentation & Talent Solutions</h4>
+                  <p className="text-gray-700 text-sm">
+                    Skilled developers, IT specialists, project managers, technical consultants, and subject matter experts to scale your team with the right talent for short-term or long-term projects.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">Marketing Technology & Automation</h4>
+                  <p className="text-gray-700 text-sm">
+                    Campaign management, marketing automation, customer journey optimization, data analytics, CRM integration, and ROI tracking to maximize marketing effectiveness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-white rounded-lg p-8 shadow-sm">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+              Ready to Transform Your Business with Technology?
+            </h3>
+            <p className="text-gray-700 text-center mb-6 max-w-3xl mx-auto">
+              Join hundreds of successful businesses that have partnered with OneAlgorithm to streamline operations, reduce costs, and accelerate growth. Our technology experts are ready to analyze your current systems and develop a customized roadmap for digital transformation.
+            </p>
+            <div className="text-center">
+              <p className="text-sm text-gray-600">
+                Contact us today for a free consultation and discover how OneAlgorithm's proven technology solutions can drive your business forward. We serve clients across the United States, Canada, India, and the UAE with 24/7 support and expert guidance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
