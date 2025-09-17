@@ -683,6 +683,11 @@ Accessibility compliance ensures websites work effectively for users with disabi
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                    width="600"
+                    height="400"
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
