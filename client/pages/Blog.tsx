@@ -618,6 +618,14 @@ Accessibility compliance ensures websites work effectively for users with disabi
               {paragraph}
             </p>
           ))}
+
+        {/* Social Sharing for Blog Post */}
+        <div className="mt-6 pt-4 border-t border-gray-200">
+          <SocialShare
+            title={`${post.title} - OneAlgorithm Blog`}
+            className="justify-start"
+          />
+        </div>
       </div>
     );
   };
