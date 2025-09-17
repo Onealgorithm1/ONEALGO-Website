@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import SocialShare from "../../components/SocialShare";
 import {
   Brain,
   Shield,
