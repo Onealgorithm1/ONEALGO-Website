@@ -767,14 +767,13 @@ Accessibility compliance ensures websites work effectively for users with disabi
                   className="border-2 hover:border-onealgo-orange-500 transition-colors overflow-hidden"
                 >
                   <div className="relative h-48">
-                    <img
+                    <LazyImage
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover"
                       loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="300"
+                      width={400}
+                      height={300}
                     />
                   </div>
                   <CardHeader>
