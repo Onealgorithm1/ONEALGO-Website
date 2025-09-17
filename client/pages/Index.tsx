@@ -49,7 +49,7 @@ export default function Index() {
               Reimagine. Connect. Accelerate.
             </p>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto drop-shadow-md animate-fade-in-up">
-              Think bigger. Build smarter. Move faster — with solutions tailored
+              Think bigger. Build smarter. Move faster — with <Link to="/services" className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline">technology solutions</Link> tailored
               to you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
