@@ -26,6 +26,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import { StructuredData, createOrganizationSchema } from "../components/StructuredData";
 
 export default function Index() {
   useSEO({
