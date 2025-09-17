@@ -82,10 +82,24 @@ export default function StaffAugmentation() {
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Staff <span className="text-onealgo-orange-500">Augmentation</span>
               </h1>
-              <p className="text-xl text-blue-200 mb-8">
-                Scale your development team with expert professionals who integrate
-                seamlessly with your existing workflows and deliver exceptional results.
-              </p>
+              <ul className="text-xl text-blue-200 mb-8 space-y-3">
+                <li className="flex items-start">
+                  <span className="text-onealgo-orange-500 mr-3">•</span>
+                  Flexible staffing for exceptional outcomes.
+                </li>
+                <li className="flex items-start">
+                  <span className="text-onealgo-orange-500 mr-3">•</span>
+                  Scale your workforce without the overhead.
+                </li>
+                <li className="flex items-start">
+                  <span className="text-onealgo-orange-500 mr-3">•</span>
+                  On-demand experts for your projects.
+                </li>
+                <li className="flex items-start">
+                  <span className="text-onealgo-orange-500 mr-3">•</span>
+                  Expert support, exactly when you need it.
+                </li>
+              </ul>
               <Button
                 asChild
                 size="lg"
