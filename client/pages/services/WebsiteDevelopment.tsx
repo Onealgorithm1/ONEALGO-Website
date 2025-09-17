@@ -75,6 +75,12 @@ export default function WebsiteDevelopment() {
 
   return (
     <Layout>
+      <StructuredData data={createServiceSchema(
+        "Website Development Services",
+        "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications.",
+        "Website Development",
+        "https://onealgorithm.com/services/website-development"
+      )} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
