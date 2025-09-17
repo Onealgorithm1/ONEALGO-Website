@@ -93,14 +93,14 @@ export default function OperationsTechnology() {
       features: ["Production Monitoring", "Quality Assurance", "Equipment Optimization", "Supply Chain Integration"]
     },
     {
-      title: "Energy & Utilities",
-      description: "Grid management, renewable energy integration, and smart utility systems.",
-      features: ["Grid Optimization", "Asset Management", "Demand Forecasting", "Regulatory Compliance"]
+      title: "Construction",
+      description: "Project management, site coordination, and building information modeling (BIM) systems.",
+      features: ["Project Planning", "Site Monitoring", "Equipment Tracking", "Safety Compliance"]
     },
     {
-      title: "Oil & Gas",
-      description: "Pipeline monitoring, refinery automation, and safety systems.",
-      features: ["Pipeline Integrity", "Process Safety", "Asset Tracking", "Environmental Monitoring"]
+      title: "E-Commerce",
+      description: "Inventory management, warehouse automation, and fulfillment optimization systems.",
+      features: ["Inventory Control", "Order Processing", "Logistics Automation", "Customer Analytics"]
     },
   ];
 
@@ -226,10 +226,10 @@ export default function OperationsTechnology() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Industries We Serve
+              Industry Applications
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Operations technology solutions tailored to meet the specific needs of the industries we serve.
+              Tailored operations technology solutions for diverse industrial sectors.
             </p>
           </div>
 
