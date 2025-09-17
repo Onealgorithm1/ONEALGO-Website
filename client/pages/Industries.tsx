@@ -9,8 +9,23 @@ import {
 import { Button } from "../components/ui/button";
 import { Building2, Factory, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import { StructuredData, createWebPageSchema } from "../components/StructuredData";
 
 export default function Industries() {
+  useSEO({
+    title: "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
+    description: "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services by OneAlgorithm.",
+    canonical: getCanonicalUrl("/industries"),
+    keywords: "industry technology solutions, construction technology, manufacturing technology, e-commerce technology, industry-specific IT consulting, digital transformation by industry",
+    ogTitle: "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
+    ogDescription: "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services by OneAlgorithm.",
+    ogUrl: getCanonicalUrl("/industries"),
+    ogImage: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+    twitterTitle: "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
+    twitterDescription: "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services by OneAlgorithm.",
+    twitterImage: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200"
+  });
   return (
     <Layout>
       {/* Hero Section */}
