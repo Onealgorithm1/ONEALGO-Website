@@ -51,6 +51,20 @@ import {
 } from "lucide-react";
 
 export default function Careers() {
+  useSEO({
+    title: "Careers at OneAlgorithm - Join Our Technology Team",
+    description: "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
+    canonical: getCanonicalUrl("/careers"),
+    keywords: "OneAlgorithm careers, technology jobs, software developer jobs, IT consulting careers, operations technology jobs, remote work opportunities",
+    ogTitle: "Careers at OneAlgorithm - Join Our Technology Team",
+    ogDescription: "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
+    ogUrl: getCanonicalUrl("/careers"),
+    ogImage: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+    twitterTitle: "Careers at OneAlgorithm - Join Our Technology Team",
+    twitterDescription: "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
+    twitterImage: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200"
+  });
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const jobCategories = [
