@@ -1,4 +1,4 @@
-/* Fallback font face for critical rendering */
+/* Optimized font loading for performance */
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -15,6 +15,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Performance optimizations */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Critical path CSS optimizations */
+@layer components {
+  .btn-primary {
+    @apply bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-onealgo-blue-950 to-onealgo-orange-500 bg-clip-text text-transparent;
+  }
+}
 
 @layer base {
   /**
