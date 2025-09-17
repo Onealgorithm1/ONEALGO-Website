@@ -440,7 +440,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Trusted Partnerships Carousel */}
           <TrustedPartnerships />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {/* Company Info */}
             <div className="md:col-span-2">
               <OneAlgorithmText size="lg" className="text-white mb-4" />
