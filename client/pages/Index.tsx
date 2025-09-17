@@ -39,12 +39,15 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
-              <span className="text-white drop-shadow-lg">Reimagine.</span>{" "}
+              <span className="text-white drop-shadow-lg">OneAlgorithm —</span>{" "}
               <span className="text-onealgo-orange-500 drop-shadow-lg">
-                Connect.
+                Business Technology
               </span>{" "}
-              <span className="text-white drop-shadow-lg">Accelerate.</span>
+              <span className="text-white drop-shadow-lg">& Automation Solutions</span>
             </h1>
+            <p className="text-lg md:text-xl text-onealgo-orange-500/90 mb-4 max-w-3xl mx-auto drop-shadow-md animate-fade-in-up font-semibold italic">
+              Reimagine. Connect. Accelerate.
+            </p>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto drop-shadow-md animate-fade-in-up">
               Think bigger. Build smarter. Move faster — with solutions tailored
               to you.
