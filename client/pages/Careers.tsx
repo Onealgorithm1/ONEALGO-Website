@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import Layout from "../components/Layout";
+import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import { StructuredData, createWebPageSchema } from "../components/StructuredData";
 
 interface Job {
   id: string;
