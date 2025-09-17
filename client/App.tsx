@@ -25,6 +25,8 @@ const WebsiteDevelopment = lazy(
 );
 const Marketing = lazy(() => import("./pages/services/Marketing"));
 const StaffAugmentation = lazy(() => import("./pages/services/StaffAugmentation"));
+const ITConsulting = lazy(() => import("./pages/services/ITConsulting"));
+const OperationsTechnology = lazy(() => import("./pages/services/OperationsTechnology"));
 const Blog = lazy(() => import("./pages/Blog"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -56,6 +58,14 @@ const App = () => (
             <Route
               path="/services/staff-augmentation"
               element={<StaffAugmentation />}
+            />
+            <Route
+              path="/services/it-consulting"
+              element={<ITConsulting />}
+            />
+            <Route
+              path="/services/operations-technology"
+              element={<OperationsTechnology />}
             />
             <Route path="/industries" element={<Industries />} />
             <Route path="/industries/construction" element={<Construction />} />
