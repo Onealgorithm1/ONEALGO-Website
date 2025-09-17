@@ -37,8 +37,8 @@ export default function Services() {
               What We Offer
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From website development to staff augmentation, we provide the
-              technical expertise and resources you need to succeed.
+              From <Link to="/services/website-development" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline">website development</Link> to <Link to="/services/staff-augmentation" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline">staff augmentation</Link>, we provide the
+              technical expertise and resources you need to succeed. Learn more <Link to="/about" className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline">about our mission</Link>.
             </p>
           </div>
 
