@@ -19,6 +19,7 @@ import {
 } from "../components/ui/card";
 import { Mail, Phone, MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import { StructuredData, createContactPageSchema } from "../components/StructuredData";
 
 // TypeScript declarations for Google Analytics tracking
 declare global {
