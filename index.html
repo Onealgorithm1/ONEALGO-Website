@@ -224,6 +224,7 @@
       body {
         margin: 0;
         font-family: Inter, system-ui, sans-serif;
+        line-height: 1.6;
       }
       .loading-skeleton {
         background: #f0f0f0;
@@ -238,7 +239,26 @@
           opacity: 0.5;
         }
       }
+      /* Prevent layout shift */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      /* Optimize font rendering */
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
     </style>
+
+    <!-- Performance optimization hints -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/client/App.tsx" as="script" crossorigin>
+    <link rel="modulepreload" href="/client/App.tsx">
 
     <!-- Mobile optimization -->
     <meta name="theme-color" content="#1E3A8A" />
