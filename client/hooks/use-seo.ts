@@ -113,14 +113,23 @@ export function useSEO({
       ogUrlMeta.setAttribute("content", ogUrl);
     }
 
-    // Set Twitter Card meta tags
+    // Set Twitter Card meta tags (using name attribute, not property)
+    // Set Twitter card type
+    let twitterCardMeta = document.querySelector('meta[name="twitter:card"]');
+    if (!twitterCardMeta) {
+      twitterCardMeta = document.createElement("meta");
+      twitterCardMeta.setAttribute("name", "twitter:card");
+      document.head.appendChild(twitterCardMeta);
+    }
+    twitterCardMeta.setAttribute("content", "summary_large_image");
+
     if (twitterTitle) {
       let twitterTitleMeta = document.querySelector(
-        'meta[property="twitter:title"]',
+        'meta[name="twitter:title"]',
       );
       if (!twitterTitleMeta) {
         twitterTitleMeta = document.createElement("meta");
-        twitterTitleMeta.setAttribute("property", "twitter:title");
+        twitterTitleMeta.setAttribute("name", "twitter:title");
         document.head.appendChild(twitterTitleMeta);
       }
       twitterTitleMeta.setAttribute("content", twitterTitle);
@@ -128,11 +137,11 @@ export function useSEO({
 
     if (twitterDescription) {
       let twitterDescMeta = document.querySelector(
-        'meta[property="twitter:description"]',
+        'meta[name="twitter:description"]',
       );
       if (!twitterDescMeta) {
         twitterDescMeta = document.createElement("meta");
-        twitterDescMeta.setAttribute("property", "twitter:description");
+        twitterDescMeta.setAttribute("name", "twitter:description");
         document.head.appendChild(twitterDescMeta);
       }
       twitterDescMeta.setAttribute("content", twitterDescription);
@@ -140,11 +149,11 @@ export function useSEO({
 
     if (twitterImage) {
       let twitterImageMeta = document.querySelector(
-        'meta[property="twitter:image"]',
+        'meta[name="twitter:image"]',
       );
       if (!twitterImageMeta) {
         twitterImageMeta = document.createElement("meta");
-        twitterImageMeta.setAttribute("property", "twitter:image");
+        twitterImageMeta.setAttribute("name", "twitter:image");
         document.head.appendChild(twitterImageMeta);
       }
       twitterImageMeta.setAttribute("content", twitterImage);
