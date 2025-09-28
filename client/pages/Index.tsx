@@ -382,6 +382,17 @@ export default function Index() {
             </div>
           </div>
 
+          {/* Mobile-only CTA: make the Ready to Transform heading visible on small screens */}
+          <div className="md:hidden text-center p-6">
+            <h3 className="text-2xl font-bold mb-2">Ready to Transform Your Business?</h3>
+            <p className="text-gray-700 mb-4 max-w-md mx-auto">Join industry leaders who trust OneAlgorithm for their technology transformation. Our expert consultants are ready to assess your current systems and develop a customized roadmap for success.</p>
+            <div className="flex justify-center">
+              <Button asChild size="md" className="btn-primary">
+                <Link to="/contact">Get Free Consultation</Link>
+              </Button>
+            </div>
+          </div>
+
           <div className="bg-onealgo-light rounded-2xl p-8 mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
