@@ -273,10 +273,11 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t"
+                   style={{ maxHeight: 'calc(100vh - 64px)', overflow: 'auto' }}>
                 <Link
                   to="/"
-                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
+                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -286,7 +287,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/about"
-                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950"
+                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -296,7 +297,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/contact"
-                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 font-medium"
+                  className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 font-medium text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -304,12 +305,12 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   Contact
                 </Link>
-                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100">
+                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100 text-sm">
                   Services
                 </div>
                 <Link
                   to="/services/website-development"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -319,7 +320,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/services/marketing"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -329,7 +330,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/services/staff-augmentation"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -339,7 +340,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/services/it-consulting"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -349,7 +350,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/services/operations-technology"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -357,12 +358,12 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   → Operations Technology
                 </Link>
-                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100">
+                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100 text-sm">
                   Industries We Serve
                 </div>
                 <Link
                   to="/industries/construction"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -372,7 +373,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/industries/manufacturing"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -382,7 +383,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/industries/ecommerce"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -390,12 +391,12 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   → E-Commerce
                 </Link>
-                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100">
+                <div className="px-3 py-2 text-gray-700 font-medium border-t border-gray-100 text-sm">
                   Careers & Insights
                 </div>
                 <Link
                   to="/careers"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -405,7 +406,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/blog"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -415,7 +416,7 @@ export default function Layout({ children }: LayoutProps) {
                 </Link>
                 <Link
                   to="/events"
-                  className="block px-6 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                  className="block px-4 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
