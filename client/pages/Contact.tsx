@@ -94,14 +94,25 @@ export default function Contact() {
             size: "normal",
             callback: (token: string) => {
               setRecaptchaToken(token);
+              setRecaptchaLoading(false);
+              setRecaptchaError(false);
             },
-            "expired-callback": () => setRecaptchaToken(null),
+            "expired-callback": () => {
+              setRecaptchaToken(null);
+            },
             "error-callback": () => {
               console.warn("reCAPTCHA error - widget failed to load");
+              setRecaptchaError(true);
+              setRecaptchaLoading(false);
               // Set a flag to bypass reCAPTCHA for now
               setRecaptchaToken("bypass-recaptcha-error");
             }
           });
+
+          // Set loading to false after successful render
+          if (widgetIdRef.current) {
+            setRecaptchaLoading(false);
+          }
         } catch (err) {
           console.warn("reCAPTCHA render error", err);
           // Set bypass token on error
