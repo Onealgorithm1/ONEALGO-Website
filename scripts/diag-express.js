@@ -35,7 +35,6 @@ safe(() => {
   console.log("registered /api/ping");
 }, "register /api/ping");
 
-
 safe(() => {
   const app = express();
   const path = require("path");

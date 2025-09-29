@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/ping", (_req, res) => res.json({ message: "ping" }));
 
-
 const distPath = path.join(__dirname, "..", "dist", "spa");
 app.use(express.static(distPath));
 app.get("*", (req, res) => {

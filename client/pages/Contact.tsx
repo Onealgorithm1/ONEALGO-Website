@@ -48,7 +48,6 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -59,8 +58,6 @@ export default function Contact() {
   const handleSelectChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -315,7 +312,6 @@ export default function Contact() {
                         disabled={isSubmitting}
                       />
                     </div>
-
 
                     <Button
                       type="submit"
