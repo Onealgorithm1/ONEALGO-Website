@@ -62,9 +62,16 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
+      // Force all React imports to the single copy in node_modules
+      react: path.resolve(__dirname, "node_modules/react"),
+      "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
     },
     // Ensure only a single React instance is bundled at runtime
     dedupe: ["react", "react-dom"],
+  },
+  ssr: {
+    // Prevent SSR build from externalizing react, ensuring same instance
+    noExternal: ["react", "react-dom"],
   },
   // Improve dependency optimization to pre-bundle React packages
   optimizeDeps: {
