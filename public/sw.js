@@ -1,9 +1,9 @@
 // OneAlgorithm Service Worker for Performance Optimization
-const CACHE_NAME = "onealgorithm-v1.0.0";
+// Bump cache name to force clients to fetch new assets on update
+const CACHE_NAME = "onealgorithm-v2";
 const STATIC_CACHE_URLS = [
   "/",
   "/about",
-  "/contact",
   "/services",
   "/blog",
   "/careers",
@@ -24,7 +24,7 @@ const DYNAMIC_CACHE_URLS = [
   "https://cdn.builder.io/",
 ];
 
-// Install event - cache static resources
+// Install event - cache static resources (do not pre-cache /contact to avoid serving stale page)
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
@@ -49,6 +49,7 @@ self.addEventListener("activate", (event) => {
             if (cacheName !== CACHE_NAME) {
               return caches.delete(cacheName);
             }
+            return Promise.resolve();
           }),
         );
       })
@@ -58,76 +59,88 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch event - serve from cache with network fallback
+// Fetch event - network-first for navigations, cache-first for static assets
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Handle different types of requests
-  if (request.method === "GET") {
-    // Static assets - cache first strategy
-    if (STATIC_CACHE_URLS.some((path) => url.pathname.includes(path))) {
-      event.respondWith(
-        caches.match(request).then((response) => {
-          if (response) {
-            return response;
+  // For navigation requests (HTML pages) use network-first to ensure fresh content
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          // Update cache with latest page (optional)
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseClone);
+            });
           }
-          return fetch(request).then((response) => {
-            // Cache the response for future use
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(request, responseClone);
-              });
-            }
-            return response;
-          });
-        }),
-      );
-    }
-    // External resources - cache with network fallback
-    else if (DYNAMIC_CACHE_URLS.some((domain) => url.origin.includes(domain))) {
-      event.respondWith(
-        caches.match(request).then((response) => {
-          return (
-            response ||
-            fetch(request)
-              .then((response) => {
-                if (response.status === 200) {
-                  const responseClone = response.clone();
-                  caches.open(CACHE_NAME).then((cache) => {
-                    cache.put(request, responseClone);
-                  });
-                }
-                return response;
-              })
-              .catch(() => {
-                // Return offline fallback if available
-                return caches.match("/offline.html");
-              })
-          );
-        }),
-      );
-    }
-    // Default - network first with cache fallback
-    else {
-      event.respondWith(
-        fetch(request)
-          .then((response) => {
-            if (response.status === 200) {
-              const responseClone = response.clone();
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(request, responseClone);
-              });
-            }
-            return response;
-          })
-          .catch(() => {
-            return caches.match(request);
-          }),
-      );
-    }
+          return response;
+        })
+        .catch(() => caches.match("/index.html")),
+    );
+    return;
   }
+
+  // Static assets - cache first strategy
+  if (STATIC_CACHE_URLS.some((path) => url.pathname.includes(path))) {
+    event.respondWith(
+      caches.match(request).then((response) => {
+        if (response) {
+          return response;
+        }
+        return fetch(request).then((response) => {
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseClone);
+            });
+          }
+          return response;
+        });
+      }),
+    );
+    return;
+  }
+
+  // External resources - cache with network fallback
+  if (DYNAMIC_CACHE_URLS.some((domain) => url.origin.includes(domain))) {
+    event.respondWith(
+      caches.match(request).then((response) => {
+        return (
+          response ||
+          fetch(request)
+            .then((response) => {
+              if (response && response.status === 200) {
+                const responseClone = response.clone();
+                caches.open(CACHE_NAME).then((cache) => {
+                  cache.put(request, responseClone);
+                });
+              }
+              return response;
+            })
+            .catch(() => caches.match("/offline.html"))
+        );
+      }),
+    );
+    return;
+  }
+
+  // Default - network first with cache fallback
+  event.respondWith(
+    fetch(request)
+      .then((response) => {
+        if (response && response.status === 200) {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseClone);
+          });
+        }
+        return response;
+      })
+      .catch(() => caches.match(request)),
+  );
 });
 
 // Background sync for offline functionality
