@@ -28,7 +28,9 @@ import {
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
-  createOrganizationSchema,
+  createOrganizationSchemaDetailed,
+  createFAQSchema,
+  createLocalBusinessSchema,
 } from "../components/StructuredData";
 
 export default function Index() {
