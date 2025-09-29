@@ -34,6 +34,8 @@ import {
 } from "../components/StructuredData";
 
 export default function Index() {
+  // Temporarily commenting out useSEO to debug
+  /*
   useSEO({
     title:
       "One Algorithm | Custom Software Development & Integration Agency | Malvern, PA",
@@ -56,6 +58,7 @@ export default function Index() {
     twitterImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
   });
+  */
   return (
     <Layout>
       <StructuredData data={createOrganizationSchemaDetailed()} />
