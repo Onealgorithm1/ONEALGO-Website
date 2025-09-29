@@ -398,6 +398,11 @@ export default function Contact() {
                       />
                     </div>
 
+                    {/* reCAPTCHA v2 checkbox container */}
+                    <div className="mt-4">
+                      <div ref={recaptchaRef} id="recaptcha-container" />
+                    </div>
+
                     <Button
                       type="submit"
                       size="lg"
