@@ -35,23 +35,22 @@ import {
 
 export default function Index() {
   useSEO({
-    title: "OneAlgorithm - IT Consulting & Technology Solutions",
+    title: "One Algorithm | Custom Software Development & Integration Agency | Malvern, PA",
     description:
-      "Transform your business with expert IT consulting, website development, and operations technology. Specialized solutions for Construction, Manufacturing, and E-Commerce.",
+      "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     canonical: getCanonicalUrl("/"),
     keywords:
-      "IT consulting, website development, operations technology, staff augmentation, business automation, construction technology, manufacturing systems, e-commerce solutions, digital transformation, OneAlgorithm",
-    ogTitle:
-      "OneAlgorithm - IT Consulting, Website Development & Operations Technology Solutions",
+      "custom software development Malvern PA, system integration agency, API integration, CRM integration, marketing automation, Philadelphia software development, enterprise software, SaaS development, mobile app development, One Algorithm",
+    ogTitle: "One Algorithm | Custom Software Development & Integration Agency | Malvern, PA",
     ogDescription:
-      "Transform your business with expert IT consulting, website development, operations technology, and staff augmentation services for Construction, Manufacturing, and E-Commerce.",
+      "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
     twitterTitle:
-      "OneAlgorithm - IT Consulting, Website Development & Operations Technology Solutions",
+      "One Algorithm | Custom Software Development & Integration Agency | Malvern, PA",
     twitterDescription:
-      "Transform your business with expert IT consulting, website development, operations technology, and staff augmentation services for Construction, Manufacturing, and E-Commerce.",
+      "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     twitterImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
   });
