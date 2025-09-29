@@ -35,11 +35,6 @@ safe(() => {
   console.log("registered /api/ping");
 }, "register /api/ping");
 
-safe(() => {
-  const app = express();
-  app.post("/api/verify-recaptcha", (req, res) => res.json({ ok: true }));
-  console.log("registered /api/verify-recaptcha");
-}, "register /api/verify-recaptcha");
 
 safe(() => {
   const app = express();
