@@ -36,8 +36,7 @@ import { JSONLDScript } from "../components/JSONLDScript";
 export default function Index() {
   // Re-enabling useSEO hook after React stability fix
   useSEO({
-    title:
-      "One Algorithm | Custom Software Development & Integration Agency | Malvern, PA",
+    title: "OneAlgorithm — IT Consulting & Web Development",
     description:
       "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     canonical: getCanonicalUrl("/"),
