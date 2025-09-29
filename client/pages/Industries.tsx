@@ -17,7 +17,7 @@ import {
 
 export default function Industries() {
   useSEO({
-    title: "Industry Technology Solutions - Construction & Manufacturing",
+    title: "OneAlgorithm — Industries We Serve",
     description:
       "Specialized technology solutions for Construction, Manufacturing, and E-Commerce. Tailored IT consulting, automation, and digital transformation services.",
     canonical: getCanonicalUrl("/industries"),
