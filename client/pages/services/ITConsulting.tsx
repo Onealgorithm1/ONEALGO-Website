@@ -35,7 +35,7 @@ export default function ITConsulting() {
     canonical: getCanonicalUrl("/services/it-consulting"),
     keywords:
       "IT consulting, strategic IT planning, technology audit, digital transformation, cybersecurity consulting, business process optimization, IT strategy",
-    ogTitle: "IT Consulting Services - OneAlgorithm",
+    ogTitle: "OneAlgorithm — IT Consulting",
     ogDescription:
       "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization. Drive growth with OneAlgorithm's IT expertise.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),
