@@ -58,6 +58,8 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
   },
   optimizeDeps: {
+    include: ["react", "react-dom"],
+    force: true,
     exclude: [],
   },
   plugins: [react(), expressPlugin()],
@@ -65,6 +67,9 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
+      // Force single React instance
+      react: path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
 }));
