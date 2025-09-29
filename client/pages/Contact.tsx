@@ -34,10 +34,12 @@ declare global {
 export default function Contact() {
   useSEO({
     title: "OneAlgorithm — Contact Us",
-    description: "Contact OneAlgorithm for IT consulting, web development, and automation solutions.",
+    description:
+      "Contact OneAlgorithm for IT consulting, web development, and automation solutions.",
     canonical: getCanonicalUrl("/contact"),
     ogTitle: "OneAlgorithm — Contact Us",
-    ogDescription: "Get in touch with OneAlgorithm for technology consulting and services.",
+    ogDescription:
+      "Get in touch with OneAlgorithm for technology consulting and services.",
   });
   const [formData, setFormData] = useState({
     firstName: "",
