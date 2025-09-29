@@ -35,7 +35,7 @@ export default function StaffAugmentation() {
     canonical: getCanonicalUrl("/services/staff-augmentation"),
     keywords:
       "staff augmentation, IT staffing, software developers, technical talent, team scaling, remote developers, IT specialists, talent solutions",
-    ogTitle: "Staff Augmentation Services - OneAlgorithm",
+    ogTitle: "OneAlgorithm — Staff Augmentation",
     ogDescription:
       "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
     ogUrl: getCanonicalUrl("/services/staff-augmentation"),
