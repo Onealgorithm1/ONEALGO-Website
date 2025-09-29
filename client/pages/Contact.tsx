@@ -118,14 +118,38 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Ensure we have a token from the client widget
-    let token = recaptchaToken;
-
-    // If widget exists but callback didn't run, try to get response
+    // First try reCAPTCHA Enterprise (grecaptcha.enterprise.execute)
+    let token: string | null = null;
     // @ts-ignore
-    if (!token && window.grecaptcha && widgetIdRef.current !== null) {
+    if (window.grecaptcha && window.grecaptcha.enterprise) {
+      try {
+        // @ts-ignore
+        await window.grecaptcha.enterprise.ready();
+        try {
+          // @ts-ignore
+          token = await window.grecaptcha.enterprise.execute(
+            "6LfysdgrAAAAAJBnWoVcfBNpQGVJ8V8M1u7sMgTY",
+            { action: "contact" },
+          );
+        } catch (err) {
+          // Some enterprise builds return token via callback; fallback to promise style
+          console.warn("enterprise.execute promise failed, falling back to callback", err);
+        }
+      } catch (err) {
+        console.warn("grecaptcha.enterprise.ready failed", err);
+      }
+    }
+
+    // If enterprise didn't provide a token, fall back to v2 widget response
+    if (!token) {
+      token = recaptchaToken;
+
+      // If widget exists but callback didn't run, try to get response
       // @ts-ignore
-      token = window.grecaptcha.getResponse(widgetIdRef.current);
+      if (!token && window.grecaptcha && widgetIdRef.current !== null) {
+        // @ts-ignore
+        token = window.grecaptcha.getResponse(widgetIdRef.current);
+      }
     }
 
     if (!token) {
