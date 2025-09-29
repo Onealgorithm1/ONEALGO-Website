@@ -32,26 +32,8 @@ declare global {
 }
 
 export default function Contact() {
-  useSEO({
-    title: "Contact OneAlgorithm - Get Started Today",
-    description:
-      "Contact OneAlgorithm for expert IT consulting, website development, and operations technology. Get a free consultation for your business needs.",
-    canonical: getCanonicalUrl("/contact"),
-    keywords:
-      "contact OneAlgorithm, IT consulting inquiry, technology consultation, business automation quote, website development contact",
-    ogTitle: "Contact OneAlgorithm - Get Started with Technology Solutions",
-    ogDescription:
-      "Contact OneAlgorithm for expert IT consulting, website development, operations technology, and staff augmentation services. Get a free consultation for your business technology needs.",
-    ogUrl: getCanonicalUrl("/contact"),
-    ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
-    twitterTitle:
-      "Contact OneAlgorithm - Get Started with Technology Solutions",
-    twitterDescription:
-      "Contact OneAlgorithm for expert IT consulting, website development, operations technology, and staff augmentation services. Get a free consultation for your business technology needs.",
-    twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
-  });
+  // Temporarily disable SEO hook to isolate React issues
+  // useSEO({...});
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
