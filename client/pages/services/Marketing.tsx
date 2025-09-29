@@ -18,7 +18,7 @@ import {
 
 export default function Marketing() {
   useSEO({
-    title: "Marketing Services & Campaign Management - OneAlgorithm",
+    title: "OneAlgorithm — Marketing Services",
     description:
       "Comprehensive marketing services with AI-driven insights, campaign management, and customer journey optimization. Boost your marketing ROI with data analytics.",
     canonical: getCanonicalUrl("/services/marketing"),
