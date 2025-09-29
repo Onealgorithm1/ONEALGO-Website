@@ -167,6 +167,169 @@ export function createOrganizationSchema(): OrganizationSchema {
   };
 }
 
+// Detailed Organization schema matching Builder.io request
+export function createOrganizationSchemaDetailed() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "One Algorithm",
+    description: "Custom software development, system integration, and growth marketing agency serving Philadelphia and nationwide clients",
+    url: "https://onealgorithm.com",
+    logo: "https://onealgorithm.com/logo.png",
+    foundingDate: "2020",
+    telephone: "(610) 298-9069",
+    email: "contact@onealgorithm.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "625 Swedesford Rd",
+      addressLocality: "Malvern",
+      addressRegion: "PA",
+      postalCode: "19355",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "40.0366",
+      longitude: "-75.5135",
+    },
+    sameAs: [
+      "https://linkedin.com/company/onealgorithm",
+      "https://twitter.com/onealgorithm",
+      "https://github.com/onealgorithm"
+    ],
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: "40.0366",
+        longitude: "-75.5135"
+      },
+      geoRadius: "Worldwide"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Software Development Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Software Development",
+            description: "Web, mobile, and SaaS application development"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "System Integration",
+            description: "API integration, CRM/ERP integration, workflow automation"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Growth Marketing",
+            description: "SEO, PPC, content marketing, conversion optimization"
+          }
+        }
+      ]
+    },
+    priceRange: "$$$",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "47"
+    }
+  };
+}
+
+// FAQ schema
+export function createFAQSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What services does One Algorithm provide?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "One Algorithm provides custom software development, system integration (connecting CRMs, ERPs, marketing tools), API development, mobile app development, growth marketing, and DevOps services. We specialize in building scalable web applications, automating workflows, and integrating platforms like Salesforce, HubSpot, Stripe, and Shopify."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Where is One Algorithm located?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "One Algorithm is located at 625 Swedesford Rd, Malvern, PA 19355. We serve clients in the Philadelphia metro area and nationwide, with experience working with companies across the United States and internationally."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How long does a typical software development project take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most projects are delivered in 6-12 weeks. Simple integrations can be completed in 2-4 weeks, MVPs typically take 8-12 weeks, and complex enterprise applications may take 3-6 months. We use agile methodology with 2-week sprints for continuous delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What platforms does One Algorithm integrate?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We integrate 200+ platforms including Salesforce, HubSpot, Stripe, Shopify, Mailchimp, Slack, QuickBooks, and custom APIs. Whether you need CRM integration, payment processing, marketing automation, or custom middleware, we handle any integration need."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How much does custom software development cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Project costs range from $15K to $500K+ depending on complexity. Simple integrations start at $3K, MVPs typically range from $25K-$75K, and enterprise applications $100K+. We offer free consultations and detailed project scoping to provide accurate estimates."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What makes One Algorithm different from other development agencies?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Founded in 2020, One Algorithm delivers projects 3-5x faster than traditional agencies through agile sprints and modern tech stacks. We offer zero vendor lock-in (clients own all code), 24/7 support, and performance-based engagement options. With 200+ successful integrations and a 95% client retention rate, we focus on delivering measurable ROI."
+        }
+      }
+    ]
+  };
+}
+
+// LocalBusiness schema
+export function createLocalBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "One Algorithm",
+    image: "https://onealgorithm.com/logo.png",
+    telephone: "(610) 298-9069",
+    email: "contact@onealgorithm.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "625 Swedesford Rd",
+      addressLocality: "Malvern",
+      addressRegion: "PA",
+      postalCode: "19355",
+      addressCountry: "US"
+    },
+    priceRange: "$$$",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      opens: "09:00",
+      closes: "18:00"
+    }
+  };
+}
+
 // Helper function to create service schema
 export function createServiceSchema(
   serviceName: string,
