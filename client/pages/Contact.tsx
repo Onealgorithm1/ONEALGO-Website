@@ -48,12 +48,6 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // reCAPTCHA v2 state
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [recaptchaError, setRecaptchaError] = useState<boolean>(false);
-  const [recaptchaLoading, setRecaptchaLoading] = useState<boolean>(true);
-  const recaptchaRef = React.useRef<HTMLDivElement | null>(null);
-  const widgetIdRef = React.useRef<number | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -66,129 +60,11 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Render reCAPTCHA widget when grecaptcha is available
-  React.useEffect(() => {
-    let mounted = true;
 
-    function renderRecaptcha() {
-      if (!mounted) return;
-      // @ts-ignore
-      if (window.grecaptcha && recaptchaRef.current && !widgetIdRef.current) {
-        try {
-          // Use different keys for different domains
-          const hostname = window.location.hostname;
-          let sitekey = "6Ler5dgrAAAAAHlI_57aoBhGJfardOea1fFgRLY_"; // default
-
-          if (
-            hostname === "onealgorithm.com" ||
-            hostname === "www.onealgorithm.com"
-          ) {
-            // You'll need to create keys specifically for onealgorithm.com
-            sitekey = "6Ler5dgrAAAAAHlI_57aoBhGJfardOea1fFgRLY_";
-          } else if (
-            hostname.includes("fly.dev") ||
-            hostname.includes("localhost")
-          ) {
-            // Keys for preview/dev environments
-            sitekey = "6Ler5dgrAAAAAHlI_57aoBhGJfardOea1fFgRLY_";
-          }
-
-          // @ts-ignore
-          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: sitekey,
-            theme: "light",
-            size: "normal",
-            callback: (token: string) => {
-              setRecaptchaToken(token);
-              setRecaptchaLoading(false);
-              setRecaptchaError(false);
-            },
-            "expired-callback": () => {
-              setRecaptchaToken(null);
-            },
-            "error-callback": () => {
-              console.warn("reCAPTCHA error - widget failed to load");
-              setRecaptchaError(true);
-              setRecaptchaLoading(false);
-              // Set a flag to bypass reCAPTCHA for now
-              setRecaptchaToken("bypass-recaptcha-error");
-            },
-          });
-
-          // Set loading to false after successful render
-          if (widgetIdRef.current) {
-            setRecaptchaLoading(false);
-          }
-        } catch (err) {
-          console.warn("reCAPTCHA render error", err);
-          setRecaptchaError(true);
-          setRecaptchaLoading(false);
-          // Set bypass token on error
-          setRecaptchaToken("bypass-recaptcha-error");
-        }
-      }
-    }
-
-    // Try to render immediately, otherwise poll until grecaptcha loads
-    renderRecaptcha();
-    const interval = setInterval(() => {
-      renderRecaptcha();
-    }, 500);
-
-    return () => {
-      mounted = false;
-      clearInterval(interval);
-    };
-  }, []);
-
-  const verifyTokenWithServer = async (token: string) => {
-    try {
-      const res = await fetch("/api/verify-recaptcha", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token }),
-      });
-      const data = await res.json();
-      return data && data.success;
-    } catch (err) {
-      console.error("Recaptcha verification failed", err);
-      return false;
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Get token from v2 widget
-    let token: string | null = recaptchaToken;
-
-    // If widget exists but callback didn't run, try to get response
-    // @ts-ignore
-    if (!token && window.grecaptcha && widgetIdRef.current !== null) {
-      // @ts-ignore
-      token = window.grecaptcha.getResponse(widgetIdRef.current);
-    }
-
-    if (!token) {
-      alert("Please complete the reCAPTCHA verification.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    const valid = await verifyTokenWithServer(token);
-    if (!valid) {
-      alert("reCAPTCHA verification failed. Please try again.");
-      setIsSubmitting(false);
-      // Reset widget
-      // @ts-ignore
-      if (window.grecaptcha && widgetIdRef.current !== null) {
-        // @ts-ignore
-        window.grecaptcha.reset(widgetIdRef.current);
-      }
-      setRecaptchaToken(null);
-      return;
-    }
 
     // Proceed with existing submission flow
     // Show thank you message first
@@ -440,51 +316,6 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* reCAPTCHA v2 checkbox container */}
-                    <div className="mt-4">
-                      <div className="mb-2">
-                        <label className="text-sm font-medium text-gray-700">
-                          Security Verification *
-                        </label>
-                      </div>
-
-                      {recaptchaLoading && !recaptchaError && (
-                        <div className="p-4 bg-gray-50 border border-gray-200 rounded">
-                          <div className="flex items-center space-x-2">
-                            <div className="animate-spin h-4 w-4 border-2 border-onealgo-blue-950 border-t-transparent rounded-full"></div>
-                            <span className="text-sm text-gray-600">
-                              Loading security verification...
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
-                      {recaptchaError && (
-                        <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
-                          <div className="flex items-center space-x-2">
-                            <div className="text-yellow-600">⚠️</div>
-                            <div className="text-sm">
-                              <p className="text-yellow-800 font-medium">
-                                Security verification temporarily unavailable
-                              </p>
-                              <p className="text-yellow-700">
-                                Your form submission will be processed manually
-                                for verification.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      <div
-                        ref={recaptchaRef}
-                        id="recaptcha-container"
-                        className={`g-recaptcha ${recaptchaError ? "hidden" : ""}`}
-                        data-sitekey="6Ler5dgrAAAAAHlI_57aoBhGJfardOea1fFgRLY_"
-                        data-theme="light"
-                        data-size="normal"
-                      />
-                    </div>
 
                     <Button
                       type="submit"

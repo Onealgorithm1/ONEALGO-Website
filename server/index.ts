@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
-import { handleVerifyRecaptcha } from "./routes/recaptcha";
 
 export function createServer() {
   const app = express();
@@ -20,8 +19,6 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
-  // Verify reCAPTCHA token (v2 checkbox)
-  app.post("/api/verify-recaptcha", handleVerifyRecaptcha);
 
   return app;
 }
