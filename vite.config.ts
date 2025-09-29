@@ -58,20 +58,14 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
   },
   optimizeDeps: {
-    include: ["react", "react-dom"],
-    force: true,
+    // Remove force and complex deduplication that might cause issues
     exclude: [],
   },
   plugins: [react(), expressPlugin()],
   resolve: {
-    // Ensure only one React copy is bundled
-    dedupe: ["react", "react-dom"],
     alias: {
       "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
-      // Force single React instance
-      react: path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
 }));
