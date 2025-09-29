@@ -86,12 +86,7 @@ interface ContactPageSchema {
   };
 }
 
-type SchemaType =
-  | OrganizationSchema
-  | ServiceSchema
-  | WebPageSchema
-  | ArticleSchema
-  | ContactPageSchema;
+type SchemaType = any; // accept arbitrary schema shapes for flexibility (JSON-LD objects)
 
 interface StructuredDataProps {
   data: SchemaType;
