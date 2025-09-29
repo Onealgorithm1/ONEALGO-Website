@@ -31,7 +31,7 @@ export default function WebsiteDevelopment() {
     canonical: getCanonicalUrl("/services/website-development"),
     keywords:
       "website development, web design, responsive websites, e-commerce development, SEO optimization, professional web development, custom websites",
-    ogTitle: "Website Development Services - OneAlgorithm",
+    ogTitle: "OneAlgorithm — Website Development",
     ogDescription:
       "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications. Transform your online presence with OneAlgorithm.",
     ogUrl: getCanonicalUrl("/services/website-development"),
