@@ -27,11 +27,11 @@ import {
 } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
-  StructuredData,
   createOrganizationSchemaDetailed,
   createFAQSchema,
   createLocalBusinessSchema,
 } from "../components/StructuredData";
+import { JSONLDScript } from "../components/JSONLDScript";
 
 export default function Index() {
   useSEO({
