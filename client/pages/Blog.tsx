@@ -19,7 +19,7 @@ import { LazyImage } from "../components/LazyImage";
 
 export default function Blog() {
   useSEO({
-    title: "OneAlgorithm Blog - Business Technology Insights & Trends",
+    title: "OneAlgorithm — Blog & Insights",
     description:
       "Stay updated with the latest insights on business automation, technology trends, IT consulting tips, and industry best practices from OneAlgorithm experts.",
     canonical: getCanonicalUrl("/blog"),
