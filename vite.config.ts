@@ -64,6 +64,8 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [react(), expressPlugin()],
   resolve: {
+    // Ensure only one React copy is bundled
+    dedupe: ["react", "react-dom"],
     alias: {
       "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
