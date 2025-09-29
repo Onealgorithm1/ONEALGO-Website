@@ -55,19 +55,19 @@ import {
 
 export default function Careers() {
   useSEO({
-    title: "Careers at OneAlgorithm - Technology Jobs & Opportunities",
+    title: "OneAlgorithm — Careers",
     description:
       "Join OneAlgorithm's innovative technology team. Explore career opportunities in software development, IT consulting, and operations technology.",
     canonical: getCanonicalUrl("/careers"),
     keywords:
       "OneAlgorithm careers, technology jobs, software developer jobs, IT consulting careers, operations technology jobs, remote work opportunities",
-    ogTitle: "Careers at OneAlgorithm - Join Our Technology Team",
+    ogTitle: "OneAlgorithm — Careers",
     ogDescription:
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     ogUrl: getCanonicalUrl("/careers"),
     ogImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
-    twitterTitle: "Careers at OneAlgorithm - Join Our Technology Team",
+    twitterTitle: "OneAlgorithm — Careers",
     twitterDescription:
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     twitterImage:
