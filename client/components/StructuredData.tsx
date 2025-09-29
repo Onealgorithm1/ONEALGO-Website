@@ -94,9 +94,10 @@ interface StructuredDataProps {
 
 export function StructuredData({ data }: StructuredDataProps) {
   useEffect(() => {
-    const schema = {
+    // Handle data that already has @context vs legacy data with 'type' field
+    const schema = data["@context"] ? data : {
       "@context": "https://schema.org",
-      "@type": data.type,
+      "@type": data.type || data["@type"],
       ...data,
     };
 
