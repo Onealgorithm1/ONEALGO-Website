@@ -16,8 +16,83 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- SearchAtlas dynamic optimization (visible) -->
-    <script type="text/javascript" id="sa-dynamic-optimization-visible" data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e" src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"></script>
+    <!-- SearchAtlas dynamic optimization loader (safe, with error reporting) -->
+    <script>
+      (function () {
+        try {
+          // Global error capture to send to server for debugging
+          function reportError(payload) {
+            try {
+              if (navigator.sendBeacon) {
+                navigator.sendBeacon('/api/log-js-error', JSON.stringify(payload));
+              } else {
+                fetch('/api/log-js-error', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload),
+                }).catch(function () {});
+              }
+            } catch (e) {
+              console.error('Error reporting failure', e);
+            }
+          }
+
+          window.addEventListener('error', function (evt) {
+            try {
+              var payload = {
+                type: 'error',
+                message: evt.message || 'Script error',
+                filename: evt.filename || null,
+                lineno: evt.lineno || null,
+                colno: evt.colno || null,
+                href: location.href,
+                time: Date.now(),
+              };
+              // Don't block main thread
+              setTimeout(function () {
+                reportError(payload);
+              }, 0);
+            } catch (e) {}
+          });
+
+          window.addEventListener('unhandledrejection', function (evt) {
+            try {
+              var payload = {
+                type: 'unhandledrejection',
+                message: (evt.reason && evt.reason.message) || String(evt.reason) || 'unhandledrejection',
+                href: location.href,
+                time: Date.now(),
+              };
+              setTimeout(function () {
+                reportError(payload);
+              }, 0);
+            } catch (e) {}
+          });
+
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.id = 'sa-dynamic-optimization-visible';
+          s.dataset.uuid = '180b3689-4f9a-42e5-8fc5-f4b7c2217a7e';
+          s.crossOrigin = 'anonymous';
+          s.src = 'https://dashboard.searchatlas.com/scripts/dynamic_optimization.js';
+
+          s.onload = function () {
+            try {
+              console.log('SearchAtlas dynamic optimization loaded');
+            } catch (e) {}
+          };
+
+          s.onerror = function (e) {
+            console.error('SearchAtlas script failed to load', e);
+            reportError({ type: 'resource_error', message: 'SearchAtlas script failed to load', href: location.href, time: Date.now() });
+          };
+
+          document.head.appendChild(s);
+        } catch (err) {
+          console.error('Error inserting SearchAtlas script', err);
+        }
+      })();
+    </script>
 
     <!-- Google tag (gtag.js) - Deferred loading for performance -->
     <script>
