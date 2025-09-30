@@ -42,37 +42,46 @@
 
           window.addEventListener("error", function (evt) {
             try {
+              var isResourceError = evt.target && (evt.target.src || evt.target.href);
               var payload = {
-                type: "error",
-                message: evt.message || "Script error",
-                filename: evt.filename || null,
+                type: isResourceError ? "resource_error" : "error",
+                message: evt.message || (isResourceError ? "Resource load error" : "Script error"),
+                filename: evt.filename || (evt.target && (evt.target.src || evt.target.href)) || null,
                 lineno: evt.lineno || null,
                 colno: evt.colno || null,
+                stack: (evt.error && evt.error.stack) || null,
                 href: location.href,
+                userAgent: navigator.userAgent,
                 time: Date.now(),
               };
               // Don't block main thread
               setTimeout(function () {
                 reportError(payload);
               }, 0);
-            } catch (e) {}
+            } catch (e) {
+              try { console.error("Error in error handler", e); } catch (e) {}
+            }
           });
 
           window.addEventListener("unhandledrejection", function (evt) {
             try {
+              var reason = evt.reason;
+              var message = (reason && reason.message) || String(reason) || "unhandledrejection";
+              var stack = (reason && reason.stack) || null;
               var payload = {
                 type: "unhandledrejection",
-                message:
-                  (evt.reason && evt.reason.message) ||
-                  String(evt.reason) ||
-                  "unhandledrejection",
+                message: message,
+                stack: stack,
                 href: location.href,
+                userAgent: navigator.userAgent,
                 time: Date.now(),
               };
               setTimeout(function () {
                 reportError(payload);
               }, 0);
-            } catch (e) {}
+            } catch (e) {
+              try { console.error("Error in unhandledrejection handler", e); } catch (e) {}
+            }
           });
 
           if (
@@ -123,15 +132,19 @@
         // Google tag (gtag.js) - AW
         const script1 = document.createElement("script");
         script1.async = true;
+        script1.crossOrigin = 'anonymous';
         script1.src =
           "https://www.googletagmanager.com/gtag/js?id=AW-17336277732";
+        script1.onerror = function(e){ reportError({type:'resource_error', message:'gtag AW failed to load', href:location.href, time:Date.now()}); };
         document.head.appendChild(script1);
 
         // Google tag (gtag.js) - GA
         const script2 = document.createElement("script");
         script2.async = true;
+        script2.crossOrigin = 'anonymous';
         script2.src =
           "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
+        script2.onerror = function(e){ reportError({type:'resource_error', message:'gtag GA failed to load', href:location.href, time:Date.now()}); };
         document.head.appendChild(script2);
 
         // Initialize after scripts load
@@ -304,6 +317,7 @@
     <script
       nowprocket
       nitro-exclude
+      crossorigin="anonymous"
       type="text/javascript"
       id="sa-dynamic-optimization"
       data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
