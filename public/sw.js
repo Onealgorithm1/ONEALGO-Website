@@ -157,8 +157,8 @@ self.addEventListener("sync", (event) => {
 self.addEventListener("push", (event) => {
   const options = {
     body: event.data ? event.data.text() : "New update available",
-    icon: "/favicon.ico",
-    badge: "/favicon.ico",
+    icon: "/logo.webp",
+    badge: "/logo.webp",
   };
 
   event.waitUntil(self.registration.showNotification("OneAlgorithm", options));
