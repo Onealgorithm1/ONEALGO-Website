@@ -1,6 +1,3 @@
-import React, { useState, useRef, useEffect } from "react";
-
-
 import * as React from "react";
 
 interface LazyImageProps {
