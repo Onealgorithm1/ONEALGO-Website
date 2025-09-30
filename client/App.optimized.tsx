@@ -1,5 +1,41 @@
 import "./global.css";
 
+// Initialize Sentry (loaded dynamically from CDN) when DSN is available at runtime
+(function initSentryClient() {
+  try {
+    var SENTRY_DSN = (window as any).__SENTRY_DSN__;
+    if (!SENTRY_DSN) return;
+    var script = document.createElement("script");
+    script.src = "https://browser.sentry-cdn.com/7.49.0/bundle.min.js";
+    script.crossOrigin = "anonymous";
+    script.onload = function () {
+      try {
+        if ((window as any).Sentry && SENTRY_DSN) {
+          // @ts-ignore
+          (window as any).Sentry.init({
+            dsn: SENTRY_DSN,
+            integrations: [
+              new (window as any).Sentry.BrowserTracing() &&
+                new (window as any).Sentry.BrowserTracing(),
+            ],
+            tracesSampleRate: 0.0,
+          });
+        }
+      } catch (e) {
+        try {
+          console.error("Sentry init failed", e);
+        } catch (e) {}
+      }
+    };
+    script.onerror = function () {
+      try {
+        console.warn("Sentry SDK failed to load");
+      } catch (e) {}
+    };
+    document.head.appendChild(script);
+  } catch (e) {}
+})();
+
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";

@@ -1,10 +1,5 @@
-<!doctype html>
 <html lang="en">
   <head>
-    <script nowprocket nitro-exclude type="text/javascript" id="sa-dynamic-optimization"
-      data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
-      src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjE4MGIzNjg5LTRmOWEtNDJlNS04ZmM1LWY0YjdjMjIxN2E3ZSI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw==">
-    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -27,20 +22,35 @@
           // Global error capture to send to server for debugging
           function reportError(payload) {
             try {
-              if (navigator.sendBeacon) {
-                navigator.sendBeacon(
-                  "/api/log-js-error",
-                  JSON.stringify(payload),
-                );
-              } else {
-                fetch("/api/log-js-error", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(payload),
-                }).catch(function () {});
-              }
+              var body = JSON.stringify(payload || {});
+
+              // Best-effort: sendBeacon to Netlify function path for background delivery where available
+              try {
+                if (navigator.sendBeacon) {
+                  var blob = new Blob([body], { type: "application/json" });
+                  navigator.sendBeacon("/.netlify/functions/api", blob);
+                }
+              } catch (e) {}
+
+              // Attempt primary fetch to Netlify function path for compatibility
+              fetch("/.netlify/functions/api", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: body,
+              }).catch(function () {
+                // Fallback to /api/log-js-error if function path fails
+                try {
+                  fetch("/api/log-js-error", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: body,
+                  }).catch(function () {});
+                } catch (e) {}
+              });
             } catch (e) {
-              console.error("Error reporting failure", e);
+              try {
+                console.error("Error reporting failure", e);
+              } catch (e) {}
             }
           }
 
@@ -103,7 +113,7 @@
 
           if (
             document.querySelector(
-              'script[src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"]',
+              'script[id="sa-dynamic-optimization-visible"]',
             )
           ) {
             console.log(
@@ -114,26 +124,11 @@
             s.type = "text/javascript";
             s.id = "sa-dynamic-optimization-visible";
             s.dataset.uuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
-            s.crossOrigin = "anonymous";
-            s.src =
-              "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
+            // Load vendorized local copy to avoid CORS/service-worker cross-origin fetch failures
+            s.text =
+              "(function(){try{var UUID=\"180b3689-4f9a-42e5-8fc5-f4b7c2217a7e\";function log(){try{console.log.apply(console,arguments)}catch(e){}}function fetchUrlDetails(){try{var u=encodeURIComponent(window.location.href.split('#')[0]);var endpoint=\"https://sa.searchatlas.com/api/v2/otto-url-details/?url=\"+u+\"&uuid=\"+UUID;return fetch(endpoint,{credentials:'omit'}).then(function(res){if(!res.ok){log('SearchAtlas API returned non-OK',res.status);return null}return res.json().catch(function(){return null})}).catch(function(err){log('SearchAtlas fetch failed (ignored):',err&&err.message);return null})}catch(e){return Promise.resolve(null)}}function initializeScript(){try{fetchUrlDetails().then(function(data){if(data){log('SearchAtlas data loaded (inline):',data);window.__SEARCHATLAS_DATA__=data}else{log('SearchAtlas: no data (inline)')}})}catch(e){log('SearchAtlas initialize error (ignored)')}}if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(initializeScript,0)}else{window.addEventListener('DOMContentLoaded',initializeScript)}window.SearchAtlas=window.SearchAtlas||{};window.SearchAtlas.init=initializeScript;window.SearchAtlas.fetchUrlDetails=fetchUrlDetails}catch(e){try{console.error('Vendor SearchAtlas failed (inline):',e)}catch(e){}}})();";
 
-            s.onload = function () {
-              try {
-                console.log("SearchAtlas dynamic optimization loaded");
-              } catch (e) {}
-            };
-
-            s.onerror = function (e) {
-              console.error("SearchAtlas script failed to load", e);
-              reportError({
-                type: "resource_error",
-                message: "SearchAtlas script failed to load",
-                href: location.href,
-                time: Date.now(),
-              });
-            };
-
+            // Inline script appended to avoid network fetch failures
             document.head.appendChild(s);
           }
         } catch (err) {
@@ -311,165 +306,5 @@
       sizes="16x16"
       href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=16"
     />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=ico&width=32"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=180"
-    />
-    <link
-      rel="shortcut icon"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=ico&width=32"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#1E3A8A" />
-
-    <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://cdn.builder.io" />
-    <!-- Preconnect analytics and optimization domains -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-    <link rel="preconnect" href="https://dashboard.searchatlas.com" crossorigin />
-
-    <!-- Preload important hero background to improve LCP -->
-    <link rel="preload" as="image" href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1920" />
-
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <!-- DNS prefetch for better performance -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <script
-      nowprocket
-      nitro-exclude
-      crossorigin="anonymous"
-      type="text/javascript"
-      id="sa-dynamic-optimization"
-      data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
-      src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjE4MGIzNjg5LTRmOWEtNDJlNS04ZmM1LWY0YjdjMjIxN2E3ZSI7c2NyaXB0LmlkID0gInNhLWR5bmFuaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="
-    ></script>
-    <script
-      async
-      crossorigin="anonymous"
-      id="sa-dynamic-optimization-visible"
-      data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
-      src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
-    ></script>
-    <link rel="dns-prefetch" href="//images.unsplash.com" />
-
-    <!-- Resource hints -->
-    <link rel="preload" href="/client/global.css" as="style" />
-
-    <!-- Load Google Fonts asynchronously -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      />
-    </noscript>
-
-    <!-- Critical CSS inline optimization -->
-    <style>
-      /* Critical above-the-fold styles */
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, sans-serif;
-        line-height: 1.6;
-      }
-      .loading-skeleton {
-        background: #f0f0f0;
-        animation: pulse 1.5s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-      /* Prevent layout shift */
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      /* Optimize font rendering */
-      * {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    </style>
-
-    <!-- Performance optimization hints -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="format-detection" content="telephone=no" />
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/client/App.tsx" as="script" crossorigin />
-    <link rel="modulepreload" href="/client/App.tsx" />
-
-    <!-- Mobile optimization -->
-    <meta name="theme-color" content="#1E3A8A" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="OneAlgorithm" />
   </head>
-
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NTDV6XG6"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-        title="Google Tag Manager"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <div id="root"></div>
-
-    <!-- Service Worker Registration -->
-    <script>
-      // Register service worker for performance optimization
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then(function (registration) {
-              console.log("SW registered: ", registration);
-            })
-            .catch(function (registrationError) {
-              console.log("SW registration failed: ", registrationError);
-            });
-        });
-      }
-    </script>
-
-    <script type="module" src="/client/App.tsx"></script>
-  </body>
 </html>
