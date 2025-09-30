@@ -29,21 +29,22 @@ export function useSEO({
   twitterDescription,
   twitterImage,
 }: SEOConfig) {
-  useEffect(() => {
+  // If there's no DOM (SSR), bail early.
+  if (typeof document === "undefined") return;
+
+  // Defer DOM mutations to the next tick to avoid running during render.
+  setTimeout(() => {
     // Set document title
     if (title) {
       document.title = title;
     }
 
-    // Create canonical link
+    // Create or update canonical link
     if (canonical) {
-      // Remove existing canonical link
       const existingCanonical = document.querySelector('link[rel="canonical"]');
       if (existingCanonical) {
         existingCanonical.remove();
       }
-
-      // Add new canonical link
       const canonicalLink = document.createElement("link");
       canonicalLink.rel = "canonical";
       canonicalLink.href = canonical;
@@ -84,9 +85,7 @@ export function useSEO({
     }
 
     if (ogDescription) {
-      let ogDescMeta = document.querySelector(
-        'meta[property="og:description"]',
-      );
+      let ogDescMeta = document.querySelector('meta[property="og:description"]');
       if (!ogDescMeta) {
         ogDescMeta = document.createElement("meta");
         ogDescMeta.setAttribute("property", "og:description");
@@ -115,8 +114,7 @@ export function useSEO({
       ogUrlMeta.setAttribute("content", ogUrl);
     }
 
-    // Set Twitter Card meta tags (using name attribute, not property)
-    // Set Twitter card type
+    // Twitter card meta tags
     let twitterCardMeta = document.querySelector('meta[name="twitter:card"]');
     if (!twitterCardMeta) {
       twitterCardMeta = document.createElement("meta");
@@ -126,9 +124,7 @@ export function useSEO({
     twitterCardMeta.setAttribute("content", "summary_large_image");
 
     if (twitterTitle) {
-      let twitterTitleMeta = document.querySelector(
-        'meta[name="twitter:title"]',
-      );
+      let twitterTitleMeta = document.querySelector('meta[name="twitter:title"]');
       if (!twitterTitleMeta) {
         twitterTitleMeta = document.createElement("meta");
         twitterTitleMeta.setAttribute("name", "twitter:title");
@@ -138,9 +134,7 @@ export function useSEO({
     }
 
     if (twitterDescription) {
-      let twitterDescMeta = document.querySelector(
-        'meta[name="twitter:description"]',
-      );
+      let twitterDescMeta = document.querySelector('meta[name="twitter:description"]');
       if (!twitterDescMeta) {
         twitterDescMeta = document.createElement("meta");
         twitterDescMeta.setAttribute("name", "twitter:description");
@@ -150,9 +144,7 @@ export function useSEO({
     }
 
     if (twitterImage) {
-      let twitterImageMeta = document.querySelector(
-        'meta[name="twitter:image"]',
-      );
+      let twitterImageMeta = document.querySelector('meta[name="twitter:image"]');
       if (!twitterImageMeta) {
         twitterImageMeta = document.createElement("meta");
         twitterImageMeta.setAttribute("name", "twitter:image");
@@ -160,29 +152,7 @@ export function useSEO({
       }
       twitterImageMeta.setAttribute("content", twitterImage);
     }
-
-    // Cleanup function to remove canonical link when component unmounts
-    return () => {
-      if (canonical) {
-        const canonicalLink = document.querySelector('link[rel="canonical"]');
-        if (canonicalLink && canonicalLink.getAttribute("href") === canonical) {
-          canonicalLink.remove();
-        }
-      }
-    };
-  }, [
-    title,
-    description,
-    canonical,
-    keywords,
-    ogTitle,
-    ogDescription,
-    ogImage,
-    ogUrl,
-    twitterTitle,
-    twitterDescription,
-    twitterImage,
-  ]);
+  }, 0);
 }
 
 // Helper function to get the current page URL
