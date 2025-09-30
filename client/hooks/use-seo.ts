@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-
-import { useEffect } from "react";
+// Safe DOM updates for SEO metadata without relying on React hooks at runtime
+// We avoid calling React.useEffect directly to prevent issues when multiple React contexts
+// or unexpected runtimes cause the hook dispatcher to be unavailable.
 
 interface SEOConfig {
   title?: string;
