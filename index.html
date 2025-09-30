@@ -115,7 +115,7 @@
 
           if (
             document.querySelector(
-              'script[src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"]',
+              'script[id="sa-dynamic-optimization-visible"]',
             )
           ) {
             console.log(
@@ -126,13 +126,12 @@
             s.type = "text/javascript";
             s.id = "sa-dynamic-optimization-visible";
             s.dataset.uuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
-            s.crossOrigin = "anonymous";
-            s.src =
-              "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
+            // Load vendorized local copy to avoid CORS/service-worker cross-origin fetch failures
+            s.src = "/scripts/dynamic_optimization.js";
 
             s.onload = function () {
               try {
-                console.log("SearchAtlas dynamic optimization loaded");
+                console.log("SearchAtlas dynamic optimization loaded (local)");
               } catch (e) {}
             };
 
