@@ -147,7 +147,9 @@ function applySEO({
   }
 
   if (twitterDescription) {
-    let twitterDescMeta = document.querySelector('meta[name="twitter:description"]');
+    let twitterDescMeta = document.querySelector(
+      'meta[name="twitter:description"]',
+    );
     if (!twitterDescMeta) {
       twitterDescMeta = document.createElement("meta");
       twitterDescMeta.setAttribute("name", "twitter:description");

@@ -12,7 +12,8 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = React.useState(false);
-  const [industriesDropdownOpen, setIndustriesDropdownOpen] = React.useState(false);
+  const [industriesDropdownOpen, setIndustriesDropdownOpen] =
+    React.useState(false);
   const [careersDropdownOpen, setCareersDropdownOpen] = React.useState(false);
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
