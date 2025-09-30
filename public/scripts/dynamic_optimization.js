@@ -14,18 +14,24 @@
 
     function fetchUrlDetails() {
       try {
-        var url = encodeURIComponent(window.location.href.split('#')[0]);
-        var endpoint = "https://sa.searchatlas.com/api/v2/otto-url-details/?url=" + url + "&uuid=" + UUID;
-        return fetch(endpoint, { credentials: 'omit' })
+        var url = encodeURIComponent(window.location.href.split("#")[0]);
+        var endpoint =
+          "https://sa.searchatlas.com/api/v2/otto-url-details/?url=" +
+          url +
+          "&uuid=" +
+          UUID;
+        return fetch(endpoint, { credentials: "omit" })
           .then(function (res) {
             if (!res.ok) {
-              log('SearchAtlas API returned non-OK:', res.status);
+              log("SearchAtlas API returned non-OK:", res.status);
               return null;
             }
-            return res.json().catch(function () { return null; });
+            return res.json().catch(function () {
+              return null;
+            });
           })
           .catch(function (err) {
-            log('SearchAtlas fetch failed (ignored):', err && err.message);
+            log("SearchAtlas fetch failed (ignored):", err && err.message);
             return null;
           });
       } catch (e) {
@@ -38,23 +44,26 @@
         // Try to fetch data (best-effort). Do not throw on failure.
         fetchUrlDetails().then(function (data) {
           if (data) {
-            log('SearchAtlas data loaded (vendor):', data);
+            log("SearchAtlas data loaded (vendor):", data);
             // Optionally expose to window if other code expects it
             window.__SEARCHATLAS_DATA__ = data;
           } else {
-            log('SearchAtlas: no data (vendor)');
+            log("SearchAtlas: no data (vendor)");
           }
         });
       } catch (e) {
-        log('SearchAtlas initialize error (ignored)');
+        log("SearchAtlas initialize error (ignored)");
       }
     }
 
     // Auto initialize after load
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
       setTimeout(initializeScript, 0);
     } else {
-      window.addEventListener('DOMContentLoaded', initializeScript);
+      window.addEventListener("DOMContentLoaded", initializeScript);
     }
 
     // Expose a small API in case other parts expect functions
@@ -62,6 +71,8 @@
     window.SearchAtlas.init = initializeScript;
     window.SearchAtlas.fetchUrlDetails = fetchUrlDetails;
   } catch (e) {
-    try { console.error('Vendor SearchAtlas failed:', e); } catch (e) {}
+    try {
+      console.error("Vendor SearchAtlas failed:", e);
+    } catch (e) {}
   }
 })();

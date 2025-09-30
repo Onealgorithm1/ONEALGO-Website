@@ -69,7 +69,9 @@ self.addEventListener("fetch", (event) => {
   try {
     if (url.origin !== location.origin) {
       event.respondWith(
-        fetch(request, { mode: 'no-cors' }).catch(() => caches.match('/offline.html')),
+        fetch(request, { mode: "no-cors" }).catch(() =>
+          caches.match("/offline.html"),
+        ),
       );
       return;
     }

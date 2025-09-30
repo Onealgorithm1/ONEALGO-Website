@@ -33,7 +33,9 @@ class ErrorBoundary extends Component<Props, State> {
     try {
       var __SENTRY = (window as any).Sentry;
       if (__SENTRY && __SENTRY.captureException) {
-        try { __SENTRY.captureException(error, { extra: errorInfo }); } catch (e) {}
+        try {
+          __SENTRY.captureException(error, { extra: errorInfo });
+        } catch (e) {}
       }
     } catch (e) {}
 
