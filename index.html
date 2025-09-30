@@ -124,11 +124,10 @@
             s.type = "text/javascript";
             s.id = "sa-dynamic-optimization-visible";
             s.dataset.uuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
-            // Load vendorized local copy to avoid CORS/service-worker cross-origin fetch failures
-            s.text =
-              "(function(){try{var UUID=\"180b3689-4f9a-42e5-8fc5-f4b7c2217a7e\";function log(){try{console.log.apply(console,arguments)}catch(e){}}function fetchUrlDetails(){try{var u=encodeURIComponent(window.location.href.split('#')[0]);var endpoint=\"https://sa.searchatlas.com/api/v2/otto-url-details/?url=\"+u+\"&uuid=\"+UUID;return fetch(endpoint,{credentials:'omit'}).then(function(res){if(!res.ok){log('SearchAtlas API returned non-OK',res.status);return null}return res.json().catch(function(){return null})}).catch(function(err){log('SearchAtlas fetch failed (ignored):',err&&err.message);return null})}catch(e){return Promise.resolve(null)}}function initializeScript(){try{fetchUrlDetails().then(function(data){if(data){log('SearchAtlas data loaded (inline):',data);window.__SEARCHATLAS_DATA__=data}else{log('SearchAtlas: no data (inline)')}})}catch(e){log('SearchAtlas initialize error (ignored)')}}if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(initializeScript,0)}else{window.addEventListener('DOMContentLoaded',initializeScript)}window.SearchAtlas=window.SearchAtlas||{};window.SearchAtlas.init=initializeScript;window.SearchAtlas.fetchUrlDetails=fetchUrlDetails}catch(e){try{console.error('Vendor SearchAtlas failed (inline):',e)}catch(e){}}})();";
+            // Point to local vendorized copy instead of embedding inline string
+            s.src = "/scripts/dynamic_optimization.js";
 
-            // Inline script appended to avoid network fetch failures
+            // Append vendor script
             document.head.appendChild(s);
           }
         } catch (err) {
