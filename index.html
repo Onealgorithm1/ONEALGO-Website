@@ -22,20 +22,37 @@
           // Global error capture to send to server for debugging
           function reportError(payload) {
             try {
-              if (navigator.sendBeacon) {
-                navigator.sendBeacon(
-                  "/api/log-js-error",
-                  JSON.stringify(payload),
-                );
-              } else {
-                fetch("/api/log-js-error", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(payload),
-                }).catch(function () {});
-              }
+              var body = JSON.stringify(payload || {});
+
+              // Best-effort: sendBeacon for background delivery where available
+              try {
+                if (navigator.sendBeacon) {
+                  var blob = new Blob([body], { type: "application/json" });
+                  navigator.sendBeacon("/api/log-js-error", blob);
+                }
+              } catch (e) {}
+
+              // Also attempt a fetch so we can detect 405 and fallback to function path
+              fetch("/api/log-js-error", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: body,
+              })
+                .then(function (res) {
+                  if (res && res.status === 405) {
+                    // Some hosts (Netlify) expose functions under /.netlify/functions/<name>
+                    return fetch("/.netlify/functions/api", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: body,
+                    }).catch(function () {});
+                  }
+                })
+                .catch(function () {});
             } catch (e) {
-              console.error("Error reporting failure", e);
+              try {
+                console.error("Error reporting failure", e);
+              } catch (e) {}
             }
           }
 
