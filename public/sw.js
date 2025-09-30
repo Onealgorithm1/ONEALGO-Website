@@ -1,18 +1,7 @@
 // OneAlgorithm Service Worker for Performance Optimization
 // Bump cache name to force clients to fetch new assets on update
-const CACHE_NAME = "onealgorithm-v2";
-const STATIC_CACHE_URLS = [
-  "/",
-  "/about",
-  "/services",
-  "/blog",
-  "/careers",
-  "/events",
-  "/industries",
-  // Add critical CSS and JS files
-  "/client/global.css",
-  "/client/App.tsx",
-];
+const CACHE_NAME = "onealgorithm-v3";
+const STATIC_CACHE_URLS = ["/", "/index.html"];
 
 const DYNAMIC_CACHE_URLS = [
   // API endpoints and dynamic content
@@ -84,7 +73,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   // Static assets - cache first strategy
-  if (STATIC_CACHE_URLS.some((path) => url.pathname.includes(path))) {
+  if (STATIC_CACHE_URLS.some((path) => url.pathname === path)) {
     event.respondWith(
       caches.match(request).then((response) => {
         if (response) {
