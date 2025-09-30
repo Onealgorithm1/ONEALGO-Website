@@ -93,7 +93,9 @@ interface StructuredDataProps {
 }
 
 export function StructuredData({ data }: StructuredDataProps) {
-  useEffect(() => {
+  if (typeof document === "undefined") return null;
+
+  setTimeout(() => {
     // Handle data that already has @context vs legacy data with 'type' field
     const schema = data["@context"]
       ? data
@@ -103,30 +105,24 @@ export function StructuredData({ data }: StructuredDataProps) {
           ...data,
         };
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schema);
-    script.id = `schema-${data.type.toLowerCase()}`;
+    const scriptId = `schema-${(data.type || "schema").toString().toLowerCase()}`;
 
     // Remove existing schema of the same type
-    const existingScript = document.getElementById(
-      `schema-${data.type.toLowerCase()}`,
-    );
+    const existingScript = document.getElementById(scriptId);
     if (existingScript) {
       existingScript.remove();
     }
 
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(schema);
+    script.id = scriptId;
+
     document.head.appendChild(script);
 
-    return () => {
-      const scriptToRemove = document.getElementById(
-        `schema-${data.type.toLowerCase()}`,
-      );
-      if (scriptToRemove) {
-        scriptToRemove.remove();
-      }
-    };
-  }, [data]);
+    // Note: we intentionally do not attempt to remove the script on unmount here.
+    // Subsequent calls will replace the existing script by id.
+  }, 0);
 
   return null;
 }
