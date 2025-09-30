@@ -1,4 +1,5 @@
 import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 import {
   Card,
@@ -597,7 +598,7 @@ Accessibility compliance ensures websites work effectively for users with disabi
     "Web Development",
     "Case Studies",
   ];
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredPosts =
     selectedCategory === "All"
