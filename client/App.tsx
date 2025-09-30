@@ -15,6 +15,7 @@ const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 const Careers = lazy(() => import("./pages/Careers"));
 const Events = lazy(() => import("./pages/Events"));
 const Construction = lazy(() => import("./pages/industries/Construction"));
