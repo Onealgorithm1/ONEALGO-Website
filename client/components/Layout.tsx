@@ -279,7 +279,7 @@ export default function Layout({ children }: LayoutProps) {
                       >
                         Events
                       </Link>
-                      <div className="px-4 py-2 border-t">
+                      <div className="px-4 py-2 border-t block md:hidden">
                         <Link
                           to="/contact"
                           className="block text-center bg-onealgo-orange-500 text-white rounded-md px-3 py-2 font-semibold mt-2"
@@ -842,6 +842,15 @@ export default function Layout({ children }: LayoutProps) {
                   }
                 >
                   Privacy Policy
+                </Link>
+                <Link
+                  to="/terms"
+                  className="text-blue-200 hover:text-white transition-colors text-sm"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
+                  Terms &amp; Conditions
                 </Link>
               </div>
             </div>

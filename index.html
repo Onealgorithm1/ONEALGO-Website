@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
@@ -16,6 +15,128 @@
     </script>
     <!-- End Google Tag Manager -->
 
+    <!-- SearchAtlas dynamic optimization loader (safe, with error reporting) -->
+    <script>
+      (function () {
+        try {
+          // Global error capture to send to server for debugging
+          function reportError(payload) {
+            try {
+              var body = JSON.stringify(payload || {});
+
+              // Best-effort: sendBeacon to Netlify function path for background delivery where available
+              try {
+                if (navigator.sendBeacon) {
+                  var blob = new Blob([body], { type: "application/json" });
+                  navigator.sendBeacon("/.netlify/functions/api", blob);
+                }
+              } catch (e) {}
+
+              // Attempt primary fetch to Netlify function path for compatibility
+              fetch("/.netlify/functions/api", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: body,
+              }).catch(function () {
+                // Fallback to /api/log-js-error if function path fails
+                try {
+                  fetch("/api/log-js-error", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: body,
+                  }).catch(function () {});
+                } catch (e) {}
+              });
+            } catch (e) {
+              try {
+                console.error("Error reporting failure", e);
+              } catch (e) {}
+            }
+          }
+
+          window.addEventListener("error", function (evt) {
+            try {
+              var isResourceError =
+                evt.target && (evt.target.src || evt.target.href);
+              var payload = {
+                type: isResourceError ? "resource_error" : "error",
+                message:
+                  evt.message ||
+                  (isResourceError ? "Resource load error" : "Script error"),
+                filename:
+                  evt.filename ||
+                  (evt.target && (evt.target.src || evt.target.href)) ||
+                  null,
+                lineno: evt.lineno || null,
+                colno: evt.colno || null,
+                stack: (evt.error && evt.error.stack) || null,
+                href: location.href,
+                userAgent: navigator.userAgent,
+                time: Date.now(),
+              };
+              // Don't block main thread
+              setTimeout(function () {
+                reportError(payload);
+              }, 0);
+            } catch (e) {
+              try {
+                console.error("Error in error handler", e);
+              } catch (e) {}
+            }
+          });
+
+          window.addEventListener("unhandledrejection", function (evt) {
+            try {
+              var reason = evt.reason;
+              var message =
+                (reason && reason.message) ||
+                String(reason) ||
+                "unhandledrejection";
+              var stack = (reason && reason.stack) || null;
+              var payload = {
+                type: "unhandledrejection",
+                message: message,
+                stack: stack,
+                href: location.href,
+                userAgent: navigator.userAgent,
+                time: Date.now(),
+              };
+              setTimeout(function () {
+                reportError(payload);
+              }, 0);
+            } catch (e) {
+              try {
+                console.error("Error in unhandledrejection handler", e);
+              } catch (e) {}
+            }
+          });
+
+          if (
+            document.querySelector(
+              'script[id="sa-dynamic-optimization-visible"]',
+            )
+          ) {
+            console.log(
+              "SearchAtlas script already present in HTML; skipping dynamic append.",
+            );
+          } else {
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.id = "sa-dynamic-optimization-visible";
+            s.dataset.uuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
+            // Load vendorized local copy to avoid CORS/service-worker cross-origin fetch failures
+            s.text =
+              "(function(){try{var UUID=\"180b3689-4f9a-42e5-8fc5-f4b7c2217a7e\";function log(){try{console.log.apply(console,arguments)}catch(e){}}function fetchUrlDetails(){try{var u=encodeURIComponent(window.location.href.split('#')[0]);var endpoint=\"https://sa.searchatlas.com/api/v2/otto-url-details/?url=\"+u+\"&uuid=\"+UUID;return fetch(endpoint,{credentials:'omit'}).then(function(res){if(!res.ok){log('SearchAtlas API returned non-OK',res.status);return null}return res.json().catch(function(){return null})}).catch(function(err){log('SearchAtlas fetch failed (ignored):',err&&err.message);return null})}catch(e){return Promise.resolve(null)}}function initializeScript(){try{fetchUrlDetails().then(function(data){if(data){log('SearchAtlas data loaded (inline):',data);window.__SEARCHATLAS_DATA__=data}else{log('SearchAtlas: no data (inline)')}})}catch(e){log('SearchAtlas initialize error (ignored)')}}if(document.readyState==='complete'||document.readyState==='interactive'){setTimeout(initializeScript,0)}else{window.addEventListener('DOMContentLoaded',initializeScript)}window.SearchAtlas=window.SearchAtlas||{};window.SearchAtlas.init=initializeScript;window.SearchAtlas.fetchUrlDetails=fetchUrlDetails}catch(e){try{console.error('Vendor SearchAtlas failed (inline):',e)}catch(e){}}})();";
+
+            // Inline script appended to avoid network fetch failures
+            document.head.appendChild(s);
+          }
+        } catch (err) {
+          console.error("Error inserting SearchAtlas script", err);
+        }
+      })();
+    </script>
+
     <!-- Google tag (gtag.js) - Deferred loading for performance -->
     <script>
       // Defer Google Analytics loading until after page load
@@ -23,15 +144,33 @@
         // Google tag (gtag.js) - AW
         const script1 = document.createElement("script");
         script1.async = true;
+        script1.crossOrigin = "anonymous";
         script1.src =
           "https://www.googletagmanager.com/gtag/js?id=AW-17336277732";
+        script1.onerror = function (e) {
+          reportError({
+            type: "resource_error",
+            message: "gtag AW failed to load",
+            href: location.href,
+            time: Date.now(),
+          });
+        };
         document.head.appendChild(script1);
 
         // Google tag (gtag.js) - GA
         const script2 = document.createElement("script");
         script2.async = true;
+        script2.crossOrigin = "anonymous";
         script2.src =
           "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
+        script2.onerror = function (e) {
+          reportError({
+            type: "resource_error",
+            message: "gtag GA failed to load",
+            href: location.href,
+            time: Date.now(),
+          });
+        };
         document.head.appendChild(script2);
 
         // Initialize after scripts load
@@ -167,151 +306,5 @@
       sizes="16x16"
       href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=16"
     />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=ico&width=32"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=180"
-    />
-    <link
-      rel="shortcut icon"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=ico&width=32"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#1E3A8A" />
-
-    <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://cdn.builder.io" />
-
-    <!-- Preload critical fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <!-- DNS prefetch for better performance -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <script
-      nowprocket
-      nitro-exclude
-      type="text/javascript"
-      id="sa-dynamic-optimization"
-      data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
-      src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjE4MGIzNjg5LTRmOWEtNDJlNS04ZmM1LWY0YjdjMjIxN2E3ZSI7c2NyaXB0LmlkID0gInNhLWR5bmFuaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="
-    ></script>
-    <link rel="dns-prefetch" href="//images.unsplash.com" />
-
-    <!-- Resource hints -->
-    <link rel="preload" href="/client/global.css" as="style" />
-
-    <!-- Load Google Fonts asynchronously -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      />
-    </noscript>
-
-    <!-- Critical CSS inline optimization -->
-    <style>
-      /* Critical above-the-fold styles */
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, sans-serif;
-        line-height: 1.6;
-      }
-      .loading-skeleton {
-        background: #f0f0f0;
-        animation: pulse 1.5s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-      /* Prevent layout shift */
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      /* Optimize font rendering */
-      * {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    </style>
-
-    <!-- Performance optimization hints -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="format-detection" content="telephone=no" />
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/client/App.tsx" as="script" crossorigin />
-    <link rel="modulepreload" href="/client/App.tsx" />
-
-    <!-- Mobile optimization -->
-    <meta name="theme-color" content="#1E3A8A" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="OneAlgorithm" />
   </head>
-
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NTDV6XG6"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-        title="Google Tag Manager"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <div id="root"></div>
-
-    <!-- Service Worker Registration -->
-    <script>
-      // Register service worker for performance optimization
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then(function (registration) {
-              console.log("SW registered: ", registration);
-            })
-            .catch(function (registrationError) {
-              console.log("SW registration failed: ", registrationError);
-            });
-        });
-      }
-    </script>
-
-    <script type="module" src="/client/App.tsx"></script>
-  </body>
 </html>

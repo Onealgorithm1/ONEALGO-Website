@@ -64,6 +64,21 @@ self.addEventListener("fetch", (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // If this is a cross-origin request (third-party script/resource), do not handle it
+  // in the SW routing to avoid CORS issues for external providers (e.g., SearchAtlas).
+  try {
+    if (url.origin !== location.origin) {
+      event.respondWith(
+        fetch(request, { mode: "no-cors" }).catch(() =>
+          caches.match("/offline.html"),
+        ),
+      );
+      return;
+    }
+  } catch (e) {
+    // If URL parsing fails, fall back to default behavior
+  }
+
   // For navigation requests (HTML pages) use network-first to ensure fresh content
   if (request.mode === "navigate") {
     event.respondWith(
