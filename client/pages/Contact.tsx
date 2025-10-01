@@ -512,7 +512,7 @@ export default function Contact() {
                 <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
                   <CardHeader className="pb-3">
                     <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
-                      <span className="text-xl">🇮���</span>
+                      <span className="text-xl">🇮🇳</span>
                       India
                     </CardTitle>
                   </CardHeader>
