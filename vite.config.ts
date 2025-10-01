@@ -47,7 +47,11 @@ export default defineConfig(({ mode }) => ({
         // Optimize file names for better caching
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: "assets/[name].[hash].[ext]",
+        assetFileNames: (chunkInfo) => {
+          const ext = chunkInfo.name?.split(".").pop();
+          if (ext === "css") return "assets/[name].[ext]";
+          return "assets/[name].[hash].[ext]";
+        },
       },
     },
     // Increase chunk size warning limit after optimization
