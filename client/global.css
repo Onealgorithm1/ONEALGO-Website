@@ -16,6 +16,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure 3rd-party Roboto uses font-display swap */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.bunny.net/fonts/roboto/files/roboto-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.bunny.net/fonts/roboto/files/roboto-latin-700-normal.woff2") format("woff2");
+}
+
 /* Performance optimizations */
 @layer base {
   html {
