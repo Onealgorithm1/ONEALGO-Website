@@ -3,8 +3,13 @@
   // Modified to avoid network calls (prevents external 401 errors and noisy failures)
   try {
     var UUID = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
+    var DIAGNOSTICS =
+      typeof window !== "undefined" &&
+      window.location &&
+      window.location.search.indexOf("diagnostics") !== -1;
+
     function log() {
-      if (window.console && window.console.log) {
+      if (DIAGNOSTICS && window.console && window.console.log) {
         console.log.apply(console, arguments);
       }
     }
