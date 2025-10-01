@@ -122,13 +122,13 @@
 
           function loadSearchAtlasScript() {
             if (
-              (window as any).__saDynamicOptimizationLoading ||
+              window.__saDynamicOptimizationLoading ||
               document.getElementById(saScriptId)
             ) {
               return;
             }
 
-            (window as any).__saDynamicOptimizationLoading = true;
+            window.__saDynamicOptimizationLoading = true;
             var script = document.createElement("script");
             script.id = saScriptId;
             script.type = "text/javascript";
