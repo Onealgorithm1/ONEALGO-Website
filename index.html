@@ -119,7 +119,7 @@
 
           if (
             document.querySelector(
-              'script[id="sa-dynamic-optimization-visible"]',
+              '#sa-dynamic-optimization, #sa-dynamic-optimization-loader',
             )
           ) {
             console.log(
@@ -128,7 +128,7 @@
           } else {
             var s = document.createElement("script");
             s.type = "text/javascript";
-            s.id = "sa-dynamic-optimization-visible";
+            s.id = "sa-dynamic-optimization-loader";
             s.dataset.uuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
             // Point to local vendorized copy instead of embedding inline string
             s.src = "/scripts/dynamic_optimization.js";
@@ -298,7 +298,7 @@
       type="text/javascript"
       id="sa-dynamic-optimization"
       data-uuid="180b3689-4f9a-42e5-8fc5-f4b7c2217a7e"
-      src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjE4MGIzNjg5LTRmOWEtNDJlNS04ZmM1LWY0YjdjMjIxN2E3ZSI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="
+      src="data:text/javascript;base64,KGZ1bmN0aW9uKCl7CiAgaWYgKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJzYS1keW5hbWljLW9wdGltaXphdGlvbi1sb2FkZXIiKSkgcmV0dXJuOwogIHZhciBzY3JpcHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTsKICBzY3JpcHQuaWQgPSAic2EtZHluYW1pYy1vcHRpbWl6YXRpb24tbG9hZGVyIjsKICBzY3JpcHQuc2V0QXR0cmlidXRlKCJub3dwcm9ja2V0IiwgIiIpOwogIHNjcmlwdC5zZXRBdHRyaWJ1dGUoIm5pdHJvLWV4Y2x1ZGUiLCAiIik7CiAgc2NyaXB0LmRhdGFzZXQudXVpZCA9ICIxODBiMzY4OS00ZjlhLTQyZTUtOGZjNS1mNGI3YzIyMTdhN2UiOwogIHNjcmlwdC5zcmMgPSAiL3NjcmlwdHMvZHluYW1pY19vcHRpbWl6YXRpb24uanMiOwogIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoc2NyaXB0KTsKfSkoKTs="
     ></script>
   </head>
   <body>
