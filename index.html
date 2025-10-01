@@ -9,7 +9,40 @@
       data-uuid="67538d68-7102-4008-8810-49c94fafae37"
       src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pcmF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjY3NTM4ZDY4LTcxMDItNDAwOC04ODEwLTQ5Yzk0ZmFmYWUzNyI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="
     ></script>
-    <script>(function(){try{var seen=false;var originalAppend=Element.prototype.appendChild;Element.prototype.appendChild=function(child){try{if(child&&child.tagName==="SCRIPT"){var id=(child.id||"").toLowerCase();var src=(child.src||"").toLowerCase();var uuid=(child.getAttribute&&child.getAttribute("data-uuid"))||"";var isOtto=id==="sa-dynamic-optimization"||src.indexOf("searchatlas")!==-1||src.indexOf("sa.searchatlas.com")!==-1||src.indexOf("dashboard.searchatlas.com")!==-1||uuid.length>0;var already=document.getElementById("sa-dynamic-optimization");if(isOtto&&(already||seen)){return child;}if(isOtto){seen=true;}}}catch(e){}return originalAppend.call(this,child);};}catch(e){}})();</script>
+    <script>
+      (function () {
+        try {
+          var seen = false;
+          var originalAppend = Element.prototype.appendChild;
+          Element.prototype.appendChild = function (child) {
+            try {
+              if (child && child.tagName === "SCRIPT") {
+                var id = (child.id || "").toLowerCase();
+                var src = (child.src || "").toLowerCase();
+                var uuid =
+                  (child.getAttribute && child.getAttribute("data-uuid")) || "";
+                var isOtto =
+                  id === "sa-dynamic-optimization" ||
+                  src.indexOf("searchatlas") !== -1 ||
+                  src.indexOf("sa.searchatlas.com") !== -1 ||
+                  src.indexOf("dashboard.searchatlas.com") !== -1 ||
+                  uuid.length > 0;
+                var already = document.getElementById(
+                  "sa-dynamic-optimization",
+                );
+                if (isOtto && (already || seen)) {
+                  return child;
+                }
+                if (isOtto) {
+                  seen = true;
+                }
+              }
+            } catch (e) {}
+            return originalAppend.call(this, child);
+          };
+        } catch (e) {}
+      })();
+    </script>
     <!-- DNS Prefetch for Performance -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com" />
     <link rel="dns-prefetch" href="//cdn.builder.io" />
