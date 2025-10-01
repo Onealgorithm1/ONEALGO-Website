@@ -51,25 +51,37 @@
     <!-- Preload main CSS to reduce blocking time -->
     <link rel="preload" as="style" href="/assets/index.css" />
 
-    <!-- Google Tag Manager - AFTER SearchAtlas -->
+    <!-- Google Tag Manager (deferred, production only) -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NTDV6XG6");
+      (function () {
+        var prodHosts = ["onealgorithm.com", "www.onealgorithm.com"];
+        if (!prodHosts.includes(location.hostname)) return;
+        function loadAnalytics() {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", "GTM-NTDV6XG6");
+          var gs = document.createElement("script");
+          gs.async = true;
+          gs.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
+          document.head.appendChild(gs);
+        }
+        if ("requestIdleCallback" in window) {
+          (window).requestIdleCallback(loadAnalytics, { timeout: 4000 });
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(loadAnalytics, 2000);
+          }, { once: true });
+        }
+      })();
     </script>
     <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"
-    ></script>
     <script>
       (function () {
         function warn(message, error) {
@@ -87,24 +99,15 @@
 
         try {
           window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            window.dataLayer.push(arguments);
-          }
-
+          function gtag() { window.dataLayer.push(arguments); }
           window.gtag = window.gtag || gtag;
-
+          var prodHosts = ["onealgorithm.com", "www.onealgorithm.com"];
+          if (!prodHosts.includes(location.hostname)) return;
           window.gtag("js", new Date());
-          window.gtag("config", "G-RC48CMQ05T", {
-            allow_enhanced_conversions: true,
-          });
+          window.gtag("config", "G-RC48CMQ05T", { allow_enhanced_conversions: true });
           window.gtag("config", "AW-17336277732");
-          window.gtag("event", "page_view", {
-            page_title: document.title,
-            page_location: window.location.href,
-          });
-        } catch (error) {
-          warn("Google Analytics initialization failed", error);
-        }
+          window.gtag("event", "page_view", { page_title: document.title, page_location: window.location.href });
+        } catch (error) { warn("Google Analytics initialization failed", error); }
 
         window.trackFormSubmission = function () {
           try {
