@@ -123,7 +123,7 @@
         window.__saDynamicOptimizationLoaded = true;
         try {
           console.log(
-            "\u2705 SearchAtlas: Script loaded successfully with new credentials!"
+            "\u2705 SearchAtlas: Script loaded successfully with new credentials!",
           );
         } catch (e) {}
       };
