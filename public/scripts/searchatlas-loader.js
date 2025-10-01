@@ -85,36 +85,68 @@
       }
     });
 
-    var saScriptId = "sa-dynamic-optimization";
-    var saScriptUuid = "180b3689-4f9a-42e5-8fc5-f4b7c2217a7e";
+    var LOADER_ID = "sa-dynamic-optimization-loader";
+    var LEGACY_ID = "sa-dynamic-optimization";
+    var LOADER_UUID = "ca1f4c7667df2c4769bff7338a598f2a";
+    var LOADER_SRC =
+      "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
 
     function loadSearchAtlasScript() {
-      if (
-        window.__saDynamicOptimizationLoading ||
-        document.getElementById(saScriptId)
-      ) {
+      if (window.saScriptLoaded || document.getElementById(LOADER_ID)) {
+        try {
+          console.log("SearchAtlas already loaded, skipping...");
+        } catch (e) {}
+        window.saScriptLoaded = true;
         return;
       }
 
-      window.__saDynamicOptimizationLoading = true;
+      var legacyScript = document.getElementById(LEGACY_ID);
+      if (legacyScript && legacyScript.parentNode) {
+        legacyScript.parentNode.removeChild(legacyScript);
+      }
+
+      window.saScriptLoaded = true;
+      try {
+        console.log("\ud83d\udd0d SearchAtlas: Initializing with new UUID...");
+      } catch (e) {}
+
       var script = document.createElement("script");
-      script.id = saScriptId;
+      script.id = LOADER_ID;
       script.type = "text/javascript";
-      script.src =
-        "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
-      script.defer = true;
       script.async = true;
+      script.setAttribute("data-uuid", LOADER_UUID);
       script.setAttribute("nowprocket", "");
       script.setAttribute("nitro-exclude", "");
-      script.setAttribute("data-uuid", saScriptUuid);
+      script.src = LOADER_SRC;
 
       script.onload = function () {
         window.__saDynamicOptimizationLoaded = true;
-      };
-      script.onerror = function (event) {
         try {
-          console.warn("SearchAtlas script failed to load", event);
+          console.log(
+            "\u2705 SearchAtlas: Script loaded successfully with new credentials!"
+          );
         } catch (e) {}
+      };
+
+      script.onerror = function (event) {
+        window.saScriptLoaded = false;
+        try {
+          console.error("\u274c SearchAtlas: Failed to load script", event);
+        } catch (e) {}
+        reportError({
+          type: "searchatlas_script_load_error",
+          message: "SearchAtlas dynamic optimization script failed to load",
+          filename: LOADER_SRC,
+          href: location.href,
+          userAgent: navigator.userAgent,
+          time: Date.now(),
+          detail:
+            event && event.message
+              ? event.message
+              : event && event.type
+                ? event.type
+                : null,
+        });
       };
 
       document.head.appendChild(script);
