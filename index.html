@@ -1,12 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- CRITICAL: SearchAtlas MUST be first and in exact format -->
+    <script nowprocket nitro-exclude type="text/javascript" id="sa-dynamic-optimization" data-uuid="67538d68-7102-4008-8810-49c94fafae37" src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjY3NTM4ZDY4LTcxMDItNDAwOC04ODEwLTQ5Yzk0ZmFmYWUzNyI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="></script>
+    
+    <!-- SearchAtlas Verification Meta Tags -->
+    <meta name="searchatlas-verification" content="67538d68-7102-4008-8810-49c94fafae37" />
+    <meta name="sa-site-verification" content="67538d68-7102-4008-8810-49c94fafae37" />
+    
     <!-- DNS Prefetch for Performance -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//dashboard.searchatlas.com">
+    <link rel="dns-prefetch" href="//sa.searchatlas.com">
     <link rel="dns-prefetch" href="//cdn.builder.io">
+    <link rel="preconnect" href="https://dashboard.searchatlas.com" crossorigin>
+    <link rel="preconnect" href="https://sa.searchatlas.com" crossorigin>
     
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager - AFTER SearchAtlas -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -20,15 +30,6 @@
       })(window, document, "script", "dataLayer", "GTM-NTDV6XG6");
     </script>
     <!-- End Google Tag Manager -->
-    
-    <!-- SearchAtlas Dynamic Optimization -->
-    <script 
-      type="text/javascript" 
-      id="sa-dynamic-optimization-loader"
-      data-uuid="67538d68-7102-4008-8810-49c94fafae37"
-      src="https://dashboard.searchatlas.com/scripts/dynamic_optimization.js"
-      async>
-    </script>
     
     <!-- Google tag (gtag.js) -->
     <script
@@ -111,6 +112,9 @@
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Robots and indexing -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     <!-- Search Engine Validations -->
     <meta name="msvalidate.01" content="1BC7A274BE398B1CF0FDD647281B5EEF" />
@@ -259,6 +263,42 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/client/App.js" as="script" crossorigin>
+    
+    <!-- SearchAtlas Debug Helper - REMOVE AFTER VERIFICATION -->
+    <script>
+      (function() {
+        // SearchAtlas initialization helper
+        window._searchAtlas = window._searchAtlas || {};
+        window._searchAtlas.siteId = '67538d68-7102-4008-8810-49c94fafae37';
+        window._searchAtlas.verified = true;
+        
+        // Debug logging
+        window.addEventListener('DOMContentLoaded', function() {
+          console.log('SearchAtlas Debug:');
+          console.log('- Site ID:', window._searchAtlas.siteId);
+          console.log('- Script loaded:', !!document.getElementById('sa-dynamic-optimization-loader'));
+          
+          // Check if SearchAtlas loaded properly
+          setTimeout(function() {
+            if (typeof window.SearchAtlas !== 'undefined') {
+              console.log('✅ SearchAtlas loaded successfully');
+            } else {
+              console.warn('⚠️ SearchAtlas not detected - checking for errors');
+              
+              // Check network tab for 401/404 errors
+              if (window.performance && window.performance.getEntriesByType) {
+                var resources = window.performance.getEntriesByType('resource');
+                resources.forEach(function(resource) {
+                  if (resource.name.includes('searchatlas')) {
+                    console.log('SearchAtlas resource:', resource.name, 'Status:', resource.responseStatus || 'unknown');
+                  }
+                });
+              }
+            }
+          }, 3000);
+        });
+      })();
+    </script>
   </head>
   <body>
     <!-- Skip to main content for accessibility -->
@@ -273,6 +313,12 @@
         style="display: none; visibility: hidden"
         title="Google Tag Manager"
       ></iframe>
+    </noscript>
+    
+    <!-- SearchAtlas noscript fallback -->
+    <noscript>
+      <img src="https://dashboard.searchatlas.com/noscript?uuid=67538d68-7102-4008-8810-49c94fafae37" 
+           width="1" height="1" style="display:none" alt="">
     </noscript>
     
     <!-- Main application root -->
