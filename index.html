@@ -57,32 +57,19 @@
         var prodHosts = ["onealgorithm.com", "www.onealgorithm.com"];
         if (!prodHosts.includes(location.hostname)) return;
         function loadAnalytics() {
+          if (loadAnalytics._done) return; loadAnalytics._done = true;
           (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-            var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true; j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl; f.parentNode.insertBefore(j, f);
           })(window, document, "script", "dataLayer", "GTM-NTDV6XG6");
-          var gs = document.createElement("script");
-          gs.async = true;
-          gs.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
-          document.head.appendChild(gs);
+          var gs = document.createElement("script"); gs.async = true; gs.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"; document.head.appendChild(gs);
         }
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
-        } else {
-          window.addEventListener(
-            "load",
-            function () {
-              setTimeout(loadAnalytics, 2000);
-            },
-            { once: true },
-          );
-        }
+        var fired = false; function fireOnce(){ if(!fired){ fired=true; loadAnalytics(); removeListeners(); }}
+        function removeListeners(){["pointerdown","keydown","scroll","mousemove","touchstart"].forEach(function(t){window.removeEventListener(t,fireOnce,{passive:true});});}
+        ["pointerdown","keydown","scroll","mousemove","touchstart"].forEach(function(t){window.addEventListener(t,fireOnce,{passive:true});});
+        setTimeout(loadAnalytics, 10000);
       })();
     </script>
     <!-- End Google Tag Manager -->
