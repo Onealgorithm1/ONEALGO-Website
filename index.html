@@ -57,6 +57,11 @@
 
           window.addEventListener("error", function (evt) {
             try {
+              // Ignore opaque cross-origin script errors to reduce noise
+              if (evt.message === "Script error." && !evt.filename) {
+                return;
+              }
+
               var isResourceError =
                 evt.target && (evt.target.src || evt.target.href);
               var payload = {
