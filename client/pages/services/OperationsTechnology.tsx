@@ -42,12 +42,12 @@ export default function OperationsTechnology() {
       "Professional operations technology services including industrial automation, process optimization, monitoring systems, and equipment integration. Streamline your operations with OneAlgorithm.",
     ogUrl: getCanonicalUrl("/services/operations-technology"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "Operations Technology Services - OneAlgorithm",
     twitterDescription:
       "Professional operations technology services including industrial automation, process optimization, monitoring systems, and equipment integration. Streamline your operations with OneAlgorithm.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   const services = [
     {
