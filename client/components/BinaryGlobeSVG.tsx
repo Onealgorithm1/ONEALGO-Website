@@ -21,14 +21,14 @@ export default function BinaryGlobeSVG({
       style={{
         objectFit: "contain",
         aspectRatio: `auto ${size} / ${size}`,
-        borderColor: "rgb(255, 255, 255)",
-        borderWidth: "0.8px",
-        color: "rgb(255, 255, 255)",
+        borderColor: "rgba(255, 255, 255, 0)",
+        color: "rgba(255, 255, 255, 0.58)",
         filter:
           "drop-shadow(rgba(0, 0, 0, 0.07) 0px 4px 3px) drop-shadow(rgba(0, 0, 0, 0.06) 0px 2px 2px)",
         fontWeight: 700,
-        objectFit: "contain",
         textDecoration: "rgb(255, 255, 255)",
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        width: "28px",
         alignSelf: "center",
       }}
       loading="lazy"
