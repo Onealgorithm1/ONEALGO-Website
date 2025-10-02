@@ -21,7 +21,7 @@ export default function OneAlgorithmText({
 
   const globeSizes = {
     sm: 20,
-    md: 28,
+    md: 30,
     lg: 36,
     xl: 44,
   };
