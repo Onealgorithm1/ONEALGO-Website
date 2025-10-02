@@ -362,7 +362,7 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-50 bg-white">
+            <div className="md:hidden fixed inset-0 z-[100] bg-white">
               <div className="flex items-center justify-between px-4 py-3 border-b">
                 <Link
                   to="/"
