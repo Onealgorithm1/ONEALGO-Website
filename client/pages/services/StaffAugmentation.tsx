@@ -159,8 +159,7 @@ export default function StaffAugmentation() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Staff{" "}
-                <span className="text-onealgo-orange-500">Augmentation</span>
+                Staff <span className="text-onealgo-orange-500">Augmentation</span> Services
               </h1>
               <ul className="text-xl text-blue-200 mb-8 space-y-3">
                 <li className="flex items-start">
