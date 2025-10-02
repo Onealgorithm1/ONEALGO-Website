@@ -1,7 +1,18 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 
 export default function Privacy() {
+  useSEO({
+    title: "Privacy Policy — OneAlgorithm",
+    description: "Read OneAlgorithm's Privacy Policy detailing how we collect, use, and protect your information.",
+    canonical: getCanonicalUrl("/privacy"),
+    ogTitle: "Privacy Policy — OneAlgorithm",
+    ogDescription: "Learn about our data practices and your privacy rights.",
+    ogUrl: getCanonicalUrl("/privacy"),
+    twitterTitle: "Privacy Policy — OneAlgorithm",
+    twitterDescription: "Learn about our data practices and your privacy rights."
+  });
   return (
     <Layout>
       <section className="py-20 bg-white">
