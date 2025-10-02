@@ -20,11 +20,16 @@ export default function BinaryGlobeSVG({
       className={`inline-block ${className}`}
       style={{
         objectFit: "contain",
-        width: `${size}px`,
+        aspectRatio: `auto ${size} / ${size}`,
+        borderColor: "rgb(255, 255, 255)",
+        borderWidth: "0.8px",
+        color: "rgb(255, 255, 255)",
         filter:
           "drop-shadow(rgba(0, 0, 0, 0.07) 0px 4px 3px) drop-shadow(rgba(0, 0, 0, 0.06) 0px 2px 2px)",
-        color: "rgba(255, 255, 255, 1)",
-        border: "1px solid rgba(255, 255, 255, 1)",
+        fontWeight: 700,
+        objectFit: "contain",
+        textDecoration: "rgb(255, 255, 255)",
+        alignSelf: "center",
       }}
       loading="lazy"
       decoding="async"
