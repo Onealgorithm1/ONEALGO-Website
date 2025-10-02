@@ -123,8 +123,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Events &{" "}
-              <span className="text-onealgo-orange-500">Workshops</span>
+              Technology Events & <span className="text-onealgo-orange-500">Workshops</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Join us for exclusive events, workshops, and webinars designed to
