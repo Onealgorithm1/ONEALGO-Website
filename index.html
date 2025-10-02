@@ -303,14 +303,17 @@
                     var id = (child.id || "").toLowerCase();
                     var src = (child.src || "").toLowerCase();
                     var uuid =
-                      (child.getAttribute && child.getAttribute("data-uuid")) || "";
+                      (child.getAttribute && child.getAttribute("data-uuid")) ||
+                      "";
                     var isOtto =
                       id.indexOf("sa-dynamic-optimization") !== -1 ||
                       src.indexOf("searchatlas.com") !== -1 ||
                       src.indexOf("sa.searchatlas.com") !== -1 ||
                       src.indexOf("dashboard.searchatlas.com") !== -1 ||
                       uuid.length > 0;
-                    var already = document.getElementById("sa-dynamic-optimization");
+                    var already = document.getElementById(
+                      "sa-dynamic-optimization",
+                    );
                     var wrongUuid = isOtto && uuid && uuid !== SA_UUID;
                     if (isOtto && (already || wrongUuid)) {
                       return child; // block duplicate or wrong UUID
