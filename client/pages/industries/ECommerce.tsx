@@ -76,7 +76,7 @@ export default function ECommerce() {
           <div className="text-center">
             <ShoppingCart className="w-24 h-24 text-green-500 mx-auto mb-6 animate-bounce-slow" />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              E-Commerce <span className="text-green-500">Solutions</span>
+              E‑Commerce Technology <span className="text-green-500">Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Scale your online business with integrated platforms that connect
