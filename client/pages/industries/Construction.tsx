@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -18,6 +19,14 @@ import {
 } from "lucide-react";
 
 export default function Construction() {
+  useSEO({
+    title: "Construction Solutions — OneAlgorithm",
+    description: "Project scheduling, team coordination, safety, and cost control solutions for construction firms.",
+    canonical: getCanonicalUrl("/industries/construction"),
+    ogTitle: "Construction Solutions — OneAlgorithm",
+    ogDescription: "Smarter coordination and real-time visibility from field to office.",
+    ogUrl: getCanonicalUrl("/industries/construction")
+  });
   const features = [
     {
       icon: <Calendar className="w-8 h-8 text-onealgo-orange-500" />,
