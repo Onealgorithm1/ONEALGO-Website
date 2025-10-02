@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -18,6 +19,14 @@ import {
 } from "lucide-react";
 
 export default function WebsiteDevelopment() {
+  useSEO({
+    title: "Website Development Solutions — OneAlgorithm",
+    description: "Modern design, responsive builds, performance, SEO, and security for business websites.",
+    canonical: getCanonicalUrl("/industries/website-development"),
+    ogTitle: "Website Development Solutions — OneAlgorithm",
+    ogDescription: "Fast, secure, and SEO‑ready websites tailored to your needs.",
+    ogUrl: getCanonicalUrl("/industries/website-development")
+  });
   const features = [
     {
       icon: <Monitor className="w-8 h-8 text-onealgo-orange-500" />,
