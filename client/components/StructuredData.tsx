@@ -133,7 +133,7 @@ export function createOrganizationSchema(): OrganizationSchema {
     type: "Organization",
     name: "OneAlgorithm",
     url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/logo.webp",
+    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
     description:
       "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
     address: {
@@ -175,7 +175,7 @@ export function createOrganizationSchemaDetailed() {
     description:
       "Custom software development, system integration, and growth marketing agency serving Philadelphia and nationwide clients",
     url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/logo.webp",
+    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
     foundingDate: "2020",
     telephone: "(610) 298-9069",
     email: "contact@onealgorithm.com",
