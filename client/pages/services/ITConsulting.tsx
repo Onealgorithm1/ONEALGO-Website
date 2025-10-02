@@ -40,12 +40,12 @@ export default function ITConsulting() {
       "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization. Drive growth with OneAlgorithm's IT expertise.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "IT Consulting Services - OneAlgorithm",
     twitterDescription:
       "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization. Drive growth with OneAlgorithm's IT expertise.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   const services = [
     {
