@@ -45,7 +45,7 @@ export default function OneAlgorithmText({
       className={`font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
     >
       <span className="text-onealgo-orange-500">One</span>
-      <span className="text-onealgo-blue-950">Alg</span>
+      <span className="text-onealgo-blue-950" style={{ margin: "20px 0" }}>Alg</span>
       {showGlobe ? (
         <BinaryGlobeSVG
           size={globeSizes[size]}
