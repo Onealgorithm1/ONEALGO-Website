@@ -133,7 +133,7 @@ export function createOrganizationSchema(): OrganizationSchema {
     type: "Organization",
     name: "OneAlgorithm",
     url: "https://onealgorithm.com",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456",
+    logo: "https://onealgorithm.com/logo.webp",
     description:
       "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
     address: {
