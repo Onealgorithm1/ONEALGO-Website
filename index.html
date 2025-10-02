@@ -291,15 +291,54 @@
             script.onerror = function () {};
             document.head.appendChild(script);
           }
+          // Guard against duplicate or wrong-UUID OTTO injections (e.g., via GTM)
           try {
+            var SA_UUID = "67538d68-7102-4008-8810-49c94fafae37";
+            if (!window.__OTTO_GUARD__) {
+              window.__OTTO_GUARD__ = true;
+              var __otto_append = Element.prototype.appendChild;
+              Element.prototype.appendChild = function (child) {
+                try {
+                  if (child && child.tagName === "SCRIPT") {
+                    var id = (child.id || "").toLowerCase();
+                    var src = (child.src || "").toLowerCase();
+                    var uuid =
+                      (child.getAttribute && child.getAttribute("data-uuid")) || "";
+                    var isOtto =
+                      id.indexOf("sa-dynamic-optimization") !== -1 ||
+                      src.indexOf("searchatlas.com") !== -1 ||
+                      src.indexOf("sa.searchatlas.com") !== -1 ||
+                      src.indexOf("dashboard.searchatlas.com") !== -1 ||
+                      uuid.length > 0;
+                    var already = document.getElementById("sa-dynamic-optimization");
+                    var wrongUuid = isOtto && uuid && uuid !== SA_UUID;
+                    if (isOtto && (already || wrongUuid)) {
+                      return child; // block duplicate or wrong UUID
+                    }
+                  }
+                } catch (e) {}
+                return __otto_append.call(this, child);
+              };
+            }
+
+            // Cleanup any stray duplicates
             var nodes = Array.prototype.slice.call(
-              document.querySelectorAll('script[src*="searchatlas.com"]'),
+              document.querySelectorAll(
+                'script[src*="searchatlas.com"], script#sa-dynamic-optimization',
+              ),
             );
-            if (nodes.length > 1) {
-              for (var i = 1; i < nodes.length; i++) {
-                if (nodes[i] && nodes[i].parentNode) {
-                  nodes[i].parentNode.removeChild(nodes[i]);
-                }
+            var kept = false;
+            for (var i = 0; i < nodes.length; i++) {
+              var n = nodes[i];
+              var isCorrect =
+                (n.id || "").toLowerCase() === "sa-dynamic-optimization" ||
+                (n.getAttribute && n.getAttribute("data-uuid") === SA_UUID);
+              if (!kept && isCorrect) {
+                kept = true;
+                continue;
+              }
+              if (kept && n && n.parentNode) {
+                n.parentNode.removeChild(n);
               }
             }
           } catch (e) {}
