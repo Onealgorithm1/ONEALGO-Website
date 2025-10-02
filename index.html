@@ -304,6 +304,18 @@
             script.onerror = function () {};
             document.head.appendChild(script);
           }
+          try {
+            var nodes = Array.prototype.slice.call(
+              document.querySelectorAll('script[src*="searchatlas.com"]')
+            );
+            if (nodes.length > 1) {
+              for (var i = 1; i < nodes.length; i++) {
+                if (nodes[i] && nodes[i].parentNode) {
+                  nodes[i].parentNode.removeChild(nodes[i]);
+                }
+              }
+            }
+          } catch (e) {}
         } catch (e) {}
       })();
     </script>
