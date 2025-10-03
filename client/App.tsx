@@ -123,6 +123,7 @@ const App = () => (
               />
               <Route path="/services/marketing" element={<Marketing />} />
               <Route path="/services/seo" element={<Seo />} />
+              <Route path="/services/martech" element={<Martech />} />
               <Route
                 path="/services/staff-augmentation"
                 element={<StaffAugmentation />}
