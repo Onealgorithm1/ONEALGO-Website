@@ -894,6 +894,15 @@ export default function Layout({ children }: LayoutProps) {
                   Marketing
                 </Link>
                 <Link
+                  to="/services/seo"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  SEO Services
+                </Link>
+                <Link
                   to="/services/staff-augmentation"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
