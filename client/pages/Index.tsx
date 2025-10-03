@@ -36,19 +36,19 @@ import { JSONLDScript } from "../components/JSONLDScript";
 export default function Index() {
   // Re-enabling useSEO hook after React stability fix
   useSEO({
-    title: "OneAlgorithm — IT Consulting & Web Development",
+    title: "OneAlgorithm - Marketing & Tech Solutions",
     description:
       "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     canonical: getCanonicalUrl("/"),
     keywords:
       "custom software development Malvern PA, system integration agency, API integration, CRM integration, marketing automation, Philadelphia software development, enterprise software, SaaS development, mobile app development, One Algorithm",
-    ogTitle: "OneAlgorithm — IT Consulting & Web Development",
+    ogTitle: "OneAlgorithm - Marketing & Tech Solutions",
     ogDescription:
       "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
-    twitterTitle: "OneAlgorithm — IT Consulting & Web Development",
+    twitterTitle: "OneAlgorithm - Marketing & Tech Solutions",
     twitterDescription:
       "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
     twitterImage:
