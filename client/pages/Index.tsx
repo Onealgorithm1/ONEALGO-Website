@@ -323,6 +323,16 @@ export default function Index() {
                 </h3>
               </div>
             </Link>
+
+            {/* Nonprofit */}
+            <Link to="/services/nonprofit" className="group">
+              <div className="text-center p-6 rounded-lg border-2 border-transparent hover:border-onealgo-orange-500 transition-colors cursor-pointer">
+                <Users className="w-16 h-16 text-onealgo-blue-950 mx-auto mb-4 group-hover:text-onealgo-orange-500 transition-colors duration-300" />
+                <h3 className="text-lg font-semibold text-onealgo-blue-950 group-hover:text-onealgo-orange-500 transition-colors">
+                  Nonprofit
+                </h3>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
