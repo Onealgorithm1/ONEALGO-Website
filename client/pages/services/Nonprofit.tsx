@@ -117,8 +117,8 @@ export default function Nonprofit() {
             </div>
 
             <div className="flex items-center justify-center">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg bg-white/5 flex items-center justify-center ring-1 ring-white/10">
-                <Handshake className="w-28 h-28 text-onealgo-orange-500" />
+              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg bg-white/5 flex items-center justify-center ring-1 ring-white/10 shadow-md">
+                <Handshake className="w-28 h-28 text-onealgo-orange-500 animate-bounce-slow" aria-hidden="true" />
               </div>
             </div>
           </div>
