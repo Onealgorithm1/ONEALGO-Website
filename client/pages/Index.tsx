@@ -24,6 +24,7 @@ import {
   Globe,
   Users,
   Zap,
+  Handshake,
 } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
