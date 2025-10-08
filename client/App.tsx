@@ -68,6 +68,7 @@ const Marketing = lazy(() => import("./pages/services/Marketing"));
 const Seo = lazy(() => import("./pages/services/Seo"));
 const Martech = lazy(() => import("./pages/services/Martech"));
 const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
+const Nonprofit = lazy(() => import("./pages/services/Nonprofit"));
 const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
