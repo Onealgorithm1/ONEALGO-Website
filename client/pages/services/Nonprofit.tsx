@@ -116,12 +116,10 @@ export default function Nonprofit() {
               </div>
             </div>
 
-            <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-lg overflow-hidden">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200"
-                alt="Nonprofit mission"
-                className="w-full h-full object-cover"
-              />
+            <div className="flex items-center justify-center">
+              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+                <Handshake className="w-28 h-28 text-onealgo-orange-500" />
+              </div>
             </div>
           </div>
         </div>
