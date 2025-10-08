@@ -109,7 +109,7 @@ export default function Nonprofit() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white/10 hover:bg-white/20 text-white px-8 py-4"
+                  className="bg-transparent border-2 border-onealgo-orange-500 text-onealgo-orange-500 hover:bg-onealgo-orange-500 hover:text-white px-8 py-4"
                 >
                   <a href="/contact">Contact Us Today</a>
                 </Button>
