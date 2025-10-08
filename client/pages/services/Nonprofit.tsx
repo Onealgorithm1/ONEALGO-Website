@@ -93,7 +93,10 @@ export default function Nonprofit() {
             <div className="text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
                 <span className="text-onealgo-orange-500">Nonprofit</span>
-                <span className="text-white"> Launch &amp; Infrastructure Services</span>
+                <span className="text-white">
+                  {" "}
+                  Launch &amp; Infrastructure Services
+                </span>
               </h1>
               <p className="text-xl text-blue-200 max-w-3xl mb-8">
                 Empowering nonprofits with a complete digital, operational, and
