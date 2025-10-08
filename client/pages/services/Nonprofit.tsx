@@ -118,7 +118,10 @@ export default function Nonprofit() {
 
             <div className="flex items-center justify-center">
               <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg bg-white/5 flex items-center justify-center ring-1 ring-white/10 shadow-md">
-                <Handshake className="w-28 h-28 text-onealgo-orange-500 animate-bounce-slow" aria-hidden="true" />
+                <Handshake
+                  className="w-28 h-28 text-onealgo-orange-500 animate-bounce-slow"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>
@@ -133,8 +136,8 @@ export default function Nonprofit() {
               Our Nonprofit Services Include
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide end-to-end services tailored for nonprofits to
-              minimize friction and maximize impact.
+              We provide end-to-end services tailored for nonprofits to minimize
+              friction and maximize impact.
             </p>
           </div>
 
