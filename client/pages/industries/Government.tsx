@@ -10,7 +10,7 @@ import {
 import { Button } from "../../components/ui/button";
 import { Users, Shield, Zap, Clock } from "lucide-react";
 
-// Inline U.S. Capitol style icon derived from provided asset — styled via className prop
+// Refined U.S. Capitol silhouette icon — single-color silhouette responding to currentColor
 function CapitolIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -19,42 +19,44 @@ function CapitolIcon({ className }: { className?: string }) {
       viewBox="0 0 64 64"
       fill="currentColor"
       aria-hidden="true"
+      role="img"
     >
-      {/* Foundation / base */}
-      <rect x="4" y="52" width="56" height="4" rx="1" />
+      {/* Base line */}
+      <rect x="2" y="56" width="60" height="2" />
 
-      {/* Main platform */}
-      <rect x="6" y="44" width="52" height="6" rx="1" />
+      {/* Lower platform */}
+      <rect x="6" y="48" width="52" height="6" rx="1" />
 
-      {/* Columns */}
-      <rect x="10" y="26" width="6" height="18" />
-      <rect x="20" y="26" width="6" height="18" />
-      <rect x="30" y="26" width="6" height="18" />
-      <rect x="40" y="26" width="6" height="18" />
-      <rect x="50" y="26" width="6" height="18" />
+      {/* Column base bar */}
+      <rect x="8" y="44" width="48" height="4" />
 
-      {/* Entry band above columns */}
-      <rect x="10" y="22" width="46" height="4" rx="1" />
+      {/* Columns (gaps for visual rhythm) */}
+      <g>
+        <rect x="10" y="28" width="4" height="16" />
+        <rect x="18" y="28" width="4" height="16" />
+        <rect x="26" y="28" width="4" height="16" />
+        <rect x="34" y="28" width="4" height="16" />
+        <rect x="42" y="28" width="4" height="16" />
+        <rect x="50" y="28" width="4" height="16" />
+      </g>
 
-      {/* Pediment / triangular roof */}
-      <path d="M8 22 L32 10 L56 22 Z" />
+      {/* Central doorway */}
+      <rect x="30" y="36" width="4" height="8" rx="1" />
 
-      {/* Dome */}
-      <path d="M32 6
-               C42 6 50 14 50 24
-               H14
-               C14 14 22 6 32 6
-               Z" />
+      {/* Pediment / roof */}
+      <path d="M6 44 L32 28 L58 44 Z" />
 
-      {/* Central lower doorway */}
-      <rect x="28" y="34" width="8" height="10" rx="2" />
+      {/* Dome — smooth semi-circle */}
+      <path d="M12 28
+               C18 12 46 12 52 28
+               L52 32
+               L12 32 Z" />
 
-      {/* Flag pole and flag */}
-      <rect x="31" y="0" width="2" height="8" />
-      <path d="M33 3
-               C36 3 38 2 41 3
-               C38 4 36 4 33 4
-               Z" />
+      {/* Flag pole */}
+      <rect x="31" y="4" width="2" height="12" />
+
+      {/* Flag */}
+      <path d="M33 6 C38 6 40 5 44 6 C40 7 38 7 33 7 Z" />
     </svg>
   );
 }
