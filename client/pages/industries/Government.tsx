@@ -8,7 +8,29 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { Building2, Users, Shield, Zap, Clock } from "lucide-react";
+import { Users, Shield, Zap, Clock } from "lucide-react";
+
+// Inline U.S. Capitol icon SVG — styled via className prop
+function CapitolIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 2c1.657 0 3 1.567 3 3.5v.5H9v-.5C9 3.567 10.343 2 12 2z" />
+      <path d="M5 11c0-1.657 3.134-3 7-3s7 1.343 7 3v2H5v-2z" />
+      <path d="M3 13h18v2a2 2 0 0 1-2 2h-2v3H8v-3H6a2 2 0 0 1-2-2v-2z" />
+      <path d="M7 20v-2m10 2v-2" />
+    </svg>
+  );
+}
 
 export default function Government() {
   useSEO({
@@ -30,7 +52,7 @@ export default function Government() {
         "Hardened systems with audit trails, role-based access, and compliance with federal/state regulations.",
     },
     {
-      icon: <Building2 className="w-8 h-8 text-onealgo-orange-500" />,
+      icon: <CapitolIcon className="w-8 h-8 text-onealgo-orange-500" />,
       title: "Citizen Services",
       description:
         "Modern web and mobile services that improve access, transparency, and satisfaction for constituents.",
@@ -61,7 +83,7 @@ export default function Government() {
       <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Building2 className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-6 animate-bounce-slow" />
+            <CapitolIcon className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-6 animate-bounce-slow" />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Government <span className="text-onealgo-orange-500">Solutions</span>
             </h1>
@@ -70,7 +92,7 @@ export default function Government() {
               Intelligent Automation.
             </p>
 
-            <p className="text-sm text-blue-100 max-w-3xl mx-auto mb-6">
+            <p className="text-sm text-white max-w-3xl mx-auto mb-6">
               One Algorithm LLC (LLC) — UEI: W8DYK38MEKP3 • CAGE Code: 14G18 • D-U-N-S: 118835343
             </p>
 
