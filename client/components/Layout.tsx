@@ -287,6 +287,16 @@ export default function Layout({ children }: LayoutProps) {
                       >
                         Nonprofit
                       </Link>
+                      <Link
+                        to="/industries/government"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Government
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -613,6 +623,17 @@ export default function Layout({ children }: LayoutProps) {
                           }}
                         >
                           Nonprofit
+                        </Link>
+                        <Link
+                          to="/industries/government"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Government
                         </Link>
                       </div>
                     )}
