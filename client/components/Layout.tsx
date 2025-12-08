@@ -338,16 +338,6 @@ export default function Layout({ children }: LayoutProps) {
                         Blog
                       </Link>
                       <Link
-                        to="/ai-info"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setCareersDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        AI Info
-                      </Link>
-                      <Link
                         to="/events"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
                         onClick={() => {
@@ -677,17 +667,6 @@ export default function Layout({ children }: LayoutProps) {
                           }}
                         >
                           Blog
-                        </Link>
-                        <Link
-                          to="/ai-info"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setCareersDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          AI Info
                         </Link>
                         <Link
                           to="/events"
