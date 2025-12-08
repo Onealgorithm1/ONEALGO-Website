@@ -26,6 +26,7 @@ export interface CompanyConfig {
     uei: string;
     duns: string;
   };
+  sbaUrl: string;
   codes: {
     naics: string[];
     psc: string[];
@@ -72,6 +73,7 @@ export const siteConfig: CompanyConfig = {
     uei: "W8DYK38MEKP3",
     duns: "118835343",
   },
+  sbaUrl: "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1",
   codes: {
     naics: [
       "238110",
