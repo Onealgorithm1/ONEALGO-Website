@@ -100,7 +100,8 @@ export default function Government() {
             </p>
 
             <p className="text-sm text-white max-w-3xl mx-auto mb-6">
-              {siteConfig.legalName} — UEI: {siteConfig.identifiers.uei} • CAGE Code: {siteConfig.identifiers.cage} •{" "}
+              {siteConfig.legalName} — UEI: {siteConfig.identifiers.uei} • CAGE
+              Code: {siteConfig.identifiers.cage} •{" "}
               <a
                 href={siteConfig.sbaUrl}
                 target="_blank"
