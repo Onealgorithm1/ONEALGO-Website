@@ -79,6 +79,7 @@ const OperationsTechnology = lazy(
 );
 const Blog = lazy(() => import("./pages/Blog"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
+const Capabilities = lazy(() => import("./pages/Capabilities"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -163,6 +164,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/ai-info" element={<AiInfo />} />
+              <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/careers" element={<Careers />} />
