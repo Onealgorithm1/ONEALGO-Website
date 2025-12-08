@@ -884,13 +884,13 @@ export default function Layout({ children }: LayoutProps) {
                   Blog
                 </Link>
                 <Link
-                  to="/ai-info"
+                  to="/capabilities"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
-                  AI Info
+                  Company Capabilities
                 </Link>
                 <Link
                   to="/events"
