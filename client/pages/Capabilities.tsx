@@ -452,9 +452,20 @@ export default function Capabilities() {
                 {siteConfig.url}
               </a>
             </p>
-            <p className="text-lg text-blue-200 mb-6">
+            <p className="text-lg text-blue-200 mb-2">
               <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} |{" "}
               <strong>UEI:</strong> {siteConfig.identifiers.uei}
+            </p>
+            <p className="text-lg text-blue-200 mb-6">
+              <a
+                href={siteConfig.sbaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-onealgo-orange-500 hover:underline inline-flex items-center gap-2"
+              >
+                View SBA Certification Profile
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </p>
 
             <Button

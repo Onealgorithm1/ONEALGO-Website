@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { Users, Shield, Zap, Clock } from "lucide-react";
+import { Users, Shield, Zap, Clock, ExternalLink } from "lucide-react";
 import { siteConfig } from "../../lib/siteConfig";
 
 // GovernmentIcon — raster-based mask using provided asset so it inherits currentColor (brand color)
