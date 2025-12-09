@@ -100,16 +100,7 @@ export default function Government() {
             </p>
 
             <p className="text-sm text-white max-w-3xl mx-auto mb-6">
-              {siteConfig.legalName} — UEI: {siteConfig.identifiers.uei} • CAGE
-              Code: {siteConfig.identifiers.cage} •{" "}
-              <a
-                href={siteConfig.sbaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
-              >
-                SBA Certified
-              </a>
+              {siteConfig.legalName} — UEI: {siteConfig.identifiers.uei} • CAGE Code: {siteConfig.identifiers.cage}
             </p>
 
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
@@ -371,18 +362,6 @@ export default function Government() {
                 </li>
                 <li>
                   <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
-                </li>
-                <li>
-                  <strong>SBA Certification:</strong>{" "}
-                  <a
-                    href={siteConfig.sbaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline inline-flex items-center gap-1"
-                  >
-                    View Profile
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
                 </li>
               </ul>
               <div className="mt-4">
