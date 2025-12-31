@@ -7,6 +7,8 @@ export interface CompanyConfig {
   url: string;
   logo: string;
   description: string;
+  certifications?: string[];
+  qualityStandards?: string;
   address: {
     street: string;
     streetUnit: string;
@@ -53,7 +55,16 @@ export const siteConfig: CompanyConfig = {
   url: "https://www.onealgorithm.com",
   logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
   description:
-    "OneAlgorithm LLC is a technology and compliance solutions firm offering secure software development, digital transformation, and small business consulting services. We provide innovative solutions to commercial clients nationwide, combining technical expertise, operational leadership, and business consulting to deliver scalable, high-quality results.",
+    "One Algorithm LLC is a technology and compliance solutions firm delivering secure, standards-aligned software, data, and modernization services to federal and commercial clients nationwide. We specialize in cloud modernization, open-source software engineering, cybersecurity compliance, and data automation, combining technical expertise with operational excellence.",
+  certifications: [
+    "NIST SP 800-171 Compliant",
+    "DFARS 252.204-7012 (Safeguarding Covered Defense Information)",
+    "ISO/IEC 27001 Information Security Management",
+    "SOC 2 Type II Security & Availability Controls",
+    "HIPAA Security Rule Compliance",
+    "ISO 9001–Compliant Quality Management System",
+  ],
+  qualityStandards: "ISO 9001–Compliant Quality Management System",
   address: {
     street: "625 Swedesford Rd",
     streetUnit: "Unit B",
@@ -77,24 +88,19 @@ export const siteConfig: CompanyConfig = {
     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1",
   codes: {
     naics: [
-      "238110",
-      "238140",
-      "238160",
-      "238910",
-      "238990",
-      "513210",
-      "518210",
-      "519210",
-      "519290",
       "541511",
       "541512",
       "541519",
       "541611",
       "541613",
       "541618",
+      "519210",
+      "611430",
       "561311",
       "561320",
-      "611430",
+      "513210",
+      "518210",
+      "519290",
     ],
     psc: ["DA10", "7A20", "7E20", "U099", "R408", "7A21", "H270"],
   },
