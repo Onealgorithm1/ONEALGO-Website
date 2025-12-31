@@ -36,7 +36,8 @@ export default function Capabilities() {
     canonical: getCanonicalUrl("/capabilities"),
     keywords:
       "OneAlgorithm capabilities, federal contracting, cloud modernization, DevSecOps, NIST 800-171, DFARS, ISO 9001, cybersecurity compliance, CAGE 14G18, UEI W8DYK38MEKP3, NAICS 541511",
-    ogTitle: "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
+    ogTitle:
+      "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
     ogDescription:
       "Cloud modernization, cybersecurity compliance, and systems integration for federal and commercial clients. NIST 800-171 | DFARS Compliant.",
     ogUrl: getCanonicalUrl("/capabilities"),
@@ -86,7 +87,11 @@ export default function Capabilities() {
               {siteConfig.description}
             </p>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4 leading-relaxed">
-              Our mission is to enable organizations to operate securely, efficiently, and at scale—across mission-critical and enterprise environments. Our ISO 9001–compliant quality management and NIST 800-171 cybersecurity practices ensure every engagement meets the highest standards of reliability, traceability, and security.
+              Our mission is to enable organizations to operate securely,
+              efficiently, and at scale—across mission-critical and enterprise
+              environments. Our ISO 9001–compliant quality management and NIST
+              800-171 cybersecurity practices ensure every engagement meets the
+              highest standards of reliability, traceability, and security.
             </p>
           </div>
 
@@ -107,23 +112,36 @@ export default function Capabilities() {
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Cloud architecture and modernization (AWS, Azure, GovCloud)</span>
+                      <span>
+                        Cloud architecture and modernization (AWS, Azure,
+                        GovCloud)
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Secure software development and API integration</span>
+                      <span>
+                        Secure software development and API integration
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Data engineering, analytics, and AI/ML automation</span>
+                      <span>
+                        Data engineering, analytics, and AI/ML automation
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>DevSecOps pipelines with continuous compliance monitoring</span>
+                      <span>
+                        DevSecOps pipelines with continuous compliance
+                        monitoring
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Cybersecurity and information assurance (DFARS 252.204-7012, NIST 800-171, SOC 2)</span>
+                      <span>
+                        Cybersecurity and information assurance (DFARS
+                        252.204-7012, NIST 800-171, SOC 2)
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -140,19 +158,28 @@ export default function Capabilities() {
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Workflow optimization and business process automation</span>
+                      <span>
+                        Workflow optimization and business process automation
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>CRM and ERP integration (Salesforce, MS Dynamics, Zoho, HubSpot)</span>
+                      <span>
+                        CRM and ERP integration (Salesforce, MS Dynamics, Zoho,
+                        HubSpot)
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Agile program management and technology roadmapping</span>
+                      <span>
+                        Agile program management and technology roadmapping
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Enterprise analytics and dashboard development</span>
+                      <span>
+                        Enterprise analytics and dashboard development
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -169,15 +196,23 @@ export default function Capabilities() {
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Business operations strategy, planning, and growth enablement</span>
+                      <span>
+                        Business operations strategy, planning, and growth
+                        enablement
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Federal capture and proposal management support</span>
+                      <span>
+                        Federal capture and proposal management support
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Risk assessment, cost optimization, and financial planning</span>
+                      <span>
+                        Risk assessment, cost optimization, and financial
+                        planning
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -198,7 +233,8 @@ export default function Capabilities() {
                     Secure DevSecOps Framework
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Integrated CI/CD pipelines with vulnerability management and compliance validation.
+                    Integrated CI/CD pipelines with vulnerability management and
+                    compliance validation.
                   </p>
                 </div>
               </div>
@@ -231,7 +267,8 @@ export default function Capabilities() {
                     Experienced Leadership
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Executives with 20+ years of experience in technology, operations, and program management.
+                    Executives with 20+ years of experience in technology,
+                    operations, and program management.
                   </p>
                 </div>
               </div>
@@ -250,25 +287,29 @@ export default function Capabilities() {
           </div>
 
           {/* Certifications & Standards */}
-          {siteConfig.certifications && siteConfig.certifications.length > 0 && (
-            <div className="mb-16">
-              <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-                Certifications & Standards
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {siteConfig.certifications.map((cert, index) => (
-                  <Card key={index} className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-4">
-                        <Shield className="w-8 h-8 text-onealgo-orange-500 flex-shrink-0 mt-1" />
-                        <p className="text-gray-700 font-medium">{cert}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+          {siteConfig.certifications &&
+            siteConfig.certifications.length > 0 && (
+              <div className="mb-16">
+                <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+                  Certifications & Standards
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {siteConfig.certifications.map((cert, index) => (
+                    <Card
+                      key={index}
+                      className="border-2 hover:border-onealgo-orange-500 transition-colors"
+                    >
+                      <CardContent className="pt-6">
+                        <div className="flex items-start gap-4">
+                          <Shield className="w-8 h-8 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+                          <p className="text-gray-700 font-medium">{cert}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {/* Project Highlights */}
           <div className="mb-16">
@@ -341,7 +382,8 @@ export default function Capabilities() {
           </h3>
           <div className="mb-6 text-center">
             <p className="text-lg text-gray-700">
-              <strong>Primary NAICS:</strong> 541511 – Custom Computer Programming Services
+              <strong>Primary NAICS:</strong> 541511 – Custom Computer
+              Programming Services
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -429,11 +471,14 @@ export default function Capabilities() {
                 <CardTitle className="text-onealgo-blue-950">
                   Louis Rubino
                 </CardTitle>
-                <p className="text-sm text-gray-600">Director of Compliance & Contract Administration</p>
+                <p className="text-sm text-gray-600">
+                  Director of Compliance & Contract Administration
+                </p>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  Manages federal compliance, proposal operations, and partner relationships.
+                  Manages federal compliance, proposal operations, and partner
+                  relationships.
                 </p>
               </CardContent>
             </Card>
@@ -467,7 +512,10 @@ export default function Capabilities() {
               <div>
                 <h4 className="font-semibold mb-1">Email</h4>
                 <p className="text-blue-200">
-                  <a href={`mailto:${siteConfig.contact.emailPrimary}`} className="hover:text-onealgo-orange-500 transition-colors">
+                  <a
+                    href={`mailto:${siteConfig.contact.emailPrimary}`}
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
                     {siteConfig.contact.emailPrimary}
                   </a>
                 </p>
@@ -479,7 +527,10 @@ export default function Capabilities() {
               <div>
                 <h4 className="font-semibold mb-1">Phone</h4>
                 <p className="text-blue-200">
-                  <a href={`tel:${siteConfig.contact.phoneAlt}`} className="hover:text-onealgo-orange-500 transition-colors">
+                  <a
+                    href={`tel:${siteConfig.contact.phoneAlt}`}
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
                     {siteConfig.contact.phoneAlt}
                   </a>
                 </p>
