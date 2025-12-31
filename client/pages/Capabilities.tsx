@@ -190,16 +190,37 @@ export default function Capabilities() {
             <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
               Differentiators
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Lightbulb className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <Shield className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
                   <h4 className="font-semibold text-gray-900 mb-2">
-                    Integrated Expertise
+                    Secure DevSecOps Framework
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Combines technology, operations, and small business
-                    consulting in one firm.
+                    Integrated CI/CD pipelines with vulnerability management and compliance validation.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <CheckCircle className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Federal Compliance Expertise
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Proven alignment with NIST, DFARS, and ISO standards.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <Target className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Scalable Delivery
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Small business agility with enterprise-grade processes.
                   </p>
                 </div>
               </div>
@@ -210,32 +231,18 @@ export default function Capabilities() {
                     Experienced Leadership
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Executives with strong experience in tech, operations, and
-                    business growth.
+                    Executives with 20+ years of experience in technology, operations, and program management.
                   </p>
                 </div>
               </div>
               <div className="text-center">
                 <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Target className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <Lightbulb className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
                   <h4 className="font-semibold text-gray-900 mb-2">
-                    Scalable Solutions
+                    Customer-Focused Execution
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Able to manage multiple projects, digital platforms, and
-                    consulting engagements simultaneously.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <CheckCircle className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Client-Centric Approach
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Focused on reliability, performance-driven outcomes, and
-                    measurable results.
+                    Commitment to measurable results and mission continuity.
                   </p>
                 </div>
               </div>
