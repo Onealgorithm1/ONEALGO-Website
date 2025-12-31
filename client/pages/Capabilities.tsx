@@ -95,39 +95,64 @@ export default function Capabilities() {
             <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
               Core Competencies
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
                     <Target className="w-8 h-8 text-onealgo-orange-500" />
-                    Technology & Digital Services
+                    Technology & Digital Engineering
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Custom web and mobile application development</span>
+                      <span>Cloud architecture and modernization (AWS, Azure, GovCloud)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Cloud platforms, API integrations, and enterprise
-                        automation
-                      </span>
+                      <span>Secure software development and API integration</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Cybersecurity, data integrity, and compliance solutions
-                      </span>
+                      <span>Data engineering, analytics, and AI/ML automation</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        CRM implementation, workflow optimization, and AI-driven
-                        solutions
-                      </span>
+                      <span>DevSecOps pipelines with continuous compliance monitoring</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>Cybersecurity and information assurance (DFARS 252.204-7012, NIST 800-171, SOC 2)</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                    <Lightbulb className="w-8 h-8 text-onealgo-orange-500" />
+                    Digital Transformation & Enterprise Automation
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>Workflow optimization and business process automation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>CRM and ERP integration (Salesforce, MS Dynamics, Zoho, HubSpot)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>Agile program management and technology roadmapping</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>Enterprise analytics and dashboard development</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -137,32 +162,22 @@ export default function Capabilities() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
                     <Users className="w-8 h-8 text-onealgo-orange-500" />
-                    Small Business Consulting & Operations
+                    Small Business & Strategic Consulting
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Strategic planning, business development, and market
-                        expansion
-                      </span>
+                      <span>Business operations strategy, planning, and growth enablement</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Financial planning, operational efficiency, and risk
-                        assessment
-                      </span>
+                      <span>Federal capture and proposal management support</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Project management and IT consulting</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>Marketing strategy and client acquisition</span>
+                      <span>Risk assessment, cost optimization, and financial planning</span>
                     </li>
                   </ul>
                 </CardContent>
