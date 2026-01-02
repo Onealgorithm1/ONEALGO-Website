@@ -20,13 +20,29 @@ import {
   Lightbulb,
   ExternalLink,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
   createOrganizationSchema,
 } from "../components/StructuredData";
-import { siteConfig, getFullAddress } from "../lib/siteConfig";
+import {
+  coreCompetencies,
+  differentiators,
+  projectHighlights,
+  keyPersonnel,
+} from "../../shared/capabilities-data";
+import type { IconName } from "../../shared/capabilities-data";
+import { siteConfig } from "../lib/siteConfig";
+
+const iconComponents: Record<IconName, LucideIcon> = {
+  target: Target,
+  lightbulb: Lightbulb,
+  users: Users,
+  shield: Shield,
+  checkCircle: CheckCircle,
+};
 
 export default function Capabilities() {
   useSEO({
@@ -72,6 +88,25 @@ export default function Capabilities() {
                 <span>D-U-N-S: {siteConfig.identifiers.duns}</span>
               </div>
             </div>
+            <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+              >
+                <a
+                  href="/api/capabilities.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  aria-label="Download the One Algorithm capabilities statement"
+                  className="inline-flex items-center gap-2"
+                >
+                  <FileText className="w-5 h-5" />
+                  Download Capabilities PDF
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -101,122 +136,32 @@ export default function Capabilities() {
               Core Competencies
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
-                    <Target className="w-8 h-8 text-onealgo-orange-500" />
-                    Technology & Digital Engineering
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Cloud architecture and modernization (AWS, Azure,
-                        GovCloud)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Secure software development and API integration
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Data engineering, analytics, and AI/ML automation
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        DevSecOps pipelines with continuous compliance
-                        monitoring
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Cybersecurity and information assurance (DFARS
-                        252.204-7012, NIST 800-171, SOC 2)
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
-                    <Lightbulb className="w-8 h-8 text-onealgo-orange-500" />
-                    Digital Transformation & Enterprise Automation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Workflow optimization and business process automation
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        CRM and ERP integration (Salesforce, MS Dynamics, Zoho,
-                        HubSpot)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Agile program management and technology roadmapping
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Enterprise analytics and dashboard development
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
-                    <Users className="w-8 h-8 text-onealgo-orange-500" />
-                    Small Business & Strategic Consulting
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Business operations strategy, planning, and growth
-                        enablement
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Federal capture and proposal management support
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Risk assessment, cost optimization, and financial
-                        planning
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              {coreCompetencies.map((competency) => {
+                const Icon = iconComponents[competency.icon];
+                return (
+                  <Card
+                    key={competency.title}
+                    className="border-2 hover:border-onealgo-orange-500 transition-colors"
+                  >
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                        <Icon className="w-8 h-8 text-onealgo-orange-500" />
+                        {competency.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-gray-700">
+                        {competency.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
 
@@ -226,63 +171,22 @@ export default function Capabilities() {
               Differentiators
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Shield className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Secure DevSecOps Framework
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Integrated CI/CD pipelines with vulnerability management and
-                    compliance validation.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <CheckCircle className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Federal Compliance Expertise
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Proven alignment with NIST, DFARS, and ISO standards.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Target className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Scalable Delivery
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Small business agility with enterprise-grade processes.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Users className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Experienced Leadership
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Executives with 20+ years of experience in technology,
-                    operations, and program management.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                  <Lightbulb className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    Customer-Focused Execution
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    Commitment to measurable results and mission continuity.
-                  </p>
-                </div>
-              </div>
+              {differentiators.map((item) => {
+                const Icon = iconComponents[item.icon];
+                return (
+                  <div key={item.title} className="text-center">
+                    <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                      <Icon className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-gray-600">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -317,58 +221,28 @@ export default function Capabilities() {
               Commercial Project Highlights
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    Technology Projects
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Developed enterprise SaaS platforms, CRM systems, and
-                        workflow automation tools for private clients.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Built secure compliance and monitoring solutions to
-                        support operational efficiency.
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    Small Business Consulting Projects
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Provided strategic planning, IT project management, and
-                        business analyst services for small businesses.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>
-                        Developed marketing strategies, CRM systems, and
-                        operational process improvements to scale client
-                        operations.
-                      </span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              {projectHighlights.map((project) => (
+                <Card
+                  key={project.title}
+                  className="border-2 hover:border-onealgo-orange-500 transition-colors"
+                >
+                  <CardHeader>
+                    <CardTitle className="text-onealgo-blue-950">
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-gray-700">
+                      {project.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
@@ -437,51 +311,22 @@ export default function Capabilities() {
             Key Personnel / Consultants
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Swapna Amirisetti
-                </CardTitle>
-                <p className="text-sm text-gray-600">CEO / President</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  Leads strategy, operations, and business growth.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Sreenivas Amirisetti
-                </CardTitle>
-                <p className="text-sm text-gray-600">Secretary / CTO</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  Oversees IT project management, business analysis, and
-                  technology strategy.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Louis Rubino
-                </CardTitle>
-                <p className="text-sm text-gray-600">
-                  Director of Compliance & Contract Administration
-                </p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  Manages federal compliance, proposal operations, and partner
-                  relationships.
-                </p>
-              </CardContent>
-            </Card>
+            {keyPersonnel.map((person) => (
+              <Card
+                key={person.name}
+                className="border-2 hover:border-onealgo-orange-500 transition-colors"
+              >
+                <CardHeader>
+                  <CardTitle className="text-onealgo-blue-950">
+                    {person.name}
+                  </CardTitle>
+                  <p className="text-sm text-gray-600">{person.role}</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">{person.summary}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

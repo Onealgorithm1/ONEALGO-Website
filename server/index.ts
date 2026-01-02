@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleCapabilitiesPdf } from "./routes/capabilities-pdf";
 
 export function createServer() {
   const app = express();
@@ -18,6 +19,7 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  app.get("/api/capabilities.pdf", handleCapabilitiesPdf);
 
   // Client-side JS error reporting endpoint
   app.post("/api/log-js-error", (req, res) => {
