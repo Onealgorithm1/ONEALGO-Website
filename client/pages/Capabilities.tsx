@@ -77,13 +77,19 @@ export default function Capabilities() {
                 <Shield className="w-5 h-5" />
                 <span>CAGE Code: {siteConfig.identifiers.cage}</span>
               </div>
-              <div className="h-px w-16 bg-blue-300/40 sm:hidden" aria-hidden="true" />
+              <div
+                className="h-px w-16 bg-blue-300/40 sm:hidden"
+                aria-hidden="true"
+              />
               <div className="hidden sm:block text-blue-300">|</div>
               <div className="flex w-full items-center justify-center gap-2 text-center text-base sm:w-auto sm:text-left">
                 <FileText className="w-5 h-5" />
                 <span>UEI: {siteConfig.identifiers.uei}</span>
               </div>
-              <div className="h-px w-16 bg-blue-300/40 sm:hidden" aria-hidden="true" />
+              <div
+                className="h-px w-16 bg-blue-300/40 sm:hidden"
+                aria-hidden="true"
+              />
               <div className="hidden sm:block text-blue-300">|</div>
               <div className="flex w-full items-center justify-center gap-2 text-center text-base sm:w-auto sm:text-left">
                 <FileText className="w-5 h-5" />

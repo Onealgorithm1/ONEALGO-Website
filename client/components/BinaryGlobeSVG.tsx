@@ -20,7 +20,11 @@ export default function BinaryGlobeSVG({
       alt="OneAlgorithm Logo"
       width={size}
       height={size}
-      className={cn("inline-block self-center", styles.binaryGlobeImage, className)}
+      className={cn(
+        "inline-block self-center",
+        styles.binaryGlobeImage,
+        className,
+      )}
       loading="lazy"
       decoding="async"
     />
