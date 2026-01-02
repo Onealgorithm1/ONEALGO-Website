@@ -2,6 +2,6 @@
   "name": "onealgowebsite",
   "compatibility_date": "2025-12-12",
   "assets": {
-    "directory": "./dist/spa",
-  },
+    "directory": "./dist/spa"
+  }
 }
