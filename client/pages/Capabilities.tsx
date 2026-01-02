@@ -36,7 +36,6 @@ import {
   coreCompetencies,
   differentiators,
   projectHighlights,
-  keyPersonnel,
   federalExperience,
   complianceProfile,
   strategicPartnerships,
@@ -456,33 +455,6 @@ export default function Capabilities() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Personnel */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Key Personnel / Consultants
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {keyPersonnel.map((person) => (
-              <Card
-                key={person.name}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    {person.name}
-                  </CardTitle>
-                  <p className="text-sm text-gray-600">{person.role}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">{person.summary}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
