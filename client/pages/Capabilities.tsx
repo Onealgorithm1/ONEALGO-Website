@@ -152,10 +152,7 @@ export default function Capabilities() {
                     <CardContent>
                       <ul className="space-y-2 text-gray-700">
                         {competency.items.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-start gap-2"
-                          >
+                          <li key={item} className="flex items-start gap-2">
                             <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
                             <span>{item}</span>
                           </li>
@@ -183,7 +180,9 @@ export default function Capabilities() {
                       <h4 className="font-semibold text-gray-900 mb-2">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <p className="text-sm text-gray-600">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 );

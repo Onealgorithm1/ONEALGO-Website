@@ -143,8 +143,12 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
     doc
       .fontSize(11)
       .fillColor("#1f2937")
-      .text(`Primary Contact: ${siteConfig.contact.emailPrimary} | ${siteConfig.contact.phonePrimary}`)
-      .text(`Alternate Contact: ${siteConfig.contact.emailAlt ?? "N/A"} | ${siteConfig.contact.phoneAlt ?? "N/A"}`)
+      .text(
+        `Primary Contact: ${siteConfig.contact.emailPrimary} | ${siteConfig.contact.phonePrimary}`,
+      )
+      .text(
+        `Alternate Contact: ${siteConfig.contact.emailAlt ?? "N/A"} | ${siteConfig.contact.phoneAlt ?? "N/A"}`,
+      )
       .moveDown(0.5);
 
     if (siteConfig.certifications?.length) {

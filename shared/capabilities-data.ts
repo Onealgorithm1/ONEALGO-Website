@@ -1,4 +1,9 @@
-export type IconName = "target" | "lightbulb" | "users" | "shield" | "checkCircle";
+export type IconName =
+  | "target"
+  | "lightbulb"
+  | "users"
+  | "shield"
+  | "checkCircle";
 
 export interface CoreCompetency {
   title: string;
