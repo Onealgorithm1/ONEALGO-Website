@@ -1,1 +1,1 @@
-export * from "@shared/companyProfile";
+export * from "../../shared/companyProfile";
