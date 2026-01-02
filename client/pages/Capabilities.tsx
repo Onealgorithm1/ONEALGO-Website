@@ -88,6 +88,25 @@ export default function Capabilities() {
                 <span>D-U-N-S: {siteConfig.identifiers.duns}</span>
               </div>
             </div>
+            <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+              >
+                <a
+                  href="/api/capabilities.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  aria-label="Download the One Algorithm capabilities statement"
+                  className="inline-flex items-center gap-2"
+                >
+                  <FileText className="w-5 h-5" />
+                  Download Capabilities PDF
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
