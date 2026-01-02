@@ -114,6 +114,24 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
         .moveDown(0.5);
     });
 
+    sectionHeading("Federal Contract Experience");
+    federalExperience.forEach((item) => {
+      doc
+        .fontSize(13)
+        .fillColor("#0f172a")
+        .text(`${item.title} (${item.rfq})`)
+        .fontSize(11)
+        .fillColor("#1f2937")
+        .text(item.role);
+      if (item.partner) {
+        doc.text(item.partner);
+      }
+      doc
+        .text(item.scope)
+        .text(`${item.submissionDate} — ${item.status}`)
+        .moveDown(0.5);
+    });
+
     sectionHeading("Commercial Project Highlights");
     projectHighlights.forEach((project) => {
       doc
