@@ -135,6 +135,9 @@ importers:
       '@types/node':
         specifier: ^24.2.1
         version: 24.2.1
+      '@types/pdfkit':
+        specifier: ^0.17.4
+        version: 0.17.4
       '@types/react':
         specifier: ^18.3.23
         version: 18.3.23
@@ -1435,6 +1438,9 @@ packages:
 
   '@types/offscreencanvas@2019.7.3':
     resolution: {integrity: sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A==}
+
+  '@types/pdfkit@0.17.4':
+    resolution: {integrity: sha512-odAmVuuguRxKh1X4pbMrJMp8ecwNqHRw6lweupvzK+wuyNmi6wzlUlGVZ9EqMvp3Bs2+L9Ty0sRlrvKL+gsQZg==}
 
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
@@ -4138,6 +4144,10 @@ snapshots:
       undici-types: 7.10.0
 
   '@types/offscreencanvas@2019.7.3': {}
+
+  '@types/pdfkit@0.17.4':
+    dependencies:
+      '@types/node': 24.2.1
 
   '@types/prop-types@15.7.15': {}
 
