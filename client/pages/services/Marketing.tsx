@@ -29,12 +29,12 @@ export default function Marketing() {
       "Comprehensive marketing services including campaign management, AI-driven insights, customer journey optimization, and data analytics. Boost your marketing ROI with OneAlgorithm.",
     ogUrl: getCanonicalUrl("/services/marketing"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "OneAlgorithm — Marketing Services",
     twitterDescription:
       "Comprehensive marketing services including campaign management, AI-driven insights, customer journey optimization, and data analytics. Boost your marketing ROI with OneAlgorithm.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   const features = [
     {
@@ -96,7 +96,8 @@ export default function Marketing() {
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Marketing <span className="text-purple-500">Solutions</span>
+              Marketing Services &{" "}
+              <span className="text-purple-500">Automation Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Create campaigns that adapt instantly to customer behavior and

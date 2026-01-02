@@ -1,0 +1,588 @@
+import React from "react";
+import Layout from "../components/Layout";
+import { Button } from "../components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import {
+  Building2,
+  FileText,
+  Target,
+  Users,
+  CheckCircle,
+  Mail,
+  Phone,
+  MapPin,
+  Shield,
+  Lightbulb,
+  ExternalLink,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import {
+  StructuredData,
+  createOrganizationSchema,
+} from "../components/StructuredData";
+import { siteConfig, getFullAddress } from "../lib/siteConfig";
+
+export default function Capabilities() {
+  useSEO({
+    title: "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
+    description:
+      "Cloud modernization, cybersecurity compliance, and systems integration for federal and commercial clients. CAGE: 14G18 | UEI: W8DYK38MEKP3 | NIST 800-171 Compliant",
+    canonical: getCanonicalUrl("/capabilities"),
+    keywords:
+      "OneAlgorithm capabilities, federal contracting, cloud modernization, DevSecOps, NIST 800-171, DFARS, ISO 9001, cybersecurity compliance, CAGE 14G18, UEI W8DYK38MEKP3, NAICS 541511",
+    ogTitle:
+      "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
+    ogDescription:
+      "Cloud modernization, cybersecurity compliance, and systems integration for federal and commercial clients. NIST 800-171 | DFARS Compliant.",
+    ogUrl: getCanonicalUrl("/capabilities"),
+  });
+
+  return (
+    <Layout>
+      <StructuredData data={createOrganizationSchema()} />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Company Capabilities
+            </h1>
+            <p className="text-xl text-blue-200 max-w-4xl mx-auto mb-8">
+              {siteConfig.legalName} — Technology & Compliance Solutions
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-blue-100">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                <span>CAGE Code: {siteConfig.identifiers.cage}</span>
+              </div>
+              <div className="hidden sm:block text-blue-300">|</div>
+              <div className="flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                <span>UEI: {siteConfig.identifiers.uei}</span>
+              </div>
+              <div className="hidden sm:block text-blue-300">|</div>
+              <div className="flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                <span>D-U-N-S: {siteConfig.identifiers.duns}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Overview */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Company Overview
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              {siteConfig.description}
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4 leading-relaxed">
+              Our mission is to enable organizations to operate securely,
+              efficiently, and at scale—across mission-critical and enterprise
+              environments. Our ISO 9001–compliant quality management and NIST
+              800-171 cybersecurity practices ensure every engagement meets the
+              highest standards of reliability, traceability, and security.
+            </p>
+          </div>
+
+          {/* Core Competencies */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Core Competencies
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                    <Target className="w-8 h-8 text-onealgo-orange-500" />
+                    Technology & Digital Engineering
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Cloud architecture and modernization (AWS, Azure,
+                        GovCloud)
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Secure software development and API integration
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Data engineering, analytics, and AI/ML automation
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        DevSecOps pipelines with continuous compliance
+                        monitoring
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Cybersecurity and information assurance (DFARS
+                        252.204-7012, NIST 800-171, SOC 2)
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                    <Lightbulb className="w-8 h-8 text-onealgo-orange-500" />
+                    Digital Transformation & Enterprise Automation
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Workflow optimization and business process automation
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        CRM and ERP integration (Salesforce, MS Dynamics, Zoho,
+                        HubSpot)
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Agile program management and technology roadmapping
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Enterprise analytics and dashboard development
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                    <Users className="w-8 h-8 text-onealgo-orange-500" />
+                    Small Business & Strategic Consulting
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Business operations strategy, planning, and growth
+                        enablement
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Federal capture and proposal management support
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Risk assessment, cost optimization, and financial
+                        planning
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Differentiators */}
+          <div className="bg-onealgo-light rounded-2xl p-8 mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Differentiators
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <Shield className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Secure DevSecOps Framework
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Integrated CI/CD pipelines with vulnerability management and
+                    compliance validation.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <CheckCircle className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Federal Compliance Expertise
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Proven alignment with NIST, DFARS, and ISO standards.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <Target className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Scalable Delivery
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Small business agility with enterprise-grade processes.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <Users className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Experienced Leadership
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Executives with 20+ years of experience in technology,
+                    operations, and program management.
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+                  <Lightbulb className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    Customer-Focused Execution
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Commitment to measurable results and mission continuity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications & Standards */}
+          {siteConfig.certifications &&
+            siteConfig.certifications.length > 0 && (
+              <div className="mb-16">
+                <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+                  Certifications & Standards
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {siteConfig.certifications.map((cert, index) => (
+                    <Card
+                      key={index}
+                      className="border-2 hover:border-onealgo-orange-500 transition-colors"
+                    >
+                      <CardContent className="pt-6">
+                        <div className="flex items-start gap-4">
+                          <Shield className="w-8 h-8 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+                          <p className="text-gray-700 font-medium">{cert}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+
+          {/* Project Highlights */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Commercial Project Highlights
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="text-onealgo-blue-950">
+                    Technology Projects
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Developed enterprise SaaS platforms, CRM systems, and
+                        workflow automation tools for private clients.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Built secure compliance and monitoring solutions to
+                        support operational efficiency.
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="text-onealgo-blue-950">
+                    Small Business Consulting Projects
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Provided strategic planning, IT project management, and
+                        business analyst services for small businesses.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                      <span>
+                        Developed marketing strategies, CRM systems, and
+                        operational process improvements to scale client
+                        operations.
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NAICS / PSC Codes */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+            NAICS / PSC Codes
+          </h3>
+          <div className="mb-6 text-center">
+            <p className="text-lg text-gray-700">
+              <strong>Primary NAICS:</strong> 541511 – Custom Computer
+              Programming Services
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  NAICS Codes
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-2 text-sm text-gray-700">
+                  {siteConfig.codes.naics.map((code) => (
+                    <div
+                      key={code}
+                      className="bg-onealgo-light px-3 py-2 rounded text-center font-mono"
+                    >
+                      {code}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  PSC Codes
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-2 text-sm text-gray-700">
+                  {siteConfig.codes.psc.map((code) => (
+                    <div
+                      key={code}
+                      className="bg-onealgo-light px-3 py-2 rounded text-center font-mono"
+                    >
+                      {code}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Personnel */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+            Key Personnel / Consultants
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  Swapna Amirisetti
+                </CardTitle>
+                <p className="text-sm text-gray-600">CEO / President</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Leads strategy, operations, and business growth.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  Sreenivas Amirisetti
+                </CardTitle>
+                <p className="text-sm text-gray-600">Secretary / CTO</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Oversees IT project management, business analysis, and
+                  technology strategy.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  Louis Rubino
+                </CardTitle>
+                <p className="text-sm text-gray-600">
+                  Director of Compliance & Contract Administration
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Manages federal compliance, proposal operations, and partner
+                  relationships.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-20 bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+            Contact Information
+          </h3>
+
+          <div className="max-w-3xl mx-auto space-y-6 mb-12">
+            <div className="flex items-start gap-4 bg-onealgo-blue-900/50 rounded-lg p-6">
+              <MapPin className="w-6 h-6 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold mb-1">Address</h4>
+                <p className="text-blue-200">
+                  {siteConfig.address.street} {siteConfig.address.streetUnit}
+                  <br />
+                  {siteConfig.address.city}, {siteConfig.address.region}{" "}
+                  {siteConfig.address.postalCode}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-onealgo-blue-900/50 rounded-lg p-6">
+              <Mail className="w-6 h-6 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold mb-1">Email</h4>
+                <p className="text-blue-200">
+                  <a
+                    href={`mailto:${siteConfig.contact.emailPrimary}`}
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
+                    {siteConfig.contact.emailPrimary}
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-onealgo-blue-900/50 rounded-lg p-6">
+              <Phone className="w-6 h-6 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold mb-1">Phone</h4>
+                <p className="text-blue-200">
+                  <a
+                    href={`tel:${siteConfig.contact.phoneAlt}`}
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
+                    {siteConfig.contact.phoneAlt}
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 bg-onealgo-blue-900/50 rounded-lg p-6">
+              <Building2 className="w-6 h-6 text-onealgo-orange-500 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold mb-1">Website</h4>
+                <p className="text-blue-200">
+                  <a
+                    href={siteConfig.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
+                    {siteConfig.url}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center border-t border-blue-700 pt-8">
+            <p className="text-lg text-blue-200 mb-4">
+              <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} |{" "}
+              <strong>UEI:</strong> {siteConfig.identifiers.uei} |{" "}
+              <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
+            </p>
+            <p className="text-blue-200 mb-8">
+              <a
+                href={siteConfig.sbaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-onealgo-orange-500 hover:underline inline-flex items-center gap-2"
+              >
+                View SBA Certification Profile
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </p>
+
+            <Button
+              asChild
+              size="lg"
+              className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+            >
+              <Link to="/contact">Get in Touch</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+}

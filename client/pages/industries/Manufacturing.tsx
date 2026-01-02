@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -11,6 +12,16 @@ import { Button } from "../../components/ui/button";
 import { Factory, Cog, BarChart3, Shield, Clock, Zap } from "lucide-react";
 
 export default function Manufacturing() {
+  useSEO({
+    title: "Manufacturing Solutions — OneAlgorithm",
+    description:
+      "Production tracking, workflow automation, quality control, and predictive maintenance for manufacturers.",
+    canonical: getCanonicalUrl("/industries/manufacturing"),
+    ogTitle: "Manufacturing Solutions — OneAlgorithm",
+    ogDescription:
+      "Integrated systems delivering live data insights across operations.",
+    ogUrl: getCanonicalUrl("/industries/manufacturing"),
+  });
   const features = [
     {
       icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,

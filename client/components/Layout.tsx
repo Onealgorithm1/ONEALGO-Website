@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
 import { Button } from "./ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import * as React from "react";
+import LeadConnectorWidget from "./LeadConnectorWidget";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ export default function Layout({ children }: LayoutProps) {
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const careersDropdownRef = React.useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   // Close all dropdowns when mobile menu closes
   React.useEffect(() => {
@@ -43,6 +45,9 @@ export default function Layout({ children }: LayoutProps) {
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // When mobile menu is open, don't auto-close dropdowns on outside click
+      if (mobileMenuOpen) return;
+
       if (
         servicesDropdownRef.current &&
         !servicesDropdownRef.current.contains(event.target as Node)
@@ -67,7 +72,7 @@ export default function Layout({ children }: LayoutProps) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [mobileMenuOpen]);
 
   React.useEffect(() => {
     if (mobileMenuOpen) {
@@ -79,6 +84,19 @@ export default function Layout({ children }: LayoutProps) {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
+
+  // Close mobile menu and dropdowns on route change, and scroll to top
+  React.useEffect(() => {
+    setMobileMenuOpen(false);
+    setServicesDropdownOpen(false);
+    setIndustriesDropdownOpen(false);
+    setCareersDropdownOpen(false);
+    try {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (_) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -146,6 +164,36 @@ export default function Layout({ children }: LayoutProps) {
                         }}
                       >
                         Marketing
+                      </Link>
+                      <Link
+                        to="/services/martech"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        MarTech
+                      </Link>
+                      <Link
+                        to="/services/google-ads"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Google Ads
+                      </Link>
+                      <Link
+                        to="/services/seo"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        SEO Services
                       </Link>
                       <Link
                         to="/services/staff-augmentation"
@@ -228,6 +276,26 @@ export default function Layout({ children }: LayoutProps) {
                         }}
                       >
                         E-Commerce
+                      </Link>
+                      <Link
+                        to="/services/nonprofit"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Nonprofit
+                      </Link>
+                      <Link
+                        to="/industries/government"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Government
                       </Link>
                     </div>
                   </div>
@@ -317,7 +385,7 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-50 bg-white">
+            <div className="md:hidden fixed inset-0 z-[100] bg-white">
               <div className="flex items-center justify-between px-4 py-3 border-b">
                 <Link
                   to="/"
@@ -416,6 +484,39 @@ export default function Layout({ children }: LayoutProps) {
                           Marketing
                         </Link>
                         <Link
+                          to="/services/martech"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          MarTech
+                        </Link>
+                        <Link
+                          to="/services/google-ads"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Google Ads
+                        </Link>
+                        <Link
+                          to="/services/seo"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          SEO Services
+                        </Link>
+                        <Link
                           to="/services/staff-augmentation"
                           className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
@@ -501,6 +602,28 @@ export default function Layout({ children }: LayoutProps) {
                           }}
                         >
                           E-Commerce
+                        </Link>
+                        <Link
+                          to="/services/nonprofit"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Nonprofit
+                        </Link>
+                        <Link
+                          to="/industries/government"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Government
                         </Link>
                       </div>
                     )}
@@ -740,6 +863,15 @@ export default function Layout({ children }: LayoutProps) {
                   Blog
                 </Link>
                 <Link
+                  to="/capabilities"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Company Capabilities
+                </Link>
+                <Link
                   to="/events"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -781,6 +913,15 @@ export default function Layout({ children }: LayoutProps) {
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Marketing
+                </Link>
+                <Link
+                  to="/services/seo"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  SEO Services
                 </Link>
                 <Link
                   to="/services/staff-augmentation"
@@ -863,6 +1004,9 @@ export default function Layout({ children }: LayoutProps) {
                 not imply endorsement.
               </p>
             </div>
+          </div>
+          <div className="mt-4">
+            <LeadConnectorWidget />
           </div>
         </div>
       </footer>

@@ -1,12 +1,28 @@
 import Layout from "../components/Layout";
 
+import Layout from "../components/Layout";
+import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+
 export default function Terms() {
+  useSEO({
+    title: "Terms & Conditions — OneAlgorithm",
+    description:
+      "Review OneAlgorithm's Terms & Conditions governing use of our website and services.",
+    canonical: getCanonicalUrl("/terms"),
+    ogTitle: "Terms & Conditions — OneAlgorithm",
+    ogDescription:
+      "Understand the terms governing use of our website and services.",
+    ogUrl: getCanonicalUrl("/terms"),
+    twitterTitle: "Terms & Conditions — OneAlgorithm",
+    twitterDescription:
+      "Understand the terms governing use of our website and services.",
+  });
   return (
     <Layout>
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-            Terms & Conditions
+            Terms & Conditions — Using the OneAlgorithm Website
           </h1>
 
           <div className="text-gray-600 space-y-8">

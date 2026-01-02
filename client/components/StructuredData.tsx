@@ -133,7 +133,7 @@ export function createOrganizationSchema(): OrganizationSchema {
     type: "Organization",
     name: "OneAlgorithm",
     url: "https://onealgorithm.com",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456",
+    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
     description:
       "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
     address: {
@@ -175,7 +175,7 @@ export function createOrganizationSchemaDetailed() {
     description:
       "Custom software development, system integration, and growth marketing agency serving Philadelphia and nationwide clients",
     url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/logo.png",
+    logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
     foundingDate: "2020",
     telephone: "(610) 298-9069",
     email: "contact@onealgorithm.com",
@@ -310,9 +310,11 @@ export function createLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "One Algorithm",
-    image: "https://onealgorithm.com/logo.png",
+    url: "https://onealgorithm.com",
+    logo: "https://onealgorithm.com/logo.webp",
+    image: "https://onealgorithm.com/logo.webp",
     telephone: "(610) 298-9069",
-    email: "contact@onealgorithm.com",
+    email: "service@onealgorithm.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "625 Swedesford Rd",
@@ -321,6 +323,12 @@ export function createLocalBusinessSchema() {
       postalCode: "19355",
       addressCountry: "US",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 40.0424458,
+      longitude: -75.5771397,
+    },
+    areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
     priceRange: "$$$",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -328,6 +336,11 @@ export function createLocalBusinessSchema() {
       opens: "09:00",
       closes: "18:00",
     },
+    sameAs: [
+      "https://www.linkedin.com/company/onealgorithm",
+      "https://twitter.com/onealgorithm",
+      "https://www.facebook.com/onealgorithm",
+    ],
   };
 }
 

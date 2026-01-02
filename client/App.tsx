@@ -61,10 +61,15 @@ const IndustryMarketing = lazy(() => import("./pages/industries/Marketing"));
 const IndustryWebsiteDevelopment = lazy(
   () => import("./pages/industries/WebsiteDevelopment"),
 );
+const Government = lazy(() => import("./pages/industries/Government"));
 const WebsiteDevelopment = lazy(
   () => import("./pages/services/WebsiteDevelopment"),
 );
 const Marketing = lazy(() => import("./pages/services/Marketing"));
+const Seo = lazy(() => import("./pages/services/Seo"));
+const Martech = lazy(() => import("./pages/services/Martech"));
+const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
+const Nonprofit = lazy(() => import("./pages/services/Nonprofit"));
 const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
@@ -74,6 +79,7 @@ const OperationsTechnology = lazy(
 );
 const Blog = lazy(() => import("./pages/Blog"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
+const Capabilities = lazy(() => import("./pages/Capabilities"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading component
@@ -120,6 +126,10 @@ const App = () => (
                 element={<WebsiteDevelopment />}
               />
               <Route path="/services/marketing" element={<Marketing />} />
+              <Route path="/services/seo" element={<Seo />} />
+              <Route path="/services/martech" element={<Martech />} />
+              <Route path="/services/google-ads" element={<GoogleAds />} />
+              <Route path="/services/nonprofit" element={<Nonprofit />} />
               <Route
                 path="/services/staff-augmentation"
                 element={<StaffAugmentation />}
@@ -150,9 +160,11 @@ const App = () => (
                 path="/industries/website-development"
                 element={<IndustryWebsiteDevelopment />}
               />
+              <Route path="/industries/government" element={<Government />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/ai-info" element={<AiInfo />} />
+              <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/careers" element={<Careers />} />

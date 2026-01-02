@@ -7,9 +7,26 @@
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
-  
+
 [[redirects]]
   force = true
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
+
+# Cache static assets aggressively for repeat visits
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/**/*.(png|jpg|jpeg|gif|webp|svg|ico)"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don’t cache HTML (SPA shell)
+[[headers]]
+  for = "/**/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

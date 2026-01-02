@@ -21,7 +21,7 @@ export default function OneAlgorithmText({
 
   const globeSizes = {
     sm: 20,
-    md: 28,
+    md: 30,
     lg: 36,
     xl: 44,
   };
@@ -31,30 +31,34 @@ export default function OneAlgorithmText({
 
   if (isWhiteText) {
     return (
-      <span
-        className={`font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
-      >
-        <span className="text-onealgo-orange-500">One</span>
-        <span className="text-white">Algorithm</span>
+      <span className="logo-container">
+        <span
+          className={`logo font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
+        >
+          <span className="logo-one text-onealgo-orange-500">One</span>
+          <span className="logo-algorithm text-white">Algorithm</span>
+        </span>
       </span>
     );
   }
 
   return (
-    <span
-      className={`font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
-    >
-      <span className="text-onealgo-orange-500">One</span>
-      <span className="text-onealgo-blue-950">Alg</span>
-      {showGlobe ? (
-        <BinaryGlobeSVG
-          size={globeSizes[size]}
-          className="mx-1 inline-block drop-shadow-md"
-        />
-      ) : (
-        <span className="text-onealgo-blue-950">o</span>
-      )}
-      <span className="text-onealgo-blue-950">rithm</span>
+    <span className="logo-container">
+      <span
+        className={`logo font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
+      >
+        <span className="logo-one text-onealgo-orange-500">One</span>
+        <span className="logo-algorithm text-onealgo-blue-950">Alg</span>
+        {showGlobe ? (
+          <BinaryGlobeSVG
+            size={globeSizes[size]}
+            className="mx-1 inline-block drop-shadow-md"
+          />
+        ) : (
+          <span className="logo-algorithm text-onealgo-blue-950">o</span>
+        )}
+        <span className="logo-algorithm text-onealgo-blue-950">rithm</span>
+      </span>
     </span>
   );
 }

@@ -16,6 +16,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure 3rd-party Roboto uses font-display swap */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("https://fonts.bunny.net/fonts/roboto/files/roboto-latin-400-normal.woff2")
+    format("woff2");
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("https://fonts.bunny.net/fonts/roboto/files/roboto-latin-700-normal.woff2")
+    format("woff2");
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
 /* Performance optimizations */
 @layer base {
   html {
@@ -59,6 +85,54 @@
 
   .text-gradient {
     @apply bg-gradient-to-r from-onealgo-blue-950 to-onealgo-orange-500 bg-clip-text text-transparent;
+  }
+
+  /* OneAlgorithm logo hover effect */
+  .logo-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .logo {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .logo-one {
+    color: #ffa634;
+  }
+
+  .logo-algorithm {
+    color: #005eaa;
+  }
+
+  .logo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ffa634, #005eaa);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: translateX(-50%);
+  }
+
+  .logo-container:hover .logo {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 20px rgba(255, 166, 52, 0.3));
+  }
+
+  .logo-container:hover .logo::after {
+    width: 100%;
   }
 }
 

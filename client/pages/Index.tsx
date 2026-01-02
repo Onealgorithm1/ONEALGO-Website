@@ -24,6 +24,7 @@ import {
   Globe,
   Users,
   Zap,
+  Handshake,
 } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
@@ -36,23 +37,23 @@ import { JSONLDScript } from "../components/JSONLDScript";
 export default function Index() {
   // Re-enabling useSEO hook after React stability fix
   useSEO({
-    title: "OneAlgorithm — IT Consulting & Web Development",
+    title: "OneAlgorithm - Marketing & Tech Solutions",
     description:
       "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
     canonical: getCanonicalUrl("/"),
     keywords:
       "custom software development Malvern PA, system integration agency, API integration, CRM integration, marketing automation, Philadelphia software development, enterprise software, SaaS development, mobile app development, One Algorithm",
-    ogTitle: "OneAlgorithm — IT Consulting & Web Development",
+    ogTitle: "OneAlgorithm - Marketing & Tech Solutions",
     ogDescription:
       "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
-    twitterTitle: "OneAlgorithm — IT Consulting & Web Development",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+    twitterTitle: "OneAlgorithm - Marketing & Tech Solutions",
     twitterDescription:
       "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   return (
     <Layout>
@@ -60,21 +61,34 @@ export default function Index() {
       <JSONLDScript data={createFAQSchema()} />
       <JSONLDScript data={createLocalBusinessSchema()} />
       {/* Hero Section */}
-      <section
-        className="relative py-20 lg:py-32 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 94, 170, 0.7), rgba(0, 94, 170, 0.5)), url('https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1920')`,
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="https://cdn.builder.io/o/assets%2Fb90cab62d3d34e0087abec352888a96d%2F56a1800ee414437887a011bb3a039cf9?alt=media&token=3fbd2ca2-5ea8-4079-8fee-1190bfa18e0c&apiKey=b90cab62d3d34e0087abec352888a96d"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1200"
+          aria-hidden="true"
+        />
+
+        {/* Gradient overlay to preserve contrast */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0, 94, 170, 0.7), rgba(0, 94, 170, 0.5))",
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
-              <span className="text-white drop-shadow-lg">OneAlgorithm —</span>{" "}
+              <span className="text-white drop-shadow-lg">OneAlgorithm - </span>
               <span className="text-onealgo-orange-500 drop-shadow-lg">
-                Business Technology
-              </span>{" "}
-              <span className="text-white drop-shadow-lg">
-                & Automation Solutions
+                Marketing &amp; Tech Solutions
               </span>
             </h1>
             <p className="text-lg md:text-xl text-onealgo-orange-500/90 mb-4 max-w-3xl mx-auto drop-shadow-md animate-fade-in-up font-semibold italic">
@@ -104,7 +118,15 @@ export default function Index() {
       </section>
 
       {/* Why OneAlgorithm Section */}
-      <section className="py-20 bg-white">
+      <section
+        className="py-20 bg-white"
+        style={{
+          backgroundColor: "rgb(255, 255, 255)",
+          fontWeight: 400,
+          alignSelf: "center",
+          padding: "80px 0",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
@@ -252,7 +274,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {/* Construction */}
             <Link to="/industries/construction" className="group">
               <div className="text-center p-6 rounded-lg border-2 border-transparent hover:border-onealgo-orange-500 transition-colors cursor-pointer">
@@ -279,6 +301,26 @@ export default function Index() {
                 <ShoppingCart className="w-16 h-16 text-onealgo-blue-950 mx-auto mb-4 group-hover:text-green-500 transition-colors duration-300" />
                 <h3 className="text-lg font-semibold text-onealgo-blue-950 group-hover:text-green-500 transition-colors">
                   E-Commerce
+                </h3>
+              </div>
+            </Link>
+
+            {/* Nonprofit */}
+            <Link to="/services/nonprofit" className="group">
+              <div className="text-center p-6 rounded-lg border-2 border-transparent hover:border-onealgo-orange-500 transition-colors cursor-pointer">
+                <Handshake className="w-16 h-16 text-onealgo-blue-950 mx-auto mb-4 group-hover:text-onealgo-orange-500 transition-colors duration-300" />
+                <h3 className="text-lg font-semibold text-onealgo-blue-950 group-hover:text-onealgo-orange-500 transition-colors">
+                  Nonprofit
+                </h3>
+              </div>
+            </Link>
+
+            {/* Government */}
+            <Link to="/industries/government" className="group">
+              <div className="text-center p-6 rounded-lg border-2 border-transparent hover:border-onealgo-orange-500 transition-colors cursor-pointer">
+                <Globe className="w-16 h-16 text-onealgo-blue-950 mx-auto mb-4 group-hover:text-onealgo-orange-500 transition-colors duration-300" />
+                <h3 className="text-lg font-semibold text-onealgo-blue-950 group-hover:text-onealgo-orange-500 transition-colors">
+                  Government
                 </h3>
               </div>
             </Link>

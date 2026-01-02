@@ -28,12 +28,12 @@ export default function Events() {
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     ogUrl: getCanonicalUrl("/events"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "OneAlgorithm — Events & Webinars",
     twitterDescription:
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   // Placeholder events - to be replaced with actual event data
   const upcomingEvents = [
@@ -123,7 +123,7 @@ export default function Events() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Events &{" "}
+              Technology Events &{" "}
               <span className="text-onealgo-orange-500">Workshops</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">

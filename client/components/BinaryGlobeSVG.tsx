@@ -9,14 +9,30 @@ export default function BinaryGlobeSVG({
   size = 32,
   className = "",
 }: BinaryGlobeSVGProps) {
+  const src =
+    "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F557317a35fa3445dbb745567290f1bd4";
   return (
     <img
-      src="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fc7904dee94834b3c95bc63f5f5c8a666?format=webp&width=800"
+      src={src}
       alt="OneAlgorithm Logo"
       width={size}
       height={size}
       className={`inline-block ${className}`}
-      style={{ objectFit: "contain" }}
+      style={{
+        objectFit: "contain",
+        aspectRatio: `auto ${size} / ${size}`,
+        borderColor: "rgba(255, 255, 255, 0)",
+        color: "rgba(255, 255, 255, 0.58)",
+        filter:
+          "drop-shadow(rgba(0, 0, 0, 0.07) 0px 4px 3px) drop-shadow(rgba(0, 0, 0, 0.06) 0px 2px 2px)",
+        fontWeight: 700,
+        textDecoration: "rgb(255, 255, 255)",
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        width: "28px",
+        alignSelf: "center",
+      }}
+      loading="lazy"
+      decoding="async"
     />
   );
 }

@@ -1,99 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- CRITICAL: SearchAtlas MUST be first and in exact format -->
-    <script nowprocket nitro-exclude type="text/javascript" id="sa-dynamic-optimization" data-uuid="67538d68-7102-4008-8810-49c94fafae37" src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjY3NTM4ZDY4LTcxMDItNDAwOC04ODEwLTQ5Yzk0ZmFmYWUzNyI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="></script>
-    
-    <!-- SearchAtlas Verification Meta Tags -->
-    <meta name="searchatlas-verification" content="67538d68-7102-4008-8810-49c94fafae37" />
-    <meta name="sa-site-verification" content="67538d68-7102-4008-8810-49c94fafae37" />
-    
     <!-- DNS Prefetch for Performance -->
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//dashboard.searchatlas.com">
-    <link rel="dns-prefetch" href="//sa.searchatlas.com">
-    <link rel="dns-prefetch" href="//cdn.builder.io">
-    <link rel="preconnect" href="https://dashboard.searchatlas.com" crossorigin>
-    <link rel="preconnect" href="https://sa.searchatlas.com" crossorigin>
-    
-    <!-- Google Tag Manager - AFTER SearchAtlas -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NTDV6XG6");
-    </script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"
-    ></script>
-    <script>
-      (function () {
-        function warn(message, error) {
-          if (
-            typeof console !== "undefined" &&
-            typeof console.warn === "function"
-          ) {
-            if (error) {
-              console.warn(message, error);
-            } else {
-              console.warn(message);
-            }
-          }
-        }
+    <link rel="dns-prefetch" href="//cdn.builder.io" />
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
 
-        try {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            window.dataLayer.push(arguments);
-          }
+    <!-- Preload critical CSS (non-blocking) and fonts -->
+    <link
+      rel="preload"
+      href="/assets/index.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/assets/index.css" /></noscript>
 
-          window.gtag = window.gtag || gtag;
-
-          window.gtag("js", new Date());
-          window.gtag("config", "G-RC48CMQ05T", {
-            allow_enhanced_conversions: true,
-          });
-          window.gtag("config", "AW-17336277732");
-          window.gtag("event", "page_view", {
-            page_title: document.title,
-            page_location: window.location.href,
-          });
-        } catch (error) {
-          warn("Google Analytics initialization failed", error);
-        }
-
-        window.trackFormSubmission = function () {
-          try {
-            if (typeof window.gtag === "function") {
-              window.gtag("event", "contact_form_submission", {
-                event_category: "form",
-                event_label: "contact",
-                value: 1,
-              });
-            } else {
-              warn("Analytics unavailable: contact_form_submission skipped");
-            }
-          } catch (error) {
-            warn("Analytics unavailable: contact_form_submission error", error);
-          }
-        };
-      })();
-    </script>
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://fonts.bunny.net/fonts/roboto/files/roboto-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://fonts.bunny.net/fonts/roboto/files/roboto-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OneAlgorithm — IT Consulting & Web Development</title>
+    <title>OneAlgorithm - Marketing & Tech Solutions</title>
     <meta
       name="description"
       content="Transform your business with OneAlgorithm's expert IT consulting, website development, operations technology, and staff augmentation services. Specialized solutions for Construction, Manufacturing, and E-Commerce industries."
@@ -103,18 +49,71 @@
       content="IT consulting, website development, operations technology, staff augmentation, business automation, construction technology, manufacturing systems, e-commerce solutions, digital transformation, OneAlgorithm"
     />
     <meta name="author" content="OneAlgorithm" />
-    
+
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://onealgorithm.com/">
-    
+    <link rel="canonical" href="https://onealgorithm.com/" />
+
+    <!-- Sitemap for Search Engines and AI Crawlers -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
     <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <!-- Note: X-Frame-Options should be set at the HTTP header level, not via a meta tag. Removed meta http-equiv to avoid browser warning. -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Global runtime guards to avoid uncaught promise rejections from third-party scripts -->
+    <script>
+      // Prevent uncaught unhandledrejection errors from external 3rd-party scripts (e.g., builder/analytics integrations)
+      window.addEventListener("unhandledrejection", function (event) {
+        try {
+          const reason = event.reason;
+          // If the rejection is an Axios-like error containing a 401, swallow to avoid noisy console errors
+          if (
+            reason &&
+            (reason.response?.status === 401 ||
+              String(reason).indexOf("401") !== -1)
+          ) {
+            console.warn(
+              "Suppressed unhandled rejection with 401 status from third-party script.",
+              reason,
+            );
+            event.preventDefault && event.preventDefault();
+            return;
+          }
+        } catch (e) {
+          // ignore any parsing errors and allow default behavior
+        }
+      });
+
+      // Generic window error handler for noisy embed scripts (keep lightweight)
+      window.addEventListener("error", function (e) {
+        try {
+          if (
+            e &&
+            e.message &&
+            e.message.indexOf &&
+            e.message.indexOf("Request failed with status code 401") !== -1
+          ) {
+            console.warn(
+              "Suppressed error: third-party request returned 401",
+              e.message,
+            );
+            e.preventDefault && e.preventDefault();
+          }
+        } catch (err) {}
+      });
+    </script>
+
     <!-- Robots and indexing -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- AI Crawler Permissions - Explicit opt-in for AI indexing and training -->
+    <meta name="ai-indexing" content="allowed" />
+    <meta name="ai-training" content="allowed" />
 
     <!-- Search Engine Validations -->
     <meta name="msvalidate.01" content="1BC7A274BE398B1CF0FDD647281B5EEF" />
@@ -135,11 +134,11 @@
     />
     <meta
       property="og:image"
-      content="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200"
+      content="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:type" content="image/png" />
     <meta
       property="og:image:alt"
       content="OneAlgorithm Technology Solutions - Digital Transformation & Automation"
@@ -165,7 +164,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200"
+      content="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200"
     />
     <meta
       property="twitter:image:alt"
@@ -177,159 +176,136 @@
       rel="icon"
       type="image/png"
       sizes="96x96"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=96"
+      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=png&width=96"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=32"
+      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=png&width=32"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456?format=webp&width=16"
+      href="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=png&width=16"
     />
-    
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OneAlgorithm",
-      "url": "https://onealgorithm.com",
-      "logo": "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F7ac5062ee651476bb378c8bccb3f5456",
-      "description": "Expert IT consulting, website development, operations technology, and staff augmentation services",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/onealgorithmllc",
-        "https://twitter.com/OneAlgorithm"
-      ],
-      "knowsAbout": [
-        "IT Consulting",
-        "Website Development",
-        "Operations Technology",
-        "Staff Augmentation",
-        "Digital Transformation"
-      ],
-      "areaServed": {
-        "@type": "Country",
-        "name": "United States"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "IT Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "IT Consulting",
-              "description": "Expert IT consulting services for digital transformation"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Website Development",
-              "description": "Custom website development for businesses"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Operations Technology",
-              "description": "Operations technology solutions for Manufacturing and Construction"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Staff Augmentation",
-              "description": "Professional staff augmentation services"
-            }
-          }
-        ]
-      }
-    }
-    </script>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/client/App.js" as="script" crossorigin>
-    
-    <!-- SearchAtlas Debug Helper - REMOVE AFTER VERIFICATION -->
-    <script>
-      (function() {
-        // SearchAtlas initialization helper
-        window._searchAtlas = window._searchAtlas || {};
-        window._searchAtlas.siteId = '67538d68-7102-4008-8810-49c94fafae37';
-        window._searchAtlas.verified = true;
-        
-        // Debug logging
-        window.addEventListener('DOMContentLoaded', function() {
-          console.log('SearchAtlas Debug:');
-          console.log('- Site ID:', window._searchAtlas.siteId);
-          console.log('- Script loaded:', !!document.getElementById('sa-dynamic-optimization-loader'));
-          
-          // Check if SearchAtlas loaded properly
-          setTimeout(function() {
-            if (typeof window.SearchAtlas !== 'undefined') {
-              console.log('✅ SearchAtlas loaded successfully');
-            } else {
-              console.warn('⚠️ SearchAtlas not detected - checking for errors');
-              
-              // Check network tab for 401/404 errors
-              if (window.performance && window.performance.getEntriesByType) {
-                var resources = window.performance.getEntriesByType('resource');
-                resources.forEach(function(resource) {
-                  if (resource.name.includes('searchatlas')) {
-                    console.log('SearchAtlas resource:', resource.name, 'Status:', resource.responseStatus || 'unknown');
-                  }
-                });
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "OneAlgorithm",
+        "url": "https://onealgorithm.com",
+        "logo": "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
+        "description": "Expert IT consulting, website development, operations technology, and staff augmentation services",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/onealgorithmllc",
+          "https://twitter.com/OneAlgorithm"
+        ],
+        "knowsAbout": [
+          "IT Consulting",
+          "Website Development",
+          "Operations Technology",
+          "Staff Augmentation",
+          "Digital Transformation"
+        ],
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "IT Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "IT Consulting",
+                "description": "Expert IT consulting services for digital transformation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Website Development",
+                "description": "Custom website development for businesses"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Operations Technology",
+                "description": "Operations technology solutions for Manufacturing and Construction"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Staff Augmentation",
+                "description": "Professional staff augmentation services"
               }
             }
-          }, 3000);
-        });
+          ]
+        }
+      }
+    </script>
+
+    <!-- SearchAtlas OTTO Script -->
+    <script>
+      (function () {
+        var prodHosts = ["onealgorithm.com", "www.onealgorithm.com"];
+        if (!prodHosts.includes(location.hostname)) return;
+
+        if (!document.getElementById("sa-dynamic-optimization")) {
+          var script = document.createElement("script");
+          script.setAttribute("nowprocket", "");
+          script.setAttribute("nitro-exclude", "");
+          script.src =
+            "https://dashboard.searchatlas.com/scripts/dynamic_optimization.js";
+          script.dataset.uuid = "67538d68-7102-4008-8810-49c94fafae37";
+          script.id = "sa-dynamic-optimization";
+          script.async = true;
+          document.head.appendChild(script);
+        }
       })();
     </script>
   </head>
   <body>
     <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-link" style="position: absolute; left: -9999px; z-index: 999; padding: 1rem; background: #000; color: #fff; text-decoration: none;">Skip to main content</a>
-    
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NTDV6XG6"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-        title="Google Tag Manager"
-      ></iframe>
-    </noscript>
-    
-    <!-- SearchAtlas noscript fallback -->
-    <noscript>
-      <img src="https://dashboard.searchatlas.com/noscript?uuid=67538d68-7102-4008-8810-49c94fafae37" 
-           width="1" height="1" style="display:none" alt="">
-    </noscript>
-    
+    <a
+      href="#root"
+      class="skip-link"
+      style="
+        position: absolute;
+        left: -9999px;
+        z-index: 999;
+        padding: 1rem;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+      "
+      >Skip to main content</a
+    >
+
     <!-- Main application root -->
-    <div id="root" role="main" id="main-content"></div>
-    
+    <div id="root" role="main"></div>
+
     <!-- Application JavaScript (compiled from TypeScript) -->
-    <script type="module" src="/client/App.js"></script>
-    
+    <script type="module" src="/client/App.tsx"></script>
+
     <!-- Fallback for older browsers -->
     <noscript>
-      <div style="padding: 2rem; text-align: center;">
+      <div style="padding: 2rem; text-align: center">
         <h1>JavaScript Required</h1>
         <p>Please enable JavaScript to use this application.</p>
       </div>

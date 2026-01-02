@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -18,6 +19,16 @@ import {
 } from "lucide-react";
 
 export default function ECommerce() {
+  useSEO({
+    title: "E‑Commerce Solutions — OneAlgorithm",
+    description:
+      "Platform integration, order management, payments, and analytics for online retail.",
+    canonical: getCanonicalUrl("/industries/ecommerce"),
+    ogTitle: "E‑Commerce Solutions — OneAlgorithm",
+    ogDescription:
+      "Scale your online business with connected systems and automation.",
+    ogUrl: getCanonicalUrl("/industries/ecommerce"),
+  });
   const features = [
     {
       icon: <ShoppingCart className="w-8 h-8 text-onealgo-orange-500" />,
@@ -65,7 +76,8 @@ export default function ECommerce() {
           <div className="text-center">
             <ShoppingCart className="w-24 h-24 text-green-500 mx-auto mb-6 animate-bounce-slow" />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              E-Commerce <span className="text-green-500">Solutions</span>
+              E‑Commerce Technology{" "}
+              <span className="text-green-500">Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Scale your online business with integrated platforms that connect

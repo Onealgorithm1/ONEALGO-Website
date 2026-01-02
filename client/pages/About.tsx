@@ -17,6 +17,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
@@ -38,12 +39,12 @@ export default function About() {
       "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
     ogUrl: getCanonicalUrl("/about"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "OneAlgorithm — About Us",
     twitterDescription:
       "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   return (
     <Layout>
@@ -61,7 +62,7 @@ export default function About() {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               About <span className="text-onealgo-orange-500">One</span>
-              Algorithm
+              Algorithm — Our Mission & Team
             </h1>
             <p className="text-xl text-blue-200 max-w-4xl mx-auto mb-8">
               We exist to transform struggling businesses into thriving

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -11,6 +12,16 @@ import { Button } from "../../components/ui/button";
 import { Target, TrendingUp, Users, Zap, BarChart3, Mail } from "lucide-react";
 
 export default function Marketing() {
+  useSEO({
+    title: "Marketing Solutions — OneAlgorithm",
+    description:
+      "Campaign management, AI insights, journeys, and automation for growth teams.",
+    canonical: getCanonicalUrl("/industries/marketing"),
+    ogTitle: "Marketing Solutions — OneAlgorithm",
+    ogDescription:
+      "Personalized experiences and measurable ROI across channels.",
+    ogUrl: getCanonicalUrl("/industries/marketing"),
+  });
   const features = [
     {
       icon: <Target className="w-8 h-8 text-onealgo-orange-500" />,
@@ -63,7 +74,8 @@ export default function Marketing() {
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Marketing <span className="text-purple-500">Solutions</span>
+              Data-Driven Marketing{" "}
+              <span className="text-purple-500">Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Create campaigns that adapt instantly to customer behavior and

@@ -479,108 +479,124 @@ export default function Contact() {
                 </div>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Our Global Offices
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                {/* USA Office */}
-                <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
-                      <span className="text-xl">🇺🇸</span>
-                      USA
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm">
-                          625 Swedesford Rd
-                          <br />
-                          Malvern, PA 19355
-                          <br />
-                          (610) 298-9069
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* India Office */}
-                <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
-                      <span className="text-xl">🇮🇳</span>
-                      India
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm">
-                          2nd Floor, Plot No. 536
-                          <br />
-                          Madhapur, Hyderabad
-                          <br />
-                          Telangana 500081, IN
-                          <br />
-                          +91 98765 43211
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* UAE Office */}
-                <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
-                      <span className="text-xl">🇦🇪</span>
-                      UAE
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm">
-                          Building R118, Suite 201-A-42
-                          <br />
-                          Al Suq Al Kabeer, Dubai
-                          <br />
-                          +971 4 123 4567
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Canada Office */}
-                <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
-                      <span className="text-xl">🇨🇦</span>
-                      Canada
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-gray-600 text-sm">
-                          120 Adelaide St W<br />
-                          Toronto, ON M5H 1T1
-                          <br />
-                          +1 (416) 555-1234
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+              {/* Map Embed */}
+              <div className="mb-8">
+                <div className="w-full rounded overflow-hidden shadow-sm">
+                  <iframe
+                    title="OneAlgorithm Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3054.4774062403612!2d-75.5771397!3d40.042445799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f327d5340c9d%3A0x218ca530a72f1726!2sOneAlgorithm%20Consulting!5e0!3m2!1sen!2sus!4v1759511875621!5m2!1sen!2sus"
+                    className="w-full h-64 sm:h-96 border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Global Offices - full width row under the contact form and map */}
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+            Our Global Offices
+          </h3>
+          <div className="w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                    <span className="text-xl">🇺🇸</span>
+                    USA
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        625 Swedesford Rd
+                        <br />
+                        Malvern, PA 19355
+                        <br />
+                        (610) 298-9069
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                    <span className="text-xl">🇮🇳</span>
+                    India
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        2nd Floor, Plot No. 536
+                        <br />
+                        Madhapur, Hyderabad
+                        <br />
+                        Telangana 500081, IN
+                        <br />
+                        +91 98765 43211
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                    <span className="text-xl">🇦🇪</span>
+                    UAE
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        Building R118, Suite 201-A-42
+                        <br />
+                        Al Suq Al Kabeer, Dubai
+                        <br />
+                        +971 4 123 4567
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                    <span className="text-xl">🇨🇦</span>
+                    Canada
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        120 Adelaide St W<br />
+                        Toronto, ON M5H 1T1
+                        <br />
+                        +1 (416) 555-1234
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

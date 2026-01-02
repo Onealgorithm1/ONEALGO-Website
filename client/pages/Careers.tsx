@@ -66,12 +66,12 @@ export default function Careers() {
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     ogUrl: getCanonicalUrl("/careers"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "OneAlgorithm — Careers",
     twitterDescription:
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
 
   const [searchTerm, setSearchTerm] = useState("");

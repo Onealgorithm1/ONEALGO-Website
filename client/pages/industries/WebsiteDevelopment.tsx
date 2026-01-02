@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
+import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   Card,
   CardContent,
@@ -18,6 +19,16 @@ import {
 } from "lucide-react";
 
 export default function WebsiteDevelopment() {
+  useSEO({
+    title: "Website Development Solutions — OneAlgorithm",
+    description:
+      "Modern design, responsive builds, performance, SEO, and security for business websites.",
+    canonical: getCanonicalUrl("/industries/website-development"),
+    ogTitle: "Website Development Solutions — OneAlgorithm",
+    ogDescription:
+      "Fast, secure, and SEO‑ready websites tailored to your needs.",
+    ogUrl: getCanonicalUrl("/industries/website-development"),
+  });
   const features = [
     {
       icon: <Monitor className="w-8 h-8 text-onealgo-orange-500" />,
@@ -71,7 +82,8 @@ export default function WebsiteDevelopment() {
               <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm2 4v-2H3a2 2 0 002 2zM3 9h2V7H3v2zm12 12h2v-2h-2v2zm4-18H9a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2zm0 12H9V5h10v10z" />
             </svg>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Website <span className="text-blue-500">Development</span>
+              Website Development{" "}
+              <span className="text-blue-500">Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
               Modern, responsive websites built for performance and user

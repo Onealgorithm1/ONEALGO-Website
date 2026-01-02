@@ -40,12 +40,12 @@ export default function StaffAugmentation() {
       "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
     ogUrl: getCanonicalUrl("/services/staff-augmentation"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
     twitterTitle: "Staff Augmentation Services - OneAlgorithm",
     twitterDescription:
       "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=webp&width=1200",
+      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
   const skills = [
     {
@@ -160,7 +160,8 @@ export default function StaffAugmentation() {
             <div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Staff{" "}
-                <span className="text-onealgo-orange-500">Augmentation</span>
+                <span className="text-onealgo-orange-500">Augmentation</span>{" "}
+                Services
               </h1>
               <ul className="text-xl text-blue-200 mb-8 space-y-3">
                 <li className="flex items-start">
