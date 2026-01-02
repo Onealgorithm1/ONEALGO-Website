@@ -32,6 +32,9 @@ import {
   differentiators,
   projectHighlights,
   keyPersonnel,
+  federalExperience,
+  complianceProfile,
+  strategicPartnerships,
 } from "../../shared/capabilities-data";
 import type { IconName } from "../../shared/capabilities-data";
 import { siteConfig } from "../lib/siteConfig";
