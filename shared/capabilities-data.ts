@@ -218,8 +218,7 @@ export const keyPersonnel: KeyPerson[] = [
   {
     name: "Swapna Amirisetti",
     role: "CEO / President",
-    summary:
-      "Strategic growth, federal partnerships, and executive oversight.",
+    summary: "Strategic growth, federal partnerships, and executive oversight.",
     email: "swapna@onealgorithm.com",
     phone: "(832) 633-7051",
   },

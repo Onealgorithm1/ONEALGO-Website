@@ -92,9 +92,9 @@ export default function Capabilities() {
                 solutions to federal and commercial clients nationwide.
               </p>
               <p>
-                Mission: enable government and enterprise customers to
-                modernize securely, efficiently, and accessibly—meeting all
-                compliance and mission objectives.
+                Mission: enable government and enterprise customers to modernize
+                securely, efficiently, and accessibly—meeting all compliance and
+                mission objectives.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-blue-100">
@@ -115,9 +115,8 @@ export default function Capabilities() {
               <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
                 <MapPin className="w-5 h-5" />
                 <span>
-                  {siteConfig.address.street} {siteConfig.address.streetUnit},
-                  {" "}
-                  {siteConfig.address.city}, {siteConfig.address.region} {" "}
+                  {siteConfig.address.street} {siteConfig.address.streetUnit},{" "}
+                  {siteConfig.address.city}, {siteConfig.address.region}{" "}
                   {siteConfig.address.postalCode}
                 </span>
               </div>
@@ -310,7 +309,9 @@ export default function Capabilities() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                    <p className="text-gray-700 leading-relaxed">
+                      {item.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -328,7 +329,9 @@ export default function Capabilities() {
                   <Layers className="w-6 h-6 text-onealgo-orange-500" />
                   {jointVenturePartner.name}
                 </CardTitle>
-                <p className="text-sm text-gray-600">{jointVenturePartner.summary}</p>
+                <p className="text-sm text-gray-600">
+                  {jointVenturePartner.summary}
+                </p>
               </CardHeader>
               <CardContent className="space-y-4 text-gray-700">
                 <div className="grid gap-4 md:grid-cols-2">
