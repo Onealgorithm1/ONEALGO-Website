@@ -292,6 +292,84 @@ export default function Capabilities() {
             </div>
           </div>
 
+          {/* Mentor-Protégé & Partnerships */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Mentor-Protégé & Partnership Readiness
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {mentorProtegeHighlights.map((item) => (
+                <Card
+                  key={item.title}
+                  className="border-2 hover:border-onealgo-orange-500 transition-colors"
+                >
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-onealgo-blue-950">
+                      <Handshake className="w-6 h-6 text-onealgo-orange-500" />
+                      {item.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 leading-relaxed">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Joint Venture Spotlight */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Active SBA-Compliant Joint Venture
+            </h3>
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
+                  <Layers className="w-6 h-6 text-onealgo-orange-500" />
+                  {jointVenturePartner.name}
+                </CardTitle>
+                <p className="text-sm text-gray-600">{jointVenturePartner.summary}</p>
+              </CardHeader>
+              <CardContent className="space-y-4 text-gray-700">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="space-y-1">
+                    <p className="font-semibold">Address</p>
+                    <p>{jointVenturePartner.address}</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="font-semibold">Registration</p>
+                    <p>{jointVenturePartner.cage}</p>
+                    <p>{jointVenturePartner.uei}</p>
+                    <p>{jointVenturePartner.samStatus}</p>
+                    <p>{jointVenturePartner.certifications}</p>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">Core Services</p>
+                  <ul className="grid gap-2 sm:grid-cols-2">
+                    {jointVenturePartner.services.map((service) => (
+                      <li key={service} className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
+                        <span>{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <a
+                    href={jointVenturePartner.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-onealgo-orange-500 font-semibold hover:underline"
+                  >
+                    Visit {jointVenturePartner.website.replace("https://", "")}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Compliance & Credentials */}
           <div className="mb-16">
             <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
