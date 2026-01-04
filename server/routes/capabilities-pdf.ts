@@ -51,7 +51,7 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
     doc
       .fontSize(22)
       .fillColor("#0f172a")
-      .text(`${siteConfig.legalName} Capabilities Statement (2026 Edition)`, {
+      .text(`${siteConfig.legalName} Capabilities Statement`, {
         align: "center",
       })
       .moveDown(0.5);
@@ -260,21 +260,6 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
       textIndent: 20,
       bulletIndent: 10,
     });
-
-    sectionHeading("Contact Information");
-    doc
-      .fontSize(11)
-      .fillColor("#1f2937")
-      .text(
-        `Primary Contact: ${siteConfig.contact.emailPrimary} | ${siteConfig.contact.phonePrimary}`,
-      )
-      .text(
-        `Alternate Contact: ${siteConfig.contact.emailAlt ?? "N/A"} | ${siteConfig.contact.phoneAlt ?? "N/A"}`,
-      )
-      .text(`Website: ${siteConfig.url}`)
-      .text(`Address: ${getFullAddress()}`)
-      .text(`Mailing Address: ${getPostalAddress().replace("\n", ", ")}`)
-      .moveDown(0.5);
 
     doc.end();
   } catch (error) {
