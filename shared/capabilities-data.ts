@@ -161,7 +161,7 @@ export const federalExperience: FederalExperienceItem[] = [
     title: "Library of Congress – CRIMS Modernization",
     rfq: "RFQ 030ADV26Q0024",
     role: "Prime Contractor: One Algorithm LLC",
-    partner: "Proposed Partner: Irongrove LLC",
+    partner: "Partner: Irongrove LLC (Veteran-Owned)",
     scope:
       "Cloud modernization, accessibility compliance (WCAG 2.1 AA), and Azure GovOps infrastructure.",
     submissionDate: "Submitted December 19, 2025",
@@ -172,7 +172,7 @@ export const federalExperience: FederalExperienceItem[] = [
       "Library of Congress – FADGI Digitization & Accessibility Modernization",
     rfq: "RFQ 030ADV26Q0011",
     role: "Prime Contractor: One Algorithm LLC",
-    partner: "Proposed Partner: Irongrove LLC",
+    partner: "Partner: Irongrove LLC",
     scope:
       "Metadata automation, digital preservation workflows, and Azure-based accessibility modernization.",
     submissionDate: "Submitted January 5, 2026",
