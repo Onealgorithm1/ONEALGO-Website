@@ -664,6 +664,14 @@ export default function Capabilities() {
                     {siteConfig.contact.emailPrimary}
                   </a>
                 </p>
+                <p className="text-blue-200">
+                  <a
+                    href={`tel:${siteConfig.contact.phonePrimary}`}
+                    className="hover:text-onealgo-orange-500 transition-colors"
+                  >
+                    {siteConfig.contact.phonePrimary}
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -678,6 +686,16 @@ export default function Capabilities() {
                       className="hover:text-onealgo-orange-500 transition-colors"
                     >
                       {siteConfig.contact.emailAlt}
+                    </a>
+                  </p>
+                )}
+                {siteConfig.contact.phoneAlt && (
+                  <p className="text-blue-200">
+                    <a
+                      href={`tel:${siteConfig.contact.phoneAlt}`}
+                      className="hover:text-onealgo-orange-500 transition-colors"
+                    >
+                      {siteConfig.contact.phoneAlt}
                     </a>
                   </p>
                 )}
