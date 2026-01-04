@@ -39,6 +39,9 @@ import {
   federalExperience,
   complianceProfile,
   strategicPartnerships,
+  keyPersonnel,
+  mentorProtegeHighlights,
+  jointVenturePartner,
 } from "../../shared/capabilities-data";
 import type { IconName } from "../../shared/capabilities-data";
 import { siteConfig } from "../lib/siteConfig";
