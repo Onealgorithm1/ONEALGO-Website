@@ -13,6 +13,8 @@ import {
   federalExperience,
   complianceProfile,
   strategicPartnerships,
+  mentorProtegeHighlights,
+  jointVenturePartner,
 } from "../../shared/capabilities-data";
 
 export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
