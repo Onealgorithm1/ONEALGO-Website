@@ -224,3 +224,34 @@ export const keyPersonnel: KeyPerson[] = [
     phone: "(832) 633-7051",
   },
 ];
+
+export const mentorProtegeHighlights: MentorProtegeHighlight[] = [
+  {
+    title: "Mentor-Protégé & Partnership Readiness",
+    description:
+      "One Algorithm actively seeks mentor-protégé and strategic teaming partnerships to scale federal modernization, cybersecurity, and AI-driven transformation initiatives.",
+  },
+  {
+    title: "Joint Venture Performance",
+    description:
+      "SBA-compliant JV with Irongrove LLC ensures each firm performs 30%+ of total contract work per SBA 13 CFR 125.8, delivering cleared personnel and surge capacity.",
+  },
+];
+
+export const jointVenturePartner: JointVenturePartnerInfo = {
+  name: "Irongrove LLC (Veteran-Owned)",
+  summary:
+    "Active SBA-compliant JV partner providing veteran-owned expertise for federal IT modernization, cybersecurity, AI/ML integration, and infrastructure support.",
+  address: "4901 Yale St., Houston, TX 77018",
+  cage: "CAGE: 9DAA8",
+  uei: "UEI: P4WZBUUZ9K27",
+  samStatus: "SAM Registration: Active",
+  certifications: "SBA: Veteran-Owned Small Business (VOSB)",
+  services: [
+    "Federal IT modernization",
+    "Cybersecurity and compliance",
+    "AI/ML integration",
+    "Infrastructure support",
+  ],
+  website: "https://www.irongrove.com",
+};
