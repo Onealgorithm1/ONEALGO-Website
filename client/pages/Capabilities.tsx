@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
@@ -20,12 +21,6 @@ import {
 } from "../../shared/capabilities-data";
 import { siteConfig } from "../lib/siteConfig";
 import { CapabilitiesHero } from "../components/capabilities/CapabilitiesHero";
-import { SectionShell } from "../components/capabilities/SectionShell";
-import {
-  SectionNav,
-  type SectionNavItem,
-} from "../components/capabilities/SectionNav";
-import { DownloadPanel } from "../components/capabilities/DownloadPanel";
 import {
   CompetencyCard,
   DifferentiatorCard,
@@ -39,21 +34,6 @@ import {
 } from "../components/capabilities/cards";
 
 const pdfHref = "/api/capabilities.pdf";
-
-const sectionNavItems: SectionNavItem[] = [
-  { id: "overview", label: "Overview" },
-  { id: "core-competencies", label: "Core Competencies" },
-  { id: "differentiators", label: "Differentiators" },
-  { id: "federal-experience", label: "Federal Experience" },
-  { id: "partnerships", label: "Mentor-Protégé" },
-  { id: "joint-venture", label: "Joint Venture" },
-  { id: "compliance", label: "Compliance" },
-  { id: "strategic-partnerships", label: "Strategic Partnerships" },
-  { id: "projects", label: "Projects" },
-  { id: "codes", label: "NAICS & PSC" },
-  { id: "personnel", label: "Key Personnel" },
-  { id: "cta", label: "Contact" },
-];
 
 export default function Capabilities() {
   useSEO({
@@ -73,226 +53,212 @@ export default function Capabilities() {
   return (
     <Layout>
       <StructuredData data={createOrganizationSchema()} />
+      
       <CapabilitiesHero site={siteConfig} pdfHref={pdfHref} />
 
-      <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-12">
-          <div className="hidden lg:flex lg:flex-col lg:gap-6">
-            <SectionNav sections={sectionNavItems} />
-            <DownloadPanel pdfHref={pdfHref} />
+      {/* Company Overview */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Company Overview
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              {siteConfig.description}
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4 leading-relaxed">
+              Our mission is to enable organizations to operate securely,
+              efficiently, and at scale—across mission-critical and enterprise
+              environments. Our ISO 9001–compliant quality management and NIST
+              800-171 cybersecurity practices ensure every engagement meets the
+              highest standards of reliability, traceability, and security.
+            </p>
           </div>
 
-          <div className="space-y-16">
-            <div className="lg:hidden space-y-6">
-              <SectionNav sections={sectionNavItems} sticky={false} />
-              <DownloadPanel pdfHref={pdfHref} />
+          {/* Core Competencies */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Core Competencies
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {coreCompetencies.map((competency) => (
+                <CompetencyCard key={competency.title} competency={competency} />
+              ))}
+            </div>
+          </div>
+
+          {/* Differentiators */}
+          <div className="bg-onealgo-light rounded-2xl p-8 mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Differentiators
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {differentiators.map((item) => (
+                <DifferentiatorCard key={item.title} differentiator={item} />
+              ))}
+            </div>
+          </div>
+
+          {/* Federal Contract Experience */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Federal Contract Experience
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {federalExperience.map((item) => (
+                <ExperienceCard
+                  key={`${item.title}-${item.rfq}`}
+                  experience={item}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Mentor-Protégé & Partnerships */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Mentor-Protégé & Partnership Readiness
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {mentorProtegeHighlights.map((item) => (
+                <MentorProtegeCard key={item.title} note={item} />
+              ))}
+            </div>
+          </div>
+
+          {/* Joint Venture Spotlight */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Active SBA-Compliant Joint Venture
+            </h3>
+            <JointVentureCard partner={jointVenturePartner} />
+          </div>
+
+          {/* Compliance & Credentials */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Compliance & Credentials
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ComplianceCard
+                title="Pending Certifications"
+                items={complianceProfile.pendingCertifications}
+              />
+              <ComplianceCard
+                title="Federal Compliance"
+                items={complianceProfile.federalCompliance}
+              />
+              <ComplianceCard
+                title="Quality & Security Programs"
+                items={complianceProfile.qualityAndSecurity}
+              />
             </div>
 
-            <SectionShell
-              id="overview"
-              title="Company Overview"
-              align="center"
-              description={
-                <>
-                  <p>{siteConfig.description}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              {siteConfig.certifications?.length ? (
+                <ComplianceCard
+                  title="Industry Certifications"
+                  items={siteConfig.certifications}
+                />
+              ) : null}
+
+              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+                <CardHeader>
+                  <CardTitle className="text-onealgo-blue-950">
+                    Bonding & Registration
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-gray-700">
                   <p>
-                    Our mission is to enable organizations to operate securely,
-                    efficiently, and at scale—across mission-critical and
-                    enterprise environments. Our ISO 9001–compliant quality
-                    management and NIST 800-171 cybersecurity practices ensure
-                    every engagement meets the highest standards of reliability,
-                    traceability, and security.
+                    <strong>Bonding Capacity:</strong>{" "}
+                    {complianceProfile.bondingCapacity}
                   </p>
-                </>
-              }
-            >
-              <div className="text-lg text-gray-600 text-center">
-                <p>
-                  One Algorithm LLC is a Woman- and Minority-Owned Small
-                  Business (WOSB/MBE pending) delivering secure, standards-
-                  aligned technology and compliance solutions to federal and
-                  commercial clients nationwide.
+                  <p>
+                    <strong>SAM Registration:</strong>{" "}
+                    {complianceProfile.samRegistration}
+                  </p>
+                  <p>
+                    <strong>CAGE Code:</strong> {siteConfig.identifiers.cage}
+                  </p>
+                  <p>
+                    <strong>UEI:</strong> {siteConfig.identifiers.uei}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Strategic Partnerships */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Strategic Partnerships
+            </h3>
+            <div className="bg-onealgo-light rounded-2xl p-8 space-y-4">
+              {strategicPartnerships.map((note, index) => (
+                <p
+                  key={index}
+                  className="text-gray-700 text-lg leading-relaxed"
+                >
+                  {note}
                 </p>
-              </div>
-            </SectionShell>
+              ))}
+            </div>
+          </div>
 
-            <SectionShell
-              id="core-competencies"
-              title="Core Competencies"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {coreCompetencies.map((competency) => (
-                  <CompetencyCard key={competency.title} competency={competency} />
-                ))}
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="differentiators"
-              title="Differentiators"
-              align="center"
-            >
-              <div className="bg-onealgo-light rounded-2xl p-6">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {differentiators.map((item) => (
-                    <DifferentiatorCard key={item.title} differentiator={item} />
-                  ))}
-                </div>
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="federal-experience"
-              title="Federal Contract Experience"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {federalExperience.map((item) => (
-                  <ExperienceCard key={`${item.title}-${item.rfq}`} experience={item} />
-                ))}
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="partnerships"
-              title="Mentor-Protégé & Partnership Readiness"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {mentorProtegeHighlights.map((item) => (
-                  <MentorProtegeCard key={item.title} note={item} />
-                ))}
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="joint-venture"
-              title="Active SBA-Compliant Joint Venture"
-              align="center"
-            >
-              <JointVentureCard partner={jointVenturePartner} />
-            </SectionShell>
-
-            <SectionShell
-              id="compliance"
-              title="Compliance & Credentials"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <ComplianceCard
-                  title="Pending Certifications"
-                  items={complianceProfile.pendingCertifications}
-                />
-                <ComplianceCard
-                  title="Federal Compliance"
-                  items={complianceProfile.federalCompliance}
-                />
-                <ComplianceCard
-                  title="Quality & Security Programs"
-                  items={complianceProfile.qualityAndSecurity}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {siteConfig.certifications?.length ? (
-                  <ComplianceCard
-                    title="Industry Certifications"
-                    items={siteConfig.certifications}
-                  />
-                ) : null}
-
-                <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                  <CardHeader>
-                    <CardTitle className="text-onealgo-blue-950">
-                      Bonding & Registration
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-gray-700">
-                    <p>
-                      <strong>Bonding Capacity:</strong> {complianceProfile.bondingCapacity}
-                    </p>
-                    <p>
-                      <strong>SAM Registration:</strong> {complianceProfile.samRegistration}
-                    </p>
-                    <p>
-                      <strong>CAGE Code:</strong> {siteConfig.identifiers.cage}
-                    </p>
-                    <p>
-                      <strong>UEI:</strong> {siteConfig.identifiers.uei}
-                    </p>
-                    <p>
-                      <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="strategic-partnerships"
-              title="Strategic Partnerships"
-              align="center"
-            >
-              <div className="bg-onealgo-light rounded-2xl p-8 space-y-4 text-lg text-gray-700">
-                {strategicPartnerships.map((note, index) => (
-                  <p key={index}>{note}</p>
-                ))}
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="projects"
-              title="Commercial Project Highlights"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {projectHighlights.map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="codes"
-              title="NAICS / PSC Codes"
-              align="center"
-            >
-              <div className="text-center text-lg text-gray-700 mb-6">
-                <p>
-                  <strong>Primary NAICS:</strong> 541511 – Custom Computer Programming Services
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                <CodesCard title="NAICS Codes" codes={siteConfig.codes.naics} />
-                <CodesCard title="PSC Codes" codes={siteConfig.codes.psc} />
-              </div>
-            </SectionShell>
-
-            <SectionShell
-              id="personnel"
-              title="Key Personnel"
-              align="center"
-            >
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {keyPersonnel.map((person) => (
-                  <KeyPersonCard key={person.name} person={person} />
-                ))}
-              </div>
-            </SectionShell>
+          {/* Project Highlights */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Commercial Project Highlights
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {projectHighlights.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <section
-        id="cta"
-        className="py-20 bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white mt-1"
-      >
+      {/* NAICS / PSC Codes */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center border-t border-blue-700 pt-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+            NAICS / PSC Codes
+          </h3>
+          <div className="mb-6 text-center">
+            <p className="text-lg text-gray-700">
+              <strong>Primary NAICS:</strong> 541511 – Custom Computer
+              Programming Services
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <CodesCard title="NAICS Codes" codes={siteConfig.codes.naics} />
+            <CodesCard title="PSC Codes" codes={siteConfig.codes.psc} />
+          </div>
+        </div>
+      </section>
+
+      {/* Key Personnel */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+            Key Personnel
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {keyPersonnel.map((person) => (
+              <KeyPersonCard key={person.name} person={person} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white mt-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center border-t border-blue-700 pt-8 -mt-1">
             <p className="text-lg text-blue-200 mb-4">
-              <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} | {" "}
-              <strong>UEI:</strong> {siteConfig.identifiers.uei} | {" "}
+              <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} |{" "}
+              <strong>UEI:</strong> {siteConfig.identifiers.uei} |{" "}
               <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
             </p>
             <p className="text-blue-200 mb-8">
@@ -303,6 +269,7 @@ export default function Capabilities() {
                 className="text-onealgo-orange-500 hover:underline inline-flex items-center gap-2"
               >
                 View SBA Certification Profile
+                <ExternalLink className="w-4 h-4" />
               </a>
             </p>
 
