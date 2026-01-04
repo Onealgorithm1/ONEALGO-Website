@@ -202,25 +202,25 @@ export const strategicPartnerships: string[] = [
 
 export const keyPersonnel: KeyPerson[] = [
   {
-    name: "Swapna Amirisetti",
-    role: "CEO / President",
-    summary:
-      "Strategic growth, federal partnerships, and operations management.",
-    email: "swapna@onealgorithm.com",
-    phone: "(832) 633-7051",
-  },
-  {
-    name: "Sreenivas Amirisetti",
-    role: "CTO / Secretary",
-    summary: "Technical delivery, IT modernization, and program leadership.",
-    email: "sreeni@onealgorithm.com",
-    phone: "(832) 434-9891",
-  },
-  {
     name: "Louis Rubino",
     role: "Director, Compliance & Contract Administration",
     summary: "Federal compliance, proposal operations, and partner management.",
     email: "lrubino@onealgorithm.com",
     phone: "(516) 451-5139",
+  },
+  {
+    name: "Sreenivas Amirisetti",
+    role: "Chief Technology Officer",
+    summary: "Technical delivery, IT modernization, and program leadership.",
+    email: "sreeni@onealgorithm.com",
+    phone: "(832) 434-9891",
+  },
+  {
+    name: "Swapna Amirisetti",
+    role: "CEO / President",
+    summary:
+      "Strategic growth, federal partnerships, and executive oversight.",
+    email: "swapna@onealgorithm.com",
+    phone: "(832) 633-7051",
   },
 ];
