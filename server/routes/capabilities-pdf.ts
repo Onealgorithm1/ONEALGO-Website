@@ -136,6 +136,43 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
         .moveDown(0.5);
     });
 
+    sectionHeading("Mentor-Protégé & Partnership Readiness");
+    mentorProtegeHighlights.forEach((item) => {
+      doc
+        .fontSize(13)
+        .fillColor("#0f172a")
+        .text(item.title)
+        .fontSize(11)
+        .fillColor("#1f2937")
+        .text(item.description)
+        .moveDown(0.3);
+    });
+
+    sectionHeading("Active SBA-Compliant Joint Venture");
+    doc
+      .fontSize(13)
+      .fillColor("#0f172a")
+      .text(jointVenturePartner.name)
+      .fontSize(11)
+      .fillColor("#1f2937")
+      .text(jointVenturePartner.summary)
+      .moveDown(0.3)
+      .text(`Address: ${jointVenturePartner.address}`)
+      .text(`${jointVenturePartner.cage}  |  ${jointVenturePartner.uei}`)
+      .text(jointVenturePartner.samStatus)
+      .text(jointVenturePartner.certifications)
+      .moveDown(0.3)
+      .text("Core Services:");
+    doc.list(jointVenturePartner.services, {
+      bulletRadius: 2,
+      textIndent: 20,
+      bulletIndent: 10,
+    });
+    doc
+      .moveDown(0.3)
+      .text(`Website: ${jointVenturePartner.website}`)
+      .moveDown(0.5);
+
     sectionHeading("Commercial Project Highlights");
     projectHighlights.forEach((project) => {
       doc
