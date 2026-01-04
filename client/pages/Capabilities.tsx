@@ -77,7 +77,7 @@ export default function Capabilities() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-semibold uppercase tracking-wide text-blue-100">
-              Capabilities Statement · 2026 Edition
+              Capabilities Statement
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white">
               One Algorithm LLC — Capabilities Statement
@@ -604,26 +604,6 @@ export default function Capabilities() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">{person.summary}</p>
-                  <div className="mt-4 space-y-2 text-sm text-gray-600">
-                    {person.email && (
-                      <a
-                        href={`mailto:${person.email}`}
-                        className="flex items-center gap-2 hover:text-onealgo-orange-500 transition-colors"
-                      >
-                        <Mail className="w-4 h-4" />
-                        {person.email}
-                      </a>
-                    )}
-                    {person.phone && (
-                      <a
-                        href={`tel:${person.phone}`}
-                        className="flex items-center gap-2 hover:text-onealgo-orange-500 transition-colors"
-                      >
-                        <Phone className="w-4 h-4" />
-                        {person.phone}
-                      </a>
-                    )}
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -631,96 +611,9 @@ export default function Capabilities() {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-20 bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white mt-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl md:text-3xl font-bold mb-12 text-center">
-            Contact Information
-          </h3>
-
-          <div className="max-w-3xl mx-auto space-y-6 mb-12">
-            <div className="flex flex-col gap-3 rounded-lg bg-onealgo-blue-900/50 p-6 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left">
-              <MapPin className="w-6 h-6 text-onealgo-orange-500 mx-auto sm:mx-0 sm:mt-1 sm:flex-shrink-0" />
-              <div>
-                <h4 className="font-semibold mb-1">Address</h4>
-                <p className="text-blue-200">
-                  {siteConfig.address.street} {siteConfig.address.streetUnit}
-                  <br />
-                  {siteConfig.address.city}, {siteConfig.address.region}{" "}
-                  {siteConfig.address.postalCode}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3 rounded-lg bg-onealgo-blue-900/50 p-6 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left">
-              <Mail className="w-6 h-6 text-onealgo-orange-500 mx-auto sm:mx-0 sm:mt-1 sm:flex-shrink-0" />
-              <div>
-                <h4 className="font-semibold mb-1">Primary Contact</h4>
-                <p className="text-blue-200">
-                  <a
-                    href={`mailto:${siteConfig.contact.emailPrimary}`}
-                    className="hover:text-onealgo-orange-500 transition-colors"
-                  >
-                    {siteConfig.contact.emailPrimary}
-                  </a>
-                </p>
-                <p className="text-blue-200">
-                  <a
-                    href={`tel:${siteConfig.contact.phonePrimary}`}
-                    className="hover:text-onealgo-orange-500 transition-colors"
-                  >
-                    {siteConfig.contact.phonePrimary}
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3 rounded-lg bg-onealgo-blue-900/50 p-6 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left">
-              <Phone className="w-6 h-6 text-onealgo-orange-500 mx-auto sm:mx-0 sm:mt-1 sm:flex-shrink-0" />
-              <div>
-                <h4 className="font-semibold mb-1">Alternate Contact</h4>
-                {siteConfig.contact.emailAlt && (
-                  <p className="text-blue-200">
-                    <a
-                      href={`mailto:${siteConfig.contact.emailAlt}`}
-                      className="hover:text-onealgo-orange-500 transition-colors"
-                    >
-                      {siteConfig.contact.emailAlt}
-                    </a>
-                  </p>
-                )}
-                {siteConfig.contact.phoneAlt && (
-                  <p className="text-blue-200">
-                    <a
-                      href={`tel:${siteConfig.contact.phoneAlt}`}
-                      className="hover:text-onealgo-orange-500 transition-colors"
-                    >
-                      {siteConfig.contact.phoneAlt}
-                    </a>
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3 rounded-lg bg-onealgo-blue-900/50 p-6 text-center sm:flex-row sm:items-center sm:gap-4 sm:text-left">
-              <Building2 className="w-6 h-6 text-onealgo-orange-500 mx-auto sm:mx-0 sm:mt-1 sm:flex-shrink-0" />
-              <div>
-                <h4 className="font-semibold mb-1">Website</h4>
-                <p className="text-blue-200">
-                  <a
-                    href={siteConfig.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-onealgo-orange-500 transition-colors"
-                  >
-                    {siteConfig.url}
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center border-t border-blue-700 pt-8">
+          <div className="text-center border-t border-blue-700 pt-8 -mt-1">
             <p className="text-lg text-blue-200 mb-4">
               <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} |{" "}
               <strong>UEI:</strong> {siteConfig.identifiers.uei} |{" "}
