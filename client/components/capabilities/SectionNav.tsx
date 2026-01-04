@@ -60,7 +60,7 @@ export function SectionNav({ sections, className, sticky = true }: SectionNavPro
     <nav
       className={cn(
         "rounded-2xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur",
-        "sticky top-24",
+        sticky && "sticky top-24",
         className,
       )}
       aria-label="Capabilities page sections"
