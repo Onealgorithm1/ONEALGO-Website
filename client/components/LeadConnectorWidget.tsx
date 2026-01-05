@@ -28,9 +28,13 @@ export function LeadConnectorWidget() {
       if ("requestIdleCallback" in window) {
         (window as any).requestIdleCallback(loadWidget, { timeout: 4000 });
       } else {
-        (window as Window).addEventListener("load", () => setTimeout(loadWidget, 2000), {
-          once: true,
-        });
+        (window as Window).addEventListener(
+          "load",
+          () => setTimeout(loadWidget, 2000),
+          {
+            once: true,
+          },
+        );
       }
     } catch (_) {}
   }, []);
