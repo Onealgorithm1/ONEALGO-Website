@@ -8,14 +8,10 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import {
-  Building2,
   FileText,
   Target,
   Users,
   CheckCircle,
-  Mail,
-  Phone,
-  MapPin,
   Shield,
   Lightbulb,
   ExternalLink,
