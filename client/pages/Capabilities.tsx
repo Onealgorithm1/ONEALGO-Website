@@ -115,10 +115,7 @@ export default function Capabilities() {
               <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
                 <MapPin className="w-5 h-5" />
                 <span>
-                  {siteConfig.address.street} {siteConfig.address.streetUnit},
-                  {" "}
-                  {siteConfig.address.city}, {siteConfig.address.region} {" "}
-                  {siteConfig.address.postalCode}
+                  {siteConfig.address.street} {siteConfig.address.streetUnit}, {siteConfig.address.city}, {siteConfig.address.region} {siteConfig.address.postalCode}
                 </span>
               </div>
               <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
