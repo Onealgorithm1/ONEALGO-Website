@@ -8,20 +8,13 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import {
-  Building2,
   FileText,
   Target,
   Users,
   CheckCircle,
-  Mail,
-  Phone,
-  MapPin,
   Shield,
   Lightbulb,
   ExternalLink,
-  Briefcase,
-  CalendarDays,
-  ClipboardList,
   Handshake,
   Layers,
 } from "lucide-react";
@@ -109,45 +102,6 @@ export default function Capabilities() {
               <div className="flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm">
                 <FileText className="w-4 h-4" />
                 D-U-N-S: {siteConfig.identifiers.duns}
-              </div>
-            </div>
-            <div className="grid grid-cols-1 gap-4 text-left text-blue-100 md:grid-cols-2 lg:grid-cols-4">
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
-                <MapPin className="w-5 h-5" />
-                <span>
-                  {siteConfig.address.street} {siteConfig.address.streetUnit},{" "}
-                  {siteConfig.address.city}, {siteConfig.address.region}{" "}
-                  {siteConfig.address.postalCode}
-                </span>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
-                <Building2 className="w-5 h-5" />
-                <a
-                  href={siteConfig.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-onealgo-orange-300 transition-colors"
-                >
-                  {siteConfig.url}
-                </a>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
-                <Mail className="w-5 h-5" />
-                <a
-                  href={`mailto:${siteConfig.contact.emailPrimary}`}
-                  className="hover:text-onealgo-orange-300 transition-colors"
-                >
-                  {siteConfig.contact.emailPrimary}
-                </a>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3">
-                <Phone className="w-5 h-5" />
-                <a
-                  href={`tel:${siteConfig.contact.phonePrimary}`}
-                  className="hover:text-onealgo-orange-300 transition-colors"
-                >
-                  {siteConfig.contact.phonePrimary}
-                </a>
               </div>
             </div>
             <div className="pt-4">

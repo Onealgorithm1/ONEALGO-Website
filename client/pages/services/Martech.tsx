@@ -201,7 +201,7 @@ export default function Martech() {
               </p>
               <Button
                 asChild
-                size="md"
+                size="lg"
                 className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
               >
                 <a href="/contact">Request Audit</a>

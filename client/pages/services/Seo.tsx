@@ -197,7 +197,7 @@ export default function Seo() {
               </p>
               <Button
                 asChild
-                size="md"
+                size="lg"
                 className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
               >
                 <Link to="/contact">Request Audit</Link>

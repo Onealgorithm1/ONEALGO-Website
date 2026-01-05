@@ -1,6 +1,4 @@
 import Layout from "../components/Layout";
-
-import Layout from "../components/Layout";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 
 export default function Terms() {
