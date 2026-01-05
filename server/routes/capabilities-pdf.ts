@@ -181,41 +181,32 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
     doc.moveDown(0.15);
 
     sectionHeading("Strategic Partnerships");
+    doc.fontSize(7.5).fillColor("#1f2937");
     strategicPartnerships.forEach((note) => {
-      doc.fontSize(11).fillColor("#1f2937").text(note).moveDown(0.3);
+      doc.text(`• ${note}`, { lineGap: -1 });
     });
+    doc.moveDown(0.15);
 
-    sectionHeading("Key Personnel / Consultants");
+    sectionHeading("Key Personnel");
     keyPersonnel.forEach((person) => {
       doc
-        .fontSize(13)
+        .fontSize(8)
         .fillColor("#0f172a")
-        .text(`${person.name} — ${person.role}`)
-        .fontSize(11)
+        .text(`${person.name} — ${person.role}`, { continued: true })
+        .fontSize(7.5)
         .fillColor("#1f2937")
-        .text(person.summary);
-      if (person.email) {
-        doc.text(`Email: ${person.email}`);
+        .text(` - ${person.summary}`, { lineGap: -1 });
+      if (person.email || person.phone) {
+        const contact = [person.email, person.phone].filter(Boolean).join(" | ");
+        doc.text(contact, { lineGap: -1 });
       }
-      if (person.phone) {
-        doc.text(`Phone: ${person.phone}`);
-      }
-      doc.moveDown(0.3);
     });
+    doc.moveDown(0.15);
 
     sectionHeading("NAICS & PSC Codes");
-    doc.fontSize(11).fillColor("#1f2937").text("NAICS Codes:");
-    doc.list(siteConfig.codes.naics, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
-    });
-    doc.text("PSC Codes:");
-    doc.list(siteConfig.codes.psc, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
-    });
+    doc.fontSize(7.5).fillColor("#1f2937");
+    doc.text(`NAICS: ${siteConfig.codes.naics.join(", ")}`, { lineGap: -1 });
+    doc.text(`PSC: ${siteConfig.codes.psc.join(", ")}`, { lineGap: -1 });
 
     doc.end();
   } catch (error) {
