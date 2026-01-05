@@ -19,7 +19,7 @@ import {
 
 export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
   try {
-    const doc = new PDFDocument({ margin: 50 });
+    const doc = new PDFDocument({ margin: 30, size: "LETTER" });
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader(
@@ -39,227 +39,192 @@ export const handleCapabilitiesPdf: RequestHandler = (_req, res) => {
     doc.pipe(res);
 
     const sectionHeading = (title: string) => {
-      doc.moveDown(0.5);
+      doc.moveDown(0.2);
       doc
-        .fontSize(16)
+        .fontSize(11)
         .fillColor("#0f172a")
         .text(title, { underline: true })
-        .moveDown(0.3)
+        .moveDown(0.15)
         .fillColor("#1f2937");
     };
 
+    // Compact header
     doc
-      .fontSize(22)
+      .fontSize(14)
       .fillColor("#0f172a")
       .text(`${siteConfig.legalName} Capabilities Statement`, {
         align: "center",
       })
-      .moveDown(0.5);
+      .moveDown(0.2);
 
     doc
-      .fontSize(14)
+      .fontSize(10)
       .fillColor("#1e293b")
       .text("Modernizing Federal Systems Securely and Intelligently", {
         align: "center",
       })
-      .moveDown(0.5);
+      .moveDown(0.2);
 
     doc
-      .fontSize(12)
+      .fontSize(8)
       .fillColor("#0f172a")
       .text(
-        `CAGE: ${siteConfig.identifiers.cage}  |  UEI: ${siteConfig.identifiers.uei}  |  D-U-N-S: ${siteConfig.identifiers.duns}`,
+        `CAGE: ${siteConfig.identifiers.cage} | UEI: ${siteConfig.identifiers.uei} | D-U-N-S: ${siteConfig.identifiers.duns}`,
         { align: "center" },
       )
-      .moveDown();
+      .moveDown(0.15);
 
     doc
-      .fontSize(11)
+      .fontSize(8)
       .fillColor("#0f172a")
-      .text(`Website: ${siteConfig.url}`)
-      .text(`Email: ${siteConfig.contact.emailPrimary}`)
-      .text(`Phone: ${siteConfig.contact.phonePrimary}`)
-      .text(`Address: ${getFullAddress()}`)
-      .text(`Mailing Address: ${getPostalAddress().replace("\n", ", ")}`)
-      .moveDown();
+      .text(
+        `${siteConfig.url} | ${siteConfig.contact.emailPrimary} | ${siteConfig.contact.phonePrimary} | ${getFullAddress()}`,
+        { align: "center" },
+      )
+      .moveDown(0.2);
 
     sectionHeading("Company Overview");
     doc
-      .fontSize(11)
+      .fontSize(8)
       .fillColor("#1f2937")
-      .text(siteConfig.description)
-      .moveDown();
+      .text(siteConfig.description, { lineGap: -1 })
+      .moveDown(0.15);
 
     sectionHeading("Core Competencies");
     coreCompetencies.forEach((competency) => {
       doc
-        .fontSize(13)
+        .fontSize(9)
         .fillColor("#0f172a")
         .text(competency.title)
-        .fontSize(11)
+        .fontSize(7.5)
         .fillColor("#1f2937")
         .list(competency.items, {
-          bulletRadius: 2,
-          textIndent: 20,
-          bulletIndent: 10,
+          bulletRadius: 1.5,
+          textIndent: 12,
+          bulletIndent: 8,
+          lineGap: -1,
         })
-        .moveDown(0.5);
+        .moveDown(0.15);
     });
 
     sectionHeading("Differentiators");
     differentiators.forEach((item) => {
       doc
-        .fontSize(13)
+        .fontSize(8)
         .fillColor("#0f172a")
-        .text(item.title)
-        .fontSize(11)
+        .text(`${item.title}: `, { continued: true })
+        .fontSize(7.5)
         .fillColor("#1f2937")
-        .text(item.description)
-        .moveDown(0.5);
+        .text(item.description, { lineGap: -1 });
     });
+    doc.moveDown(0.15);
 
     sectionHeading("Federal Contract Experience");
     federalExperience.forEach((item) => {
       doc
-        .fontSize(13)
+        .fontSize(8)
         .fillColor("#0f172a")
-        .text(`${item.title} (${item.rfq})`)
-        .fontSize(11)
-        .fillColor("#1f2937")
-        .text(item.role);
+        .text(`${item.title} (${item.rfq}) - ${item.role}`, { lineGap: -1 })
+        .fontSize(7.5)
+        .fillColor("#1f2937");
       if (item.partner) {
-        doc.text(item.partner);
+        doc.text(item.partner, { lineGap: -1 });
       }
-      doc
-        .text(item.scope)
-        .text(`${item.submissionDate} — ${item.status}`)
-        .moveDown(0.5);
+      doc.text(`${item.submissionDate} — ${item.status}`, { lineGap: -1 });
     });
+    doc.moveDown(0.15);
 
     sectionHeading("Mentor-Protégé & Partnership Readiness");
+    doc.fontSize(7.5).fillColor("#1f2937");
     mentorProtegeHighlights.forEach((item) => {
-      doc
-        .fontSize(13)
-        .fillColor("#0f172a")
-        .text(item.title)
-        .fontSize(11)
-        .fillColor("#1f2937")
-        .text(item.description)
-        .moveDown(0.3);
+      doc.text(`• ${item.title}: ${item.description}`, { lineGap: -1 });
     });
+    doc.moveDown(0.15);
 
     sectionHeading("Active SBA-Compliant Joint Venture");
     doc
-      .fontSize(13)
+      .fontSize(8)
       .fillColor("#0f172a")
       .text(jointVenturePartner.name)
-      .fontSize(11)
+      .fontSize(7.5)
       .fillColor("#1f2937")
-      .text(jointVenturePartner.summary)
-      .moveDown(0.3)
-      .text(`Address: ${jointVenturePartner.address}`)
-      .text(`${jointVenturePartner.cage}  |  ${jointVenturePartner.uei}`)
-      .text(jointVenturePartner.samStatus)
-      .text(jointVenturePartner.certifications)
-      .moveDown(0.3)
-      .text("Core Services:");
-    doc.list(jointVenturePartner.services, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
-    });
-    doc
-      .moveDown(0.3)
-      .text(`Website: ${jointVenturePartner.website}`)
-      .moveDown(0.5);
+      .text(
+        `${jointVenturePartner.cage} | ${jointVenturePartner.uei} | ${jointVenturePartner.samStatus} | ${jointVenturePartner.certifications}`,
+        { lineGap: -1 },
+      )
+      .text(`Services: ${jointVenturePartner.services.join(", ")}`, {
+        lineGap: -1,
+      })
+      .moveDown(0.15);
 
     sectionHeading("Commercial Project Highlights");
     projectHighlights.forEach((project) => {
       doc
-        .fontSize(13)
+        .fontSize(8)
         .fillColor("#0f172a")
         .text(project.title)
-        .fontSize(11)
+        .fontSize(7.5)
         .fillColor("#1f2937")
         .list(project.items, {
-          bulletRadius: 2,
-          textIndent: 20,
-          bulletIndent: 10,
+          bulletRadius: 1.5,
+          textIndent: 12,
+          bulletIndent: 8,
+          lineGap: -1,
         })
-        .moveDown(0.5);
+        .moveDown(0.1);
     });
 
     sectionHeading("Compliance & Certifications");
-    doc.fontSize(11).fillColor("#1f2937").text("Pending Certifications:");
-    doc.list(complianceProfile.pendingCertifications, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
+    doc.fontSize(7.5).fillColor("#1f2937");
+    doc.text(`Pending: ${complianceProfile.pendingCertifications.join(", ")}`, {
+      lineGap: -1,
     });
-    doc.text("Federal Compliance:");
-    doc.list(complianceProfile.federalCompliance, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
+    doc.text(`Federal: ${complianceProfile.federalCompliance.join(", ")}`, {
+      lineGap: -1,
     });
-    doc.text("Quality & Security Programs:");
-    doc.list(complianceProfile.qualityAndSecurity, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
+    doc.text(`Security: ${complianceProfile.qualityAndSecurity.join(", ")}`, {
+      lineGap: -1,
     });
-    doc
-      .moveDown(0.3)
-      .text(`Bonding Capacity: ${complianceProfile.bondingCapacity}`)
-      .text(`SAM Registration: ${complianceProfile.samRegistration}`)
-      .text(
-        `CAGE: ${siteConfig.identifiers.cage}  |  UEI: ${siteConfig.identifiers.uei}  |  D-U-N-S: ${siteConfig.identifiers.duns}`,
-      );
+    doc.text(
+      `Bonding: ${complianceProfile.bondingCapacity} | SAM: ${complianceProfile.samRegistration}`,
+      { lineGap: -1 },
+    );
     if (siteConfig.certifications?.length) {
-      doc.text("Industry Certifications:");
-      doc.list(siteConfig.certifications, {
-        bulletRadius: 2,
-        textIndent: 20,
-        bulletIndent: 10,
+      doc.text(`Industry Certs: ${siteConfig.certifications.join(", ")}`, {
+        lineGap: -1,
       });
     }
+    doc.moveDown(0.15);
 
     sectionHeading("Strategic Partnerships");
+    doc.fontSize(7.5).fillColor("#1f2937");
     strategicPartnerships.forEach((note) => {
-      doc.fontSize(11).fillColor("#1f2937").text(note).moveDown(0.3);
+      doc.text(`• ${note}`, { lineGap: -1 });
     });
+    doc.moveDown(0.15);
 
-    sectionHeading("Key Personnel / Consultants");
+    sectionHeading("Key Personnel");
     keyPersonnel.forEach((person) => {
       doc
-        .fontSize(13)
+        .fontSize(8)
         .fillColor("#0f172a")
-        .text(`${person.name} — ${person.role}`)
-        .fontSize(11)
+        .text(`${person.name} — ${person.role}`, { continued: true })
+        .fontSize(7.5)
         .fillColor("#1f2937")
-        .text(person.summary);
-      if (person.email) {
-        doc.text(`Email: ${person.email}`);
+        .text(` - ${person.summary}`, { lineGap: -1 });
+      if (person.email || person.phone) {
+        const contact = [person.email, person.phone]
+          .filter(Boolean)
+          .join(" | ");
+        doc.text(contact, { lineGap: -1 });
       }
-      if (person.phone) {
-        doc.text(`Phone: ${person.phone}`);
-      }
-      doc.moveDown(0.3);
     });
+    doc.moveDown(0.15);
 
     sectionHeading("NAICS & PSC Codes");
-    doc.fontSize(11).fillColor("#1f2937").text("NAICS Codes:");
-    doc.list(siteConfig.codes.naics, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
-    });
-    doc.text("PSC Codes:");
-    doc.list(siteConfig.codes.psc, {
-      bulletRadius: 2,
-      textIndent: 20,
-      bulletIndent: 10,
-    });
+    doc.fontSize(7.5).fillColor("#1f2937");
+    doc.text(`NAICS: ${siteConfig.codes.naics.join(", ")}`, { lineGap: -1 });
+    doc.text(`PSC: ${siteConfig.codes.psc.join(", ")}`, { lineGap: -1 });
 
     doc.end();
   } catch (error) {
