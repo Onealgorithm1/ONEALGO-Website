@@ -19,9 +19,6 @@ import {
   Shield,
   Lightbulb,
   ExternalLink,
-  Briefcase,
-  CalendarDays,
-  ClipboardList,
   Handshake,
   Layers,
 } from "lucide-react";
