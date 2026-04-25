@@ -11,76 +11,113 @@ export default function BinaryGlobeSVG({
   size = 32,
   className = "",
 }: BinaryGlobeSVGProps) {
-  // Binary digits with their positions and colors
-  const binaryData = [
-    // Blue (primary color #005eaa)
-    { text: "0", x: 20, y: 15, color: "#005eaa", fontSize: 8 },
-    { text: "1", x: 35, y: 10, color: "#005eaa", fontSize: 8 },
-    { text: "0", x: 50, y: 20, color: "#005eaa", fontSize: 8 },
-    { text: "1", x: 65, y: 15, color: "#005eaa", fontSize: 8 },
-    { text: "0", x: 75, y: 25, color: "#005eaa", fontSize: 8 },
-    { text: "1", x: 20, y: 35, color: "#005eaa", fontSize: 8 },
-    { text: "0", x: 70, y: 40, color: "#005eaa", fontSize: 8 },
-    { text: "1", x: 40, y: 65, color: "#005eaa", fontSize: 8 },
-    { text: "0", x: 15, y: 70, color: "#005eaa", fontSize: 8 },
-    { text: "1", x: 60, y: 75, color: "#005eaa", fontSize: 8 },
-    
-    // Orange (#ffa634)
-    { text: "0", x: 40, y: 25, color: "#ffa634", fontSize: 8 },
-    { text: "1", x: 55, y: 35, color: "#ffa634", fontSize: 8 },
-    { text: "0", x: 30, y: 50, color: "#ffa634", fontSize: 8 },
-    { text: "1", x: 75, y: 50, color: "#ffa634", fontSize: 8 },
-    { text: "0", x: 45, y: 70, color: "#ffa634", fontSize: 8 },
-    
-    // Green (#10b981)
-    { text: "0", x: 50, y: 45, color: "#10b981", fontSize: 9 },
-    { text: "1", x: 25, y: 60, color: "#10b981", fontSize: 9 },
-    { text: "0", x: 65, y: 60, color: "#10b981", fontSize: 9 },
-  ];
-
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 100 100"
+      viewBox="0 0 120 120"
       className={cn("inline-block self-center drop-shadow-md", className)}
       aria-label="OneAlgorithm Logo - Binary Globe"
     >
+      <defs>
+        <radialGradient id="globeGradient" cx="40%" cy="40%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+          <stop offset="100%" stopColor="#f0f0f0" stopOpacity="1" />
+        </radialGradient>
+      </defs>
+
       {/* Outer circle border */}
       <circle
-        cx="50"
-        cy="50"
-        r="48"
+        cx="60"
+        cy="60"
+        r="56"
         fill="none"
         stroke="#005eaa"
-        strokeWidth="3"
+        strokeWidth="4"
       />
 
-      {/* Inner circle (globe background) */}
+      {/* Globe sphere with gradient */}
       <circle
-        cx="50"
-        cy="50"
-        r="45"
-        fill="white"
-        opacity="0.95"
+        cx="60"
+        cy="60"
+        r="52"
+        fill="url(#globeGradient)"
+        opacity="0.98"
       />
 
-      {/* Binary digits */}
-      {binaryData.map((item, idx) => (
-        <text
-          key={idx}
-          x={item.x}
-          y={item.y}
-          fontSize={item.fontSize}
-          fontWeight="600"
-          fill={item.color}
-          fontFamily="system-ui, -apple-system, sans-serif"
-          textAnchor="middle"
-          dominantBaseline="middle"
-        >
-          {item.text}
-        </text>
-      ))}
+      {/* Latitude curve lines for 3D effect */}
+      <ellipse
+        cx="60"
+        cy="45"
+        rx="48"
+        ry="12"
+        fill="none"
+        stroke="#005eaa"
+        strokeWidth="0.5"
+        opacity="0.2"
+      />
+      <ellipse
+        cx="60"
+        cy="60"
+        rx="50"
+        ry="15"
+        fill="none"
+        stroke="#005eaa"
+        strokeWidth="0.8"
+        opacity="0.15"
+      />
+      <ellipse
+        cx="60"
+        cy="75"
+        rx="48"
+        ry="12"
+        fill="none"
+        stroke="#005eaa"
+        strokeWidth="0.5"
+        opacity="0.2"
+      />
+
+      {/* Binary digits arranged to show 3D perspective */}
+      
+      {/* Top left area - Blue */}
+      <text x="28" y="35" fontSize="10" fontWeight="700" fill="#005eaa" textAnchor="middle">0</text>
+      <text x="20" y="50" fontSize="9" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      <text x="25" y="65" fontSize="8" fontWeight="700" fill="#005eaa" textAnchor="middle">0</text>
+      
+      {/* Top center - Blue and Orange mix */}
+      <text x="60" y="30" fontSize="11" fontWeight="700" fill="#005eaa" textAnchor="middle">0</text>
+      <text x="50" y="40" fontSize="10" fontWeight="700" fill="#ffa634" textAnchor="middle">1</text>
+      <text x="70" y="38" fontSize="9" fontWeight="700" fill="#005eaa" textAnchor="middle">0</text>
+      
+      {/* Top right area - Blue and Orange */}
+      <text x="95" y="42" fontSize="10" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      <text x="100" y="58" fontSize="9" fontWeight="700" fill="#ffa634" textAnchor="middle">0</text>
+      <text x="92" y="72" fontSize="8" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      
+      {/* Center - Large Green and Orange for emphasis */}
+      <text x="50" y="58" fontSize="13" fontWeight="700" fill="#10b981" textAnchor="middle">0</text>
+      <text x="70" y="62" fontSize="12" fontWeight="700" fill="#ffa634" textAnchor="middle">1</text>
+      <text x="60" y="75" fontSize="10" fontWeight="700" fill="#005eaa" textAnchor="middle">0</text>
+      
+      {/* Left side - Blue */}
+      <text x="22" y="38" fontSize="8" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      <text x="18" y="75" fontSize="9" fontWeight="700" fill="#10b981" textAnchor="middle">0</text>
+      <text x="26" y="85" fontSize="8" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      
+      {/* Right side - Blue and Orange */}
+      <text x="98" y="75" fontSize="9" fontWeight="700" fill="#ffa634" textAnchor="middle">0</text>
+      <text x="102" y="88" fontSize="8" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      
+      {/* Bottom area - Green emphasis */}
+      <text x="40" y="95" fontSize="10" fontWeight="700" fill="#10b981" textAnchor="middle">0</text>
+      <text x="60" y="100" fontSize="9" fontWeight="700" fill="#005eaa" textAnchor="middle">1</text>
+      <text x="80" y="93" fontSize="9" fontWeight="700" fill="#ffa634" textAnchor="middle">0</text>
+
+      {/* Additional scattered digits for density */}
+      <text x="35" y="52" fontSize="7" fontWeight="700" fill="#005eaa" textAnchor="middle" opacity="0.8">1</text>
+      <text x="85" y="50" fontSize="7" fontWeight="700" fill="#10b981" textAnchor="middle" opacity="0.8">0</text>
+      <text x="45" y="72" fontSize="8" fontWeight="700" fill="#ffa634" textAnchor="middle" opacity="0.9">1</text>
+      <text x="75" y="78" fontSize="7" fontWeight="700" fill="#005eaa" textAnchor="middle" opacity="0.8">0</text>
     </svg>
   );
 }
