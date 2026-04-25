@@ -144,7 +144,7 @@ export function createOrganizationSchema(): OrganizationSchema {
       addressCountry: "US",
     },
     contactPoint: {
-      telephone: "+1-610-298-9069",
+      telephone: "+1-610-890-9711",
       email: "service@onealgorithm.com",
       contactType: "Customer Service",
     },
@@ -177,7 +177,7 @@ export function createOrganizationSchemaDetailed() {
     url: "https://onealgorithm.com",
     logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
     foundingDate: "2020",
-    telephone: "(610) 298-9069",
+    telephone: "1 (610) 890-9711",
     email: "contact@onealgorithm.com",
     address: {
       "@type": "PostalAddress",
@@ -313,7 +313,7 @@ export function createLocalBusinessSchema() {
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     image: "https://onealgorithm.com/logo.webp",
-    telephone: "(610) 298-9069",
+    telephone: "1 (610) 890-9711",
     email: "service@onealgorithm.com",
     address: {
       "@type": "PostalAddress",
@@ -423,7 +423,7 @@ export function createContactPageSchema(): ContactPageSchema {
     mainEntity: {
       type: "Organization",
       name: "OneAlgorithm",
-      telephone: "+1-610-298-9069",
+      telephone: "+1-610-890-9711",
       email: "service@onealgorithm.com",
       address: {
         streetAddress: "625 Swedesford Rd",

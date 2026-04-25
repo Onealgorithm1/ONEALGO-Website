@@ -72,7 +72,7 @@ export const siteConfig: CompanyConfig = {
     country: "US",
   },
   contact: {
-    phonePrimary: "(610) 890-9711",
+    phonePrimary: "1 (610) 890-9711",
     emailPrimary: "service@onealgorithm.com",
     phoneAlt: "(832) 434-9891",
     emailAlt: "samirisetti@onealgorithm.com",

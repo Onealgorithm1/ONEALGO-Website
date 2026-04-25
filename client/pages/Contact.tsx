@@ -381,10 +381,10 @@ export default function Contact() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
                       <a
-                        href="tel:6102989069"
+                        href="tel:16108909711"
                         className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
                       >
-                        📞 (610) 298-9069
+                        📞 1 (610) 890-9711
                       </a>
                       <span className="hidden sm:inline text-gray-400">|</span>
                       <a
@@ -438,7 +438,7 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-onealgo-orange-500" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">(610) 298-9069</p>
+                    <p className="text-gray-600">1 (610) 890-9711</p>
                   </div>
                 </div>
               </div>
@@ -485,7 +485,7 @@ export default function Contact() {
                         <br />
                         Malvern, PA 19355
                         <br />
-                        (610) 298-9069
+                        1 (610) 890-9711
                       </p>
                     </div>
                   </div>

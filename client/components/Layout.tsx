@@ -850,10 +850,10 @@ export default function Layout({ children }: LayoutProps) {
                   service@onealgorithm.com
                 </a>
                 <a
-                  href="tel:+16102989069"
+                  href="tel:+16108909711"
                   className="block hover:text-white transition-colors"
                 >
-                  (610) 298-9069
+                  1 (610) 890-9711
                 </a>
                 <p>
                   625 Swedesford Rd
