@@ -52,7 +52,7 @@ export default function OneAlgorithmText({
         {showGlobe ? (
           <BinaryGlobeSVG
             size={globeSizes[size]}
-            className="mx-1 inline-block drop-shadow-md"
+            className="inline-block drop-shadow-md"
           />
         ) : (
           <span className="logo-algorithm text-onealgo-blue-950">o</span>
