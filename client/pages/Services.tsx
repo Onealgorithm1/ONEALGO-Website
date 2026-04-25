@@ -50,15 +50,11 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Technology{" "}
-              <span className="text-onealgo-orange-500">Services</span> —{" "}
-              <span className="text-white">
-                Website Development, IT Consulting & Staff Augmentation
-              </span>
+              Expert{" "}
+              <span className="text-onealgo-orange-500">Technology Services</span> — Consulting, Implementation & Support
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Comprehensive technology solutions designed to accelerate your
-              business growth and digital transformation. Specialized for{" "}
+              From strategy through execution and beyond. We deliver expert consulting and implementation across website development, IT consulting, operations technology, and enterprise systems. Specialized for{" "}
               <Link
                 to="/industries/construction"
                 className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
@@ -78,9 +74,32 @@ export default function Services() {
                 className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
               >
                 e-commerce
-              </Link>{" "}
-              industries.
+              </Link>.
             </p>
+
+            {/* Proof point */}
+            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
+              <p className="text-onealgo-orange-500 text-sm font-semibold">200+ successful implementations | 98% client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
+            </div>
+
+            {/* Dual CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
+              >
+                <Link to="/contact">Get Expert Consultation</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg"
+              >
+                <Link to="/about">Learn About Our Approach</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -90,32 +109,13 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What We Offer
+              Our Core Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From{" "}
-              <Link
-                to="/services/website-development"
-                className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline"
-              >
-                website development
-              </Link>{" "}
-              to{" "}
-              <Link
-                to="/services/staff-augmentation"
-                className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline"
-              >
-                staff augmentation
-              </Link>
-              , we provide the technical expertise and resources you need to
-              succeed. Learn more{" "}
-              <Link
-                to="/about"
-                className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline"
-              >
-                about our mission
-              </Link>
-              .
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              OneAlgorithm provides full-stack technology solutions across these core service areas. Whether you need to modernize operations, implement enterprise systems, or accelerate growth through digital transformation — we have the expertise to deliver results.
+            </p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <strong>Not sure which service you need?</strong> Connect with our team to discuss your specific challenges and goals.
             </p>
           </div>
 
@@ -123,7 +123,7 @@ export default function Services() {
             {/* Website Development */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Code className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-blue-500 transition-colors duration-300" />
+                <Code className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-blue-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Website Development
                 </CardTitle>
@@ -145,7 +145,7 @@ export default function Services() {
             {/* Marketing */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Megaphone className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" />
+                <Megaphone className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Marketing
                 </CardTitle>
@@ -168,7 +168,7 @@ export default function Services() {
             {/* Staff Augmentation */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Users className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300" />
+                <Users className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Staff Augmentation
                 </CardTitle>
@@ -191,7 +191,7 @@ export default function Services() {
             {/* IT Consulting */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Brain className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-indigo-500 transition-colors duration-300" />
+                <Brain className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-indigo-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   IT Consulting
                 </CardTitle>
@@ -213,7 +213,7 @@ export default function Services() {
             {/* Operations Technology */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Cpu className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-orange-500 transition-colors duration-300" />
+                <Cpu className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-orange-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Operations Technology
                 </CardTitle>
@@ -235,7 +235,7 @@ export default function Services() {
             {/* Oracle ERP Implementation */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Award className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-amber-500 transition-colors duration-300" />
+                <Award className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-amber-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Oracle ERP Implementation
                 </CardTitle>

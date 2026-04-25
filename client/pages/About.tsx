@@ -60,14 +60,26 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              About <span className="text-onealgo-orange-500">One</span>
-              Algorithm — Our Mission & Team
+              About <span className="text-onealgo-orange-500">OneAlgorithm</span>
+              — Transforming Businesses Through Technology
             </h1>
             <p className="text-xl text-blue-200 max-w-4xl mx-auto mb-8">
-              We exist to transform struggling businesses into thriving
-              enterprises through intelligent technology solutions that simplify
-              operations, reduce costs, and accelerate growth.
+              We transform struggling businesses into thriving enterprises. With deep expertise across multiple industries, we design and execute technology solutions that simplify operations, reduce costs, and accelerate growth.
             </p>
+
+            {/* Confidence metric */}
+            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
+              <p className="text-onealgo-orange-500 text-sm font-semibold">Trusted by 200+ businesses for enterprise transformations | 98% client satisfaction rate</p>
+            </div>
+
+            {/* CTA */}
+            <Button
+              asChild
+              size="lg"
+              className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
+            >
+              <Link to="/contact">Start a Conversation</Link>
+            </Button>
           </div>
         </div>
       </section>

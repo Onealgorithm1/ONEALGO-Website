@@ -40,21 +40,21 @@ import { JSONLDScript } from "../components/JSONLDScript";
 export default function Index() {
   // Re-enabling useSEO hook after React stability fix
   useSEO({
-    title: "OneAlgorithm - Marketing & Tech Solutions",
+    title: "OneAlgorithm - Enterprise ERP & Operations Solutions",
     description:
-      "One Algorithm delivers custom software development, system integration, and growth marketing services. Based in Malvern, PA, we build scalable applications, automate workflows, and integrate 200+ platforms. Fast delivery, no vendor lock-in, 24/7 support. Founded 2020.",
+      "Transform your operations and accelerate growth with OneAlgorithm. We deliver end-to-end Oracle ERP implementation, system integration, and operations automation. 200+ successful implementations. Based in Malvern, PA. 24/7 support.",
     canonical: getCanonicalUrl("/"),
     keywords:
-      "custom software development Malvern PA, system integration agency, API integration, CRM integration, marketing automation, Philadelphia software development, enterprise software, SaaS development, mobile app development, One Algorithm",
-    ogTitle: "OneAlgorithm - Marketing & Tech Solutions",
+      "Oracle ERP implementation, system integration agency, API integration, enterprise software, operations automation, Philadelphia technology consulting, business transformation, custom software development",
+    ogTitle: "OneAlgorithm - Enterprise ERP & Operations Solutions",
     ogDescription:
-      "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
+      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
-    twitterTitle: "OneAlgorithm - Marketing & Tech Solutions",
+    twitterTitle: "OneAlgorithm - Enterprise ERP & Operations Solutions",
     twitterDescription:
-      "OneAlgorithm delivers custom software development, system integration, and growth marketing services.",
+      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
     twitterImage:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
   });
@@ -68,11 +68,11 @@ export default function Index() {
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="https://cdn.builder.io/o/assets%2Fb90cab62d3d34e0087abec352888a96d%2F56a1800ee414437887a011bb3a039cf9?alt=media&token=3fbd2ca2-5ea8-4079-8fee-1190bfa18e0c&apiKey=b90cab62d3d34e0087abec352888a96d"
-          autoPlay
+          autoPlay={window.matchMedia("(prefers-reduced-motion: no-preference)").matches}
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1200"
           aria-hidden="true"
         />
@@ -89,24 +89,33 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
-              <span className="text-white drop-shadow-lg">OneAlgorithm - </span>
+              <span className="text-white drop-shadow-lg">Transform Operations, </span>
               <span className="text-onealgo-orange-500 drop-shadow-lg">
-                Marketing &amp; Tech Solutions
+                Accelerate Growth
               </span>
             </h1>
             <p className="text-lg md:text-xl text-onealgo-orange-500/90 mb-4 max-w-3xl mx-auto drop-shadow-md animate-fade-in-up font-semibold italic">
-              Reimagine. Connect. Accelerate.
+              From Strategy to Support
             </p>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto drop-shadow-md animate-fade-in-up">
-              Think bigger. Build smarter. Move faster — with{" "}
-              <Link
-                to="/services"
-                className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
-              >
-                technology solutions
-              </Link>{" "}
-              tailored to you.
+              We streamline operations, automate workflows, and integrate systems for mid-market and enterprise clients. Whether you're implementing Oracle ERP, optimizing supply chains, or transforming marketing operations — we guide you end-to-end.
             </p>
+
+            {/* Proof points */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+              <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-3 animate-fade-in-up">
+                <p className="text-onealgo-orange-500 text-2xl font-bold">200+</p>
+                <p className="text-white/90 text-sm">Successful Implementations</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-3 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                <p className="text-onealgo-orange-500 text-2xl font-bold">98%</p>
+                <p className="text-white/90 text-sm">Client Satisfaction</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-3 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+                <p className="text-onealgo-orange-500 text-2xl font-bold">40%+</p>
+                <p className="text-white/90 text-sm">Avg. Cost Reduction</p>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
               <Button
                 asChild
@@ -114,6 +123,14 @@ export default function Index() {
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 <Link to="/contact">Get Started Today</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <Link to="/services">Explore Our Approach</Link>
               </Button>
             </div>
           </div>
@@ -133,12 +150,10 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
-              Why <span className="text-onealgo-orange-500">One</span>
-              <span className="text-onealgo-blue-950">Algorithm</span>
+              Why <span className="text-onealgo-orange-500">OneAlgorithm</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
-              We streamline operations, automate the busywork, and build tools
-              that let you focus on what matters: growing your business.
+              We combine deep business expertise with proven technology methodologies. Our approach focuses on measurable outcomes: improved efficiency, reduced costs, and faster time-to-value. Partner with consultants who understand both your industry and your goals.
             </p>
 
             {/* Mobile-only heading so key SEO text is visible on small screens */}
@@ -272,7 +287,7 @@ export default function Index() {
               Enterprise ERP <span className="text-onealgo-orange-500">Implementation</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
-              Position OneAlgorithm as a leader in Oracle Cloud ERP implementation with full-lifecycle services from strategy to post-implementation support.
+              From strategy through post-go-live support, we deliver end-to-end Oracle Cloud ERP transformations tailored to your business. We handle Financials, Supply Chain Management (SCM), and Human Capital Management (HCM) with proven methodologies and deep industry expertise.
             </p>
           </div>
 

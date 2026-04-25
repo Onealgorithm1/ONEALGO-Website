@@ -329,6 +329,27 @@ export default function OracleERP() {
         </div>
       </section>
 
+      {/* Mid-Page CTA Section */}
+      <section className="py-16 bg-blue-50 border-y border-blue-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white rounded-lg p-8 shadow-sm border-l-4 border-onealgo-orange-500">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Ready to Start Your ERP Transformation?
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Get expert guidance on your specific situation. Our consultants will assess your current systems and develop a personalized roadmap for Oracle ERP success.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
+            >
+              <Link to="/contact">Request Your Assessment</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

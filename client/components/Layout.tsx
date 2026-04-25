@@ -124,15 +124,19 @@ export default function Layout({ children }: LayoutProps) {
                 <button
                   onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                  aria-expanded={servicesDropdownOpen}
+                  aria-controls="services-menu"
+                  aria-label="Open services menu"
                 >
                   Services
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
                   />
                 </button>
 
                 {servicesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="services-menu" role="menu">
                     <div className="py-2">
                       <Link
                         to="/services/website-development"
@@ -224,6 +228,16 @@ export default function Layout({ children }: LayoutProps) {
                       >
                         Oracle ERP
                       </Link>
+                      <Link
+                        to="/services/nonprofit"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Nonprofit Services
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -236,15 +250,19 @@ export default function Layout({ children }: LayoutProps) {
                     setIndustriesDropdownOpen(!industriesDropdownOpen)
                   }
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                  aria-expanded={industriesDropdownOpen}
+                  aria-controls="industries-menu"
+                  aria-label="Open industries menu"
                 >
                   Industries We Serve
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${industriesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
                   />
                 </button>
 
                 {industriesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="industries-menu" role="menu">
                     <div className="py-2">
                       <Link
                         to="/industries/construction"
@@ -277,16 +295,6 @@ export default function Layout({ children }: LayoutProps) {
                         E-Commerce
                       </Link>
                       <Link
-                        to="/services/nonprofit"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Nonprofit
-                      </Link>
-                      <Link
                         to="/industries/government"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
                         onClick={() => {
@@ -315,15 +323,18 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-gray-900 hover:text-onealgo-blue-950"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav"
+                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
               </button>
             </div>
           </div>
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-[100] bg-white">
+            <div className="md:hidden fixed inset-0 z-[100] bg-white" id="mobile-nav">
               <div className="flex items-center justify-between px-4 py-3 border-b">
                 <Link
                   to="/"
@@ -495,6 +506,17 @@ export default function Layout({ children }: LayoutProps) {
                         >
                           Oracle ERP
                         </Link>
+                        <Link
+                          to="/services/nonprofit"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Nonprofit Services
+                        </Link>
                       </div>
                     )}
                   </div>
@@ -548,17 +570,6 @@ export default function Layout({ children }: LayoutProps) {
                           }}
                         >
                           E-Commerce
-                        </Link>
-                        <Link
-                          to="/services/nonprofit"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Nonprofit
                         </Link>
                         <Link
                           to="/industries/government"
@@ -859,8 +870,18 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-blue-200">
-                <p>service@onealgorithm.com</p>
-                <p>(610) 298-9069</p>
+                <a
+                  href="mailto:service@onealgorithm.com"
+                  className="block hover:text-white transition-colors"
+                >
+                  service@onealgorithm.com
+                </a>
+                <a
+                  href="tel:+16102989069"
+                  className="block hover:text-white transition-colors"
+                >
+                  (610) 298-9069
+                </a>
                 <p>
                   625 Swedesford Rd
                   <br />
