@@ -364,14 +364,6 @@ export default function Government() {
                   <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
                 </li>
               </ul>
-              <div className="mt-4">
-                <Link
-                  to="/capabilities"
-                  className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline text-sm"
-                >
-                  View Full Company Capabilities →
-                </Link>
-              </div>
             </div>
 
             <div>
@@ -386,14 +378,6 @@ export default function Government() {
                 <li>541611 — Administrative Management Consulting</li>
                 <li>541613 — Marketing Consulting Services</li>
               </ul>
-              <div className="mt-3">
-                <Link
-                  to="/capabilities"
-                  className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline text-sm"
-                >
-                  View All NAICS & PSC Codes →
-                </Link>
-              </div>
             </div>
           </div>
         </div>

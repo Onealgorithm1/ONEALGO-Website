@@ -74,14 +74,6 @@ export default function Industries() {
               >
                 <Link to="/contact">Get Industry Assessment</Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg"
-              >
-                <Link to="/services">Explore Our Services</Link>
-              </Button>
             </div>
           </div>
         </div>
