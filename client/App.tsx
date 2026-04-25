@@ -69,7 +69,6 @@ const Marketing = lazy(() => import("./pages/services/Marketing"));
 const Seo = lazy(() => import("./pages/services/Seo"));
 const Martech = lazy(() => import("./pages/services/Martech"));
 const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
-const Nonprofit = lazy(() => import("./pages/services/Nonprofit"));
 const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
@@ -77,6 +76,8 @@ const ITConsulting = lazy(() => import("./pages/services/ITConsulting"));
 const OperationsTechnology = lazy(
   () => import("./pages/services/OperationsTechnology"),
 );
+const OracleERP = lazy(() => import("./pages/services/OracleERP"));
+const Salesforce = lazy(() => import("./pages/services/Salesforce"));
 const Blog = lazy(() => import("./pages/Blog"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
 const Capabilities = lazy(() => import("./pages/Capabilities"));
@@ -129,7 +130,6 @@ const App = () => (
               <Route path="/services/seo" element={<Seo />} />
               <Route path="/services/martech" element={<Martech />} />
               <Route path="/services/google-ads" element={<GoogleAds />} />
-              <Route path="/services/nonprofit" element={<Nonprofit />} />
               <Route
                 path="/services/staff-augmentation"
                 element={<StaffAugmentation />}
@@ -142,6 +142,8 @@ const App = () => (
                 path="/services/operations-technology"
                 element={<OperationsTechnology />}
               />
+              <Route path="/services/oracle-erp" element={<OracleERP />} />
+              <Route path="/services/salesforce" element={<Salesforce />} />
               <Route path="/industries" element={<Industries />} />
               <Route
                 path="/industries/construction"

@@ -53,7 +53,7 @@ export const siteConfig: CompanyConfig = {
   url: "https://www.onealgorithm.com",
   logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
   description:
-    "One Algorithm LLC is a Woman- and Minority-Owned Small Business (WOSB/MBE pending) delivering secure, standards-aligned technology and compliance solutions to federal and commercial clients nationwide. We specialize in cloud modernization, open-source software engineering, cybersecurity compliance, and data automation, combining deep technical expertise with agile delivery and operational excellence. Our mission is to enable government and enterprise customers to modernize securely, efficiently, and accessibly—meeting all compliance and performance objectives.",
+    "One Algorithm LLC is an Economically Disadvantaged Women-Owned Small Business (EDWOSB) and Minority Business Enterprise (MBE) certified delivering secure, standards-aligned technology and compliance solutions to federal and commercial clients nationwide. We specialize in cloud modernization, open-source software engineering, cybersecurity compliance, and data automation, combining deep technical expertise with agile delivery and operational excellence. Our mission is to enable government and enterprise customers to modernize securely, efficiently, and accessibly—meeting all compliance and performance objectives.",
   certifications: [
     "NIST SP 800-171 Compliant",
     "DFARS 252.204-7012 (Safeguarding Covered Defense Information)",

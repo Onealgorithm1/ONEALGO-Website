@@ -80,7 +80,7 @@ export default function Capabilities() {
             </p>
             <div className="space-y-4 text-lg text-blue-100 max-w-5xl mx-auto">
               <p>
-                Woman- and Minority-Owned Small Business (WOSB/MBE pending)
+                Economically Disadvantaged Women-Owned Small Business (EDWOSB) and Minority Business Enterprise (MBE) certified
                 delivering secure, standards-aligned technology and compliance
                 solutions to federal and commercial clients nationwide.
               </p>
@@ -103,25 +103,6 @@ export default function Capabilities() {
                 <FileText className="w-4 h-4" />
                 D-U-N-S: {siteConfig.identifiers.duns}
               </div>
-            </div>
-            <div className="pt-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-              >
-                <a
-                  href="/api/capabilities.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  aria-label="Download the One Algorithm capabilities statement"
-                  className="inline-flex items-center gap-2"
-                >
-                  <FileText className="w-5 h-5" />
-                  Download Capabilities Statement (PDF)
-                </a>
-              </Button>
             </div>
           </div>
         </div>

@@ -42,37 +42,77 @@ export default function Contact() {
       "Get in touch with OneAlgorithm for technology consulting and services.",
   });
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     company: "",
-    companySize: "",
-    companyAddress: "",
-    phone: "",
+    whatYouNeed: "",
     message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setSubmitError(null);
   };
 
   const handleSelectChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setSubmitError(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     setIsSubmitting(true);
 
-    // Proceed with existing submission flow
-    // Show thank you message first
-    setTimeout(() => {
+    try {
+      // Create and submit Salesforce form
+      const salesforceForm = document.createElement("form");
+      salesforceForm.method = "POST";
+      salesforceForm.action =
+        "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf";
+      salesforceForm.style.display = "none";
+
+      // Add hidden fields
+      const addHiddenField = (name: string, value: string) => {
+        const hiddenField = document.createElement("input");
+        hiddenField.type = "hidden";
+        hiddenField.name = name;
+        hiddenField.value = value;
+        salesforceForm.appendChild(hiddenField);
+      };
+
+      addHiddenField("oid", "00Dbn00000plgUf");
+      addHiddenField("retURL", window.location.href);
+
+      // Map form data to Salesforce fields
+      const nameParts = formData.name.trim().split(" ");
+      const firstName = nameParts[0] || "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+
+      addHiddenField("first_name", firstName);
+      addHiddenField("last_name", lastName);
+      addHiddenField("email", formData.email);
+      addHiddenField("company", formData.company);
+      addHiddenField("description", `Service: ${formData.whatYouNeed}\n\n${formData.message}`);
+
+      // Submit in a hidden iframe
+      const iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.name = "salesforce-submit";
+      document.body.appendChild(iframe);
+
+      salesforceForm.target = "salesforce-submit";
+      document.body.appendChild(salesforceForm);
+      salesforceForm.submit();
+
+      // Show success message
       setIsSubmitting(false);
       setIsSubmitted(true);
 
@@ -81,53 +121,20 @@ export default function Contact() {
         window.trackFormSubmission();
       }
 
-      // Submit to Salesforce after showing thank you message
+      // Clean up after submission
       setTimeout(() => {
-        const salesforceForm = document.createElement("form");
-        salesforceForm.method = "POST";
-        salesforceForm.action =
-          "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf";
-        salesforceForm.style.display = "none"; // Hide the form
-
-        // Add hidden fields
-        const addHiddenField = (name: string, value: string) => {
-          const hiddenField = document.createElement("input");
-          hiddenField.type = "hidden";
-          hiddenField.name = name;
-          hiddenField.value = value;
-          salesforceForm.appendChild(hiddenField);
-        };
-
-        addHiddenField("oid", "00Dbn00000plgUf");
-        addHiddenField("retURL", window.location.href); // Keep user on current page
-
-        // Map form data to Salesforce fields
-        addHiddenField("first_name", formData.firstName);
-        addHiddenField("last_name", formData.lastName);
-        addHiddenField("email", formData.email);
-        addHiddenField("company", formData.company);
-        addHiddenField("employees", formData.companySize);
-        addHiddenField("street", formData.companyAddress);
-        addHiddenField("phone", formData.phone);
-        addHiddenField("description", formData.message);
-
-        // Submit in a hidden iframe to avoid page redirect
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.name = "salesforce-submit";
-        document.body.appendChild(iframe);
-
-        salesforceForm.target = "salesforce-submit";
-        document.body.appendChild(salesforceForm);
-        salesforceForm.submit();
-
-        // Clean up after submission
-        setTimeout(() => {
+        if (document.body.contains(salesforceForm)) {
           document.body.removeChild(salesforceForm);
+        }
+        if (document.body.contains(iframe)) {
           document.body.removeChild(iframe);
-        }, 1000);
-      }, 500);
-    }, 800);
+        }
+      }, 2000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitError("An error occurred while submitting your message. Please try again or contact us directly.");
+      console.error("Form submission error:", error);
+    }
   };
 
   return (
@@ -157,46 +164,37 @@ export default function Contact() {
             <div>
               {!isSubmitted ? (
                 <>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
-                    Send Your Message
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
+                    Get Expert Consultation
                   </h2>
+                  <p className="text-gray-600 mb-6 sm:mb-8">
+                    We'll respond within 24 hours with a personalized recommendation.
+                  </p>
                   <form
                     onSubmit={handleSubmit}
                     className="space-y-4 sm:space-y-6"
                   >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                      <div>
-                        <Label htmlFor="firstName" className="text-gray-700">
-                          First Name <span className="text-red-500">*</span>
-                        </Label>
-                        <Input
-                          id="firstName"
-                          name="firstName"
-                          type="text"
-                          required
-                          placeholder="Enter your first name"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          className="mt-1"
-                          disabled={isSubmitting}
-                        />
+                    {submitError && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4" role="alert" aria-live="polite">
+                        <p className="text-red-800 text-sm">{submitError}</p>
                       </div>
-                      <div>
-                        <Label htmlFor="lastName" className="text-gray-700">
-                          Last Name <span className="text-red-500">*</span>
-                        </Label>
-                        <Input
-                          id="lastName"
-                          name="lastName"
-                          type="text"
-                          required
-                          placeholder="Enter your last name"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          className="mt-1"
-                          disabled={isSubmitting}
-                        />
-                      </div>
+                    )}
+
+                    <div>
+                      <Label htmlFor="name" className="text-gray-700">
+                        Your Name <span className="text-red-500">*</span>
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="First and last name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
                     </div>
 
                     <div>
@@ -208,7 +206,7 @@ export default function Contact() {
                         name="email"
                         type="email"
                         required
-                        placeholder="Enter your email address"
+                        placeholder="your@company.com"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="mt-1"
@@ -218,13 +216,14 @@ export default function Contact() {
 
                     <div>
                       <Label htmlFor="company" className="text-gray-700">
-                        Company Name
+                        Company Name <span className="text-red-500">*</span>
                       </Label>
                       <Input
                         id="company"
                         name="company"
                         type="text"
-                        placeholder="Enter your company name"
+                        required
+                        placeholder="Your company name"
                         value={formData.company}
                         onChange={handleInputChange}
                         className="mt-1"
@@ -232,90 +231,57 @@ export default function Contact() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                      <div>
-                        <Label htmlFor="companySize" className="text-gray-700">
-                          Company Size
-                        </Label>
-                        <Select
-                          onValueChange={(value) =>
-                            handleSelectChange("companySize", value)
-                          }
-                          disabled={isSubmitting}
-                        >
-                          <SelectTrigger className="mt-1">
-                            <SelectValue placeholder="Select company size" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1-10">1-10 employees</SelectItem>
-                            <SelectItem value="11-50">
-                              11-50 employees
-                            </SelectItem>
-                            <SelectItem value="51-200">
-                              51-200 employees
-                            </SelectItem>
-                            <SelectItem value="201-500">
-                              201-500 employees
-                            </SelectItem>
-                            <SelectItem value="501-1000">
-                              501-1000 employees
-                            </SelectItem>
-                            <SelectItem value="1000+">
-                              1000+ employees
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label
-                          htmlFor="companyAddress"
-                          className="text-gray-700"
-                        >
-                          Company Address
-                        </Label>
-                        <Input
-                          id="companyAddress"
-                          name="companyAddress"
-                          type="text"
-                          placeholder="Enter your company address"
-                          value={formData.companyAddress}
-                          onChange={handleInputChange}
-                          className="mt-1"
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                    </div>
-
                     <div>
-                      <Label htmlFor="phone" className="text-gray-700">
-                        Phone Number
+                      <Label htmlFor="whatYouNeed" className="text-gray-700">
+                        What do you need? <span className="text-red-500">*</span>
                       </Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="(555) 123-4567"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="mt-1"
-                        disabled={isSubmitting}
-                      />
+                      <Select
+                        value={formData.whatYouNeed}
+                        onValueChange={(value) =>
+                          handleSelectChange("whatYouNeed", value)
+                        }
+                        required
+                      >
+                        <SelectTrigger className="mt-1" disabled={isSubmitting}>
+                          <SelectValue placeholder="Select your service needs" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Oracle ERP Implementation">
+                            Oracle ERP Implementation
+                          </SelectItem>
+                          <SelectItem value="IT Consulting">
+                            IT Consulting & Strategy
+                          </SelectItem>
+                          <SelectItem value="Website Development">
+                            Website Development
+                          </SelectItem>
+                          <SelectItem value="Operations Technology">
+                            Operations Technology
+                          </SelectItem>
+                          <SelectItem value="Marketing Services">
+                            Marketing Services
+                          </SelectItem>
+                          <SelectItem value="Staff Augmentation">
+                            Staff Augmentation
+                          </SelectItem>
+                          <SelectItem value="Other">
+                            Other
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div>
                       <Label htmlFor="message" className="text-gray-700">
-                        Message / Inquiry Details{" "}
-                        <span className="text-red-500">*</span>
+                        Tell us more (optional)
                       </Label>
                       <Textarea
                         id="message"
                         name="message"
-                        required
-                        placeholder="Tell us about your project or how we can help you..."
+                        placeholder="Describe your project, challenges, or goals..."
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="mt-1 min-h-[120px]"
+                        className="mt-1 min-h-[100px]"
                         disabled={isSubmitting}
                       />
                     </div>
@@ -329,10 +295,10 @@ export default function Contact() {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Sending Message...
+                          Sending...
                         </>
                       ) : (
-                        "Send My Message"
+                        "Schedule a Consultation"
                       )}
                     </Button>
                   </form>
@@ -435,15 +401,13 @@ export default function Contact() {
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({
-                        firstName: "",
-                        lastName: "",
+                        name: "",
                         email: "",
                         company: "",
-                        companySize: "",
-                        companyAddress: "",
-                        phone: "",
+                        whatYouNeed: "",
                         message: "",
                       });
+                      setSubmitError(null);
                     }}
                     variant="outline"
                     size="lg"

@@ -15,10 +15,8 @@ export default function Layout({ children }: LayoutProps) {
   const [servicesDropdownOpen, setServicesDropdownOpen] = React.useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] =
     React.useState(false);
-  const [careersDropdownOpen, setCareersDropdownOpen] = React.useState(false);
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const careersDropdownRef = React.useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   // Close all dropdowns when mobile menu closes
@@ -26,7 +24,6 @@ export default function Layout({ children }: LayoutProps) {
     if (!mobileMenuOpen) {
       setServicesDropdownOpen(false);
       setIndustriesDropdownOpen(false);
-      setCareersDropdownOpen(false);
     }
   }, [mobileMenuOpen]);
 
@@ -36,7 +33,6 @@ export default function Layout({ children }: LayoutProps) {
       // Close all dropdowns on resize to prevent state sync issues
       setServicesDropdownOpen(false);
       setIndustriesDropdownOpen(false);
-      setCareersDropdownOpen(false);
     };
 
     window.addEventListener("resize", handleResize);
@@ -59,12 +55,6 @@ export default function Layout({ children }: LayoutProps) {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIndustriesDropdownOpen(false);
-      }
-      if (
-        careersDropdownRef.current &&
-        !careersDropdownRef.current.contains(event.target as Node)
-      ) {
-        setCareersDropdownOpen(false);
       }
     };
 
@@ -90,7 +80,6 @@ export default function Layout({ children }: LayoutProps) {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setIndustriesDropdownOpen(false);
-    setCareersDropdownOpen(false);
     try {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (_) {
@@ -135,15 +124,19 @@ export default function Layout({ children }: LayoutProps) {
                 <button
                   onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                  aria-expanded={servicesDropdownOpen}
+                  aria-controls="services-menu"
+                  aria-label="Open services menu"
                 >
                   Services
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
                   />
                 </button>
 
                 {servicesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="services-menu" role="menu">
                     <div className="py-2">
                       <Link
                         to="/services/website-development"
@@ -225,6 +218,26 @@ export default function Layout({ children }: LayoutProps) {
                       >
                         Operations Technology
                       </Link>
+                      <Link
+                        to="/services/oracle-erp"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Oracle ERP
+                      </Link>
+                      <Link
+                        to="/services/salesforce"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Salesforce
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -237,15 +250,19 @@ export default function Layout({ children }: LayoutProps) {
                     setIndustriesDropdownOpen(!industriesDropdownOpen)
                   }
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                  aria-expanded={industriesDropdownOpen}
+                  aria-controls="industries-menu"
+                  aria-label="Open industries menu"
                 >
                   Industries We Serve
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${industriesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
                   />
                 </button>
 
                 {industriesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="industries-menu" role="menu">
                     <div className="py-2">
                       <Link
                         to="/industries/construction"
@@ -278,16 +295,6 @@ export default function Layout({ children }: LayoutProps) {
                         E-Commerce
                       </Link>
                       <Link
-                        to="/services/nonprofit"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Nonprofit
-                      </Link>
-                      <Link
                         to="/industries/government"
                         className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
                         onClick={() => {
@@ -302,67 +309,6 @@ export default function Layout({ children }: LayoutProps) {
                 )}
               </div>
 
-              {/* Careers & Insights Dropdown */}
-              <div className="relative" ref={careersDropdownRef}>
-                <button
-                  onClick={() => setCareersDropdownOpen(!careersDropdownOpen)}
-                  className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-                >
-                  Careers & Insights
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${careersDropdownOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-
-                {careersDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                    <div className="py-2">
-                      <Link
-                        to="/careers"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setCareersDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Careers
-                      </Link>
-                      <Link
-                        to="/blog"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setCareersDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Blog
-                      </Link>
-                      <Link
-                        to="/events"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setCareersDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Events
-                      </Link>
-                      <div className="px-4 py-2 border-t block md:hidden">
-                        <Link
-                          to="/contact"
-                          className="block text-center bg-onealgo-orange-500 text-white rounded-md px-3 py-2 font-semibold mt-2"
-                          onClick={() => {
-                            setCareersDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Contact
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
               <Link
                 to="/contact"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -377,15 +323,18 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-gray-900 hover:text-onealgo-blue-950"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav"
+                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
               </button>
             </div>
           </div>
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-[100] bg-white">
+            <div className="md:hidden fixed inset-0 z-[100] bg-white" id="mobile-nav">
               <div className="flex items-center justify-between px-4 py-3 border-b">
                 <Link
                   to="/"
@@ -546,6 +495,28 @@ export default function Layout({ children }: LayoutProps) {
                         >
                           Operations Technology
                         </Link>
+                        <Link
+                          to="/services/oracle-erp"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Oracle ERP
+                        </Link>
+                        <Link
+                          to="/services/salesforce"
+                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Salesforce
+                        </Link>
                       </div>
                     )}
                   </div>
@@ -601,17 +572,6 @@ export default function Layout({ children }: LayoutProps) {
                           E-Commerce
                         </Link>
                         <Link
-                          to="/services/nonprofit"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Nonprofit
-                        </Link>
-                        <Link
                           to="/industries/government"
                           className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
@@ -626,59 +586,6 @@ export default function Layout({ children }: LayoutProps) {
                     )}
                   </div>
 
-                  <div className="pt-2 border-t">
-                    <button
-                      onClick={() =>
-                        setCareersDropdownOpen(!careersDropdownOpen)
-                      }
-                      className="w-full flex items-center justify-between px-3 py-2 text-gray-700 font-medium text-sm"
-                      aria-expanded={careersDropdownOpen}
-                      aria-controls="mobile-careers"
-                    >
-                      <span>Careers & Insights</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${careersDropdownOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-
-                    {careersDropdownOpen && (
-                      <div id="mobile-careers" className="pl-4">
-                        <Link
-                          to="/careers"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setCareersDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Careers
-                        </Link>
-                        <Link
-                          to="/blog"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setCareersDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Blog
-                        </Link>
-                        <Link
-                          to="/events"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setCareersDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Events
-                        </Link>
-                      </div>
-                    )}
-                  </div>
                 </nav>
               </div>
             </div>
@@ -947,6 +854,24 @@ export default function Layout({ children }: LayoutProps) {
                 >
                   Operations Technology
                 </Link>
+                <Link
+                  to="/services/oracle-erp"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Oracle ERP
+                </Link>
+                <Link
+                  to="/services/salesforce"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Salesforce
+                </Link>
               </div>
             </div>
 
@@ -954,8 +879,18 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-blue-200">
-                <p>service@onealgorithm.com</p>
-                <p>(610) 298-9069</p>
+                <a
+                  href="mailto:service@onealgorithm.com"
+                  className="block hover:text-white transition-colors"
+                >
+                  service@onealgorithm.com
+                </a>
+                <a
+                  href="tel:+16102989069"
+                  className="block hover:text-white transition-colors"
+                >
+                  (610) 298-9069
+                </a>
                 <p>
                   625 Swedesford Rd
                   <br />

@@ -52,17 +52,37 @@ export default function Industries() {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Industry-Focused{" "}
               <span className="text-onealgo-orange-500">
-                Technology Solutions
+                Technology Expertise
               </span>{" "}
-              —{" "}
-              <span className="text-white">
-                Construction, Manufacturing & E-Commerce
-              </span>
+              — Construction, Manufacturing & E-Commerce
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Specialized technology solutions designed for your industry's
-              unique challenges and opportunities.
+              Deep understanding of your industry's operational challenges, compliance requirements, and competitive pressures. We deliver solutions tailored to your specific market dynamics.
             </p>
+
+            {/* Proof point */}
+            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
+              <p className="text-onealgo-orange-500 text-sm font-semibold">Industry experts with combined 40+ years of sector experience | Avg. 30-40% efficiency improvements post-implementation</p>
+            </div>
+
+            {/* Dual CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
+              >
+                <Link to="/contact">Get Industry Assessment</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg"
+              >
+                <Link to="/services">Explore Our Services</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -72,11 +92,13 @@ export default function Industries() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Industry Expertise
+              We Specialize in These Key Vertical Markets
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We understand that every industry has unique challenges. Our
-              solutions are tailored to meet the specific needs of your sector.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              Industry-focused consulting that understands your unique operational challenges, compliance requirements, and competitive pressures. Choose your industry below to see how we help companies like yours.
+            </p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <strong>Not sure if you fit a specific industry?</strong> Contact us to discuss your business model and technology needs.
             </p>
           </div>
 
@@ -84,7 +106,7 @@ export default function Industries() {
             {/* Construction */}
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
-                <Building2 className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-onealgo-orange-500 transition-colors duration-300" />
+                <Building2 className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-onealgo-orange-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
                   Construction
                 </CardTitle>
@@ -108,7 +130,7 @@ export default function Industries() {
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
                 <Factory
-                  className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
+                  className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
                   style={{ animationDelay: "0.5s" }}
                 />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
@@ -133,7 +155,7 @@ export default function Industries() {
             <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
                 <ShoppingCart
-                  className="w-16 h-16 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
+                  className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
                   style={{ animationDelay: "1s" }}
                 />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
