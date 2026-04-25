@@ -749,42 +749,6 @@ export default function Layout({ children }: LayoutProps) {
                   Industries We Serve
                 </Link>
                 <Link
-                  to="/careers"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="block text-blue-200 hover:text-white transition-colors"
-                >
-                  Careers
-                </Link>
-                <Link
-                  to="/blog"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="block text-blue-200 hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-                <Link
-                  to="/capabilities"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="block text-blue-200 hover:text-white transition-colors"
-                >
-                  Company Capabilities
-                </Link>
-                <Link
-                  to="/events"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="block text-blue-200 hover:text-white transition-colors"
-                >
-                  Events
-                </Link>
-                <Link
                   to="/contact"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -886,10 +850,10 @@ export default function Layout({ children }: LayoutProps) {
                   service@onealgorithm.com
                 </a>
                 <a
-                  href="tel:+16102989069"
+                  href="tel:+16108909711"
                   className="block hover:text-white transition-colors"
                 >
-                  (610) 298-9069
+                  1 (610) 890-9711
                 </a>
                 <p>
                   625 Swedesford Rd

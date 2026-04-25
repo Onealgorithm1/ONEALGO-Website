@@ -53,7 +53,7 @@ export const siteConfig: CompanyConfig = {
   url: "https://www.onealgorithm.com",
   logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
   description:
-    "One Algorithm LLC is an Economically Disadvantaged Women-Owned Small Business (EDWOSB) and Minority Business Enterprise (MBE) certified delivering secure, standards-aligned technology and compliance solutions to federal and commercial clients nationwide. We specialize in cloud modernization, open-source software engineering, cybersecurity compliance, and data automation, combining deep technical expertise with agile delivery and operational excellence. Our mission is to enable government and enterprise customers to modernize securely, efficiently, and accessibly—meeting all compliance and performance objectives.",
+    "Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business providing secure cloud modernization, Salesforce platform engineering, AI-driven automation, cybersecurity compliance, and accessibility solutions for federal and state agencies. Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.",
   certifications: [
     "NIST SP 800-171 Compliant",
     "DFARS 252.204-7012 (Safeguarding Covered Defense Information)",
@@ -72,7 +72,7 @@ export const siteConfig: CompanyConfig = {
     country: "US",
   },
   contact: {
-    phonePrimary: "(610) 298-9069",
+    phonePrimary: "1 (610) 890-9711",
     emailPrimary: "service@onealgorithm.com",
     phoneAlt: "(832) 434-9891",
     emailAlt: "samirisetti@onealgorithm.com",
@@ -80,7 +80,7 @@ export const siteConfig: CompanyConfig = {
   identifiers: {
     cage: "14G18",
     uei: "W8DYK38MEKP3",
-    duns: "118835343",
+    duns: "117847561",
   },
   sbaUrl:
     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1",

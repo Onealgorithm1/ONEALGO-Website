@@ -67,11 +67,6 @@ export default function About() {
               We transform struggling businesses into thriving enterprises. With deep expertise across multiple industries, we design and execute technology solutions that simplify operations, reduce costs, and accelerate growth.
             </p>
 
-            {/* Confidence metric */}
-            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">Trusted by 200+ businesses for enterprise transformations | 98% client satisfaction rate</p>
-            </div>
-
             {/* CTA */}
             <Button
               asChild

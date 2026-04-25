@@ -159,7 +159,7 @@ export default function Privacy() {
                   <strong>Email:</strong> service@onealgorithm.com
                 </p>
                 <p className="mb-2">
-                  <strong>Phone:</strong> (610) 298-9069
+                  <strong>Phone:</strong> 1 (610) 890-9711
                 </p>
                 <p>
                   <strong>Address:</strong> 625 Swedesford Rd, Malvern, PA 19355
