@@ -69,7 +69,6 @@ const Marketing = lazy(() => import("./pages/services/Marketing"));
 const Seo = lazy(() => import("./pages/services/Seo"));
 const Martech = lazy(() => import("./pages/services/Martech"));
 const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
-const Nonprofit = lazy(() => import("./pages/services/Nonprofit"));
 const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
@@ -130,7 +129,6 @@ const App = () => (
               <Route path="/services/seo" element={<Seo />} />
               <Route path="/services/martech" element={<Martech />} />
               <Route path="/services/google-ads" element={<GoogleAds />} />
-              <Route path="/services/nonprofit" element={<Nonprofit />} />
               <Route
                 path="/services/staff-augmentation"
                 element={<StaffAugmentation />}
