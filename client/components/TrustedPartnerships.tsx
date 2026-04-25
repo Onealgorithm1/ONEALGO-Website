@@ -9,6 +9,7 @@ export default function TrustedPartnerships() {
     "Zapier",
     "MuleSoft",
     "MS Dynamics",
+    "Oracle",
     "Twilio",
     "Aircall",
     "QuickBooks",
