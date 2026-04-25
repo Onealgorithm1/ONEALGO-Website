@@ -67,67 +67,79 @@ export interface JointVenturePartnerInfo {
 
 export const coreCompetencies: CoreCompetency[] = [
   {
-    title: "Technology & Digital Engineering",
-    icon: "target",
-    items: [
-      "Cloud architecture and modernization (Azure Government, AWS, GovCloud)",
-      "Secure software development and API integration",
-      "Data engineering, analytics, and AI/ML automation",
-      "DevSecOps pipelines with continuous compliance monitoring",
-      "Cybersecurity and information assurance (DFARS 252.204-7012, NIST 800-171, SOC 2)",
-    ],
-  },
-  {
-    title: "Digital Transformation & Enterprise Automation",
+    title: "AI & Machine Learning Solutions",
     icon: "lightbulb",
     items: [
-      "Workflow optimization and business process automation",
-      "CRM and ERP integration (Salesforce, MS Dynamics, Zoho, HubSpot)",
-      "Agile program management and technology roadmapping",
-      "Enterprise analytics and dashboard development",
+      "AI-driven automation and intelligent process optimization",
+      "Machine learning model development and deployment",
+      "AI-enabled cloud modernization",
     ],
   },
   {
-    title: "Small Business & Strategic Consulting",
+    title: "Cloud Computing & Infrastructure",
+    icon: "target",
+    items: [
+      "Cloud computing and AI-enabled modernization",
+      "Data management and advanced analytics",
+      "Custom software and systems development",
+    ],
+  },
+  {
+    title: "Cybersecurity & Compliance",
+    icon: "shield",
+    items: [
+      "Cybersecurity and secure AI implementation",
+      "Risk management, governance, and compliance",
+      "Business process optimization",
+    ],
+  },
+  {
+    title: "IT Services & Support",
     icon: "users",
     items: [
-      "Business operations strategy and financial planning",
-      "Federal capture and proposal management support",
-      "Risk assessment and cost optimization for small business scalability",
+      "IT training and staff augmentation",
+      "Salesforce platform expertise",
+      "Program and project management",
     ],
   },
 ];
 
 export const differentiators: Differentiator[] = [
   {
-    title: "Secure DevSecOps Framework",
-    icon: "shield",
-    description:
-      "Integrated CI/CD pipelines with vulnerability management and continuous compliance validation.",
-  },
-  {
-    title: "Federal Compliance Expertise",
-    icon: "checkCircle",
-    description:
-      "Alignment with NIST SP 800-171, DFARS 252.204-7012, ISO 27001, SOC 2, HIPAA, and CMMC 2.0 (Level 2 in progress).",
-  },
-  {
-    title: "Scalable Delivery",
-    icon: "target",
-    description:
-      "Small business agility with enterprise-grade quality and process control.",
-  },
-  {
-    title: "Experienced Leadership",
+    title: "Woman- & Minority-Owned (WOSB/MBE)",
     icon: "users",
     description:
-      "Executives with 20+ years across technology, operations, and program management.",
+      "EDWOSB and MBE certified, providing diverse leadership and perspective.",
   },
   {
-    title: "Customer-Focused Execution",
+    title: "Small Business Agility with Large-Integrator Capability",
+    icon: "target",
+    description:
+      "Combines small business flexibility with enterprise-grade delivery and scale.",
+  },
+  {
+    title: "Applied AI Expertise",
     icon: "lightbulb",
     description:
-      "Commitment to measurable results, compliance, and mission continuity.",
+      "Cutting-edge AI and machine learning solutions integrated into federal modernization.",
+  },
+  {
+    title: "End-to-End Modernization Capability",
+    icon: "shield",
+    description:
+      "Complete cloud, security, and systems integration from strategy to deployment.",
+  },
+  {
+    title: "Reliable Operations & Mission-Critical Support",
+    icon: "checkCircle",
+    description:
+      "Proven track record delivering secure, compliant, and operationally superior solutions.",
+  },
+  {
+    title: "Cost Advantage Without Quality Trade-Offs",
+    icon: "target",
+    description:
+      "Cost-effective solutions without compromising security, compliance, or performance.",
   },
 ];
 
@@ -160,22 +172,28 @@ export const federalExperience: FederalExperienceItem[] = [];
 
 export const complianceProfile: ComplianceProfile = {
   pendingCertifications: [
-    "Economically Disadvantaged Women-Owned Small Business (EDWOSB) – certified",
-    "Minority Business Enterprise (MBE) – certified",
+    "EDWOSB (Economically Disadvantaged Women-Owned Small Business) – Certified",
+    "WBENC WBE – WBE2600434",
+    "WBENC WOSB – WOSB260411",
   ],
   federalCompliance: [
-    "DFARS 252.204-7012",
-    "NIST SP 800-171",
-    "CMMC 2.0 (Level 2 in progress)",
+    "SAM.gov UEI: W8DYK38MEKP3",
+    "DUNS: 117847561",
+    "CAGE: 14G18",
   ],
-  qualityAndSecurity: ["ISO 27001", "SOC 2 Type II", "HIPAA", "ISO 9001"],
+  qualityAndSecurity: [
+    "SDB (Small Disadvantaged Business) & SB – Cert # 561511",
+    "NMSDC MBE (Minority Business Enterprise) – PT100000051",
+    "VA SWaM: Pending",
+  ],
   bondingCapacity: "$500,000 (single / aggregate)",
-  samRegistration: "Active SAM Registration – UEI: W8DYK38MEKP3 | CAGE: 14G18",
+  samRegistration: "Active – UEI: W8DYK38MEKP3 | CAGE: 14G18 | DUNS: 117847561",
 };
 
 export const strategicPartnerships: string[] = [
-  "One Algorithm actively seeks mentor-protégé and strategic teaming partnerships with leading federal prime contractors to expand modernization, cybersecurity, and AI-driven transformation initiatives.",
-  "We maintain an SBA-compliant Joint Venture with Irongrove LLC (Veteran-Owned) with each partner performing 30%+ of total contract work in accordance with SBA 13 CFR 125.8.",
+  "One Algorithm partners with leading technology providers including Microsoft to deliver comprehensive modernization and AI-enabled solutions.",
+  "Our strategic partnership approach combines small business agility with enterprise-grade capability to serve federal agencies, state governments, and commercial clients nationwide.",
+  "We actively pursue multiple strategic joint ventures and teaming partnerships to expand our federal modernization, cybersecurity, and AI-driven transformation initiatives.",
 ];
 
 export const keyPersonnel: KeyPerson[] = [

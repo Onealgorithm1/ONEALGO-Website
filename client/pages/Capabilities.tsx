@@ -114,14 +114,10 @@ export default function Capabilities() {
               Company Overview
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              {siteConfig.description}
-            </p>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4 leading-relaxed">
-              Our mission is to enable organizations to operate securely,
-              efficiently, and at scale—across mission-critical and enterprise
-              environments. Our ISO 9001–compliant quality management and NIST
-              800-171 cybersecurity practices ensure every engagement meets the
-              highest standards of reliability, traceability, and security.
+              Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business
+              providing secure cloud modernization, Salesforce platform engineering, AI-driven automation,
+              cybersecurity compliance, and accessibility solutions for federal and state agencies.
+              Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.
             </p>
           </div>
 
@@ -358,6 +354,46 @@ export default function Capabilities() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+
+          {/* Procurement Registrations */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
+              Procurement Registrations
+            </h3>
+            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
+              <CardHeader>
+                <CardTitle className="text-onealgo-blue-950">
+                  Active Government Procurement Listings
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+                  <div>
+                    <p className="font-semibold text-onealgo-blue-950 mb-3">Federal</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>• SAM.gov UEI: W8DYK38MEKP3</li>
+                      <li>• FedConnect: Active</li>
+                      <li>• GSA eBuy: Pending</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-onealgo-blue-950 mb-3">State & Local</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>• COSTARS (PA): #4400033848</li>
+                      <li>• EVA (VA): SUP347430</li>
+                      <li>• OhioBuys: ID 00341565-0</li>
+                      <li>• Bid Net: 3063593</li>
+                      <li>• Cal eProcure: BID126344</li>
+                      <li>• Florida: F-----9444</li>
+                      <li>• commbuys: ID 00085083</li>
+                      <li>• Jaggaer: 0000561511</li>
+                      <li>• Euna: Nation Wide</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Strategic Partnerships */}
