@@ -4,13 +4,12 @@ import TrustedPartnerships from "./TrustedPartnerships";
 import { Button } from "./ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import * as React from "react";
-import LeadConnectorWidget from "./LeadConnectorWidget";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = React.useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] =
@@ -901,11 +900,10 @@ export default function Layout({ children }: LayoutProps) {
               </p>
             </div>
           </div>
-          <div className="mt-4">
-            <LeadConnectorWidget />
-          </div>
         </div>
       </footer>
     </div>
   );
 }
+
+export default React.memo(Layout);
