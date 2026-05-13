@@ -899,6 +899,13 @@ function Layout({ children }: LayoutProps) {
                 not imply endorsement.
               </p>
             </div>
+
+            {/* E-Verify Statement */}
+            <div className="mt-4 pt-4 border-t border-blue-800/50">
+              <p className="text-blue-300/80 text-xs text-center">
+                We participate in E-Verify
+              </p>
+            </div>
           </div>
         </div>
       </footer>
