@@ -147,21 +147,6 @@ export default function TeamSection() {
                     </div>
                   </div>
 
-                  {/* Industries */}
-                  <div className="mb-4 flex flex-wrap gap-3">
-                    {member.industries.map((industry) => (
-                      <div
-                        key={industry}
-                        className="flex items-center gap-2 text-sm text-gray-600"
-                      >
-                        <span className="text-onealgo-orange-500">
-                          {industryIcons[industry]}
-                        </span>
-                        <span>{industry}</span>
-                      </div>
-                    ))}
-                  </div>
-
                   {/* Background */}
                   <p className="text-sm text-gray-600 leading-relaxed border-t pt-4">
                     {member.background}
