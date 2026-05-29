@@ -88,25 +88,7 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Every day, we witness capable businesses struggle with outdated
-                processes, disconnected systems, and manual workflows that drain
-                resources and limit growth potential. Our mission is clear: to
-                be the catalyst that transforms these challenges into
-                competitive advantages through{" "}
-                <Link
-                  to="/services/operations-technology"
-                  className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline"
-                >
-                  operations technology
-                </Link>{" "}
-                and{" "}
-                <Link
-                  to="/services/it-consulting"
-                  className="text-onealgo-blue-950 hover:text-onealgo-orange-500 underline"
-                >
-                  strategic IT consulting
-                </Link>
-                .
+                Our mission is to help organizations modernize, automate, and grow. We deliver practical technology solutions that simplify operations, improve efficiency, and create lasting business value.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
