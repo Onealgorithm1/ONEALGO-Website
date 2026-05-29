@@ -24,6 +24,7 @@ import {
   createOrganizationSchema,
   createWebPageSchema,
 } from "../components/StructuredData";
+import TeamSection from "../components/TeamSection";
 
 export default function About() {
   useSEO({
@@ -256,6 +257,9 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Team Section */}
+      <TeamSection />
 
       {/* Values */}
       <section className="py-20 bg-gradient-to-r from-onealgo-blue-950 to-onealgo-blue-800">
