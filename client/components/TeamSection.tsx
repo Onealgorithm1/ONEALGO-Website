@@ -43,7 +43,7 @@ const teamMembers: TeamMember[] = [
   {
     id: "louis",
     name: "Louis C. Rubino",
-    title: "Director of Compliance & Contract Administration",
+    title: "Director",
     roleSummary:
       "Leads federal and state compliance operations supporting government contracting initiatives, managing SAM.gov registration, certifications, cybersecurity frameworks, and strategic partnerships.",
     expertise: ["FAR/DFARS Compliance", "Government Contracting", "Proposal Coordination", "NIST 800-171", "Operations Management"],
