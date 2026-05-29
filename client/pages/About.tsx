@@ -87,18 +87,9 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed">
                 Our mission is to help organizations modernize, automate, and grow. We deliver practical technology solutions that simplify operations, improve efficiency, and create lasting business value.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/contact">Start Your Transformation</Link>
-                </Button>
-              </div>
             </div>
           </div>
         </div>
