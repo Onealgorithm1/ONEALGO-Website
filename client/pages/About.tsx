@@ -61,7 +61,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              About <span className="text-onealgo-orange-500">OneAlgorithm</span>
+              About <span className="text-onealgo-orange-500">One Algorithm</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-4xl mx-auto mb-8">
               We transform struggling businesses into thriving enterprises. With deep expertise across multiple industries, we design and execute technology solutions that simplify operations, reduce costs, and accelerate growth.
@@ -81,13 +81,13 @@ export default function About() {
 
       {/* Mission Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style={{ fontSize: '45px' }}>
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed" style={{ fontSize: '20px' }}>
                 Our mission is to help organizations modernize, automate, and grow. We deliver practical technology solutions that simplify operations, improve efficiency, and create lasting business value.
               </p>
             </div>

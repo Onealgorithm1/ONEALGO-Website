@@ -93,11 +93,11 @@ const industryIcons: Record<string, React.ReactNode> = {
 
 export default function TeamSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" style={{ height: 'auto', flexGrow: 0 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontSize: '45px' }}>
             Meet the Team
           </h2>
         </div>
