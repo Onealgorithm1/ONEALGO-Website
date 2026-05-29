@@ -17,7 +17,7 @@ const teamMembers: TeamMember[] = [
   {
     id: "swapna",
     name: "Swapna Amirisetti",
-    title: "President & CEO | Majority Owner",
+    title: "President & CEO",
     roleSummary:
       "Exercises executive leadership over all corporate, financial, and contractual matters, guiding IT program management, systems integration, and data-driven transformation across federal, state, local, and commercial sectors.",
     expertise: ["Executive Leadership", "Systems Integration", "IT Program Management", "Salesforce", "Digital Transformation"],
@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
   {
     id: "sreenivas",
     name: "Sreenivas Amirisetti, MBA",
-    title: "Secretary & Director of Business Development",
+    title: "Secretary & Director of Operations",
     roleSummary:
       "Leads technology operations strategy and business development, overseeing technical project management, solution architecture, and enterprise CRM modernization across cloud and data transformation services.",
     expertise: ["Salesforce Ecosystem", "Enterprise Systems Integration", "Cloud Strategy", "CRM Modernization", "Data Integration"],
