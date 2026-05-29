@@ -17,39 +17,39 @@ const teamMembers: TeamMember[] = [
   {
     id: "swapna",
     name: "Swapna Amirisetti",
-    title: "President & CEO",
+    title: "President & CEO | Majority Owner",
     roleSummary:
-      "Drives strategic vision and client partnerships, translating complex operational challenges into scalable technology solutions across manufacturing and construction sectors.",
-    expertise: ["Strategy & Leadership", "Operations Technology", "ERP Solutions", "Client Relationships"],
-    industries: ["Manufacturing", "Construction"],
+      "Exercises executive leadership over all corporate, financial, and contractual matters, guiding IT program management, systems integration, and data-driven transformation across federal, state, local, and commercial sectors.",
+    expertise: ["Executive Leadership", "Systems Integration", "IT Program Management", "Salesforce", "Digital Transformation"],
+    industries: ["Manufacturing", "Construction", "E-commerce"],
     background:
-      "With 15+ years in operations technology and business transformation, Swapna has guided 50+ mid-market clients through successful digital transitions. As a certified Woman EDWOSB, she brings both technical depth and deep understanding of operational workflows that drive business impact.",
+      "Over 15 years leading complex technology initiatives, Swapna drives corporate strategy, financial planning, and workforce management while ensuring compliance and operational readiness. A certified Woman EDWOSB with an MCA in Computer Applications (First with Distinction), she holds Salesforce CPQ and Administrator certifications and has directed transformations for federal and commercial clients.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fc97eeccc0a134f3daa828669d60e53fa?format=webp&width=800&height=1200",
   },
   {
     id: "sreenivas",
-    name: "Sreenivas Amirisetti",
-    title: "Secretary & Director of Technology",
+    name: "Sreenivas Amirisetti, MBA",
+    title: "Secretary & Director of Business Development",
     roleSummary:
-      "Leads technology architecture and implementation strategy, ensuring solutions are scalable, secure, and aligned with long-term business growth objectives.",
-    expertise: ["Technology Architecture", "System Integration", "Infrastructure", "Process Automation"],
+      "Leads technology operations strategy and business development, overseeing technical project management, solution architecture, and enterprise CRM modernization across cloud and data transformation services.",
+    expertise: ["Salesforce Ecosystem", "Enterprise Systems Integration", "Cloud Strategy", "CRM Modernization", "Data Integration"],
     industries: ["Manufacturing", "E-commerce"],
     background:
-      "Sreenivas brings 18 years of hands-on IT infrastructure and systems integration expertise. He has architected technology platforms for 40+ companies, specializing in complex ERP implementations and supply chain optimization that reduce operational costs by 25-40%.",
+      "With 20+ years in enterprise systems integration and cloud transformation, Sreenivas has architected Salesforce Centers of Excellence and led global CRM implementations. At Solenis, he managed enterprise platform strategy; at KPMG, he advised executives on Salesforce optimization and digital transformation ROI—building scalable solutions for enterprise-level organizations.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Faa0c0ed3c6814eb2a787fe9850b47cb7?format=webp&width=800&height=1200",
   },
   {
     id: "louis",
-    name: "Louis Rubino",
-    title: "Construction & Operations Specialist",
+    name: "Louis C. Rubino",
+    title: "Director of Compliance & Contract Administration",
     roleSummary:
-      "Translates construction site workflows and operations management into automation-ready systems, helping contractors streamline project delivery and back-office operations.",
-    expertise: ["Construction Tech", "Project Management", "Workflow Automation", "Field Operations"],
-    industries: ["Construction"],
+      "Leads federal and state compliance operations supporting government contracting initiatives, managing SAM.gov registration, certifications, cybersecurity frameworks, and strategic partnerships.",
+    expertise: ["FAR/DFARS Compliance", "Government Contracting", "Proposal Coordination", "NIST 800-171", "Operations Management"],
+    industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "With 12 years in construction project management and operations consulting, Louis has helped 25+ general contractors and subcontractors eliminate manual processes. He specializes in bridging the gap between field operations and back-office systems, reducing administrative overhead by up to 35%.",
+      "Over 20 years in federal compliance and operations, Louis brings hands-on construction management expertise from Full Circle Builders and compliance strategy from corporate technology roles. He has managed SAM.gov registrations, cybersecurity frameworks, and compliance initiatives while building successful startups—combining operational rigor with business development acumen.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F2428c49dc5994d6c9ed10fc80d4a1792?format=webp&width=800&height=1200",
   },
@@ -58,11 +58,11 @@ const teamMembers: TeamMember[] = [
     name: "Sahith Valluru",
     title: "E-Commerce & Supply Chain Lead",
     roleSummary:
-      "Designs and executes end-to-end supply chain and e-commerce solutions that accelerate growth, improve fulfillment efficiency, and enhance customer experience.",
-    expertise: ["E-commerce Integration", "Supply Chain Optimization", "Inventory Management", "Order Management"],
+      "Designs and executes end-to-end supply chain and e-commerce solutions that accelerate growth, improve fulfillment efficiency, and enhance customer experience at scale.",
+    expertise: ["E-commerce Integration", "Supply Chain Optimization", "Order Management", "Inventory Systems", "Digital Transformation"],
     industries: ["E-commerce", "Manufacturing"],
     background:
-      "Sahith brings 14 years of e-commerce and supply chain technology expertise, having optimized fulfillment operations for 30+ companies ranging from startups to $500M+ enterprises. His solutions typically reduce order-to-delivery times by 20-30% while improving inventory accuracy.",
+      "Sahith brings 14+ years of e-commerce and supply chain technology expertise, having optimized fulfillment operations for 30+ companies ranging from startups to $500M+ enterprises. His solutions consistently reduce order-to-delivery times by 20-30% while improving inventory accuracy and operational efficiency across complex supply networks.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F6316b03e1737454cba79334edff02d65?format=webp&width=800&height=1200",
   },
