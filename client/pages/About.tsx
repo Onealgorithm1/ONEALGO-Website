@@ -107,81 +107,14 @@ export default function About() {
       {/* Team Section */}
       <TeamSection />
 
-      {/* Values */}
-      <section className="py-20 bg-gradient-to-r from-onealgo-blue-950 to-onealgo-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-              These principles guide everything we do and ensure we deliver
-              solutions that truly serve your business needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Practical Solutions
-                </h3>
-                <p className="text-blue-200 text-sm">
-                  We focus on technology that solves real problems and delivers
-                  measurable business value, not flashy features.
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Industry Expertise
-                </h3>
-                <p className="text-blue-200 text-sm">
-                  Deep understanding of sector-specific challenges ensures our
-                  solutions fit your business context perfectly.
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Long-term Partnership
-                </h3>
-                <p className="text-blue-200 text-sm">
-                  We're committed to your ongoing success, providing support and
-                  optimization as your business grows.
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-white bg-opacity-10 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Transparent Process
-                </h3>
-                <p className="text-blue-200 text-sm">
-                  Clear communication, realistic timelines, and honest
-                  assessments build trust and ensure project success.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action */}
       <section className="py-20 bg-onealgo-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Ready to Transform Your Business?
+            Think Bigger. Build Smarter. Move Faster.
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join the growing number of businesses that have overcome their
-            operational challenges and achieved sustainable growth with
-            OneAlgorithm.
+            Partner with One Algorithm to modernize operations, automate processes, and accelerate growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -193,14 +126,6 @@ export default function About() {
                 Start Your Transformation
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-onealgo-blue-950 text-onealgo-blue-950 hover:bg-onealgo-blue-950 hover:text-white px-8 py-4"
-            >
-              <Link to="/industries">Explore Solutions</Link>
             </Button>
           </div>
         </div>
