@@ -56,13 +56,13 @@ const teamMembers: TeamMember[] = [
   {
     id: "sahith",
     name: "Sahith Valluru",
-    title: "E-Commerce & Supply Chain Lead",
+    title: "Business Development Manager & Communications Expert",
     roleSummary:
-      "Designs and executes end-to-end supply chain and e-commerce solutions that accelerate growth, improve fulfillment efficiency, and enhance customer experience at scale.",
-    expertise: ["E-commerce Integration", "Supply Chain Optimization", "Order Management", "Inventory Systems", "Digital Transformation"],
+      "Builds and scales strategic partnerships that drive growth, coordinating with external organizations, joint venture partners, and senior stakeholders to establish high-value collaborations and manage partnership progression.",
+    expertise: ["Strategic Partnerships", "Business Development", "Executive Communications", "Relationship Management", "Salesforce CRM"],
     industries: ["E-commerce", "Manufacturing"],
     background:
-      "Sahith brings 14+ years of e-commerce and supply chain technology expertise, having optimized fulfillment operations for 30+ companies ranging from startups to $500M+ enterprises. His solutions consistently reduce order-to-delivery times by 20-30% while improving inventory accuracy and operational efficiency across complex supply networks.",
+      "Sahith brings expertise in business development and communications, leveraging Salesforce pipeline management and structured relationship development to track engagement and advance key business initiatives. His background combines medical research experience, teaching expertise, and a demonstrated ability to connect organizations and align stakeholders across diverse industries.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F6316b03e1737454cba79334edff02d65?format=webp&width=800&height=1200",
   },
