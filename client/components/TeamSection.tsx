@@ -100,12 +100,6 @@ export default function TeamSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Meet the Team
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our team brings hands-on experience from the industries we serve — so
-            we speak your language from day one. Each member combines deep
-            technical expertise with proven track records of transforming
-            operations for mid-market businesses.
-          </p>
         </div>
 
         {/* Team Grid */}
