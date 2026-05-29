@@ -11,6 +11,7 @@ interface TeamMember {
   industries: ("Construction" | "Manufacturing" | "E-commerce")[];
   background: string;
   image: string;
+  linkedinUrl: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -26,6 +27,7 @@ const teamMembers: TeamMember[] = [
       "Over 15 years leading complex technology initiatives, Swapna drives corporate strategy, financial planning, and workforce management while ensuring compliance and operational readiness. A certified Woman EDWOSB with an MCA in Computer Applications (First with Distinction), she holds Salesforce CPQ and Administrator certifications and has directed transformations for federal and commercial clients.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fc97eeccc0a134f3daa828669d60e53fa?format=webp&width=800&height=1200",
+    linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
   },
   {
     id: "sreenivas",
@@ -39,6 +41,7 @@ const teamMembers: TeamMember[] = [
       "With 20+ years in enterprise systems integration and cloud transformation, Sreenivas has architected Salesforce Centers of Excellence and led global CRM implementations. At Solenis, he managed enterprise platform strategy; at KPMG, he advised executives on Salesforce optimization and digital transformation ROI—building scalable solutions for enterprise-level organizations.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Faa0c0ed3c6814eb2a787fe9850b47cb7?format=webp&width=800&height=1200",
+    linkedinUrl: "https://www.linkedin.com/in/samirisetti/",
   },
   {
     id: "louis",
@@ -52,6 +55,7 @@ const teamMembers: TeamMember[] = [
       "Over 20 years in federal compliance and operations, Louis brings hands-on construction management expertise from Full Circle Builders and compliance strategy from corporate technology roles. He has managed SAM.gov registrations, cybersecurity frameworks, and compliance initiatives while building successful startups—combining operational rigor with business development acumen.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F2428c49dc5994d6c9ed10fc80d4a1792?format=webp&width=800&height=1200",
+    linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
   {
     id: "sahith",
@@ -65,6 +69,7 @@ const teamMembers: TeamMember[] = [
       "Sahith brings expertise in business development and communications, leveraging Salesforce pipeline management and structured relationship development to track engagement and advance key business initiatives. His background combines medical research experience, teaching expertise, and a demonstrated ability to connect organizations and align stakeholders across diverse industries.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F6316b03e1737454cba79334edff02d65?format=webp&width=800&height=1200",
+    linkedinUrl: "https://www.linkedin.com/in/sahith-valluru/",
   },
 ];
 
@@ -119,16 +124,35 @@ export default function TeamSection() {
 
                 {/* Content */}
                 <div className="p-6">
-                  {/* Name & Title */}
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-onealgo-orange-500 font-medium mb-3">
-                    {member.title}
-                  </p>
+                  {/* Name & Title with LinkedIn Link */}
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-onealgo-orange-500 font-medium">
+                        {member.title}
+                      </p>
+                    </div>
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-onealgo-blue-950 transition-colors flex-shrink-0"
+                      aria-label={`${member.name} LinkedIn profile`}
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.437-.103.249-.129.597-.129.946v5.422h-3.554s.05-8.736 0-9.646h3.554v1.366c.43-.664 1.199-1.61 2.922-1.61 2.134 0 3.734 1.398 3.734 4.403v5.487zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.957.771-1.71 1.958-1.71 1.187 0 1.915.753 1.94 1.71 0 .952-.753 1.71-1.983 1.71zm1.581 11.597H3.635V9.861h3.283v10.591zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                      </svg>
+                    </a>
+                  </div>
 
                   {/* Role Summary */}
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed mt-3">
                     {member.roleSummary}
                   </p>
 
