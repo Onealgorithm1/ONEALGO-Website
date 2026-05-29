@@ -20,11 +20,11 @@ const teamMembers: TeamMember[] = [
     name: "Swapna Amirisetti",
     title: "President & CEO",
     roleSummary:
-      "Exercises executive leadership over all corporate, financial, and contractual matters, guiding IT program management, systems integration, and data-driven transformation across federal, state, local, and commercial sectors.",
+      "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
     expertise: ["Executive Leadership", "Systems Integration", "IT Program Management", "Salesforce", "Digital Transformation"],
     industries: ["Manufacturing", "Construction", "E-commerce"],
     background:
-      "Over 15 years leading complex technology initiatives, Swapna drives corporate strategy, financial planning, and workforce management while ensuring compliance and operational readiness. A certified Woman EDWOSB with an MCA in Computer Applications (First with Distinction), she holds Salesforce CPQ and Administrator certifications and has directed transformations for federal and commercial clients.",
+      "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fc97eeccc0a134f3daa828669d60e53fa?format=webp&width=800&height=1200",
     linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
@@ -34,11 +34,11 @@ const teamMembers: TeamMember[] = [
     name: "Sreenivas Amirisetti, MBA",
     title: "Secretary & Director of Operations",
     roleSummary:
-      "Leads technology operations strategy and business development, overseeing technical project management, solution architecture, and enterprise CRM modernization across cloud and data transformation services.",
+      "Leads technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
     expertise: ["Salesforce Ecosystem", "Enterprise Systems Integration", "Cloud Strategy", "CRM Modernization", "Data Integration"],
     industries: ["Manufacturing", "E-commerce"],
     background:
-      "With 20+ years in enterprise systems integration and cloud transformation, Sreenivas has architected Salesforce Centers of Excellence and led global CRM implementations. At Solenis, he managed enterprise platform strategy; at KPMG, he advised executives on Salesforce optimization and digital transformation ROI—building scalable solutions for enterprise-level organizations.",
+      "Leads technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Faa0c0ed3c6814eb2a787fe9850b47cb7?format=webp&width=800&height=1200",
     linkedinUrl: "https://www.linkedin.com/in/samirisetti/",
@@ -48,11 +48,11 @@ const teamMembers: TeamMember[] = [
     name: "Louis C. Rubino",
     title: "Director",
     roleSummary:
-      "Leads federal and state compliance operations supporting government contracting initiatives, managing SAM.gov registration, certifications, cybersecurity frameworks, and strategic partnerships.",
+      "Leads compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
     expertise: ["FAR/DFARS Compliance", "Government Contracting", "Proposal Coordination", "NIST 800-171", "Operations Management"],
     industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "Over 20 years in federal compliance and operations, Louis brings hands-on construction management expertise from Full Circle Builders and compliance strategy from corporate technology roles. He has managed SAM.gov registrations, cybersecurity frameworks, and compliance initiatives while building successful startups—combining operational rigor with business development acumen.",
+      "Leads compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F2428c49dc5994d6c9ed10fc80d4a1792?format=webp&width=800&height=1200",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
@@ -62,11 +62,11 @@ const teamMembers: TeamMember[] = [
     name: "Sahith Valluru",
     title: "Business Development Manager & Communications Expert",
     roleSummary:
-      "Builds and scales strategic partnerships that drive growth, coordinating with external organizations, joint venture partners, and senior stakeholders to establish high-value collaborations and manage partnership progression.",
+      "Leads business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
     expertise: ["Strategic Partnerships", "Business Development", "Executive Communications", "Relationship Management", "Salesforce CRM"],
     industries: ["E-commerce", "Manufacturing"],
     background:
-      "Sahith brings expertise in business development and communications, leveraging Salesforce pipeline management and structured relationship development to track engagement and advance key business initiatives. His background combines medical research experience, teaching expertise, and a demonstrated ability to connect organizations and align stakeholders across diverse industries.",
+      "Leads business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F6316b03e1737454cba79334edff02d65?format=webp&width=800&height=1200",
     linkedinUrl: "https://www.linkedin.com/in/sahith-valluru/",
