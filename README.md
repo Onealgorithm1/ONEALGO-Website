@@ -1,67 +1,93 @@
-# OpenJarvis Platform
+# OneAlgorithm Website
 
-Local-first OpenJarvis platform with Obsidian memory, compliance documentation, and AI agent integrations.
+Official website for [OneAlgorithm](https://onealgorithm.com) — a Philadelphia-based IT consulting, website development, operations technology, and digital marketing company.
 
-## Purpose
+## Tech Stack
 
-This repository is the One Algorithm integration layer for building a local-first AI assistant platform. It is intended to coordinate OpenJarvis, Obsidian-based persistent memory, compliance documentation, and controlled third-party integrations.
+- **Frontend:** React 18 + TypeScript, Vite, Tailwind CSS, Radix UI, Framer Motion
+- **Routing:** React Router v6 (SPA)
+- **Data fetching:** TanStack Query
+- **Backend:** Express.js (serverless via Netlify Functions / Cloudflare Workers)
+- **Deployment:** Cloudflare Pages + Workers
+- **CMS:** Builder.io (visual editing)
+- **Package manager:** pnpm
 
-## Architecture Direction
+## Getting Started
 
-The platform should be treated as an integration and configuration repository, not a warehouse for copied third-party source code.
+### Prerequisites
 
-Core principles:
+- Node.js 18+
+- pnpm
 
-- Keep organizational memory local-first.
-- Use Obsidian as the human-readable knowledge layer.
-- Use OpenJarvis or equivalent agent runtime components as upstream dependencies.
-- Preserve third-party project licenses and notices.
-- Avoid committing secrets, API keys, private documents, or uncontrolled data exports.
-- Document major technical decisions through ADRs.
+### Install dependencies
 
-## Planned Components
-
-```text
-openjarvis-platform/
-├── architecture/
-├── compliance/
-├── deployment/
-├── docs/
-├── integrations/
-├── obsidian-vault-template/
-├── scripts/
-├── templates/
-└── THIRD_PARTY_NOTICES.md
+```bash
+pnpm install
 ```
 
-## Integration Strategy
+### Run locally
 
-Third-party projects should be referenced as dependencies, forks, or Git submodules where appropriate. Do not copy entire external repositories into this repository unless license review and project need justify vendoring.
+```bash
+pnpm dev
+```
 
-Target integrations:
+Opens at `http://localhost:5173`.
 
-- OpenJarvis
-- Obsidian
-- Obsidian Mind
-- Obsidian Skills
-- Obsidian Second Brain
-- OpenAI API or other model providers
-- Local databases and retrieval services
+### Build for production
 
-## Security Rules
+```bash
+pnpm build
+```
 
-Do not commit:
+Output goes to `dist/spa/`.
 
-- `.env` files
-- API keys
-- OAuth tokens
-- passwords
-- private certificates
-- client data
-- government contract artifacts unless approved
-- production database files
-- Obsidian vaults containing sensitive operational data
+## Project Structure
 
-## Current Status
+```
+├── client/
+│   ├── pages/          # Route-level page components
+│   │   ├── services/   # Individual service pages
+│   │   └── industries/ # Individual industry pages
+│   ├── components/     # Shared UI components
+│   ├── hooks/          # Custom React hooks (SEO, etc.)
+│   └── App.tsx         # Router and root component
+├── server/             # Express API server
+├── public/             # Static assets (favicon, sitemap, robots.txt, etc.)
+├── netlify/functions/  # Netlify serverless functions
+└── index.html          # SPA shell
+```
 
-Initial repository scaffold. Next steps are to add architecture documentation, ADR templates, third-party notices, and Obsidian vault structure.
+## Deployment
+
+The site deploys automatically to **Cloudflare Pages** on every push to `main`.
+
+Build settings:
+- Build command: `npm run build`
+- Output directory: `dist/spa`
+
+## Services
+
+- IT Consulting
+- Website Development
+- Operations Technology
+- Staff Augmentation
+- Digital Marketing
+- Google Ads
+- SEO Services
+- Oracle ERP
+- Salesforce
+
+## Industries Served
+
+- Construction
+- Manufacturing
+- E-Commerce
+- Government
+
+## Contact
+
+- Website: [onealgorithm.com](https://onealgorithm.com)
+- Email: service@onealgorithm.com
+- Phone: 1 (610) 890-9711
+- Address: 625 Swedesford Rd, Malvern, PA 19355
+- LinkedIn: [linkedin.com/company/onealgorithmllc](https://www.linkedin.com/company/onealgorithmllc)
