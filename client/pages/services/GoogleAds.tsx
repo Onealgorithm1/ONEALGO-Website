@@ -34,12 +34,12 @@ export default function GoogleAds() {
       "Full-service Google Ads: campaign setup, targeting, bidding, creative testing, and measurement to maximize return on ad spend (ROAS).",
     ogUrl: getCanonicalUrl("/services/google-ads"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
     twitterTitle: "OneAlgorithm — Google Ads Management",
     twitterDescription:
       "Scale paid search performance with OneAlgorithm's Google Ads strategy, optimization, and measurement services.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
   });
 
   const features = [

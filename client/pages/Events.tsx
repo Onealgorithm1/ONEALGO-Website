@@ -28,12 +28,12 @@ export default function Events() {
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     ogUrl: getCanonicalUrl("/events"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
     twitterTitle: "OneAlgorithm — Events & Webinars",
     twitterDescription:
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
   });
   // Placeholder events - to be replaced with actual event data
   const upcomingEvents = [

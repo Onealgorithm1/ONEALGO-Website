@@ -28,13 +28,13 @@ export default function Services() {
       "Comprehensive technology services including website development, IT consulting, Oracle ERP implementation, operations technology, staff augmentation, and marketing solutions.",
     ogUrl: getCanonicalUrl("/services"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
     twitterTitle:
       "Technology Services - OneAlgorithm | IT Consulting, Website Development, Oracle ERP & More",
     twitterDescription:
       "Comprehensive technology services including website development, IT consulting, Oracle ERP implementation, operations technology, staff augmentation, and marketing solutions. Accelerate your business growth with OneAlgorithm.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
   });
   return (
     <Layout>

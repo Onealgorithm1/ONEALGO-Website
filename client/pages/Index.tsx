@@ -51,12 +51,12 @@ export default function Index() {
       "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
     twitterTitle: "OneAlgorithm - Enterprise ERP & Operations Solutions",
     twitterDescription:
       "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
     twitterImage:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F33f56ea89d674e2eb7334b03e9c57fd8?format=png&width=1200",
+      "https://onealgorithm.com/og-image.png",
   });
   return (
     <Layout>
