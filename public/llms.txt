@@ -1,0 +1,44 @@
+# OneAlgorithm
+
+> OneAlgorithm is a Philadelphia, PA-based technology and marketing company specializing in IT consulting, website development, operations technology, staff augmentation, and digital marketing. We help Construction, Manufacturing, and E-Commerce businesses automate workflows, modernize systems, and grow through technology.
+
+## About
+
+- **Company name**: OneAlgorithm LLC
+- **Location**: Philadelphia, PA, United States
+- **Website**: https://onealgorithm.com
+- **Contact**: https://onealgorithm.com/contact
+- **Founded**: Philadelphia, PA
+
+## Services
+
+- **IT Consulting**: Technology strategy, system assessments, digital transformation roadmaps
+- **Website Development**: Custom websites, e-commerce platforms, web applications, landing pages
+- **Operations Technology**: Workflow automation, ERP/CRM integration, process optimization
+- **Staff Augmentation**: On-demand developers, IT specialists, and tech talent
+- **Digital Marketing**: SEO, paid ads, content marketing, social media, brand strategy
+
+## Industries Served
+
+- **Construction**: Project management systems, field operations tech, scheduling tools
+- **Manufacturing**: Production automation, inventory systems, operations dashboards
+- **E-Commerce**: Storefront development, fulfillment integration, marketing automation
+
+## Key Pages
+
+- Homepage: https://onealgorithm.com/
+- Services: https://onealgorithm.com/services
+- IT Consulting: https://onealgorithm.com/services/it-consulting
+- Website Development: https://onealgorithm.com/services/website-development
+- Operations Technology: https://onealgorithm.com/services/operations-technology
+- Staff Augmentation: https://onealgorithm.com/services/staff-augmentation
+- Marketing: https://onealgorithm.com/services/marketing
+- Industries: https://onealgorithm.com/industries
+- About: https://onealgorithm.com/about
+- Blog: https://onealgorithm.com/blog
+- Contact: https://onealgorithm.com/contact
+
+## Social & Profiles
+
+- LinkedIn: https://www.linkedin.com/company/onealgorithmllc
+- GitHub: https://github.com/Onealgorithm1
