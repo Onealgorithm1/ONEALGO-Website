@@ -108,6 +108,19 @@ export default function Index() {
               >
                 <Link to="/contact">Get Started Today</Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/20 hover:bg-white/30 text-white border-2 border-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm"
+              >
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1_RmJNja78cdy0UObdQMexXR5_oEhJUqR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Capability Statement
+                </a>
+              </Button>
             </div>
           </div>
         </div>
