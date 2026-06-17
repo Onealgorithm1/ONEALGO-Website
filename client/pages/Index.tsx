@@ -68,7 +68,7 @@ export default function Index() {
         <video
           className="absolute inset-0 w-full h-full object-cover"
           src="https://cdn.builder.io/o/assets%2Fb90cab62d3d34e0087abec352888a96d%2F56a1800ee414437887a011bb3a039cf9?alt=media&token=3fbd2ca2-5ea8-4079-8fee-1190bfa18e0c&apiKey=b90cab62d3d34e0087abec352888a96d"
-          autoPlay={window.matchMedia("(prefers-reduced-motion: no-preference)").matches}
+          autoPlay
           muted
           loop
           playsInline
