@@ -113,7 +113,7 @@ export default function Seo() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
               >
-                <Link to="/contact">Request an SEO Audit</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
               <Button
                 asChild
@@ -200,7 +200,7 @@ export default function Seo() {
                 size="lg"
                 className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
               >
-                <Link to="/contact">Request Audit</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </div>

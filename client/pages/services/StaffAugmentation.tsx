@@ -186,7 +186,7 @@ export default function StaffAugmentation() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
               >
-                <Link to="/contact">Get Started Today</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
             <div className="relative">
@@ -389,7 +389,7 @@ export default function StaffAugmentation() {
               size="lg"
               className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
             >
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">Talk to an Expert</Link>
             </Button>
             <Button
               asChild

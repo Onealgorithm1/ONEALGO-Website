@@ -325,19 +325,6 @@ Documentation and version management practices ensure smooth API transitions and
         "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
     },
     {
-      id: 16,
-      title: "Customer Success Stories: Digital Transformation Wins",
-      excerpt:
-        "Real-world examples of how our clients achieved remarkable results through strategic technology implementation.",
-      fullContent: "coming-soon-placeholder",
-      category: "Case Studies",
-      author: "Client Success Team",
-      date: "February 5, 2025",
-      readTime: "10 min read",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-    },
-    {
       id: 17,
       title: "Mobile-First Design: Creating Apps That Users Love",
       excerpt:
@@ -595,7 +582,6 @@ Accessibility compliance ensures websites work effectively for users with disabi
     "E-Commerce",
     "Marketing",
     "Web Development",
-    "Case Studies",
   ];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -816,28 +802,8 @@ Accessibility compliance ensures websites work effectively for users with disabi
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-16 bg-onealgo-blue-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Stay Updated with Our Latest Insights
-          </h2>
-          <p className="text-blue-200 mb-8">
-            Subscribe to our newsletter for the latest industry trends, best
-            practices, and technology insights.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-onealgo-orange-500"
-            />
-            <button className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* Newsletter Section removed: the form had no handler (dead UI).
+          Re-add once wired to a real email/CRM endpoint. */}
     </Layout>
   );
 }
