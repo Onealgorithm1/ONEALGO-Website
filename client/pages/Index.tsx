@@ -37,19 +37,19 @@ export default function Index() {
   useSEO({
     title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     description:
-      "Transform your operations and accelerate growth with OneAlgorithm. We deliver end-to-end Oracle ERP implementation, system integration, and operations automation. 200+ successful implementations. Based in Malvern, PA. 24/7 support.",
+      "Transform your operations and accelerate growth with OneAlgorithm. We deliver end-to-end Oracle ERP implementation, system integration, and operations automation. Proven implementation experience. Based in Malvern, PA. 24/7 support.",
     canonical: getCanonicalUrl("/"),
     keywords:
       "Oracle ERP implementation, system integration agency, API integration, enterprise software, operations automation, Philadelphia technology consulting, business transformation, custom software development",
     ogTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     ogDescription:
-      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations and a strong record of client satisfaction.",
+      "Transform your operations and accelerate growth with OneAlgorithm. Proven implementation experience and a strong record of client satisfaction.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
       "https://onealgorithm.com/og-image.png",
     twitterTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     twitterDescription:
-      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations and a strong record of client satisfaction.",
+      "Transform your operations and accelerate growth with OneAlgorithm. Proven implementation experience and a strong record of client satisfaction.",
     twitterImage:
       "https://onealgorithm.com/og-image.png",
   });
