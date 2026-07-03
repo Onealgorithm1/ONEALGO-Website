@@ -76,7 +76,9 @@ const OperationsTechnology = lazy(
 );
 const OracleERP = lazy(() => import("./pages/services/OracleERP"));
 const Salesforce = lazy(() => import("./pages/services/Salesforce"));
+const Zendesk = lazy(() => import("./pages/services/Zendesk"));
 const Blog = lazy(() => import("./pages/Blog"));
+const Capabilities = lazy(() => import("./pages/Capabilities"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -141,6 +143,7 @@ const App = () => (
               />
               <Route path="/services/oracle-erp" element={<OracleERP />} />
               <Route path="/services/salesforce" element={<Salesforce />} />
+              <Route path="/services/zendesk" element={<Zendesk />} />
               <Route path="/industries" element={<Industries />} />
               <Route
                 path="/industries/construction"
@@ -162,6 +165,7 @@ const App = () => (
               <Route path="/industries/government" element={<Government />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/ai-info" element={<AiInfo />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />

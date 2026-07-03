@@ -3,11 +3,13 @@ import React from "react";
 export default function TrustedPartnerships() {
   const partners = [
     "Salesforce",
+    "ServiceNow",
     "Monday",
     "HubSpot",
     "Zoho",
     "Zapier",
     "MuleSoft",
+    "Microsoft",
     "MS Dynamics",
     "Oracle",
     "Twilio",
