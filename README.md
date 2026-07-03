@@ -145,7 +145,6 @@ Official website for [OneAlgorithm](https://onealgorithm.com) — a Philadelphia
 - **Data fetching:** TanStack Query
 - **Backend:** Express.js (serverless via Netlify Functions / Cloudflare Workers)
 - **Deployment:** Cloudflare Pages + Workers
-- **CMS:** Builder.io (visual editing)
 - **Package manager:** pnpm
 
 ## Getting Started
