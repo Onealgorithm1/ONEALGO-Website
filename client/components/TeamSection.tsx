@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
     background:
       "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fc97eeccc0a134f3daa828669d60e53fa?format=webp&width=800&height=1200",
+      "/media/team-1.webp",
     linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
   },
   {
@@ -40,7 +40,7 @@ const teamMembers: TeamMember[] = [
     background:
       "Leads technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Faa0c0ed3c6814eb2a787fe9850b47cb7?format=webp&width=800&height=1200",
+      "/media/team-2.webp",
     linkedinUrl: "https://www.linkedin.com/in/samirisetti/",
   },
   {
@@ -54,7 +54,7 @@ const teamMembers: TeamMember[] = [
     background:
       "Leads compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F2428c49dc5994d6c9ed10fc80d4a1792?format=webp&width=800&height=1200",
+      "/media/team-3.webp",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
   {
@@ -68,7 +68,7 @@ const teamMembers: TeamMember[] = [
     background:
       "Leads business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F6316b03e1737454cba79334edff02d65?format=webp&width=800&height=1200",
+      "/media/team-4.webp",
     linkedinUrl: "https://www.linkedin.com/in/sahith-valluru/",
   },
 ];
