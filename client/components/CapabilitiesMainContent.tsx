@@ -9,7 +9,6 @@ import {
 import {
   CheckCircle,
   Shield,
-  Handshake,
   ExternalLink,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -22,7 +21,6 @@ import {
   complianceProfile,
   strategicPartnerships,
   keyPersonnel,
-  mentorProtegeHighlights,
   pastPerformanceClients,
 } from "../../shared/capabilities-data";
 import type { IconName } from "../../shared/capabilities-data";
@@ -159,33 +157,6 @@ export default function CapabilitiesMainContent() {
           </div>
         )}
 
-        {/* Mentor-Protégé & Partnerships */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Mentor-Protégé & Partnership Readiness
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mentorProtegeHighlights.map((item) => (
-              <Card
-                key={item.title}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950">
-                    <Handshake className="w-6 h-6 text-onealgo-orange-500" />
-                    {item.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 leading-relaxed">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
         {/* Compliance & Credentials */}
         <div className="mb-16">
           <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
@@ -195,7 +166,7 @@ export default function CapabilitiesMainContent() {
             <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
               <CardHeader>
                 <CardTitle className="text-onealgo-blue-950">
-                  Pending Certifications
+                  Certifications &amp; Registrations
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -210,41 +181,7 @@ export default function CapabilitiesMainContent() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Federal Compliance
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-700">
-                  {complianceProfile.federalCompliance.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <Shield className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
 
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Quality & Security Programs
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-700">
-                  {complianceProfile.qualityAndSecurity.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <Shield className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -271,23 +208,21 @@ export default function CapabilitiesMainContent() {
             <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
               <CardHeader>
                 <CardTitle className="text-onealgo-blue-950">
-                  Bonding & Registration
+                  Registration
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-gray-700">
                 <p>
-                  <strong>Bonding Capacity:</strong>{" "}
-                  {complianceProfile.bondingCapacity}
-                </p>
-                <p>
-                  <strong>SAM Registration:</strong>{" "}
-                  {complianceProfile.samRegistration}
-                </p>
-                <p>
-                  <strong>CAGE Code:</strong> {siteConfig.identifiers.cage}
+                  <strong>SAM.gov:</strong> Active
                 </p>
                 <p>
                   <strong>UEI:</strong> {siteConfig.identifiers.uei}
+                </p>
+                <p>
+                  <strong>CAGE:</strong> {siteConfig.identifiers.cage}
+                </p>
+                <p>
+                  <strong>DUNS:</strong> {siteConfig.identifiers.duns}
                 </p>
               </CardContent>
             </Card>
@@ -310,7 +245,6 @@ export default function CapabilitiesMainContent() {
                 <div>
                   <p className="font-semibold text-onealgo-blue-950 mb-3">Federal</p>
                   <ul className="space-y-2 text-sm">
-                    <li>• SAM.gov UEI: W8DYK38MEKP3</li>
                     <li>• FedConnect: Active</li>
                     <li>• GSA eBuy: Pending</li>
                   </ul>
@@ -517,7 +451,7 @@ export default function CapabilitiesMainContent() {
           size="lg"
           className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
         >
-          <Link to="/contact">Get in Touch</Link>
+          <Link to="/contact">Talk to an Expert</Link>
         </Button>
       </section>
     </div>
