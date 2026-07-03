@@ -51,17 +51,10 @@ export const siteConfig: CompanyConfig = {
   name: "OneAlgorithm",
   legalName: "ONE ALGORITHM LLC",
   url: "https://www.onealgorithm.com",
-  logo: "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fdc081d752c66412d9b254d3932210f12?format=webp&width=800",
+  logo: "https://onealgorithm.com/media/oa-logo.webp",
   description:
     "Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business providing secure cloud modernization, Salesforce platform engineering, AI-driven automation, cybersecurity compliance, and accessibility solutions for federal and state agencies. Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.",
-  certifications: [
-    "NIST SP 800-171 Compliant",
-    "DFARS 252.204-7012 (Safeguarding Covered Defense Information)",
-    "ISO/IEC 27001 Information Security Management",
-    "SOC 2 Type II Security & Availability Controls",
-    "HIPAA Security Rule Compliance",
-    "ISO 9001–Compliant Quality Management System",
-  ],
+  certifications: [],
   qualityStandards: "ISO 9001–Compliant Quality Management System",
   address: {
     street: "625 Swedesford Rd",

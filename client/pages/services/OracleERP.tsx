@@ -209,7 +209,7 @@ export default function OracleERP() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
               >
-                <Link to="/contact">Start Your ERP Journey</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
             <div className="relative">
@@ -344,7 +344,7 @@ export default function OracleERP() {
               size="lg"
               className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
             >
-              <Link to="/contact">Request Your Assessment</Link>
+              <Link to="/contact">Talk to an Expert</Link>
             </Button>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function OracleERP() {
               size="lg"
               className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
             >
-              <Link to="/contact">Schedule Consultation</Link>
+              <Link to="/contact">Talk to an Expert</Link>
             </Button>
             <Button
               asChild

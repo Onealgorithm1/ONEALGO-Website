@@ -12,8 +12,7 @@ import { Users, Shield, Zap, Clock, ExternalLink } from "lucide-react";
 import { siteConfig } from "../../lib/siteConfig";
 
 // GovernmentIcon — raster-based mask using provided asset so it inherits currentColor (brand color)
-const GOV_ICON_URL =
-  "https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2F20b6adccade9436b84c4533a7665043f?format=webp&width=800";
+const GOV_ICON_URL = "/media/government.webp";
 function GovernmentIcon({ className }: { className?: string }) {
   return (
     <div
@@ -118,14 +117,14 @@ export default function Government() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
               >
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 className="bg-transparent border-2 border-onealgo-orange-500 text-onealgo-orange-500 hover:bg-onealgo-orange-500 hover:text-white px-8 py-4"
               >
-                <Link to="/contact">Contact Our Public Sector Team</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </div>
@@ -342,7 +341,7 @@ export default function Government() {
                 asChild
                 className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white w-full"
               >
-                <Link to="/contact">Get Started Today</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
 

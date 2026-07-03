@@ -73,7 +73,7 @@ export default function About() {
               size="lg"
               className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
             >
-              <Link to="/contact">Start a Conversation</Link>
+              <Link to="/contact">Talk to an Expert</Link>
             </Button>
           </div>
         </div>

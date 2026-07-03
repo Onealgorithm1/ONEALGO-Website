@@ -117,6 +117,13 @@ function Layout({ children }: LayoutProps) {
               >
                 About
               </Link>
+              <Link
+                to="/capabilities"
+                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Capabilities
+              </Link>
 
               {/* Services Dropdown */}
               <div className="relative" ref={servicesDropdownRef}>
@@ -237,6 +244,16 @@ function Layout({ children }: LayoutProps) {
                       >
                         Salesforce
                       </Link>
+                      <Link
+                        to="/services/zendesk"
+                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Zendesk
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -310,10 +327,10 @@ function Layout({ children }: LayoutProps) {
 
               <Link
                 to="/contact"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+                className="inline-flex items-center rounded-lg bg-onealgo-orange-500 px-5 py-2.5 font-semibold text-white shadow-sm transition-all hover:bg-onealgo-orange-600 hover:-translate-y-0.5"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                Contact
+                Talk to an Expert
               </Link>
             </div>
 
@@ -358,7 +375,7 @@ function Layout({ children }: LayoutProps) {
                 <nav className="space-y-1">
                   <Link
                     to="/"
-                    className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 text-sm"
+                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -369,7 +386,7 @@ function Layout({ children }: LayoutProps) {
 
                   <Link
                     to="/about"
-                    className="block px-3 py-2 text-gray-900 hover:text-onealgo-blue-950 text-sm"
+                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -379,14 +396,25 @@ function Layout({ children }: LayoutProps) {
                   </Link>
 
                   <Link
-                    to="/contact"
-                    className="block w-full text-center bg-onealgo-orange-500 text-white rounded-md px-3 py-2 font-semibold"
+                    to="/capabilities"
+                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >
-                    Contact
+                    Capabilities
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    className="block w-full text-center bg-onealgo-orange-500 text-white rounded-md px-3 py-3 font-semibold"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    Talk to an Expert
                   </Link>
 
                   <div className="pt-2 border-t">
@@ -394,7 +422,7 @@ function Layout({ children }: LayoutProps) {
                       onClick={() =>
                         setServicesDropdownOpen(!servicesDropdownOpen)
                       }
-                      className="w-full flex items-center justify-between px-3 py-2 text-gray-700 font-medium text-sm"
+                      className="w-full flex items-center justify-between px-3 py-3 text-gray-700 font-medium text-sm"
                       aria-expanded={servicesDropdownOpen}
                       aria-controls="mobile-services"
                     >
@@ -408,7 +436,7 @@ function Layout({ children }: LayoutProps) {
                       <div id="mobile-services" className="pl-4">
                         <Link
                           to="/services/website-development"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -419,7 +447,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/marketing"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -430,7 +458,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/martech"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -441,7 +469,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/google-ads"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -452,7 +480,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/seo"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -463,7 +491,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/staff-augmentation"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -474,7 +502,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/it-consulting"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -485,7 +513,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/operations-technology"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -496,7 +524,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/oracle-erp"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -507,7 +535,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/salesforce"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -515,6 +543,17 @@ function Layout({ children }: LayoutProps) {
                           }}
                         >
                           Salesforce
+                        </Link>
+                        <Link
+                          to="/services/zendesk"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Zendesk
                         </Link>
                       </div>
                     )}
@@ -525,7 +564,7 @@ function Layout({ children }: LayoutProps) {
                       onClick={() =>
                         setIndustriesDropdownOpen(!industriesDropdownOpen)
                       }
-                      className="w-full flex items-center justify-between px-3 py-2 text-gray-700 font-medium text-sm"
+                      className="w-full flex items-center justify-between px-3 py-3 text-gray-700 font-medium text-sm"
                       aria-expanded={industriesDropdownOpen}
                       aria-controls="mobile-industries"
                     >
@@ -539,7 +578,7 @@ function Layout({ children }: LayoutProps) {
                       <div id="mobile-industries" className="pl-4">
                         <Link
                           to="/industries/construction"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -550,7 +589,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/manufacturing"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -561,7 +600,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/ecommerce"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -572,7 +611,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/government"
-                          className="block px-3 py-2 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -739,6 +778,15 @@ function Layout({ children }: LayoutProps) {
                   About
                 </Link>
                 <Link
+                  to="/capabilities"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Capabilities
+                </Link>
+                <Link
                   to="/industries"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -835,6 +883,15 @@ function Layout({ children }: LayoutProps) {
                 >
                   Salesforce
                 </Link>
+                <Link
+                  to="/services/zendesk"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Zendesk
+                </Link>
               </div>
             </div>
 
@@ -867,7 +924,7 @@ function Layout({ children }: LayoutProps) {
           <div className="border-t border-blue-800 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-blue-200 text-sm">
-                © 2025 OneAlgorithm. All rights reserved.
+                © {new Date().getFullYear()} OneAlgorithm. All rights reserved.
               </p>
               <div className="flex gap-4 mt-2 md:mt-0">
                 <Link

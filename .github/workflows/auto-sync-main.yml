@@ -30,7 +30,7 @@ jobs:
       - name: Fetch main
         run: git fetch origin main
 
-      - name: Fast-forward main to builder commit
+      - name: Fast-forward main to pushed commit
         run: |
           git checkout main
           git merge --ff-only $GITHUB_SHA

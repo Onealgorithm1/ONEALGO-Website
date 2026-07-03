@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Layout from "../components/Layout";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -52,6 +52,8 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Honeypot: a hidden field real users never see. Bots fill it; we drop those.
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -69,6 +71,20 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
+
+    // Spam honeypot: if this hidden field has a value, it's a bot. Silently drop.
+    if (honeypotRef.current?.value) {
+      setIsSubmitted(true);
+      return;
+    }
+
+    // Basic email validation before we hand off to Salesforce.
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim());
+    if (!emailOk) {
+      setSubmitError("Please enter a valid email address.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -101,8 +117,9 @@ export default function Contact() {
       addHiddenField("email", formData.email);
       addHiddenField("company", formData.company);
       addHiddenField("description", `Service: ${formData.whatYouNeed}\n\n${formData.message}`);
+      addHiddenField("lead_source", "Web");
 
-      // Submit in a hidden iframe
+      // Submit into a hidden iframe so we can detect Salesforce's response.
       const iframe = document.createElement("iframe");
       iframe.style.display = "none";
       iframe.name = "salesforce-submit";
@@ -110,29 +127,50 @@ export default function Contact() {
 
       salesforceForm.target = "salesforce-submit";
       document.body.appendChild(salesforceForm);
-      salesforceForm.submit();
 
-      // Show success message
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-
-      // Track form submission with Google Analytics
-      if (typeof window.trackFormSubmission === "function") {
-        window.trackFormSubmission();
-      }
-
-      // Clean up after submission
-      setTimeout(() => {
-        if (document.body.contains(salesforceForm)) {
+      let settled = false;
+      const cleanup = () => {
+        if (document.body.contains(salesforceForm))
           document.body.removeChild(salesforceForm);
+        if (document.body.contains(iframe)) document.body.removeChild(iframe);
+      };
+
+      const succeed = () => {
+        if (settled) return;
+        // Ignore the initial about:blank load some browsers fire on iframe creation.
+        if (Date.now() - submittedAt < 400) return;
+        settled = true;
+        clearTimeout(failTimer);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        if (typeof window.trackFormSubmission === "function") {
+          window.trackFormSubmission();
         }
-        if (document.body.contains(iframe)) {
-          document.body.removeChild(iframe);
-        }
-      }, 2000);
+        setTimeout(cleanup, 1000);
+      };
+
+      const fail = () => {
+        if (settled) return;
+        settled = true;
+        setIsSubmitting(false);
+        setSubmitError(
+          "We couldn't confirm your message was sent. Please call us at 1 (610) 890-9711 or email Service@onealgorithm.com.",
+        );
+        cleanup();
+      };
+
+      // Salesforce replies by redirecting the hidden iframe to retURL — that load = delivered.
+      iframe.addEventListener("load", succeed);
+      // If nothing comes back in 15s, show a real error instead of a false "Thank you".
+      const failTimer = window.setTimeout(fail, 15000);
+
+      const submittedAt = Date.now();
+      salesforceForm.submit();
     } catch (error) {
       setIsSubmitting(false);
-      setSubmitError("An error occurred while submitting your message. Please try again or contact us directly.");
+      setSubmitError(
+        "An error occurred while submitting your message. Please try again or contact us directly.",
+      );
       console.error("Form submission error:", error);
     }
   };
@@ -174,6 +212,23 @@ export default function Contact() {
                     onSubmit={handleSubmit}
                     className="space-y-4 sm:space-y-6"
                   >
+                    {/* Honeypot — hidden from users, catches bots. Do not remove. */}
+                    <input
+                      ref={honeypotRef}
+                      type="text"
+                      name="company_website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{
+                        position: "absolute",
+                        left: "-9999px",
+                        width: "1px",
+                        height: "1px",
+                        opacity: 0,
+                      }}
+                    />
+
                     {submitError && (
                       <div className="bg-red-50 border border-red-200 rounded-lg p-4" role="alert" aria-live="polite">
                         <p className="text-red-800 text-sm">{submitError}</p>
@@ -257,6 +312,9 @@ export default function Contact() {
                           </SelectItem>
                           <SelectItem value="Operations Technology">
                             Operations Technology
+                          </SelectItem>
+                          <SelectItem value="Zendesk Implementation / Support">
+                            Zendesk Implementation / Support
                           </SelectItem>
                           <SelectItem value="Marketing Services">
                             Marketing Services
@@ -509,8 +567,6 @@ export default function Contact() {
                         Madhapur, Hyderabad
                         <br />
                         Telangana 500081, IN
-                        <br />
-                        +91 98765 43211
                       </p>
                     </div>
                   </div>
@@ -532,8 +588,6 @@ export default function Contact() {
                         Building R118, Suite 201-A-42
                         <br />
                         Al Suq Al Kabeer, Dubai
-                        <br />
-                        +971 4 123 4567
                       </p>
                     </div>
                   </div>
@@ -554,8 +608,6 @@ export default function Contact() {
                       <p className="text-gray-600 text-sm">
                         120 Adelaide St W<br />
                         Toronto, ON M5H 1T1
-                        <br />
-                        +1 (416) 555-1234
                       </p>
                     </div>
                   </div>

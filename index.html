@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- DNS Prefetch for Performance -->
-    <link rel="dns-prefetch" href="//cdn.builder.io" />
 
     <!-- Preload critical CSS (non-blocking) and fonts -->
     <link
@@ -38,7 +36,7 @@
     <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OneAlgorithm - Marketing & Tech Solutions</title>
+    <title>OneAlgorithm — IT Consulting & Secure Digital Transformation</title>
     <meta
       name="description"
       content="Transform your business with OneAlgorithm's expert IT consulting, website development, operations technology, and staff augmentation services. Specialized solutions for Construction, Manufacturing, and E-Commerce industries."
@@ -57,13 +55,13 @@
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <!-- Note: X-Frame-Options should be set at the HTTP header level, not via a meta tag. Removed meta http-equiv to avoid browser warning. -->
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <!-- Note: X-Frame-Options and CSP are set at the HTTP header level (public/_headers), not via meta tags. -->
+    <!-- X-XSS-Protection intentionally omitted: deprecated and can introduce vulnerabilities in legacy browsers. -->
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- Global runtime guards to avoid uncaught promise rejections from third-party scripts -->
     <script>
-      // Prevent uncaught unhandledrejection errors from external 3rd-party scripts (e.g., builder/analytics integrations)
+      // Prevent uncaught unhandledrejection errors from external 3rd-party scripts (e.g., analytics integrations)
       window.addEventListener("unhandledrejection", function (event) {
         try {
           const reason = event.reason;
@@ -125,7 +123,7 @@
     <meta property="og:url" content="https://onealgorithm.com/" />
     <meta
       property="og:title"
-      content="OneAlgorithm - IT Consulting, Website Development & Operations Technology Solutions"
+      content="OneAlgorithm — IT Consulting & Secure Digital Transformation"
     />
     <meta
       property="og:description"
@@ -155,7 +153,7 @@
     <meta property="twitter:url" content="https://onealgorithm.com/" />
     <meta
       property="twitter:title"
-      content="OneAlgorithm - IT Consulting, Website Development & Operations Technology Solutions"
+      content="OneAlgorithm — IT Consulting & Secure Digital Transformation"
     />
     <meta
       property="twitter:description"

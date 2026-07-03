@@ -150,7 +150,7 @@ export default function Salesforce() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
               >
-                <Link to="/contact">Start Your Salesforce Journey</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
             <div className="flex items-center justify-center">
@@ -299,7 +299,7 @@ export default function Salesforce() {
             size="lg"
             className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
           >
-            <Link to="/contact">Get a Free Consultation</Link>
+            <Link to="/contact">Talk to an Expert</Link>
           </Button>
         </div>
       </section>

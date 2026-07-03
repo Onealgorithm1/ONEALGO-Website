@@ -79,7 +79,7 @@ export default function Services() {
 
             {/* Proof point */}
             <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">200+ successful implementations | 98% client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
+              <p className="text-onealgo-orange-500 text-sm font-semibold">Proven implementations | Strong track record of client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
             </div>
 
             {/* Dual CTA */}
@@ -89,7 +89,7 @@ export default function Services() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
               >
-                <Link to="/contact">Get Expert Consultation</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
               <Button
                 asChild
@@ -328,7 +328,7 @@ export default function Services() {
             size="lg"
             className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-8 py-4"
           >
-            <Link to="/contact">Contact Us Today</Link>
+            <Link to="/contact">Talk to an Expert</Link>
           </Button>
         </div>
       </section>

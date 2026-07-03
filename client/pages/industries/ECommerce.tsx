@@ -88,7 +88,7 @@ export default function ECommerce() {
               size="lg"
               className="bg-green-500 hover:bg-green-600 text-white px-8 py-4"
             >
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">Talk to an Expert</Link>
             </Button>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function ECommerce() {
                 asChild
                 className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
               >
-                <Link to="/contact">Get Started Today</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </div>
