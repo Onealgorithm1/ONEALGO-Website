@@ -18,7 +18,7 @@ const DIST = path.join(__dirname, "..", "dist", "spa");
 const PORT = 5055;
 
 const ROUTES = [
-  "/", "/about", "/services", "/industries", "/contact", "/blog",
+  "/", "/about", "/services", "/industries", "/contact", "/capabilities", "/blog",
   "/ai-info", "/privacy", "/terms", "/careers", "/events",
   "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
