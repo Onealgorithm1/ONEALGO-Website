@@ -16,7 +16,7 @@ export default function BinaryGlobeSVG({
   return (
     <img
       src={src}
-      alt="OneAlgorithm Logo"
+      alt="o"
       width={size}
       height={size}
       className={cn(
