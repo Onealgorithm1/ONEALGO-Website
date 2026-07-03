@@ -11,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Collapsible } from "../components/ui/collapsible";
 import {
   Target,
   Link as LinkIcon,
@@ -23,11 +22,7 @@ import {
   CheckCircle,
   Globe,
   Users,
-  Zap,
   Handshake,
-  Briefcase,
-  Database,
-  LifeBuoy,
 } from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
@@ -40,21 +35,21 @@ import { JSONLDScript } from "../components/JSONLDScript";
 export default function Index() {
   // Re-enabling useSEO hook after React stability fix
   useSEO({
-    title: "OneAlgorithm - Enterprise ERP & Operations Solutions",
+    title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     description:
       "Transform your operations and accelerate growth with OneAlgorithm. We deliver end-to-end Oracle ERP implementation, system integration, and operations automation. 200+ successful implementations. Based in Malvern, PA. 24/7 support.",
     canonical: getCanonicalUrl("/"),
     keywords:
       "Oracle ERP implementation, system integration agency, API integration, enterprise software, operations automation, Philadelphia technology consulting, business transformation, custom software development",
-    ogTitle: "OneAlgorithm - Enterprise ERP & Operations Solutions",
+    ogTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     ogDescription:
-      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
+      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations and a strong record of client satisfaction.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
       "https://onealgorithm.com/og-image.png",
-    twitterTitle: "OneAlgorithm - Enterprise ERP & Operations Solutions",
+    twitterTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     twitterDescription:
-      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations with 98% client satisfaction.",
+      "Transform your operations and accelerate growth with OneAlgorithm. 200+ successful implementations and a strong record of client satisfaction.",
     twitterImage:
       "https://onealgorithm.com/og-image.png",
   });
@@ -67,15 +62,17 @@ export default function Index() {
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://cdn.builder.io/o/assets%2Fb90cab62d3d34e0087abec352888a96d%2F56a1800ee414437887a011bb3a039cf9?alt=media&token=3fbd2ca2-5ea8-4079-8fee-1190bfa18e0c&apiKey=b90cab62d3d34e0087abec352888a96d"
           autoPlay
           muted
           loop
           playsInline
           preload="none"
-          poster="https://cdn.builder.io/api/v1/image/assets%2Fb90cab62d3d34e0087abec352888a96d%2Fe4cc18ffb8df4986a719ab3b27dcbabc?format=webp&width=1200"
+          poster="/media/hero-poster.webp"
           aria-hidden="true"
-        />
+        >
+          <source src="/media/hero.webm" type="video/webm" />
+          <source src="/media/hero.mp4" type="video/mp4" />
+        </video>
 
         {/* Gradient overlay to preserve contrast */}
         <div
@@ -106,7 +103,7 @@ export default function Index() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
-                <Link to="/contact">Get Started Today</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
               <Button
                 asChild
@@ -114,7 +111,8 @@ export default function Index() {
                 className="bg-white/20 hover:bg-white/30 text-white border-2 border-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm"
               >
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1_RmJNja78cdy0UObdQMexXR5_oEhJUqR"
+                  href="/docs/capability-statement.pdf"
+                  download="OneAlgorithm-Capability-Statement.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -136,11 +134,6 @@ export default function Index() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
               We combine deep business expertise with proven technology methodologies. Our approach focuses on measurable outcomes: improved efficiency, reduced costs, and faster time-to-value. Partner with consultants who understand both your industry and your goals.
             </p>
-
-            {/* Mobile-only heading so key SEO text is visible on small screens */}
-            <h2 className="text-2xl md:hidden font-bold text-gray-900 mb-6 mt-8 text-center">
-              Leading Technology Solutions for Business Transformation
-            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -157,11 +150,11 @@ export default function Index() {
                   Solutions designed around your business goals — not the other
                   way around. Every system is built to drive measurable results.
                 </p>
-                <Collapsible trigger="Learn More">
+                <p className="text-gray-600 text-sm mt-3">
                   Our process begins with discovery workshops, process mapping,
                   and data analysis that align technology with revenue,
                   efficiency, and customer satisfaction outcomes.
-                </Collapsible>
+                </p>
               </CardContent>
             </Card>
 
@@ -194,7 +187,7 @@ export default function Index() {
                   </Link>{" "}
                   connected into one seamless system.
                 </p>
-                <Collapsible trigger="Learn More">
+                <p className="text-gray-600 text-sm mt-3">
                   A single source of truth across all business units delivers
                   leadership visibility, stronger collaboration, and a smoother
                   customer journey from first touch to fulfillment. Explore our{" "}
@@ -205,7 +198,7 @@ export default function Index() {
                     IT consulting services
                   </Link>{" "}
                   to learn more.
-                </Collapsible>
+                </p>
               </CardContent>
             </Card>
 
@@ -225,11 +218,11 @@ export default function Index() {
                   Automation and streamlined operations free teams to focus on
                   strategy and growth.
                 </p>
-                <Collapsible trigger="Learn More">
+                <p className="text-gray-600 text-sm mt-3">
                   From lead routing to financial reporting, efficient workflows
                   reduce errors, increase accountability, and empower teams to
                   innovate instead of handling routine admin tasks.
-                </Collapsible>
+                </p>
               </CardContent>
             </Card>
 
@@ -249,79 +242,13 @@ export default function Index() {
                   Every implementation is customized to unique processes,
                   industry standards, and long-term vision.
                 </p>
-                <Collapsible trigger="Learn More">
+                <p className="text-gray-600 text-sm mt-3">
                   Specialized solutions adapt technology to your business across
                   construction, finance, healthcare, and beyond — aligning with
                   workflows, compliance needs, and customer expectations.
-                </Collapsible>
+                </p>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Oracle ERP Section */}
-      <section className="py-20 bg-gradient-to-r from-onealgo-blue-950/5 to-onealgo-orange-500/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in">
-              Enterprise ERP <span className="text-onealgo-orange-500">Implementation</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up">
-              From strategy through post-go-live support, we deliver end-to-end Oracle Cloud ERP transformations tailored to your business. We handle Financials, Supply Chain Management (SCM), and Human Capital Management (HCM) with proven methodologies and deep industry expertise.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg border-2 border-onealgo-blue-950/10 p-6 hover:border-onealgo-orange-500 transition-colors">
-              <Briefcase className="w-12 h-12 text-onealgo-orange-500 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Strategic Consulting
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Business process re-engineering and roadmap alignment with corporate goals.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg border-2 border-onealgo-blue-950/10 p-6 hover:border-onealgo-orange-500 transition-colors">
-              <Zap className="w-12 h-12 text-onealgo-orange-500 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Full-Scale Implementation
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Complete deployment of Financials, SCM, and HCM modules.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg border-2 border-onealgo-blue-950/10 p-6 hover:border-onealgo-orange-500 transition-colors">
-              <Database className="w-12 h-12 text-onealgo-orange-500 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Data Migration & Integration
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Secure data movement and OIC integration with third-party apps.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg border-2 border-onealgo-blue-950/10 p-6 hover:border-onealgo-orange-500 transition-colors">
-              <LifeBuoy className="w-12 h-12 text-onealgo-orange-500 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Post-Implementation Support
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Hypercare, optimization, and ongoing managed services.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-8 py-4"
-            >
-              <Link to="/services/oracle-erp">Explore Oracle ERP Services</Link>
-            </Button>
           </div>
         </div>
       </section>
@@ -408,23 +335,21 @@ export default function Index() {
                 planning, cybersecurity assessments, and digital transformation
                 roadmaps.
               </p>
-              <Collapsible trigger="Read More">
                 <p className="text-gray-700 mb-4">
                   We analyze your current infrastructure, identify optimization
                   opportunities, and develop comprehensive strategies that align
                   technology investments with business objectives. Our expert
-                  team brings 15+ years of experience across multiple technology
-                  domains.
+                  team brings 40+ years of combined CRM and technology
+                  experience.
                 </p>
                 <p className="text-gray-700">
                   From cloud migration and system integration to technology
                   audits and performance optimization, our IT consulting
-                  services have helped over 200 businesses reduce operational
-                  costs while improving efficiency and scalability. Our proven
-                  methodologies deliver measurable results with an average 40%
-                  cost reduction within 6 months.
+                  services have helped organizations across Construction,
+                  Manufacturing, and E-Commerce reduce operational costs while
+                  improving efficiency and scalability. Our proven methodologies
+                  deliver measurable cost reductions and efficiency gains.
                 </p>
-              </Collapsible>
             </div>
 
             <div>
@@ -435,7 +360,6 @@ export default function Index() {
                 We create responsive, high-performance websites and web
                 applications that drive conversions and enhance user experience.
               </p>
-              <Collapsible trigger="Read More">
                 <p className="text-gray-700 mb-4">
                   Our development team specializes in modern frameworks,
                   e-commerce platforms, content management systems, and SEO
@@ -446,11 +370,10 @@ export default function Index() {
                   Whether you need a corporate website, e-commerce platform, or
                   custom web application, our development process ensures fast
                   loading times, mobile responsiveness, and search engine
-                  optimization for maximum online visibility. Our websites
-                  consistently achieve 95+ PageSpeed scores and deliver
+                  optimization for maximum online visibility. Our websites are
+                  fast-loading and performance-optimized, delivering
                   exceptional user experiences across all devices.
                 </p>
-              </Collapsible>
             </div>
 
             <div>
@@ -461,7 +384,6 @@ export default function Index() {
                 Transform your operations with industrial automation, IoT
                 integration, SCADA systems, and process optimization solutions.
               </p>
-              <Collapsible trigger="Read More">
                 <p className="text-gray-700 mb-4">
                   Our operations technology experts design and implement systems
                   that improve efficiency, reduce downtime, and enhance
@@ -474,11 +396,9 @@ export default function Index() {
                   management systems, we deliver OT solutions that integrate
                   seamlessly with existing infrastructure while providing
                   real-time insights and predictive maintenance capabilities.
-                  Our implementations typically result in 30-50% reduction in
-                  operational downtime and significant improvements in overall
+                  Our implementations reduce downtime and improve overall
                   equipment effectiveness (OEE).
                 </p>
-              </Collapsible>
             </div>
           </div>
 
@@ -494,7 +414,7 @@ export default function Index() {
             </p>
             <div className="flex justify-center">
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/contact">Get Free Consultation</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </div>
@@ -554,8 +474,8 @@ export default function Index() {
                         Proven Track Record
                       </h4>
                       <p className="text-gray-700 text-sm">
-                        Successfully delivered 500+ technology projects with 98%
-                        client satisfaction rate
+                        Successfully delivered 200+ technology projects with a
+                        strong track record of client satisfaction
                       </p>
                     </div>
                   </div>
@@ -567,8 +487,8 @@ export default function Index() {
                         Expert Team
                       </h4>
                       <p className="text-gray-700 text-sm">
-                        Certified consultants with 15+ years of industry
-                        experience across multiple technology domains
+                        Certified consultants with 40+ years of combined CRM and
+                        technology experience
                       </p>
                     </div>
                   </div>
@@ -580,8 +500,8 @@ export default function Index() {
                         Measurable Results
                       </h4>
                       <p className="text-gray-700 text-sm">
-                        Average 40% cost reduction and 60% efficiency
-                        improvement within 6 months of implementation
+                        Measurable cost reductions and efficiency gains from
+                        every implementation
                       </p>
                     </div>
                   </div>
@@ -618,7 +538,7 @@ export default function Index() {
                 size="lg"
                 className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
               >
-                <Link to="/contact">Get Free Consultation</Link>
+                <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
           </div>
