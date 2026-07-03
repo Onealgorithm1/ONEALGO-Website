@@ -79,7 +79,7 @@ export default function Services() {
 
             {/* Proof point */}
             <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">200+ successful implementations | 98% client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
+              <p className="text-onealgo-orange-500 text-sm font-semibold">Proven implementations | Strong track record of client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
             </div>
 
             {/* Dual CTA */}
