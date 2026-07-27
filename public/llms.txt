@@ -6,8 +6,8 @@
 
 - **Company name**: OneAlgorithm LLC
 - **Location**: Philadelphia, PA, United States
-- **Website**: https://onealgorithm.com
-- **Contact**: https://onealgorithm.com/contact
+- **Website**: [onealgorithm.com](https://onealgorithm.com/)
+- **Contact**: [Contact page](https://onealgorithm.com/contact)
 - **Founded**: Philadelphia, PA
 
 ## Services
@@ -26,19 +26,19 @@
 
 ## Key Pages
 
-- Homepage: https://onealgorithm.com/
-- Services: https://onealgorithm.com/services
-- IT Consulting: https://onealgorithm.com/services/it-consulting
-- Website Development: https://onealgorithm.com/services/website-development
-- Operations Technology: https://onealgorithm.com/services/operations-technology
-- Staff Augmentation: https://onealgorithm.com/services/staff-augmentation
-- Marketing: https://onealgorithm.com/services/marketing
-- Industries: https://onealgorithm.com/industries
-- About: https://onealgorithm.com/about
-- Blog: https://onealgorithm.com/blog
-- Contact: https://onealgorithm.com/contact
+- [Homepage](https://onealgorithm.com/): Company overview, services, and industries served.
+- [Services](https://onealgorithm.com/services): All service lines in one place.
+- [IT Consulting](https://onealgorithm.com/services/it-consulting): Technology strategy, system assessments, digital transformation roadmaps.
+- [Website Development](https://onealgorithm.com/services/website-development): Custom websites, e-commerce platforms, web applications, landing pages.
+- [Operations Technology](https://onealgorithm.com/services/operations-technology): Workflow automation, ERP/CRM integration, process optimization.
+- [Staff Augmentation](https://onealgorithm.com/services/staff-augmentation): On-demand developers, IT specialists, and tech talent.
+- [Marketing](https://onealgorithm.com/services/marketing): SEO, paid ads, content marketing, social media, brand strategy.
+- [Industries](https://onealgorithm.com/industries): Construction, Manufacturing, and E-Commerce focus areas.
+- [About](https://onealgorithm.com/about): Company background and approach.
+- [Blog](https://onealgorithm.com/blog): Articles on technology, automation, and marketing.
+- [Contact](https://onealgorithm.com/contact): Contact form and enquiry details.
 
 ## Social & Profiles
 
-- LinkedIn: https://www.linkedin.com/company/onealgorithmllc
-- GitHub: https://github.com/Onealgorithm1
+- [LinkedIn](https://www.linkedin.com/company/onealgorithmllc)
+- [GitHub](https://github.com/Onealgorithm1)
