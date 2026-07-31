@@ -1,0 +1,5 @@
+# The old React /blog page is gone. Its posts were removed as unpublishable
+# (fabricated bylines, unsourced statistics). Send readers and crawlers to the
+# real blog. 301 = permanent, so search engines transfer any accrued signal.
+/blog        https://blog.onealgorithm.com/    301
+/blog/*      https://blog.onealgorithm.com/    301

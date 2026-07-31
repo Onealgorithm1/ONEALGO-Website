@@ -77,7 +77,6 @@ const OperationsTechnology = lazy(
 const OracleERP = lazy(() => import("./pages/services/OracleERP"));
 const Salesforce = lazy(() => import("./pages/services/Salesforce"));
 const Zendesk = lazy(() => import("./pages/services/Zendesk"));
-const Blog = lazy(() => import("./pages/Blog"));
 const Capabilities = lazy(() => import("./pages/Capabilities"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -164,7 +163,8 @@ const App = () => (
               />
               <Route path="/industries/government" element={<Government />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/blog" element={<Blog />} />
+              {/* /blog is served by Ghost at blog.onealgorithm.com.
+                  public/_redirects sends /blog and /blog/* there with a 301. */}
               <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/ai-info" element={<AiInfo />} />
               <Route path="/privacy" element={<Privacy />} />

@@ -124,6 +124,12 @@ function Layout({ children }: LayoutProps) {
               >
                 Capabilities
               </Link>
+              <a
+                href="https://blog.onealgorithm.com/"
+                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+              >
+                Blog
+              </a>
 
               {/* Services Dropdown */}
               <div className="relative" ref={servicesDropdownRef}>

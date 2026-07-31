@@ -18,7 +18,7 @@ const DIST = path.join(__dirname, "..", "dist", "spa");
 const PORT = 5055;
 
 const ROUTES = [
-  "/", "/about", "/services", "/industries", "/contact", "/capabilities", "/blog",
+  "/", "/about", "/services", "/industries", "/contact", "/capabilities",
   "/ai-info", "/privacy", "/terms", "/careers", "/events",
   "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
@@ -78,9 +78,12 @@ async function main() {
       const title = await page.title();
       const html = "<!doctype html>\n" + (await page.content());
 
-      const outDir = route === "/" ? DIST : path.join(DIST, route);
-      fs.mkdirSync(outDir, { recursive: true });
-      fs.writeFileSync(path.join(outDir, "index.html"), html);
+      // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves
+      // the former at /about directly, while the latter 308-redirects to /about/ and
+      // would change every canonical URL on the site.
+      const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route}.html`);
+      fs.mkdirSync(path.dirname(outFile), { recursive: true });
+      fs.writeFileSync(outFile, html);
       console.log(`✓ ${route.padEnd(38)} (${rootLen} chars) — "${title.slice(0, 50)}"`);
       ok++;
     } catch (e) {

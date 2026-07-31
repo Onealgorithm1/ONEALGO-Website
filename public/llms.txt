@@ -35,7 +35,7 @@
 - Marketing: https://onealgorithm.com/services/marketing
 - Industries: https://onealgorithm.com/industries
 - About: https://onealgorithm.com/about
-- Blog: https://onealgorithm.com/blog
+- Blog: https://blog.onealgorithm.com/
 - Contact: https://onealgorithm.com/contact
 
 ## Social & Profiles

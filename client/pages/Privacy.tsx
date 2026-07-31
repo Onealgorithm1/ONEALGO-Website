@@ -76,6 +76,32 @@ export default function Privacy() {
                 <li>Website usage patterns and preferences</li>
                 <li>Cookies and similar tracking technologies</li>
               </ul>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">
+                Analytics
+              </h3>
+              <p className="mb-4">
+                We use Google Analytics to understand how visitors use our
+                website and blog. Google Analytics sets cookies that collect
+                information such as the pages you view, how long you spend on
+                them, and the approximate geographic region you are visiting
+                from. This information is aggregated and is not used to identify
+                you personally. You can opt out of Google Analytics at any time
+                by installing the{" "}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-onealgo-blue-950 underline hover:no-underline"
+                >
+                  Google Analytics Opt-out Browser Add-on
+                </a>
+                .
+              </p>
+              <p className="mb-4">
+                We also use Cloudflare Web Analytics, which does not use cookies
+                and does not track visitors across websites.
+              </p>
             </div>
 
             <div>
