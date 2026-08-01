@@ -36,12 +36,12 @@ export default function WebsiteDevelopment() {
       "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications. Transform your online presence with OneAlgorithm.",
     ogUrl: getCanonicalUrl("/services/website-development"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Website Development Services - OneAlgorithm",
     twitterDescription:
       "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications. Transform your online presence with OneAlgorithm.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   const features = [
     {

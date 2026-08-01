@@ -66,12 +66,12 @@ export default function Careers() {
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     ogUrl: getCanonicalUrl("/careers"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — Careers",
     twitterDescription:
       "Join OneAlgorithm's innovative team of technology experts. Explore career opportunities in software development, IT consulting, operations technology, and more. Build your career with us.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
 
   const [searchTerm, setSearchTerm] = useState("");

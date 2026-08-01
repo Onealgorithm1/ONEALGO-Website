@@ -12,6 +12,9 @@ interface SEOConfig {
   twitterTitle?: string;
   twitterDescription?: string;
   twitterImage?: string;
+  /** Emit <meta name="robots" content="noindex, follow">. For pages that exist
+   *  but should never appear in search results, such as the 404 page. */
+  noindex?: boolean;
 }
 
 export function useSEO(config: SEOConfig) {
@@ -37,6 +40,7 @@ export function useSEO(config: SEOConfig) {
     config.twitterTitle,
     config.twitterDescription,
     config.twitterImage,
+    config.noindex,
   ]);
 }
 
@@ -52,9 +56,23 @@ function applySEO({
   twitterTitle,
   twitterDescription,
   twitterImage,
+  noindex,
 }: SEOConfig) {
   if (title) {
     document.title = title;
+  }
+
+  // Managed on every call, not only when true: these tags live in a shared
+  // <head> across client-side navigation, so a stale noindex left behind by the
+  // 404 page would quietly de-index whatever the visitor browsed to next.
+  const existingRobots = document.querySelector('meta[name="robots"]');
+  if (noindex) {
+    const robots = existingRobots ?? document.createElement("meta");
+    robots.setAttribute("name", "robots");
+    robots.setAttribute("content", "noindex, follow");
+    if (!existingRobots) document.head.appendChild(robots);
+  } else if (existingRobots) {
+    existingRobots.remove();
   }
 
   if (canonical) {

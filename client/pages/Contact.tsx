@@ -154,7 +154,7 @@ export default function Contact() {
         settled = true;
         setIsSubmitting(false);
         setSubmitError(
-          "We couldn't confirm your message was sent. Please call us at 1 (610) 890-9711 or email Service@onealgorithm.com.",
+          "We couldn't confirm your message was sent. Please call us at 1 (610) 890-9711 or email service@onealgorithm.com.",
         );
         cleanup();
       };
@@ -297,7 +297,14 @@ export default function Contact() {
                         }
                         required
                       >
-                        <SelectTrigger className="mt-1" disabled={isSubmitting}>
+                        {/* id matches the Label's htmlFor above. Without it the
+                            label pointed at nothing, leaving this required field
+                            unnamed to screen readers and un-clickable by label. */}
+                        <SelectTrigger
+                          id="whatYouNeed"
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        >
                           <SelectValue placeholder="Select your service needs" />
                         </SelectTrigger>
                         <SelectContent>
@@ -446,10 +453,10 @@ export default function Contact() {
                       </a>
                       <span className="hidden sm:inline text-gray-400">|</span>
                       <a
-                        href="mailto:Service@onealgorithm.com"
+                        href="mailto:service@onealgorithm.com"
                         className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
                       >
-                        ✉️ Service@onealgorithm.com
+                        ✉️ service@onealgorithm.com
                       </a>
                     </div>
                   </div>
@@ -488,7 +495,7 @@ export default function Contact() {
                   <Mail className="w-6 h-6 text-onealgo-orange-500" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">Service@onealgorithm.com</p>
+                    <p className="text-gray-600">service@onealgorithm.com</p>
                   </div>
                 </div>
 

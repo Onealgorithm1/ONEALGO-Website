@@ -11,27 +11,10 @@
     />
     <noscript><link rel="stylesheet" href="/assets/index.css" /></noscript>
 
-    <link
-      rel="preload"
-      href="/fonts/inter-latin-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/roboto-latin-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/roboto-latin-700.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <!-- Font preloads removed: the three .woff2 files they pointed at are saved
+         HTML 404 pages, not fonts, so these were high-priority requests for
+         content the browser then threw away. See the note in client/global.css -
+         restore both together if the real font files are ever added. -->
 
     <!-- Essential Meta Tags -->
     <meta charset="UTF-8" />
@@ -83,12 +66,11 @@
       window.addEventListener("unhandledrejection", function (event) {
         try {
           const reason = event.reason;
-          // If the rejection is an Axios-like error containing a 401, swallow to avoid noisy console errors
-          if (
-            reason &&
-            (reason.response?.status === 401 ||
-              String(reason).indexOf("401") !== -1)
-          ) {
+          // Only a genuine 401 status is suppressed. This used to also match any
+          // rejection whose text merely contained "401" anywhere - a timestamp, a
+          // request id, an asset filename - so real application failures were
+          // silently swallowed and never reached error reporting.
+          if (reason && reason.response?.status === 401) {
             console.warn(
               "Suppressed unhandled rejection with 401 status from third-party script.",
               reason,
@@ -149,11 +131,11 @@
     />
     <meta
       property="og:image"
-      content="https://onealgorithm.com/og-image.png"
+      content="https://onealgorithm.com/og-image.jpg"
     />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta
       property="og:image:alt"
       content="OneAlgorithm Technology Solutions - Digital Transformation & Automation"
@@ -165,24 +147,24 @@
     />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:site" content="@OneAlgorithm" />
-    <meta property="twitter:creator" content="@OneAlgorithm" />
-    <meta property="twitter:url" content="https://onealgorithm.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@OneAlgorithm" />
+    <meta name="twitter:creator" content="@OneAlgorithm" />
+    <meta name="twitter:url" content="https://onealgorithm.com/" />
     <meta
-      property="twitter:title"
+      name="twitter:title"
       content="OneAlgorithm — IT Consulting & Secure Digital Transformation"
     />
     <meta
-      property="twitter:description"
+      name="twitter:description"
       content="Transform your business with expert IT consulting, website development, operations technology, and staff augmentation services for Construction, Manufacturing, and E-Commerce."
     />
     <meta
-      property="twitter:image"
-      content="https://onealgorithm.com/og-image.png"
+      name="twitter:image"
+      content="https://onealgorithm.com/og-image.jpg"
     />
     <meta
-      property="twitter:image:alt"
+      name="twitter:image:alt"
       content="OneAlgorithm Technology Solutions - Digital Transformation & Automation"
     />
 
@@ -250,8 +232,12 @@
   </head>
   <body>
     <!-- Skip to main content for accessibility -->
+    <!-- Targets the real <main>, which Layout gives id="main-content" and
+         tabindex="-1". Pointing at #root only scrolled the page: a plain div
+         cannot take focus, so keyboard users were moved visually while their
+         focus stayed back on the link. -->
     <a
-      href="#root"
+      href="#main-content"
       class="skip-link"
       style="
         position: absolute;
@@ -265,8 +251,12 @@
       >Skip to main content</a
     >
 
-    <!-- Main application root -->
-    <div id="root" role="main"></div>
+    <!-- No role="main" here. Layout renders a real <main> inside this div, so
+         declaring one on the container too put a main landmark inside another
+         main landmark on every page, which is invalid and gives screen readers
+         two competing "main content" targets. The inner <main> is the real one,
+         and it carries the tabindex the skip link above needs. -->
+    <div id="root"></div>
 
     <!-- Application JavaScript (compiled from TypeScript) -->
     <script type="module" src="/client/App.tsx"></script>

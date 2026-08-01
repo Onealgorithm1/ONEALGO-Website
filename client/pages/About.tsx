@@ -39,12 +39,12 @@ export default function About() {
       "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
     ogUrl: getCanonicalUrl("/about"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — About Us",
     twitterDescription:
       "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   return (
     <Layout>

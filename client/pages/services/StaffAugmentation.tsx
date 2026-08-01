@@ -40,12 +40,12 @@ export default function StaffAugmentation() {
       "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
     ogUrl: getCanonicalUrl("/services/staff-augmentation"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Staff Augmentation Services - OneAlgorithm",
     twitterDescription:
       "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   const skills = [
     {

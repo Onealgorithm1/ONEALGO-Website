@@ -196,9 +196,19 @@ Output goes to `dist/spa/`.
 
 The site deploys automatically to **Cloudflare Pages** on every push to `main`.
 
-Build settings:
-- Build command: `npm run build`
+Build settings (these must match the Cloudflare Pages project exactly):
+- Build command: `npx puppeteer browsers install chrome && npm run build:static`
 - Output directory: `dist/spa`
+
+Both halves of that command matter:
+
+- `build:static`, not `build`. Plain `build` compiles the app but skips
+  `scripts/prerender.mjs`, so every route ships as an empty ~10KB shell instead of
+  real HTML. The site would still work for people, and quietly lose its search
+  visibility.
+- The `puppeteer browsers install chrome` prefix. Cloudflare's build container has
+  no browser, and the prerenderer drives a real one — without this the build fails
+  at the prerender step.
 
 ## Services
 

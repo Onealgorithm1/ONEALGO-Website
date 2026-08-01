@@ -18,6 +18,8 @@ function Layout({ children }: LayoutProps) {
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const burgerButtonRef = React.useRef<HTMLButtonElement>(null);
   const closeButtonRef = React.useRef<HTMLButtonElement>(null);
+  const mainRef = React.useRef<HTMLElement>(null);
+  const firstRender = React.useRef(true);
   const location = useLocation();
 
   // Close all dropdowns when mobile menu closes
@@ -118,6 +120,18 @@ function Layout({ children }: LayoutProps) {
     } catch (_) {
       window.scrollTo(0, 0);
     }
+
+    // Move focus to the new page. In a single-page app the browser does not do
+    // this for you: without it the page scrolls to the top while keyboard focus
+    // stays on the nav link that was just clicked, so the next Tab continues
+    // through the menu rather than into the content, and a screen reader is
+    // never told the page changed. Skipped on first mount so arriving at a URL
+    // directly does not yank focus out of the address bar.
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    mainRef.current?.focus();
   }, [location.pathname]);
 
   return (
@@ -182,7 +196,7 @@ function Layout({ children }: LayoutProps) {
                 </button>
 
                 {servicesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="services-menu" role="menu">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="services-menu">
                     <div className="py-2">
                       <Link
                         to="/services/website-development"
@@ -318,7 +332,7 @@ function Layout({ children }: LayoutProps) {
                 </button>
 
                 {industriesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="industries-menu" role="menu">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="industries-menu">
                     <div className="py-2">
                       <Link
                         to="/industries/construction"
@@ -700,7 +714,16 @@ function Layout({ children }: LayoutProps) {
       </nav>
 
       {/* Main Content */}
-      <main aria-hidden={mobileMenuOpen} {...backgroundInert}>
+      {/* tabindex="-1" so the skip link in index.html can actually move focus
+          here, and so route changes can too. It is not in the tab order - -1
+          only makes it programmatically focusable. */}
+      <main
+        id="main-content"
+        ref={mainRef}
+        tabIndex={-1}
+        aria-hidden={mobileMenuOpen}
+        {...backgroundInert}
+      >
         {children}
       </main>
 

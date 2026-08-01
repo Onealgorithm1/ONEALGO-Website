@@ -1,4 +1,6 @@
-// StructuredData: perform DOM-safe updates without relying on React hooks
+// StructuredData: injects JSON-LD into <head> for the page that renders it, and
+// takes it back out again when that page goes away.
+import React from "react";
 
 interface OrganizationSchema {
   type: "Organization";
@@ -93,36 +95,40 @@ interface StructuredDataProps {
 }
 
 export function StructuredData({ data }: StructuredDataProps) {
-  if (typeof document === "undefined") return null;
-
-  setTimeout(() => {
-    // Handle data that already has @context vs legacy data with 'type' field
-    const schema = data["@context"]
+  // An effect, not a bare setTimeout during render. The previous version fired an
+  // uncancellable timer on every render and deliberately never cleaned up, which
+  // caused two problems: a slow route change could apply an older page's schema
+  // after the newer one had already written its own, and schemas accumulated in
+  // <head> as visitors moved around, so a page could end up described by markup
+  // belonging to pages they had merely passed through. Removing the tag on
+  // unmount means each page carries only its own.
+  //
+  // Keyed on the serialised schema: `data` is rebuilt on every render, so using
+  // the object itself would re-run this constantly.
+  const serialised = JSON.stringify(
+    data["@context"]
       ? data
       : {
           "@context": "https://schema.org",
           "@type": data.type || data["@type"],
           ...data,
-        };
+        },
+  );
+  const scriptId = `schema-${(data.type || "schema").toString().toLowerCase()}`;
 
-    const scriptId = `schema-${(data.type || "schema").toString().toLowerCase()}`;
-
-    // Remove existing schema of the same type
-    const existingScript = document.getElementById(scriptId);
-    if (existingScript) {
-      existingScript.remove();
-    }
+  React.useEffect(() => {
+    document.getElementById(scriptId)?.remove();
 
     const script = document.createElement("script");
     script.type = "application/ld+json";
-    script.textContent = JSON.stringify(schema);
+    script.textContent = serialised;
     script.id = scriptId;
-
     document.head.appendChild(script);
 
-    // Note: we intentionally do not attempt to remove the script on unmount here.
-    // Subsequent calls will replace the existing script by id.
-  }, 0);
+    return () => {
+      script.remove();
+    };
+  }, [serialised, scriptId]);
 
   return null;
 }
@@ -197,15 +203,11 @@ export function createOrganizationSchemaDetailed() {
       "https://twitter.com/onealgorithm",
       "https://github.com/onealgorithm",
     ],
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: "40.0366",
-        longitude: "-75.5135",
-      },
-      geoRadius: "Worldwide",
-    },
+    // Plain text, not a GeoCircle. The circle carried geoRadius: "Worldwide",
+    // and geoRadius must be a number of metres or a Distance - prose made the
+    // whole shape invalid. A circle centred on the office cannot express
+    // "everywhere" at any radius anyway, and areaServed accepts text directly.
+    areaServed: "Worldwide",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Software Development Services",
@@ -238,11 +240,11 @@ export function createOrganizationSchemaDetailed() {
       ],
     },
     priceRange: "$$$",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "47",
-    },
+    // No aggregateRating. There was one here claiming 4.8 from 47 reviews, with
+    // no reviews behind it anywhere. Google's structured-data policy treats
+    // unverifiable review markup as a violation and can drop the site's rich
+    // results over it, and it is a false public claim besides. Restore this only
+    // with real, attributable reviews.
   };
 }
 

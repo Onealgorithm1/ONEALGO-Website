@@ -27,12 +27,12 @@ export default function Martech() {
       "Turn technology into marketing advantage. Our MarTech solutions automate campaigns, centralize customer data, and personalize experiences across channels to increase revenue and save time.",
     ogUrl: getCanonicalUrl("/services/martech"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — MarTech Services",
     twitterDescription:
       "Automate marketing, centralize customer data, and deliver personalized experiences with OneAlgorithm's MarTech services.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
 
   const features = [

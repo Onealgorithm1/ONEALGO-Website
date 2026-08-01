@@ -43,12 +43,12 @@ export default function OracleERP() {
       "Full-lifecycle Oracle Cloud ERP implementation services including strategic consulting, end-to-end deployment, data migration, and post-implementation support.",
     ogUrl: getCanonicalUrl("/services/oracle-erp"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Oracle ERP Implementation Services - OneAlgorithm",
     twitterDescription:
       "Full-lifecycle Oracle Cloud ERP implementation services from strategy to post-implementation support.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
 
   const [expandedPillar, setExpandedPillar] = useState<string | null>(null);

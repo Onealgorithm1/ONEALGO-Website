@@ -34,12 +34,12 @@ export default function Seo() {
       "Increase organic visibility and drive qualified traffic with OneAlgorithm's technical SEO, content strategy, and analytics-driven optimizations.",
     ogUrl: getCanonicalUrl("/services/seo"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — SEO Services",
     twitterDescription:
       "Increase organic visibility and drive qualified traffic with OneAlgorithm's technical SEO, content strategy, and analytics-driven optimizations.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
 
   const features = [

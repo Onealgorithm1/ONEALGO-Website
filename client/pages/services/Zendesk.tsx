@@ -76,11 +76,11 @@ export default function Zendesk() {
     ogDescription:
       "Implement, configure, integrate, and optimize Zendesk for customer support and service operations. Certified Zendesk partner.",
     ogUrl: getCanonicalUrl("/services/zendesk"),
-    ogImage: "https://onealgorithm.com/og-image.png",
+    ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Zendesk Implementation & Support — OneAlgorithm",
     twitterDescription:
       "Implement, configure, integrate, and optimize Zendesk for customer support and service operations.",
-    twitterImage: "https://onealgorithm.com/og-image.png",
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (

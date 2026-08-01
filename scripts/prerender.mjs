@@ -15,7 +15,10 @@ import puppeteer from "puppeteer";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, "..", "dist", "spa");
-const PORT = 5055;
+// 0 lets the OS hand out a free port, and the real one is read back from the
+// listening server below. A fixed 5055 meant a stale process from an earlier run,
+// or a second build on the same machine, failed the whole thing with EADDRINUSE.
+const PORT = 0;
 
 const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
@@ -61,6 +64,7 @@ async function main() {
   }
   const server = serve();
   await new Promise((r) => server.listen(PORT, r));
+  const port = server.address().port;
 
   const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
   let ok = 0, failed = [];
@@ -68,7 +72,21 @@ async function main() {
   for (const route of ROUTES) {
     const page = await browser.newPage();
     try {
-      await page.goto(`http://localhost:${PORT}${route}`, {
+      // Third-party requests are blocked for the render. Waiting for
+      // networkidle0 meant every page also waited on Google Analytics and
+      // Unsplash, so build time and build reliability depended on services we
+      // do not control - and none of it affects the HTML we capture.
+      await page.setRequestInterception(true);
+      page.on("request", (req) => {
+        const url = req.url();
+        if (url.startsWith(`http://localhost:${port}`) || url.startsWith("data:")) {
+          req.continue();
+        } else {
+          req.abort();
+        }
+      });
+
+      await page.goto(`http://localhost:${port}${route}`, {
         waitUntil: "networkidle0",
         timeout: 30000,
       });
@@ -76,6 +94,16 @@ async function main() {
       // sanity: #root should have real content
       const rootLen = await page.evaluate(() => document.getElementById("root")?.innerHTML.length || 0);
       const title = await page.title();
+
+      // Actually act on that sanity check. rootLen was measured and printed but
+      // never tested, so a route whose chunk failed to load was written out as a
+      // blank page and counted as a success - the build passed while publishing
+      // an empty document. The threshold is deliberately low; it is catching
+      // "nothing rendered", not "rendered a bit less than usual".
+      if (rootLen < 500) {
+        throw new Error(`rendered only ${rootLen} chars of content — treating as a failed route`);
+      }
+
       const html = "<!doctype html>\n" + (await page.content());
 
       // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves

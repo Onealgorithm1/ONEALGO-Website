@@ -16,8 +16,14 @@ export default function Capabilities() {
     description:
       "Cloud modernization, cybersecurity compliance, and systems integration for federal and commercial clients. CAGE: 14G18 | UEI: W8DYK38MEKP3 | NIST 800-171 Compliant",
     canonical: getCanonicalUrl("/capabilities"),
+    // "ISO 9001" was listed here alongside the real CAGE and UEI identifiers,
+    // which reads as a held certification. Removed rather than left to be taken
+    // on trust - an unbacked certification claim is a live risk on a federal
+    // contracting page and the keywords tag buys nothing in return, since search
+    // engines stopped using it well over a decade ago. Put it back only with a
+    // certificate number.
     keywords:
-      "OneAlgorithm capabilities, federal contracting, cloud modernization, DevSecOps, NIST 800-171, DFARS, ISO 9001, cybersecurity compliance, CAGE 14G18, UEI W8DYK38MEKP3, NAICS 541511",
+      "OneAlgorithm capabilities, federal contracting, cloud modernization, DevSecOps, NIST 800-171, DFARS, cybersecurity compliance, CAGE 14G18, UEI W8DYK38MEKP3, NAICS 541511",
     ogTitle:
       "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
     ogDescription:

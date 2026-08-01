@@ -1,4 +1,4 @@
-import { defineConfig, Plugin } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -63,14 +63,17 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    // Written outside dist/spa. Everything in that directory is uploaded to
+    // Cloudflare and served publicly, so this was downloadable at
+    // /bundle-analysis.html - 1.9MB of JSON naming every source file, every
+    // dependency and its size. A free map of the codebase for anyone who asked.
     visualizer({
-      filename: "dist/spa/bundle-analysis.html",
+      filename: "build-artifacts/bundle-analysis.json",
       open: false,
       gzipSize: true,
       brotliSize: true,
       json: true,
     }),
-    expressPlugin(),
   ],
   resolve: {
     alias: {
@@ -93,16 +96,4 @@ export default defineConfig(({ mode }) => ({
   },
 }));
 
-function expressPlugin(): Plugin {
-  return {
-    name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
-    async configureServer(server) {
-      const { createServer } = await import("./server");
-      const app = createServer();
 
-      // Add Express app as middleware to Vite dev server
-      server.middlewares.use(app);
-    },
-  };
-}

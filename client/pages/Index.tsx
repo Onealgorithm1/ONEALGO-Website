@@ -32,7 +32,24 @@ import {
 } from "../components/StructuredData";
 import { JSONLDScript } from "../components/JSONLDScript";
 
+/** True when the visitor has asked their system to reduce motion. Read once on
+ *  mount and kept in sync, so the hero can fall back to its poster image. */
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = React.useState(false);
+
+  React.useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setReduced(event.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return reduced;
+}
+
 export default function Index() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   // Re-enabling useSEO hook after React stability fix
   useSEO({
     title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
@@ -46,12 +63,12 @@ export default function Index() {
       "Transform your operations and accelerate growth with OneAlgorithm. Proven implementation experience and a strong record of client satisfaction.",
     ogUrl: getCanonicalUrl("/"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     twitterDescription:
       "Transform your operations and accelerate growth with OneAlgorithm. Proven implementation experience and a strong record of client satisfaction.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   return (
     <Layout>
@@ -60,9 +77,15 @@ export default function Index() {
       <JSONLDScript data={createLocalBusinessSchema()} />
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
+        {/* autoPlay is conditional on the visitor's motion preference. CSS
+            already honours prefers-reduced-motion for animations, but CSS cannot
+            stop a video - so someone who has asked their system to reduce motion
+            still got a looping background clip, and a 728KB download with it.
+            When motion is reduced this falls back to the poster image, which is
+            what the poster was always for. */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
+          autoPlay={!prefersReducedMotion}
           muted
           loop
           playsInline
@@ -70,8 +93,12 @@ export default function Index() {
           poster="/media/hero-poster.webp"
           aria-hidden="true"
         >
-          <source src="/media/hero.webm" type="video/webm" />
-          <source src="/media/hero.mp4" type="video/mp4" />
+          {!prefersReducedMotion && (
+            <>
+              <source src="/media/hero.webm" type="video/webm" />
+              <source src="/media/hero.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
 
         {/* Gradient overlay to preserve contrast */}

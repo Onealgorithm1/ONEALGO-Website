@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -28,12 +29,12 @@ export default function Events() {
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     ogUrl: getCanonicalUrl("/events"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — Events & Webinars",
     twitterDescription:
       "Join OneAlgorithm's technology events, workshops, and webinars. Stay updated with the latest industry trends, learn new skills, and network with technology professionals.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   // Placeholder events - to be replaced with actual event data
   const upcomingEvents = [
@@ -155,9 +156,16 @@ export default function Events() {
                 className="border-2 hover:border-onealgo-orange-500 transition-colors h-full overflow-hidden"
               >
                 <div className="relative h-48">
+                  {/* Intrinsic size reserves the card's space before the remote
+                      image lands, so the grid stops reflowing; lazy keeps
+                      off-screen event photos out of the initial load. */}
                   <img
                     src={event.image}
                     alt={event.title}
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4">
@@ -286,18 +294,23 @@ export default function Events() {
             Stay Updated on Future Events
           </h2>
           <p className="text-blue-200 mb-8">
-            Subscribe to our newsletter to be the first to know about upcoming
+            Tell us you're interested and we'll let you know about upcoming
             events, workshops, and industry insights.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-onealgo-orange-500"
-            />
-            <Button className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-6 py-3">
-              Subscribe
-            </Button>
+          {/* This was an email box and a Subscribe button with no form, no
+              handler and no state behind them - clicking Subscribe did nothing
+              at all, so anyone who signed up was silently discarded. There is no
+              newsletter backend yet, so rather than keep a control that lies,
+              this points at the contact form, which does work and is monitored.
+              Swap it back for a real signup field once the newsletter exists. */}
+          <div className="flex justify-center">
+            <Link
+              to="/contact"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-flex items-center rounded-lg bg-white px-6 py-3 font-semibold text-onealgo-blue-950 shadow-sm transition-colors hover:bg-blue-50"
+            >
+              Get in touch
+            </Link>
           </div>
         </div>
       </section>

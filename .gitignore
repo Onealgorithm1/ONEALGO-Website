@@ -25,3 +25,6 @@ dist-ssr
 
 .config/
 .env
+
+# Bundle analysis output. Deliberately outside dist/spa so it is never deployed.
+build-artifacts/

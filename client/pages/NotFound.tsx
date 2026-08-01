@@ -3,7 +3,14 @@ import { useEffect } from "react";
 import { useSEO } from "../hooks/use-seo";
 
 const NotFound = () => {
-  useSEO({ title: "404 — Page Not Found | OneAlgorithm" });
+  // noindex, and an explicit description. Setting only a title left the previous
+  // page's description, canonical and social tags in place, so a mistyped URL
+  // could be indexed wearing the homepage's metadata.
+  useSEO({
+    title: "404 — Page Not Found | OneAlgorithm",
+    description: "This page could not be found.",
+    noindex: true,
+  });
   const location = useLocation();
 
   useEffect(() => {

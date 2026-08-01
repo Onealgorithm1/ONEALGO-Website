@@ -1,43 +1,18 @@
-/* Optimized font loading for performance */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/inter-latin-400.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* The Inter and Roboto @font-face blocks that used to sit here have been removed.
+   All three .woff2 files they pointed at were not fonts at all - they were saved
+   HTML 404 pages, 679 to 1644 bytes each, beginning with "<!DOCTYPE" and "<htm".
+   Every visitor downloaded them, the browser rejected them as invalid, and the
+   page fell back to the system stack. So the site has always rendered in system
+   fonts; these rules only ever bought three failed requests per visit.
+
+   Removing them changes nothing visually and drops the wasted work. To actually
+   ship Inter and Roboto, add the real font binaries under public/fonts and
+   restore these blocks - the font-family stacks below already name them first,
+   so they will be picked up as soon as the files are genuinely there. */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Ensure 3rd-party Roboto uses font-display swap */
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-display: optional;
-  src: url("/fonts/roboto-latin-400.woff2") format("woff2");
-  ascent-override: 92%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-display: optional;
-  src: url("/fonts/roboto-latin-700.woff2") format("woff2");
-  ascent-override: 92%;
-  descent-override: 24%;
-  line-gap-override: 0%;
-  size-adjust: 100%;
-}
 
 /* Performance optimizations */
 @layer base {

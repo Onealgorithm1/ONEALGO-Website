@@ -28,13 +28,13 @@ export default function Industries() {
       "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries.",
     ogUrl: getCanonicalUrl("/industries"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle:
       "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
     twitterDescription:
       "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services by OneAlgorithm.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
   return (
     <Layout>

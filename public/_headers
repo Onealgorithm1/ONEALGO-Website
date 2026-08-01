@@ -5,11 +5,20 @@
   Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), magnetometer=(), payment=(), usb=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-/assets/*
+# Fingerprinted build output. Vite puts a content hash in these filenames, so a
+# new deploy produces new names and "immutable" is safe - the old file is simply
+# never requested again.
+/assets/*.js
   Cache-Control: max-age=31536000, immutable
 
-/*.js
+/assets/*.woff2
   Cache-Control: max-age=31536000, immutable
 
-/*.css
-  Cache-Control: max-age=31536000, immutable
+# index.css is deliberately NOT fingerprinted - see assetFileNames in
+# vite.config.ts, which keeps a stable name so index.html can preload it without
+# knowing the hash. Marking a stable filename immutable told browsers to hold it
+# for a year, so a returning visitor could keep a stylesheet from an old deploy
+# indefinitely with no way to invalidate it. Revalidating costs one cheap
+# conditional request and makes deploys actually take effect.
+/assets/*.css
+  Cache-Control: max-age=0, must-revalidate

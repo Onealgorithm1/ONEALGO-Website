@@ -8,16 +8,26 @@ import "./global.css";
     var script = document.createElement("script");
     script.src = "https://browser.sentry-cdn.com/7.49.0/bundle.min.js";
     script.crossOrigin = "anonymous";
+    // Subresource integrity. This is someone else's code, fetched from someone
+    // else's CDN, and it runs with full access to every page. The hash pins the
+    // exact bundle, so a swapped or tampered file is refused by the browser
+    // instead of executing as first-party script.
+    //
+    // Computed from the 7.49.0 bundle itself. It is tied to that version - bump
+    // the URL and this must be recomputed, or the SDK will silently stop loading:
+    //   curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A
+    script.integrity =
+      "sha384-Lpv5DY+MKevqNvQYw6msQkBal57DT2ZZPXgeYCTjIKdyTFCLbsAdTmpL0oqj7Yyi";
     script.onload = function () {
       try {
         if ((window as any).Sentry && SENTRY_DSN) {
+          // One integration, not two. This previously read
+          // `new BrowserTracing() && new BrowserTracing()`, which constructs the
+          // first, discards it, and keeps the second.
           // @ts-ignore
           (window as any).Sentry.init({
             dsn: SENTRY_DSN,
-            integrations: [
-              new (window as any).Sentry.BrowserTracing() &&
-                new (window as any).Sentry.BrowserTracing(),
-            ],
+            integrations: [new (window as any).Sentry.BrowserTracing()],
             tracesSampleRate: 0.0,
           });
         }
@@ -37,7 +47,6 @@ import "./global.css";
 })();
 
 import { createRoot } from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { NotificationProvider } from "@/components/SimpleNotifications";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
@@ -81,18 +90,25 @@ const Capabilities = lazy(() => import("./pages/Capabilities"));
 const AiInfo = lazy(() => import("./pages/AiInfo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Loading component
+// Loading component. role="status" with a name, because a bare spinning div is
+// invisible to a screen reader - it announced nothing at all while a page loaded.
+// The label is visually hidden so sighted users still just see the spinner.
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-onealgo-blue-950"></div>
+  <div
+    className="min-h-screen flex items-center justify-center"
+    role="status"
+    aria-live="polite"
+  >
+    <div
+      className="animate-spin rounded-full h-8 w-8 border-b-2 border-onealgo-blue-950"
+      aria-hidden="true"
+    ></div>
+    <span className="sr-only">Loading page</span>
   </div>
 );
 
-const queryClient = new QueryClient();
-
 const App = () => (
   <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
       {/* <NotificationProvider> */}
       <BrowserRouter>
         <ErrorBoundary
@@ -178,7 +194,6 @@ const App = () => (
         </ErrorBoundary>
       </BrowserRouter>
       {/* </NotificationProvider> */}
-    </QueryClientProvider>
   </ErrorBoundary>
 );
 

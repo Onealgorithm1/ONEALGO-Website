@@ -39,12 +39,12 @@ export default function Salesforce() {
       "Full-lifecycle Salesforce implementation services from strategy to post-go-live support. Expert Salesforce consultants dedicated to your success.",
     ogUrl: getCanonicalUrl("/services/salesforce"),
     ogImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Salesforce Implementation & Consulting - OneAlgorithm",
     twitterDescription:
       "Full-lifecycle Salesforce implementation services from strategy to post-go-live support.",
     twitterImage:
-      "https://onealgorithm.com/og-image.png",
+      "https://onealgorithm.com/og-image.jpg",
   });
 
   const [expandedPillar, setExpandedPillar] = useState<string | null>(null);

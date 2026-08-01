@@ -109,9 +109,17 @@ export default function TeamSection() {
               <CardContent className="p-0">
                 {/* Image */}
                 <div className="aspect-square overflow-hidden bg-gray-100">
+                  {/* width/height give the browser an aspect ratio before the
+                      file arrives, so the grid stops shifting as portraits load;
+                      lazy + async keeps below-the-fold faces off the critical
+                      path. The square matches the aspect-square wrapper. */}
                   <img
                     src={member.image}
                     alt={member.name}
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -124,7 +132,11 @@ export default function TeamSection() {
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">
                         {member.name}
                       </h3>
-                      <p className="text-onealgo-orange-500 font-medium">
+                      {/* orange-700, not 500. The brand orange on white measures
+                          1.95:1 where the accessibility floor is 4.5:1 - job
+                          titles were genuinely hard to read. 700 is the same hue
+                          darkened to 5.04:1. */}
+                      <p className="text-onealgo-orange-700 font-medium">
                         {member.title}
                       </p>
                     </div>
