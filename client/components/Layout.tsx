@@ -16,6 +16,8 @@ function Layout({ children }: LayoutProps) {
     React.useState(false);
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const burgerButtonRef = React.useRef<HTMLButtonElement>(null);
+  const closeButtonRef = React.useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
   // Close all dropdowns when mobile menu closes
@@ -73,6 +75,38 @@ function Layout({ children }: LayoutProps) {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
+
+  // Keyboard handling for the full-screen mobile menu. Escape is the expected way
+  // out of any overlay and there was none, and focus stayed on the burger behind
+  // the panel, so a keyboard user opened the menu and then tabbed through content
+  // they could not see. aria-hidden on the page behind does not help: it hides
+  // things from screen readers but leaves them in the tab order. `inert` below is
+  // what actually removes them.
+  React.useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      // Only pull focus back if it is nowhere useful - on a route change the new
+      // page should keep whatever focus it sets rather than having it yanked to
+      // a hamburger the visitor never touched.
+      if (!document.activeElement || document.activeElement === document.body) {
+        burgerButtonRef.current?.focus();
+      }
+    };
+  }, [mobileMenuOpen]);
+
+  // React 18 has no typed `inert` prop, so it is spread in through a cast. An
+  // empty string is the attribute's present-and-true form in the DOM.
+  const backgroundInert = (
+    mobileMenuOpen ? { inert: "" } : {}
+  ) as React.HTMLAttributes<HTMLElement>;
 
   // Close mobile menu and dropdowns on route change, and scroll to top
   React.useEffect(() => {
@@ -342,6 +376,7 @@ function Layout({ children }: LayoutProps) {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
+                ref={burgerButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-gray-900 hover:text-onealgo-blue-950"
                 aria-expanded={mobileMenuOpen}
@@ -368,6 +403,7 @@ function Layout({ children }: LayoutProps) {
                   <OneAlgorithmText size="md" />
                 </Link>
                 <button
+                  ref={closeButtonRef}
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"
                   className="text-gray-900"
@@ -664,12 +700,15 @@ function Layout({ children }: LayoutProps) {
       </nav>
 
       {/* Main Content */}
-      <main aria-hidden={mobileMenuOpen}>{children}</main>
+      <main aria-hidden={mobileMenuOpen} {...backgroundInert}>
+        {children}
+      </main>
 
       {/* Footer */}
       <footer
         className="bg-onealgo-blue-950 text-white"
         aria-hidden={mobileMenuOpen}
+        {...backgroundInert}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Trusted Partnerships Carousel */}
