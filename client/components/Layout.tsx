@@ -331,13 +331,12 @@ function Layout({ children }: LayoutProps) {
                 )}
               </div>
 
-              <Link
-                to="/contact"
-                className="inline-flex items-center rounded-lg bg-onealgo-orange-500 px-5 py-2.5 font-semibold text-white shadow-sm transition-all hover:bg-onealgo-orange-600 hover:-translate-y-0.5"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Talk to an Expert
-              </Link>
+              {/* The "Talk to an Expert" button used to sit here. With Home,
+                  About, Capabilities, Blog and a Services dropdown already in the
+                  bar, a solid orange block on the end made it read as crowded.
+                  Contact is still reachable from the footer, from the Services
+                  menu, and from the CTA sections on the pages themselves - which
+                  is where it converts anyway. */}
             </div>
 
             {/* Mobile menu button */}
@@ -356,8 +355,8 @@ function Layout({ children }: LayoutProps) {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-[100] bg-white" id="mobile-nav">
-              <div className="flex items-center justify-between px-4 py-3 border-b">
+            <div className="md:hidden fixed inset-0 z-[100] flex flex-col bg-white" id="mobile-nav">
+              <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
                 <Link
                   to="/"
                   className="flex items-center"
@@ -377,11 +376,16 @@ function Layout({ children }: LayoutProps) {
                 </button>
               </div>
 
-              <div className="px-4 py-4 overflow-auto max-h-[calc(100vh-64px)]">
-                <nav className="space-y-1">
+              {/* flex-1 inside a flex column, rather than the old
+                  max-h-[calc(100vh-64px)]. The 64px was a guess at the header's
+                  real height, and on a phone the visible area is shorter than
+                  100vh because the browser's own chrome overlaps it - so the
+                  bottom of the menu sat off screen with no way to scroll to it. */}
+              <div className="flex-1 overflow-y-auto px-3 py-3">
+                <nav className="space-y-0.5">
                   <Link
                     to="/"
-                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
+                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -392,7 +396,7 @@ function Layout({ children }: LayoutProps) {
 
                   <Link
                     to="/about"
-                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
+                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -403,7 +407,7 @@ function Layout({ children }: LayoutProps) {
 
                   <Link
                     to="/capabilities"
-                    className="block px-3 py-3 text-gray-900 hover:text-onealgo-blue-950 text-sm"
+                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -412,23 +416,22 @@ function Layout({ children }: LayoutProps) {
                     Capabilities
                   </Link>
 
-                  <Link
-                    to="/contact"
-                    className="block w-full text-center bg-onealgo-orange-500 text-white rounded-md px-3 py-3 font-semibold"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                  {/* The blog was reachable from the desktop bar but missing here
+                      entirely, so on a phone there was no way to find it. */}
+                  <a
+                    href="https://blog.onealgorithm.com/"
+                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    Talk to an Expert
-                  </Link>
+                    Blog
+                  </a>
 
-                  <div className="pt-2 border-t">
+                  <div className="mt-2 border-t border-gray-100 pt-2">
                     <button
                       onClick={() =>
                         setServicesDropdownOpen(!servicesDropdownOpen)
                       }
-                      className="w-full flex items-center justify-between px-3 py-3 text-gray-700 font-medium text-sm"
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
                       aria-expanded={servicesDropdownOpen}
                       aria-controls="mobile-services"
                     >
@@ -442,7 +445,7 @@ function Layout({ children }: LayoutProps) {
                       <div id="mobile-services" className="pl-4">
                         <Link
                           to="/services/website-development"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -453,7 +456,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/marketing"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -464,7 +467,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/martech"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -475,7 +478,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/google-ads"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -486,7 +489,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/seo"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -497,7 +500,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/staff-augmentation"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -508,7 +511,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/it-consulting"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -519,7 +522,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/operations-technology"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -530,7 +533,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/oracle-erp"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -541,7 +544,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/salesforce"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -552,7 +555,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/services/zendesk"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setServicesDropdownOpen(false);
@@ -565,12 +568,12 @@ function Layout({ children }: LayoutProps) {
                     )}
                   </div>
 
-                  <div className="pt-2 border-t">
+                  <div className="mt-2 border-t border-gray-100 pt-2">
                     <button
                       onClick={() =>
                         setIndustriesDropdownOpen(!industriesDropdownOpen)
                       }
-                      className="w-full flex items-center justify-between px-3 py-3 text-gray-700 font-medium text-sm"
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
                       aria-expanded={industriesDropdownOpen}
                       aria-controls="mobile-industries"
                     >
@@ -584,7 +587,7 @@ function Layout({ children }: LayoutProps) {
                       <div id="mobile-industries" className="pl-4">
                         <Link
                           to="/industries/construction"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -595,7 +598,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/manufacturing"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -606,7 +609,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/ecommerce"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -617,7 +620,7 @@ function Layout({ children }: LayoutProps) {
                         </Link>
                         <Link
                           to="/industries/government"
-                          className="block px-3 py-3 text-gray-600 hover:text-onealgo-blue-950 text-sm"
+                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                           onClick={() => {
                             setMobileMenuOpen(false);
                             setIndustriesDropdownOpen(false);
@@ -631,6 +634,29 @@ function Layout({ children }: LayoutProps) {
                   </div>
 
                 </nav>
+              </div>
+
+              {/* The CTA used to sit between Capabilities and Services, so a
+                  solid orange slab cut the link list in half. Pinned to its own
+                  bottom bar it stays visible while the list scrolls and reads as
+                  deliberate rather than wedged in. pb + safe-area keeps it clear
+                  of the home indicator on a notched phone. */}
+              <div
+                className="shrink-0 border-t border-gray-100 px-4 pt-3"
+                style={{
+                  paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",
+                }}
+              >
+                <Link
+                  to="/contact"
+                  className="block w-full rounded-xl bg-onealgo-orange-500 px-4 py-3.5 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-onealgo-orange-600"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  Talk to an Expert
+                </Link>
               </div>
             </div>
           )}
@@ -801,6 +827,14 @@ function Layout({ children }: LayoutProps) {
                 >
                   Industries We Serve
                 </Link>
+                {/* External, so a plain <a>: the blog is Ghost on its own
+                    subdomain, not a route in this SPA. */}
+                <a
+                  href="https://blog.onealgorithm.com/"
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Blog
+                </a>
                 <Link
                   to="/contact"
                   onClick={() =>
