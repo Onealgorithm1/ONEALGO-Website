@@ -1,5 +1,11 @@
 import * as React from "react";
 
+/** The robots directive index.html shipped with, captured before this module
+ *  edits it. Module scope, so it survives client-side navigation but resets on a
+ *  full page load, which is exactly the lifetime of the <head> it describes.
+ *  undefined = not captured yet; null = the page genuinely had no robots tag. */
+let originalRobotsContent: string | null | undefined;
+
 interface SEOConfig {
   title?: string;
   description?: string;
@@ -62,17 +68,34 @@ function applySEO({
     document.title = title;
   }
 
-  // Managed on every call, not only when true: these tags live in a shared
-  // <head> across client-side navigation, so a stale noindex left behind by the
-  // 404 page would quietly de-index whatever the visitor browsed to next.
-  const existingRobots = document.querySelector('meta[name="robots"]');
+  // Overwrite the robots directive, then put it back - never delete it.
+  //
+  // The first version of this removed the tag whenever noindex was falsy, which
+  // wiped index.html's site-wide "index, follow, max-image-preview:large,
+  // max-snippet:-1, max-video-preview:-1". Worse, the prerenderer runs the app in
+  // a real browser before capturing the HTML, so the directive vanished from the
+  // published pages too, not just at runtime. Caught by reading the live site.
+  //
+  // Editing one tag in place also avoids emitting a second, contradictory robots
+  // tag on the 404 page. originalRobots is captured once per page load, before
+  // anything has been changed.
+  const robotsTag = document.querySelector('meta[name="robots"]');
+  if (originalRobotsContent === undefined) {
+    originalRobotsContent = robotsTag ? robotsTag.getAttribute("content") : null;
+  }
+
   if (noindex) {
-    const robots = existingRobots ?? document.createElement("meta");
-    robots.setAttribute("name", "robots");
-    robots.setAttribute("content", "noindex, follow");
-    if (!existingRobots) document.head.appendChild(robots);
-  } else if (existingRobots) {
-    existingRobots.remove();
+    const tag = robotsTag ?? document.head.appendChild(document.createElement("meta"));
+    tag.setAttribute("name", "robots");
+    tag.setAttribute("content", "noindex, follow");
+  } else if (robotsTag) {
+    if (originalRobotsContent === null) {
+      // There was no robots tag on this page to begin with; one we added for a
+      // previous route should not outlive it.
+      robotsTag.remove();
+    } else {
+      robotsTag.setAttribute("content", originalRobotsContent);
+    }
   }
 
   if (canonical) {
