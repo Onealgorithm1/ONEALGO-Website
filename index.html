@@ -32,10 +32,43 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      // Skip localhost so the prerender pass and local dev don't log fake pageviews.
-      if (!/^(localhost$|127\.|\[?::1\]?$|0\.0\.0\.0$)/.test(location.hostname)) {
+      // Only the production hostnames report.
+      //
+      // This was a blocklist of localhost, which stopped local dev and the
+      // prerender pass polluting analytics but nothing else. Cloudflare gives
+      // every preview deploy its own *.pages.dev hostname, so a blocklist can
+      // never keep up - and it did not: over the 28 days to 2026-08-02, GA4
+      // recorded 5 sessions from onealgorithm-staging.pages.dev and 1 from a
+      // Builder.io preview, against 39 real ones. Eleven percent of the traffic
+      // in the property was not traffic.
+      //
+      // An allowlist inverts that: anything not listed here is silent by
+      // default, including staging and previews that do not exist yet.
+      //
+      // www is listed because it currently serves the site directly (HTTP 200,
+      // not a redirect) and its visitors are real. Once www 301s to the apex
+      // domain it will never execute this, and the entry can be dropped.
+      const ANALYTICS_HOSTS = ["onealgorithm.com", "www.onealgorithm.com"];
+      if (ANALYTICS_HOSTS.includes(location.hostname)) {
         gtag("config", "G-RC48CMQ05T");
       }
+
+      // The contact form calls window.trackFormSubmission() on success, guarded
+      // by a typeof check. Nothing ever defined it, so the guard was always
+      // false and the call did nothing - which is why GA4 has three key events
+      // configured and has never recorded a single one. Every enquiry the site
+      // has produced is unattributed.
+      //
+      // generate_lead is GA4's recommended event name for exactly this. It has
+      // to be marked as a key event in GA4 before it counts as a conversion;
+      // sending it is necessary but not sufficient.
+      window.trackFormSubmission = function () {
+        if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
+        gtag("event", "generate_lead", {
+          form_id: "contact",
+          page_location: location.href
+        });
+      };
     </script>
     <title>OneAlgorithm — IT Consulting & Secure Digital Transformation</title>
     <meta

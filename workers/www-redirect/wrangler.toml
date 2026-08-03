@@ -1,0 +1,12 @@
+name = "www-redirect"
+main = "worker.js"
+compatibility_date = "2026-08-03"
+workers_dev = false
+
+# Bound ONLY to the www hostname. The apex is untouched and continues to be
+# served by Cloudflare Pages - if this route ever widened to the apex it would
+# create an infinite redirect loop, which is why the Worker also checks the
+# hostname defensively before redirecting.
+routes = [
+  { pattern = "www.onealgorithm.com/*", zone_name = "onealgorithm.com" }
+]
