@@ -3,3 +3,16 @@
 # real blog. 301 = permanent, so search engines transfer any accrued signal.
 /blog        https://blog.onealgorithm.com/    301
 /blog/*      https://blog.onealgorithm.com/    301
+
+# Anything that matches no file is genuinely missing, so say so.
+#
+# Cloudflare Pages was serving 404.html for unknown paths but with a 200 status,
+# which is a soft 404: /wp-login.php, /.env and every mistyped link looked like a
+# valid page to a crawler. Bing had crawled thousands of URLs against a sitemap
+# of 28. Setting not_found_handling on the project is ignored on classic Pages
+# projects, so the status has to come from here.
+#
+# MUST STAY LAST. Pages serves a matching static asset before consulting this
+# file, and all 28 real routes are prerendered as static files by
+# scripts/prerender.mjs, so nothing legitimate reaches this rule.
+/*           /404.html                         404
