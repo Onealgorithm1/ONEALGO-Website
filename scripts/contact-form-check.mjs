@@ -105,3 +105,22 @@ ok('lead_source uses a value the org actually has', () => {
 });
 
 console.log(`\n${passed} checks passed`);
+
+// --- 4. missing pages must be able to say so ---------------------------------
+// Cloudflare Pages serves /404.html with a real 404 status for unmatched
+// routes. Without the file it falls back to the app shell and answers 200 to
+// everything, which is what let crawlers manufacture unlimited valid-looking
+// URLs.
+const notFound = new URL('../public/404.html', import.meta.url);
+ok('a 404 page exists for Cloudflare Pages to serve', () =>
+    assert.ok(fs.existsSync(notFound),
+        'public/404.html is gone - unmatched paths will answer 200 again'));
+
+const nf = fs.readFileSync(notFound, 'utf8');
+ok('the 404 page is marked noindex', () =>
+    assert.ok(/name=["']robots["'][^>]*noindex/.test(nf)));
+ok('the 404 page offers a way back', () =>
+    assert.ok(/href=["']\/["']/.test(nf), 'no link home - a dead end for anyone who lands here'));
+
+console.log(`
+${passed} checks passed`);
