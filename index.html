@@ -52,6 +52,23 @@
       if (ANALYTICS_HOSTS.includes(location.hostname)) {
         gtag("config", "G-RC48CMQ05T");
       }
+
+      // The contact form calls window.trackFormSubmission() on success, guarded
+      // by a typeof check. Nothing ever defined it, so the guard was always
+      // false and the call did nothing - which is why GA4 has three key events
+      // configured and has never recorded a single one. Every enquiry the site
+      // has produced is unattributed.
+      //
+      // generate_lead is GA4's recommended event name for exactly this. It has
+      // to be marked as a key event in GA4 before it counts as a conversion;
+      // sending it is necessary but not sufficient.
+      window.trackFormSubmission = function () {
+        if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
+        gtag("event", "generate_lead", {
+          form_id: "contact",
+          page_location: location.href
+        });
+      };
     </script>
     <title>OneAlgorithm — IT Consulting & Secure Digital Transformation</title>
     <meta

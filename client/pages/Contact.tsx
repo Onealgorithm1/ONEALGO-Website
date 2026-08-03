@@ -107,10 +107,21 @@ export default function Contact() {
       addHiddenField("oid", "00Dbn00000plgUf");
       addHiddenField("retURL", window.location.href);
 
-      // Map form data to Salesforce fields
-      const nameParts = formData.name.trim().split(" ");
-      const firstName = nameParts[0] || "";
-      const lastName = nameParts.slice(1).join(" ") || "";
+      // Map form data to Salesforce fields.
+      //
+      // last_name is REQUIRED by Web-to-Lead and first_name is not, so a
+      // one-word name has to go in last_name. Splitting on the first space and
+      // putting the remainder in last_name sent an EMPTY last_name for anyone
+      // who typed only "Bob" - or who has a mononym - and Salesforce rejects
+      // those silently. The visitor still saw the success message, because the
+      // form posts into a hidden iframe that loads whatever Salesforce returns.
+      //
+      // Splitting on /\s+/ rather than " " also stops a double space producing
+      // empty name parts.
+      const nameParts = formData.name.trim().split(/\s+/).filter(Boolean);
+      const firstName = nameParts.length > 1 ? nameParts[0] : "";
+      const lastName =
+        nameParts.length > 1 ? nameParts.slice(1).join(" ") : nameParts[0] || "";
 
       addHiddenField("first_name", firstName);
       addHiddenField("last_name", lastName);
