@@ -42,7 +42,8 @@ export default function Contact() {
       "Get in touch with OneAlgorithm for technology consulting and services.",
   });
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     whatYouNeed: "",
@@ -107,23 +108,15 @@ export default function Contact() {
       addHiddenField("oid", "00Dbn00000plgUf");
       addHiddenField("retURL", window.location.href);
 
-      // Map form data to Salesforce fields.
-      //
-      // last_name is REQUIRED by Web-to-Lead and first_name is not, so a
-      // one-word name has to go in last_name. Splitting on the first space and
-      // putting the remainder in last_name sent an EMPTY last_name for anyone
-      // who typed only "Bob" - or who has a mononym - and Salesforce rejects
-      // those silently. The visitor still saw the success message, because the
-      // form posts into a hidden iframe that loads whatever Salesforce returns.
-      //
-      // Splitting on /\s+/ rather than " " also stops a double space producing
-      // empty name parts.
-      const nameParts = formData.name.trim().split(/\s+/).filter(Boolean);
-      const firstName = nameParts.length > 1 ? nameParts[0] : "";
-      const lastName =
-        nameParts.length > 1 ? nameParts.slice(1).join(" ") : nameParts[0] || "";
+      // The form now collects these separately, so there is nothing to parse.
+      // last_name is required by Web-to-Lead; first_name is optional. If a
+      // visitor fills only one box, whatever they gave becomes the last name
+      // rather than being dropped.
+      const firstName = formData.firstName.trim();
+      const lastName = formData.lastName.trim() || firstName;
+      const firstNameForLead = lastName === firstName ? "" : firstName;
 
-      addHiddenField("first_name", firstName);
+      addHiddenField("first_name", firstNameForLead);
       addHiddenField("last_name", lastName);
       addHiddenField("email", formData.email);
       addHiddenField("company", formData.company);
@@ -246,21 +239,48 @@ export default function Contact() {
                       </div>
                     )}
 
-                    <div>
-                      <Label htmlFor="name" className="text-gray-700">
-                        Your Name <span className="text-red-500">*</span>
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        placeholder="First and last name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="mt-1"
-                        disabled={isSubmitting}
-                      />
+                    {/*
+                      Two fields, not one.
+                      Salesforce stores first and last name separately and
+                      REQUIRES last name, so a single box meant guessing where
+                      to split - and "Bob" produced an empty last name that
+                      Salesforce rejected without telling the visitor. Asking
+                      for the two parts removes the guess entirely.
+                    */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="firstName" className="text-gray-700">
+                          First Name
+                        </Label>
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          type="text"
+                          autoComplete="given-name"
+                          placeholder="First name"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName" className="text-gray-700">
+                          Last Name <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          type="text"
+                          required
+                          autoComplete="family-name"
+                          placeholder="Last name"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
                     </div>
 
                     <div>
@@ -477,7 +497,8 @@ export default function Contact() {
                     onClick={() => {
                       setIsSubmitted(false);
                       setFormData({
-                        name: "",
+                        firstName: "",
+                        lastName: "",
                         email: "",
                         company: "",
                         whatYouNeed: "",

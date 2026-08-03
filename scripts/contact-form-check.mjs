@@ -27,42 +27,47 @@ const ok = (label, fn) => {
     console.log(`  ok  ${label}`);
 };
 
-// --- 1. the name split, lifted from Contact.tsx ------------------------------
+// --- 1. the name mapping, lifted from Contact.tsx ----------------------------
 
 const contact = fs.readFileSync(new URL('../client/pages/Contact.tsx', import.meta.url), 'utf8');
 
-/** Mirrors the mapping in Contact.tsx. Kept in step by the assertion below. */
-function splitName(raw) {
-    const nameParts = String(raw).trim().split(/\s+/).filter(Boolean);
-    const firstName = nameParts.length > 1 ? nameParts[0] : '';
-    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : nameParts[0] || '';
-    return {firstName, lastName};
+/** Mirrors the mapping in Contact.tsx. Kept in step by the assertions below. */
+function mapName(rawFirst, rawLast) {
+    const firstName = String(rawFirst).trim();
+    const lastName = String(rawLast).trim() || firstName;
+    const firstNameForLead = lastName === firstName ? '' : firstName;
+    return {firstName: firstNameForLead, lastName};
 }
 
-ok('Contact.tsx still splits on whitespace, not a single space', () =>
-    assert.ok(/split\(\/\\s\+\/\)/.test(contact),
-        'the source no longer matches this check - update splitName() here to match Contact.tsx'));
+ok('the form collects first and last name as separate fields', () => {
+    assert.ok(/id="firstName"/.test(contact) && /id="lastName"/.test(contact),
+        'back to a single name box - that forces a guess about where to split');
+    assert.ok(!/formData\.name\b/.test(contact), 'the combined name field is still referenced');
+});
 
-for (const [input, expected] of [
-    ['Bob', 'Bob'],
-    ['  Bob  ', 'Bob'],
-    ['Madonna', 'Madonna'],
-    ['Louis Rubino', 'Rubino'],
-    ['Louis  Rubino', 'Rubino'],           // double space
-    ['Ana Maria Diaz Ortiz', 'Maria Diaz Ortiz']
+ok('last name is the required one, first name is not', () => {
+    // Web-to-Lead requires last_name and accepts an empty first_name. Marking
+    // the wrong one required is how an empty last_name reached Salesforce.
+    const lastBlock = /id="lastName"[\s\S]{0,220}/.exec(contact)[0];
+    const firstBlock = /id="firstName"[\s\S]{0,220}/.exec(contact)[0];
+    assert.ok(/\brequired\b/.test(lastBlock), 'last name must be required');
+    assert.ok(!/\brequired\b/.test(firstBlock), 'first name must not be required');
+});
+
+for (const [first, last, expectFirst, expectLast] of [
+    ['Louis', 'Rubino', 'Louis', 'Rubino'],
+    ['', 'Rubino', '', 'Rubino'],
+    ['Bob', '', '', 'Bob'],                    // only the first box filled
+    ['  Ana  ', '  Diaz Ortiz ', 'Ana', 'Diaz Ortiz'],
+    ['Madonna', '', '', 'Madonna']             // mononym
 ]) {
-    ok(`last_name is never empty for "${input}"`, () => {
-        const {lastName} = splitName(input);
-        assert.ok(lastName.length > 0, `empty last_name - Salesforce would reject this lead silently`);
-        assert.strictEqual(lastName, expected);
+    ok(`last_name is never empty for ("${first}", "${last}")`, () => {
+        const m = mapName(first, last);
+        assert.ok(m.lastName.length > 0, 'empty last_name - Salesforce rejects this silently');
+        assert.strictEqual(m.lastName, expectLast);
+        assert.strictEqual(m.firstName, expectFirst);
     });
 }
-
-ok('a one-word name goes to last_name, not first_name', () => {
-    const {firstName, lastName} = splitName('Bob');
-    assert.strictEqual(lastName, 'Bob');
-    assert.strictEqual(firstName, '', 'first_name is optional in Web-to-Lead; last_name is not');
-});
 
 // --- 2. the conversion hook --------------------------------------------------
 
