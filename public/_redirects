@@ -11,8 +11,14 @@
 # and roughly a fifth of LinkedIn page views went to the jobs tab. Letting it
 # 404 would discard all of that accrued signal and dead-end every visitor who
 # arrives from an existing search result.
-/careers     https://blog.onealgorithm.com/    301
-/careers/*   https://blog.onealgorithm.com/    301
+#
+# Target the careers TAG, not the blog homepage. Someone arriving on /careers
+# wants the jobs, and the homepage buries them among every other post — it sent
+# candidates to a subscribe box and left them to hunt. The tag page lists every
+# post tagged `careers` and needs no maintenance as roles open and close, which
+# a link straight to one job post would.
+/careers     https://blog.onealgorithm.com/tag/careers/    301
+/careers/*   https://blog.onealgorithm.com/tag/careers/    301
 
 # Anything that matches no file is genuinely missing, so say so.
 #
