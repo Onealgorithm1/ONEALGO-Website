@@ -76,19 +76,38 @@ export default function Careers() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Real openings only, published from Ghost.
-  //
-  // This page previously advertised eighteen invented roles, every one with
-  // availablePositions: 0 - jobs that did not exist, described in detail. That
-  // is worse than an empty page: an applicant reads a role, applies, and hears
-  // nothing because there was never a vacancy.
-  //
-  // Openings now come from the blog. A post tagged "job" at
-  // blog.onealgorithm.com becomes a card here, and the post itself is the full
-  // advert. That means whoever is hiring can publish one without a developer,
-  // each role gets its own indexable page, and this list can never describe a
-  // job nobody is recruiting for - if the post is unpublished, the card is gone.
-  const [jobs, setJobs] = useState<Job[]>([]);
+  /*
+    Openings listed directly on the site.
+
+    This is a recruitment advertisement placed for labour certification, so the
+    wording is reproduced EXACTLY as supplied — including the relocation clause
+    and the postal address. Do not tidy, shorten or rephrase it: the text of
+    this kind of notice has legal significance and paraphrasing it can
+    invalidate the filing. Take the wording from the requester, not from here.
+
+    When the role is filled, delete the entry. Anything published in Ghost with
+    the "job" tag is added to this list automatically.
+  */
+  const listedRoles: Job[] = [
+    {
+      id: "sr-business-systems-engineer-i",
+      title: "Sr. Business Systems Engineer I",
+      icon: <Briefcase className="w-8 h-8 text-onealgo-orange-500" />,
+      location: "Malvern, PA",
+      type: "Full-time",
+      level: "",
+      availablePositions: 1,
+      summary:
+        "Design and develop solutions to complex application problems, system administration issues, and network concerns.",
+      description:
+        "Design and develop solutions to complex application problems, system administration issues, and network concerns. " +
+        "Job based in Malvern, PA. No travel (US or Intl), but 40% chance of relocation to unanticipated locations " +
+        "throughout the U.S. Email resumes to careers@onealgorithm.com or mail: One Algorithm LLC, 625B Swedesford Rd., " +
+        "Malvern, PA 19355.",
+    },
+  ];
+
+  const [jobs, setJobs] = useState<Job[]>(listedRoles);
   const [loadingJobs, setLoadingJobs] = useState(true);
 
   React.useEffect(() => {
@@ -103,8 +122,7 @@ export default function Careers() {
       .then((data) => {
         if (cancelled) return;
         const posts = (data && data.posts) || [];
-        setJobs(
-          posts.map((p: any) => {
+        const fromGhost = posts.map((p: any) => {
             // Optional detail carried as extra tags, e.g. #remote #full-time.
             const extra = (p.tags || [])
               .map((t: any) => t.name)
@@ -120,13 +138,17 @@ export default function Careers() {
               summary: p.custom_excerpt || p.excerpt || "",
               description: p.url,
             } as Job;
-          }),
-        );
+        });
+        // Ghost postings are ADDED to the roles listed above, not swapped for
+        // them — otherwise publishing the first Ghost job would silently remove
+        // a live advert from the page.
+        setJobs([...listedRoles, ...fromGhost]);
       })
       .catch(() => {
-        // A failed fetch must not invent openings. The empty state below says
-        // there are none listed and gives a real address to write to.
-        if (!cancelled) setJobs([]);
+        // A failed fetch must leave the listed roles standing. It must also not
+        // invent anything: if there are none, the empty state below says so and
+        // gives a real address to write to.
+        if (!cancelled) setJobs(listedRoles);
       })
       .finally(() => {
         if (!cancelled) setLoadingJobs(false);
@@ -376,10 +398,22 @@ export default function Careers() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-gray-600 mb-4">{job.summary}</p>
+                        {/*
+                          The full advert is shown, not hidden behind a toggle.
 
-                        <Collapsible trigger="Learn More">
-                          <p className="text-gray-600">{job.description}</p>
+                          It previously sat inside a <Collapsible>, which renders
+                          nothing until a visitor clicks — so the text was absent
+                          from the page source entirely. For a recruitment notice
+                          placed for labour certification that is not acceptable:
+                          the wording has to be plainly readable, and anyone
+                          checking the posting (or any crawler) has to be able to
+                          find it without interacting with the page.
+                        */}
+                        <p className="text-gray-600 mb-4 whitespace-pre-line">
+                          {job.description || job.summary}
+                        </p>
+
+                        <Collapsible trigger="How to apply">
                           <div className="mt-4 p-4 bg-blue-50 rounded-lg">
                             <p className="text-sm text-gray-700">
                               <strong>Ready to apply?</strong> Send your resume
