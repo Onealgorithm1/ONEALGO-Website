@@ -911,8 +911,46 @@ function Layout({ children }: LayoutProps) {
 
             {/* Services */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
+              <h3 className="text-lg font-semibold mb-4">
+                {/*
+                  The heading links to the services hub.
+
+                  /services was an ORPHAN: the only navigation to it was the
+                  header dropdown trigger, which is a <button>, not a link — and
+                  the dropdown's contents are conditionally rendered, so on a
+                  prerendered page none of those links exist in the HTML at all.
+                  Google reported /services as "URL is unknown to Google": never
+                  discovered, because nothing a crawler can read pointed at it.
+                */}
+                <Link
+                  to="/services"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="hover:text-blue-200 transition-colors"
+                >
+                  Services
+                </Link>
+              </h3>
               <div className="space-y-2">
+                <Link
+                  to="/services/martech"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  MarTech
+                </Link>
+                <Link
+                  to="/services/google-ads"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Google Ads
+                </Link>
                 <Link
                   to="/services/website-development"
                   onClick={() =>
@@ -994,6 +1032,39 @@ function Layout({ children }: LayoutProps) {
                 >
                   Zendesk
                 </Link>
+              </div>
+            </div>
+
+            {/*
+              More.
+
+              These were all orphans too — present in the sitemap and linked
+              from no page a crawler can read. A URL reachable only from a
+              sitemap is routinely left undiscovered, which is exactly what
+              Search Console reported for several of them. Google's own guidance
+              is that a sitemap is a hint, not a substitute for a link.
+            */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">More</h3>
+              <div className="space-y-2">
+                {[
+                  ["/industries/marketing", "Marketing Industry"],
+                  ["/industries/website-development", "Web Development Industry"],
+                  ["/careers", "Careers"],
+                  ["/events", "Events"],
+                  ["/ai-info", "AI Information"],
+                ].map(([to, label]) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    className="block text-blue-200 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
               </div>
             </div>
 
