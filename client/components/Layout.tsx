@@ -150,14 +150,13 @@ function Layout({ children }: LayoutProps) {
             </Link>
 
             {/* Desktop Navigation */}
+            {/*
+              No "Home" item. The logo to the left of this nav already links to
+              "/", which is the convention every visitor knows, so the item was
+              a duplicate taking up space next to About. The homepage stays
+              reachable by crawlers through that logo link.
+            */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Home
-              </Link>
               <Link
                 to="/about"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -432,18 +431,12 @@ function Layout({ children }: LayoutProps) {
                   100vh because the browser's own chrome overlaps it - so the
                   bottom of the menu sat off screen with no way to scroll to it. */}
               <div className="flex-1 overflow-y-auto px-3 py-3">
+                {/*
+                  No "Home" here either, matching the desktop nav. The logo at
+                  the top of this drawer already links to "/", so the item was
+                  the same duplicate.
+                */}
                 <nav className="space-y-0.5">
-                  <Link
-                    to="/"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    Home
-                  </Link>
-
                   <Link
                     to="/about"
                     className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
