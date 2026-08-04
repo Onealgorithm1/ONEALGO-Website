@@ -1036,6 +1036,61 @@ function Layout({ children }: LayoutProps) {
             </div>
 
             {/*
+              Certifications.
+
+              These are trust signals for federal, state and local buyers, who
+              routinely filter suppliers by set-aside status before reading
+              anything else. They are NOT backlinks — a link from this site to
+              the SBA gives authority to the SBA, not to us. What earns
+              authority is those directories linking back, which is handled
+              separately; two of them already do.
+
+              Every URL here was fetched and confirmed to exist and to list this
+              company. The Virginia SWaM directory is a single-page app with no
+              per-record permalink, so it links to the directory itself rather
+              than implying a deep link that does not exist.
+
+              rel="noopener" on every target="_blank": without it the opened
+              page can reach back through window.opener.
+            */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Certifications</h3>
+              <div className="space-y-2">
+                {[
+                  [
+                    "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18",
+                    "SBA Certified WOSB / EDWOSB",
+                  ],
+                  [
+                    "https://www.dgs.internet.state.pa.us/suppliersearch/Home/Details/35896",
+                    "PA DGS Registered Supplier",
+                  ],
+                  [
+                    "https://directory.sbsd.virginia.gov/#/directory",
+                    "Virginia SWaM Certified",
+                  ],
+                  [
+                    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
+                    "Salesforce Consulting Partner",
+                  ],
+                ].map(([href, label]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener"
+                    className="block text-blue-200 hover:text-white transition-colors"
+                  >
+                    {label}
+                  </a>
+                ))}
+                <p className="text-blue-300 text-sm pt-2">
+                  UEI W8DYK38MEKP3 · SWaM 843564
+                </p>
+              </div>
+            </div>
+
+            {/*
               More.
 
               These were all orphans too — present in the sitemap and linked
