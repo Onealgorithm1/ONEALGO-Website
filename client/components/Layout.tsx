@@ -914,20 +914,15 @@ function Layout({ children }: LayoutProps) {
                   Contact
                 </Link>
                 {/*
-                  Careers and AI Information live here rather than in a separate
-                  column. Both were previously unreachable by any crawler, but
-                  the answer to that is a link in the right place, not a fifth
-                  footer column.
+                  Careers now lives on the blog, so this points there rather
+                  than at a page on this site. AI Information stays local.
                 */}
-                <Link
-                  to="/careers"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
+                <a
+                  href="https://blog.onealgorithm.com/"
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Careers
-                </Link>
+                </a>
                 <Link
                   to="/ai-info"
                   onClick={() =>
