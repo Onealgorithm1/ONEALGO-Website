@@ -177,8 +177,10 @@ const App = () => (
               />
               <Route path="/industries/government" element={<Government />} />
               <Route path="/contact" element={<Contact />} />
-              {/* /blog is served by Ghost at blog.onealgorithm.com.
-                  public/_redirects sends /blog and /blog/* there with a 301. */}
+              {/* No /blog route here on purpose. Ghost serves onealgorithm.com/blog
+                  itself, via a Cloudflare Worker route that runs ahead of Pages, so
+                  the request never reaches this router. Adding a Route for it would
+                  make in-app navigation render a 404 over a page that works. */}
               <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/ai-info" element={<AiInfo />} />
               <Route path="/privacy" element={<Privacy />} />

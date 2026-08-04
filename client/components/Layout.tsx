@@ -165,11 +165,20 @@ function Layout({ children }: LayoutProps) {
                 About
               </Link>
               {/* Capabilities moved into the Industries menu, under Government. */}
+              {/* Same-origin now that Ghost is served at /blog, but still a plain
+                  <a>: these are not routes in this SPA, so <Link> would hand them
+                  to the router and render a 404 instead of loading the blog. */}
               <a
-                href="https://blog.onealgorithm.com/"
+                href="/blog/"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
               >
                 Blog
+              </a>
+              <a
+                href="/blog/careers/"
+                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+              >
+                Careers
               </a>
 
               {/* Services Dropdown */}
@@ -464,11 +473,18 @@ function Layout({ children }: LayoutProps) {
                   {/* The blog was reachable from the desktop bar but missing here
                       entirely, so on a phone there was no way to find it. */}
                   <a
-                    href="https://blog.onealgorithm.com/"
+                    href="/blog/"
                     className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Blog
+                  </a>
+                  <a
+                    href="/blog/careers/"
+                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Careers
                   </a>
 
                   <div className="mt-2 border-t border-gray-100 pt-2">
@@ -896,10 +912,10 @@ function Layout({ children }: LayoutProps) {
                 >
                   Industries We Serve
                 </Link>
-                {/* External, so a plain <a>: the blog is Ghost on its own
-                    subdomain, not a route in this SPA. */}
+                {/* Ghost, served at /blog on this domain. Still a plain <a> -
+                    it is not a route in this SPA, so <Link> would 404. */}
                 <a
-                  href="https://blog.onealgorithm.com/"
+                  href="/blog/"
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Blog
@@ -916,9 +932,12 @@ function Layout({ children }: LayoutProps) {
                 {/*
                   Careers now lives on the blog, so this points there rather
                   than at a page on this site. AI Information stays local.
+
+                  The careers PAGE, not the blog homepage - this used to drop
+                  candidates on the latest-posts feed and leave them to hunt.
                 */}
                 <a
-                  href="https://blog.onealgorithm.com/"
+                  href="/blog/careers/"
                   className="block text-blue-200 hover:text-white transition-colors"
                 >
                   Careers
