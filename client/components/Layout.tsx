@@ -906,6 +906,30 @@ function Layout({ children }: LayoutProps) {
                 >
                   Contact
                 </Link>
+                {/*
+                  Careers and AI Information live here rather than in a separate
+                  column. Both were previously unreachable by any crawler, but
+                  the answer to that is a link in the right place, not a fifth
+                  footer column.
+                */}
+                <Link
+                  to="/careers"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Careers
+                </Link>
+                <Link
+                  to="/ai-info"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  AI Information
+                </Link>
               </div>
             </div>
 
@@ -1090,38 +1114,6 @@ function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
-            {/*
-              More.
-
-              These were all orphans too — present in the sitemap and linked
-              from no page a crawler can read. A URL reachable only from a
-              sitemap is routinely left undiscovered, which is exactly what
-              Search Console reported for several of them. Google's own guidance
-              is that a sitemap is a hint, not a substitute for a link.
-            */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">More</h3>
-              <div className="space-y-2">
-                {[
-                  ["/industries/marketing", "Marketing Industry"],
-                  ["/industries/website-development", "Web Development Industry"],
-                  ["/careers", "Careers"],
-                  ["/events", "Events"],
-                  ["/ai-info", "AI Information"],
-                ].map(([to, label]) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                    className="block text-blue-200 hover:text-white transition-colors"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
 
             {/* Contact Info */}
             <div>

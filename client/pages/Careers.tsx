@@ -76,272 +76,71 @@ export default function Careers() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const jobCategories = [
-    {
-      title: "Development & Engineering",
-      jobs: [
-        {
-          id: "software-engineer",
-          title: "Software Engineer",
-          icon: <Code className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid to Senior",
-          availablePositions: 0,
-          summary:
-            "Build scalable software solutions that power business transformation across multiple industries.",
-          description:
-            "Join our engineering team to develop cutting-edge applications that streamline business operations. You'll work with modern technologies including React, Node.js, and cloud platforms to create solutions that make a real impact for our clients. Collaborate with cross-functional teams to deliver high-quality software that scales with growing businesses.",
-        },
-        {
-          id: "full-stack-developer",
-          title: "Full-Stack Web Developer",
-          icon: <Monitor className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / On-site",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Create end-to-end web applications from concept to deployment using modern frameworks.",
-          description:
-            "Develop complete web applications using both frontend and backend technologies. Work with React, TypeScript, Node.js, and databases to build responsive, user-friendly applications. You'll be involved in the entire development lifecycle, from initial design to deployment and maintenance.",
-        },
-        {
-          id: "devops-engineer",
-          title: "DevOps Engineer",
-          icon: <Cloud className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote",
-          type: "Full-time",
-          level: "Mid to Senior",
-          availablePositions: 0,
-          summary:
-            "Optimize deployment pipelines and infrastructure to ensure reliable, scalable system operations.",
-          description:
-            "Design and maintain CI/CD pipelines, manage cloud infrastructure, and implement monitoring solutions. Work with AWS, Docker, Kubernetes, and automation tools to ensure our applications run smoothly in production. Focus on security, scalability, and performance optimization.",
-        },
-        {
-          id: "salesforce-developer",
-          title: "Salesforce Developer",
-          icon: <Settings className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Customize and extend Salesforce platforms to meet unique business requirements.",
-          description:
-            "Develop custom Salesforce solutions using Apex, Lightning Web Components, and Flow. Create integrations with external systems and implement complex business logic. Work directly with clients to understand requirements and deliver tailored CRM solutions that drive business growth.",
-        },
-        {
-          id: "data-engineer",
-          title: "Data Engineer",
-          icon: <Database className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid to Senior",
-          availablePositions: 0,
-          summary:
-            "Build robust data pipelines and infrastructure to support analytics and business intelligence.",
-          description:
-            "Design and implement data pipelines, ETL processes, and data warehouses. Work with big data technologies like Apache Spark, Kafka, and cloud data platforms. Ensure data quality, performance, and security while supporting business analytics and machine learning initiatives.",
-        },
-        {
-          id: "servicenow-developer",
-          title: "ServiceNow Developer",
-          icon: <Layers className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Develop and customize ServiceNow applications for IT service management and workflow automation.",
-          description:
-            "Build custom ServiceNow applications and workflows to automate business processes. Work with ServiceNow platform tools, scripting, and integrations to deliver solutions that improve operational efficiency. Collaborate with IT teams to implement ITSM best practices.",
-        },
-        {
-          id: "workday-developer",
-          title: "Workday Developer",
-          icon: <Users className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Configure and customize Workday HCM solutions for human resources and talent management.",
-          description:
-            "Implement Workday HCM modules including Core HCM, Recruiting, and Performance Management. Create custom reports, configure business processes, and integrate Workday with other enterprise systems. Work with HR teams to optimize workforce management processes.",
-        },
-      ],
-    },
-    {
-      title: "Data & Analytics",
-      jobs: [
-        {
-          id: "ai-ml-engineer",
-          title: "AI/ML Engineer",
-          icon: <Brain className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Senior",
-          availablePositions: 0,
-          summary:
-            "Develop and deploy machine learning models to solve complex business problems.",
-          description:
-            "Design, train, and deploy machine learning models for predictive analytics, automation, and intelligent decision-making. Work with TensorFlow, PyTorch, and cloud ML platforms. Collaborate with data scientists and engineers to bring AI solutions from research to production.",
-        },
-        {
-          id: "bi-developer",
-          title: "BI Developer",
-          icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Create dashboards and reports that turn data into actionable business insights.",
-          description:
-            "Develop business intelligence solutions using tools like Power BI, Tableau, and SQL. Design interactive dashboards, create automated reports, and work with stakeholders to understand analytical requirements. Transform complex data into clear, actionable insights for decision-making.",
-        },
-        {
-          id: "data-governance-specialist",
-          title: "Data Governance Specialist",
-          icon: <Shield className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid to Senior",
-          availablePositions: 0,
-          summary:
-            "Ensure data quality, security, and compliance across all organizational data assets.",
-          description:
-            "Establish and maintain data governance frameworks, policies, and procedures. Work with cross-functional teams to ensure data quality, privacy, and regulatory compliance. Implement data catalog systems and metadata management to support data discovery and lineage.",
-        },
-      ],
-    },
-    {
-      title: "Business & Strategy",
-      jobs: [
-        {
-          id: "business-analyst",
-          title: "Business Analyst",
-          icon: <TrendingUp className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Bridge business needs and technology solutions through detailed analysis and requirements gathering.",
-          description:
-            "Work closely with stakeholders to understand business requirements and translate them into technical specifications. Conduct process analysis, create documentation, and facilitate communication between business users and development teams. Help identify opportunities for process improvement and automation.",
-        },
-        {
-          id: "product-owner",
-          title: "Product Owner",
-          icon: <Briefcase className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Senior",
-          availablePositions: 0,
-          summary:
-            "Drive product strategy and roadmap to deliver solutions that meet market and customer needs.",
-          description:
-            "Define product vision, strategy, and roadmap. Work with development teams in an Agile environment to prioritize features and ensure delivery of valuable products. Conduct market research, gather customer feedback, and make data-driven decisions about product direction.",
-        },
-        {
-          id: "program-manager",
-          title: "Program Manager",
-          icon: <Users className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Senior",
-          availablePositions: 0,
-          summary:
-            "Coordinate multiple projects and teams to deliver complex initiatives on time and within budget.",
-          description:
-            "Lead cross-functional teams to deliver large-scale programs and initiatives. Manage project timelines, budgets, and resources while ensuring alignment with business objectives. Communicate with stakeholders at all levels and remove blockers to keep projects on track.",
-        },
-        {
-          id: "finance-strategy-manager",
-          title: "Finance and Strategy Manager",
-          icon: <DollarSign className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Senior",
-          availablePositions: 0,
-          summary:
-            "Drive financial planning and strategic initiatives to support business growth and profitability.",
-          description:
-            "Lead financial analysis, budgeting, and forecasting processes. Develop strategic plans and business cases for new initiatives. Work with leadership to analyze market opportunities and optimize resource allocation. Support decision-making with financial modeling and ROI analysis.",
-        },
-      ],
-    },
-    {
-      title: "Quality & Compliance",
-      jobs: [
-        {
-          id: "qa-specialist",
-          title: "QA Specialist",
-          icon: <FileCheck className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Ensure software quality through comprehensive testing strategies and automation frameworks.",
-          description:
-            "Design and execute test plans, create automated testing frameworks, and ensure software quality throughout the development lifecycle. Work with development teams to implement testing best practices and identify potential issues before production deployment.",
-        },
-        {
-          id: "compliance-analyst",
-          title: "Compliance Analyst",
-          icon: <Shield className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Ensure organizational compliance with industry regulations and internal policies.",
-          description:
-            "Monitor compliance with regulatory requirements and internal policies across all business operations. Conduct risk assessments, develop compliance procedures, and provide training to ensure adherence to standards. Work with legal and audit teams to maintain compliance certifications.",
-        },
-      ],
-    },
-    {
-      title: "Marketing & Growth",
-      jobs: [
-        {
-          id: "digital-marketing-specialist",
-          title: "Digital Marketing Specialist",
-          icon: <TrendingUp className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Full-time",
-          level: "Mid-level",
-          availablePositions: 0,
-          summary:
-            "Drive online presence and lead generation through strategic digital marketing campaigns.",
-          description:
-            "Develop and execute digital marketing strategies across multiple channels including SEO, SEM, social media, and content marketing. Analyze campaign performance, optimize conversion rates, and work with sales teams to generate qualified leads. Stay current with digital marketing trends and best practices.",
-        },
-      ],
-    },
-    {
-      title: "Early Career Opportunities",
-      jobs: [
-        {
-          id: "internships",
-          title: "Internship Program",
-          icon: <GraduationCap className="w-8 h-8 text-onealgo-orange-500" />,
-          location: "Remote / Hybrid",
-          type: "Internship",
-          level: "Entry-level",
-          availablePositions: 0,
-          summary:
-            "Gain hands-on experience in technology and business while contributing to real projects.",
-          description:
-            "Our comprehensive internship program offers students and recent graduates the opportunity to work on meaningful projects across various departments. Receive mentorship from experienced professionals, participate in training sessions, and contribute to client solutions. Available in software development, data analysis, business analysis, and digital marketing.",
-        },
-      ],
-    },
-  ];
+  // Real openings only, published from Ghost.
+  //
+  // This page previously advertised eighteen invented roles, every one with
+  // availablePositions: 0 - jobs that did not exist, described in detail. That
+  // is worse than an empty page: an applicant reads a role, applies, and hears
+  // nothing because there was never a vacancy.
+  //
+  // Openings now come from the blog. A post tagged "job" at
+  // blog.onealgorithm.com becomes a card here, and the post itself is the full
+  // advert. That means whoever is hiring can publish one without a developer,
+  // each role gets its own indexable page, and this list can never describe a
+  // job nobody is recruiting for - if the post is unpublished, the card is gone.
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loadingJobs, setLoadingJobs] = useState(true);
+
+  React.useEffect(() => {
+    const KEY = "9c852884ecf4b8b550b743674b"; // Ghost Content API key - read-only, safe in a browser
+    const url =
+      "https://blog.onealgorithm.com/ghost/api/content/posts/" +
+      "?key=" + KEY + "&filter=tag:job&limit=all&include=tags";
+
+    let cancelled = false;
+    fetch(url)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((data) => {
+        if (cancelled) return;
+        const posts = (data && data.posts) || [];
+        setJobs(
+          posts.map((p: any) => {
+            // Optional detail carried as extra tags, e.g. #remote #full-time.
+            const extra = (p.tags || [])
+              .map((t: any) => t.name)
+              .filter((n: string) => n && n.toLowerCase() !== "job");
+            return {
+              id: p.slug,
+              title: p.title,
+              icon: <Briefcase className="w-8 h-8 text-onealgo-orange-500" />,
+              location: extra[0] || "",
+              type: extra[1] || "",
+              level: extra[2] || "",
+              availablePositions: 1,
+              summary: p.custom_excerpt || p.excerpt || "",
+              description: p.url,
+            } as Job;
+          }),
+        );
+      })
+      .catch(() => {
+        // A failed fetch must not invent openings. The empty state below says
+        // there are none listed and gives a real address to write to.
+        if (!cancelled) setJobs([]);
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingJobs(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const jobCategories: JobCategory[] = useMemo(
+    () => (jobs.length ? [{ title: "Current Openings", jobs }] : []),
+    [jobs],
+  );
 
   // Filter jobs based on search term
   const filteredCategories = useMemo(() => {
@@ -476,7 +275,40 @@ export default function Careers() {
             )}
           </div>
 
-          {filteredCategories.length === 0 && searchTerm ? (
+          {loadingJobs ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500">Loading current openings…</p>
+            </div>
+          ) : jobs.length === 0 ? (
+            /*
+              No openings, said plainly.
+
+              The previous version of this page filled the gap with eighteen
+              invented roles. An empty careers page is not a problem to be
+              disguised - it is the truth, and it still has somewhere useful to
+              send an interested person.
+            */
+            <div className="text-center py-16 max-w-2xl mx-auto">
+              <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                No open roles at the moment
+              </h3>
+              <p className="text-gray-600 mb-6">
+                We are not actively recruiting right now, but we do keep
+                speculative applications on file and we hire as projects grow.
+                If your experience fits the work we do, we would still like to
+                hear from you.
+              </p>
+              <Button
+                asChild
+                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+              >
+                <a href="mailto:careers@onealgorithm.com?subject=Speculative%20application">
+                  Email careers@onealgorithm.com
+                </a>
+              </Button>
+            </div>
+          ) : filteredCategories.length === 0 && searchTerm ? (
             <div className="text-center py-16">
               <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-600 mb-2">
