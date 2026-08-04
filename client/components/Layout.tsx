@@ -164,13 +164,7 @@ function Layout({ children }: LayoutProps) {
               >
                 About
               </Link>
-              <Link
-                to="/capabilities"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Capabilities
-              </Link>
+              {/* Capabilities moved into the Industries menu, under Government. */}
               <a
                 href="https://blog.onealgorithm.com/"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -373,6 +367,23 @@ function Layout({ children }: LayoutProps) {
                       >
                         Government
                       </Link>
+                      {/*
+                        Capabilities sits under Government rather than in the
+                        top-level nav. A capability statement is a government
+                        contracting artefact — the people who look for one are
+                        already in this part of the site, and everyone else was
+                        being shown a term that means nothing to them.
+                      */}
+                      <Link
+                        to="/capabilities"
+                        className="block px-4 py-2 pl-8 text-gray-600 text-sm hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Capability Statement
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -448,16 +459,7 @@ function Layout({ children }: LayoutProps) {
                     About
                   </Link>
 
-                  <Link
-                    to="/capabilities"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    Capabilities
-                  </Link>
+                  {/* Capabilities moved into the Industries menu, under Government. */}
 
                   {/* The blog was reachable from the desktop bar but missing here
                       entirely, so on a phone there was no way to find it. */}
@@ -671,6 +673,18 @@ function Layout({ children }: LayoutProps) {
                           }}
                         >
                           Government
+                        </Link>
+                        {/* Same placement as the desktop menu. */}
+                        <Link
+                          to="/capabilities"
+                          className="block rounded-lg px-3 py-2.5 pl-8 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Capability Statement
                         </Link>
                       </div>
                     )}
@@ -1101,36 +1115,25 @@ function Layout({ children }: LayoutProps) {
                     {label}
                   </a>
                 ))}
-                <p className="text-blue-300 text-sm pt-2">
-                  UEI W8DYK38MEKP3 · SWaM 843564
-                </p>
+                {/*
+                  The UEI and SWaM numbers are no longer printed here. They stay
+                  in the Organization structured data as identifiers, which is
+                  where they do the work — search engines and AI assistants can
+                  still tie this company to its federal registration.
+                */}
               </div>
             </div>
 
 
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
-              <div className="space-y-2 text-blue-200">
-                <a
-                  href="mailto:service@onealgorithm.com"
-                  className="block hover:text-white transition-colors"
-                >
-                  service@onealgorithm.com
-                </a>
-                <a
-                  href="tel:+16108909711"
-                  className="block hover:text-white transition-colors"
-                >
-                  1 (610) 890-9711
-                </a>
-                <p>
-                  625 Swedesford Rd
-                  <br />
-                  Malvern, PA 19355
-                </p>
-              </div>
-            </div>
+            {/*
+              Contact block removed at the client's request.
+
+              Worth recording: a visible name, address and phone number is a
+              local search signal, and the footer was the only place all three
+              appeared on every page. They remain in the LocalBusiness
+              structured data in index.html, so machines can still read them —
+              but a person now has to reach /contact to find them.
+            */}
           </div>
 
           {/* Bottom Bar */}
