@@ -22,8 +22,7 @@ const PORT = 0;
 
 const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
-  "/ai-info", "/privacy", "/terms", "/careers", "/events",
-  "/services/website-development", "/services/marketing", "/services/seo",
+  "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
   "/services/it-consulting", "/services/operations-technology",
   "/services/oracle-erp", "/services/salesforce", "/services/zendesk",

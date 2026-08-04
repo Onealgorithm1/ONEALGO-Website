@@ -35,23 +35,41 @@ function sitemapUrls() {
     return [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(m => normalise(m[1].trim()));
 }
 
-/** Every internal link a crawler would find, read from rendered HTML. */
-async function linkedUrls(pages) {
-    const links = new Set();
-    for (const page of pages) {
-        let html = '';
-        if (SITE) {
-            html = await fetch(SITE + page).then(r => r.text()).catch(() => '');
-        } else {
-            const file = path.join(dist, page === '/' ? 'index.html' : `${page.slice(1)}/index.html`);
-            const flat = path.join(dist, page === '/' ? 'index.html' : `${page.slice(1)}.html`);
-            const found = fs.existsSync(file) ? file : (fs.existsSync(flat) ? flat : null);
-            if (!found) continue;
-            html = fs.readFileSync(found, 'utf8');
+/** The rendered HTML for one path, from the build or the live site. */
+async function htmlFor(page) {
+    if (SITE) return fetch(SITE + page).then(r => r.text()).catch(() => '');
+    const nested = path.join(dist, page === '/' ? 'index.html' : `${page.slice(1)}/index.html`);
+    const flat = path.join(dist, page === '/' ? 'index.html' : `${page.slice(1)}.html`);
+    const found = fs.existsSync(nested) ? nested : (fs.existsSync(flat) ? flat : null);
+    return found ? fs.readFileSync(found, 'utf8') : '';
+}
+
+/**
+ * Every internal URL reachable by CRAWLING from the homepage.
+ *
+ * Sampling a handful of pages was not good enough and produced false orphans:
+ * the industry sub-pages are linked from /industries and nowhere else, so
+ * checking only /, /about and /contact reported them as unreachable when a
+ * crawler would find them one hop later. This follows links transitively, which
+ * is what the thing being modelled actually does.
+ */
+async function linkedUrls(seeds) {
+    const seen = new Set();
+    const queue = [...seeds];
+    while (queue.length) {
+        const page = queue.shift();
+        if (seen.has(page)) continue;
+        seen.add(page);
+        const html = await htmlFor(page);
+        if (!html) continue;
+        for (const m of html.matchAll(/<a\b[^>]*href="(\/[^"#?]*)"/gi)) {
+            const link = normalise(m[1]);
+            // Only follow pages, not assets - a PDF has no links to give us.
+            if (/\.[a-z0-9]{2,4}$/i.test(link)) { seen.add(link); continue; }
+            if (!seen.has(link)) queue.push(link);
         }
-        for (const m of html.matchAll(/<a\b[^>]*href="(\/[^"#?]*)"/gi)) links.add(normalise(m[1]));
     }
-    return links;
+    return seen;
 }
 
 const urls = sitemapUrls();
@@ -60,9 +78,8 @@ if (!urls.length) {
     process.exit(0);
 }
 
-// The footer is on every page, so checking a handful is enough to see it.
-const sample = ['/', '/about', '/contact'].filter(p => urls.includes(p));
-const linked = await linkedUrls(sample.length ? sample : ['/']);
+// Start where a crawler starts, and follow links from there.
+const linked = await linkedUrls(['/']);
 
 if (!linked.size) {
     console.log('No rendered HTML found. Run `npm run build:static` first, or set SITE=https://onealgorithm.com');

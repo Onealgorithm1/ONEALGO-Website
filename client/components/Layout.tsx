@@ -150,14 +150,13 @@ function Layout({ children }: LayoutProps) {
             </Link>
 
             {/* Desktop Navigation */}
+            {/*
+              No "Home" item. The logo to the left of this nav already links to
+              "/", which is the convention every visitor knows, so the item was
+              a duplicate taking up space next to About. The homepage stays
+              reachable by crawlers through that logo link.
+            */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link
-                to="/"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Home
-              </Link>
               <Link
                 to="/about"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -165,13 +164,7 @@ function Layout({ children }: LayoutProps) {
               >
                 About
               </Link>
-              <Link
-                to="/capabilities"
-                className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Capabilities
-              </Link>
+              {/* Capabilities moved into the Industries menu, under Government. */}
               <a
                 href="https://blog.onealgorithm.com/"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -374,6 +367,23 @@ function Layout({ children }: LayoutProps) {
                       >
                         Government
                       </Link>
+                      {/*
+                        Capabilities sits under Government rather than in the
+                        top-level nav. A capability statement is a government
+                        contracting artefact — the people who look for one are
+                        already in this part of the site, and everyone else was
+                        being shown a term that means nothing to them.
+                      */}
+                      <Link
+                        to="/capabilities"
+                        className="block px-4 py-2 pl-8 text-gray-600 text-sm hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                        onClick={() => {
+                          setIndustriesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        Capability Statement
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -432,18 +442,12 @@ function Layout({ children }: LayoutProps) {
                   100vh because the browser's own chrome overlaps it - so the
                   bottom of the menu sat off screen with no way to scroll to it. */}
               <div className="flex-1 overflow-y-auto px-3 py-3">
+                {/*
+                  No "Home" here either, matching the desktop nav. The logo at
+                  the top of this drawer already links to "/", so the item was
+                  the same duplicate.
+                */}
                 <nav className="space-y-0.5">
-                  <Link
-                    to="/"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    Home
-                  </Link>
-
                   <Link
                     to="/about"
                     className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
@@ -455,16 +459,7 @@ function Layout({ children }: LayoutProps) {
                     About
                   </Link>
 
-                  <Link
-                    to="/capabilities"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    Capabilities
-                  </Link>
+                  {/* Capabilities moved into the Industries menu, under Government. */}
 
                   {/* The blog was reachable from the desktop bar but missing here
                       entirely, so on a phone there was no way to find it. */}
@@ -678,6 +673,18 @@ function Layout({ children }: LayoutProps) {
                           }}
                         >
                           Government
+                        </Link>
+                        {/* Same placement as the desktop menu. */}
+                        <Link
+                          to="/capabilities"
+                          className="block rounded-lg px-3 py-2.5 pl-8 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          Capability Statement
                         </Link>
                       </div>
                     )}
@@ -906,6 +913,25 @@ function Layout({ children }: LayoutProps) {
                 >
                   Contact
                 </Link>
+                {/*
+                  Careers now lives on the blog, so this points there rather
+                  than at a page on this site. AI Information stays local.
+                */}
+                <a
+                  href="https://blog.onealgorithm.com/"
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  Careers
+                </a>
+                <Link
+                  to="/ai-info"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="block text-blue-200 hover:text-white transition-colors"
+                >
+                  AI Information
+                </Link>
               </div>
             </div>
 
@@ -1036,61 +1062,73 @@ function Layout({ children }: LayoutProps) {
             </div>
 
             {/*
-              More.
+              Certifications.
 
-              These were all orphans too — present in the sitemap and linked
-              from no page a crawler can read. A URL reachable only from a
-              sitemap is routinely left undiscovered, which is exactly what
-              Search Console reported for several of them. Google's own guidance
-              is that a sitemap is a hint, not a substitute for a link.
+              These are trust signals for federal, state and local buyers, who
+              routinely filter suppliers by set-aside status before reading
+              anything else. They are NOT backlinks — a link from this site to
+              the SBA gives authority to the SBA, not to us. What earns
+              authority is those directories linking back, which is handled
+              separately; two of them already do.
+
+              Every URL here was fetched and confirmed to exist and to list this
+              company. The Virginia SWaM directory is a single-page app with no
+              per-record permalink, so it links to the directory itself rather
+              than implying a deep link that does not exist.
+
+              rel="noopener" on every target="_blank": without it the opened
+              page can reach back through window.opener.
             */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">More</h3>
+              <h3 className="text-lg font-semibold mb-4">Certifications</h3>
               <div className="space-y-2">
                 {[
-                  ["/industries/marketing", "Marketing Industry"],
-                  ["/industries/website-development", "Web Development Industry"],
-                  ["/careers", "Careers"],
-                  ["/events", "Events"],
-                  ["/ai-info", "AI Information"],
-                ].map(([to, label]) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
+                  [
+                    "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18",
+                    "SBA Certified WOSB / EDWOSB",
+                  ],
+                  [
+                    "https://www.dgs.internet.state.pa.us/suppliersearch/Home/Details/35896",
+                    "PA DGS Registered Supplier",
+                  ],
+                  [
+                    "https://directory.sbsd.virginia.gov/#/directory",
+                    "Virginia SWaM Certified",
+                  ],
+                  [
+                    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
+                    "Salesforce Consulting Partner",
+                  ],
+                ].map(([href, label]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener"
                     className="block text-blue-200 hover:text-white transition-colors"
                   >
                     {label}
-                  </Link>
+                  </a>
                 ))}
+                {/*
+                  The UEI and SWaM numbers are no longer printed here. They stay
+                  in the Organization structured data as identifiers, which is
+                  where they do the work — search engines and AI assistants can
+                  still tie this company to its federal registration.
+                */}
               </div>
             </div>
 
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
-              <div className="space-y-2 text-blue-200">
-                <a
-                  href="mailto:service@onealgorithm.com"
-                  className="block hover:text-white transition-colors"
-                >
-                  service@onealgorithm.com
-                </a>
-                <a
-                  href="tel:+16108909711"
-                  className="block hover:text-white transition-colors"
-                >
-                  1 (610) 890-9711
-                </a>
-                <p>
-                  625 Swedesford Rd
-                  <br />
-                  Malvern, PA 19355
-                </p>
-              </div>
-            </div>
+
+            {/*
+              Contact block removed at the client's request.
+
+              Worth recording: a visible name, address and phone number is a
+              local search signal, and the footer was the only place all three
+              appeared on every page. They remain in the LocalBusiness
+              structured data in index.html, so machines can still read them —
+              but a person now has to reach /contact to find them.
+            */}
           </div>
 
           {/* Bottom Bar */}

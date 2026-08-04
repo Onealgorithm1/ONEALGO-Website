@@ -168,6 +168,56 @@ export default function Industries() {
                 </Button>
               </CardContent>
             </Card>
+
+            {/*
+              Marketing and Website Development were missing from this grid.
+
+              Both pages exist and are in the sitemap, but nothing linked to
+              them — Search Console reported them as never discovered by Google.
+              They belong here, on the hub page for their own section, rather
+              than bolted onto the footer.
+            */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-2xl text-onealgo-blue-950">
+                  Marketing
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Connect the tools that generate demand — campaigns, analytics
+                  and CRM — so every enquiry is measured and nothing is lost
+                  between systems.
+                </p>
+                <Button
+                  asChild
+                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+                >
+                  <Link to="/industries/marketing">Learn More</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-2xl text-onealgo-blue-950">
+                  Website Development
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Sites built to be found and to convert — fast, accessible, and
+                  measurable, rather than rebuilt every time the business
+                  changes.
+                </p>
+                <Button
+                  asChild
+                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+                >
+                  <Link to="/industries/website-development">Learn More</Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

@@ -4,6 +4,16 @@
 /blog        https://blog.onealgorithm.com/    301
 /blog/*      https://blog.onealgorithm.com/    301
 
+# The careers page has moved to the blog, where jobs are now published.
+#
+# A 301 rather than a 404 because /careers was the single highest-traffic page
+# on this site in search — it drew more impressions than any commercial page,
+# and roughly a fifth of LinkedIn page views went to the jobs tab. Letting it
+# 404 would discard all of that accrued signal and dead-end every visitor who
+# arrives from an existing search result.
+/careers     https://blog.onealgorithm.com/    301
+/careers/*   https://blog.onealgorithm.com/    301
+
 # Anything that matches no file is genuinely missing, so say so.
 #
 # Cloudflare Pages was serving 404.html for unknown paths but with a 200 status,
