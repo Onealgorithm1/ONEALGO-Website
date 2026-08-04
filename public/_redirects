@@ -1,8 +1,9 @@
-# The old React /blog page is gone. Its posts were removed as unpublishable
-# (fabricated bylines, unsourced statistics). Send readers and crawlers to the
-# real blog. 301 = permanent, so search engines transfer any accrued signal.
-/blog        https://blog.onealgorithm.com/    301
-/blog/*      https://blog.onealgorithm.com/    301
+# NOTHING for /blog here. The blog is now served AT onealgorithm.com/blog by the
+# oa-blog-debrand worker, which proxies Ghost (url=https://onealgorithm.com/blog).
+#
+# A rule here would fight that route and win intermittently: while both existed,
+# /blog/ and the post served correctly but /blog/sitemap.xml got 301'd to a
+# subdomain that no longer serves a root, so it 404'd. Leave this gap alone.
 
 # The careers page has moved to the blog, where jobs are now published.
 #
@@ -17,8 +18,8 @@
 # candidates to a subscribe box and left them to hunt. The tag page lists every
 # post tagged `careers` and needs no maintenance as roles open and close, which
 # a link straight to one job post would.
-/careers     https://blog.onealgorithm.com/tag/careers/    301
-/careers/*   https://blog.onealgorithm.com/tag/careers/    301
+/careers     /blog/tag/careers/    301
+/careers/*   /blog/tag/careers/    301
 
 # Anything that matches no file is genuinely missing, so say so.
 #
