@@ -2,6 +2,12 @@ User-agent: *
 Allow: /
 
 Sitemap: https://onealgorithm.com/sitemap.xml
+# The blog runs on Ghost at /blog and maintains its own sitemap. The line above
+# covers only the marketing site and contains no blog URLs, so without this the
+# blog is left to be discovered by following internal links rather than being
+# declared. Ghost keeps its sitemap current as posts are published, which is why
+# this points at Ghost's index instead of copying blog URLs into the static one.
+Sitemap: https://onealgorithm.com/blog/sitemap.xml
 
 # Explicitly allow AI crawlers for maximum SEO visibility
 User-agent: GPTBot
