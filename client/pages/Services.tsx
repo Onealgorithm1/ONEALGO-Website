@@ -147,14 +147,15 @@ export default function Services() {
               <CardHeader>
                 <Megaphone className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" />
                 <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Marketing
+                  Marketing &amp; Social Media
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Create campaigns that adapt instantly to customer behavior and
-                  preferences with AI-driven insights and automated lead
-                  nurturing.
+                  Social media management for the Facebook Pages and Instagram
+                  business accounts our clients own, plus campaigns that adapt
+                  to customer behavior with AI-driven insights and automated
+                  lead nurturing.
                 </p>
                 <Button
                   asChild

@@ -9,7 +9,18 @@ import {
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
-import { Target, TrendingUp, Users, Zap, BarChart3, Mail } from "lucide-react";
+import {
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+  BarChart3,
+  Mail,
+  Facebook,
+  CalendarDays,
+  LineChart,
+  ShieldCheck,
+} from "lucide-react";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
@@ -18,21 +29,21 @@ import {
 
 export default function Marketing() {
   useSEO({
-    title: "OneAlgorithm — Marketing Services",
+    title: "OneAlgorithm — Marketing & Social Media Management Services",
     description:
-      "Comprehensive marketing services with AI-driven insights, campaign management, and customer journey optimization. Boost your marketing ROI with data analytics.",
+      "Marketing services including social media management for Facebook Pages and Instagram business accounts, campaign management, AI-driven insights, and performance reporting for our clients.",
     canonical: getCanonicalUrl("/services/marketing"),
     keywords:
-      "marketing services, campaign management, AI marketing, customer journey optimization, marketing analytics, digital marketing automation",
-    ogTitle: "OneAlgorithm — Marketing Services",
+      "social media management, Facebook Page management, Instagram management, marketing services, campaign management, AI marketing, customer journey optimization, marketing analytics, digital marketing automation",
+    ogTitle: "OneAlgorithm — Marketing & Social Media Management Services",
     ogDescription:
-      "Comprehensive marketing services including campaign management, AI-driven insights, customer journey optimization, and data analytics. Boost your marketing ROI with OneAlgorithm.",
+      "Social media management for client Facebook Pages and Instagram business accounts, plus campaign management, AI-driven insights, and performance reporting.",
     ogUrl: getCanonicalUrl("/services/marketing"),
     ogImage:
       "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — Marketing Services",
+    twitterTitle: "OneAlgorithm — Marketing & Social Media Management Services",
     twitterDescription:
-      "Comprehensive marketing services including campaign management, AI-driven insights, customer journey optimization, and data analytics. Boost your marketing ROI with OneAlgorithm.",
+      "Social media management for client Facebook Pages and Instagram business accounts, plus campaign management, AI-driven insights, and performance reporting.",
     twitterImage:
       "https://onealgorithm.com/og-image.jpg",
   });
@@ -78,8 +89,8 @@ export default function Marketing() {
     <Layout>
       <StructuredData
         data={createServiceSchema(
-          "Marketing Services",
-          "Comprehensive marketing services including campaign management, AI-driven insights, customer journey optimization, and data analytics.",
+          "Marketing & Social Media Management Services",
+          "Social media management for client-owned Facebook Pages and Instagram business accounts — content planning, publishing and performance reporting — alongside campaign management, AI-driven insights and customer journey optimization.",
           "Marketing",
           "https://onealgorithm.com/services/marketing",
         )}
@@ -100,8 +111,10 @@ export default function Marketing() {
               <span className="text-purple-500">Automation Solutions</span>
             </h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Create campaigns that adapt instantly to customer behavior and
-              preferences with AI-driven insights and automated lead nurturing.
+              We manage social media accounts for our clients and build
+              campaigns that adapt to customer behavior — with AI-driven
+              insights, automated lead nurturing, and reporting that shows what
+              their marketing is actually doing.
             </p>
             <Button
               asChild
@@ -148,8 +161,152 @@ export default function Marketing() {
         </div>
       </section>
 
+      {/* Social Media Management
+          Describes the service exactly as it is delivered, including which
+          platform data we read and why. Meta's Access Verification review
+          checks this page against what the business claims it does, so the
+          wording here and in that submission must stay in step. */}
+      <section id="social-media-management" className="py-20 bg-onealgo-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Social Media Management
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We manage the Facebook Pages and Instagram business accounts our
+              clients own — planning and publishing content, keeping profiles
+              current, and reporting on what each channel is delivering.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="border-2 hover:border-purple-500 transition-colors bg-white">
+              <CardHeader>
+                <Facebook className="w-8 h-8 text-onealgo-orange-500" />
+                <CardTitle className="text-onealgo-blue-950">
+                  Facebook &amp; Instagram
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Day-to-day management of the Facebook Pages and Instagram
+                  business accounts our clients connect to us, kept consistent
+                  with their brand.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-purple-500 transition-colors bg-white">
+              <CardHeader>
+                <CalendarDays className="w-8 h-8 text-onealgo-orange-500" />
+                <CardTitle className="text-onealgo-blue-950">
+                  Content Planning &amp; Publishing
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Campaign calendars, scheduled posts and coordinated launches
+                  across every channel a client asks us to run.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-purple-500 transition-colors bg-white">
+              <CardHeader>
+                <LineChart className="w-8 h-8 text-onealgo-orange-500" />
+                <CardTitle className="text-onealgo-blue-950">
+                  Performance Reporting
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Follower growth, reach and engagement collected from each
+                  connected account and reported back in plain language — not
+                  screenshots of dashboards.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-purple-500 transition-colors bg-white">
+              <CardHeader>
+                <ShieldCheck className="w-8 h-8 text-onealgo-orange-500" />
+                <CardTitle className="text-onealgo-blue-950">
+                  Access &amp; Governance
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Clients keep ownership of their own accounts and grant us
+                  access as a partner. They can withdraw it at any time.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              How it works
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              <div>
+                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                  1
+                </div>
+                <h4 className="font-semibold text-onealgo-blue-950 mb-2">
+                  You grant access
+                </h4>
+                <p className="text-gray-600">
+                  You add One Algorithm as a partner on your own business
+                  account. Your Pages and profiles stay yours throughout.
+                </p>
+              </div>
+              <div>
+                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                  2
+                </div>
+                <h4 className="font-semibold text-onealgo-blue-950 mb-2">
+                  We manage and measure
+                </h4>
+                <p className="text-gray-600">
+                  We publish and maintain your content, and collect the audience
+                  and engagement figures each platform reports.
+                </p>
+              </div>
+              <div>
+                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mb-3">
+                  3
+                </div>
+                <h4 className="font-semibold text-onealgo-blue-950 mb-2">
+                  You see the results
+                </h4>
+                <p className="text-gray-600">
+                  One report covering every channel, so you can tell what is
+                  working without logging into five different tools.
+                </p>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              How we use platform data
+            </h3>
+            <p className="text-gray-600 mb-4">
+              To deliver this service we read information from the accounts our
+              clients connect to us: Page and profile details, follower counts,
+              post performance and engagement figures. We use it for one purpose
+              — running and reporting on that client&rsquo;s own marketing.
+            </p>
+            <p className="text-gray-600">
+              We do not sell it, we do not combine one client&rsquo;s data with
+              another&rsquo;s, and our access ends when the engagement ends.
+              Nothing is published to a client&rsquo;s account without their
+              approval.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-20 bg-onealgo-light">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -218,7 +375,7 @@ export default function Marketing() {
       <section className="py-8 bg-gray-50 border-t">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SocialShare
-            title="Marketing Solutions - AI-Driven Campaigns & Automation - OneAlgorithm"
+            title="Social Media Management & Marketing Solutions - OneAlgorithm"
             className="justify-center"
           />
         </div>
