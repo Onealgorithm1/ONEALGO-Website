@@ -1,12 +1,5 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
 import {
   Users,
@@ -20,12 +13,148 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  ProcessSteps,
+  CTABand,
+} from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
 } from "../../components/StructuredData";
+
+/* Staff augmentation - 2026 refresh.
+ *
+ * Presentation only. Every claim, benefit and engagement model is carried over
+ * word for word. Two things went:
+ *
+ *  1. The frosted "Expert Teams / Ready to integrate with your projects" panel
+ *     in the hero. It restated the bullets beside it in a decorative box, and
+ *     the hero is now type-led rather than two-column.
+ *  2. The green CheckCircle rows under each engagement model, replaced by the
+ *     shared CheckList - green was a third accent colour nothing else used.
+ */
+
+const SKILLS = [
+  {
+    icon: Code,
+    name: "Full-Stack Development",
+    description: "React, Node.js, Python, .NET",
+  },
+  {
+    icon: Smartphone,
+    name: "Mobile Development",
+    description: "iOS, Android, React Native",
+  },
+  {
+    icon: Database,
+    name: "Data Engineering",
+    description: "SQL, NoSQL, Big Data, Analytics",
+  },
+  {
+    icon: Globe,
+    name: "DevOps & Cloud",
+    description: "AWS, Azure, Docker, Kubernetes",
+  },
+  {
+    icon: Shield,
+    name: "Cybersecurity",
+    description: "Security Audits, Compliance",
+  },
+  {
+    icon: Zap,
+    name: "AI & Machine Learning",
+    description: "Python, TensorFlow, Data Science",
+  },
+];
+
+const BENEFITS = [
+  {
+    icon: Clock,
+    title: "Rapid Scaling",
+    description:
+      "Scale your team up or down quickly based on project needs without the overhead of traditional hiring.",
+  },
+  {
+    icon: Target,
+    title: "Specialized Expertise",
+    description:
+      "Access highly skilled professionals with specific technical expertise for your unique requirements.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Cost Effective",
+    description:
+      "Reduce recruitment costs and overhead while maintaining high-quality deliverables.",
+  },
+  {
+    icon: Users,
+    title: "Seamless Integration",
+    description:
+      "Our professionals integrate seamlessly with your existing team and workflows.",
+  },
+];
+
+const ENGAGEMENT_MODELS = [
+  {
+    title: "Dedicated Teams",
+    description:
+      "Full-time dedicated teams working exclusively on your projects with deep integration into your processes.",
+    features: [
+      "Full-time commitment",
+      "Deep project knowledge",
+      "Long-term partnership",
+      "Direct communication",
+    ],
+  },
+  {
+    title: "Project-Based",
+    description:
+      "Expert professionals assigned to specific projects with defined deliverables and timelines.",
+    features: [
+      "Fixed scope delivery",
+      "Milestone-based progress",
+      "Specialized skills",
+      "Defined timelines",
+    ],
+  },
+  {
+    title: "Hourly Consulting",
+    description:
+      "Flexible hourly engagement for specific tasks, code reviews, or technical consultation.",
+    features: [
+      "Flexible scheduling",
+      "Expert consultation",
+      "Task-specific help",
+      "Cost-effective",
+    ],
+  },
+];
+
+const PROCESS = [
+  {
+    title: "Requirements Analysis",
+    body: "We analyze your project requirements, technical stack, and team dynamics.",
+  },
+  {
+    title: "Talent Matching",
+    body: "We select professionals with the exact skills and experience you need.",
+  },
+  {
+    title: "Integration",
+    body: "Seamless onboarding and integration with your existing team and processes.",
+  },
+  {
+    title: "Ongoing Support",
+    body: "Continuous support and performance monitoring throughout the engagement.",
+  },
+];
 
 export default function StaffAugmentation() {
   useSEO({
@@ -47,101 +176,6 @@ export default function StaffAugmentation() {
     twitterImage:
       "https://onealgorithm.com/og-image.jpg",
   });
-  const skills = [
-    {
-      icon: Code,
-      name: "Full-Stack Development",
-      description: "React, Node.js, Python, .NET",
-    },
-    {
-      icon: Smartphone,
-      name: "Mobile Development",
-      description: "iOS, Android, React Native",
-    },
-    {
-      icon: Database,
-      name: "Data Engineering",
-      description: "SQL, NoSQL, Big Data, Analytics",
-    },
-    {
-      icon: Globe,
-      name: "DevOps & Cloud",
-      description: "AWS, Azure, Docker, Kubernetes",
-    },
-    {
-      icon: Shield,
-      name: "Cybersecurity",
-      description: "Security Audits, Compliance",
-    },
-    {
-      icon: Zap,
-      name: "AI & Machine Learning",
-      description: "Python, TensorFlow, Data Science",
-    },
-  ];
-
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Rapid Scaling",
-      description:
-        "Scale your team up or down quickly based on project needs without the overhead of traditional hiring.",
-    },
-    {
-      icon: Target,
-      title: "Specialized Expertise",
-      description:
-        "Access highly skilled professionals with specific technical expertise for your unique requirements.",
-    },
-    {
-      icon: CheckCircle,
-      title: "Cost Effective",
-      description:
-        "Reduce recruitment costs and overhead while maintaining high-quality deliverables.",
-    },
-    {
-      icon: Users,
-      title: "Seamless Integration",
-      description:
-        "Our professionals integrate seamlessly with your existing team and workflows.",
-    },
-  ];
-
-  const engagementModels = [
-    {
-      title: "Dedicated Teams",
-      description:
-        "Full-time dedicated teams working exclusively on your projects with deep integration into your processes.",
-      features: [
-        "Full-time commitment",
-        "Deep project knowledge",
-        "Long-term partnership",
-        "Direct communication",
-      ],
-    },
-    {
-      title: "Project-Based",
-      description:
-        "Expert professionals assigned to specific projects with defined deliverables and timelines.",
-      features: [
-        "Fixed scope delivery",
-        "Milestone-based progress",
-        "Specialized skills",
-        "Defined timelines",
-      ],
-    },
-    {
-      title: "Hourly Consulting",
-      description:
-        "Flexible hourly engagement for specific tasks, code reviews, or technical consultation.",
-      features: [
-        "Flexible scheduling",
-        "Expert consultation",
-        "Task-specific help",
-        "Cost-effective",
-      ],
-    },
-  ];
 
   return (
     <Layout>
@@ -153,265 +187,108 @@ export default function StaffAugmentation() {
           "https://onealgorithm.com/services/staff-augmentation",
         )}
       />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Staff{" "}
-                <span className="text-onealgo-orange-500">Augmentation</span>{" "}
-                Services
-              </h1>
-              <ul className="text-xl text-blue-200 mb-8 space-y-3">
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3">•</span>
-                  Flexible staffing for exceptional outcomes.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3">•</span>
-                  Scale your workforce without the overhead.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3">•</span>
-                  On-demand experts for your projects.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3">•</span>
-                  Expert support, exactly when you need it.
-                </li>
-              </ul>
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
-                <Users className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-4" />
-                <div className="text-center text-white">
-                  <h3 className="text-2xl font-bold mb-2">Expert Teams</h3>
-                  <p className="text-blue-200">
-                    Ready to integrate with your projects
-                  </p>
-                </div>
+
+      <PageHero
+        eyebrow="Staff Augmentation"
+        title={
+          <>
+            Staff <span className="text-oa-orange">Augmentation</span> Services
+          </>
+        }
+        lede="Get the talent you need, when you need it, without the overhead of traditional hiring."
+        // The hero bullets moved into the panel rather than being duplicated.
+        // Same four lines, same words. The lede is the "Why it works" section
+        // lede, verbatim. No new claims.
+        panel={{
+          title: "Why it works",
+          items: [
+            "Flexible staffing for exceptional outcomes.",
+            "Scale your workforce without the overhead.",
+            "On-demand experts for your projects.",
+            "Expert support, exactly when you need it.",
+          ],
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+      />
+
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="Why it works"
+          title="Why choose staff augmentation?"
+          lede="Get the talent you need, when you need it, without the overhead of traditional hiring."
+        />
+        <CardGrid columns={4} className="mt-12">
+          {BENEFITS.map((b) => (
+            <Card
+              key={b.title}
+              icon={b.icon}
+              title={b.title}
+              body={b.description}
+            />
+          ))}
+        </CardGrid>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Capabilities"
+          title="Technical expertise"
+          lede="Our professionals bring deep expertise across a wide range of technologies and domains."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {SKILLS.map((s) => (
+            <Card
+              key={s.name}
+              icon={s.icon}
+              title={s.name}
+              body={s.description}
+            />
+          ))}
+        </CardGrid>
+      </Section>
+
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="How we engage"
+          title="Flexible engagement models"
+          lede="Choose the engagement model that best fits your project requirements and budget."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {ENGAGEMENT_MODELS.map((m) => (
+            <Card key={m.title} title={m.title} body={m.description}>
+              <div className="mt-6">
+                <CheckList items={m.features} />
               </div>
-            </div>
-          </div>
+            </Card>
+          ))}
+        </CardGrid>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Process"
+          title="Our process"
+          lede="We follow a structured approach to ensure the right talent for your specific needs."
+        />
+        <div className="mt-12">
+          <ProcessSteps steps={PROCESS} />
         </div>
-      </section>
+      </Section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Staff Augmentation?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get the talent you need, when you need it, without the overhead of
-              traditional hiring.
-            </p>
-          </div>
+      <CTABand
+        title="Ready to scale your team?"
+        body="Let's discuss your staffing needs and find the perfect professionals for your projects."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View All Services", to: "/services" }}
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-blue-950 transition-colors h-full"
-              >
-                <CardHeader className="text-center">
-                  <benefit.icon className="w-12 h-12 text-onealgo-blue-950 mx-auto mb-4" />
-                  <CardTitle className="text-xl text-onealgo-blue-950">
-                    {benefit.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-center">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Technical Expertise
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our professionals bring deep expertise across a wide range of
-              technologies and domains.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-lg"
-              >
-                <CardHeader>
-                  <skill.icon className="w-12 h-12 text-onealgo-blue-950 mb-4" />
-                  <CardTitle className="text-xl text-onealgo-blue-950">
-                    {skill.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{skill.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Engagement Models */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Flexible Engagement Models
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the engagement model that best fits your project
-              requirements and budget.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {engagementModels.map((model, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-blue-950 transition-colors h-full"
-              >
-                <CardHeader>
-                  <CardTitle className="text-xl text-onealgo-blue-950 text-center">
-                    {model.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-6 text-center">
-                    {model.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {model.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We follow a structured approach to ensure the right talent for
-              your specific needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Requirements Analysis",
-                description:
-                  "We analyze your project requirements, technical stack, and team dynamics.",
-              },
-              {
-                step: "2",
-                title: "Talent Matching",
-                description:
-                  "We select professionals with the exact skills and experience you need.",
-              },
-              {
-                step: "3",
-                title: "Integration",
-                description:
-                  "Seamless onboarding and integration with your existing team and processes.",
-              },
-              {
-                step: "4",
-                title: "Ongoing Support",
-                description:
-                  "Continuous support and performance monitoring throughout the engagement.",
-              },
-            ].map((process, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-onealgo-blue-950 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-xl font-bold">
-                    {process.step}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {process.title}
-                </h3>
-                <p className="text-gray-600">{process.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-onealgo-blue-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Scale Your Team?
-          </h2>
-          <p className="text-xl text-blue-200 mb-8">
-            Let's discuss your staffing needs and find the perfect professionals
-            for your projects.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-            >
-              <Link to="/contact">Talk to an Expert</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4"
-            >
-              <Link to="/services">View All Services</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Sharing */}
-      <section className="py-8 bg-gray-50 border-t">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SocialShare
-            title="Staff Augmentation - Dedicated Development Teams - OneAlgorithm"
-            className="justify-center"
-          />
-        </div>
-      </section>
+      <Section tone="paper" compact>
+        <SocialShare
+          title="Staff Augmentation - Dedicated Development Teams - OneAlgorithm"
+          className="justify-center"
+        />
+      </Section>
     </Layout>
   );
 }

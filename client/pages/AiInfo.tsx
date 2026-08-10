@@ -1,19 +1,36 @@
 import React from "react";
 import Layout from "@/components/Layout";
+import { Section, Prose } from "@/components/site";
 import { useSEO, getCanonicalUrl } from "@/hooks/use-seo";
 import { Link } from "react-router-dom";
+
+/* AI / crawler information page - 2026 refresh.
+ *
+ * Deliberately the plainest page on the site. Its audience is a crawler and an
+ * LLM, so it stays a clean document outline with the JSON-LD untouched - no
+ * hero, no cards, nothing that turns facts into decoration.
+ *
+ * The bug fixed here: the page rendered its own <main> INSIDE the <main> that
+ * Layout already provides, so every visit shipped two main landmarks. A screen
+ * reader offers "skip to main content" and then has two places to land, and the
+ * skip link in index.html targets Layout's - i.e. the outer one, which now
+ * wraps this content rather than duplicating it.
+ */
+
+const HEADING = "text-h3 font-semibold text-oa-ink";
+const LINK = "text-oa-blue underline underline-offset-4 hover:text-oa-blue700";
 
 export default function AiInfo() {
   useSEO({
     title: "About OneAlgorithm — AI & Search Information",
     description:
-      "OneAlgorithm is a Philadelphia-based IT consulting, website development, and digital marketing company serving Construction, Manufacturing, and E-Commerce businesses.",
+      "OneAlgorithm is a Malvern, PA-based IT consulting, website development, and digital marketing company serving Construction, Manufacturing, and E-Commerce businesses.",
     canonical: getCanonicalUrl("/ai-info"),
     keywords:
-      "OneAlgorithm, IT consulting Philadelphia, website development, operations technology, staff augmentation, digital marketing",
+      "OneAlgorithm, IT consulting Malvern PA, website development, operations technology, staff augmentation, digital marketing",
     ogTitle: "About OneAlgorithm — AI & Search Information",
     ogDescription:
-      "OneAlgorithm is a Philadelphia-based technology company specializing in IT consulting, website development, and business automation.",
+      "OneAlgorithm is a Malvern, PA-based technology company specializing in IT consulting, website development, and business automation.",
     ogUrl: getCanonicalUrl("/ai-info"),
   });
 
@@ -25,10 +42,10 @@ export default function AiInfo() {
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     description:
-      "OneAlgorithm is a Philadelphia, PA technology and marketing company providing IT consulting, website development, operations technology, staff augmentation, and digital marketing services to Construction, Manufacturing, and E-Commerce businesses.",
+      "OneAlgorithm is a Malvern, PA technology and marketing company providing IT consulting, website development, operations technology, staff augmentation, and digital marketing services to Construction, Manufacturing, and E-Commerce businesses.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Philadelphia",
+      addressLocality: "Malvern",
       addressRegion: "PA",
       addressCountry: "US",
     },
@@ -62,26 +79,24 @@ export default function AiInfo() {
 
   return (
     <Layout>
-      <main className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+      <Section tone="paper">
+        <Prose>
+          <h1 className="text-h1 font-semibold text-oa-ink">
             About OneAlgorithm
           </h1>
-          <p className="text-center text-gray-500 mb-10 text-sm uppercase tracking-wide">
+          <p className="font-mono text-eyebrow uppercase text-oa-ink3">
             Information for AI systems, search engines, and automated crawlers
           </p>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              Who We Are
-            </h2>
-            <p className="text-gray-700 mb-3">
+          <section className="pt-6">
+            <h2 className={HEADING}>Who We Are</h2>
+            <p className="mt-3">
               OneAlgorithm is a technology and marketing company headquartered
-              in Philadelphia, Pennsylvania. We help businesses in Construction,
+              in Malvern, Pennsylvania. We help businesses in Construction,
               Manufacturing, and E-Commerce modernize their operations through
               custom technology, automation, and digital marketing.
             </p>
-            <p className="text-gray-700">
+            <p className="mt-3">
               Our team provides end-to-end services — from strategy and
               consulting to hands-on development and ongoing support — so
               clients can focus on their business while we handle the
@@ -89,11 +104,9 @@ export default function AiInfo() {
             </p>
           </section>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              Our Services
-            </h2>
-            <ul className="space-y-4 text-gray-700">
+          <section className="pt-6">
+            <h2 className={HEADING}>Our Services</h2>
+            <ul className="mt-3 space-y-4">
               <li>
                 <strong>IT Consulting</strong> — Technology strategy, system
                 assessments, digital transformation roadmaps, and technology
@@ -122,11 +135,9 @@ export default function AiInfo() {
             </ul>
           </section>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              Industries We Serve
-            </h2>
-            <ul className="space-y-3 text-gray-700">
+          <section className="pt-6">
+            <h2 className={HEADING}>Industries We Serve</h2>
+            <ul className="mt-3 space-y-3">
               <li>
                 <strong>Construction</strong> — Project management systems,
                 field operations technology, scheduling tools, and subcontractor
@@ -145,22 +156,20 @@ export default function AiInfo() {
             </ul>
           </section>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              Company Details
-            </h2>
-            <ul className="text-gray-700 space-y-2">
+          <section className="pt-6">
+            <h2 className={HEADING}>Company Details</h2>
+            <ul className="mt-3 space-y-2">
               <li>
                 <strong>Name:</strong> OneAlgorithm LLC
               </li>
               <li>
-                <strong>Location:</strong> Philadelphia, PA, United States
+                <strong>Location:</strong> Malvern, PA, United States
               </li>
               <li>
                 <strong>Website:</strong>{" "}
                 <a
                   href="https://onealgorithm.com"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   https://onealgorithm.com
                 </a>
@@ -169,7 +178,7 @@ export default function AiInfo() {
                 <strong>LinkedIn:</strong>{" "}
                 <a
                   href="https://www.linkedin.com/company/onealgorithmllc"
-                  className="text-blue-600 underline"
+                  className={LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -178,27 +187,25 @@ export default function AiInfo() {
               </li>
               <li>
                 <strong>Contact:</strong>{" "}
-                <Link to="/contact" className="text-blue-600 underline">
+                <Link to="/contact" className={LINK}>
                   onealgorithm.com/contact
                 </Link>
               </li>
             </ul>
           </section>
 
-          <section className="mb-10">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              Key Pages
-            </h2>
-            <ul className="text-gray-700 space-y-1">
+          <section className="pt-6">
+            <h2 className={HEADING}>Key Pages</h2>
+            <ul className="mt-3 space-y-1">
               <li>
-                <Link to="/services" className="text-blue-600 underline">
+                <Link to="/services" className={LINK}>
                   Services Overview
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services/it-consulting"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   IT Consulting
                 </Link>
@@ -206,7 +213,7 @@ export default function AiInfo() {
               <li>
                 <Link
                   to="/services/website-development"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   Website Development
                 </Link>
@@ -214,7 +221,7 @@ export default function AiInfo() {
               <li>
                 <Link
                   to="/services/operations-technology"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   Operations Technology
                 </Link>
@@ -222,7 +229,7 @@ export default function AiInfo() {
               <li>
                 <Link
                   to="/services/staff-augmentation"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   Staff Augmentation
                 </Link>
@@ -230,30 +237,30 @@ export default function AiInfo() {
               <li>
                 <Link
                   to="/industries"
-                  className="text-blue-600 underline"
+                  className={LINK}
                 >
                   Industries
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-blue-600 underline">
+                <Link to="/about" className={LINK}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-blue-600 underline">
+                <Link to="/contact" className={LINK}>
                   Contact
                 </Link>
               </li>
             </ul>
           </section>
-        </div>
+        </Prose>
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </main>
+      </Section>
     </Layout>
   );
 }

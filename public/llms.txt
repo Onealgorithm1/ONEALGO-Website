@@ -1,14 +1,14 @@
 # OneAlgorithm
 
-> OneAlgorithm is a Philadelphia, PA-based technology and marketing company specializing in IT consulting, website development, operations technology, staff augmentation, and digital marketing. We help Construction, Manufacturing, and E-Commerce businesses automate workflows, modernize systems, and grow through technology.
+> OneAlgorithm is a Malvern, PA-based technology and marketing company specializing in IT consulting, website development, operations technology, staff augmentation, and digital marketing. We help Construction, Manufacturing, and E-Commerce businesses automate workflows, modernize systems, and grow through technology.
 
 ## About
 
 - **Company name**: OneAlgorithm LLC
-- **Location**: Philadelphia, PA, United States
+- **Location**: Malvern, PA, United States
 - **Website**: https://onealgorithm.com
 - **Contact**: https://onealgorithm.com/contact
-- **Founded**: Philadelphia, PA
+- **Founded**: Malvern, PA
 
 ## Services
 

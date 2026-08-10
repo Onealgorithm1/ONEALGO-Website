@@ -1,41 +1,158 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import {
+  Code,
+  Users,
+  Megaphone,
+  Brain,
+  Cpu,
+  Database,
+  Cloud,
+  LifeBuoy,
+  Search,
+  BarChart3,
+  Layers,
+} from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
   Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { Code, Users, Megaphone, Brain, Cpu, Award } from "lucide-react";
-import { Link } from "react-router-dom";
+  CardGrid,
+  ProcessSteps,
+  CTABand,
+} from "../components/site";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
   createWebPageSchema,
 } from "../components/StructuredData";
 
+/* Services hub - 2026 refresh.
+ *
+ * Two substantive changes beyond the visual system:
+ *
+ *  1. All ELEVEN services are listed. The hub previously showed six while the
+ *     nav and footer linked eleven, so MarTech, Google Ads, SEO, Salesforce and
+ *     Zendesk had no route in from the hub a visitor actually browses.
+ *  2. Staff augmentation and website development lead, because that is where
+ *     revenue comes from today.
+ *
+ * Copy is carried over from the previous version. The one claim dropped is the
+ * "Proven implementations | Strong track record of client satisfaction" pill -
+ * it was a proof-shaped box containing no proof, and it sat where a buyer looks
+ * for evidence. See REDESIGN-NOTES.md.
+ */
+
+const SERVICES = [
+  {
+    icon: Users,
+    title: "Staff Augmentation",
+    body: "Scale your team with expert developers and technical professionals. Flexible engagement models to meet your project needs.",
+    to: "/services/staff-augmentation",
+  },
+  {
+    icon: Code,
+    title: "Website Development",
+    body: "Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications.",
+    to: "/services/website-development",
+  },
+  {
+    icon: Database,
+    title: "Oracle ERP Implementation",
+    body: "Full-lifecycle Oracle Cloud ERP implementation services from strategic consulting through post-implementation support.",
+    to: "/services/oracle-erp",
+  },
+  {
+    icon: Cloud,
+    title: "Salesforce",
+    body: "Sales, Service and Marketing Cloud implementation and consulting, delivered by a listed Salesforce Consulting Partner.",
+    to: "/services/salesforce",
+  },
+  {
+    icon: Brain,
+    title: "IT Consulting",
+    body: "Strategic technology planning and expert guidance for digital transformation. Optimize your IT infrastructure and processes.",
+    to: "/services/it-consulting",
+  },
+  {
+    icon: Cpu,
+    title: "Operations Technology",
+    body: "Industrial automation, SCADA systems, and IoT integration. Optimize operations with smart technology solutions.",
+    to: "/services/operations-technology",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing & Social Media",
+    body: "Social media management for the Facebook Pages and Instagram business accounts our clients own, plus campaigns that adapt to customer behavior.",
+    to: "/services/marketing",
+  },
+  {
+    icon: Layers,
+    title: "MarTech",
+    body: "Marketing platforms selected, connected and configured so campaign data lands where your team can act on it.",
+    to: "/services/martech",
+  },
+  {
+    icon: Search,
+    title: "SEO Services",
+    body: "Technical SEO, content structure and search visibility work aimed at sustainable organic growth.",
+    to: "/services/seo",
+  },
+  {
+    icon: BarChart3,
+    title: "Google Ads",
+    body: "Paid search management focused on qualified traffic and measurable cost per acquisition.",
+    to: "/services/google-ads",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Zendesk",
+    body: "Support-desk implementation, migration and ongoing optimization for teams that live in their ticket queue.",
+    to: "/services/zendesk",
+  },
+];
+
+const APPROACH = [
+  {
+    title: "Expert Team",
+    body: "Our team consists of seasoned professionals with deep expertise in modern technologies and methodologies.",
+  },
+  {
+    title: "Agile Approach",
+    body: "We use agile methodologies to ensure rapid delivery, continuous improvement, and adaptability to changing requirements.",
+  },
+  {
+    title: "Long-term Partnership",
+    body: "We're not just service providers — we're your technology partners, committed to your long-term success.",
+  },
+  {
+    title: "Support That Stays",
+    body: "Hypercare immediately after go-live, then ongoing technical support and maintenance around the clock.",
+  },
+];
+
 export default function Services() {
   useSEO({
     title: "OneAlgorithm — Services",
     description:
-      "Comprehensive technology services including website development, IT consulting, operations technology, Oracle ERP implementation, and staff augmentation. Accelerate business growth.",
+      "Comprehensive technology services including staff augmentation, website development, IT consulting, operations technology, Oracle ERP and Salesforce implementation. Accelerate business growth.",
     canonical: getCanonicalUrl("/services"),
     keywords:
-      "technology services, IT consulting services, website development services, operations technology, Oracle ERP implementation, staff augmentation, marketing services, business technology solutions",
+      "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
     ogTitle: "OneAlgorithm — Services",
     ogDescription:
-      "Comprehensive technology services including website development, IT consulting, Oracle ERP implementation, operations technology, staff augmentation, and marketing solutions.",
+      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
     ogUrl: getCanonicalUrl("/services"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle:
       "Technology Services - OneAlgorithm | IT Consulting, Website Development, Oracle ERP & More",
     twitterDescription:
-      "Comprehensive technology services including website development, IT consulting, Oracle ERP implementation, operations technology, staff augmentation, and marketing solutions. Accelerate your business growth with OneAlgorithm.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
+
   return (
     <Layout>
       <StructuredData
@@ -45,294 +162,93 @@ export default function Services() {
           "https://onealgorithm.com/services",
         )}
       />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Expert{" "}
-              <span className="text-onealgo-orange-500">Technology Services</span> — Consulting, Implementation & Support
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              From strategy through execution and beyond. We deliver expert consulting and implementation across website development, IT consulting, operations technology, and enterprise systems. Specialized for{" "}
-              <Link
-                to="/industries/construction"
-                className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
-              >
-                construction
-              </Link>
-              ,{" "}
-              <Link
-                to="/industries/manufacturing"
-                className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
-              >
-                manufacturing
-              </Link>
-              , and{" "}
-              <Link
-                to="/industries/ecommerce"
-                className="text-onealgo-orange-500 hover:text-onealgo-orange-400 underline"
-              >
-                e-commerce
-              </Link>.
-            </p>
 
-            {/* Proof point */}
-            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">Proven implementations | Strong track record of client satisfaction | Deployed across construction, manufacturing & e-commerce</p>
-            </div>
+      <PageHero
+        eyebrow="Services"
+        title={
+          <>
+            Expert technology services —{" "}
+            <span className="text-oa-orange">consulting, implementation</span>{" "}
+            and support
+          </>
+        }
+        lede={
+          <>
+            From strategy through execution and beyond. We deliver expert
+            consulting and implementation across website development, IT
+            consulting, operations technology and enterprise systems —
+            specialized for{" "}
+            <Link
+              to="/industries/construction"
+              className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+            >
+              construction
+            </Link>
+            ,{" "}
+            <Link
+              to="/industries/manufacturing"
+              className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+            >
+              manufacturing
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/industries/ecommerce"
+              className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+            >
+              e-commerce
+            </Link>
+            .
+          </>
+        }
+        // The panel is the "Why OneAlgorithm" list further down the page, by
+        // title, read straight off APPROACH so the two can never drift.
+        panel={{
+          title: "Why OneAlgorithm",
+          items: APPROACH.map((a) => a.title),
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "Learn about our approach", to: "/about" }}
+      />
 
-            {/* Dual CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-onealgo-blue-950 px-8 py-4 text-lg"
-              >
-                <Link to="/about">Learn About Our Approach</Link>
-              </Button>
-            </div>
-          </div>
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="What we do"
+          title="Our core services"
+          lede="Full-stack technology delivery across eleven service areas. Whether you need to modernize operations, implement enterprise systems, or add senior people to your team — not sure which you need? Talk to us and we will tell you."
+        />
+
+        <CardGrid columns={3} className="mt-12">
+          {SERVICES.map((s) => (
+            <Card
+              key={s.title}
+              icon={s.icon}
+              title={s.title}
+              body={s.body}
+              to={s.to}
+            />
+          ))}
+        </CardGrid>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Why OneAlgorithm"
+          title="Technical depth, and people who stay"
+          lede="We combine technical expertise with business acumen to deliver solutions that drive real results."
+        />
+        <div className="mt-12">
+          <ProcessSteps steps={APPROACH} />
         </div>
-      </section>
+      </Section>
 
-      {/* Services Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Core Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              OneAlgorithm provides full-stack technology solutions across these core service areas. Whether you need to modernize operations, implement enterprise systems, or accelerate growth through digital transformation — we have the expertise to deliver results.
-            </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              <strong>Not sure which service you need?</strong> Connect with our team to discuss your specific challenges and goals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Website Development */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Code className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-blue-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Website Development
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Modern, responsive websites built for performance and user
-                  experience. From corporate sites to complex web applications.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/website-development">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Marketing */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Megaphone className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-purple-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Marketing &amp; Social Media
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Social media management for the Facebook Pages and Instagram
-                  business accounts our clients own, plus campaigns that adapt
-                  to customer behavior with AI-driven insights and automated
-                  lead nurturing.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/marketing">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Staff Augmentation */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Users className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Staff Augmentation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Scale your team with expert developers and technical
-                  professionals. Flexible engagement models to meet your project
-                  needs.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/staff-augmentation">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* IT Consulting */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Brain className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-indigo-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  IT Consulting
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Strategic technology planning and expert guidance for digital
-                  transformation. Optimize your IT infrastructure and processes.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/it-consulting">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Operations Technology */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Cpu className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-orange-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Operations Technology
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Industrial automation, SCADA systems, and IoT integration.
-                  Optimize operations with smart technology solutions.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/operations-technology">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Oracle ERP Implementation */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Award className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-amber-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Oracle ERP Implementation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Full-lifecycle Oracle Cloud ERP implementation services from
-                  strategic consulting through post-implementation support.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/services/oracle-erp">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Our Services */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose OneAlgorithm
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine technical expertise with business acumen to deliver
-              solutions that drive real results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-onealgo-blue-950 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Expert Team
-              </h3>
-              <p className="text-gray-600">
-                Our team consists of seasoned professionals with deep expertise
-                in modern technologies and methodologies.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-onealgo-blue-950 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Agile Approach
-              </h3>
-              <p className="text-gray-600">
-                We use agile methodologies to ensure rapid delivery, continuous
-                improvement, and adaptability to changing requirements.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-onealgo-blue-950 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Long-term Partnership
-              </h3>
-              <p className="text-gray-600">
-                We're not just service providers - we're your technology
-                partners, committed to your long-term success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Let's discuss how our services can help accelerate your business
-            goals and digital transformation.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-8 py-4"
-          >
-            <Link to="/contact">Talk to an Expert</Link>
-          </Button>
-        </div>
-      </section>
+      <CTABand
+        title="Ready to get started?"
+        body="Let's discuss how our services can help accelerate your business goals and digital transformation."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View capabilities", to: "/capabilities" }}
+      />
     </Layout>
   );
 }

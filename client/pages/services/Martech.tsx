@@ -1,18 +1,80 @@
 import Layout from "../../components/Layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
 import { Zap, Database, User2, Megaphone, Target, Plug } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  Split,
+  PrimaryCTA,
+  CTABand,
+} from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
 } from "../../components/StructuredData";
+
+/* MarTech services - 2026 refresh.
+ *
+ * Converted onto the shared primitives in components/site.tsx.
+ *
+ *  1. The closing "MarTech Success Stories" section is DELETED. A heading that
+ *     announces its own absent content ("available on request") reads as "we
+ *     have none", and it sat exactly where a buyer looks for evidence. Nothing
+ *     was invented in its place. See REDESIGN-NOTES.md.
+ *  2. The bouncing alert glyph above the H1 is gone, along with the orange
+ *     card borders and drop shadows.
+ *  3. This page argues first and lists second - the case for us opens, the
+ *     stack capabilities follow on the dark ground, and the audit offer is its
+ *     own band. That is deliberately not the order used on /services/seo or
+ *     /services/google-ads, which were clones of this same template.
+ *
+ * All body copy is carried over unchanged.
+ */
+
+const CAPABILITIES = [
+  {
+    icon: Zap,
+    title: "Marketing Automation",
+    body: "Automate multi-channel campaigns, lead nurturing, and customer journeys to deliver the right message at the right time.",
+  },
+  {
+    icon: Database,
+    title: "Customer Data & Insights",
+    body: "Collect, unify, and analyze customer data across channels to build a 360° customer profile and actionable dashboards.",
+  },
+  {
+    icon: User2,
+    title: "Personalization & CX",
+    body: "Deliver tailored content, offers, and product recommendations across web, mobile, and email to increase engagement and retention.",
+  },
+  {
+    icon: Megaphone,
+    title: "Digital Advertising & Media",
+    body: "Plan, execute, and optimize paid media across Google, Meta, LinkedIn, and programmatic channels to improve targeting and ROI.",
+  },
+  {
+    icon: Target,
+    title: "Campaign Management",
+    body: "Strategy and execution for multi-channel campaigns with testing, optimization, and clear KPI-driven reporting.",
+  },
+  {
+    icon: Plug,
+    title: "Integration & Enablement",
+    body: "Connect MarTech tools with CRM, e-commerce, and service systems and enable teams with training and operational playbooks.",
+  },
+];
+
+const WHY_US = [
+  "Combine marketing strategy and engineering to deliver scalable, measurable programs.",
+  "Centralize customer data to power personalization and better ad targeting.",
+  "Automate repetitive tasks so your team focuses on strategy and growth.",
+  "Transparent reporting, experimentation, and optimization for continuous improvement.",
+];
 
 export default function Martech() {
   useSEO({
@@ -35,45 +97,6 @@ export default function Martech() {
       "https://onealgorithm.com/og-image.jpg",
   });
 
-  const features = [
-    {
-      icon: <Zap className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Marketing Automation",
-      description:
-        "Automate multi-channel campaigns, lead nurturing, and customer journeys to deliver the right message at the right time.",
-    },
-    {
-      icon: <Database className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Customer Data & Insights",
-      description:
-        "Collect, unify, and analyze customer data across channels to build a 360° customer profile and actionable dashboards.",
-    },
-    {
-      icon: <User2 className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Personalization & CX",
-      description:
-        "Deliver tailored content, offers, and product recommendations across web, mobile, and email to increase engagement and retention.",
-    },
-    {
-      icon: <Megaphone className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Digital Advertising & Media",
-      description:
-        "Plan, execute, and optimize paid media across Google, Meta, LinkedIn, and programmatic channels to improve targeting and ROI.",
-    },
-    {
-      icon: <Target className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Campaign Management",
-      description:
-        "Strategy and execution for multi-channel campaigns with testing, optimization, and clear KPI-driven reporting.",
-    },
-    {
-      icon: <Plug className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Integration & Enablement",
-      description:
-        "Connect MarTech tools with CRM, e-commerce, and service systems and enable teams with training and operational playbooks.",
-    },
-  ];
-
   return (
     <Layout>
       <StructuredData
@@ -85,142 +108,95 @@ export default function Martech() {
         )}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <svg
-              className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-6 animate-bounce-slow"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 6h2v6h-2zM11 14h2v2h-2z" />
-            </svg>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              MarTech Services &nbsp;
-              <span className="text-onealgo-orange-500">
-                Marketing Technology that Scales
-              </span>
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Use technology to make marketing faster, smarter, and more
-              personalized — from automation and advertising to customer data
-              platforms and integrations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-              >
-                <a href="/contact">Request a MarTech Consultation</a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-4"
-              >
-                <a href="/services">View Services</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="MarTech"
+        title={
+          <>
+            MarTech services —{" "}
+            <span className="text-oa-orange">
+              marketing technology that scales
+            </span>
+          </>
+        }
+        lede="Use technology to make marketing faster, smarter, and more personalized — from automation and advertising to customer data platforms and integrations."
+        // Panel items are the CAPABILITIES card titles from further down this
+        // page, verbatim. No hero bullets existed here and nothing new was
+        // written. No platform credential exists for MarTech, so the footer
+        // carries only the company-wide SBA line.
+        panel={{
+          title: "What we deliver",
+          items: [
+            "Marketing Automation",
+            "Customer Data & Insights",
+            "Personalization & CX",
+            "Digital Advertising & Media",
+            "Integration & Enablement",
+          ],
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Request a MarTech Consultation", to: "/contact" }}
+        secondary={{ label: "View Services", to: "/services" }}
+      />
 
-      {/* Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              MarTech Capabilities
+      {/* Argument first: heading on the left, the claims on the right, so the
+          page opens with a position rather than another icon grid. */}
+      <Section tone="paper">
+        <Split
+          left={
+            <SectionHeading
+              eyebrow="Why OneAlgorithm"
+              title="Why OneAlgorithm for MarTech?"
+            />
+          }
+          right={<CheckList items={WHY_US} />}
+        />
+      </Section>
+
+      <Section tone="night" grid>
+        <SectionHeading
+          tone="dark"
+          eyebrow="What we do"
+          title="MarTech capabilities"
+          lede="End-to-end MarTech solutions — automation, customer data, personalization, paid media, and integrations that deliver measurable ROI."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {CAPABILITIES.map((c) => (
+            <Card
+              key={c.title}
+              tone="dark"
+              icon={c.icon}
+              title={c.title}
+              body={c.body}
+            />
+          ))}
+        </CardGrid>
+      </Section>
+
+      {/* Low-commitment second CTA, given its own band rather than a boxed
+          card, so it does not read as a third capability. */}
+      <Section tone="surface" bordered>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <div className="max-w-2xl">
+            <h2 className="text-h3 font-semibold text-oa-ink">
+              Get a MarTech Audit
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              End-to-end MarTech solutions — automation, customer data,
-              personalization, paid media, and integrations that deliver
-              measurable ROI.
+            <p className="mt-4 leading-relaxed text-oa-ink2">
+              Our audit evaluates your stack, data flows, automation, and
+              personalization readiness with prioritized recommendations and
+              estimated impact.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="text-onealgo-blue-950">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <PrimaryCTA to="/contact">Request Audit</PrimaryCTA>
         </div>
-      </section>
+      </Section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Why OneAlgorithm for MarTech?
-              </h3>
-              <ul className="space-y-4 text-gray-600">
-                <li>
-                  Combine marketing strategy and engineering to deliver
-                  scalable, measurable programs.
-                </li>
-                <li>
-                  Centralize customer data to power personalization and better
-                  ad targeting.
-                </li>
-                <li>
-                  Automate repetitive tasks so your team focuses on strategy and
-                  growth.
-                </li>
-                <li>
-                  Transparent reporting, experimentation, and optimization for
-                  continuous improvement.
-                </li>
-              </ul>
-            </div>
+      <Section tone="paper" compact bordered>
+        <SocialShare />
+      </Section>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                Get a MarTech Audit
-              </h4>
-              <p className="text-gray-600 mb-6">
-                Our audit evaluates your stack, data flows, automation, and
-                personalization readiness with prioritized recommendations and
-                estimated impact.
-              </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
-              >
-                <a href="/contact">Request Audit</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">MarTech Success Stories</h3>
-          <p className="text-gray-600 max-w-3xl mx-auto mb-8">
-            Case studies and results from clients who used MarTech to drive
-            growth — available on request.
-          </p>
-          <SocialShare />
-        </div>
-      </section>
+      <CTABand
+        secondary={{ label: "Explore marketing", to: "/services/marketing" }}
+      />
     </Layout>
   );
 }

@@ -53,6 +53,7 @@ import { Suspense, lazy } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 import Index from "./pages/Index";
+import IndexLegacy from "./pages/IndexLegacy";
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
@@ -132,6 +133,11 @@ const App = () => (
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
+              {/* TEMPORARY - the pre-redesign homepage, kept reachable so the
+                  two can be compared side by side during review. Delete this
+                  route and client/pages/IndexLegacy.tsx before merging to main;
+                  it is deliberately absent from the sitemap and the nav. */}
+              <Route path="/legacy-home" element={<IndexLegacy />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route

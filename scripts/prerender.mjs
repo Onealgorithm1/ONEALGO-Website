@@ -103,6 +103,50 @@ async function main() {
         throw new Error(`rendered only ${rootLen} chars of content — treating as a failed route`);
       }
 
+      // Settle the scroll reveals before serialising.
+      //
+      // Sections animate in with framer-motion's whileInView, which sets an
+      // inline `opacity: 0; transform: translateY(16px)` until the element is
+      // scrolled into view. Puppeteer renders at one viewport height, so
+      // everything below the fold was being captured mid-animation - 22 of 27
+      // pages shipped static HTML whose main content was invisible, and the
+      // whole point of prerendering is to serve content without JavaScript.
+      //
+      // Scrolling the page triggers every reveal; `once: true` means they stay
+      // put. The final sweep is belt and braces for anything the scroll missed
+      // (a lazily-mounted block, a reveal with a long delay).
+      await page.evaluate(async () => {
+        const step = window.innerHeight;
+        const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+        for (let y = 0; y < document.body.scrollHeight; y += step) {
+          window.scrollTo(0, y);
+          await wait(60);
+        }
+        window.scrollTo(0, document.body.scrollHeight);
+        // Long enough for the slowest chain to finish. The services hub
+        // staggers 11 cards at 60ms plus a 350ms tween, so anything under a
+        // second leaves the tail of that grid still at opacity 0.
+        await wait(1200);
+        window.scrollTo(0, 0);
+        await wait(200);
+
+        // Force anything still parked to its resting state, then do it again a
+        // beat later: the animation loop can re-apply an inline style between
+        // the sweep and serialisation, so a single pass is racy.
+        const settle = () => {
+          for (const el of document.querySelectorAll("[style]")) {
+            const s = el.style;
+            if (s.opacity === "0") s.opacity = "1";
+            if (s.transform && /translateY\((?!0px)/.test(s.transform)) {
+              s.transform = "none";
+            }
+          }
+        };
+        settle();
+        await wait(150);
+        settle();
+      });
+
       const html = "<!doctype html>\n" + (await page.content());
 
       // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves
@@ -111,6 +155,21 @@ async function main() {
       const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route}.html`);
       fs.mkdirSync(path.dirname(outFile), { recursive: true });
       fs.writeFileSync(outFile, html);
+
+      // Fail the build if a page is about to ship content that is invisible
+      // without JavaScript. This is not hypothetical: adding scroll reveals put
+      // `opacity: 0` into the static HTML of 22 of these 27 pages at once, and
+      // nothing caught it - the pages still built, still had the right title,
+      // still passed the length check above. A prerendered page whose body is
+      // transparent is worse than no prerender at all.
+      const hiddenOpacity = (html.match(/opacity:\s*0(?![.\d])/g) || []).length;
+      const hiddenShift = (html.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
+      if (hiddenOpacity || hiddenShift) {
+        throw new Error(
+          `ships content hidden without JS (opacity:0 ×${hiddenOpacity}, translateY ×${hiddenShift}) — ` +
+            `a scroll reveal was captured mid-animation`,
+        );
+      }
       console.log(`✓ ${route.padEnd(38)} (${rootLen} chars) — "${title.slice(0, 50)}"`);
       ok++;
     } catch (e) {

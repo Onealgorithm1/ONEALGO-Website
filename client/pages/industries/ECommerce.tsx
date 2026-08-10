@@ -1,14 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import {
   ShoppingCart,
   CreditCard,
@@ -17,6 +9,66 @@ import {
   BarChart3,
   Zap,
 } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  Split,
+  CTABand,
+} from "../../components/site";
+
+/* E-Commerce - 2026 refresh.
+ *
+ * Presentation only: the copy is carried over unchanged. Same clean-up as the
+ * other two industry pages - green-500 accents removed, bouncing hero icon
+ * removed, the duplicate shadowed CTA box folded into the closing band.
+ *
+ * The outcome list runs as two columns here rather than construction's
+ * heading-beside-list split or manufacturing's single stack.
+ */
+
+const FEATURES = [
+  {
+    icon: ShoppingCart,
+    title: "Platform Integration",
+    body: "Scale your online business with integrated platforms that connect inventory, payments, and customer data.",
+  },
+  {
+    icon: Package,
+    title: "Order Management",
+    body: "Streamlined order processing from purchase to delivery with real-time tracking.",
+  },
+  {
+    icon: CreditCard,
+    title: "Payment Processing",
+    body: "Secure, seamless payment processing with multiple gateway integrations.",
+  },
+  {
+    icon: Users,
+    title: "Customer Experience",
+    body: "Personalized shopping experiences that drive conversion and customer loyalty.",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Insights",
+    body: "Comprehensive analytics to understand customer behavior and optimize sales.",
+  },
+  {
+    icon: Zap,
+    title: "Automation",
+    body: "Automated inventory management, pricing, and customer communications.",
+  },
+];
+
+const BENEFITS = [
+  "Increase Sales: optimized checkout processes and personalized experiences boost conversion rates.",
+  "Streamline Operations: automated inventory and order management reduce manual work.",
+  "Enhance Customer Loyalty: personalized shopping experiences keep customers coming back.",
+  "Scale Efficiently: integrated systems grow with your business without complexity.",
+];
 
 export default function ECommerce() {
   useSEO({
@@ -29,171 +81,64 @@ export default function ECommerce() {
       "Scale your online business with connected systems and automation.",
     ogUrl: getCanonicalUrl("/industries/ecommerce"),
   });
-  const features = [
-    {
-      icon: <ShoppingCart className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Platform Integration",
-      description:
-        "Scale your online business with integrated platforms that connect inventory, payments, and customer data.",
-    },
-    {
-      icon: <Package className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Order Management",
-      description:
-        "Streamlined order processing from purchase to delivery with real-time tracking.",
-    },
-    {
-      icon: <CreditCard className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Payment Processing",
-      description:
-        "Secure, seamless payment processing with multiple gateway integrations.",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Customer Experience",
-      description:
-        "Personalized shopping experiences that drive conversion and customer loyalty.",
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Analytics & Insights",
-      description:
-        "Comprehensive analytics to understand customer behavior and optimize sales.",
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Automation",
-      description:
-        "Automated inventory management, pricing, and customer communications.",
-    },
-  ];
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <ShoppingCart className="w-24 h-24 text-green-500 mx-auto mb-6 animate-bounce-slow" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              E‑Commerce Technology{" "}
-              <span className="text-green-500">Solutions</span>
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Scale your online business with integrated platforms that connect
-              inventory, payments, and customer data for streamlined operations.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4"
-            >
-              <Link to="/contact">Talk to an Expert</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="E‑Commerce"
+        title={
+          <>
+            E‑Commerce technology{" "}
+            <span className="text-oa-orange">solutions</span>
+          </>
+        }
+        lede="Scale your online business with integrated platforms that connect inventory, payments, and customer data for streamlined operations."
+        // Panel is the feature grid's own titles, read off the same array. No
+        // new capability appears here that the page does not already describe.
+        panel={{
+          title: "What you get",
+          items: FEATURES.map((f) => f.title),
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "All industries", to: "/industries" }}
+      />
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              E-Commerce Management Features
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Complete e-commerce solutions designed to maximize sales and
-              enhance customer experiences.
-            </p>
-          </div>
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="What you get"
+          title="E-Commerce management features"
+          lede="Complete e-commerce solutions designed to maximize sales and enhance customer experiences."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {FEATURES.map((feature) => (
+            <Card
+              key={feature.title}
+              icon={feature.icon}
+              title={feature.title}
+              body={feature.body}
+            />
+          ))}
+        </CardGrid>
+      </Section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-green-500 transition-colors"
-              >
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="text-onealgo-blue-950">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Why us"
+          title="Why choose our e-commerce solutions?"
+        />
+        <Split
+          className="mt-10"
+          left={<CheckList items={BENEFITS.slice(0, 2)} />}
+          right={<CheckList items={BENEFITS.slice(2)} />}
+        />
+      </Section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose Our E-Commerce Solutions?
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Increase Sales:</strong> Optimized checkout
-                    processes and personalized experiences boost conversion
-                    rates.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Streamline Operations:</strong> Automated inventory
-                    and order management reduce manual work.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Enhance Customer Loyalty:</strong> Personalized
-                    shopping experiences keep customers coming back.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Scale Efficiently:</strong> Integrated systems grow
-                    with your business without complexity.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Ready to Scale Your E-Commerce?
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Discover how our e-commerce solutions can increase sales and
-                streamline your online operations.
-              </p>
-              <Button
-                asChild
-                className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABand
+        title="Ready to scale your e-commerce?"
+        body="Discover how our e-commerce solutions can increase sales and streamline your online operations."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+      />
     </Layout>
   );
 }

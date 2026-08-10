@@ -1,18 +1,14 @@
 import React from "react";
-import { Button } from "./ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import {
   CheckCircle,
-  Shield,
   ExternalLink,
+  Shield,
+  Target,
+  Lightbulb,
+  Users,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Card, CardGrid, CheckList, Prose, SectionHeading } from "./site";
 import {
   coreCompetencies,
   differentiators,
@@ -22,14 +18,27 @@ import {
   strategicPartnerships,
   keyPersonnel,
   pastPerformanceClients,
+  procurementRegistrations,
 } from "../../shared/capabilities-data";
 import type { IconName } from "../../shared/capabilities-data";
 import { siteConfig } from "../lib/siteConfig";
-import {
-  Target,
-  Lightbulb,
-  Users,
-} from "lucide-react";
+
+/* Capability-statement body - 2026 refresh.
+ *
+ * Two defects fixed alongside the restyle:
+ *
+ *  1. The procurement registrations were hard-coded here AND held in
+ *     shared/capabilities-data.ts (which the sidebar reads). Two copies of a
+ *     list of registry numbers on the same page is a drift bug waiting to
+ *     happen, and the hard-coded copy had already lost the SAM.gov UEI row.
+ *     This component now reads the shared data only.
+ *  2. Sections backed by an array rendered their heading even when the array
+ *     was empty, leaving bare headings with nothing under them. Every section
+ *     is now guarded by a length check.
+ *
+ * Nothing on this page may be typed by hand if it exists in
+ * shared/companyProfile.ts or shared/capabilities-data.ts.
+ */
 
 const iconComponents: Record<IconName, LucideIcon> = {
   target: Target,
@@ -39,420 +48,354 @@ const iconComponents: Record<IconName, LucideIcon> = {
   checkCircle: CheckCircle,
 };
 
+/** Hairline identifier grid. Mono type, real <dl>, no colour-only meaning. */
+function IdentifierGrid({ rows }: { rows: [string, string][] }) {
+  return (
+    <dl className="grid gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-2 lg:grid-cols-4">
+      {rows.map(([label, value]) => (
+        <div key={label} className="bg-oa-surface p-6">
+          <dt className="font-mono text-[11px] uppercase tracking-wider text-oa-ink3">
+            {label}
+          </dt>
+          <dd className="mt-1.5 break-words font-mono text-sm text-oa-ink">
+            {value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/** Hairline grid of codes - same treatment as the homepage. */
+function CodeGrid({ codes }: { codes: string[] }) {
+  return (
+    <ul className="grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-4">
+      {codes.map((code) => (
+        <li
+          key={code}
+          className="bg-oa-surface px-3 py-3 text-center font-mono text-sm text-oa-ink"
+        >
+          {code}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function CapabilitiesMainContent() {
+  const federalProcurement: [string, string][] = [
+    ["SAM.gov UEI", procurementRegistrations.federal.sam_gov],
+    ["FedConnect", procurementRegistrations.federal.fedConnect],
+    ["GSA eBuy", procurementRegistrations.federal.gsa_ebuy],
+  ];
+  const stateProcurement: [string, string][] =
+    procurementRegistrations.stateAndLocal.map((item) => [
+      item.label,
+      item.value,
+    ]);
+
   return (
     <div className="space-y-20">
-      {/* Company Overview */}
-      <section className="py-0">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Company Overview
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business
-            providing secure cloud modernization, Salesforce platform engineering, AI-driven automation,
-            cybersecurity compliance, and accessibility solutions for federal and state agencies.
-            Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.
+      <section>
+        <SectionHeading title="Company Overview" />
+        <Prose className="mt-6">
+          <p>
+            Founded in 2020, One Algorithm LLC is a woman- and minority-owned
+            small business providing secure cloud modernization, Salesforce
+            platform engineering, AI-driven automation, cybersecurity
+            compliance, and accessibility solutions for federal and state
+            agencies. Headquartered in Malvern, Pennsylvania, One Algorithm
+            delivers agile, compliant, and cost-effective IT services.
           </p>
-        </div>
+        </Prose>
+      </section>
 
-        {/* Core Competencies */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Core Competencies
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {coreCompetencies.length > 0 && (
+        <section>
+          <SectionHeading title="Core Competencies" />
+          <CardGrid columns={2} className="mt-10">
             {coreCompetencies.map((competency) => {
               const Icon = iconComponents[competency.icon];
               return (
-                <Card
-                  key={competency.title}
-                  className="border-2 hover:border-onealgo-orange-500 transition-colors"
-                >
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-onealgo-blue-950">
-                      <Icon className="w-8 h-8 text-onealgo-orange-500" />
-                      {competency.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 text-gray-700">
-                      {competency.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Differentiators */}
-        <div className="bg-onealgo-light rounded-2xl p-8 mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Differentiators
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {differentiators.map((item) => {
-              const Icon = iconComponents[item.icon];
-              return (
-                <div key={item.title} className="text-center">
-                  <div className="bg-white rounded-lg p-6 shadow-sm h-full">
-                    <Icon className="w-12 h-12 text-onealgo-orange-500 mx-auto mb-4" />
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      {item.title}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {item.description}
-                    </p>
+                <Card key={competency.title} icon={Icon} title={competency.title}>
+                  <div className="mt-5">
+                    <CheckList items={competency.items} />
                   </div>
-                </div>
+                </Card>
               );
             })}
-          </div>
+          </CardGrid>
+        </section>
+      )}
+
+      {differentiators.length > 0 && (
+        <section>
+          <SectionHeading title="Differentiators" />
+          <CardGrid columns={3} className="mt-10">
+            {differentiators.map((item) => (
+              <Card
+                key={item.title}
+                icon={iconComponents[item.icon]}
+                title={item.title}
+                body={item.description}
+              />
+            ))}
+          </CardGrid>
+        </section>
+      )}
+
+      {/* Empty as of 2026-08-10: the company has not been awarded a government
+          contract. The guard is what keeps this from rendering an empty
+          "Federal Contract Experience" heading, which reads worse than
+          nothing at all. */}
+      {federalExperience.length > 0 && (
+        <section>
+          <SectionHeading title="Federal Contract Experience" />
+          <CardGrid columns={2} className="mt-10">
+            {federalExperience.map((item) => (
+              <Card key={`${item.title}-${item.rfq}`} title={item.title}>
+                <p className="mt-1.5 font-mono text-sm text-oa-ink3">
+                  {item.rfq}
+                </p>
+                <p className="mt-4 font-medium text-oa-ink">{item.role}</p>
+                {item.partner && (
+                  <p className="mt-1.5 text-sm text-oa-ink2">{item.partner}</p>
+                )}
+                <p className="mt-3 text-sm leading-relaxed text-oa-ink2">
+                  {item.scope}
+                </p>
+                <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 border-t border-oa-hairline pt-4 font-mono text-sm">
+                  <div>
+                    <dt className="text-[11px] uppercase tracking-wider text-oa-ink3">
+                      Submitted
+                    </dt>
+                    <dd className="mt-0.5 text-oa-ink">{item.submissionDate}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[11px] uppercase tracking-wider text-oa-ink3">
+                      Status
+                    </dt>
+                    <dd className="mt-0.5 text-oa-ink">{item.status}</dd>
+                  </div>
+                </dl>
+              </Card>
+            ))}
+          </CardGrid>
+        </section>
+      )}
+
+      <section>
+        <SectionHeading title="Compliance & Credentials" />
+
+        <div className="mt-10">
+          <IdentifierGrid
+            rows={[
+              ["SAM.gov", "Active"],
+              ["UEI", siteConfig.identifiers.uei],
+              ["CAGE", siteConfig.identifiers.cage],
+              ["D-U-N-S", siteConfig.identifiers.duns],
+            ]}
+          />
         </div>
 
-        {/* Federal Contract Experience */}
-        {federalExperience.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-              Federal Contract Experience
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {federalExperience.map((item) => (
-                <Card
-                  key={`${item.title}-${item.rfq}`}
-                  className="border-2 hover:border-onealgo-orange-500 transition-colors"
-                >
-                  <CardHeader>
-                    <CardTitle className="text-onealgo-blue-950">
-                      {item.title}
-                    </CardTitle>
-                    <p className="text-sm text-gray-500">{item.rfq}</p>
-                  </CardHeader>
-                  <CardContent className="space-y-3 text-gray-700">
-                    <p className="font-medium text-onealgo-blue-900">
-                      {item.role}
-                    </p>
-                    {item.partner && (
-                      <p className="text-sm text-gray-600">{item.partner}</p>
-                    )}
-                    <p className="text-sm leading-relaxed">{item.scope}</p>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 pt-2 border-t border-gray-100">
-                      <span className="font-semibold text-gray-900">
-                        {item.submissionDate}
-                      </span>
-                      <span className="text-onealgo-orange-600">
-                        {item.status}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+        {(complianceProfile.pendingCertifications.length > 0 ||
+          (siteConfig.certifications?.length ?? 0) > 0) && (
+          <CardGrid columns={2} className="mt-5">
+            {complianceProfile.pendingCertifications.length > 0 && (
+              <Card title="Certifications & Registrations">
+                <div className="mt-5">
+                  <CheckList items={complianceProfile.pendingCertifications} />
+                </div>
+              </Card>
+            )}
+            {(siteConfig.certifications?.length ?? 0) > 0 && (
+              <Card title="Industry Certifications">
+                <div className="mt-5">
+                  <CheckList items={siteConfig.certifications ?? []} />
+                </div>
+              </Card>
+            )}
+          </CardGrid>
         )}
-
-        {/* Compliance & Credentials */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Compliance & Credentials
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Certifications &amp; Registrations
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-700">
-                  {complianceProfile.pendingCertifications.map((cert) => (
-                    <li key={cert} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                      <span>{cert}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            {siteConfig.certifications?.length ? (
-              <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    Industry Certifications
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    {siteConfig.certifications.map((cert) => (
-                      <li key={cert} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                        <span>{cert}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ) : null}
-
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  Registration
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-gray-700">
-                <p>
-                  <strong>SAM.gov:</strong> Active
-                </p>
-                <p>
-                  <strong>UEI:</strong> {siteConfig.identifiers.uei}
-                </p>
-                <p>
-                  <strong>CAGE:</strong> {siteConfig.identifiers.cage}
-                </p>
-                <p>
-                  <strong>DUNS:</strong> {siteConfig.identifiers.duns}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Procurement Registrations */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Procurement Registrations
-          </h3>
-          <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-            <CardHeader>
-              <CardTitle className="text-onealgo-blue-950">
-                Active Government Procurement Listings
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
-                <div>
-                  <p className="font-semibold text-onealgo-blue-950 mb-3">Federal</p>
-                  <ul className="space-y-2 text-sm">
-                    <li>• FedConnect: Active</li>
-                    <li>• GSA eBuy: Pending</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold text-onealgo-blue-950 mb-3">State & Local</p>
-                  <ul className="space-y-2 text-sm">
-                    <li>• COSTARS (PA): #4400033848</li>
-                    <li>• EVA (VA): SUP347430</li>
-                    <li>• OhioBuys: ID 00341565-0</li>
-                    <li>• Bid Net: 3063593</li>
-                    <li>• Cal eProcure: BID126344</li>
-                    <li>• Florida: F-----9444</li>
-                    <li>• commbuys: ID 00085083</li>
-                    <li>• Jaggaer: 0000561511</li>
-                    <li>• Euna: Nation Wide</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Strategic Partnerships */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Strategic Partnerships
-          </h3>
-          <div className="bg-onealgo-light rounded-2xl p-8 space-y-4">
-            {strategicPartnerships.map((note, index) => (
-              <p
-                key={index}
-                className="text-gray-700 text-lg leading-relaxed"
-              >
-                {note}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        {/* Project Highlights */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Commercial Project Highlights
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projectHighlights.map((project) => (
-              <Card
-                key={project.title}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-gray-700">
-                    {project.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <CheckCircle className="w-5 h-5 text-onealgo-orange-500 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* NAICS / PSC Codes */}
-        <div className="mb-16 py-8 border-y border-gray-200">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            NAICS / PSC Codes
-          </h3>
-          <div className="mb-6 text-center">
-            <p className="text-lg text-gray-700">
-              <strong>Primary NAICS:</strong> 541511 – Custom Computer
-              Programming Services
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  NAICS Codes
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-2 text-sm text-gray-700 sm:grid-cols-3">
-                  {siteConfig.codes.naics.map((code) => (
-                    <div
-                      key={code}
-                      className="bg-onealgo-light px-3 py-2 rounded text-center font-mono"
-                    >
-                      {code}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-onealgo-blue-950">
-                  PSC Codes
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-2 text-sm text-gray-700 sm:grid-cols-3">
-                  {siteConfig.codes.psc.map((code) => (
-                    <div
-                      key={code}
-                      className="bg-onealgo-light px-3 py-2 rounded text-center font-mono"
-                    >
-                      {code}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Past Performance */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Past Performance
-          </h3>
-          <p className="text-center text-gray-600 mb-12">
-            One Algorithm has partnered with leading organizations to deliver transformative IT solutions.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {pastPerformanceClients.map((client) => (
-              <div
-                key={client.name}
-                className="flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <div className="text-center">
-                  {client.logoUrl ? (
-                    <img
-                      src={client.logoUrl}
-                      alt={client.name}
-                      className="h-16 max-w-full mx-auto mb-2 object-contain"
-                    />
-                  ) : null}
-                  <p className="text-sm font-semibold text-gray-800">
-                    {client.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Key Personnel */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-onealgo-blue-950 mb-8 text-center">
-            Key Personnel
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {keyPersonnel.map((person) => (
-              <Card
-                key={person.name}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  <CardTitle className="text-onealgo-blue-950">
-                    {person.name}
-                  </CardTitle>
-                  <p className="text-sm text-gray-600">{person.role}</p>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">{person.summary}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 to-onealgo-blue-800 text-white rounded-lg p-12 text-center">
-        <p className="text-lg text-blue-200 mb-4">
-          <strong>CAGE Code:</strong> {siteConfig.identifiers.cage} |{" "}
-          <strong>UEI:</strong> {siteConfig.identifiers.uei} |{" "}
-          <strong>D-U-N-S:</strong> {siteConfig.identifiers.duns}
-        </p>
-        <p className="text-blue-200 mb-8">
-          <a
-            href={siteConfig.sbaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-onealgo-orange-500 hover:underline inline-flex items-center gap-2"
-          >
-            View SBA Certification Profile
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </p>
+      {(federalProcurement.length > 0 || stateProcurement.length > 0) && (
+        <section>
+          <SectionHeading
+            title="Procurement Registrations"
+            lede="Active government procurement listings."
+          />
+          {federalProcurement.length > 0 && (
+            <div className="mt-10">
+              <h3 className="font-mono text-eyebrow uppercase text-oa-ink3">
+                Federal
+              </h3>
+              <div className="mt-4">
+                <IdentifierGrid rows={federalProcurement} />
+              </div>
+            </div>
+          )}
+          {stateProcurement.length > 0 && (
+            <div className="mt-8">
+              <h3 className="font-mono text-eyebrow uppercase text-oa-ink3">
+                State &amp; Local
+              </h3>
+              <div className="mt-4">
+                <IdentifierGrid rows={stateProcurement} />
+              </div>
+            </div>
+          )}
+        </section>
+      )}
 
-        <Button
-          asChild
-          size="lg"
-          className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
+      {strategicPartnerships.length > 0 && (
+        <section>
+          <SectionHeading title="Strategic Partnerships" />
+          <Prose className="mt-6">
+            {strategicPartnerships.map((note) => (
+              <p key={note}>{note}</p>
+            ))}
+          </Prose>
+        </section>
+      )}
+
+      {projectHighlights.length > 0 && (
+        <section>
+          <SectionHeading title="Commercial Project Highlights" />
+          <CardGrid columns={2} className="mt-10">
+            {projectHighlights.map((project) => (
+              <Card key={project.title} title={project.title}>
+                <div className="mt-5">
+                  <CheckList items={project.items} />
+                </div>
+              </Card>
+            ))}
+          </CardGrid>
+        </section>
+      )}
+
+      {(siteConfig.codes.naics.length > 0 || siteConfig.codes.psc.length > 0) && (
+        <section>
+          <SectionHeading title="NAICS / PSC Codes" />
+          {siteConfig.codes.naics.length > 0 && (
+            <>
+              <p className="mt-6 text-oa-ink2">
+                <span className="font-semibold text-oa-ink">Primary NAICS:</span>{" "}
+                <span className="font-mono">{siteConfig.codes.naics[0]}</span> –
+                Custom Computer Programming Services
+              </p>
+              <h3 className="mt-8 font-mono text-eyebrow uppercase text-oa-ink3">
+                NAICS Codes
+              </h3>
+              <div className="mt-4">
+                <CodeGrid codes={siteConfig.codes.naics} />
+              </div>
+            </>
+          )}
+          {siteConfig.codes.psc.length > 0 && (
+            <>
+              <h3 className="mt-8 font-mono text-eyebrow uppercase text-oa-ink3">
+                PSC Codes
+              </h3>
+              <div className="mt-4">
+                <CodeGrid codes={siteConfig.codes.psc} />
+              </div>
+            </>
+          )}
+        </section>
+      )}
+
+      {/*
+        Key Personnel Experience — RELABELLED, and the label matters.
+
+        This block previously ran under the heading "Past Performance" with
+        the line "One Algorithm has partnered with leading organizations to
+        deliver transformative IT solutions." above 17 company names. Those
+        organizations are the PRIOR EMPLOYMENT of members of the leadership
+        team, not engagements held by One Algorithm LLC. On a capability
+        statement, a contracting officer reads "Past Performance" as
+        corporate past performance, so the old framing overstated the
+        company's record.
+
+        Individual experience is legitimate and useful here — FAR 15.305
+        allows the relevant experience of key personnel to be evaluated where
+        corporate past performance is limited — but it has to be presented AS
+        individual experience. That is all this change does.
+      */}
+      {pastPerformanceClients.length > 0 && (
+        <section>
+          <SectionHeading
+            title="Key Personnel Experience"
+            lede="Organizations where members of our leadership team delivered technology programs earlier in their careers. These reflect the individual professional experience of our key personnel, not contracts held by One Algorithm LLC."
+          />
+          <ul className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-3 lg:grid-cols-4">
+            {pastPerformanceClients.map((client) => (
+              <li
+                key={client.name}
+                className="flex flex-col items-center justify-center gap-2 bg-oa-surface p-6 text-center"
+              >
+                {client.logoUrl ? (
+                  <img
+                    src={client.logoUrl}
+                    alt={client.name}
+                    loading="lazy"
+                    className="h-12 max-w-full object-contain"
+                  />
+                ) : null}
+                <span className="text-sm font-medium text-oa-ink">
+                  {client.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {keyPersonnel.length > 0 && (
+        <section>
+          <SectionHeading title="Key Personnel" />
+          <CardGrid columns={3} className="mt-10">
+            {keyPersonnel.map((person) => (
+              <Card key={person.name} title={person.name}>
+                <p className="mt-1.5 text-sm text-oa-ink3">{person.role}</p>
+                <p className="mt-3 text-sm leading-relaxed text-oa-ink2">
+                  {person.summary}
+                </p>
+              </Card>
+            ))}
+          </CardGrid>
+        </section>
+      )}
+
+      {/* Verification footer. A capability statement ends with the numbers a
+          reader will check, and a link to the registry that holds them. */}
+      <section className="rounded-xl border border-oa-hairline bg-oa-surface p-8">
+        <h2 className="sr-only">Verify these credentials</h2>
+        <dl className="flex flex-wrap gap-x-10 gap-y-4 font-mono text-sm">
+          {(
+            [
+              ["CAGE Code", siteConfig.identifiers.cage],
+              ["UEI", siteConfig.identifiers.uei],
+              ["D-U-N-S", siteConfig.identifiers.duns],
+            ] as [string, string][]
+          ).map(([label, value]) => (
+            <div key={label}>
+              <dt className="text-[11px] uppercase tracking-wider text-oa-ink3">
+                {label}
+              </dt>
+              <dd className="mt-1 text-oa-ink">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <a
+          href={siteConfig.sbaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-oa-blue hover:underline"
         >
-          <Link to="/contact">Talk to an Expert</Link>
-        </Button>
+          View SBA Certification Profile
+          <ExternalLink className="h-4 w-4" aria-hidden="true" />
+        </a>
       </section>
     </div>
   );

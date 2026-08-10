@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Mail, Phone, MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
+import { PageHero, Section, SectionHeading } from "../components/site";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
@@ -182,21 +183,37 @@ export default function Contact() {
   return (
     <Layout>
       <StructuredData data={createContactPageSchema()} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-lighter via-white to-onealgo-light py-8 sm:py-12 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Let's Talk About Growing Your{" "}
-              <span className="text-onealgo-orange-500">Business</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Fill out the form below, and we'll get back to you within 24
-              hours.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero.
+          This was the one page that lost the brand: a near-white gradient wash
+          on the single page where a buyer commits, against the dark ground used
+          everywhere else. It now matches the rest of the site.
+
+          The old orange "Business" was #ffa634 on near-white - 1.95:1, the
+          least readable text on the page. On this dark ground it is 9.19:1. */}
+      <PageHero
+        eyebrow="Contact"
+        title={
+          <>
+            Let's talk about growing your{" "}
+            <span className="text-oa-orange">business</span>
+          </>
+        }
+        lede="Tell us what you are trying to fix. Fill out the form and we'll get back to you within 24 hours — or call and speak to someone now."
+        // Every line here is already on this page: the "What happens next"
+        // steps shown after submitting, the lede's 24-hour commitment, the
+        // phone number in Contact Information, and the four office cards.
+        panel={{
+          title: "After you get in touch",
+          items: [
+            "You'll receive a confirmation email shortly.",
+            "Our team will review your requirements.",
+            "We'll get back to you within 24 hours.",
+            "Or call 1 (610) 890-9711 and speak to someone now.",
+            "Offices in the USA, India, the UAE and Canada.",
+          ],
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+      />
 
       {/* Contact Form and Info Section */}
       <section className="py-8 sm:py-12 lg:py-20 bg-white">
@@ -206,10 +223,10 @@ export default function Contact() {
             <div>
               {!isSubmitted ? (
                 <>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-oa-ink mb-2 sm:mb-4">
                     Get Expert Consultation
                   </h2>
-                  <p className="text-gray-600 mb-6 sm:mb-8">
+                  <p className="text-oa-ink2 mb-6 sm:mb-8">
                     We'll respond within 24 hours with a personalized recommendation.
                   </p>
                   <form
@@ -249,7 +266,7 @@ export default function Contact() {
                     */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName" className="text-gray-700">
+                        <Label htmlFor="firstName" className="text-oa-ink2">
                           First Name
                         </Label>
                         <Input
@@ -265,7 +282,7 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="lastName" className="text-gray-700">
+                        <Label htmlFor="lastName" className="text-oa-ink2">
                           Last Name <span className="text-red-500">*</span>
                         </Label>
                         <Input
@@ -284,7 +301,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="email" className="text-gray-700">
+                      <Label htmlFor="email" className="text-oa-ink2">
                         Email Address <span className="text-red-500">*</span>
                       </Label>
                       <Input
@@ -301,7 +318,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="company" className="text-gray-700">
+                      <Label htmlFor="company" className="text-oa-ink2">
                         Company Name <span className="text-red-500">*</span>
                       </Label>
                       <Input
@@ -318,7 +335,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="whatYouNeed" className="text-gray-700">
+                      <Label htmlFor="whatYouNeed" className="text-oa-ink2">
                         What do you need? <span className="text-red-500">*</span>
                       </Label>
                       <Select
@@ -368,7 +385,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="message" className="text-gray-700">
+                      <Label htmlFor="message" className="text-oa-ink2">
                         Tell us more (optional)
                       </Label>
                       <Textarea
@@ -404,7 +421,7 @@ export default function Contact() {
                 <div className="text-center space-y-6 animate-in fade-in-50 duration-700">
                   {/* Success Icon */}
                   <div className="relative mb-8">
-                    <div className="mx-auto w-20 h-20 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="mx-auto w-20 h-20 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center">
                       <CheckCircle className="w-10 h-10 text-white" />
                     </div>
                     {/* Animated rings */}
@@ -413,13 +430,13 @@ export default function Contact() {
 
                   {/* Thank You Message */}
                   <div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-oa-ink mb-4">
                       Thank You!
                     </h2>
-                    <p className="text-xl text-gray-700 mb-2 font-medium">
+                    <p className="text-xl text-oa-ink2 mb-2 font-medium">
                       Your message has been sent successfully
                     </p>
-                    <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p className="text-lg text-oa-ink2 mb-8 leading-relaxed">
                       We've received your inquiry and our team will get back to
                       you within 24 hours.
                     </p>
@@ -432,7 +449,7 @@ export default function Contact() {
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-oa-blue">
                           <span className="text-white font-bold text-xs">
                             1
                           </span>
@@ -442,7 +459,7 @@ export default function Contact() {
                         </p>
                       </div>
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-oa-blue">
                           <span className="text-white font-bold text-xs">
                             2
                           </span>
@@ -452,7 +469,7 @@ export default function Contact() {
                         </p>
                       </div>
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-onealgo-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-oa-blue">
                           <span className="text-white font-bold text-xs">
                             3
                           </span>
@@ -467,27 +484,29 @@ export default function Contact() {
                   {/* Contact for Urgent Matters */}
                   <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
                     <div className="flex items-center gap-2 justify-center mb-2">
-                      <Clock className="w-4 h-4 text-onealgo-orange-500" />
-                      <span className="text-sm font-medium text-gray-900">
+                      <Clock className="w-4 h-4 text-oa-blue" />
+                      <span className="text-sm font-medium text-oa-ink">
                         Need immediate assistance?
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className="text-sm text-oa-ink2 mb-3">
                       For urgent matters, contact us directly:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
                       <a
                         href="tel:16108909711"
-                        className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
+                        className="inline-flex items-center justify-center gap-1.5 font-medium text-oa-blue hover:text-oa-blue600"
                       >
-                        📞 1 (610) 890-9711
+                        <Phone className="h-4 w-4" aria-hidden="true" />
+                        1 (610) 890-9711
                       </a>
-                      <span className="hidden sm:inline text-gray-400">|</span>
+                      <span className="hidden text-oa-ink3 sm:inline">|</span>
                       <a
                         href="mailto:service@onealgorithm.com"
-                        className="text-onealgo-blue-950 hover:text-onealgo-orange-500 font-medium"
+                        className="inline-flex items-center justify-center gap-1.5 font-medium text-oa-blue hover:text-oa-blue600"
                       >
-                        ✉️ service@onealgorithm.com
+                        <Mail className="h-4 w-4" aria-hidden="true" />
+                        service@onealgorithm.com
                       </a>
                     </div>
                   </div>
@@ -508,7 +527,7 @@ export default function Contact() {
                     }}
                     variant="outline"
                     size="lg"
-                    className="border-2 border-onealgo-orange-500 text-onealgo-orange-500 hover:bg-onealgo-orange-500 hover:text-white"
+                    className="border-oa-hairlineStrong text-oa-ink hover:bg-oa-blueTint hover:text-oa-ink"
                   >
                     Send Another Message
                   </Button>
@@ -518,24 +537,34 @@ export default function Contact() {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl font-bold text-oa-ink mb-8">
                 Contact Information
               </h2>
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-onealgo-orange-500" />
+                  <Mail className="w-6 h-6 text-oa-blue" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">service@onealgorithm.com</p>
+                    <h3 className="font-semibold text-oa-ink">Email</h3>
+                    <a
+                      href="mailto:service@onealgorithm.com"
+                      className="text-oa-blue hover:text-oa-blue600"
+                    >
+                      service@onealgorithm.com
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-onealgo-orange-500" />
+                  <Phone className="w-6 h-6 text-oa-blue" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">1 (610) 890-9711</p>
+                    <h3 className="font-semibold text-oa-ink">Phone</h3>
+                    <a
+                      href="tel:16108909711"
+                      className="text-oa-blue hover:text-oa-blue600"
+                    >
+                      1 (610) 890-9711
+                    </a>
                   </div>
                 </div>
               </div>
@@ -561,23 +590,23 @@ export default function Contact() {
       {/* Our Global Offices - full width row under the contact form and map */}
       <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-oa-ink mb-6">
             Our Global Offices
           </h3>
           <div className="w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+              <Card className="h-full border border-oa-hairline p-4 transition-colors hover:border-oa-blue/40">
                 <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                  <CardTitle className="flex items-center gap-2 text-oa-ink text-lg">
                     <span className="text-xl">🇺🇸</span>
                     USA
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-oa-blue mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-oa-ink2 text-sm">
                         625 Swedesford Rd
                         <br />
                         Malvern, PA 19355
@@ -589,18 +618,18 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+              <Card className="h-full border border-oa-hairline p-4 transition-colors hover:border-oa-blue/40">
                 <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                  <CardTitle className="flex items-center gap-2 text-oa-ink text-lg">
                     <span className="text-xl">🇮🇳</span>
                     India
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-oa-blue mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-oa-ink2 text-sm">
                         2nd Floor, Plot No. 536
                         <br />
                         Madhapur, Hyderabad
@@ -612,18 +641,18 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+              <Card className="h-full border border-oa-hairline p-4 transition-colors hover:border-oa-blue/40">
                 <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                  <CardTitle className="flex items-center gap-2 text-oa-ink text-lg">
                     <span className="text-xl">🇦🇪</span>
                     UAE
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-oa-blue mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-oa-ink2 text-sm">
                         Building R118, Suite 201-A-42
                         <br />
                         Al Suq Al Kabeer, Dubai
@@ -633,18 +662,18 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              <Card className="h-full border-2 hover:border-onealgo-orange-500 transition-colors p-4">
+              <Card className="h-full border border-oa-hairline p-4 transition-colors hover:border-oa-blue/40">
                 <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-onealgo-blue-950 text-lg">
+                  <CardTitle className="flex items-center gap-2 text-oa-ink text-lg">
                     <span className="text-xl">🇨🇦</span>
                     Canada
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-onealgo-orange-500 mt-1 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-oa-blue mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-oa-ink2 text-sm">
                         120 Adelaide St W<br />
                         Toronto, ON M5H 1T1
                       </p>
@@ -662,10 +691,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-oa-ink mb-6">
                 Why Choose OneAlgorithm for Your Technology Needs?
               </h2>
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-4 text-oa-ink2">
                 <p>
                   OneAlgorithm is a leading technology consultancy specializing
                   in IT consulting, website development, operations technology,
@@ -693,15 +722,15 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-oa-ink mb-6">
                 Our Comprehensive Technology Services
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">
+                  <h4 className="text-lg font-semibold text-oa-ink mb-2">
                     IT Consulting & Strategic Planning
                   </h4>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-oa-ink2 text-sm">
                     Technology audits, digital transformation strategies,
                     cybersecurity assessments, cloud migration planning, and
                     business process optimization to align IT infrastructure
@@ -710,10 +739,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">
+                  <h4 className="text-lg font-semibold text-oa-ink mb-2">
                     Website Development & Design
                   </h4>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-oa-ink2 text-sm">
                     Custom website development, responsive design, e-commerce
                     platforms, SEO optimization, content management systems, and
                     performance optimization for enhanced user experience.
@@ -721,10 +750,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">
+                  <h4 className="text-lg font-semibold text-oa-ink mb-2">
                     Operations Technology Solutions
                   </h4>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-oa-ink2 text-sm">
                     Industrial automation, SCADA systems, IoT integration,
                     process optimization, equipment monitoring, predictive
                     maintenance, and operational efficiency improvements.
@@ -732,10 +761,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">
+                  <h4 className="text-lg font-semibold text-oa-ink mb-2">
                     Staff Augmentation & Talent Solutions
                   </h4>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-oa-ink2 text-sm">
                     Skilled developers, IT specialists, project managers,
                     technical consultants, and subject matter experts to scale
                     your team with the right talent for short-term or long-term
@@ -744,10 +773,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-onealgo-blue-950 mb-2">
+                  <h4 className="text-lg font-semibold text-oa-ink mb-2">
                     Marketing Technology & Automation
                   </h4>
-                  <p className="text-gray-700 text-sm">
+                  <p className="text-oa-ink2 text-sm">
                     Campaign management, marketing automation, customer journey
                     optimization, data analytics, CRM integration, and ROI
                     tracking to maximize marketing effectiveness.
@@ -758,10 +787,10 @@ export default function Contact() {
           </div>
 
           <div className="mt-12 bg-white rounded-lg p-8 shadow-sm">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+            <h3 className="text-2xl font-bold text-oa-ink mb-4 text-center">
               Ready to Transform Your Business with Technology?
             </h3>
-            <p className="text-gray-700 text-center mb-6 max-w-3xl mx-auto">
+            <p className="text-oa-ink2 text-center mb-6 max-w-3xl mx-auto">
               Join hundreds of successful businesses that have partnered with
               OneAlgorithm to streamline operations, reduce costs, and
               accelerate growth. Our technology experts are ready to analyze
@@ -769,7 +798,7 @@ export default function Contact() {
               transformation.
             </p>
             <div className="text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-oa-ink2">
                 Contact us today for a free consultation and discover how
                 OneAlgorithm's proven technology solutions can drive your
                 business forward. We serve clients across the United States,

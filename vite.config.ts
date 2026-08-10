@@ -9,7 +9,10 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
-      allow: ["./client", "./shared"],
+      // index.html lives at the repo root, so the root entry point has to be
+      // readable too - without it `npm run dev` answers 403 Restricted before
+      // it ever gets to the app. Only the file is allowed, not the directory.
+      allow: ["./client", "./shared", "./index.html"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },

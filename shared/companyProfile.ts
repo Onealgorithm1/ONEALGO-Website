@@ -53,7 +53,7 @@ export const siteConfig: CompanyConfig = {
   url: "https://www.onealgorithm.com",
   logo: "https://onealgorithm.com/media/oa-logo.webp",
   description:
-    "Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business providing secure cloud modernization, Salesforce platform engineering, AI-driven automation, cybersecurity compliance, and accessibility solutions for federal and state agencies. Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.",
+    "Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business providing secure cloud modernization, Salesforce platform engineering, AI-driven automation, cybersecurity compliance, and accessibility solutions for commercial clients, and is certified and registered to serve federal, state and local government buyers. Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.",
   certifications: [],
   qualityStandards: "ISO 9001–Compliant Quality Management System",
   address: {

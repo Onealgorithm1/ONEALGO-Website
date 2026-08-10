@@ -137,8 +137,26 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/*
+        The one place glass earns its keep: a sticky bar that content scrolls
+        under. Used as a general card treatment it is a 2021 relic, but here it
+        gives the bar depth without a shadow and keeps the page feeling
+        continuous.
+
+        Two details that matter:
+        - The fallback is bg-white/90. `backdrop-filter` is unsupported or
+          disabled often enough (older browsers, some privacy settings, forced
+          reduced-transparency) that a bar relying on blur for legibility fails
+          open. Where blur IS supported we drop to /70 and let it do the work.
+        - Even at /70 over the dark hero the bar resolves near-white, so the
+          ink nav links stay well above 4.5:1. Anything more transparent and
+          the links start to swim.
+
+        Container width changed from max-w-7xl (1280px) to 1200px so the logo
+        lines up with the page content below it - they were 40px out of step.
+      */}
+      <nav className="sticky top-0 z-50 border-b border-oa-hairline bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link
@@ -722,7 +740,7 @@ function Layout({ children }: LayoutProps) {
               >
                 <Link
                   to="/contact"
-                  className="block w-full rounded-xl bg-onealgo-orange-500 px-4 py-3.5 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-onealgo-orange-600"
+                  className="block w-full rounded-xl bg-oa-orange px-4 py-3.5 text-center text-base font-semibold text-oa-ink transition-colors hover:bg-[#ffb757]"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -752,34 +770,37 @@ function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer
-        className="bg-onealgo-blue-950 text-white"
+        className="bg-oa-night text-oa-nightInk"
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Trusted Partnerships Carousel */}
+        {/* The footer now shares the dark ground with the closing section above
+            it, so the boundary needs a hairline rather than a colour change,
+            and the top padding is trimmed - two stacked sections of the same
+            colour were reading as one long empty band. */}
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-10 pb-8">
           <TrustedPartnerships />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-5 md:gap-8">
             {/* Company Info */}
-            <div className="md:col-span-2">
-              <OneAlgorithmText size="lg" className="text-white mb-4" />
-              <p className="text-blue-200 mb-6 max-w-md">
+            <div className="col-span-2">
+              <OneAlgorithmText size="md" className="text-white mb-3" />
+              <p className="mb-5 max-w-md text-sm leading-relaxed text-oa-nightInk2">
                 We streamline operations, automate the busywork, and build tools
                 that let you focus on what matters: growing your business.
               </p>
 
               {/* Social Media Icons */}
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-2.5">
                 <a
                   href="https://www.linkedin.com/company/onealgorithmllc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-blue-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="LinkedIn"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-blue-100"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -791,11 +812,11 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.tiktok.com/@one.algorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-black p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="TikTok"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-white"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -807,11 +828,11 @@ function Layout({ children }: LayoutProps) {
                   href="https://youtube.com/@onealgorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-red-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="YouTube"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-red-100"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -823,11 +844,11 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.facebook.com/share/1694s7Yy3p/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-blue-500 p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="Facebook"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-blue-100"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -839,11 +860,11 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.instagram.com/onealgorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="Instagram"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-pink-100"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -855,11 +876,11 @@ function Layout({ children }: LayoutProps) {
                   href="https://maps.app.goo.gl/kVEeTz9dCyB64CGk6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-blue-800 hover:bg-red-500 p-3 rounded-full transition-all duration-300 hover:scale-110"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
                   title="Google Business Profile"
                 >
                   <svg
-                    className="w-5 h-5 text-white group-hover:text-red-100"
+                    className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -874,14 +895,14 @@ function Layout({ children }: LayoutProps) {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <div className="space-y-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Quick Links</h3>
+              <div className="space-y-1.5">
                 <Link
                   to="/"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Home
                 </Link>
@@ -890,7 +911,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   About
                 </Link>
@@ -899,7 +920,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Capabilities
                 </Link>
@@ -908,7 +929,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Industries We Serve
                 </Link>
@@ -916,7 +937,7 @@ function Layout({ children }: LayoutProps) {
                     it is not a route in this SPA, so <Link> would 404. */}
                 <a
                   href="/blog/"
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Blog
                 </a>
@@ -925,7 +946,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Contact
                 </Link>
@@ -938,7 +959,7 @@ function Layout({ children }: LayoutProps) {
                 */}
                 <a
                   href="/blog/careers/"
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Careers
                 </a>
@@ -947,7 +968,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   AI Information
                 </Link>
@@ -956,7 +977,7 @@ function Layout({ children }: LayoutProps) {
 
             {/* Services */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
                 {/*
                   The heading links to the services hub.
 
@@ -972,18 +993,18 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="hover:text-blue-200 transition-colors"
+                  className="hover:text-oa-nightInk2 transition-colors"
                 >
                   Services
                 </Link>
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Link
                   to="/services/martech"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   MarTech
                 </Link>
@@ -992,7 +1013,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Google Ads
                 </Link>
@@ -1001,7 +1022,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Website Development
                 </Link>
@@ -1010,7 +1031,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Marketing
                 </Link>
@@ -1019,7 +1040,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   SEO Services
                 </Link>
@@ -1028,7 +1049,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Staff Augmentation
                 </Link>
@@ -1037,7 +1058,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   IT Consulting
                 </Link>
@@ -1046,7 +1067,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Operations Technology
                 </Link>
@@ -1055,7 +1076,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Oracle ERP
                 </Link>
@@ -1064,7 +1085,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Salesforce
                 </Link>
@@ -1073,7 +1094,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-blue-200 hover:text-white transition-colors"
+                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                 >
                   Zendesk
                 </Link>
@@ -1099,8 +1120,8 @@ function Layout({ children }: LayoutProps) {
               page can reach back through window.opener.
             */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Certifications</h3>
-              <div className="space-y-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Certifications</h3>
+              <div className="space-y-1.5">
                 {[
                   [
                     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18",
@@ -1124,7 +1145,7 @@ function Layout({ children }: LayoutProps) {
                     href={href}
                     target="_blank"
                     rel="noopener"
-                    className="block text-blue-200 hover:text-white transition-colors"
+                    className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
                   >
                     {label}
                   </a>
@@ -1150,50 +1171,40 @@ function Layout({ children }: LayoutProps) {
             */}
           </div>
 
-          {/* Bottom Bar */}
-          <div className="border-t border-blue-800 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} OneAlgorithm. All rights reserved.
-              </p>
-              <div className="flex gap-4 mt-2 md:mt-0">
-                <Link
-                  to="/privacy"
-                  className="text-blue-200 hover:text-white transition-colors text-sm"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="text-blue-200 hover:text-white transition-colors text-sm"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                >
-                  Terms &amp; Conditions
-                </Link>
-              </div>
-            </div>
+          {/* Bottom bar. Previously three separately bordered blocks stacked on
+              top of each other - copyright, trademark disclaimer, E-Verify -
+              each with its own 16px margin and 16px padding. That alone was
+              roughly 180px of footer. All three still say exactly the same
+              thing; they now share one row and one rule. */}
+          <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
+            <p className="text-xs text-oa-nightInk3">
+              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·
+              We participate in E-Verify
+            </p>
 
-            {/* Disclaimer */}
-            <div className="mt-4 pt-4 border-t border-blue-800/50">
-              <p className="text-blue-300/80 text-xs leading-relaxed text-center max-w-4xl mx-auto">
-                All product names, logos, and brands are property of their
-                respective owners. Use of these names, logos, and brands does
-                not imply endorsement.
-              </p>
-            </div>
-
-            {/* E-Verify Statement */}
-            <div className="mt-4 pt-4 border-t border-blue-800/50">
-              <p className="text-blue-300/80 text-xs text-center">
-                We participate in E-Verify
-              </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <Link
+                to="/privacy"
+                className="text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Terms &amp; Conditions
+              </Link>
             </div>
           </div>
+
+          <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3/70">
+            All product names, logos, and brands are property of their respective
+            owners. Use of these names, logos, and brands does not imply
+            endorsement.
+          </p>
         </div>
       </footer>
     </div>

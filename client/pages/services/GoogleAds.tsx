@@ -1,11 +1,4 @@
 import Layout from "../../components/Layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
 import {
   DollarSign,
@@ -15,11 +8,80 @@ import {
   RefreshCw,
   Users,
 } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  Split,
+  PrimaryCTA,
+  CTABand,
+} from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
 } from "../../components/StructuredData";
+
+/* Google Ads management - 2026 refresh.
+ *
+ * Converted onto the shared primitives in components/site.tsx.
+ *
+ *  1. The closing "Paid Media Success Stories" section is DELETED. It promised
+ *     campaign examples and then offered them "on request", which tells a buyer
+ *     there are none to show. No replacement was invented - the share row it
+ *     wrapped survives as a utility band. See REDESIGN-NOTES.md.
+ *  2. The bouncing alert glyph above the H1, the orange hover borders and the
+ *     card shadows are gone.
+ *  3. Structure differs from /services/seo and /services/martech, which were
+ *     clones of the same template: six capabilities run two-up on the surface
+ *     ground so each gets room for its longer body, and the argument plus the
+ *     audit offer close the page together on the dark ground.
+ *
+ * All body copy is carried over unchanged.
+ */
+
+const CAPABILITIES = [
+  {
+    icon: DollarSign,
+    title: "Campaign Setup & Strategy",
+    body: "Structure accounts and campaigns to align with business goals, target high-intent keywords, and create scalable account architectures.",
+  },
+  {
+    icon: Target,
+    title: "Audience Targeting & Remarketing",
+    body: "Advanced audience segmentation, remarketing lists, and customer match to re-engage users and improve conversion rates.",
+  },
+  {
+    icon: Zap,
+    title: "Bid Management & Optimization",
+    body: "Continuous bid and budget optimization using data-driven rules and smart bidding strategies to maximize ROI.",
+  },
+  {
+    icon: BarChart3,
+    title: "Creative & Landing Page Testing",
+    body: "A/B test ad creatives and landing pages to improve Quality Score and conversion rates across campaigns.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Measurement & Attribution",
+    body: "Implement tracking, conversion measurement, and attribution models that reveal true campaign performance and LTV.",
+  },
+  {
+    icon: Users,
+    title: "Reporting & Optimization",
+    body: "Transparent dashboards and weekly optimizations with clear KPIs focused on cost-per-acquisition and revenue.",
+  },
+];
+
+const WHY_US = [
+  "Performance-first approach focused on reducing CPA and increasing ROAS.",
+  "Technical tracking and attribution to understand true campaign impact.",
+  "Continuous testing and optimization of creatives and landing pages.",
+  "Transparent reporting with clear recommendations and next steps.",
+];
 
 export default function GoogleAds() {
   useSEO({
@@ -42,45 +104,6 @@ export default function GoogleAds() {
       "https://onealgorithm.com/og-image.jpg",
   });
 
-  const features = [
-    {
-      icon: <DollarSign className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Campaign Setup & Strategy",
-      description:
-        "Structure accounts and campaigns to align with business goals, target high-intent keywords, and create scalable account architectures.",
-    },
-    {
-      icon: <Target className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Audience Targeting & Remarketing",
-      description:
-        "Advanced audience segmentation, remarketing lists, and customer match to re-engage users and improve conversion rates.",
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Bid Management & Optimization",
-      description:
-        "Continuous bid and budget optimization using data-driven rules and smart bidding strategies to maximize ROI.",
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Creative & Landing Page Testing",
-      description:
-        "A/B test ad creatives and landing pages to improve Quality Score and conversion rates across campaigns.",
-    },
-    {
-      icon: <RefreshCw className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Measurement & Attribution",
-      description:
-        "Implement tracking, conversion measurement, and attribution models that reveal true campaign performance and LTV.",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Reporting & Optimization",
-      description:
-        "Transparent dashboards and weekly optimizations with clear KPIs focused on cost-per-acquisition and revenue.",
-    },
-  ];
-
   return (
     <Layout>
       <StructuredData
@@ -92,142 +115,86 @@ export default function GoogleAds() {
         )}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <svg
-              className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-6 animate-bounce-slow"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 6h2v6h-2zM11 14h2v2h-2z" />
-            </svg>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Google Ads Management &nbsp;
-              <span className="text-onealgo-orange-500">
-                Paid Search That Converts
-              </span>
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Cut wasted spend and grow revenue with performance-focused Google
-              Ads campaigns, expert optimization, and robust measurement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-              >
-                <a href="/contact">Request Google Ads Audit</a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-4"
-              >
-                <a href="/services/marketing">Back to Marketing</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Google Ads"
+        title={
+          <>
+            Google Ads management —{" "}
+            <span className="text-oa-orange">paid search that converts</span>
+          </>
+        }
+        lede="Cut wasted spend and grow revenue with performance-focused Google Ads campaigns, expert optimization, and robust measurement."
+        // Panel items are the CAPABILITIES card titles from further down this
+        // page, verbatim. No hero bullets existed here and nothing new was
+        // written. There is no Google Partner claim anywhere on this site, so
+        // the footer carries only the company-wide SBA line.
+        panel={{
+          title: "What we deliver",
+          items: [
+            "Campaign Setup & Strategy",
+            "Audience Targeting & Remarketing",
+            "Bid Management & Optimization",
+            "Creative & Landing Page Testing",
+            "Measurement & Attribution",
+          ],
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Request Google Ads Audit", to: "/contact" }}
+        secondary={{ label: "Back to Marketing", to: "/services/marketing" }}
+      />
 
-      {/* Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Google Ads Capabilities
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Full-service Google Ads: strategy, audience targeting,
-              optimization, creative testing, and transparent reporting.
-            </p>
-          </div>
+      {/* Two-up rather than three-up: these bodies are the longest of the three
+          marketing pages, and a 3-column grid ragged them badly. */}
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="What we do"
+          title="Google Ads capabilities"
+          lede="Full-service Google Ads: strategy, audience targeting, optimization, creative testing, and transparent reporting."
+        />
+        <CardGrid columns={2} className="mt-12">
+          {CAPABILITIES.map((c) => (
+            <Card key={c.title} icon={c.icon} title={c.title} body={c.body} />
+          ))}
+        </CardGrid>
+      </Section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="text-onealgo-blue-950">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Why OneAlgorithm for Google Ads?
-              </h3>
-              <ul className="space-y-4 text-gray-600">
-                <li>
-                  Performance-first approach focused on reducing CPA and
-                  increasing ROAS.
-                </li>
-                <li>
-                  Technical tracking and attribution to understand true campaign
-                  impact.
-                </li>
-                <li>
-                  Continuous testing and optimization of creatives and landing
-                  pages.
-                </li>
-                <li>
-                  Transparent reporting with clear recommendations and next
-                  steps.
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+      <Section tone="night" grid>
+        <Split
+          left={
+            <>
+              <SectionHeading
+                tone="dark"
+                eyebrow="Why OneAlgorithm"
+                title="Why OneAlgorithm for Google Ads?"
+              />
+              <div className="mt-8">
+                <CheckList items={WHY_US} tone="dark" />
+              </div>
+            </>
+          }
+          right={
+            <Card tone="dark">
+              <h3 className="text-h3 font-semibold text-oa-nightInk">
                 Get a Google Ads Audit
-              </h4>
-              <p className="text-gray-600 mb-6">
+              </h3>
+              <p className="mt-4 leading-relaxed text-oa-nightInk2">
                 Our audit examines account structure, conversion tracking,
                 audience strategy, and recommendations to lower CPA and improve
                 performance.
               </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
-              >
-                <a href="/contact">Request Audit</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="mt-7">
+                <PrimaryCTA to="/contact">Request Audit</PrimaryCTA>
+              </div>
+            </Card>
+          }
+        />
+      </Section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">
-            Paid Media Success Stories
-          </h3>
-          <p className="text-gray-600 max-w-3xl mx-auto mb-8">
-            Examples of campaigns that scaled efficiently and delivered revenue
-            — available on request.
-          </p>
-          <SocialShare />
-        </div>
-      </section>
+      <Section tone="paper" compact bordered>
+        <SocialShare />
+      </Section>
+
+      <CTABand secondary={{ label: "View all services", to: "/services" }} />
     </Layout>
   );
 }

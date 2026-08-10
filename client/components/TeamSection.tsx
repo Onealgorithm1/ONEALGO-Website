@@ -1,12 +1,32 @@
 import React from "react";
 import { Badge } from "./ui/badge";
-import { Card, CardContent } from "./ui/card";
+import { Section, SectionHeading, Card, CardGrid } from "./site";
+
+/* Leadership - 2026 refresh.
+ *
+ * Three substantive changes beyond the visual system:
+ *
+ *  1. `expertise` and `industries` were fully populated in the data and never
+ *     rendered - the file even imported Badge without using it. They are real,
+ *     already-published detail a buyer weighs, so they now render as tags under
+ *     each bio. No new facts were added to either array.
+ *  2. `roleSummary` was byte-identical to `background` on all four members and
+ *     only `background` was ever rendered. The duplicate field is gone.
+ *  3. All four bios opened with the word "Leads", which read as one paragraph
+ *     copied four times. Only the opening clause was rephrased - no credential,
+ *     employer, date or claim was changed.
+ *
+ * The dead `industryIcons` map (three entries, all the same circle path, never
+ * referenced) has been deleted.
+ *
+ * Accessibility: #ffa634 is 1.95:1 on white, so job titles use the
+ * `oa.orangeText` token (#9a4f00, 6.01:1) rather than the brand orange.
+ */
 
 interface TeamMember {
   id: string;
   name: string;
   title: string;
-  roleSummary: string;
   expertise: string[];
   industries: ("Construction" | "Manufacturing" | "E-commerce")[];
   background: string;
@@ -19,154 +39,155 @@ const teamMembers: TeamMember[] = [
     id: "swapna",
     name: "Swapna Amirisetti",
     title: "President & CEO",
-    roleSummary:
-      "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
-    expertise: ["Executive Leadership", "Systems Integration", "IT Program Management", "Salesforce", "Digital Transformation"],
+    expertise: [
+      "Executive Leadership",
+      "Systems Integration",
+      "IT Program Management",
+      "Salesforce",
+      "Digital Transformation",
+    ],
     industries: ["Manufacturing", "Construction", "E-commerce"],
     background:
       "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
-    image:
-      "/media/team-1.webp",
+    image: "/media/team-1.webp",
     linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
   },
   {
     id: "sreenivas",
     name: "Sreenivas Amirisetti, MBA",
     title: "Secretary & Director of Operations",
-    roleSummary:
-      "Leads technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
-    expertise: ["Salesforce Ecosystem", "Enterprise Systems Integration", "Cloud Strategy", "CRM Modernization", "Data Integration"],
+    expertise: [
+      "Salesforce Ecosystem",
+      "Enterprise Systems Integration",
+      "Cloud Strategy",
+      "CRM Modernization",
+      "Data Integration",
+    ],
     industries: ["Manufacturing", "E-commerce"],
     background:
-      "Leads technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
-    image:
-      "/media/team-2.webp",
+      "Directs technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
+    image: "/media/team-2.webp",
     linkedinUrl: "https://www.linkedin.com/in/samirisetti/",
   },
   {
     id: "louis",
     name: "Louis Rubino",
     title: "Director",
-    roleSummary:
-      "Leads compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
-    expertise: ["FAR/DFARS Compliance", "Government Contracting", "Proposal Coordination", "NIST 800-171", "Operations Management"],
+    expertise: [
+      "FAR/DFARS Compliance",
+      "Government Contracting",
+      "Proposal Coordination",
+      "NIST 800-171",
+      "Operations Management",
+    ],
     industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "Leads compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
-    image:
-      "/media/team-3.webp",
+      "Responsible for compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
+    image: "/media/team-3.webp",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
   {
     id: "sahith",
     name: "Sahith Valluru",
     title: "Business Development Manager & Communications Expert",
-    roleSummary:
-      "Leads business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
-    expertise: ["Strategic Partnerships", "Business Development", "Executive Communications", "Relationship Management", "Salesforce CRM"],
+    expertise: [
+      "Strategic Partnerships",
+      "Business Development",
+      "Executive Communications",
+      "Relationship Management",
+      "Salesforce CRM",
+    ],
     industries: ["E-commerce", "Manufacturing"],
     background:
-      "Leads business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
-    image:
-      "/media/team-4.webp",
+      "Drives business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
+    image: "/media/team-4.webp",
     linkedinUrl: "https://www.linkedin.com/in/sahith-valluru/",
   },
 ];
 
-const industryIcons: Record<string, React.ReactNode> = {
-  Construction: (
-    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
-    </svg>
-  ),
-  Manufacturing: (
-    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
-    </svg>
-  ),
-  "E-commerce": (
-    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
-    </svg>
-  ),
-};
-
 export default function TeamSection() {
   return (
-    <section className="py-20 bg-white" style={{ height: 'auto', flexGrow: 0 }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style={{ fontSize: '45px' }}>
-            Meet the Team
-          </h2>
-        </div>
+    <Section tone="surface" bordered>
+      <SectionHeading
+        eyebrow="Leadership"
+        title="Meet the team"
+        lede="Four people accountable for the work — strategy, delivery, compliance and partnerships."
+      />
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {teamMembers.map((member) => (
-            <Card key={member.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                {/* Image */}
-                <div className="aspect-square overflow-hidden bg-gray-100">
-                  {/* width/height give the browser an aspect ratio before the
-                      file arrives, so the grid stops shifting as portraits load;
-                      lazy + async keeps below-the-fold faces off the critical
-                      path. The square matches the aspect-square wrapper. */}
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    width={400}
-                    height={400}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+      <CardGrid columns={2} className="mt-12">
+        {teamMembers.map((member) => (
+          <Card key={member.id}>
+            <div className="flex items-start gap-5">
+              {/* width/height give the browser an aspect ratio before the file
+                  arrives, so the grid stops shifting as portraits load; lazy +
+                  async keeps below-the-fold faces off the critical path. */}
+              <img
+                src={member.image}
+                alt={member.name}
+                width={400}
+                height={400}
+                loading="lazy"
+                decoding="async"
+                className="h-28 w-28 shrink-0 rounded-lg bg-oa-sunk object-cover"
+              />
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Name & Title with LinkedIn Link */}
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        {member.name}
-                      </h3>
-                      {/* orange-700, not 500. The brand orange on white measures
-                          1.95:1 where the accessibility floor is 4.5:1 - job
-                          titles were genuinely hard to read. 700 is the same hue
-                          darkened to 5.04:1. */}
-                      <p className="text-onealgo-orange-700 font-medium">
-                        {member.title}
-                      </p>
-                    </div>
-                    <a
-                      href={member.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-onealgo-blue-950 transition-colors flex-shrink-0"
-                      aria-label={`${member.name} LinkedIn profile`}
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.437-.103.249-.129.597-.129.946v5.422h-3.554s.05-8.736 0-9.646h3.554v1.366c.43-.664 1.199-1.61 2.922-1.61 2.134 0 3.734 1.398 3.734 4.403v5.487zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.957.771-1.71 1.958-1.71 1.187 0 1.915.753 1.94 1.71 0 .952-.753 1.71-1.983 1.71zm1.581 11.597H3.635V9.861h3.283v10.591zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
-                      </svg>
-                    </a>
-                  </div>
+              <div className="min-w-0">
+                <h3 className="text-lg font-semibold text-oa-ink">
+                  {member.name}
+                </h3>
+                <p className="mt-1 font-medium text-oa-orangeText">
+                  {member.title}
+                </p>
+                <a
+                  href={member.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-oa-blue transition-colors hover:text-oa-blue700"
+                  aria-label={`${member.name} LinkedIn profile`}
+                >
+                  <svg
+                    className="h-4 w-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.437-.103.249-.129.597-.129.946v5.422h-3.554s.05-8.736 0-9.646h3.554v1.366c.43-.664 1.199-1.61 2.922-1.61 2.134 0 3.734 1.398 3.734 4.403v5.487zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.957.771-1.71 1.958-1.71 1.187 0 1.915.753 1.94 1.71 0 .952-.753 1.71-1.983 1.71zm1.581 11.597H3.635V9.861h3.283v10.591zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
 
-                  {/* Bio */}
-                  <p className="text-sm text-gray-600 leading-relaxed border-t pt-4">
-                    {member.background}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
+            <p className="mt-6 border-t border-oa-hairline pt-5 text-sm leading-relaxed text-oa-ink2">
+              {member.background}
+            </p>
+
+            {/* Focus areas and industries were carried in the data all along
+                and never shown. Blue tint marks an industry, neutral an area
+                of expertise. */}
+            <div className="mt-5 flex flex-wrap gap-1.5">
+              {member.industries.map((industry) => (
+                <Badge
+                  key={industry}
+                  variant="outline"
+                  className="border-oa-blue/25 bg-oa-blueTint font-medium text-oa-blue700"
+                >
+                  {industry}
+                </Badge>
+              ))}
+              {member.expertise.map((skill) => (
+                <Badge
+                  key={skill}
+                  variant="outline"
+                  className="border-oa-hairlineStrong bg-oa-sunk font-medium text-oa-ink2"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </Card>
+        ))}
+      </CardGrid>
+    </Section>
   );
 }

@@ -1,12 +1,4 @@
-import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
 import {
   Globe,
@@ -15,11 +7,74 @@ import {
   CheckCircle,
   BarChart3,
 } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  Split,
+  PrimaryCTA,
+  CTABand,
+} from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
 } from "../../components/StructuredData";
+
+/* SEO services - 2026 refresh.
+ *
+ * Converted onto the shared primitives in components/site.tsx. Three things
+ * went beyond the visual system:
+ *
+ *  1. The closing "Recent SEO Wins" section is DELETED. It was a heading whose
+ *     only content was "case studies ... available on request", which reads to
+ *     a buyer as "we have none". Nothing was invented to replace it - the share
+ *     row it wrapped is kept as a plain utility band. See REDESIGN-NOTES.md.
+ *  2. The bouncing exclamation-mark glyph in the hero is gone. It was a generic
+ *     alert icon animating above the H1 of an SEO page.
+ *  3. Section order runs capabilities -> case for us + the audit offer, so the
+ *     page does not repeat the shape of the MarTech and Google Ads pages.
+ *
+ * All body copy is carried over unchanged.
+ */
+
+const CAPABILITIES = [
+  {
+    icon: Globe,
+    title: "Technical SEO Audits",
+    body: "Comprehensive audits to fix crawlability, indexability, site architecture, and Core Web Vitals issues.",
+  },
+  {
+    icon: BarChart3,
+    title: "Keyword & Content Strategy",
+    body: "Data-driven content plans that target high-value queries and improve topical authority.",
+  },
+  {
+    icon: LinkIcon,
+    title: "Link Building & Outreach",
+    body: "Ethical outreach and authority-building campaigns to improve domain signals and referral traffic.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Analytics & CRO",
+    body: "Track performance, run experiments, and optimize pages to convert the traffic we bring.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Local & Enterprise SEO",
+    body: "Local listings, citation management, and scalable strategies for multi-location or large sites.",
+  },
+];
+
+const WHY_US = [
+  "Proven track record increasing organic sessions and conversions.",
+  "Technical-first approach to fix root causes of poor visibility.",
+  "Content programs aligned to product/market fit and revenue goals.",
+  "Transparent reporting and continuous improvement via testing.",
+];
 
 export default function Seo() {
   useSEO({
@@ -42,39 +97,6 @@ export default function Seo() {
       "https://onealgorithm.com/og-image.jpg",
   });
 
-  const features = [
-    {
-      icon: <Globe className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Technical SEO Audits",
-      description:
-        "Comprehensive audits to fix crawlability, indexability, site architecture, and Core Web Vitals issues.",
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Keyword & Content Strategy",
-      description:
-        "Data-driven content plans that target high-value queries and improve topical authority.",
-    },
-    {
-      icon: <LinkIcon className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Link Building & Outreach",
-      description:
-        "Ethical outreach and authority-building campaigns to improve domain signals and referral traffic.",
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Analytics & CRO",
-      description:
-        "Track performance, run experiments, and optimize pages to convert the traffic we bring.",
-    },
-    {
-      icon: <CheckCircle className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Local & Enterprise SEO",
-      description:
-        "Local listings, citation management, and scalable strategies for multi-location or large sites.",
-    },
-  ];
-
   return (
     <Layout>
       <StructuredData
@@ -86,137 +108,84 @@ export default function Seo() {
         )}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <svg
-              className="w-24 h-24 text-onealgo-orange-500 mx-auto mb-6 animate-bounce-slow"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 6h2v6h-2zM11 14h2v2h-2z" />
-            </svg>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              SEO Services &nbsp;
-              <span className="text-onealgo-orange-500">
-                for Sustainable Growth
-              </span>
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Technical SEO, content strategy, and analytics-driven optimization
-              to increase qualified organic traffic and revenue.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-4"
-              >
-                <Link to="/services">View Services</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="SEO Services"
+        title={
+          <>
+            SEO services{" "}
+            <span className="text-oa-orange">for sustainable growth</span>
+          </>
+        }
+        lede="Technical SEO, content strategy, and analytics-driven optimization to increase qualified organic traffic and revenue."
+        // Panel items are the CAPABILITIES card titles from further down this
+        // page, verbatim. No hero bullets existed here and nothing new was
+        // written. No platform credential exists for SEO, so the footer carries
+        // only the company-wide SBA line.
+        panel={{
+          title: "What we deliver",
+          items: [
+            "Technical SEO Audits",
+            "Keyword & Content Strategy",
+            "Link Building & Outreach",
+            "Analytics & CRO",
+            "Local & Enterprise SEO",
+          ],
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View Services", to: "/services" }}
+      />
 
-      {/* Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              SEO Capabilities
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Full-service SEO: from technical fixes to content and outreach
-              that drive measurable results.
-            </p>
-          </div>
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="What we do"
+          title="SEO capabilities"
+          lede="Full-service SEO: from technical fixes to content and outreach that drive measurable results."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {CAPABILITIES.map((c) => (
+            <Card key={c.title} icon={c.icon} title={c.title} body={c.body} />
+          ))}
+        </CardGrid>
+      </Section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-onealgo-orange-500 transition-colors"
-              >
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="text-onealgo-blue-950">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Why OneAlgorithm for SEO?
-              </h3>
-              <ul className="space-y-4 text-gray-600">
-                <li>
-                  Proven track record increasing organic sessions and
-                  conversions.
-                </li>
-                <li>
-                  Technical-first approach to fix root causes of poor
-                  visibility.
-                </li>
-                <li>
-                  Content programs aligned to product/market fit and revenue
-                  goals.
-                </li>
-                <li>
-                  Transparent reporting and continuous improvement via testing.
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+      {/* The case for us and the audit offer sit side by side, so the argument
+          and the low-commitment next step are read together. */}
+      <Section tone="paper" bordered>
+        <Split
+          left={
+            <>
+              <SectionHeading
+                eyebrow="Why OneAlgorithm"
+                title="Why OneAlgorithm for SEO?"
+              />
+              <div className="mt-8">
+                <CheckList items={WHY_US} />
+              </div>
+            </>
+          }
+          right={
+            <Card>
+              <h3 className="text-h3 font-semibold text-oa-ink">
                 Get an SEO Audit
-              </h4>
-              <p className="text-gray-600 mb-6">
+              </h3>
+              <p className="mt-4 text-oa-ink2 leading-relaxed">
                 Our audit includes site crawl, Core Web Vitals review, content
                 gaps, and prioritized fixes with estimated impact.
               </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-6 py-3"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="mt-7">
+                <PrimaryCTA to="/contact">Talk to an Expert</PrimaryCTA>
+              </div>
+            </Card>
+          }
+        />
+      </Section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Recent SEO Wins</h3>
-          <p className="text-gray-600 max-w-3xl mx-auto mb-8">
-            Case studies, improved rankings, and traffic growth across client
-            sites — available on request.
-          </p>
-          <SocialShare />
-        </div>
-      </section>
+      <Section tone="surface" compact bordered>
+        <SocialShare />
+      </Section>
+
+      <CTABand secondary={{ label: "View all services", to: "/services" }} />
     </Layout>
   );
 }

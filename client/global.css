@@ -1,14 +1,33 @@
-/* The Inter and Roboto @font-face blocks that used to sit here have been removed.
-   All three .woff2 files they pointed at were not fonts at all - they were saved
-   HTML 404 pages, 679 to 1644 bytes each, beginning with "<!DOCTYPE" and "<htm".
-   Every visitor downloaded them, the browser rejected them as invalid, and the
-   page fell back to the system stack. So the site has always rendered in system
-   fonts; these rules only ever bought three failed requests per visit.
+/* Real self-hosted webfonts. The previous attempt shipped three .woff2 files
+   that were actually saved HTML 404 pages, so the site rendered in system fonts
+   for its whole life. These two are genuine binaries - verified by their wOF2
+   magic bytes - and they are variable, so one file covers every weight we use.
+   Latin subset only: 30KB + 40KB against a 120KB budget.
 
-   Removing them changes nothing visually and drops the wasted work. To actually
-   ship Inter and Roboto, add the real font binaries under public/fonts and
-   restore these blocks - the font-family stacks below already name them first,
-   so they will be picked up as soon as the files are genuinely there. */
+   Self-hosted rather than fetched from Google, so there is no third-party
+   request on the critical path and no dependency to keep in the lockfile. */
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @tailwind base;
 @tailwind components;
@@ -282,6 +301,60 @@
 }
 
 @layer utilities {
+  /* Footer platform marquee.
+     Edge fade instead of a hard cut, pause on hover so a name can actually be
+     read, and under reduced motion it stops moving and wraps to multiple rows
+     so nothing becomes unreachable. The track holds the list twice, so
+     translating it exactly -50% loops seamlessly. */
+  .marquee {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 6rem,
+      #000 calc(100% - 6rem),
+      transparent 100%
+    );
+  }
+
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    .marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
   .animate-fade-in {
     animation: fadeIn 1s ease-in-out;
   }
@@ -304,10 +377,6 @@
 
   .animate-spin-slow {
     animation: spin 8s linear infinite;
-  }
-
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
   }
 
   @keyframes fadeIn {
@@ -340,15 +409,6 @@
     }
   }
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
   @keyframes slide-in-from-top {
     from {
       opacity: 0;
@@ -372,8 +432,7 @@
   .animate-spin-slow,
   .animate-float,
   .animate-pulse-slow,
-  .animate-bounce-slow,
-  .animate-scroll {
+  .animate-bounce-slow {
     will-change: transform, opacity;
   }
 
@@ -382,8 +441,7 @@
     .animate-spin-slow,
     .animate-float,
     .animate-pulse-slow,
-    .animate-bounce-slow,
-    .animate-scroll {
+    .animate-bounce-slow {
       animation: none;
     }
   }

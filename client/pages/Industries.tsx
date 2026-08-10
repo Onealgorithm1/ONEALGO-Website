@@ -1,19 +1,85 @@
 import React from "react";
 import Layout from "../components/Layout";
 import {
+  Building2,
+  Factory,
+  ShoppingCart,
+  Landmark,
+  Megaphone,
+  Code,
+} from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
   Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { Building2, Factory, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+  CardGrid,
+  CTABand,
+} from "../components/site";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
   createWebPageSchema,
 } from "../components/StructuredData";
+
+/* Industries hub - 2026 refresh.
+ *
+ * Three substantive changes beyond the visual system:
+ *
+ *  1. The grid was visually inconsistent - three cards used `border-2` and the
+ *     two later additions used `border-0 shadow-lg`, so the same grid carried
+ *     two card designs. All six are now the one shared <Card>.
+ *  2. GOVERNMENT was missing. The nav links /industries/government and the page
+ *     exists, but the hub a visitor actually browses had no route in.
+ *  3. ELIGIBILITY IS NOT EXPERIENCE. The firm is SBA-certified WOSB/EDWOSB and
+ *     SAM registered but has NOT been awarded a government contract, so the
+ *     Government card is phrased as eligibility and registration only. It uses
+ *     the same wording as the homepage. Nothing here claims federal delivery.
+ *
+ * Copy is carried over. The one claim dropped is the hero pill - "combined 40+
+ * years of sector experience | Avg. 30-40% efficiency improvements
+ * post-implementation" - two unsourced numbers in a proof-shaped box, the same
+ * pattern removed from the services hub. See REDESIGN-NOTES.md.
+ */
+
+const INDUSTRIES = [
+  {
+    icon: Building2,
+    title: "Construction",
+    body: "Keep projects on track with smarter coordination, automated task management, and real-time visibility from the field to the office.",
+    to: "/industries/construction",
+  },
+  {
+    icon: Factory,
+    title: "Manufacturing",
+    body: "Boost efficiency with connected systems, streamlined production workflows, and live data insights.",
+    to: "/industries/manufacturing",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-Commerce",
+    body: "Scale your online business with integrated platforms that connect inventory, payments, and customer data for streamlined operations.",
+    to: "/industries/ecommerce",
+  },
+  {
+    icon: Landmark,
+    title: "Government",
+    body: "Set-aside eligible and SAM registered, with NAICS and PSC codes published for market research.",
+    to: "/industries/government",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing",
+    body: "Connect the tools that generate demand — campaigns, analytics and CRM — so every enquiry is measured and nothing is lost between systems.",
+    to: "/industries/marketing",
+  },
+  {
+    icon: Code,
+    title: "Website Development",
+    body: "Sites built to be found and to convert — fast, accessible, and measurable, rather than rebuilt every time the business changes.",
+    to: "/industries/website-development",
+  },
+];
 
 export default function Industries() {
   useSEO({
@@ -45,202 +111,59 @@ export default function Industries() {
           "https://onealgorithm.com/industries",
         )}
       />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Industry-Focused{" "}
-              <span className="text-onealgo-orange-500">
-                Technology Expertise
-              </span>{" "}
-              — Construction, Manufacturing & E-Commerce
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Deep understanding of your industry's operational challenges, compliance requirements, and competitive pressures. We deliver solutions tailored to your specific market dynamics.
-            </p>
 
-            {/* Proof point */}
-            <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">Industry experts with combined 40+ years of sector experience | Avg. 30-40% efficiency improvements post-implementation</p>
-            </div>
+      <PageHero
+        eyebrow="Industries"
+        title={
+          <>
+            Industry-focused{" "}
+            <span className="text-oa-orange">technology expertise</span>
+          </>
+        }
+        lede="Deep understanding of your industry's operational challenges, compliance requirements, and competitive pressures. We deliver solutions tailored to your specific market dynamics."
+        // The panel is the same six verticals the grid below lists, read off the
+        // one array so the two can never disagree. No new sectors or claims.
+        panel={{
+          title: "Where we work",
+          items: INDUSTRIES.map((i) => i.title),
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+      />
 
-            {/* Dual CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4 text-lg"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="Where we work"
+          title="We specialize in these key vertical markets"
+          lede="Industry-focused consulting that understands your unique operational challenges, compliance requirements, and competitive pressures. Choose your industry below to see how we help companies like yours."
+        />
 
-      {/* Industries Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              We Specialize in These Key Vertical Markets
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Industry-focused consulting that understands your unique operational challenges, compliance requirements, and competitive pressures. Choose your industry below to see how we help companies like yours.
-            </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              <strong>Not sure if you fit a specific industry?</strong> Contact us to discuss your business model and technology needs.
-            </p>
-          </div>
+        <CardGrid columns={3} className="mt-12">
+          {INDUSTRIES.map((industry) => (
+            <Card
+              key={industry.title}
+              icon={industry.icon}
+              title={industry.title}
+              body={industry.body}
+              to={industry.to}
+            />
+          ))}
+        </CardGrid>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Construction */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Building2 className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-onealgo-orange-500 transition-colors duration-300" />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Construction
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Keep projects on track with smarter coordination, automated
-                  task management, and real-time visibility from the field to
-                  the office.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/industries/construction">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
+        <p className="mt-10 max-w-3xl text-oa-ink2">
+          <strong className="font-semibold text-oa-ink">
+            Not sure if you fit a specific industry?
+          </strong>{" "}
+          Contact us to discuss your business model and technology needs.
+        </p>
+      </Section>
 
-            {/* Manufacturing */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <Factory
-                  className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
-                  style={{ animationDelay: "0.5s" }}
-                />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Manufacturing
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Boost efficiency with connected systems, streamlined
-                  production workflows, and live data insights.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/industries/manufacturing">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* E-Commerce */}
-            <Card className="border-2 hover:border-onealgo-blue-950 transition-colors h-full hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <ShoppingCart
-                  className="w-12 h-12 text-onealgo-blue-950 mb-4 animate-bounce-slow hover:text-green-500 transition-colors duration-300"
-                  style={{ animationDelay: "1s" }}
-                />
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  E-Commerce
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Scale your online business with integrated platforms that
-                  connect inventory, payments, and customer data for streamlined
-                  operations.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/industries/ecommerce">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/*
-              Marketing and Website Development were missing from this grid.
-
-              Both pages exist and are in the sitemap, but nothing linked to
-              them — Search Console reported them as never discovered by Google.
-              They belong here, on the hub page for their own section, rather
-              than bolted onto the footer.
-            */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Marketing
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Connect the tools that generate demand — campaigns, analytics
-                  and CRM — so every enquiry is measured and nothing is lost
-                  between systems.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/industries/marketing">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-2xl text-onealgo-blue-950">
-                  Website Development
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Sites built to be found and to convert — fast, accessible, and
-                  measurable, rather than rebuilt every time the business
-                  changes.
-                </p>
-                <Button
-                  asChild
-                  className="w-full bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white"
-                >
-                  <Link to="/industries/website-development">Learn More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-onealgo-light">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Don't See Your Industry?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            We work with businesses across many sectors. Let's discuss how our
-            solutions can be tailored to your specific industry needs.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white px-8 py-4"
-          >
-            <Link to="/contact">Talk to an Expert</Link>
-          </Button>
-        </div>
-      </section>
+      <CTABand
+        title="Don't see your industry?"
+        body="We work with businesses across many sectors. Let's discuss how our solutions can be tailored to your specific industry needs."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View our services", to: "/services" }}
+      />
     </Layout>
   );
 }

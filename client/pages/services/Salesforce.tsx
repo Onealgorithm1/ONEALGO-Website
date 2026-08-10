@@ -1,30 +1,121 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Layout from "../../components/Layout";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import SocialShare from "../../components/SocialShare";
 import {
   Briefcase,
   Users,
   Zap,
   LifeBuoy,
-  CheckCircle,
   TrendingUp,
-  ChevronDown,
-  Award,
 } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  CTABand,
+} from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
 } from "../../components/StructuredData";
-import { cn } from "../../lib/utils";
+
+/* Salesforce - 2026 refresh.
+ *
+ * Presentation only; all pillar and differentiator copy is carried over
+ * verbatim. Three structural changes:
+ *
+ *  1. The four pillars no longer hide their detail behind a click. The old
+ *     accordion was a plain <div> card with an onClick - not focusable, not
+ *     keyboard operable, no aria state.
+ *  2. The hero's three proof lines were <li> elements inside a <div>, which is
+ *     invalid markup; they are now the hero's right-hand panel.
+ *  3. The decorative Award medallion beside the hero is gone. It carried no
+ *     copy and implied a certification the page does not name.
+ *
+ * Left alone deliberately: the "Proven Track Record" card. It is a
+ * proof-shaped claim with no named proof behind it, which is a copy decision
+ * for a human, not a presentation one.
+ */
+
+const PILLARS = [
+  {
+    icon: Briefcase,
+    title: "Strategic Consulting",
+    description:
+      "Business requirements analysis and roadmap development to align Salesforce with corporate goals.",
+    details: [
+      "Current state assessment and gap analysis",
+      "Salesforce edition and product roadmapping",
+      "Organizational adoption and change management strategy",
+      "ROI modeling and business case development",
+      "Integration and data strategy planning",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "Core Implementation",
+    description:
+      "End-to-end Salesforce deployment including Sales Cloud, Service Cloud, and custom applications.",
+    details: [
+      "Salesforce org setup and configuration",
+      "Sales Cloud and Service Cloud deployment",
+      "Custom object and field design",
+      "Workflow automation and process builder setup",
+      "Integration with third-party applications",
+    ],
+  },
+  {
+    icon: Users,
+    title: "Data Migration & Integration",
+    description:
+      "Secure data migration from legacy systems and seamless integration with your existing tech stack.",
+    details: [
+      "Data extraction and transformation",
+      "Salesforce data loading and validation",
+      "System integration using APIs and middleware",
+      "Ongoing data synchronization setup",
+      "Data quality assurance and reconciliation",
+    ],
+  },
+  {
+    icon: LifeBuoy,
+    title: "Post-Implementation Support",
+    description:
+      "Managed services, optimization, and Hypercare support following go-live.",
+    details: [
+      "30-90 day Hypercare support with dedicated resources",
+      "User training and enablement programs",
+      "Performance monitoring and optimization",
+      "Ongoing administration and maintenance",
+      "Continuous improvement and roadmap evolution",
+    ],
+  },
+];
+
+const DIFFERENTIATORS = [
+  {
+    icon: TrendingUp,
+    title: "Proven Track Record",
+    description:
+      "Successful Salesforce implementations across industries with strong adoption and ROI metrics.",
+  },
+  {
+    icon: Users,
+    title: "Expert Team",
+    description:
+      "Certified Salesforce architects and developers who stay current with platform innovations.",
+  },
+  {
+    icon: Zap,
+    title: "End-to-End Partnership",
+    description:
+      "From strategy through post-implementation support, we're with you every step of the way.",
+  },
+];
 
 export default function Salesforce() {
   useSEO({
@@ -47,67 +138,6 @@ export default function Salesforce() {
       "https://onealgorithm.com/og-image.jpg",
   });
 
-  const [expandedPillar, setExpandedPillar] = useState<string | null>(null);
-
-  const servicePillars = [
-    {
-      id: "strategic",
-      icon: <Briefcase className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Strategic Consulting",
-      description:
-        "Business requirements analysis and roadmap development to align Salesforce with corporate goals.",
-      details: [
-        "Current state assessment and gap analysis",
-        "Salesforce edition and product roadmapping",
-        "Organizational adoption and change management strategy",
-        "ROI modeling and business case development",
-        "Integration and data strategy planning",
-      ],
-    },
-    {
-      id: "implementation",
-      icon: <Zap className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Core Implementation",
-      description:
-        "End-to-end Salesforce deployment including Sales Cloud, Service Cloud, and custom applications.",
-      details: [
-        "Salesforce org setup and configuration",
-        "Sales Cloud and Service Cloud deployment",
-        "Custom object and field design",
-        "Workflow automation and process builder setup",
-        "Integration with third-party applications",
-      ],
-    },
-    {
-      id: "migration",
-      icon: <Users className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Data Migration & Integration",
-      description:
-        "Secure data migration from legacy systems and seamless integration with your existing tech stack.",
-      details: [
-        "Data extraction and transformation",
-        "Salesforce data loading and validation",
-        "System integration using APIs and middleware",
-        "Ongoing data synchronization setup",
-        "Data quality assurance and reconciliation",
-      ],
-    },
-    {
-      id: "support",
-      icon: <LifeBuoy className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Post-Implementation Support",
-      description:
-        "Managed services, optimization, and Hypercare support following go-live.",
-      details: [
-        "30-90 day Hypercare support with dedicated resources",
-        "User training and enablement programs",
-        "Performance monitoring and optimization",
-        "Ongoing administration and maintenance",
-        "Continuous improvement and roadmap evolution",
-      ],
-    },
-  ];
-
   return (
     <Layout>
       <StructuredData
@@ -119,197 +149,84 @@ export default function Salesforce() {
         )}
       />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                <span className="text-onealgo-orange-500">Salesforce</span>
-                <span className="text-white"> Implementation & Consulting</span>
-              </h1>
-              <p className="text-xl text-blue-200 max-w-3xl mb-8">
-                End-to-end Salesforce expertise that drives adoption, delivers results, and accelerates business growth.
-              </p>
-              <div className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3 font-bold">✓</span>
-                  Expert team of Salesforce-certified consultants and developers.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3 font-bold">✓</span>
-                  Proven approach across Sales Cloud, Service Cloud, and custom applications.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-onealgo-orange-500 mr-3 font-bold">✓</span>
-                  Post-implementation Hypercare and ongoing optimization.
-                </li>
+      <PageHero
+        eyebrow="Salesforce"
+        title={
+          <>
+            <span className="text-oa-orange">Salesforce</span> Implementation &
+            Consulting
+          </>
+        }
+        lede="End-to-end Salesforce expertise that drives adoption, delivers results, and accelerates business growth."
+        // The hero bullets moved into the panel rather than being duplicated.
+        // Same three lines, same words. No new claims. The footer names the
+        // AppExchange listing, which is Salesforce-specific and belongs on
+        // this page only.
+        panel={{
+          title: "How we deliver",
+          items: [
+            "Expert team of Salesforce-certified consultants and developers.",
+            "Proven approach across Sales Cloud, Service Cloud, and custom applications.",
+            "Post-implementation Hypercare and ongoing optimization.",
+          ],
+          footer: [
+            "Salesforce Consulting Partner",
+            "SBA Certified WOSB / EDWOSB",
+          ],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+      />
+
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="What we do"
+          title="Four pillars of success"
+          lede="A comprehensive full-lifecycle approach to Salesforce implementation"
+        />
+        <CardGrid columns={2} className="mt-12">
+          {PILLARS.map((p) => (
+            <Card
+              key={p.title}
+              icon={p.icon}
+              title={p.title}
+              body={p.description}
+            >
+              <div className="mt-6">
+                <CheckList items={p.details} />
               </div>
-              <Button
-                asChild
-                size="lg"
-                className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg bg-white/5 flex items-center justify-center ring-1 ring-white/10 shadow-md">
-                <Award className="w-28 h-28 text-onealgo-orange-500" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Pillars Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Four Pillars of Success
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive full-lifecycle approach to Salesforce implementation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {servicePillars.map((pillar) => (
-              <div key={pillar.id}>
-                <Card
-                  className="border-2 hover:border-onealgo-blue-950 transition-colors cursor-pointer h-full"
-                  onClick={() =>
-                    setExpandedPillar(
-                      expandedPillar === pillar.id ? null : pillar.id
-                    )
-                  }
-                >
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-start gap-4 flex-1">
-                        {pillar.icon}
-                        <div className="flex-1">
-                          <CardTitle className="text-xl text-onealgo-blue-950">
-                            {pillar.title}
-                          </CardTitle>
-                        </div>
-                      </div>
-                      <ChevronDown
-                        className={cn(
-                          "w-5 h-5 text-onealgo-orange-500 flex-shrink-0 transition-transform",
-                          expandedPillar === pillar.id && "rotate-180",
-                        )}
-                      />
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{pillar.description}</p>
-                  </CardContent>
-                </Card>
-                {expandedPillar === pillar.id && (
-                  <Card className="border-2 border-onealgo-orange-500/30 bg-onealgo-light mt-4">
-                    <CardContent className="pt-6">
-                      <ul className="space-y-3">
-                        {pillar.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-onealgo-orange-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-700">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose OneAlgorithm for Salesforce?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We combine Salesforce expertise with deep business transformation knowledge to deliver implementations that drive measurable impact.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <TrendingUp className="w-10 h-10 text-onealgo-orange-500 mb-4" />
-                <CardTitle className="text-onealgo-blue-950">
-                  Proven Track Record
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Successful Salesforce implementations across industries with strong adoption and ROI metrics.
-                </p>
-              </CardContent>
             </Card>
+          ))}
+        </CardGrid>
+      </Section>
 
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <Users className="w-10 h-10 text-onealgo-orange-500 mb-4" />
-                <CardTitle className="text-onealgo-blue-950">
-                  Expert Team
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Certified Salesforce architects and developers who stay current with platform innovations.
-                </p>
-              </CardContent>
-            </Card>
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Why OneAlgorithm"
+          title="Why choose OneAlgorithm for Salesforce?"
+          lede="We combine Salesforce expertise with deep business transformation knowledge to deliver implementations that drive measurable impact."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {DIFFERENTIATORS.map((d) => (
+            <Card
+              key={d.title}
+              icon={d.icon}
+              title={d.title}
+              body={d.description}
+            />
+          ))}
+        </CardGrid>
+      </Section>
 
-            <Card className="border-2 hover:border-onealgo-orange-500 transition-colors">
-              <CardHeader>
-                <Zap className="w-10 h-10 text-onealgo-orange-500 mb-4" />
-                <CardTitle className="text-onealgo-blue-950">
-                  End-to-End Partnership
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  From strategy through post-implementation support, we're with you every step of the way.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <CTABand
+        title="Ready to transform with Salesforce?"
+        body="Let's discuss how Salesforce can drive growth and efficiency for your organization."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View All Services", to: "/services" }}
+      />
 
-      {/* Mid-page CTA */}
-      <section className="py-16 bg-gradient-to-r from-onealgo-blue-950 to-onealgo-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform with Salesforce?
-          </h3>
-          <p className="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            Let's discuss how Salesforce can drive growth and efficiency for your organization.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-onealgo-orange-500 hover:bg-onealgo-orange-600 text-white px-8 py-4"
-          >
-            <Link to="/contact">Talk to an Expert</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Social Share */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SocialShare />
-        </div>
-      </section>
+      <Section tone="paper" compact>
+        <SocialShare className="justify-center" />
+      </Section>
     </Layout>
   );
 }

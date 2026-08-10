@@ -243,6 +243,16 @@ export interface PastPerformanceClient {
   logoUrl?: string;
 }
 
+/**
+ * Organizations where members of the leadership team worked EARLIER IN THEIR
+ * CAREERS. These are individual prior employment, NOT engagements held by
+ * One Algorithm LLC, and must never be presented as corporate past performance
+ * or as clients. The rendering in CapabilitiesMainContent.tsx is labelled
+ * "Key Personnel Experience" for exactly this reason - do not relabel it.
+ *
+ * As of 2026-08-10 the company has not been awarded a government contract, and
+ * `federalExperience` above is correspondingly empty.
+ */
 export const pastPerformanceClients: PastPerformanceClient[] = [
   {
     name: "BMC Software",

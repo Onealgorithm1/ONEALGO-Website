@@ -1,15 +1,67 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
 import { Factory, Cog, BarChart3, Shield, Clock, Zap } from "lucide-react";
+import {
+  PageHero,
+  Section,
+  SectionHeading,
+  Card,
+  CardGrid,
+  CheckList,
+  CTABand,
+} from "../../components/site";
+
+/* Manufacturing - 2026 refresh.
+ *
+ * Presentation only: the copy is carried over unchanged. This page was the
+ * worst of the three for off-brand colour - green-500 was doing the job of the
+ * brand orange in the hero, the CTA, the feature hovers and the tick discs.
+ *
+ * Section order is inverted relative to construction: the outcome list leads
+ * and the feature grid follows, so the two pages do not read as one template
+ * with the nouns swapped.
+ */
+
+const FEATURES = [
+  {
+    icon: BarChart3,
+    title: "Production Tracking",
+    body: "Track production, inventory, and supply chain activity in one unified platform.",
+  },
+  {
+    icon: Cog,
+    title: "Workflow Automation",
+    body: "Automated workflows reduce downtime and optimize capacity planning.",
+  },
+  {
+    icon: Shield,
+    title: "Quality Control",
+    body: "Real-time quality control monitoring and defect tracking.",
+  },
+  {
+    icon: Clock,
+    title: "Predictive Maintenance",
+    body: "Predictive maintenance scheduling to prevent equipment failures.",
+  },
+  {
+    icon: Zap,
+    title: "Resource Optimization",
+    body: "Resource optimization ensures maximum efficiency and minimal waste.",
+  },
+  {
+    icon: Factory,
+    title: "Connected Systems",
+    body: "Integrated systems provide live data insights across all operations.",
+  },
+];
+
+const BENEFITS = [
+  "Increase Efficiency: streamlined workflows and automated processes reduce waste and maximize output.",
+  "Prevent Downtime: predictive maintenance and real-time monitoring keep equipment running smoothly.",
+  "Improve Quality: continuous monitoring and defect tracking ensure consistent product quality.",
+  "Data-Driven Decisions: real-time analytics provide insights for continuous improvement.",
+];
 
 export default function Manufacturing() {
   useSEO({
@@ -22,168 +74,61 @@ export default function Manufacturing() {
       "Integrated systems delivering live data insights across operations.",
     ogUrl: getCanonicalUrl("/industries/manufacturing"),
   });
-  const features = [
-    {
-      icon: <BarChart3 className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Production Tracking",
-      description:
-        "Track production, inventory, and supply chain activity in one unified platform.",
-    },
-    {
-      icon: <Cog className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Workflow Automation",
-      description:
-        "Automated workflows reduce downtime and optimize capacity planning.",
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Quality Control",
-      description: "Real-time quality control monitoring and defect tracking.",
-    },
-    {
-      icon: <Clock className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Predictive Maintenance",
-      description:
-        "Predictive maintenance scheduling to prevent equipment failures.",
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Resource Optimization",
-      description:
-        "Resource optimization ensures maximum efficiency and minimal waste.",
-    },
-    {
-      icon: <Factory className="w-8 h-8 text-onealgo-orange-500" />,
-      title: "Connected Systems",
-      description:
-        "Integrated systems provide live data insights across all operations.",
-    },
-  ];
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-onealgo-blue-950 via-onealgo-blue-900 to-onealgo-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Factory className="w-24 h-24 text-green-500 mx-auto mb-6 animate-bounce-slow" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Manufacturing <span className="text-green-500">Solutions</span>
-            </h1>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-              Boost efficiency with connected systems, streamlined production
-              workflows, and live data insights.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4"
-            >
-              <Link to="/contact">Talk to an Expert</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Manufacturing"
+        title={
+          <>
+            Manufacturing <span className="text-oa-orange">solutions</span>
+          </>
+        }
+        lede="Boost efficiency with connected systems, streamlined production workflows, and live data insights."
+        // Panel is the feature grid's own titles, read off the same array. No
+        // new capability appears here that the page does not already describe.
+        panel={{
+          title: "What you get",
+          items: FEATURES.map((f) => f.title),
+          footer: ["SBA Certified WOSB / EDWOSB"],
+        }}
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "All industries", to: "/industries" }}
+      />
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Manufacturing Management Features
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Advanced tools designed to optimize production processes and
-              increase operational efficiency.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="border-2 hover:border-green-500 transition-colors"
-              >
-                <CardHeader>
-                  {feature.icon}
-                  <CardTitle className="text-onealgo-blue-950">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <Section tone="surface">
+        <SectionHeading
+          eyebrow="Why us"
+          title="Why choose our manufacturing solutions?"
+        />
+        <div className="mt-10 max-w-3xl">
+          <CheckList items={BENEFITS} />
         </div>
-      </section>
+      </Section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-onealgo-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose Our Manufacturing Solutions?
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Increase Efficiency:</strong> Streamlined workflows
-                    and automated processes reduce waste and maximize output.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Prevent Downtime:</strong> Predictive maintenance
-                    and real-time monitoring keep equipment running smoothly.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Improve Quality:</strong> Continuous monitoring and
-                    defect tracking ensure consistent product quality.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <p className="text-gray-600">
-                    <strong>Data-Driven Decisions:</strong> Real-time analytics
-                    provide insights for continuous improvement.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Ready to Optimize Production?
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Discover how our manufacturing solutions can transform your
-                operations and increase efficiency.
-              </p>
-              <Button
-                asChild
-                className="w-full bg-onealgo-blue-950 hover:bg-onealgo-blue-900 text-white"
-              >
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="What you get"
+          title="Manufacturing management features"
+          lede="Advanced tools designed to optimize production processes and increase operational efficiency."
+        />
+        <CardGrid columns={3} className="mt-12">
+          {FEATURES.map((feature) => (
+            <Card
+              key={feature.title}
+              icon={feature.icon}
+              title={feature.title}
+              body={feature.body}
+            />
+          ))}
+        </CardGrid>
+      </Section>
+
+      <CTABand
+        title="Ready to optimize production?"
+        body="Discover how our manufacturing solutions can transform your operations and increase efficiency."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+      />
     </Layout>
   );
 }
