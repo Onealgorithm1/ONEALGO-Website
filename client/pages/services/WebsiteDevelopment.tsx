@@ -37,21 +37,27 @@ const SystemsLattice = lazy(() => import("../../components/SystemsLattice"));
  * looking at a website this company built. Describing the work is not evidence.
  * The page has to BE the evidence.
  *
- * So: a live WebGL scene the reader can push around with the cursor, and beside
+ * So: a live scene the reader can push around with the cursor, and beside
  * it the page's own measured scores with an invitation to verify them in
  * DevTools. Claims a visitor can check in thirty seconds, instead of adjectives.
  *
  * THE CONSTRAINT THAT MAKES IT HONEST
  *
  * A flashy page that loads slowly would disprove its own argument. The scene is
- * dynamically imported, gated on the viewport, disabled outright under
- * prefers-reduced-motion, and paused offscreen — see SystemsLattice.tsx. Being
- * able to ship 3D AND keep the scores is the actual claim; either half alone is
- * something anyone can do.
+ * dynamically imported, gated on the viewport, reduced to a single static frame
+ * under prefers-reduced-motion, and paused offscreen — see SystemsLattice.tsx.
+ *
+ * It used to be three.js, and that cost about fourteen performance points even
+ * loaded as carefully as we knew how. On 2026-08-12 it was rewritten in plain
+ * canvas: same scene, no dependency, 720KB out of the build, and the gap
+ * against the rest of the site closed. Careful loading reduces what a library
+ * costs; it never removes it. Asking whether the library was needed does.
  *
  * EVERY NUMBER BELOW IS MEASURED, NOT MARKETING. Lighthouse mobile against the
- * production build on 2026-08-12, and the two gates are real scripts in this
- * repo. If the site regresses, these have to change or come down.
+ * PRERENDERED production build on 2026-08-12 — three runs, 79/81/79 — and the
+ * two gates are real scripts in this repo. Measure the un-prerendered build and
+ * you get 74-77; that is not what ships, so it is not what is printed. If the
+ * site regresses, these have to change or come down.
  */
 
 /**
@@ -59,8 +65,8 @@ const SystemsLattice = lazy(() => import("../../components/SystemsLattice"));
  *
  * The first draft of this page put the HOMEPAGE's numbers here under the words
  * "measured on the page you are reading". They were better (performance 84,
- * accessibility 96) and they were not true of this page, which runs a WebGL
- * scene the homepage does not. That is the same species of claim removed from
+ * accessibility 96) and they were not true of this page, which runs a scene
+ * the homepage does not. That is the same species of claim removed from
  * the rest of this site today, and it would have been on the one page arguing
  * that we check things.
  *
@@ -73,7 +79,7 @@ const SCORES = [
   { label: "SEO", value: "100", of: "/100" },
   { label: "Best practices", value: "100", of: "/100" },
   { label: "Layout shift", value: "0", of: "CLS" },
-  { label: "Performance", value: "~70", of: "/100" },
+  { label: "Performance", value: "~80", of: "/100" },
 ];
 
 /**
@@ -99,13 +105,13 @@ const STANDARDS = [
   },
   {
     title: "Motion respects the person reading",
-    body: "Everything that moves, including the scene at the top of this page, is disabled when the browser reports a preference for reduced motion. The 3D is never even downloaded in that case. Accessibility is not a switch you flip at the end.",
-    proof: "prefers-reduced-motion, honoured before load",
+    body: "Everything that moves, including the scene at the top of this page, stops when the browser reports a preference for reduced motion. The scene still draws — one static frame, no loop, no listeners — because the picture is worth seeing standing still and a blank box is not an accommodation. Accessibility is not a switch you flip at the end.",
+    proof: "prefers-reduced-motion — one static frame, no animation loop",
   },
   {
     title: "We tell you what the flourish costs",
-    body: "The scene above is WebGL in its own chunk, fetched only once the browser is idle and the canvas is near the viewport, paused when the tab is hidden, and disposed when you navigate away. All of that took the cost down — it did not take it to zero. It is still about 14 performance points, and we would rather show you the number than claim there is no trade-off.",
-    proof: "measured: ~70 here, 84 on pages without it",
+    body: "The scene above was three.js, deferred and disposed carefully, and it still cost about fourteen performance points. Careful loading reduces a dependency's cost; it does not remove it. So we removed the dependency instead — the same scene is now a few hundred lines of canvas, 720KB left the build, and the gap against our other pages closed. The discipline worth paying for is asking whether the library was needed, not tuning how it loads.",
+    proof: "720KB removed; this page and the homepage now measure the same",
   },
   {
     title: "You own everything",
@@ -119,13 +125,13 @@ export default function WebsiteDevelopment() {
     title:
       "Website Development — OneAlgorithm | WCAG AA, zero layout shift, Malvern PA",
     description:
-      "Websites built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and WebGL that does not cost you page speed. Woman-owned, Malvern, Pennsylvania.",
+      "Websites built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and an interactive scene that costs no measurable page speed. Woman-owned, Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services/website-development"),
     keywords:
-      "website development Malvern PA, accessible web development, WCAG AA website, Core Web Vitals, WebGL three.js website, woman owned web developer Pennsylvania",
+      "website development Malvern PA, accessible web development, WCAG AA website, Core Web Vitals, interactive canvas website, woman owned web developer Pennsylvania",
     ogTitle: "Website Development — OneAlgorithm",
     ogDescription:
-      "Built to a measurable standard: WCAG AA contrast as a build gate, zero layout shift, and 3D that does not cost page speed. Check the scores yourself.",
+      "Built to a measurable standard: WCAG AA contrast as a build gate, zero layout shift, and an interactive scene with no dependency behind it. Check the scores yourself.",
     ogUrl: getCanonicalUrl("/services/website-development"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Website Development — OneAlgorithm",
@@ -139,7 +145,7 @@ export default function WebsiteDevelopment() {
       <StructuredData
         data={createServiceSchema(
           "Website Development",
-          "Website development built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and interactive WebGL that does not degrade page speed.",
+          "Website development built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and an interactive scene that costs no measurable page speed.",
           "Website Development",
           "https://onealgorithm.com/services/website-development",
         )}
@@ -156,7 +162,7 @@ export default function WebsiteDevelopment() {
           <SystemsLattice
             className="pointer-events-none absolute inset-0 h-full w-full opacity-70 md:pointer-events-auto"
             fallback={
-              // Shown when WebGL is unavailable or motion is reduced. A designed
+              // Shown when canvas is unavailable. A designed
               // state, not a blank rectangle — the page still has to look
               // considered for the person who never sees the scene.
               <div
@@ -176,22 +182,28 @@ export default function WebsiteDevelopment() {
             <p className="mt-6 text-lg leading-relaxed text-white/85">
               You are looking at a website while deciding whether we can build
               one. So instead of describing the work — the scene behind this text
-              is live WebGL you can push around with the cursor, and every number
+              is live, you can push it around with the cursor, and every number
               beside it was measured on this page.
             </p>
             <p className="mt-4 text-base leading-relaxed text-white/75">
-              Including the one that is worse. Running 3D costs this page{" "}
+              This page used to run the scene in{" "}
+              <strong className="font-semibold text-white">three.js</strong>, and
+              it cost about fourteen performance points. We had published that
+              number rather than hide it. Then we asked the better question —
+              whether the effect needed a 3D engine at all — and it did not. It
+              is points, lines between near neighbours and a cursor field, which
+              is a few hundred lines of plain canvas.{" "}
               <strong className="font-semibold text-white">
-                about 14 performance points
+                A 720KB dependency came out of the build
               </strong>{" "}
-              against our pages that do not — it measures 67-71 here across runs, against 84 on the homepage. We
-              measured it, we decided the demonstration was worth it{" "}
-              <em>on this page</em>, and we would give you the same number about
-              yours instead of pretending the trade-off does not exist.
+              and the picture did not change. This page and our homepage now
+              measure within a point of each other.
             </p>
             <p className="mt-4 text-sm text-white/70">
               Open DevTools and run Lighthouse. We would rather you checked than
-              took our word for it.
+              took our word for it — and if you do, you will also see the number
+              we have not fixed yet: this site&rsquo;s largest paint is slower
+              than we want, and we are working on it.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
