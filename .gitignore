@@ -28,3 +28,6 @@ dist-ssr
 
 # Bundle analysis output. Deliberately outside dist/spa so it is never deployed.
 build-artifacts/
+
+# wrangler pages dev local state
+.wrangler/
