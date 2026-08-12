@@ -78,16 +78,15 @@ const GRAIN: React.CSSProperties = {
   mixBlendMode: "overlay",
 };
 
-/** Fine engineering grid, used on the dark sections that carry no video. */
-const BLUEPRINT_GRID: React.CSSProperties = {
-  backgroundImage:
-    "linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px)," +
-    "linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px)",
-  backgroundSize: "64px 64px",
-  WebkitMaskImage:
-    "radial-gradient(90% 70% at 50% 35%, #000 35%, transparent 100%)",
-  maskImage: "radial-gradient(90% 70% at 50% 35%, #000 35%, transparent 100%)",
-};
+/* A "blueprint grid" -- two hairline gradients tiled on a 64px cell, masked to
+   an ellipse -- used to sit on the two dark sections below. Removed 2026-08-12,
+   at the same time as the shared copy in components/site.tsx.
+
+   It is one of the most reliable generated-UI signatures there is: it says
+   "engineering" without any of it being true, and it was on every dark ground
+   on the site. GRAIN alone is the treatment now. If a grid ever means
+   something here -- a chart, a plan, a measurement surface -- draw it on that
+   element, where it is describing something real. */
 
 /** Directional scrim over the hero video. The previous treatment was a flat
  *  two-stop brand-blue wash, which reads as a filter applied to footage. A
@@ -559,7 +558,6 @@ export default function Index() {
 
       {/* ================= WHY US ================= */}
       <section className="relative overflow-hidden bg-oa-night">
-        <div className="absolute inset-0" style={BLUEPRINT_GRID} aria-hidden="true" />
         <div
           className="absolute inset-0 pointer-events-none"
           style={GRAIN}
@@ -688,7 +686,6 @@ export default function Index() {
 
       {/* ================= CLOSING CTA ================= */}
       <section className="relative overflow-hidden bg-oa-night">
-        <div className="absolute inset-0" style={BLUEPRINT_GRID} aria-hidden="true" />
         <div
           className="absolute inset-0 pointer-events-none"
           style={GRAIN}

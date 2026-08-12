@@ -34,10 +34,15 @@ function IdentifierRows({ rows }: { rows: [string, string][] }) {
   );
 }
 
-/** Hairline grid of codes. Same treatment as the homepage identifier grid. */
+/** Hairline grid of codes. Same treatment as the homepage identifier grid.
+ *
+ *  The `gap-px` over a hairline ground IS the border -- every cell is already
+ *  separated by a real 1px rule. Wrapping that in a second rounded border put a
+ *  bounded card inside the Card that already holds it, which is exactly the
+ *  nesting the design system exists to prevent. Dividers, not containers. */
 function CodeGrid({ codes }: { codes: string[] }) {
   return (
-    <ul className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-oa-hairline bg-oa-hairline">
+    <ul className="mt-4 grid grid-cols-2 gap-px bg-oa-hairline">
       {codes.map((code) => (
         <li
           key={code}

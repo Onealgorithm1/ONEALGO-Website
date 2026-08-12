@@ -26,6 +26,23 @@ const footerLink =
   "block py-3 md:py-0 text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors";
 const footerLinkList = "space-y-0 md:space-y-1.5";
 
+/*
+  Mobile dropdown rows.
+
+  Measured open on a 390px viewport: 42.5px tall, a pixel and a half under the
+  44 WCAG 2.5.5 asks for, on the sixteen links that make up the whole Services
+  and Industries menus. `min-h-[44px]` with the padding left alone raises the
+  floor without loosening the list - bumping py- instead would have added ~4px
+  to every row and made the drawer scroll further for the same content.
+
+  Extracted because the identical string was written out sixteen times, which is
+  how it drifted from the 44px target rows above it in the first place.
+*/
+const mobileSubLink =
+  "flex min-h-[44px] items-center rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950";
+const mobileSubLinkNested =
+  "flex min-h-[44px] items-center rounded-lg px-3 pl-8 py-2.5 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -39,6 +56,7 @@ function Layout({ children }: LayoutProps) {
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const burgerButtonRef = React.useRef<HTMLButtonElement>(null);
   const closeButtonRef = React.useRef<HTMLButtonElement>(null);
+  const mobilePanelRef = React.useRef<HTMLDivElement>(null);
   const mainRef = React.useRef<HTMLElement>(null);
   const firstRender = React.useRef(true);
   const location = useLocation();
@@ -57,6 +75,15 @@ function Layout({ children }: LayoutProps) {
       // Close all dropdowns on resize to prevent state sync issues
       setServicesDropdownOpen(false);
       setIndustriesDropdownOpen(false);
+
+      // ...and the drawer itself once past the md breakpoint. Turning a phone
+      // to landscape crosses 768px, which hides the drawer with `md:hidden`
+      // while leaving mobileMenuOpen true - so the scroll lock and the `inert`
+      // on the rest of the page stayed on with nothing on screen to switch them
+      // off. Driven at 390x844 -> 844x390: the page froze completely, no scroll,
+      // nothing clickable, no visible way out. 768 is Tailwind's `md`; if that
+      // breakpoint moves, this moves with it.
+      if (window.innerWidth >= 768) setMobileMenuOpen(false);
     };
 
     window.addEventListener("resize", handleResize);
@@ -105,11 +132,44 @@ function Layout({ children }: LayoutProps) {
   // they could not see. aria-hidden on the page behind does not help: it hides
   // things from screen readers but leaves them in the tab order. `inert` below is
   // what actually removes them.
+  //
+  // The Tab handler is the second half of that, and it was missing: `inert` on
+  // <main> and <footer> only covers what those elements contain. Driven on a
+  // 390px viewport, Tab from the drawer's last item landed on the skip link in
+  // index.html, then the header logo, then the burger - all of them behind the
+  // overlay, none of them visible. Wrapping focus at both ends is what actually
+  // traps it, and it also catches focus that has already fallen out to <body>.
   React.useEffect(() => {
     if (!mobileMenuOpen) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMobileMenuOpen(false);
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const panel = mobilePanelRef.current;
+      if (!panel) return;
+      // Every focusable in the drawer is a link or a button, and the collapsed
+      // dropdowns are not rendered at all rather than hidden, so there is
+      // nothing here that needs a visibility filter.
+      const items = panel.querySelectorAll<HTMLElement>("a[href], button");
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      const inside = panel.contains(document.activeElement);
+
+      if (event.shiftKey) {
+        if (!inside || document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (!inside || document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKeyDown);
     closeButtonRef.current?.focus();
@@ -176,7 +236,15 @@ function Layout({ children }: LayoutProps) {
         Container width changed from max-w-7xl (1280px) to 1200px so the logo
         lines up with the page content below it - they were 40px out of step.
       */}
-      <nav className="sticky top-0 z-50 border-b border-oa-hairline bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70">
+      {/* The bar itself goes inert with the rest of the page while the drawer is
+          open. Its logo and burger sit behind the overlay but stayed in the tab
+          order and in the accessibility tree - the same bug <main> and <footer>
+          were already fixed for. */}
+      <nav
+        className="sticky top-0 z-50 border-b border-oa-hairline bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70"
+        aria-hidden={mobileMenuOpen}
+        {...backgroundInert}
+      >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -227,7 +295,15 @@ function Layout({ children }: LayoutProps) {
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
                   aria-expanded={servicesDropdownOpen}
                   aria-controls="services-menu"
-                  aria-label="Open services menu"
+                  /*
+                    No aria-label. The button says "Services" on screen, and an
+                    aria-label REPLACES that as the accessible name - so it read
+                    as "Open services menu", which is a WCAG 2.5.3 (Label in
+                    Name) failure: someone using voice control says the words
+                    they can see, "Services", and nothing matches. The state is
+                    already carried by aria-expanded, which is what "Open" was
+                    trying to say and says badly - it never changed to "Close".
+                  */
                 >
                   Services
                   <ChevronDown
@@ -237,7 +313,10 @@ function Layout({ children }: LayoutProps) {
                 </button>
 
                 {servicesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="services-menu">
+                  <div
+                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                    id="services-menu"
+                  >
                     <div className="py-2">
                       <Link
                         to="/services/website-development"
@@ -363,7 +442,7 @@ function Layout({ children }: LayoutProps) {
                   className="flex items-center gap-1 text-gray-900 hover:text-onealgo-blue-950 transition-colors"
                   aria-expanded={industriesDropdownOpen}
                   aria-controls="industries-menu"
-                  aria-label="Open industries menu"
+                  /* Same as Services above - the visible text is the name. */
                 >
                   Industries We Serve
                   <ChevronDown
@@ -373,7 +452,10 @@ function Layout({ children }: LayoutProps) {
                 </button>
 
                 {industriesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50" id="industries-menu">
+                  <div
+                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                    id="industries-menu"
+                  >
                     <div className="py-2">
                       <Link
                         to="/industries/construction"
@@ -458,334 +540,371 @@ function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Mobile menu button */}
+            {/* Measured open at 390x844: the hit area was the glyph and nothing
+                else, 24x24, against the 44 that WCAG 2.5.5 and the iOS HIG both
+                ask for. h-11 w-11 is 44; the negative margin keeps the icon
+                optically where it already sat rather than shunting the bar. */}
             <div className="md:hidden">
               <button
                 ref={burgerButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-900 hover:text-onealgo-blue-950"
+                className="-mr-2.5 inline-flex h-11 w-11 items-center justify-center rounded-lg text-gray-900 hover:text-onealgo-blue-950"
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-nav"
-                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-label={
+                  mobileMenuOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+                }
               >
-                {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+                {mobileMenuOpen ? (
+                  <X size={24} aria-hidden="true" />
+                ) : (
+                  <Menu size={24} aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
+        </div>
+      </nav>
 
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="md:hidden fixed inset-0 z-[100] flex flex-col bg-white" id="mobile-nav">
-              <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
-                <Link
-                  to="/"
-                  className="flex items-center"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                >
-                  <OneAlgorithmText size="md" />
-                </Link>
-                <button
-                  ref={closeButtonRef}
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                  className="text-gray-900"
-                >
-                  <X size={24} />
-                </button>
-              </div>
+      {/* Mobile Navigation */}
+      {/*
+        This lives OUTSIDE <nav>, and that is load-bearing rather than tidiness.
 
-              {/* flex-1 inside a flex column, rather than the old
+        The drawer is `fixed inset-0`, and it used to be a child of the sticky
+        bar - which carries `backdrop-blur-xl`. An element with a backdrop-filter
+        becomes the containing block for its fixed-position descendants, so
+        `inset-0` resolved to the 64px-tall bar, not the viewport. Measured on a
+        390x844 iPhone viewport before this change: the panel was 390x64, the
+        scrolling link area was 24px tall, and elementFromPoint over the middle
+        of the "About" row returned the orange Contact button underneath it. A
+        finger aiming at the first nav item hit the CTA. The menu had been
+        screenshotted but never opened.
+
+        Nothing between here and <body> has a filter, transform or containing
+        `contain`, so `fixed` now means the viewport. Keep it that way.
+      */}
+      {mobileMenuOpen && (
+        <div
+          ref={mobilePanelRef}
+          id="mobile-nav"
+          className="md:hidden fixed inset-0 z-[100] flex flex-col overscroll-contain bg-white"
+        >
+          <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
+            <Link
+              to="/"
+              className="flex min-h-[44px] items-center"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              <OneAlgorithmText size="md" />
+            </Link>
+            <button
+              ref={closeButtonRef}
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+              className="-mr-2.5 inline-flex h-11 w-11 items-center justify-center rounded-lg text-gray-900"
+            >
+              <X size={24} aria-hidden="true" />
+            </button>
+          </div>
+
+          {/* flex-1 inside a flex column, rather than the old
                   max-h-[calc(100vh-64px)]. The 64px was a guess at the header's
                   real height, and on a phone the visible area is shorter than
                   100vh because the browser's own chrome overlaps it - so the
-                  bottom of the menu sat off screen with no way to scroll to it. */}
-              <div className="flex-1 overflow-y-auto px-3 py-3">
-                {/*
+                  bottom of the menu sat off screen with no way to scroll to it.
+
+                  overscroll-contain so reaching the end of this list does not
+                  hand the gesture to the page behind. body{overflow:hidden} is
+                  not enough on its own - iOS Safari happily scroll-chains past
+                  it, which is what makes an overlay feel like it is sliding
+                  around on top of a live page. */}
+          <div className="flex-1 overflow-y-auto overscroll-contain px-3 py-3">
+            {/*
                   No "Home" here either, matching the desktop nav. The logo at
                   the top of this drawer already links to "/", so the item was
                   the same duplicate.
                 */}
-                <nav className="space-y-0.5">
-                  <Link
-                    to="/about"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                  >
-                    About
-                  </Link>
+            <nav className="space-y-0.5">
+              <Link
+                to="/about"
+                className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                About
+              </Link>
 
-                  {/* Capabilities moved into the Industries menu, under Government. */}
+              {/* Capabilities moved into the Industries menu, under Government. */}
 
-                  {/* The blog was reachable from the desktop bar but missing here
+              {/* The blog was reachable from the desktop bar but missing here
                       entirely, so on a phone there was no way to find it. */}
-                  <a
-                    href="/blog/"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Blog
-                  </a>
-                  <a
-                    href="/blog/careers/"
-                    className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Careers
-                  </a>
+              <a
+                href="/blog/"
+                className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
+              </a>
+              <a
+                href="/blog/careers/"
+                className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Careers
+              </a>
 
-                  <div className="mt-2 border-t border-gray-100 pt-2">
-                    <button
-                      onClick={() =>
-                        setServicesDropdownOpen(!servicesDropdownOpen)
-                      }
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
-                      aria-expanded={servicesDropdownOpen}
-                      aria-controls="mobile-services"
+              <div className="mt-2 border-t border-gray-100 pt-2">
+                <button
+                  onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
+                  aria-expanded={servicesDropdownOpen}
+                  aria-controls="mobile-services"
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {servicesDropdownOpen && (
+                  <div id="mobile-services" className="pl-4">
+                    <Link
+                      to="/services/website-development"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                     >
-                      <span>Services</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-
-                    {servicesDropdownOpen && (
-                      <div id="mobile-services" className="pl-4">
-                        <Link
-                          to="/services/website-development"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Website Development
-                        </Link>
-                        <Link
-                          to="/services/marketing"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Marketing
-                        </Link>
-                        <Link
-                          to="/services/martech"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          MarTech
-                        </Link>
-                        <Link
-                          to="/services/google-ads"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Google Ads
-                        </Link>
-                        <Link
-                          to="/services/seo"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          SEO Services
-                        </Link>
-                        <Link
-                          to="/services/staff-augmentation"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Staff Augmentation
-                        </Link>
-                        <Link
-                          to="/services/it-consulting"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          IT Consulting
-                        </Link>
-                        <Link
-                          to="/services/operations-technology"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Operations Technology
-                        </Link>
-                        <Link
-                          to="/services/oracle-erp"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Oracle ERP
-                        </Link>
-                        <Link
-                          to="/services/salesforce"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Salesforce
-                        </Link>
-                        <Link
-                          to="/services/zendesk"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setServicesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Zendesk
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mt-2 border-t border-gray-100 pt-2">
-                    <button
-                      onClick={() =>
-                        setIndustriesDropdownOpen(!industriesDropdownOpen)
-                      }
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
-                      aria-expanded={industriesDropdownOpen}
-                      aria-controls="mobile-industries"
+                      Website Development
+                    </Link>
+                    <Link
+                      to="/services/marketing"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                     >
-                      <span>Industries We Serve</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${industriesDropdownOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-
-                    {industriesDropdownOpen && (
-                      <div id="mobile-industries" className="pl-4">
-                        <Link
-                          to="/industries/construction"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Construction
-                        </Link>
-                        <Link
-                          to="/industries/manufacturing"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Manufacturing
-                        </Link>
-                        <Link
-                          to="/industries/ecommerce"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          E-Commerce
-                        </Link>
-                        <Link
-                          to="/industries/government"
-                          className="block rounded-lg px-3 py-2.5 text-[15px] text-gray-600 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Government
-                        </Link>
-                        {/* Same placement as the desktop menu. */}
-                        <Link
-                          to="/capabilities"
-                          className="block rounded-lg px-3 py-2.5 pl-8 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIndustriesDropdownOpen(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
-                        >
-                          Capability Statement
-                        </Link>
-                      </div>
-                    )}
+                      Marketing
+                    </Link>
+                    <Link
+                      to="/services/martech"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      MarTech
+                    </Link>
+                    <Link
+                      to="/services/google-ads"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Google Ads
+                    </Link>
+                    <Link
+                      to="/services/seo"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      SEO Services
+                    </Link>
+                    <Link
+                      to="/services/staff-augmentation"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Staff Augmentation
+                    </Link>
+                    <Link
+                      to="/services/it-consulting"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      IT Consulting
+                    </Link>
+                    <Link
+                      to="/services/operations-technology"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Operations Technology
+                    </Link>
+                    <Link
+                      to="/services/oracle-erp"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Oracle ERP
+                    </Link>
+                    <Link
+                      to="/services/salesforce"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Salesforce
+                    </Link>
+                    <Link
+                      to="/services/zendesk"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setServicesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Zendesk
+                    </Link>
                   </div>
-
-                </nav>
+                )}
               </div>
 
-              {/* The CTA used to sit between Capabilities and Services, so a
+              <div className="mt-2 border-t border-gray-100 pt-2">
+                <button
+                  onClick={() =>
+                    setIndustriesDropdownOpen(!industriesDropdownOpen)
+                  }
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50"
+                  aria-expanded={industriesDropdownOpen}
+                  aria-controls="mobile-industries"
+                >
+                  <span>Industries We Serve</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${industriesDropdownOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {industriesDropdownOpen && (
+                  <div id="mobile-industries" className="pl-4">
+                    <Link
+                      to="/industries/construction"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIndustriesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Construction
+                    </Link>
+                    <Link
+                      to="/industries/manufacturing"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIndustriesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Manufacturing
+                    </Link>
+                    <Link
+                      to="/industries/ecommerce"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIndustriesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      E-Commerce
+                    </Link>
+                    <Link
+                      to="/industries/government"
+                      className={mobileSubLink}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIndustriesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Government
+                    </Link>
+                    {/* Same placement as the desktop menu. */}
+                    <Link
+                      to="/capabilities"
+                      className={mobileSubLinkNested}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIndustriesDropdownOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      Capability Statement
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </nav>
+          </div>
+
+          {/* The CTA used to sit between Capabilities and Services, so a
                   solid orange slab cut the link list in half. Pinned to its own
                   bottom bar it stays visible while the list scrolls and reads as
                   deliberate rather than wedged in. pb + safe-area keeps it clear
                   of the home indicator on a notched phone. */}
-              <div
-                className="shrink-0 border-t border-gray-100 px-4 pt-3"
-                style={{
-                  paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",
-                }}
-              >
-                <Link
-                  to="/contact"
-                  className="block w-full rounded-xl bg-oa-orange px-4 py-3.5 text-center text-base font-semibold text-oa-ink transition-colors hover:bg-[#ffb757]"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                >
-                  Talk to an Expert
-                </Link>
-              </div>
-            </div>
-          )}
+          <div
+            className="shrink-0 border-t border-gray-100 px-4 pt-3"
+            style={{
+              paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",
+            }}
+          >
+            <Link
+              to="/contact"
+              className="block w-full rounded-xl bg-oa-orange px-4 py-3.5 text-center text-base font-semibold text-oa-ink transition-colors hover:bg-[#ffb757]"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              Talk to an Expert
+            </Link>
+          </div>
         </div>
-      </nav>
+      )}
 
       {/* Main Content */}
       {/* tabindex="-1" so the skip link in index.html can actually move focus
@@ -929,7 +1048,9 @@ function Layout({ children }: LayoutProps) {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Quick Links</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
+                Quick Links
+              </h3>
               <div className={footerLinkList}>
                 <Link
                   to="/"
@@ -969,10 +1090,7 @@ function Layout({ children }: LayoutProps) {
                 </Link>
                 {/* Ghost, served at /blog on this domain. Still a plain <a> -
                     it is not a route in this SPA, so <Link> would 404. */}
-                <a
-                  href="/blog/"
-                  className={footerLink}
-                >
+                <a href="/blog/" className={footerLink}>
                   Blog
                 </a>
                 <Link
@@ -991,10 +1109,7 @@ function Layout({ children }: LayoutProps) {
                   The careers PAGE, not the blog homepage - this used to drop
                   candidates on the latest-posts feed and leave them to hunt.
                 */}
-                <a
-                  href="/blog/careers/"
-                  className={footerLink}
-                >
+                <a href="/blog/careers/" className={footerLink}>
                   Careers
                 </a>
                 <Link
@@ -1160,7 +1275,9 @@ function Layout({ children }: LayoutProps) {
               page can reach back through window.opener.
             */}
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Certifications</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
+                Certifications
+              </h3>
               <div className={footerLinkList}>
                 {[
                   [
@@ -1198,7 +1315,6 @@ function Layout({ children }: LayoutProps) {
                 */}
               </div>
             </div>
-
 
             {/*
               Contact block removed at the client's request.
@@ -1241,9 +1357,9 @@ function Layout({ children }: LayoutProps) {
           </div>
 
           <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3/70">
-            All product names, logos, and brands are property of their respective
-            owners. Use of these names, logos, and brands does not imply
-            endorsement.
+            All product names, logos, and brands are property of their
+            respective owners. Use of these names, logos, and brands does not
+            imply endorsement.
           </p>
         </div>
       </footer>

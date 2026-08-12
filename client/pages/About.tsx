@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { siteConfig } from "../../shared/companyProfile";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
@@ -14,26 +15,59 @@ import {
   SectionHeading,
   Split,
   Prose,
+  Card,
   CTABand,
 } from "../components/site";
 
-/* About - 2026 refresh.
+/* About - 2026 refresh, restructured 2026-08-12.
  *
- * The page was a gradient hero, one mission paragraph, the team grid and a CTA
- * band - thin for the page a buyer opens to decide whether the firm is real.
- * The restructure adds no claims. The facts panel is read straight from
- * shared/companyProfile.ts (founding date, headquarters, area served), so the
- * page and the Organization schema can never drift apart, and the ownership
- * line is the same one already carried in that file's description.
+ * WHY THIS PAGE IS DIFFERENT FROM THE REST OF THE SITE
  *
- * Removed: two inline `style={{ fontSize }}` overrides that sat on top of the
- * responsive classes and locked the heading and lede at desktop size on a
- * phone. Headings now use the fluid text-h2 scale like every other page.
+ * This firm has no client logos, no testimonials and no awarded contracts. On
+ * a page where a buyer decides whether these are people worth calling, that
+ * leaves exactly one kind of proof: four named people with public profiles
+ * anyone can open, and four registrations anyone can look up in a public
+ * directory. Everything else on the page was assertion.
+ *
+ * So the order changed. The team runs directly under the hero instead of below
+ * a mission statement, and the closing section is a list of things a sceptical
+ * reader can go and verify, with the links to do it.
+ *
+ * COPY REMOVED (all of it unverifiable or empty):
+ *  - "We transform struggling businesses into thriving enterprises" - the hero
+ *    lede, and the same sentence again in four separate SEO/OG fields.
+ *  - "Our mission is to help organizations modernize, automate, and grow ...
+ *    create lasting business value" - a paragraph that would be true of any
+ *    IT firm and therefore said nothing about this one.
+ *  - "Think Bigger. Build Smarter. Move Faster." / "Start Your Transformation".
+ *
+ * HONESTY GUARDS (these are the easy ones to get wrong here):
+ *  - The organisations on /capabilities are PRIOR EMPLOYMENT of the team, not
+ *    clients. The page now says that in plain words rather than leaving the
+ *    ambiguity to work in our favour.
+ *  - No government contract has been awarded. The credentials section says
+ *    outright that a registration is not an award.
+ *
+ * DETECTOR FIXES made here (baseline for /about was 9 findings, the worst on
+ * the site):
+ *  - all-caps-body: the uppercase font-mono row labels in the facts panel are
+ *    now sentence case.
+ *  - cramped-padding: the facts list was a `gap-px` grid whose outer <dl>
+ *    carried the border and background with zero padding, so its rows sat
+ *    flush against a visible boundary. It is now a divided list where each row
+ *    owns its own padding.
+ *  - low-contrast: the hero `panel` renders white text on a translucent
+ *    backdrop-blur surface over a gradient, measured at 2.3:1 in the worst
+ *    pixels. The panel is a shared primitive this page must not edit, so the
+ *    page stops using it - the same four registry facts now appear as real
+ *    text on an opaque ground further down, where they are legible and where
+ *    the credential links sit beside them.
+ *
+ * Facts are read from shared/companyProfile.ts so the page and the
+ * Organization schema cannot drift apart.
  */
 
-const { address, areaServed, foundingDate } = siteConfig;
-
-const OWNERSHIP = "Woman- and minority-owned small business";
+const { address, areaServed, foundingDate, identifiers, sbaUrl } = siteConfig;
 
 const FACTS: [string, string][] = [
   ["Founded", foundingDate],
@@ -41,110 +75,171 @@ const FACTS: [string, string][] = [
     "Headquarters",
     `${address.street}, ${address.streetUnit}, ${address.city}, ${address.region} ${address.postalCode}`,
   ],
-  ["Ownership", OWNERSHIP],
+  ["Ownership", "Woman- and minority-owned small business"],
   ["Areas served", areaServed.join(" · ")],
+  ["Support", "24/7, across every time zone we serve"],
 ];
 
-/* Hero panel: the same registry facts as FACTS, one line each. Same single
-   source (shared/companyProfile.ts) - no new claims. */
-const HERO_FACTS = [
-  `Founded ${foundingDate}`,
-  `Headquartered in ${address.city}, ${address.region}`,
-  OWNERSHIP,
-  `Serving ${areaServed.join(", ")}`,
+/* Every URL here is the one already carried in the site footer, where each was
+   fetched and confirmed to list this company. The Virginia SWaM directory is a
+   single-page app with no per-record permalink, so it links to the directory
+   rather than implying a deep link that does not exist. */
+const CREDENTIALS: [string, string][] = [
+  [sbaUrl, "SBA-certified WOSB / EDWOSB"],
+  [
+    "https://www.dgs.internet.state.pa.us/suppliersearch/Home/Details/35896",
+    "PA DGS registered supplier",
+  ],
+  ["https://directory.sbsd.virginia.gov/#/directory", "Virginia SWaM certified"],
+  [
+    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
+    "Salesforce Consulting Partner",
+  ],
 ];
+
+const SEO_DESCRIPTION =
+  "One Algorithm is a woman- and minority-owned small business in Malvern, Pennsylvania, founded in 2020. Meet the four people who run it — leadership, delivery, compliance and partnerships — and check the certifications yourself.";
 
 export default function About() {
   useSEO({
-    title: "OneAlgorithm — About Us",
-    description:
-      "Learn how OneAlgorithm transforms struggling businesses into thriving enterprises through intelligent technology solutions and expert consulting.",
+    title: "About OneAlgorithm — the people who run it",
+    description: SEO_DESCRIPTION,
     canonical: getCanonicalUrl("/about"),
     keywords:
-      "about OneAlgorithm, business technology experts, automation specialists, IT consulting company, digital transformation, business process improvement",
-    ogTitle: "OneAlgorithm — About Us",
-    ogDescription:
-      "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
+      "OneAlgorithm team, OneAlgorithm leadership, woman-owned IT consultancy, EDWOSB, Malvern Pennsylvania IT consulting, Salesforce Consulting Partner",
+    ogTitle: "About OneAlgorithm — the people who run it",
+    ogDescription: SEO_DESCRIPTION,
     ogUrl: getCanonicalUrl("/about"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — About Us",
-    twitterDescription:
-      "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/og-image.jpg",
+    twitterTitle: "About OneAlgorithm — the people who run it",
+    twitterDescription: SEO_DESCRIPTION,
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
   return (
     <Layout>
       <StructuredData data={createOrganizationSchema()} />
       <StructuredData
         data={createWebPageSchema(
-          "About OneAlgorithm - Business Technology & Automation Experts",
-          "Learn about OneAlgorithm's mission to transform struggling businesses into thriving enterprises through intelligent technology solutions, business automation, and expert consulting services.",
+          "About OneAlgorithm — the people who run it",
+          SEO_DESCRIPTION,
           "https://onealgorithm.com/about",
         )}
       />
 
+      {/* No `panel` - see the low-contrast note in the header comment. */}
       <PageHero
-        eyebrow="About us"
         title={
           <>
-            About <span className="text-oa-orange">One Algorithm</span>
+            The people behind{" "}
+            <span className="text-oa-orange">One Algorithm</span>
           </>
         }
-        lede="We transform struggling businesses into thriving enterprises. With deep expertise across multiple industries, we design and execute technology solutions that simplify operations, reduce costs, and accelerate growth."
-        panel={{
-          title: "The firm, in short",
-          items: HERO_FACTS,
-          footer: ["SBA Certified WOSB / EDWOSB"],
-        }}
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{ label: "Explore services", to: "/services" }}
+        lede="Four people run this firm. Between them they spent their careers building and running enterprise systems — Salesforce, ERP, integration, federal compliance — inside large organizations, as employees, before starting One Algorithm in 2020. Their names, roles and public profiles are below."
+        primary={{ label: "Talk to an expert", to: "/contact" }}
+        secondary={{ label: "See what we do", to: "/services" }}
       />
 
-      {/* ================= MISSION + FACTS =================
-          The mission paragraph is unchanged. What is new beside it is the
-          firm's own registry detail, which previously appeared only in the
-          footer and inside JSON-LD - where no human reads it. */}
+      {/* The team leads the page. It is the only proof here a stranger can
+          independently confirm. */}
+      <TeamSection />
+
+      {/* ================= THE FIRM, AND HOW TO CHECK IT ================= */}
       <Section tone="paper">
         <Split
           left={
             <>
-              <SectionHeading
-                eyebrow="Why we exist"
-                title="Our Mission"
-              />
+              <SectionHeading title="What the firm actually is" />
               <Prose className="mt-6">
                 <p>
-                  Our mission is to help organizations modernize, automate, and
-                  grow. We deliver practical technology solutions that simplify
-                  operations, improve efficiency, and create lasting business
-                  value.
+                  One Algorithm is a small IT consultancy in Malvern,
+                  Pennsylvania, founded in 2020 and owned by the people who work
+                  in it. The work is cloud modernization, Salesforce and ERP
+                  implementation, systems integration, and cybersecurity
+                  compliance.
+                </p>
+                <p>
+                  The experience behind that work was earned as employees. The
+                  organizations listed on our{" "}
+                  <Link
+                    className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                    to="/capabilities"
+                  >
+                    capabilities page
+                  </Link>{" "}
+                  are places members of this team have worked, before this firm
+                  existed. They are prior employment, not clients of One
+                  Algorithm, and we do not present them as clients.
                 </p>
               </Prose>
+
+              <dl className="mt-10 divide-y divide-oa-hairline border-y border-oa-hairline">
+                {FACTS.map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6"
+                  >
+                    <dt className="text-sm text-oa-ink3">{label}</dt>
+                    <dd className="leading-snug text-oa-ink">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </>
           }
           right={
-            <dl className="grid gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline">
-              {FACTS.map(([label, value]) => (
-                <div key={label} className="bg-oa-surface p-6">
-                  <dt className="font-mono text-[11px] uppercase tracking-wider text-oa-ink3">
-                    {label}
-                  </dt>
-                  <dd className="mt-1.5 leading-snug text-oa-ink">{value}</dd>
+            <Card title="Don't take our word for any of it">
+              <p className="mt-2.5 text-sm leading-relaxed text-oa-ink2">
+                Each of these is a public record in someone else's directory.
+                Open them.
+              </p>
+
+              <ul className="mt-6 divide-y divide-oa-hairline border-t border-oa-hairline">
+                {CREDENTIALS.map(([href, label]) => (
+                  <li key={href} className="py-3.5">
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener"
+                      className="font-medium text-oa-blue hover:text-oa-blue700"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <dl className="mt-6 grid gap-3 border-t border-oa-hairline pt-5 sm:grid-cols-2">
+                <div>
+                  <dt className="text-sm text-oa-ink3">UEI</dt>
+                  <dd className="font-mono text-sm text-oa-ink">
+                    {identifiers.uei}
+                  </dd>
                 </div>
-              ))}
-            </dl>
+                <div>
+                  <dt className="text-sm text-oa-ink3">CAGE</dt>
+                  <dd className="font-mono text-sm text-oa-ink">
+                    {identifiers.cage}
+                  </dd>
+                </div>
+              </dl>
+
+              {/* Stated plainly on purpose. A set-aside certification is
+                  routinely read as evidence of past federal work; this firm has
+                  not been awarded a government contract, and the page should
+                  not let that misreading stand. */}
+              <p className="mt-6 border-t border-oa-hairline pt-5 text-sm leading-relaxed text-oa-ink2">
+                These are certifications and registrations — they make the firm
+                eligible to bid on set-aside work. They are not contract awards,
+                and we don't claim any.
+              </p>
+            </Card>
           }
         />
       </Section>
 
-      <TeamSection />
-
       <CTABand
-        title="Think Bigger. Build Smarter. Move Faster."
-        body="Partner with One Algorithm to modernize operations, automate processes, and accelerate growth."
-        primary={{ label: "Start Your Transformation", to: "/contact" }}
+        title="Talk to the people on this page"
+        body="Tell us what is slowing you down. Whoever picks it up is one of the four people above — the same people who would scope the work and build it."
+        primary={{ label: "Talk to an expert", to: "/contact" }}
         secondary={{ label: "View capabilities", to: "/capabilities" }}
       />
     </Layout>

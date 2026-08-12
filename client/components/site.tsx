@@ -37,16 +37,19 @@ const TONE_BG: Record<Tone, string> = {
   night: "bg-oa-night",
 };
 
-/** Fine engineering grid for dark sections. CSS only - no image, no LCP cost. */
-export const BLUEPRINT_GRID: React.CSSProperties = {
-  backgroundImage:
-    "linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px)," +
-    "linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px)",
-  backgroundSize: "64px 64px",
-  WebkitMaskImage:
-    "radial-gradient(90% 70% at 50% 35%, #000 35%, transparent 100%)",
-  maskImage: "radial-gradient(90% 70% at 50% 35%, #000 35%, transparent 100%)",
-};
+/* The dark ground used to carry a "blueprint grid": two hairline
+   linear-gradient layers tiled on a fixed 64px cell, masked to a soft ellipse.
+   Removed 2026-08-12. Two hairline gradient layers on a repeating cell is one
+   of the most reliable generated-UI signatures there is, and it fired on every
+   page here because PageHero drew it. The detector's wording: "Reserve grid
+   overlays for actual canvas, map, blueprint or measurement surfaces;
+   elsewhere use product structure or a plain surface."
+
+   Nothing replaces it. The dark ground already has two treatments that are
+   real: the radial ground gradient in PageHero, and GRAIN below. Adding a
+   second decorative layer to stand in for the grid would just be a different
+   tell. If a page genuinely needs a measurement surface (a chart, a plan, a
+   drawing), draw the grid there, on that element, where it means something. */
 
 /** ~1KB of SVG noise. Stops a dark ground reading as flat digital black. */
 export const GRAIN: React.CSSProperties = {
@@ -188,29 +191,50 @@ export function Section({
   className?: string;
   /** Hairline rule top and bottom - use when two same-tone sections meet. */
   bordered?: boolean;
-  /** Blueprint grid + grain. Dark sections only. */
+  /**
+   * Grain texture. Dark sections only.
+   *
+   * Named `grid` because it used to draw the blueprint grid as well (see the
+   * note at the top of this file). The name is kept so the 20-odd call sites
+   * do not all have to change in the same commit as the removal; what it means
+   * now is "give this dark ground its texture".
+   */
   grid?: boolean;
   compact?: boolean;
   /** Anchor target, for in-page links. */
   id?: string;
 }) {
   const dark = tone === "night";
+
+  /* The band rules are 1px pseudo-elements, not a CSS border on the <section>.
+     Rendered result is identical to the `border-y` this replaces.
+
+     Why: a full-bleed band is a ground, not a bounded surface. Drawing it with
+     a real border makes every Card inside it a card sitting inside another
+     card -- which is exactly what the `nested-cards` detector reported on
+     2026-08-12, firing on /about, /industries/government and the service pages
+     wherever a CardGrid sat in a `bordered` Section. One boundary per level of
+     grouping: the band separates itself from its neighbours with a rule, the
+     cards inside carry the only real edges. */
+  const rules = bordered
+    ? "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:content-[''] " +
+      "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:content-[''] " +
+      (dark
+        ? "before:bg-white/10 after:bg-white/10"
+        : "before:bg-oa-hairline after:bg-oa-hairline")
+    : "";
+
   return (
     <section
       id={id}
-      className={`relative overflow-hidden ${TONE_BG[tone]} ${
-        bordered ? (dark ? "border-y border-white/10" : "border-y border-oa-hairline") : ""
-      } ${className}`}
+      className={`relative overflow-hidden ${TONE_BG[tone]} ${rules} ${className}`}
     >
       {grid && dark && (
-        <>
-          <div className="absolute inset-0" style={BLUEPRINT_GRID} aria-hidden="true" />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={GRAIN}
-            aria-hidden="true"
-          />
-        </>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={GRAIN}
+          aria-hidden="true"
+        />
       )}
       <div
         className={`relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 ${
@@ -292,7 +316,12 @@ export function PrimaryCTA({
   download?: string;
   className?: string;
 }) {
-  const classes = `bg-oa-orange text-oa-ink hover:bg-[#ffb757] font-semibold px-7 ${className}`;
+  /* py-3 rather than the button's default zero vertical padding. `size="lg"`
+     is `h-11 px-8` -- a fixed 44px box with no vertical inset at all, so a
+     long label sat flush against the top and bottom of its own fill. 12px + a
+     20px line box is exactly 44px, so nothing moves; the padding is simply
+     declared instead of implied by the fixed height. */
+  const classes = `bg-oa-orange text-oa-ink hover:bg-[#ffb757] font-semibold px-7 py-3 ${className}`;
   return (
     <Button asChild size="lg" className={classes}>
       {to ? (
@@ -328,10 +357,11 @@ export function SecondaryCTA({
   download?: string;
   tone?: "light" | "dark";
 }) {
+  // py-3 for the same reason as PrimaryCTA above.
   const classes =
     tone === "dark"
-      ? "border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7"
-      : "border-oa-hairlineStrong bg-oa-surface text-oa-ink hover:bg-oa-blueTint hover:text-oa-ink px-7";
+      ? "border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7 py-3"
+      : "border-oa-hairlineStrong bg-oa-surface text-oa-ink hover:bg-oa-blueTint hover:text-oa-ink px-7 py-3";
   return (
     <Button asChild size="lg" variant="outline" className={classes}>
       {to ? (
@@ -402,7 +432,6 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-oa-night">
-      <div className="absolute inset-0" style={BLUEPRINT_GRID} aria-hidden="true" />
       <div
         className="absolute inset-0"
         style={{

@@ -61,7 +61,11 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
 export default function TrustedPartnerships() {
   return (
     <div className="flex flex-col gap-3 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:gap-8">
-      <p className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-oa-nightInk3">
+      {/* Not uppercase. This sits in the footer, so it renders on all 26
+          routes, and at 32 characters it is a sentence set as a label -- which
+          is measurably slower to read than sentence case. Small caps are for
+          one- or two-word markers, not statements. */}
+      <p className="shrink-0 font-mono text-xs text-oa-nightInk3">
         Experts across leading platforms
       </p>
 

@@ -1,23 +1,36 @@
 import React from "react";
-import { Badge } from "./ui/badge";
 import { Section, SectionHeading, Card, CardGrid } from "./site";
 
-/* Leadership - 2026 refresh.
+/* Leadership - 2026 refresh, revised 2026-08-12.
  *
- * Three substantive changes beyond the visual system:
+ * This section is no longer a footer to the About page. It runs directly under
+ * the hero, because this firm has no client logos, no testimonials and no
+ * awarded contracts - the named people, with links a buyer can open, are the
+ * only third-party-checkable proof the page has. Burying them under a mission
+ * statement wasted the one asset the page owns.
  *
- *  1. `expertise` and `industries` were fully populated in the data and never
- *     rendered - the file even imported Badge without using it. They are real,
- *     already-published detail a buyer weighs, so they now render as tags under
- *     each bio. No new facts were added to either array.
- *  2. `roleSummary` was byte-identical to `background` on all four members and
- *     only `background` was ever rendered. The duplicate field is gone.
- *  3. All four bios opened with the word "Leads", which read as one paragraph
- *     copied four times. Only the opening clause was rephrased - no credential,
- *     employer, date or claim was changed.
+ * DETECTOR FIX (nested-cards x4): the four member cards were flagged as cards
+ * inside a card. The container was not another card - it was this Section's own
+ * `bordered` prop, which draws `border-y` over a filled `bg-oa-surface` ground
+ * and so reads as a card wrapping four cards. `bordered` exists for when two
+ * SAME-tone sections meet; here the section above is the dark hero, so the tone
+ * change already separates them and the rule was pure decoration. Dropped.
  *
- * The dead `industryIcons` map (three entries, all the same circle path, never
- * referenced) has been deleted.
+ * `expertise` and `industries` also rendered as Badge pills - rounded-full,
+ * bordered, tinted, padded, fifteen of them per member. The detector skips
+ * anything under 30px tall so it never counted them, but a card carrying
+ * fifteen inner borders is the thing that rule is describing. The information
+ * was worth keeping; the boxes were not. Both lists now render as plain
+ * dividing text rows. `Badge` is no longer imported.
+ *
+ * DETECTOR FIX (all-caps-body): the row labels are sentence case. Nothing on
+ * this page sets text-transform: uppercase any more.
+ *
+ * Bios: rewritten to one line each. Every fact is carried over from the
+ * previous copy - no employer, credential, date or claim was added. The
+ * previous versions all ran to two sentences of near-identical shape
+ * ("Oversees X, Y, and Z ... that help organizations improve efficiency"),
+ * which is the padding that made four real people read as generated filler.
  *
  * Accessibility: #ffa634 is 1.95:1 on white, so job titles use the
  * `oa.orangeText` token (#9a4f00, 6.01:1) rather than the brand orange.
@@ -48,7 +61,7 @@ const teamMembers: TeamMember[] = [
     ],
     industries: ["Manufacturing", "Construction", "E-commerce"],
     background:
-      "Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.",
+      "Runs strategy, operations and client delivery across the firm's government and commercial work.",
     image: "/media/team-1.webp",
     linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
   },
@@ -65,7 +78,7 @@ const teamMembers: TeamMember[] = [
     ],
     industries: ["Manufacturing", "E-commerce"],
     background:
-      "Directs technology operations, project delivery, and business development at One Algorithm. Oversees cloud solutions, CRM modernization, and technology initiatives that help organizations improve efficiency and performance.",
+      "Owns technology operations and project delivery — cloud solutions, CRM modernization and enterprise integration.",
     image: "/media/team-2.webp",
     linkedinUrl: "https://www.linkedin.com/in/samirisetti/",
   },
@@ -82,7 +95,7 @@ const teamMembers: TeamMember[] = [
     ],
     industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "Responsible for compliance, operations, and government contracting initiatives at One Algorithm. Oversees certifications, partnerships, and regulatory requirements that support federal, state, and commercial opportunities.",
+      "Handles compliance and government contracting — the certifications, registrations and regulatory requirements that keep the firm eligible to bid.",
     image: "/media/team-3.webp",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
@@ -99,19 +112,31 @@ const teamMembers: TeamMember[] = [
     ],
     industries: ["E-commerce", "Manufacturing"],
     background:
-      "Drives business development and strategic partnerships at One Algorithm. Builds relationships, supports growth initiatives, and helps connect clients with solutions that drive business success.",
+      "Handles business development, strategic partnerships and client relationships.",
     image: "/media/team-4.webp",
     linkedinUrl: "https://www.linkedin.com/in/sahith-valluru/",
   },
 ];
 
+/** One labelled row of plain text. Replaces the badge pills - same information,
+ *  no second border inside the card. */
+function DetailRow({ label, values }: { label: string; values: string[] }) {
+  return (
+    <div className="grid gap-0.5 py-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+      <dt className="text-sm text-oa-ink3">{label}</dt>
+      <dd className="text-sm leading-relaxed text-oa-ink2">
+        {values.join(" · ")}
+      </dd>
+    </div>
+  );
+}
+
 export default function TeamSection() {
   return (
-    <Section tone="surface" bordered>
+    <Section tone="surface">
       <SectionHeading
-        eyebrow="Leadership"
-        title="Meet the team"
-        lede="Four people accountable for the work — strategy, delivery, compliance and partnerships."
+        title="The four people who run it"
+        lede="There is no account layer here. The people who scope the work are the people who build it, and every profile below links out so you can check the history yourself."
       />
 
       <CardGrid columns={2} className="mt-12">
@@ -128,11 +153,11 @@ export default function TeamSection() {
                 height={400}
                 loading="lazy"
                 decoding="async"
-                className="h-28 w-28 shrink-0 rounded-lg bg-oa-sunk object-cover"
+                className="h-32 w-32 shrink-0 rounded-lg bg-oa-sunk object-cover"
               />
 
               <div className="min-w-0">
-                <h3 className="text-lg font-semibold text-oa-ink">
+                <h3 className="text-xl font-semibold text-oa-ink">
                   {member.name}
                 </h3>
                 <p className="mt-1 font-medium text-oa-orangeText">
@@ -143,7 +168,7 @@ export default function TeamSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-oa-blue transition-colors hover:text-oa-blue700"
-                  aria-label={`${member.name} LinkedIn profile`}
+                  aria-label={`${member.name} on LinkedIn`}
                 >
                   <svg
                     className="h-4 w-4"
@@ -153,38 +178,21 @@ export default function TeamSection() {
                   >
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.437-.103.249-.129.597-.129.946v5.422h-3.554s.05-8.736 0-9.646h3.554v1.366c.43-.664 1.199-1.61 2.922-1.61 2.134 0 3.734 1.398 3.734 4.403v5.487zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.71 0-.957.771-1.71 1.958-1.71 1.187 0 1.915.753 1.94 1.71 0 .952-.753 1.71-1.983 1.71zm1.581 11.597H3.635V9.861h3.283v10.591zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
                   </svg>
-                  LinkedIn
+                  View profile
                 </a>
               </div>
             </div>
 
-            <p className="mt-6 border-t border-oa-hairline pt-5 text-sm leading-relaxed text-oa-ink2">
+            <p className="mt-6 text-base leading-relaxed text-oa-ink">
               {member.background}
             </p>
 
             {/* Focus areas and industries were carried in the data all along
-                and never shown. Blue tint marks an industry, neutral an area
-                of expertise. */}
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {member.industries.map((industry) => (
-                <Badge
-                  key={industry}
-                  variant="outline"
-                  className="border-oa-blue/25 bg-oa-blueTint font-medium text-oa-blue700"
-                >
-                  {industry}
-                </Badge>
-              ))}
-              {member.expertise.map((skill) => (
-                <Badge
-                  key={skill}
-                  variant="outline"
-                  className="border-oa-hairlineStrong bg-oa-sunk font-medium text-oa-ink2"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
+                and never shown. Plain rows, not pills - see the header note. */}
+            <dl className="mt-6 divide-y divide-oa-hairline border-t border-oa-hairline">
+              <DetailRow label="Focus" values={member.expertise} />
+              <DetailRow label="Industries" values={member.industries} />
+            </dl>
           </Card>
         ))}
       </CardGrid>
