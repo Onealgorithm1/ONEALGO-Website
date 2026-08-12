@@ -22,6 +22,7 @@ import {
   createLocalBusinessSchema,
 } from "../components/StructuredData";
 import { JSONLDScript } from "../components/JSONLDScript";
+import SystemCanvas from "../components/SystemCanvas";
 
 /* ---------------------------------------------------------------------------
    Homepage - 2026 refresh.
@@ -618,6 +619,40 @@ export default function Index() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ================= SIGNAL PATH =================
+          The page had no moment. Nine bands of type and rules explained the
+          work and none of them showed it, which is the whole of the "this does
+          not make me believe you can execute" problem: a firm that sells
+          system integration was describing integration in prose.
+
+          This is the one visual on the site, and it is deliberately the only
+          one -- it is placed here, after the services are named, so it reads as
+          "and this is what that means" rather than as decoration. It is SVG
+          and SMIL: no WebGL, no new dependency, ~5.6KB gzipped, and it does
+          nothing at all until it scrolls into view.
+
+          It is labelled ILLUSTRATIVE - NOT LIVE DATA inside the frame, because
+          it is a diagram of how these integrations are built and not a
+          telemetry feed, and a diagram that lets someone believe otherwise is
+          the same lie as an invented statistic.
+          ============================================== */}
+      <section className="border-t border-oa-hairline bg-oa-paper">
+        <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6 md:py-28 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="text-h2 font-semibold text-oa-ink">
+              What &ldquo;integration&rdquo; actually means
+            </h2>
+            <p className="mt-5 text-lede leading-relaxed text-oa-ink2">
+              Most of the work is not at either end. It is the layer in the
+              middle that authenticates, maps one system&rsquo;s fields onto
+              another&rsquo;s, checks the record before it lands, and decides
+              what happens to the ones that fail. This is the shape of it.
+            </p>
+          </div>
+          <SystemCanvas className="mt-12" />
         </div>
       </section>
 
