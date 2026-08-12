@@ -357,11 +357,18 @@ export default function Index() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-20">
+        {/* Mobile top/bottom padding is deliberately tighter than the desktop
+            rhythm. At 390px the identifier strip below is the most distinctive
+            thing on the page and it was landing under the fold; the padding,
+            plus dropping the second CTA, buys it back without shrinking type. */}
+        <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-20 md:pt-28 lg:pt-32 pb-10 sm:pb-16 md:pb-20">
           <div className="max-w-4xl">
+            {/* This line was previously buried in the capabilities section
+                halfway down the page. It is the only headline on the site that
+                could not be lifted wholesale by a competitor, so it leads. */}
             <h1 className="text-display font-semibold text-oa-nightInk">
-              Transform Operations,{" "}
-              <span className="text-oa-orange">Accelerate Growth</span>
+              People, platforms and{" "}
+              <span className="text-oa-orange">the systems in between</span>
             </h1>
 
             {/* The tagline. Previously set smaller than the paragraph beneath
@@ -372,11 +379,17 @@ export default function Index() {
             </p>
 
             <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
-              Think bigger. Build smarter. Move faster — with technology
-              solutions tailored to you, and a team that stays on after go-live.
+              A woman-owned IT consultancy in Malvern, Pennsylvania: Oracle ERP,
+              Salesforce, web development and system integration. Add senior
+              people to your team, or hand us the whole build — the same team is
+              there from the first workshop to the run-state.
             </p>
 
-            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+            {/* ONE action. The capability-statement PDF used to sit here as a
+                second button: it opens a new tab, ends the session and captures
+                nothing. It still exists, in the government section further down,
+                where the buyer who actually wants it is already looking. */}
+            <div className="mt-8 md:mt-9">
               {/* Orange fill, INK label. White on this orange is 1.95:1 and was
                   the least readable element on the old site. */}
               <Button
@@ -389,29 +402,17 @@ export default function Index() {
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7"
-              >
-                <a
-                  href="/docs/capability-statement.pdf"
-                  download="OneAlgorithm-Capability-Statement.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download Capability Statement
-                </a>
-              </Button>
             </div>
           </div>
         </div>
 
         {/* Identifier strip. A contracting officer copy-pastes a UEI; it
-            previously existed only inside JSON-LD, where no human sees it. */}
+            previously existed only inside JSON-LD, where no human sees it.
+            This is the ONLY copy of these identifiers on the page - the
+            government section used to render the same table a second time.
+            Tighter column gap on mobile so it packs into fewer rows. */}
         <div className="relative z-10 border-t border-white/10 bg-oa-night/70 backdrop-blur-sm">
-          <dl className="mx-auto flex max-w-[1200px] flex-wrap gap-x-10 gap-y-4 px-4 sm:px-6 lg:px-8 py-5 font-mono text-sm">
+          <dl className="mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-4 sm:gap-x-10 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 font-mono text-sm">
             {[
               ["UEI", siteConfig.identifiers.uei],
               ["CAGE", siteConfig.identifiers.cage],
@@ -462,14 +463,14 @@ export default function Index() {
       <section className="bg-oa-paper">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-16 md:pb-20">
           <div className="max-w-3xl">
+            {/* The heading and lede that used to sit here are now the hero -
+                they were the best copy on the page and were doing that work
+                below the fold. This section keeps only what the hero does not
+                say, so the page does not state its own positioning twice. */}
             <Eyebrow>What we do</Eyebrow>
             <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
-              People, platforms and the systems in between
+              What we build, and what we keep running
             </h2>
-            <p className="mt-5 text-lede text-oa-ink2">
-              Add senior people to your team, or hand us the whole build. Either
-              way the same team is there from the first workshop to the run-state.
-            </p>
           </div>
 
           {/* The two revenue-leading services get the wide row. */}
@@ -602,59 +603,44 @@ export default function Index() {
           federal performance. */}
       <section className="bg-oa-paper pb-20 md:pb-28">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          {/* The identifier table that used to fill the right half of this card
+              was a byte-for-byte repeat of the strip under the hero. The strip
+              won - it is above the fold and a buyer meets it first - so this is
+              now a single column. The two facts the table carried that the
+              strip does not (the code counts) are stated in the paragraph, and
+              the full lists live on /capabilities and /industries/government. */}
           <div className="overflow-hidden rounded-2xl border border-oa-hairline bg-oa-surface">
-            <div className="grid lg:grid-cols-2">
-              <div className="p-8 md:p-12">
-                <Eyebrow>For government buyers</Eyebrow>
-                <h2 className="mt-4 text-h3 font-semibold text-oa-ink">
-                  Set-aside eligible and registered to receive award
-                </h2>
-                <p className="mt-5 leading-relaxed text-oa-ink2">
-                  SBA-certified WOSB/EDWOSB with an active SAM registration,
-                  published NAICS and PSC codes, and state procurement
-                  registrations across Pennsylvania, Virginia and others — so a
-                  contracting officer can verify eligibility during market
-                  research.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button
-                    asChild
-                    className="bg-oa-blue text-white hover:bg-oa-blue600 font-semibold"
+            <div className="p-8 md:p-12">
+              <Eyebrow>For government buyers</Eyebrow>
+              <h2 className="mt-4 text-h3 font-semibold text-oa-ink">
+                Set-aside eligible and registered to receive award
+              </h2>
+              <p className="mt-5 max-w-[68ch] leading-relaxed text-oa-ink2">
+                SBA-certified WOSB/EDWOSB with an active SAM registration,{" "}
+                {siteConfig.codes.naics.length} published NAICS codes and{" "}
+                {siteConfig.codes.psc.length} PSC codes, and state procurement
+                registrations across Pennsylvania, Virginia and others — so a
+                contracting officer can verify eligibility during market
+                research. The UEI and CAGE code are at the top of this page.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  asChild
+                  className="bg-oa-blue text-white hover:bg-oa-blue600 font-semibold"
+                >
+                  <Link to="/capabilities">View capability statement</Link>
+                </Button>
+                <Button asChild variant="outline" className="border-oa-hairlineStrong">
+                  <a
+                    href="/docs/capability-statement.pdf"
+                    download="OneAlgorithm-Capability-Statement.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Link to="/capabilities">View capability statement</Link>
-                  </Button>
-                  <Button asChild variant="outline" className="border-oa-hairlineStrong">
-                    <a
-                      href="/docs/capability-statement.pdf"
-                      download="OneAlgorithm-Capability-Statement.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Download PDF
-                    </a>
-                  </Button>
-                </div>
+                    Download PDF
+                  </a>
+                </Button>
               </div>
-
-              <dl className="grid grid-cols-2 gap-px border-t border-oa-hairline bg-oa-hairline lg:border-l lg:border-t-0">
-                {[
-                  ["UEI", siteConfig.identifiers.uei],
-                  ["CAGE", siteConfig.identifiers.cage],
-                  ["Primary NAICS", siteConfig.codes.naics[0]],
-                  ["NAICS codes", `${siteConfig.codes.naics.length} registered`],
-                  ["PSC codes", siteConfig.codes.psc.slice(0, 3).join(", ")],
-                  ["SAM.gov", "Active"],
-                ].map(([label, value]) => (
-                  <div key={label} className="bg-oa-surface p-6">
-                    <dt className="font-mono text-[11px] uppercase tracking-wider text-oa-ink3">
-                      {label}
-                    </dt>
-                    <dd className="mt-1.5 break-words font-mono text-sm text-oa-ink">
-                      {value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
             </div>
           </div>
         </div>

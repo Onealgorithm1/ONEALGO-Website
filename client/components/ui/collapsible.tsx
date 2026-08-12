@@ -18,7 +18,7 @@ export function Collapsible({
     <div className={className}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-onealgo-orange-500 hover:text-onealgo-orange-600 text-sm font-medium transition-colors mt-3"
+        className="flex items-center gap-2 text-oa-orangeText hover:text-oa-ink text-sm font-medium transition-colors mt-3"
       >
         {trigger}
         {isOpen ? (

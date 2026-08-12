@@ -16,7 +16,7 @@ export default function DetailedCollapsible({ title, summary, details }: Detaile
       
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-onealgo-blue-950 hover:text-onealgo-orange-500 transition-colors text-sm font-medium w-full text-left"
+        className="flex items-center gap-2 text-onealgo-blue-950 hover:text-oa-orangeText transition-colors text-sm font-medium w-full text-left"
       >
         <span className="font-bold">Learn More</span>
         {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}

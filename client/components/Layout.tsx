@@ -1,9 +1,30 @@
 import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
-import { Button } from "./ui/button";
+import { PrimaryCTA } from "./site";
 import { Menu, X, ChevronDown } from "lucide-react";
 import * as React from "react";
+
+/*
+  Footer link tap target.
+
+  These links were the height of their own text and nothing else - 20px,
+  measured on a 390px iPhone viewport. WCAG 2.5.5 and Apple's HIG both want 44.
+  The fix is padding on the anchor, not a bigger font: the footer reads as small
+  print by design and inflating the type to reach 44px would change how it looks
+  as well as how it taps.
+
+  `md:py-0` keeps the desktop footer exactly as it was - a mouse does not need
+  the slack, and 20 links each 24px taller would have added ~250px of dead space
+  to a wide layout. On mobile the spacing between links moves INTO the padding
+  (`space-y-0 md:space-y-1.5` on the wrapper) so the list does not grow by the
+  gap as well as the padding. Contiguous 44px rows, no overlap: negative margins
+  would have kept the visual rhythm but made neighbouring hit areas overlap by
+  18px, which turns a near-miss tap into the wrong page.
+*/
+const footerLink =
+  "block py-3 md:py-0 text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors";
+const footerLinkList = "space-y-0 md:space-y-1.5";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -416,12 +437,24 @@ function Layout({ children }: LayoutProps) {
                 )}
               </div>
 
-              {/* The "Talk to an Expert" button used to sit here. With Home,
-                  About, Capabilities, Blog and a Services dropdown already in the
-                  bar, a solid orange block on the end made it read as crowded.
-                  Contact is still reachable from the footer, from the Services
-                  menu, and from the CTA sections on the pages themselves - which
-                  is where it converts anyway. */}
+              {/*
+                Contact CTA. This was removed once as visual clutter, on the
+                reasoning that "Contact is still reachable from the footer, from
+                the Services menu, and from the CTA sections". Two thirds of that
+                was wrong: Contact is NOT in the Services menu, and the CTA
+                sections are page content, not navigation. That left the one
+                thing that follows the visitor down every page - this bar - with
+                no route to the form at all, on the only breakpoint that has no
+                pinned CTA (mobile keeps one at the bottom of its drawer).
+
+                Same PrimaryCTA the pages use, so there is one primary button
+                treatment on the site rather than a header-only variant. Sized
+                down to h-10 to sit inside the 64px bar; #ffa634 is a fill under
+                dark ink here, never a text or border colour.
+              */}
+              <PrimaryCTA to="/contact" className="h-10 px-5">
+                Talk to an Expert
+              </PrimaryCTA>
             </div>
 
             {/* Mobile menu button */}
@@ -790,13 +823,14 @@ function Layout({ children }: LayoutProps) {
                 that let you focus on what matters: growing your business.
               </p>
 
-              {/* Social Media Icons */}
+              {/* Social Media Icons. p-3.5 around a 16px glyph is a 44px
+                  target on a phone; desktop keeps the tighter 36px circle. */}
               <div className="flex flex-wrap gap-2.5">
                 <a
                   href="https://www.linkedin.com/company/onealgorithmllc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="LinkedIn"
                 >
                   <svg
@@ -812,7 +846,7 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.tiktok.com/@one.algorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="TikTok"
                 >
                   <svg
@@ -828,7 +862,7 @@ function Layout({ children }: LayoutProps) {
                   href="https://youtube.com/@onealgorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="YouTube"
                 >
                   <svg
@@ -844,7 +878,7 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.facebook.com/share/1694s7Yy3p/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Facebook"
                 >
                   <svg
@@ -860,7 +894,7 @@ function Layout({ children }: LayoutProps) {
                   href="https://www.instagram.com/onealgorithm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Instagram"
                 >
                   <svg
@@ -876,7 +910,7 @@ function Layout({ children }: LayoutProps) {
                   href="https://maps.app.goo.gl/kVEeTz9dCyB64CGk6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white/[0.06] hover:bg-oa-blue p-2.5 rounded-full transition-colors duration-200"
+                  className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Google Business Profile"
                 >
                   <svg
@@ -896,13 +930,13 @@ function Layout({ children }: LayoutProps) {
             {/* Quick Links */}
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Quick Links</h3>
-              <div className="space-y-1.5">
+              <div className={footerLinkList}>
                 <Link
                   to="/"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Home
                 </Link>
@@ -911,7 +945,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   About
                 </Link>
@@ -920,7 +954,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Capabilities
                 </Link>
@@ -929,7 +963,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Industries We Serve
                 </Link>
@@ -937,7 +971,7 @@ function Layout({ children }: LayoutProps) {
                     it is not a route in this SPA, so <Link> would 404. */}
                 <a
                   href="/blog/"
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Blog
                 </a>
@@ -946,7 +980,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Contact
                 </Link>
@@ -959,7 +993,7 @@ function Layout({ children }: LayoutProps) {
                 */}
                 <a
                   href="/blog/careers/"
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Careers
                 </a>
@@ -968,7 +1002,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   AI Information
                 </Link>
@@ -987,24 +1021,30 @@ function Layout({ children }: LayoutProps) {
                   prerendered page none of those links exist in the HTML at all.
                   Google reported /services as "URL is unknown to Google": never
                   discovered, because nothing a crawler can read pointed at it.
+
+                  A heading that is also a link, so it cannot take the list
+                  padding without pushing the column apart. The negative margin
+                  gives it a 44px hit area on mobile while leaving the heading
+                  where it sits; safe here because the nearest neighbouring
+                  target is the mb-4 below it, so the two do not overlap.
                 */}
                 <Link
                   to="/services"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="hover:text-oa-nightInk2 transition-colors"
+                  className="inline-block py-3.5 -my-3.5 md:py-0 md:my-0 hover:text-oa-nightInk2 transition-colors"
                 >
                   Services
                 </Link>
               </h3>
-              <div className="space-y-1.5">
+              <div className={footerLinkList}>
                 <Link
                   to="/services/martech"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   MarTech
                 </Link>
@@ -1013,7 +1053,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Google Ads
                 </Link>
@@ -1022,7 +1062,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Website Development
                 </Link>
@@ -1031,7 +1071,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Marketing
                 </Link>
@@ -1040,7 +1080,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   SEO Services
                 </Link>
@@ -1049,7 +1089,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Staff Augmentation
                 </Link>
@@ -1058,7 +1098,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   IT Consulting
                 </Link>
@@ -1067,7 +1107,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Operations Technology
                 </Link>
@@ -1076,7 +1116,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Oracle ERP
                 </Link>
@@ -1085,7 +1125,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Salesforce
                 </Link>
@@ -1094,7 +1134,7 @@ function Layout({ children }: LayoutProps) {
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
-                  className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                  className={footerLink}
                 >
                   Zendesk
                 </Link>
@@ -1121,7 +1161,7 @@ function Layout({ children }: LayoutProps) {
             */}
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">Certifications</h3>
-              <div className="space-y-1.5">
+              <div className={footerLinkList}>
                 {[
                   [
                     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18",
@@ -1145,7 +1185,7 @@ function Layout({ children }: LayoutProps) {
                     href={href}
                     target="_blank"
                     rel="noopener"
-                    className="block text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors"
+                    className={footerLink}
                   >
                     {label}
                   </a>

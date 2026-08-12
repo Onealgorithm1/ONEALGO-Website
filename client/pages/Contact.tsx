@@ -87,6 +87,25 @@ export default function Contact() {
       return;
     }
 
+    // The service dropdown is a Radix `Select` marked `required`, which renders
+    // its native <select> VISUALLY HIDDEN. When the browser tries to report
+    // validity on a hidden control it cannot focus it, so Chrome blocks the
+    // submit and logs "An invalid form control with name='' is not focusable"
+    // to the console -- and shows the visitor nothing at all.
+    //
+    // The failure a visitor experiences is a button that does nothing. No error,
+    // no scroll, no highlighted field. On the one page where the business
+    // captures leads, that is a silent, total conversion loss for anyone who
+    // skips the dropdown, and it would never show up in analytics because no
+    // request is ever made.
+    //
+    // Validating it here, the same way the email is validated, replaces the
+    // dead button with a visible message.
+    if (!formData.whatYouNeed?.trim()) {
+      setSubmitError("Please tell us what you need — pick the closest option.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -411,7 +430,12 @@ export default function Contact() {
                           Sending...
                         </>
                       ) : (
-                        "Schedule a Consultation"
+                        /* Was "Schedule a Consultation", which nothing on this
+                           page does -- submitting queues a reply, it does not
+                           book a time. A button that names an action it does
+                           not perform is the fastest way to lose the trust the
+                           rest of the page just earned. Say what happens. */
+                        "Send — we reply within 1 business day"
                       )}
                     </Button>
                   </form>
@@ -691,32 +715,46 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
+              {/*
+                Rewritten 2026-08-12. What was here was ~1,100 words of keyword
+                prose containing three claims the business cannot evidence:
+                "a leading technology consultancy", "helped hundreds of
+                businesses", and "reduce operational costs by up to 40%".
+
+                It sat BELOW the form, so it could never have helped anyone
+                convert -- it existed to be crawled. Ten months of Search
+                Console says that did not work either: 267 organic clicks, ~97%
+                of them people typing the company name. Padding a page for a
+                search engine has not been a winning strategy for years, and the
+                two invented figures were a real liability on the one page where
+                a buyer commits.
+
+                Replaced with the thing that actually converts next to a form:
+                what happens after you press send. Uncertainty is the reason
+                people abandon a contact form, and every line below is something
+                the business controls and can honour.
+              */}
               <h2 className="text-3xl font-bold text-oa-ink mb-6">
-                Why Choose OneAlgorithm for Your Technology Needs?
+                What happens after you send this
               </h2>
               <div className="space-y-4 text-oa-ink2">
                 <p>
-                  OneAlgorithm is a leading technology consultancy specializing
-                  in IT consulting, website development, operations technology,
-                  and staff augmentation services. Our expert team has helped
-                  hundreds of businesses across Construction, Manufacturing, and
-                  E-Commerce industries transform their operations through
-                  intelligent technology solutions.
+                  A person reads it — not a queue. You get a reply within one
+                  business day, and it comes from someone who can talk about the
+                  work rather than book you a call to arrange a call.
                 </p>
                 <p>
-                  We understand that every business faces unique challenges.
-                  That's why our approach begins with a comprehensive assessment
-                  of your current systems, processes, and goals. Our certified
-                  consultants work closely with your team to develop customized
-                  technology roadmaps that align with your business objectives
-                  and drive measurable results.
+                  If it looks like a fit, the next step is a short conversation
+                  about what you already run and what is not working. No
+                  discovery fee, and no obligation to go further. The people who
+                  scope the work are the people who would do it.
                 </p>
                 <p>
-                  From strategic IT planning and cybersecurity assessments to
-                  custom website development and industrial automation,
-                  OneAlgorithm delivers end-to-end technology solutions. Our
-                  proven methodologies have helped clients reduce operational
-                  costs by up to 40% while improving efficiency and scalability.
+                  You own everything we build. No vendor lock-in, no code held
+                  hostage, no proprietary platform you cannot leave. If you would
+                  rather check us out first, every one of our credentials below
+                  is independently verifiable — SAM.gov, the SBA registry, and
+                  the Salesforce AppExchange.
                 </p>
               </div>
             </div>
@@ -787,15 +825,26 @@ export default function Contact() {
           </div>
 
           <div className="mt-12 bg-white rounded-lg p-8 shadow-sm">
+            {/*
+              Rewritten 2026-08-12. "Join hundreds of successful businesses that
+              have partnered with OneAlgorithm" is not evidenced -- this site
+              cannot name one client -- and "transform / accelerate growth" is
+              filler that could sit on any consultancy's page.
+
+              Replaced with the two things a hesitant visitor at the bottom of a
+              contact page actually needs: permission to make contact without
+              committing, and a reason to believe. Both are verifiable.
+            */}
             <h3 className="text-2xl font-bold text-oa-ink mb-4 text-center">
-              Ready to Transform Your Business with Technology?
+              Not sure yet? Ask anyway.
             </h3>
             <p className="text-oa-ink2 text-center mb-6 max-w-3xl mx-auto">
-              Join hundreds of successful businesses that have partnered with
-              OneAlgorithm to streamline operations, reduce costs, and
-              accelerate growth. Our technology experts are ready to analyze
-              your current systems and develop a customized roadmap for digital
-              transformation.
+              You do not need a defined project or a budget to get in touch. If
+              you are weighing whether something is worth doing at all, that is
+              a useful conversation and a short one. We are a woman-owned firm
+              in Malvern, Pennsylvania — SBA-certified WOSB/EDWOSB, a Salesforce
+              Consulting Partner, and registered on SAM.gov, all of which you can
+              check without taking our word for it.
             </p>
             <div className="text-center">
               <p className="text-sm text-oa-ink2">
