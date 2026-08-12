@@ -1,8 +1,69 @@
-# Fusion Starter
+# OneAlgorithm — company website
 
-A production-ready full-stack React application template with integrated Express server, featuring React Router 6 SPA mode, TypeScript, Vitest, Zod and modern tooling.
+**This is OneAlgorithm's own website.** It was started from the "Fusion Starter"
+template, and the technical reference below is still accurate — but the identity
+is not a template any more, and the rules in this section outrank the generic
+advice further down.
 
-While the starter comes with a express server, only create endpoint when strictly neccesary, for example to encapsulate logic that must leave in the server, such as private keys handling, or certain DB operations, db...
+Read `~/.codex/AGENTS.md` for the standing design process (banlist, gates,
+design knowledge base). This file holds only what is specific to this repo.
+
+## Current state
+
+Branch `redesign/2026-refresh`. **All 27 pages rebuilt on one design system.**
+**Not deployed.** Verified: `npx tsc --noEmit` clean · `node scripts/contrast-check.mjs`
+20/20 · `npm test` 5/5 · `npm run build:client` clean.
+
+## THE rule for this repo
+
+**Build pages from the shared primitives in `client/components/site.tsx`** —
+`PageHero`, `Section`, `SectionHeading`, `Card`, `CardGrid`, `ProcessSteps`,
+`CheckList`, `CTABand`, `Split`, `Prose`, `PrimaryCTA`, `SecondaryCTA`.
+
+If a page needs something new, **add it to `site.tsx`** rather than hand-rolling
+it locally. That file is the only thing stopping the site drifting back into 27
+different card styles, which is the state it was just rescued from.
+
+## Brand constraints
+
+- ⚠️ **`#ffa634` is 1.95:1 on white.** It fails contrast badly. Never use it for
+  text, icons or borders on a light background. It is an accent on dark only.
+- Run `node scripts/contrast-check.mjs` after any colour change. It is 20/20 now;
+  keep it there.
+
+## Facts that must NOT be invented or overstated
+
+These have been checked and are easy to get wrong:
+
+- The **17 organisations on `/capabilities` are PRIOR EMPLOYMENT of the team, not
+  clients.** Never describe them as clients, customers or partners.
+- **No government contract has been awarded yet.** Government copy describes
+  *eligibility* only — never imply a win, an award or past performance.
+- The company is in **Malvern, Pennsylvania** — not Philadelphia.
+- **24/7 availability is real** and may be stated.
+- Invent no other claims, statistics, certifications or testimonials.
+
+## Before this branch merges
+
+- **Delete `/legacy-home`.** The old homepage was kept temporarily for
+  comparison and must not ship.
+- ⚠️ **Scroll-reveal regression:** a scroll-reveal effect once hid content on 22
+  of 27 prerendered pages — the prerendered HTML shipped with the content
+  invisible to anything without JavaScript, search engines included. The guard
+  now lives in **`scripts/prerender.mjs`** (it settles reveals before
+  serialising, and fails on content that stays hidden). Do not weaken or skip it
+  to make a build pass; the comment in that file records that this was not
+  hypothetical.
+
+## Gotchas
+
+- **`npm install` hangs** — this is a pnpm workspace. Use `pnpm install`.
+- Dev server runs on **:8080**, not the Vite default.
+
+---
+
+*Everything below is the original template's technical reference. It is still
+correct about the stack and the file layout; it says nothing about OneAlgorithm.*
 
 ## Tech Stack
 
