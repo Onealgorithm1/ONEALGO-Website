@@ -824,6 +824,14 @@ export default function Index() {
               >
                 <Link to="/capabilities">View capability statement</Link>
               </Button>
+              {/* Opens the statement, it does not download it.
+                  The `download` attribute was forcing a save: a buyer who
+                  tapped this on a phone got a file in a downloads folder and no
+                  page, which on iOS in particular means they have to go and
+                  find it before they can read a word. Every browser renders PDF
+                  inline now, so the plain link shows it and the viewer's own
+                  share/save control is right there if they want a copy. Named
+                  for what it does. */}
               <Button
                 asChild
                 variant="outline"
@@ -831,11 +839,10 @@ export default function Index() {
               >
                 <a
                   href="/docs/capability-statement.pdf"
-                  download="OneAlgorithm-Capability-Statement.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Download PDF
+                  Open the PDF
                 </a>
               </Button>
             </div>

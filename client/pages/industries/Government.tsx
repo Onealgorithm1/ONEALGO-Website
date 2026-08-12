@@ -186,10 +186,12 @@ export default function Government() {
           ],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
+        // Opens rather than downloads. A contracting officer doing market
+        // research wants to read it now, not find it in a downloads folder
+        // afterwards; the PDF viewer's own save control handles the rest.
         secondary={{
-          label: "Download Capability Statement",
+          label: "Open capability statement",
           href: "/docs/capability-statement.pdf",
-          download: "OneAlgorithm-Capability-Statement.pdf",
         }}
       />
 

@@ -30,7 +30,54 @@ declare global {
   interface Window {
     trackFormSubmission?: () => void;
     trackContactClick?: (method: string) => void;
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+      reset: (id?: string) => void;
+      remove: (id?: string) => void;
+    };
   }
+}
+
+/* Cloudflare Turnstile. The site key is PUBLIC by design -- it is in the markup
+   of every page that shows the widget -- so it lives here rather than in an env
+   var that would only add a way for the build to be wrong. The SECRET half is
+   in the Pages environment and is only ever read by functions/api/lead.js.
+
+   Turnstile rather than reCAPTCHA: this site is already on Cloudflare, so it
+   adds no new vendor and no new company receiving visitor data. It also does
+   not exist to profile people, which is a materially easier thing to describe
+   truthfully in a privacy policy. */
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEOYL_vp6l13AYq-";
+
+/**
+ * Resolves once `window.turnstile` is genuinely callable.
+ *
+ * ⚠️ The script's own `load` event is NOT that moment. Turnstile attaches its
+ * API a tick later, so rendering from a `load` listener throws "Cannot read
+ * properties of undefined" intermittently — and when it does, the form shows
+ * no widget at all and every submit is refused by the server. That failure was
+ * caught in a browser, not by any type or unit check. `onload=` is the
+ * documented signal, so it is the one used.
+ *
+ * Module-scoped so a remount reuses the in-flight load rather than appending a
+ * second copy of the script.
+ */
+let turnstileLoading: Promise<void> | null = null;
+function loadTurnstile(): Promise<void> {
+  if (typeof window !== "undefined" && window.turnstile) return Promise.resolve();
+  if (turnstileLoading) return turnstileLoading;
+
+  turnstileLoading = new Promise((resolve) => {
+    (window as unknown as { onloadTurnstileCallback?: () => void })
+      .onloadTurnstileCallback = () => resolve();
+    const s = document.createElement("script");
+    s.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback";
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  });
+  return turnstileLoading;
 }
 
 export default function Contact() {
@@ -57,6 +104,47 @@ export default function Contact() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   // Honeypot: a hidden field real users never see. Bots fill it; we drop those.
   const honeypotRef = useRef<HTMLInputElement>(null);
+
+  /* Turnstile.
+     The script is fetched here rather than in index.html so that 25 pages which
+     have no form do not pay for it. `render=explicit` stops it hunting the DOM
+     for widgets on its own, which does not survive React re-rendering the form
+     underneath it. */
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const widgetHost = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
+
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    if (widgetId.current !== null) window.turnstile?.reset(widgetId.current);
+  };
+
+  useEffect(() => {
+    if (isSubmitted) return;
+    let cancelled = false;
+
+    const mount = () => {
+      if (cancelled || !widgetHost.current || widgetId.current !== null) return;
+      if (!window.turnstile) return;
+      widgetId.current = window.turnstile.render(widgetHost.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token: string) => setTurnstileToken(token),
+        // A token is good for about five minutes. Someone who opens the form,
+        // takes a phone call and comes back would otherwise submit a spent
+        // token; clearing it here means they get the widget again instead of a
+        // rejection they cannot act on.
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+        theme: "light",
+      });
+    };
+
+    loadTurnstile().then(mount);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isSubmitted]);
 
   /**
    * Warn before losing a part-filled form.
@@ -153,90 +241,60 @@ export default function Contact() {
       return;
     }
 
+    // Managed Turnstile normally settles in well under a second, so this is
+    // reached mainly when the script has been blocked. Say what to do about it
+    // rather than leaving a button that appears to do nothing.
+    if (!turnstileToken) {
+      setSubmitError(
+        "The anti-spam check hasn't finished. Give it a second and press send again — or call 1 (610) 890-9711.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // Create and submit Salesforce form
-      const salesforceForm = document.createElement("form");
-      salesforceForm.method = "POST";
-      salesforceForm.action =
-        "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dbn00000plgUf";
-      salesforceForm.style.display = "none";
+      // One POST to our own edge function, which verifies the bot check with
+      // a secret this page never sees and only then forwards to Salesforce.
+      //
+      // The previous version built a hidden <form>, aimed it at
+      // webto.salesforce.com and watched a hidden iframe for a load event to
+      // guess whether it worked. That guess is gone: the endpoint answers with
+      // a status and a message, so "sent" now means sent.
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          whatYouNeed: formData.whatYouNeed,
+          message: formData.message,
+          turnstileToken,
+        }),
+      });
 
-      // Add hidden fields
-      const addHiddenField = (name: string, value: string) => {
-        const hiddenField = document.createElement("input");
-        hiddenField.type = "hidden";
-        hiddenField.name = name;
-        hiddenField.value = value;
-        salesforceForm.appendChild(hiddenField);
-      };
+      const payload = await res.json().catch(() => ({}) as { error?: string });
 
-      addHiddenField("oid", "00Dbn00000plgUf");
-      addHiddenField("retURL", window.location.href);
-
-      // The form now collects these separately, so there is nothing to parse.
-      // last_name is required by Web-to-Lead; first_name is optional. If a
-      // visitor fills only one box, whatever they gave becomes the last name
-      // rather than being dropped.
-      const firstName = formData.firstName.trim();
-      const lastName = formData.lastName.trim() || firstName;
-      const firstNameForLead = lastName === firstName ? "" : firstName;
-
-      addHiddenField("first_name", firstNameForLead);
-      addHiddenField("last_name", lastName);
-      addHiddenField("email", formData.email);
-      addHiddenField("company", formData.company);
-      addHiddenField("description", `Service: ${formData.whatYouNeed}\n\n${formData.message}`);
-      addHiddenField("lead_source", "Web");
-
-      // Submit into a hidden iframe so we can detect Salesforce's response.
-      const iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      iframe.name = "salesforce-submit";
-      document.body.appendChild(iframe);
-
-      salesforceForm.target = "salesforce-submit";
-      document.body.appendChild(salesforceForm);
-
-      let settled = false;
-      const cleanup = () => {
-        if (document.body.contains(salesforceForm))
-          document.body.removeChild(salesforceForm);
-        if (document.body.contains(iframe)) document.body.removeChild(iframe);
-      };
-
-      const succeed = () => {
-        if (settled) return;
-        // Ignore the initial about:blank load some browsers fire on iframe creation.
-        if (Date.now() - submittedAt < 400) return;
-        settled = true;
-        clearTimeout(failTimer);
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        if (typeof window.trackFormSubmission === "function") {
-          window.trackFormSubmission();
-        }
-        setTimeout(cleanup, 1000);
-      };
-
-      const fail = () => {
-        if (settled) return;
-        settled = true;
+      if (!res.ok) {
         setIsSubmitting(false);
         setSubmitError(
-          "We couldn't confirm your message was sent. Please call us at 1 (610) 890-9711 or email service@onealgorithm.com.",
+          payload.error ??
+            "We couldn't send that. Please call 1 (610) 890-9711 or email service@onealgorithm.com.",
         );
-        cleanup();
-      };
+        // Turnstile tokens are single use. Without this reset the next attempt
+        // sends a spent token and fails again, which reads as the form being
+        // broken rather than as one bad submit.
+        resetTurnstile();
+        return;
+      }
 
-      // Salesforce replies by redirecting the hidden iframe to retURL — that load = delivered.
-      iframe.addEventListener("load", succeed);
-      // If nothing comes back in 15s, show a real error instead of a false "Thank you".
-      const failTimer = window.setTimeout(fail, 15000);
-
-      const submittedAt = Date.now();
-      salesforceForm.submit();
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      if (typeof window.trackFormSubmission === "function") {
+        window.trackFormSubmission();
+      }
     } catch (error) {
       setIsSubmitting(false);
       setSubmitError(
@@ -474,6 +532,20 @@ export default function Contact() {
                         className="mt-1 min-h-[100px]"
                         disabled={isSubmitting}
                       />
+                    </div>
+
+                    {/* The bot check. In managed mode this usually resolves on
+                        its own in under a second and the visitor does nothing;
+                        it only asks for an interaction when the traffic looks
+                        automated. It is not hidden, because a check that runs
+                        silently on everyone is something a privacy policy has
+                        to disclose anyway -- better to show it. */}
+                    <div>
+                      <div ref={widgetHost} className="min-h-[65px]" />
+                      <p className="mt-2 text-xs text-oa-ink3">
+                        Protected by Cloudflare Turnstile, so the form stays
+                        open without asking you to identify traffic lights.
+                      </p>
                     </div>
 
                     <Button
