@@ -219,19 +219,38 @@ export const projectHighlights: ProjectHighlight[] = [
     ],
   },
   {
+    /* Verified 2026-08-12 against primary records. Executed Vendor Agreement
+       (signed 11 Sep / countersigned 19 Oct 2023), purchase order at $82/hr
+       countersigned 25 Oct 2023, an ACORD 25 insurance certificate naming
+       Sansar Tec as holder, and nine invoices totalling $106,928 over 1,304
+       hours. The published ~$106K is right. (Our own GSA past-performance PDF
+       says $105,624, which is one invoice short -- the invoice register is the
+       better source.) */
     title: "Sansar Tec LLC",
     items: [
-      "End client: Willis Towers Watson.",
+      "End client: Willis Towers Watson, via Cognizant.",
       "Enterprise Java, SQL, application support.",
       "10/2023–6/2024 · $106K",
     ],
   },
   {
+    /* Corrected 2026-08-12 from the primary records, which were found under
+       the CONSULTANT's name rather than the client's -- ".../Manjusha
+       Diamondpick MSA Invoice/" -- which is why an earlier search missed them.
+
+       Was "11/2023–6/2024 · $90K". Nine invoices (1A230054 through 1A240085)
+       total $104,160 across 1,464 hours at $70/hr, and the executed work order
+       DP_23_1132 sets the start at 26 Sep 2023, not November. The $90,120 that
+       was published appears only in our own past-performance summaries and is
+       supported by no invoice.
+
+       Understating is the same defect as overstating: if a proposal ever cites
+       the real figure, the number published here contradicts it. */
     title: "Diamondpick Inc.",
     items: [
-      "End client: PepsiCo.",
+      "End client: PepsiCo, via UST Global.",
       "Azure, SQL Server, enterprise application support.",
-      "11/2023–6/2024 · $90K",
+      "10/2023–6/2024 · $104K",
     ],
   },
 ];
