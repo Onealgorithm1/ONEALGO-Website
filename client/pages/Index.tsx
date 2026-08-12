@@ -341,7 +341,10 @@ export default function Index() {
   return (
     <Layout>
       <JSONLDScript data={createOrganizationSchemaDetailed()} />
-      <JSONLDScript data={createFAQSchema()} />
+      {/* The same FAQS the section below renders. Google requires marked-up
+          FAQ content to be visible on the page, so the schema is generated
+          from the array rather than kept as a second copy that can drift. */}
+      <JSONLDScript data={createFAQSchema(FAQS)} />
       <JSONLDScript data={createLocalBusinessSchema()} />
 
       {/* ================= HERO =================

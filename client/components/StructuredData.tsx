@@ -265,81 +265,44 @@ export function createOrganizationSchemaDetailed() {
 }
 
 // FAQ schema
-export function createFAQSchema() {
+/**
+ * Built FROM the FAQs the page actually renders, rather than kept as a second
+ * hand-maintained list.
+ *
+ * The two had drifted badly. This schema carried six questions; the homepage
+ * displayed four different ones, and where the topics overlapped the answers
+ * disagreed -- the markup said we serve "the Philadelphia metro area and
+ * nationwide" while the page said the United States, Canada, India and the
+ * UAE. Google's FAQPage guidance is that the marked-up content must be present
+ * and visible on the page, so the whole block was non-compliant regardless of
+ * whether any individual answer was true.
+ *
+ * Three answers went with the drift, and none of them should come back as
+ * written:
+ *
+ *   - PRICING. "$15K to $500K+", "integrations start at $3K", "MVPs $25K-$75K".
+ *     Published prices are a promise the business has to honour to anyone who
+ *     read them, and these appeared on no page a buyer could see -- they were
+ *     visible only to a search engine. If these figures are real they belong on
+ *     a pricing page in front of people, and can then be marked up from it.
+ *   - DELIVERY TIMES. "Most projects are delivered in 6-12 weeks", "2-week
+ *     sprints". A schedule commitment, asserted with no evidence behind it.
+ *   - A services answer naming Stripe and Shopify, which appear nowhere else on
+ *     this site as platforms we work with.
+ *
+ * Passing the array in keeps ONE source of truth. If a question is worth
+ * telling Google, it is worth showing a visitor, so adding to the page is now
+ * the only way to add to the schema.
+ */
+export function createFAQSchema(faqs: readonly { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What services does One Algorithm provide?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "One Algorithm provides custom software development, system integration (connecting CRMs, ERPs, marketing tools), API development, mobile app development, growth marketing, and DevOps services. We specialize in building scalable web applications, automating workflows, and integrating platforms like Salesforce, HubSpot, Stripe, and Shopify.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Where is One Algorithm located?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "One Algorithm is located at 625 Swedesford Rd, Malvern, PA 19355. We serve clients in the Philadelphia metro area and nationwide, with experience working with companies across the United States and internationally.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does a typical software development project take?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most projects are delivered in 6-12 weeks. Simple integrations can be completed in 2-4 weeks, MVPs typically take 8-12 weeks, and complex enterprise applications may take 3-6 months. We use agile methodology with 2-week sprints for continuous delivery.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What platforms does One Algorithm integrate?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          // "200+ platforms" removed 2026-08-12: it asserted a count nobody can
-          // evidence. The named list is the honest version of the same answer --
-          // it says what we actually work with, and it matches Index.tsx.
-          text: "Oracle, Salesforce, Zendesk, HubSpot, QuickBooks and custom APIs. We connect the platforms you already own rather than assuming a replacement is required.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does custom software development cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          // ⚠️ UNVERIFIED — Louis to confirm or replace. Left in place rather
-          // than deleted because, unlike the removed statistics, these are
-          // PRICES we choose, not evidence we claim to hold: if they are real,
-          // publishing them helps qualified buyers self-select and deleting
-          // them would cost conversions. If they are not real, they are a
-          // promise the business has to honour to anyone who read them here.
-          // Confirm the numbers or replace this answer with a scoping offer.
-          text: "Project costs range from $15K to $500K+ depending on complexity. Simple integrations start at $3K, MVPs typically range from $25K-$75K, and enterprise applications $100K+. We offer free consultations and detailed project scoping to provide accurate estimates.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What makes One Algorithm different from other development agencies?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          // Rewritten 2026-08-12. The previous answer claimed "3-5x faster than
-          // traditional agencies", "200+ successful integrations" and a "95%
-          // client retention rate". None of those can be evidenced, and they
-          // were being served to Google as structured data -- the one format
-          // built for a search engine to extract and republish a claim.
-          //
-          // The distinction applied here, and worth keeping: a COMMITMENT we
-          // control (clients own the code, 24/7 cover, certifications we hold)
-          // is fair to state. A COUNT or a RATE asserts evidence, and we have
-          // none. This company is pursuing government work, where an
-          // unevidenced statistic is a procurement problem, not a marketing one.
-          text: "Founded in 2020 and based in Malvern, Pennsylvania. One Algorithm is a woman-owned business, SBA-certified WOSB/EDWOSB, a Salesforce Consulting Partner, and registered on SAM.gov (UEI W8DYK38MEKP3, CAGE 14G18) -- all independently verifiable. Engagements carry zero vendor lock-in: clients own all code. Support is available 24/7, and the people who scope the work are the people who build it.",
-        },
-      },
-    ],
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
   };
 }
 
