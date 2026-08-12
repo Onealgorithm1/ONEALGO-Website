@@ -178,13 +178,23 @@ export function createOrganizationSchemaDetailed() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "One Algorithm",
+    /* Was "serving Philadelphia and nationwide clients". The company is in
+       MALVERN, which is what the postal address below, the SBA registration,
+       every page of this site and llms.txt all say. Structured data is the one
+       format built for a machine to extract and repeat a fact, so a wrong city
+       here is a wrong city in whatever quotes it back.
+
+       The email was contact@onealgorithm.com, which is not the address the
+       company publishes anywhere else -- companyProfile.ts, the footer, the
+       contact page and the capability statement all say service@. An address in
+       the schema that nobody monitors is worse than none. */
     description:
-      "Custom software development, system integration, and growth marketing agency serving Philadelphia and nationwide clients",
+      "IT consultancy in Malvern, Pennsylvania: Salesforce, Oracle ERP and Zendesk implementation, system and API integration, staff augmentation and web development. Woman-owned, SBA-certified WOSB/EDWOSB, serving clients nationwide.",
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     foundingDate: "2020",
     telephone: "1 (610) 890-9711",
-    email: "contact@onealgorithm.com",
+    email: "service@onealgorithm.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "625 Swedesford Rd",
