@@ -40,39 +40,53 @@ import {
  *     comment on that section before touching a word of it.
  *
  * The mid-page "Ready to Transform Your Marketing?" card became the closing
- * CTA band, which the page previously did not have - its copy is unchanged.
+ * CTA band, which the page previously did not have.
+ *
+ * COPY REWRITE 2026-08-12. The two ledes on this page - the hero and the Social
+ * Media Management heading - were rewritten earlier and are the model the rest
+ * of the services section has now been brought in line with. They are unchanged
+ * here. What changed is everything around them: the FEATURES and BENEFITS card
+ * bodies, the "what we do" and "why us" headings, and the closing band, all of
+ * which were still the generic version ("Personalized campaigns drive higher
+ * engagement and conversion rates").
+ *
+ * The compliance section below is untouched, as its own comment requires.
+ *
+ * "Build Relationships" became "No case studies to show you". The old card
+ * claimed an outcome; the new one states a fact, and the fact is more use to a
+ * buyer deciding whether to believe the rest of the page.
  */
 
 const FEATURES = [
   {
     icon: Target,
     title: "Campaign Management",
-    body: "Create campaigns that adapt instantly to customer behavior and preferences.",
+    body: "Campaign calendars, builds and launches across email, social and paid — planned far enough ahead that nothing ships the morning it is due.",
   },
   {
     icon: TrendingUp,
     title: "AI-Driven Insights",
-    body: "Leverage artificial intelligence to understand customer patterns and optimize strategies.",
+    body: "We use AI on the analysis side: clustering what an audience responds to, drafting variants worth testing. It suggests; a person decides what actually goes out.",
   },
   {
     icon: Users,
     title: "Customer Journeys",
-    body: "Design personalized customer journeys from first touch to conversion.",
+    body: "The sequence someone sees from first click to enquiry, written down and built in your CRM rather than held in one person's head.",
   },
   {
     icon: BarChart3,
     title: "ROI Tracking",
-    body: "Advanced analytics for ROI tracking and campaign optimization.",
+    body: "Spend, leads and cost per lead in one place, tied back to the CRM record — so the numbers hold up when somebody disputes them.",
   },
   {
     icon: Mail,
     title: "Lead Nurturing",
-    body: "Automated lead nurturing and customer retention workflows.",
+    body: "Automated follow-up that stops the moment someone replies. Most nurture sequences fail on exactly that detail.",
   },
   {
     icon: Zap,
     title: "Marketing Automation",
-    body: "Streamline repetitive tasks and focus on strategic initiatives.",
+    body: "The repetitive work — list uploads, tagging, assignment, the weekly report — handed to the tool instead of to a person on Friday afternoon.",
   },
 ];
 
@@ -117,20 +131,20 @@ const HOW_IT_WORKS = [
 
 const BENEFITS = [
   {
-    title: "Increase Conversions",
-    body: "Personalized campaigns drive higher engagement and conversion rates.",
+    title: "You own the accounts",
+    body: "Your Pages, your ad accounts, your CRM. We work inside them as a partner, and you can withdraw that access whenever you like — including the day we stop working together.",
   },
   {
-    title: "Optimize ROI",
-    body: "Data-driven insights ensure marketing budgets deliver maximum returns.",
+    title: "Reporting in plain numbers",
+    body: "Reach, leads and spend in one place, in language you can repeat to someone else without opening the tool. Not a screenshot of a dashboard.",
   },
   {
-    title: "Automate Workflows",
-    body: "Free your team to focus on strategy while automation handles routine tasks.",
+    title: "The routine work runs itself",
+    body: "Scheduling, list handling and the recurring report are automated. Your team's time goes to the parts that need a judgment call.",
   },
   {
-    title: "Build Relationships",
-    body: "Nurture leads and customers with personalized experiences.",
+    title: "No case studies to show you",
+    body: "We have not published client marketing results, and we are not going to invent any. Ask us what we would run in your first ninety days and judge the answer instead.",
   },
 ];
 
@@ -168,8 +182,8 @@ export default function Marketing() {
         eyebrow="Marketing & Social Media"
         title={
           <>
-            Marketing Services &amp;{" "}
-            <span className="text-oa-orange">Automation Solutions</span>
+            Marketing services &amp;{" "}
+            <span className="text-oa-orange">social media management</span>
           </>
         }
         lede="We manage social media accounts for our clients and build campaigns that adapt to customer behavior — with AI-driven insights, automated lead nurturing, and reporting that shows what their marketing is actually doing."
@@ -192,8 +206,8 @@ export default function Marketing() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="What we do"
-          title="Marketing management features"
-          lede="Comprehensive marketing tools designed to drive engagement, conversions, and customer loyalty."
+          title="What we run for a client, beyond the posting"
+          lede="Six things, and none of them is a tool we sell you. They all happen inside platforms you already own."
         />
         <CardGrid columns={3} className="mt-12">
           {FEATURES.map((f) => (
@@ -260,7 +274,7 @@ export default function Marketing() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="Why OneAlgorithm"
-          title="Why choose our marketing solutions?"
+          title="What this is, and what it isn't"
         />
         <CardGrid columns={2} className="mt-12">
           {BENEFITS.map((b) => (
@@ -270,13 +284,13 @@ export default function Marketing() {
       </Section>
 
       <CTABand
-        title="Ready to Transform Your Marketing?"
-        body="See how our marketing solutions can drive better results and increase customer engagement."
+        title="Tell us what your marketing is meant to do"
+        body="More enquiries, a channel that has gone quiet, or a calendar nobody has time to fill. Tell us which one it is and we'll tell you what we'd run first."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
       />
 
       <Section tone="paper" compact>
-        <SocialShare title="Social Media Management & Marketing Solutions - OneAlgorithm" />
+        <SocialShare title="Social Media Management & Marketing - OneAlgorithm" />
       </Section>
     </Layout>
   );

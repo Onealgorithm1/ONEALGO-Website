@@ -29,16 +29,26 @@ import {
   createServiceSchema,
 } from "../../components/StructuredData";
 
-/* Staff augmentation - 2026 refresh.
+/* Staff augmentation - 2026 refresh, copy rewritten 2026-08-12.
  *
- * Presentation only. Every claim, benefit and engagement model is carried over
- * word for word. Two things went:
+ * This is one of the two services actually producing revenue (see the homepage
+ * ordering note), and it was described in lines like "Flexible staffing for
+ * exceptional outcomes" and "Our professionals integrate seamlessly with your
+ * existing team and workflows" - true of every staffing firm that has ever
+ * existed, and therefore evidence of nothing.
  *
- *  1. The frosted "Expert Teams / Ready to integrate with your projects" panel
- *     in the hero. It restated the bullets beside it in a decorative box, and
- *     the hero is now type-led rather than two-column.
- *  2. The green CheckCircle rows under each engagement model, replaced by the
- *     shared CheckList - green was a third accent colour nothing else used.
+ * NO NUMBERS WERE INVENTED. The obvious things to write here - time to first
+ * candidate, bench size, average tenure, fill rate - are exactly the figures a
+ * buyer wants and exactly the ones this repository does not contain. Where a
+ * number would have carried a sentence, the sentence is hedged instead
+ * ("usually", "faster than a hiring process") or cut.
+ *
+ * TKTK - if any of these are ever measured, the "You need the person now" card
+ * and the placement process are where they belong: typical days to first
+ * CV, how many practitioners are available, how often a replacement is needed.
+ *
+ * The SKILLS list is untouched. It is already concrete - named stacks, no
+ * adjectives - and it is the one thing on the page a technical buyer scans for.
  */
 
 const SKILLS = [
@@ -77,82 +87,82 @@ const SKILLS = [
 const BENEFITS = [
   {
     icon: Clock,
-    title: "Rapid Scaling",
+    title: "You need the person now",
     description:
-      "Scale your team up or down quickly based on project needs without the overhead of traditional hiring.",
+      "Recruiting a permanent engineer takes months you may not have — advertising, screening, notice periods. We can usually put candidates in front of you faster than a hiring process can.",
   },
   {
     icon: Target,
-    title: "Specialized Expertise",
+    title: "You need one skill, not one head",
     description:
-      "Access highly skilled professionals with specific technical expertise for your unique requirements.",
+      "An Oracle Integration Cloud specialist for a few weeks isn't a job you can advertise for. It is something you can rent for exactly as long as the work lasts.",
   },
   {
     icon: CheckCircle,
-    title: "Cost Effective",
+    title: "The role might not outlast the project",
     description:
-      "Reduce recruitment costs and overhead while maintaining high-quality deliverables.",
+      "If the work has an end date, the contract should too. You're not carrying a seat, a licence and a laptop after the thing ships.",
   },
   {
     icon: Users,
-    title: "Seamless Integration",
+    title: "They work inside your process",
     description:
-      "Our professionals integrate seamlessly with your existing team and workflows.",
+      "Our people use your repo, your board and your review process, and your lead sets their priorities. Anything else turns into a second team you have to manage separately.",
   },
 ];
 
 const ENGAGEMENT_MODELS = [
   {
-    title: "Dedicated Teams",
+    title: "Dedicated team",
     description:
-      "Full-time dedicated teams working exclusively on your projects with deep integration into your processes.",
+      "People assigned to you full time and to nobody else. You run them day to day. Best when the work is ongoing and the domain takes a while to learn.",
     features: [
-      "Full-time commitment",
-      "Deep project knowledge",
-      "Long-term partnership",
-      "Direct communication",
+      "Full time, assigned to one client",
+      "They learn your domain and keep it",
+      "You set priorities week to week",
+      "Direct access, no account manager in between",
     ],
   },
   {
-    title: "Project-Based",
+    title: "Fixed scope",
     description:
-      "Expert professionals assigned to specific projects with defined deliverables and timelines.",
+      "A defined deliverable with a date on it. This works when you can write down what finished means. Where you can't, hourly is honestly the cheaper option.",
     features: [
-      "Fixed scope delivery",
-      "Milestone-based progress",
-      "Specialized skills",
-      "Defined timelines",
+      "Scope agreed in writing before we start",
+      "Milestones you sign off",
+      "Specialists brought in for the phase that needs them",
+      "A date, and what we do when it moves",
     ],
   },
   {
-    title: "Hourly Consulting",
+    title: "Hourly",
     description:
-      "Flexible hourly engagement for specific tasks, code reviews, or technical consultation.",
+      "For a code review, a second opinion on an architecture, or an outage nobody can explain. No commitment past the hours you use.",
     features: [
-      "Flexible scheduling",
-      "Expert consultation",
-      "Task-specific help",
-      "Cost-effective",
+      "Billed by the hour, no retainer",
+      "Code and architecture review",
+      "A second opinion on somebody else's estimate",
+      "Useful when you don't yet know the size of the problem",
     ],
   },
 ];
 
 const PROCESS = [
   {
-    title: "Requirements Analysis",
-    body: "We analyze your project requirements, technical stack, and team dynamics.",
+    title: "What you actually need",
+    body: "Not the job description — the work. Which system, which stack, who they'd report to, and what will block them in week one.",
   },
   {
-    title: "Talent Matching",
-    body: "We select professionals with the exact skills and experience you need.",
+    title: "Candidates, with the gaps stated",
+    body: "You interview them. We tell you where each one is light before you find it out yourself in week three.",
   },
   {
-    title: "Integration",
-    body: "Seamless onboarding and integration with your existing team and processes.",
+    title: "Onboarding",
+    body: "Access, accounts, environment, context. One of us stays involved through the first weeks so the ramp-up isn't your lead's second job.",
   },
   {
-    title: "Ongoing Support",
-    body: "Continuous support and performance monitoring throughout the engagement.",
+    title: "While they're with you",
+    body: "We check in with you, not only with them. If it isn't working we replace the person — that part is what you're paying us for.",
   },
 ];
 
@@ -160,19 +170,19 @@ export default function StaffAugmentation() {
   useSEO({
     title: "OneAlgorithm — Staff Augmentation",
     description:
-      "Professional staff augmentation with skilled developers, IT specialists, and technical experts. Scale your team efficiently with proven talent solutions.",
+      "Staff augmentation: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead. Dedicated, fixed-scope or hourly.",
     canonical: getCanonicalUrl("/services/staff-augmentation"),
     keywords:
       "staff augmentation, IT staffing, software developers, technical talent, team scaling, remote developers, IT specialists, talent solutions",
     ogTitle: "OneAlgorithm — Staff Augmentation",
     ogDescription:
-      "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
+      "Senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead. Dedicated, fixed-scope or hourly.",
     ogUrl: getCanonicalUrl("/services/staff-augmentation"),
     ogImage:
       "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Staff Augmentation Services - OneAlgorithm",
+    twitterTitle: "Staff Augmentation - OneAlgorithm",
     twitterDescription:
-      "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
+      "Senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
     twitterImage:
       "https://onealgorithm.com/og-image.jpg",
   });
@@ -182,7 +192,7 @@ export default function StaffAugmentation() {
       <StructuredData
         data={createServiceSchema(
           "Staff Augmentation Services",
-          "Professional staff augmentation services providing skilled developers, IT specialists, and technical experts. Scale your team efficiently with OneAlgorithm's talent solutions.",
+          "Senior developers, data and cloud engineers, and security specialists embedded in your team, working on your tools and reporting to your lead. Dedicated, fixed-scope and hourly engagements.",
           "Staff Augmentation",
           "https://onealgorithm.com/services/staff-augmentation",
         )}
@@ -192,20 +202,18 @@ export default function StaffAugmentation() {
         eyebrow="Staff Augmentation"
         title={
           <>
-            Staff <span className="text-oa-orange">Augmentation</span> Services
+            Staff <span className="text-oa-orange">augmentation</span> — our
+            people, inside your team
           </>
         }
-        lede="Get the talent you need, when you need it, without the overhead of traditional hiring."
-        // The hero bullets moved into the panel rather than being duplicated.
-        // Same four lines, same words. The lede is the "Why it works" section
-        // lede, verbatim. No new claims.
+        lede="Senior practitioners who join your standups, work in your repo and your ticket queue, and take direction from your lead. We carry the employment and the paperwork. For a sprint, or for a year."
         panel={{
-          title: "Why it works",
+          title: "How it works",
           items: [
-            "Flexible staffing for exceptional outcomes.",
-            "Scale your workforce without the overhead.",
-            "On-demand experts for your projects.",
-            "Expert support, exactly when you need it.",
+            "Your tools, your process, your lead setting priorities",
+            "Senior practitioners, not a rotating bench",
+            "Dedicated, fixed scope, or hourly",
+            "We carry the employment and the paperwork",
           ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
@@ -215,8 +223,8 @@ export default function StaffAugmentation() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="Why it works"
-          title="Why choose staff augmentation?"
-          lede="Get the talent you need, when you need it, without the overhead of traditional hiring."
+          title="When this beats hiring"
+          lede="Hiring takes months and commits you for years. Often that's the right call. These are the four cases where it isn't."
         />
         <CardGrid columns={4} className="mt-12">
           {BENEFITS.map((b) => (
@@ -233,8 +241,8 @@ export default function StaffAugmentation() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Capabilities"
-          title="Technical expertise"
-          lede="Our professionals bring deep expertise across a wide range of technologies and domains."
+          title="The stacks our people work in"
+          lede="If what you need isn't on this list, say so. We'd rather tell you we don't have it than send you someone who read the documentation last week."
         />
         <CardGrid columns={3} className="mt-12">
           {SKILLS.map((s) => (
@@ -251,8 +259,8 @@ export default function StaffAugmentation() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="How we engage"
-          title="Flexible engagement models"
-          lede="Choose the engagement model that best fits your project requirements and budget."
+          title="Three ways to buy this"
+          lede="The real difference between them is who carries the risk on scope. Pick the one that matches how well you can define the work today."
         />
         <CardGrid columns={3} className="mt-12">
           {ENGAGEMENT_MODELS.map((m) => (
@@ -268,8 +276,8 @@ export default function StaffAugmentation() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Process"
-          title="Our process"
-          lede="We follow a structured approach to ensure the right talent for your specific needs."
+          title="How we place someone"
+          lede="Four steps, and the second one is where this is usually won or lost."
         />
         <div className="mt-12">
           <ProcessSteps steps={PROCESS} />
@@ -277,8 +285,8 @@ export default function StaffAugmentation() {
       </Section>
 
       <CTABand
-        title="Ready to scale your team?"
-        body="Let's discuss your staffing needs and find the perfect professionals for your projects."
+        title="Tell us about the role you can't fill"
+        body="The skill you need for three months, the seat that has been open too long, or the deadline that needs two more pairs of hands. Tell us what the work is and we'll tell you whether we have the person."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "View All Services", to: "/services" }}
       />

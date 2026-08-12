@@ -40,66 +40,76 @@ import {
  *     ground so each gets room for its longer body, and the argument plus the
  *     audit offer close the page together on the dark ground.
  *
- * All body copy is carried over unchanged.
+ * COPY REWRITE 2026-08-12. Body copy is no longer carried over unchanged. The
+ * old version was interchangeable with any PPC agency's ("Performance-first
+ * approach focused on reducing CPA and increasing ROAS"), and this is a page
+ * read by people who have already been pitched that sentence several times.
+ *
+ * What replaces it names the actual failure modes - broad match with no
+ * negative list, conversion tracking that double-counts, an untouched landing
+ * page - because naming the problem is the only credential available here.
+ * There is still no Google Partner status anywhere in this repository, and none
+ * is claimed. The account-ownership line matches the commitment already made on
+ * /services/website-development ("no accounts you are locked out of").
  */
 
 const CAPABILITIES = [
   {
     icon: DollarSign,
     title: "Campaign Setup & Strategy",
-    body: "Structure accounts and campaigns to align with business goals, target high-intent keywords, and create scalable account architectures.",
+    body: "Account and campaign structure: how many campaigns, which keywords sit together, where the budget splits. Get this wrong and no amount of bid tuning afterwards will rescue it.",
   },
   {
     icon: Target,
     title: "Audience Targeting & Remarketing",
-    body: "Advanced audience segmentation, remarketing lists, and customer match to re-engage users and improve conversion rates.",
+    body: "Remarketing lists, customer match and audience segments — so you stop paying the same click price for somebody who has already bought from you.",
   },
   {
     icon: Zap,
     title: "Bid Management & Optimization",
-    body: "Continuous bid and budget optimization using data-driven rules and smart bidding strategies to maximize ROI.",
+    body: "Smart Bidding where there is enough conversion data to feed it, manual control where there isn't. We'll tell you which case your account is in before switching anything.",
   },
   {
     icon: BarChart3,
     title: "Creative & Landing Page Testing",
-    body: "A/B test ad creatives and landing pages to improve Quality Score and conversion rates across campaigns.",
+    body: "Ad copy and landing page tests run one variable at a time and left running long enough to mean something. A lot of what limits an account happens after the click, not in the auction.",
   },
   {
     icon: RefreshCw,
     title: "Measurement & Attribution",
-    body: "Implement tracking, conversion measurement, and attribution models that reveal true campaign performance and LTV.",
+    body: "Conversion tracking that fires once, offline imports that match your CRM, and an attribution model you have actually chosen rather than inherited from whoever set it up.",
   },
   {
     icon: Users,
     title: "Reporting & Optimization",
-    body: "Transparent dashboards and weekly optimizations with clear KPIs focused on cost-per-acquisition and revenue.",
+    body: "A weekly pass on the account, and a report that leads with cost per acquisition and spend. Impressions are in there somewhere, near the bottom.",
   },
 ];
 
 const WHY_US = [
-  "Performance-first approach focused on reducing CPA and increasing ROAS.",
-  "Technical tracking and attribution to understand true campaign impact.",
-  "Continuous testing and optimization of creatives and landing pages.",
-  "Transparent reporting with clear recommendations and next steps.",
+  "We start by cutting the spend that isn't converting, before adding anything.",
+  "Tracking is set up and verified first — a confident report on bad data is worse than no report.",
+  "One variable at a time, so a test result actually means something.",
+  "You keep ownership of the Google Ads account. If you leave, the history goes with you.",
 ];
 
 export default function GoogleAds() {
   useSEO({
     title: "OneAlgorithm — Google Ads Management",
     description:
-      "Drive measurable leads and revenue with expert Google Ads management. We build, optimize, and scale paid search campaigns focused on high-converting traffic and ROI.",
+      "Google Ads management: account structure, keywords and negatives, audience targeting, bid strategy, landing page testing, and conversion tracking that counts each conversion once.",
     canonical: getCanonicalUrl("/services/google-ads"),
     keywords:
       "Google Ads management, PPC agency, paid search, search advertising, Google Ads optimization, paid media, remarketing, conversion tracking",
     ogTitle: "OneAlgorithm — Google Ads Management",
     ogDescription:
-      "Full-service Google Ads: campaign setup, targeting, bidding, creative testing, and measurement to maximize return on ad spend (ROAS).",
+      "Google Ads management: campaign structure, negatives, audience targeting, bid strategy, landing page testing, and conversion tracking that counts each conversion once.",
     ogUrl: getCanonicalUrl("/services/google-ads"),
     ogImage:
       "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — Google Ads Management",
     twitterDescription:
-      "Scale paid search performance with OneAlgorithm's Google Ads strategy, optimization, and measurement services.",
+      "Account structure, negatives, bid strategy, landing page testing and conversion tracking that counts each conversion once. You keep the account.",
     twitterImage:
       "https://onealgorithm.com/og-image.jpg",
   });
@@ -109,7 +119,7 @@ export default function GoogleAds() {
       <StructuredData
         data={createServiceSchema(
           "Google Ads Management",
-          "Professional Google Ads management and paid search services to generate leads and revenue through optimized campaigns and measurement.",
+          "Google Ads management and paid search: account and campaign structure, keyword and negative keyword management, remarketing and customer match audiences, bid strategy, ad and landing page testing, and conversion tracking and attribution.",
           "Marketing",
           "https://onealgorithm.com/services/google-ads",
         )}
@@ -120,10 +130,10 @@ export default function GoogleAds() {
         title={
           <>
             Google Ads management —{" "}
-            <span className="text-oa-orange">paid search that converts</span>
+            <span className="text-oa-orange">paid search you can audit</span>
           </>
         }
-        lede="Cut wasted spend and grow revenue with performance-focused Google Ads campaigns, expert optimization, and robust measurement."
+        lede="We run Google Ads accounts: the structure, the keywords, the negative list, the bids and the tracking underneath. The same few problems account for most wasted spend — broad match with no negatives, conversion tracking that double-counts, and a landing page nobody has touched in a year."
         // Panel items are the CAPABILITIES card titles from further down this
         // page, verbatim. No hero bullets existed here and nothing new was
         // written. There is no Google Partner claim anywhere on this site, so
@@ -149,7 +159,7 @@ export default function GoogleAds() {
         <SectionHeading
           eyebrow="What we do"
           title="Google Ads capabilities"
-          lede="Full-service Google Ads: strategy, audience targeting, optimization, creative testing, and transparent reporting."
+          lede="Account structure, targeting, bidding, testing, and the tracking that tells you whether any of it worked. In that order — the last one first, if it isn't set up."
         />
         <CardGrid columns={2} className="mt-12">
           {CAPABILITIES.map((c) => (
@@ -178,9 +188,10 @@ export default function GoogleAds() {
                 Get a Google Ads Audit
               </h3>
               <p className="mt-4 leading-relaxed text-oa-nightInk2">
-                Our audit examines account structure, conversion tracking,
-                audience strategy, and recommendations to lower CPA and improve
-                performance.
+                We look at account structure, wasted spend by search term,
+                whether conversions are being counted once, and what your
+                landing pages do with the click. You get a prioritized list, and
+                you don&rsquo;t have to hire us to act on it.
               </p>
               <div className="mt-7">
                 <PrimaryCTA to="/contact">Request Audit</PrimaryCTA>

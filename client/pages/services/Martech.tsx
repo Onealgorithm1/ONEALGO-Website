@@ -33,66 +33,75 @@ import {
  *     own band. That is deliberately not the order used on /services/seo or
  *     /services/google-ads, which were clones of this same template.
  *
- * All body copy is carried over unchanged.
+ * COPY REWRITE 2026-08-12. The body copy was NOT carried over unchanged this
+ * time. "End-to-end MarTech solutions - automation, customer data,
+ * personalization, paid media, and integrations that deliver measurable ROI"
+ * was the section lede, and it describes every agency on earth.
+ *
+ * The replacement names the tools (HubSpot, Salesforce, Google, Meta,
+ * LinkedIn), the actual tasks (UTM discipline, list hygiene, suppression rules,
+ * deduplication) and the failure it prevents (the same person existing three
+ * times in three systems). No client, number or outcome was added - none exists
+ * in this repository to add.
  */
 
 const CAPABILITIES = [
   {
     icon: Zap,
     title: "Marketing Automation",
-    body: "Automate multi-channel campaigns, lead nurturing, and customer journeys to deliver the right message at the right time.",
+    body: "Journeys and lead nurture built inside the tool you already pay for — HubSpot, Salesforce, or whatever came with the CRM — triggered by what someone did rather than by a send date.",
   },
   {
     icon: Database,
     title: "Customer Data & Insights",
-    body: "Collect, unify, and analyze customer data across channels to build a 360° customer profile and actionable dashboards.",
+    body: "One customer record assembled from the CRM, the website, the email tool and the ad platforms, with duplicates resolved rather than counted three times.",
   },
   {
     icon: User2,
     title: "Personalization & CX",
-    body: "Deliver tailored content, offers, and product recommendations across web, mobile, and email to increase engagement and retention.",
+    body: "Content and offers that change based on what someone has already done. We start with the two or three rules that matter, not a matrix nobody will maintain.",
   },
   {
     icon: Megaphone,
     title: "Digital Advertising & Media",
-    body: "Plan, execute, and optimize paid media across Google, Meta, LinkedIn, and programmatic channels to improve targeting and ROI.",
+    body: "Campaign setup and optimization on Google, Meta and LinkedIn, wired to conversion tracking that reports the same numbers your CRM does.",
   },
   {
     icon: Target,
     title: "Campaign Management",
-    body: "Strategy and execution for multi-channel campaigns with testing, optimization, and clear KPI-driven reporting.",
+    body: "Planning, building and running multi-channel campaigns — including the unglamorous parts: UTM discipline, list hygiene, suppression rules.",
   },
   {
     icon: Plug,
     title: "Integration & Enablement",
-    body: "Connect MarTech tools with CRM, e-commerce, and service systems and enable teams with training and operational playbooks.",
+    body: "APIs and middleware between marketing, CRM, e-commerce and support systems, plus written documentation so your team can run it after we go.",
   },
 ];
 
 const WHY_US = [
-  "Combine marketing strategy and engineering to deliver scalable, measurable programs.",
-  "Centralize customer data to power personalization and better ad targeting.",
-  "Automate repetitive tasks so your team focuses on strategy and growth.",
-  "Transparent reporting, experimentation, and optimization for continuous improvement.",
+  "We do the engineering as well as the strategy, so an integration doesn't become somebody else's ticket.",
+  "One customer record, so the same person isn't three contacts in three tools.",
+  "Automation for the manual steps — list uploads, lead assignment, the Monday report.",
+  "Reporting that reconciles with the CRM, including the months when the CRM number is the worse one.",
 ];
 
 export default function Martech() {
   useSEO({
     title: "OneAlgorithm — MarTech Services",
     description:
-      "MarTech services that make marketing data-driven, automated, and personalized. We help you connect tools, centralize customer data, and deliver tailored experiences that drive conversions.",
+      "MarTech services: connecting your CRM, email, ad platforms, analytics and website so customer data is in one place, follow-up is automated, and the reporting reconciles with the CRM.",
     canonical: getCanonicalUrl("/services/martech"),
     keywords:
       "MarTech, marketing technology, marketing automation, customer data platform, personalization, digital advertising, campaign management, marketing integration",
     ogTitle: "OneAlgorithm — MarTech Services",
     ogDescription:
-      "Turn technology into marketing advantage. Our MarTech solutions automate campaigns, centralize customer data, and personalize experiences across channels to increase revenue and save time.",
+      "Connect your CRM, email, ad platforms and analytics so customer data lives in one place, follow-up is automated, and the reporting reconciles with the CRM.",
     ogUrl: getCanonicalUrl("/services/martech"),
     ogImage:
       "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "OneAlgorithm — MarTech Services",
     twitterDescription:
-      "Automate marketing, centralize customer data, and deliver personalized experiences with OneAlgorithm's MarTech services.",
+      "Connecting the CRM, email, ad platforms and analytics you already own, so the customer data is in one place and the reporting adds up.",
     twitterImage:
       "https://onealgorithm.com/og-image.jpg",
   });
@@ -102,7 +111,7 @@ export default function Martech() {
       <StructuredData
         data={createServiceSchema(
           "MarTech Services",
-          "Marketing technology services that automate campaigns, centralize customer data, and personalize customer experiences to increase revenue.",
+          "Marketing technology services: integrating CRM, email, advertising, analytics and e-commerce systems, unifying customer records, automating campaigns and lead nurture, and reporting that reconciles with the CRM.",
           "Marketing",
           "https://onealgorithm.com/services/martech",
         )}
@@ -114,11 +123,11 @@ export default function Martech() {
           <>
             MarTech services —{" "}
             <span className="text-oa-orange">
-              marketing technology that scales
+              the wiring between your marketing tools
             </span>
           </>
         }
-        lede="Use technology to make marketing faster, smarter, and more personalized — from automation and advertising to customer data platforms and integrations."
+        lede="Most marketing stacks are five tools that don't talk to each other and one person exporting spreadsheets between them. We connect them — CRM, email, ads, analytics, the website — so a lead's history follows it and the reporting adds up."
         // Panel items are the CAPABILITIES card titles from further down this
         // page, verbatim. No hero bullets existed here and nothing new was
         // written. No platform credential exists for MarTech, so the footer
@@ -156,8 +165,8 @@ export default function Martech() {
         <SectionHeading
           tone="dark"
           eyebrow="What we do"
-          title="MarTech capabilities"
-          lede="End-to-end MarTech solutions — automation, customer data, personalization, paid media, and integrations that deliver measurable ROI."
+          title="What we build, and what we connect it to"
+          lede="Six things. Every one of them happens inside a platform you already license, because a stack with a seventh tool in it is rarely the answer."
         />
         <CardGrid columns={3} className="mt-12">
           {CAPABILITIES.map((c) => (
@@ -181,9 +190,9 @@ export default function Martech() {
               Get a MarTech Audit
             </h2>
             <p className="mt-4 leading-relaxed text-oa-ink2">
-              Our audit evaluates your stack, data flows, automation, and
-              personalization readiness with prioritized recommendations and
-              estimated impact.
+              We map what you own, what it costs, what is actually connected and
+              what is duplicated. You get a prioritized list — usually including
+              a tool or two you can cancel.
             </p>
           </div>
           <PrimaryCTA to="/contact">Request Audit</PrimaryCTA>

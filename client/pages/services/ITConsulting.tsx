@@ -28,93 +28,105 @@ import {
   createServiceSchema,
 } from "../../components/StructuredData";
 
-/* IT Consulting - 2026 refresh.
+/* IT Consulting - 2026 refresh, copy rewritten 2026-08-12.
  *
- * Presentation only. Every claim, the SEO block and the service schema are
- * carried over unchanged. What went:
+ * The 2026 refresh was presentation only and left the copy alone. The copy was
+ * the problem: "Comprehensive IT consulting services to help you make informed
+ * technology decisions and drive business transformation" describes no firm in
+ * particular, and it ran twice on the page.
  *
- *  - The frosted "Strategic IT Guidance" panel in the hero. It was a decorative
- *    box holding an icon and a tagline, and it pushed the hero bullets into a
- *    half-width column.
- *  - The mid-page "Ready to Transform Your IT Strategy?" card. It was the third
- *    identical CTA on the page; the closing band already carries that job.
+ * Every line below now names a real task, a real system or a real deliverable.
+ * The rule applied throughout: say what we do, in the order we do it, and admit
+ * where the answer is "it depends" rather than smoothing it over.
  *
- * The four bolded "Industry Experience" rows became cards, so the internal
- * links to construction, manufacturing and e-commerce survive intact.
+ * TWO CLAIMS DELETED as unevidenced, not reworded:
+ *  - "Measurable Results - Track record of delivering quantifiable business
+ *    value and ROI." There is no published case study, client name or outcome
+ *    figure anywhere in this repository. The card is replaced by one that says
+ *    so, because a reader who wants proof should be told the truth rather than
+ *    handed an adjective.
+ *  - "Leverage technology to gain a competitive edge in your market."
+ *
+ * The sector card is phrased as the TEAM's experience, earned as employees,
+ * which is what /about and shared/capabilities-data.ts say it is. Do not let it
+ * drift back into sounding like company past performance.
+ *
+ * The internal links to construction, manufacturing and e-commerce are load-
+ * bearing for SEO. They survive this rewrite; keep them.
  */
 
 const SERVICES = [
   {
     icon: Brain,
-    title: "Strategic IT Planning",
-    body: "Develop comprehensive IT strategies aligned with your business objectives and growth plans.",
+    title: "Technology planning",
+    body: "We write down what you run, what each piece costs, and what breaks. Then a two- or three-year order for replacing or keeping each one, with a budget attached to each step.",
   },
   {
     icon: Shield,
-    title: "Security Assessment",
-    body: "Evaluate your current security posture and implement robust cybersecurity measures.",
+    title: "Security review",
+    body: "Accounts and access, backup and restore, patching, and what your vendors can reach. You get a ranked list of gaps, not a scored report nobody acts on.",
   },
   {
     icon: Zap,
-    title: "Digital Transformation",
-    body: "Guide your organization through digital transformation initiatives and technology adoption.",
+    title: "Modernization roadmaps",
+    body: "Moving off an aging system is mostly sequencing: what moves first, what runs in parallel, and which data has to reconcile before you can switch. We plan that sequence and stay for the cutover.",
   },
   {
     icon: Globe,
-    title: "Cloud Strategy",
-    body: "Design and implement cloud migration strategies for scalability and cost optimization.",
+    title: "Cloud migration planning",
+    body: "Which workloads move to AWS or Azure, which stay where they are, and what the monthly bill looks like afterwards. We size it before anyone commits to it.",
   },
   {
     icon: BarChart3,
-    title: "Performance Optimization",
-    body: "Analyze and optimize your IT infrastructure for maximum efficiency and performance.",
+    title: "Performance and cost review",
+    body: "When a system is slow or a cloud bill keeps climbing, we find where the time and the money go — queries, indexes, oversized instances, licences nobody uses.",
   },
   {
     icon: Lightbulb,
-    title: "Technology Innovation",
-    body: "Identify emerging technologies and innovative solutions to drive competitive advantage.",
+    title: "Tool and vendor selection",
+    body: "We run the evaluation: requirements, a shortlist, demos scored against your actual workflows. The point is a decision you can still defend in a year.",
   },
 ];
 
 const BENEFITS = [
   {
     icon: Target,
-    title: "Strategic Alignment",
-    body: "Ensure IT investments align with business goals and deliver measurable ROI.",
+    title: "Recommendations you can price",
+    body: "Every recommendation comes with an order, an owner and a rough cost. A roadmap you can't budget is a document, not a plan.",
   },
   {
     icon: TrendingUp,
-    title: "Competitive Advantage",
-    body: "Leverage technology to gain a competitive edge in your market.",
+    title: "We'll tell you not to buy something",
+    body: "Often the fix is a configuration change or a licence you already pay for. We'd rather say that than sell you a project.",
   },
   {
     icon: Shield,
-    title: "Risk Mitigation",
-    body: "Identify and mitigate technology risks before they impact your business.",
+    title: "Risks named early",
+    body: "Single points of failure, support contracts about to expire, one person who is the only one who knows how something works. We write those down in week one, because they're the expensive ones.",
   },
   {
     icon: Users,
-    title: "Expert Guidance",
-    body: "Access to experienced IT consultants with deep industry knowledge.",
+    title: "The people who assess it build it",
+    body: "No handoff from whoever sold the work to a delivery team who weren't in the room. There are four of us; you'll meet all of them.",
   },
 ];
 
 const PROCESS = [
   {
     title: "Assessment",
-    body: "Comprehensive evaluation of your current IT landscape and business requirements.",
+    body: "We sit with the people doing the work and read what the systems actually report — not what the process diagram says happens.",
   },
   {
-    title: "Strategy",
-    body: "Development of customized IT strategies and roadmaps aligned with your goals.",
+    title: "Plan",
+    body: "A written sequence: what changes, in what order, who owns each piece, what it costs. You can hand it to another firm if you'd rather.",
   },
   {
-    title: "Implementation",
-    body: "Guided implementation of recommended solutions with ongoing support.",
+    title: "Delivery",
+    body: "We build it, or we advise the team you already have while they build it. Short cycles, so you can change your mind while that's still cheap.",
   },
   {
-    title: "Optimization",
-    body: "Continuous monitoring and optimization to ensure maximum value and performance.",
+    title: "Support",
+    body: "We stay on after go-live. Hypercare first, then ongoing support, 24/7 across the time zones you operate in.",
   },
 ];
 
@@ -122,18 +134,21 @@ export default function ITConsulting() {
   useSEO({
     title: "OneAlgorithm — IT Consulting",
     description:
-      "Expert IT consulting for strategic planning, technology audits, digital transformation, and cybersecurity. Drive business growth with proven IT expertise.",
+      "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. A woman-owned consultancy in Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services/it-consulting"),
+    // `keywords` is kept as-is. Google ignores it, and it is the only record on
+    // the page of the terms this URL has historically been optimised for -
+    // including "digital transformation", which is now off the visible copy.
     keywords:
       "IT consulting, strategic IT planning, technology audit, digital transformation, cybersecurity consulting, business process optimization, IT strategy",
     ogTitle: "OneAlgorithm — IT Consulting",
     ogDescription:
-      "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization. Drive growth with OneAlgorithm's IT expertise.",
+      "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. Malvern, Pennsylvania.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "IT Consulting Services - OneAlgorithm",
+    twitterTitle: "IT Consulting — OneAlgorithm",
     twitterDescription:
-      "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization. Drive growth with OneAlgorithm's IT expertise.",
+      "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -142,7 +157,7 @@ export default function ITConsulting() {
       <StructuredData
         data={createServiceSchema(
           "IT Consulting Services",
-          "Expert IT consulting services including strategic IT planning, technology audits, digital transformation, cybersecurity, and business process optimization.",
+          "IT consulting covering technology planning, security review, modernization roadmaps, cloud migration sizing, performance and cost review, and tool and vendor selection.",
           "IT Consulting",
           "https://onealgorithm.com/services/it-consulting",
         )}
@@ -152,21 +167,22 @@ export default function ITConsulting() {
         eyebrow="IT Consulting"
         title={
           <>
-            IT <span className="text-oa-orange">Consulting</span> &amp; Digital
-            Transformation
+            IT <span className="text-oa-orange">consulting</span> for the
+            systems you already run
           </>
         }
-        lede="Comprehensive IT consulting services to help you make informed technology decisions and drive business transformation."
-        // The hero bullets moved into the panel rather than being duplicated.
-        // Same four lines, same words. The lede is the "What we do" section
-        // lede, verbatim. No new claims.
+        lede="We inventory what you actually run — servers, licences, the spreadsheet holding a process together — then tell you what to fix first, what to leave alone, and roughly what each will cost. Most of what we recommend reuses something you already own."
+        // Panel items are the SERVICES card titles from further down the page.
+        // Nothing here is written for the panel; if a line changes below, change
+        // it here too.
         panel={{
-          title: "How we help",
+          title: "What we're usually asked for",
           items: [
-            "Strategic technology planning and roadmaps.",
-            "Expert guidance for digital transformation.",
-            "Risk assessment and security optimization.",
-            "Technology solutions aligned with business goals.",
+            "Technology planning",
+            "Security review",
+            "Cloud migration planning",
+            "Performance and cost review",
+            "Tool and vendor selection",
           ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
@@ -176,8 +192,8 @@ export default function ITConsulting() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="What we do"
-          title="Our IT consulting services"
-          lede="Comprehensive IT consulting services to help you make informed technology decisions and drive business transformation."
+          title="What IT consulting means here"
+          lede="Six things clients ask us for. Each one ends in a document or a change you can point at, not a conversation."
         />
         <CardGrid columns={3} className="mt-12">
           {SERVICES.map((s) => (
@@ -189,8 +205,8 @@ export default function ITConsulting() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Why OneAlgorithm"
-          title="Why choose our IT consulting?"
-          lede="Partner with us to unlock the full potential of technology for your business."
+          title="How we work, in four sentences"
+          lede="We're a small firm. The person who scopes the work is the person who does it, which changes what we're willing to recommend."
         />
         <CardGrid columns={4} className="mt-12">
           {BENEFITS.map((b) => (
@@ -202,8 +218,8 @@ export default function ITConsulting() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="How we work"
-          title="Our consulting process"
-          lede="A proven methodology that delivers results and drives sustainable technology transformation."
+          title="How an engagement runs"
+          lede="The same four steps whether the job is two weeks or two years. We stay for the fourth."
         />
         <div className="mt-12">
           <ProcessSteps steps={PROCESS} />
@@ -213,21 +229,21 @@ export default function ITConsulting() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Experience"
-          title="Industry experience and expertise"
+          title="What we bring, and what we can't show you"
         />
         <CardGrid columns={2} className="mt-12">
           <Card
-            title="Cross-Industry Knowledge"
+            title="Where the experience came from"
             body={
               <>
-                Experience across healthcare, finance,{" "}
+                Between us the team has worked in healthcare, finance,{" "}
                 <Link
                   to="/industries/manufacturing"
                   className="text-oa-blue underline underline-offset-4"
                 >
                   manufacturing
                 </Link>
-                , and technology sectors including{" "}
+                ,{" "}
                 <Link
                   to="/industries/construction"
                   className="text-oa-blue underline underline-offset-4"
@@ -241,34 +257,61 @@ export default function ITConsulting() {
                 >
                   e-commerce
                 </Link>
-                .
+                . Most of it was earned inside those organizations, as
+                employees, before this firm existed — and we say so rather than
+                letting it read as company past performance.
               </>
             }
           />
           <Card
-            title="Proven Methodologies"
-            body="ITIL, COBIT, and agile frameworks for structured consulting approaches."
+            title="ITIL, COBIT and agile"
+            body="Which one you get depends on who has to sign the work off. Regulated clients usually want the governance; a five-person product team almost never does, and forcing it on them wastes their money."
           />
           <Card
-            title="Technology Partnerships"
-            body="Strategic relationships with leading technology vendors and platforms."
+            title="Partner status you can look up"
+            body={
+              <>
+                We're a listed Salesforce Consulting Partner and a certified
+                Zendesk partner. Both are somebody else's record, not ours —{" "}
+                <Link
+                  to="/about"
+                  className="text-oa-blue underline underline-offset-4"
+                >
+                  the links to check them
+                </Link>{" "}
+                are on our about page.
+              </>
+            }
           />
           <Card
-            title="Measurable Results"
-            body="Track record of delivering quantifiable business value and ROI."
+            title="No case studies on this site"
+            body={
+              <>
+                We haven't published client names, testimonials or outcome
+                figures, and we're not going to invent any. What we can offer
+                instead is{" "}
+                <Link
+                  to="/about"
+                  className="text-oa-blue underline underline-offset-4"
+                >
+                  four named people
+                </Link>{" "}
+                you can question directly about work you care about.
+              </>
+            }
           />
         </CardGrid>
       </Section>
 
       <CTABand
-        title="Transform Your Technology Strategy"
-        body="Partner with our IT consulting experts to unlock technology's full potential for your business."
+        title="Tell us what's actually broken"
+        body="The system everyone complains about, the roadmap nobody believes, or a renewal you're not sure you should sign. We'll tell you what we'd do first and roughly what it costs."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "View All Services", to: "/services" }}
       />
 
       <Section tone="paper" compact>
-        <SocialShare title="IT Consulting & Digital Transformation - OneAlgorithm" />
+        <SocialShare title="IT Consulting - OneAlgorithm" />
       </Section>
     </Layout>
   );

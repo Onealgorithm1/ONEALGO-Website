@@ -29,10 +29,27 @@ import {
   createServiceSchema,
 } from "../../components/StructuredData";
 
-/* Operations Technology - 2026 refresh.
+/* Operations Technology - 2026 refresh; copy rewritten 2026-08-12.
  *
- * Presentation only. Copy, SEO and the service schema are carried over. What
- * went:
+ * The page previously opened with "Comprehensive OT solutions that bridge the
+ * gap between operational processes and modern technology capabilities", which
+ * is a sentence that survives having every noun in it replaced. It also had no
+ * hero lede at all, so a reader arriving cold was told the page's subject only
+ * by its two-word H1.
+ *
+ * The rewrite says what the work is: getting a number that already exists on
+ * the floor into a system where somebody can act on it. Every capability keeps
+ * its subject - the SCADA card is still about SCADA - so nothing this page has
+ * ever ranked for is dropped.
+ *
+ * SCOPE OF THE CLAIMS. Every capability listed here was already claimed on this
+ * page and is left in place; the rewrite describes them, it does not add any.
+ * Nothing anywhere in this repository evidences a delivered OT project - no
+ * plant, no client, no reference - so nothing below says or implies that one
+ * exists. TKTK: confirm which of these have actually been delivered, and by
+ * whom. If some have not, they should come off the page rather than be softened.
+ *
+ * From the earlier presentation-only pass:
  *
  *  - The frosted "Smart Operations" panel in the hero - decorative, and it
  *    squeezed the hero bullets into half the width.
@@ -47,127 +64,127 @@ import {
 const SERVICES = [
   {
     icon: Factory,
-    title: "Industrial Automation",
-    body: "Implement automated systems to optimize manufacturing processes and increase efficiency.",
+    title: "Industrial automation",
+    body: "Automating the steps still done by hand between machines — the clipboard, the whiteboard, the person walking a number from one screen to another.",
   },
   {
     icon: Monitor,
-    title: "SCADA Systems",
-    body: "Design and deploy supervisory control and data acquisition systems for real-time monitoring.",
+    title: "SCADA systems",
+    body: "Supervisory control and data acquisition: screens showing what the line is doing now, alarms when it stops, and history you can go back through when somebody asks why.",
   },
   {
     icon: Gauge,
-    title: "Process Optimization",
-    body: "Analyze and optimize operational processes using data-driven insights and advanced analytics.",
+    title: "Process analysis",
+    body: "We instrument a line before changing it, then look at where the time actually goes. It is rarely where people expect, which is the reason for measuring first.",
   },
   {
     icon: Cpu,
-    title: "IoT Integration",
-    body: "Connect industrial equipment and sensors for comprehensive operational visibility.",
+    title: "IoT integration",
+    body: "Sensors and equipment connected to a network and reporting somewhere useful — run hours, temperature, vibration, counts.",
   },
   {
     icon: Shield,
-    title: "OT Security",
-    body: "Secure operational technology environments against cyber threats and vulnerabilities.",
+    title: "OT security",
+    body: "Plant networks were built to trust everything on them, and most still do. We segment them from the office network, control remote vendor access, and inventory what is actually connected.",
   },
   {
     icon: Settings,
-    title: "Maintenance Systems",
-    body: "Implement predictive and preventive maintenance systems to reduce downtime.",
+    title: "Maintenance systems",
+    body: "Run hours and condition data feeding the maintenance schedule, so parts get changed on evidence rather than on a calendar.",
   },
 ];
 
 const BENEFITS = [
   {
     icon: Zap,
-    title: "Operational Efficiency",
-    body: "Streamline operations and reduce waste through intelligent automation and optimization.",
+    title: "Less manual re-entry",
+    body: "Any number typed in twice will eventually disagree with itself. Removing that duplication is usually the fastest win available on a plant floor.",
   },
   {
     icon: BarChart3,
-    title: "Data-Driven Decisions",
-    body: "Make informed decisions with real-time operational data and advanced analytics.",
+    title: "Answers during the shift",
+    body: "Downtime, scrap and throughput visible while the shift is still running, rather than in a report that arrives next week when nobody can act on it.",
   },
   {
     icon: Activity,
-    title: "Improved Reliability",
-    body: "Enhance system reliability and reduce unplanned downtime through proactive monitoring.",
+    title: "Fewer surprise stoppages",
+    body: "Condition data and alerting mean you find out a bearing is running hot before it takes the line down — in most cases, and not for faults that arrive without warning.",
   },
   {
     icon: Cog,
-    title: "Seamless Integration",
-    body: "Integrate OT systems with existing IT infrastructure for unified operations.",
+    title: "OT and IT that agree",
+    body: "The plant system and the ERP holding the same numbers, so nobody has to decide which one to believe in a Monday meeting.",
   },
 ];
 
 const APPLICATIONS = [
   {
     title: "Manufacturing",
-    body: "Smart factory solutions, production line automation, and quality control systems.",
+    body: "Production counts, downtime reasons and quality checks captured where they happen, then fed to the systems that plan the next run.",
     features: [
-      "Production Monitoring",
-      "Quality Assurance",
-      "Equipment Optimization",
-      "Supply Chain Integration",
+      "Production monitoring",
+      "Quality assurance",
+      "Equipment optimization",
+      "Supply chain integration",
     ],
   },
   {
     title: "Construction",
-    body: "Project management, site coordination, and building information modeling (BIM) systems.",
+    body: "Site progress, equipment location and inspection records reaching the office the same day rather than at the end of the week.",
     features: [
-      "Project Planning",
-      "Site Monitoring",
-      "Equipment Tracking",
-      "Safety Compliance",
+      "Project planning",
+      "Site monitoring",
+      "Equipment tracking",
+      "Safety compliance",
     ],
   },
   {
     title: "E-Commerce",
-    body: "Inventory management, warehouse automation, and fulfillment optimization systems.",
+    body: "Warehouse scanning, stock levels and order status kept in step between the floor, the storefront and the finance system.",
     features: [
-      "Inventory Control",
-      "Order Processing",
-      "Logistics Automation",
-      "Customer Analytics",
+      "Inventory control",
+      "Order processing",
+      "Logistics automation",
+      "Customer analytics",
     ],
   },
 ];
 
 const PROCESS = [
   {
-    title: "Assessment",
-    body: "Evaluate current operational technology infrastructure and identify improvement opportunities.",
+    title: "Survey",
+    body: "What is installed, what it can already output, and what is still on paper. This part is mostly walking around and asking the people who run it.",
   },
   {
     title: "Design",
-    body: "Create comprehensive OT architecture and integration strategies tailored to your operations.",
+    body: "What connects to what, where the data lands, and what happens when a link drops. We design for the network being down, because at some point it will be.",
   },
   {
-    title: "Implementation",
-    body: "Deploy OT solutions with minimal disruption to ongoing operations.",
+    title: "Install",
+    body: "Staged, usually inside planned downtime. Production keeps running while we cut over one piece at a time.",
   },
   {
-    title: "Optimization",
-    body: "Continuously monitor and optimize systems for peak performance and efficiency.",
+    title: "Tune",
+    body: "Alarm thresholds are always wrong at first. We revisit them once you have lived with the system, otherwise people learn to ignore the alarms.",
   },
 ];
 
 const FOCUS_AREAS = [
   {
     title: "Industrial IoT",
-    body: "Connect equipment, sensors, and systems for comprehensive operational visibility.",
+    body: "Equipment and sensors connected and reporting — including older kit that predates all of this and only speaks one protocol.",
   },
   {
-    title: "Edge Computing",
-    body: "Process data at the source for real-time decision making and reduced latency.",
+    title: "Edge computing",
+    body: "Processing at the machine, so a control decision never waits on a link to a data centre.",
   },
   {
-    title: "Digital Twins",
-    body: "Create virtual representations of physical assets for predictive analytics.",
+    title: "Digital twins",
+    body: "A model of the asset fed by its live data. Mostly useful for testing a change before you make it on the real thing.",
   },
   {
-    title: "AI/ML Integration",
-    body: "Apply machine learning for predictive maintenance and process optimization.",
+    title: "AI/ML integration",
+    body: "Pattern detection on run data — predicting a failure, spotting quality drift. Worth doing once you have enough history to train on, and not before.",
   },
 ];
 
@@ -175,18 +192,18 @@ export default function OperationsTechnology() {
   useSEO({
     title: "OneAlgorithm — Operations Tech",
     description:
-      "Professional operations technology with industrial automation, process optimization, and monitoring systems. Streamline operations with equipment integration.",
+      "Operations technology: industrial automation, SCADA and real-time monitoring, IoT and sensor integration, OT network security, and maintenance systems driven by run-hour and condition data.",
     canonical: getCanonicalUrl("/services/operations-technology"),
     keywords:
       "operations technology, industrial automation, process optimization, monitoring systems, equipment integration, OT services, manufacturing technology",
     ogTitle: "OneAlgorithm — Operations Tech",
     ogDescription:
-      "Professional operations technology services including industrial automation, process optimization, monitoring systems, and equipment integration. Streamline your operations with OneAlgorithm.",
+      "Industrial automation, SCADA and monitoring, IoT integration, OT network security and maintenance systems — connecting what happens on the floor to the systems that plan the work.",
     ogUrl: getCanonicalUrl("/services/operations-technology"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Operations Technology Services - OneAlgorithm",
+    twitterTitle: "Operations Technology - OneAlgorithm",
     twitterDescription:
-      "Professional operations technology services including industrial automation, process optimization, monitoring systems, and equipment integration. Streamline your operations with OneAlgorithm.",
+      "Industrial automation, SCADA and monitoring, IoT integration, OT network security and maintenance systems.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -195,7 +212,7 @@ export default function OperationsTechnology() {
       <StructuredData
         data={createServiceSchema(
           "Operations Technology Services",
-          "Professional operations technology services including industrial automation, process optimization, monitoring systems, and equipment integration.",
+          "Operations technology services: industrial automation, SCADA and real-time monitoring, IoT and sensor integration, OT network security, and condition-based maintenance systems, connected to the IT systems that plan the work.",
           "Operations Technology",
           "https://onealgorithm.com/services/operations-technology",
         )}
@@ -205,18 +222,18 @@ export default function OperationsTechnology() {
         eyebrow="Operations Technology"
         title={
           <>
-            Operations <span className="text-oa-orange">Technology</span>
+            Operations <span className="text-oa-orange">technology</span>
           </>
         }
-        // The hero bullets moved into the panel rather than being duplicated -
-        // same four lines, same words, now filling the right-hand column.
+        lede="Operations technology is the equipment side: controllers, SCADA, sensors, and plant systems that were never meant to talk to the software the office runs on. We connect the two, so what happens on the floor reaches the people who need it without anyone retyping it off a screen."
         panel={{
-          title: "What we deliver",
+          title: "What we work on",
           items: [
-            "Industrial automation and process optimization.",
-            "SCADA systems and real-time monitoring.",
-            "IoT integration and smart operations.",
-            "Secure and reliable operational systems.",
+            "Industrial automation",
+            "SCADA and real-time monitoring",
+            "IoT and sensor integration",
+            "OT network security",
+            "Condition-based maintenance",
           ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
@@ -226,8 +243,8 @@ export default function OperationsTechnology() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="What we do"
-          title="Operations technology solutions"
-          lede="Comprehensive OT solutions that bridge the gap between operational processes and modern technology capabilities."
+          title="What the work looks like"
+          lede="Most of it is plumbing: taking a number that already exists somewhere on the floor and getting it to a place where somebody can act on it."
         />
         <CardGrid columns={3} className="mt-12">
           {SERVICES.map((s) => (
@@ -239,8 +256,8 @@ export default function OperationsTechnology() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Why OneAlgorithm"
-          title="Transform your operations"
-          lede="Leverage operations technology to achieve operational excellence and competitive advantage."
+          title="What connecting the floor to the office gets you"
+          lede="Four outcomes, in the order they usually arrive. The first one pays for most of the work."
         />
         <CardGrid columns={4} className="mt-12">
           {BENEFITS.map((b) => (
@@ -252,8 +269,8 @@ export default function OperationsTechnology() {
       <Section tone="paper">
         <SectionHeading
           eyebrow="Where we work"
-          title="Industry applications"
-          lede="Tailored operations technology solutions for diverse industrial sectors."
+          title="Where this work usually lands"
+          lede="Same idea in three settings: capture the thing where it happens, and stop it being retyped later."
         />
         <CardGrid columns={3} className="mt-12">
           {APPLICATIONS.map((app) => (
@@ -269,8 +286,8 @@ export default function OperationsTechnology() {
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="How we work"
-          title="Our implementation process"
-          lede="A systematic approach to implementing operations technology that ensures minimal disruption and maximum value."
+          title="How we install it without stopping you"
+          lede="Nothing changes on a running line until we can show what that line is doing now."
         />
         <div className="mt-12">
           <ProcessSteps steps={PROCESS} />
@@ -287,14 +304,14 @@ export default function OperationsTechnology() {
       </Section>
 
       <CTABand
-        title="Optimize Your Operations Today"
-        body="Transform your industrial operations with cutting-edge technology solutions and expert guidance."
+        title="Tell us what the floor can't see"
+        body="A line that stops for reasons nobody records, a report somebody assembles by hand every Monday, or a plant network nobody has mapped in years."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "View All Services", to: "/services" }}
       />
 
       <Section tone="paper" compact>
-        <SocialShare title="Operations Technology Solutions - SCADA, IoT & Automation - OneAlgorithm" />
+        <SocialShare title="Operations Technology - SCADA, IoT & Automation - OneAlgorithm" />
       </Section>
     </Layout>
   );
