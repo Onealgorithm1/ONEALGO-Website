@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Layout from "../components/Layout";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -57,6 +57,37 @@ export default function Contact() {
   // Honeypot: a hidden field real users never see. Bots fill it; we drop those.
   const honeypotRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Warn before losing a part-filled form.
+   *
+   * A visitor who has typed their details into a lead form and then refreshes,
+   * closes the tab or follows an external link loses the lot, and a lead that
+   * evaporates this way is invisible — no request is made, so nothing in
+   * analytics ever shows it happened.
+   *
+   * Deliberately narrow. The prompt only arms once something has actually been
+   * typed and disarms the moment the form submits, because a browser
+   * "Leave site?" dialog on an empty form is an obstruction rather than a
+   * safeguard.
+   *
+   * ⚠️ KNOWN LIMIT: `beforeunload` covers refresh, tab close and following a
+   * link off-site. It does NOT fire on in-app navigation — clicking "About" in
+   * the header still discards the form silently. Closing that needs a React
+   * Router blocker, which this app's router setup does not currently support.
+   */
+  const hasContent = Object.values(formData).some((v) => v.trim() !== "");
+  useEffect(() => {
+    if (!hasContent || isSubmitted) return;
+    const warn = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      // Browsers ignore custom text now and show their own wording; assigning
+      // returnValue is still what arms the dialog.
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [hasContent, isSubmitted]);
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -80,10 +111,24 @@ export default function Contact() {
       return;
     }
 
+    // Move focus to whatever is wrong. Setting an error message alone leaves
+    // the visitor to hunt for it: the message renders near the submit button
+    // while the offending field may be well above the fold, and a screen-reader
+    // user gets no indication at all of which field to fix. Focusing it scrolls
+    // it into view and announces it in one step.
+    const focusField = (id: string) => {
+      const el = document.getElementById(id);
+      if (el instanceof HTMLElement) {
+        el.focus();
+        el.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    };
+
     // Basic email validation before we hand off to Salesforce.
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim());
     if (!emailOk) {
       setSubmitError("Please enter a valid email address.");
+      focusField("email");
       return;
     }
 
@@ -103,6 +148,7 @@ export default function Contact() {
     // dead button with a visible message.
     if (!formData.whatYouNeed?.trim()) {
       setSubmitError("Please tell us what you need — pick the closest option.");
+      focusField("whatYouNeed");
       return;
     }
 
@@ -323,12 +369,22 @@ export default function Contact() {
                       <Label htmlFor="email" className="text-oa-ink2">
                         Email Address <span className="text-red-500">*</span>
                       </Label>
+                      {/* autoComplete + spellCheck added 2026-08-12. The two
+                          most valuable fields to autofill had neither, which
+                          meant a visitor on a phone typed their email by hand
+                          at the exact moment they were deciding whether to
+                          bother. spellCheck matters too: browsers underline an
+                          email address in red, which reads as "you got this
+                          wrong" on a field the visitor entered correctly. */}
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         required
-                        placeholder="your@company.com"
+                        autoComplete="email"
+                        spellCheck={false}
+                        autoCapitalize="off"
+                        placeholder="you@company.com"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="mt-1"
@@ -345,6 +401,7 @@ export default function Contact() {
                         name="company"
                         type="text"
                         required
+                        autoComplete="organization"
                         placeholder="Your company name"
                         value={formData.company}
                         onChange={handleInputChange}
