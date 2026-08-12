@@ -110,6 +110,9 @@ export default function Contact() {
      have no form do not pay for it. `render=explicit` stops it hunting the DOM
      for widgets on its own, which does not survive React re-rendering the form
      underneath it. */
+  // Nothing is requested from Google until a visitor asks for the map.
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   const [turnstileToken, setTurnstileToken] = useState("");
   const widgetHost = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | null>(null);
@@ -727,18 +730,61 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Map Embed */}
+              {/* Map — click to load.
+                  It used to be a bare Google iframe, which is not a picture of
+                  a map: it is a live connection to Google that opens the
+                  instant the page does. Every visitor's IP address and the page
+                  they were on went to Google, and Google could set cookies on
+                  them, with no click and no way to decline. On the CONTACT page,
+                  that means quietly disclosing every prospect -- including
+                  contracting officers doing market research -- to a third party
+                  they never chose. It also puts us on the wrong side of EU/UK
+                  rules, which want consent BEFORE that request, not after.
+
+                  Nothing is requested from Google until the button is pressed.
+                  The address above is the real answer for most people anyway,
+                  and the text link out to Maps costs a visitor nothing until
+                  they choose it. */}
               <div className="mb-8">
-                <div className="w-full rounded overflow-hidden shadow-sm">
-                  <iframe
-                    title="OneAlgorithm Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3054.4774062403612!2d-75.5771397!3d40.042445799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f327d5340c9d%3A0x218ca530a72f1726!2sOneAlgorithm%20Consulting!5e0!3m2!1sen!2sus!4v1759511875621!5m2!1sen!2sus"
-                    className="w-full h-64 sm:h-96 border-0"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
+                {mapLoaded ? (
+                  <div className="w-full overflow-hidden rounded shadow-sm">
+                    <iframe
+                      title="OneAlgorithm Location"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3054.4774062403612!2d-75.5771397!3d40.042445799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6f327d5340c9d%3A0x218ca530a72f1726!2sOneAlgorithm%20Consulting!5e0!3m2!1sen!2sus!4v1759511875621!5m2!1sen!2sus"
+                      className="h-64 w-full border-0 sm:h-96"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-64 w-full flex-col items-center justify-center gap-4 rounded border border-oa-hairline bg-oa-sunk px-6 text-center sm:h-96">
+                    <MapPin
+                      className="h-7 w-7 text-oa-blue"
+                      aria-hidden="true"
+                    />
+                    <p className="max-w-[46ch] text-sm leading-relaxed text-oa-ink2">
+                      We haven&rsquo;t loaded the Google map, because doing so
+                      would send your IP address to Google before you asked for
+                      anything. Load it if you want it.
+                    </p>
+                    <Button
+                      type="button"
+                      onClick={() => setMapLoaded(true)}
+                      className="min-h-11 bg-oa-blue font-semibold text-white hover:bg-oa-blue600"
+                    >
+                      Load the map
+                    </Button>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=OneAlgorithm+Consulting+625+Swedesford+Rd+Malvern+PA+19355"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-11 items-center text-sm font-medium text-oa-blue hover:underline"
+                    >
+                      Or open it in Google Maps
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
