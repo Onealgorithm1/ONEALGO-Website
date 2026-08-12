@@ -40,20 +40,22 @@ export default function Privacy() {
 
   return (
     <Layout>
+      {/* The date moved from the first line of the body into the hero's meta
+          record. It is the single most useful fact about a legal document and
+          it was the fifth thing on the page. The date itself is untouched -
+          still stale, still not ours to change. */}
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy — How We Protect Your Data"
+        meta={[
+          { label: "Document", value: "OneAlgorithm Privacy Policy" },
+          { label: "Last updated", value: "8/27/2025" },
+        ]}
       />
 
       <Section tone="paper">
         <Prose>
-          <p className="text-lede text-oa-ink">
-            <strong>OneAlgorithm</strong>
-            <br />
-            Last updated: 8/27/2025
-          </p>
-
-          <h2 className={`${HEADING} pt-6`}>Introduction</h2>
+          <h2 className={HEADING}>Introduction</h2>
           <p>
             At OneAlgorithm, we are committed to protecting your privacy and
             ensuring the security of your personal information. This Privacy

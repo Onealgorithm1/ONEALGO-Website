@@ -5,7 +5,6 @@ import {
   StructuredData,
   createOrganizationSchema,
 } from "../components/StructuredData";
-import { siteConfig } from "../lib/siteConfig";
 import { PageHero, Section, CTABand } from "../components/site";
 import CapabilitiesSidebar from "../components/CapabilitiesSidebar";
 import CapabilitiesMainContent from "../components/CapabilitiesMainContent";
@@ -20,14 +19,13 @@ import CapabilitiesMainContent from "../components/CapabilitiesMainContent";
  */
 const LAST_UPDATED = "August 10, 2026";
 
-/** Identifiers a contracting officer copy-pastes. Sourced, never retyped. */
-const HERO_IDENTIFIERS: [string, string][] = [
-  ["UEI", siteConfig.identifiers.uei],
-  ["CAGE", siteConfig.identifiers.cage],
-  ["D-U-N-S", siteConfig.identifiers.duns],
-  ["Primary NAICS", siteConfig.codes.naics[0]],
-  ["SAM.gov", "Active"],
-];
+/* The hero's own identifier strip used to be declared here as HERO_IDENTIFIERS
+   and rendered inside <PageHero>'s children. PageHero now draws that rail
+   itself on every company page (about / capabilities / contact), reading the
+   same values off shared/companyProfile and adding the live SBA link, so the
+   local copy was deleted rather than rendered twice. D-U-N-S, which the local
+   copy carried and the shared rail does not, still appears three times further
+   down this page (CapabilitiesSidebar and CapabilitiesMainContent). */
 
 export default function Capabilities() {
   useSEO({
@@ -63,6 +61,7 @@ export default function Capabilities() {
           </>
         }
         lede="Modernizing Federal Systems Securely and Intelligently"
+        meta={[{ label: "Last updated", value: LAST_UPDATED }]}
       >
         <div className="mt-7 max-w-2xl space-y-4 leading-relaxed text-oa-nightInk2">
           {/*
@@ -92,23 +91,6 @@ export default function Capabilities() {
             mission objectives.
           </p>
         </div>
-
-        {/* Identifier strip, same treatment as the homepage: mono type on a
-            hairline, not decorative pills. These get copy-pasted. */}
-        <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/12 pt-6 font-mono text-sm">
-          {HERO_IDENTIFIERS.map(([label, value]) => (
-            <div key={label}>
-              <dt className="text-[11px] uppercase tracking-wider text-oa-nightInk3">
-                {label}
-              </dt>
-              <dd className="mt-1 text-oa-nightInk2">{value}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <p className="mt-6 font-mono text-eyebrow uppercase text-oa-nightInk3">
-          Last updated {LAST_UPDATED}
-        </p>
       </PageHero>
 
       <Section tone="paper">

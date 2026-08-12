@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
+import { siteConfig } from "../../shared/companyProfile";
 
 /* ---------------------------------------------------------------------------
    Shared page primitives for the 2026 refresh.
@@ -380,13 +381,407 @@ export function SecondaryCTA({
   );
 }
 
+/* ---------------------------------------------------------------------------
+   INNER-PAGE HEROES — "THE WIRE"
+
+   THE PROBLEM THIS SOLVES
+   One PageHero opened all twenty-one non-homepage routes with the same dark
+   navy band at the same height with the same left-aligned headline, whether
+   the page was a flagship service or the privacy policy. Twenty-one pages that
+   open identically read as a template, because they are one.
+
+   WHAT REPLACES IT
+   The hero now renders the page's real position in the site as a wire: the
+   ancestors it hangs off (the rail at the top), the node it is (the current
+   crumb, latched orange), and the wires that leave it (a terminal strip whose
+   CONTENT depends on what kind of page this is).
+
+   Four page classes, four silhouettes:
+
+     service   night, text + right-hand panel card, terminating in the other
+               ten services as a live wire. Different siblings highlighted on
+               every page, so no two service heroes are the same shape of text.
+     industry  night, NO panel card at all — the panel's own items run
+               full-bleed as a numbered scope strip. Headline gets full width.
+     company   night, text + panel card, terminating in the registry
+               identifiers with a link to the live SBA record. These are the
+               three pages where a stranger decides whether to trust the firm,
+               so this is where "every claim next to its means of verification"
+               has to be literal.
+     utility   PAPER, roughly a third of the height, no dark band. A privacy
+               policy does not deserve 400px of navy.
+
+   WHY THE CLASS IS DERIVED FROM THE ROUTE, NOT PASSED IN
+   Twenty-one call sites, none of them touched. More importantly the content in
+   the rail and the sibling wire is derived from the site's own structure, so
+   it cannot be a lie and cannot drift out of date the way a hand-written
+   "related services" list does. It is the one kind of hero content that is
+   true by construction.
+
+   COLOUR
+   Note `[&_.text-oa-orange]:text-oa-orangeText` on the utility h1. Almost
+   every call site hard-codes <span className="text-oa-orange"> inside its
+   title, which is 9.19:1 on night and 1.95:1 on paper. That one arbitrary
+   variant retargets any such span to the AA-safe orangeText (6.01:1) whenever
+   the hero is on a light ground, so the light variant is safe for a call site
+   that has never heard of it. On the light rail the live node is brand blue,
+   never orange.
+
+   MOTION
+   None. Nothing here animates in — this is the LCP element on every page.
+--------------------------------------------------------------------------- */
+
+type HeroClass = "service" | "industry" | "company" | "utility";
+
+/* ponytail: third copy of the site's page list (Layout.tsx hard-codes it as
+   JSX twice, Services.tsx and Industries.tsx each hold a richer version with
+   icons and body copy). Ceiling: a route added to the nav and not added here
+   goes missing from the sibling wire. Upgrade path is to lift this pair of
+   arrays into shared/ and have Layout, Services and Industries read their
+   labels and hrefs off it; that is a five-file change and does not belong in
+   the same commit as a hero redesign. The orphan checker
+   (scripts/orphan-check.mjs) catches the reverse case. */
+const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
+  ["/services/staff-augmentation", "Staff Augmentation"],
+  ["/services/website-development", "Website Development"],
+  ["/services/oracle-erp", "Oracle ERP"],
+  ["/services/salesforce", "Salesforce"],
+  ["/services/it-consulting", "IT Consulting"],
+  ["/services/operations-technology", "Operations Technology"],
+  ["/services/marketing", "Marketing & Social"],
+  ["/services/martech", "MarTech"],
+  ["/services/google-ads", "Google Ads"],
+  ["/services/seo", "SEO"],
+  ["/services/zendesk", "Zendesk"],
+];
+
+const INDUSTRY_PAGES: ReadonlyArray<readonly [string, string]> = [
+  ["/industries/construction", "Construction"],
+  ["/industries/manufacturing", "Manufacturing"],
+  ["/industries/ecommerce", "E-Commerce"],
+  ["/industries/marketing", "Marketing"],
+  ["/industries/website-development", "Website Development"],
+  ["/industries/government", "Government"],
+];
+
+const SECTION_LABEL: Record<string, string> = {
+  "/services": "Services",
+  "/industries": "Industries",
+  "/about": "About",
+  "/capabilities": "Capabilities",
+  "/contact": "Contact",
+  "/privacy": "Privacy",
+  "/terms": "Terms",
+  "/ai-info": "AI Information",
+};
+
+const COMPANY_PATHS = ["/about", "/capabilities", "/contact"];
+
+/** Trailing slash and case are not meaningful here; a route is a route. */
+function normalisePath(pathname: string): string {
+  const p = pathname.toLowerCase().replace(/\/+$/, "");
+  return p === "" ? "/" : p;
+}
+
+function classifyPath(path: string): HeroClass {
+  if (path === "/services" || path.startsWith("/services/")) return "service";
+  if (path === "/industries" || path.startsWith("/industries/"))
+    return "industry";
+  if (COMPANY_PATHS.includes(path)) return "company";
+  // Legal pages, /ai-info, and anything unrecognised — which includes every
+  // 404, since NotFound renders at whatever address the visitor mistyped.
+  return "utility";
+}
+
 /**
- * Page hero. Dark ground, left-aligned, type-led.
+ * Last-resort label for a route not in the maps above: "/services/foo-bar"
+ * becomes "Foo Bar". Only reachable from a 404, which is exactly why the slug
+ * is whitelisted rather than escaped: this is the address bar being echoed back
+ * into the page, and the only thing that should survive that round trip is a
+ * plain lowercase route segment. Anything else becomes "Not found".
+ */
+function labelFromSlug(path: string): string {
+  const slug = path.split("/").filter(Boolean).pop() ?? "";
+  if (!/^[a-z0-9][a-z0-9-]{0,39}$/.test(slug)) return "Not found";
+  return slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+type Crumb = { label: string; to?: string };
+
+function crumbsFor(path: string): Crumb[] {
+  const known = [...SERVICE_PAGES, ...INDUSTRY_PAGES].find(
+    ([to]) => to === path,
+  );
+  const crumbs: Crumb[] = [{ label: "Home", to: "/" }];
+
+  if (known) {
+    const parent = path.startsWith("/services") ? "/services" : "/industries";
+    crumbs.push({ label: SECTION_LABEL[parent], to: parent });
+    crumbs.push({ label: known[1] });
+    return crumbs;
+  }
+
+  if (SECTION_LABEL[path]) {
+    crumbs.push({ label: SECTION_LABEL[path] });
+    return crumbs;
+  }
+
+  crumbs.push({ label: labelFromSlug(path) || "Not found" });
+  return crumbs;
+}
+
+/**
+ * The rail. Ancestors of this page as nodes on a wire, the current page latched
+ * on the end. A real <nav>/<ol> breadcrumb, so it is navigation to a screen
+ * reader as well as to the eye — the signature "mono identifier strip as
+ * structure, not trim".
+ */
+function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      className={`relative z-10 border-b ${
+        dark ? "border-white/10 bg-black/15" : "border-oa-hairline bg-oa-paper"
+      }`}
+    >
+      <ol className="mx-auto flex max-w-[1200px] flex-wrap items-center px-4 sm:px-6 lg:px-8 font-mono text-xs">
+        {crumbs.map((c, i) => {
+          const current = i === crumbs.length - 1;
+          return (
+            <li key={c.label} className="flex items-center">
+              {i > 0 && (
+                <span
+                  className={`mx-2 h-px w-5 sm:mx-3 sm:w-9 ${
+                    dark ? "bg-white/25" : "bg-oa-hairlineStrong"
+                  }`}
+                  aria-hidden="true"
+                />
+              )}
+              {/* Square node, not a round dot. The round dot is already the
+                  bullet marker used everywhere else on the site, and one
+                  border-radius on every element is its own tell. */}
+              <span
+                className={`mr-2 h-[7px] w-[7px] shrink-0 ${
+                  current
+                    ? dark
+                      ? "bg-oa-orange"
+                      : "bg-oa-blue"
+                    : dark
+                      ? "border border-white/40"
+                      : "border border-oa-hairlineStrong"
+                }`}
+                aria-hidden="true"
+              />
+              {c.to ? (
+                <Link
+                  to={c.to}
+                  /* min-h-11 = 44px. These are the smallest links on the page
+                     and they sit at the very top of it, where a thumb lands. */
+                  className={`inline-flex min-h-11 items-center uppercase tracking-wider transition-colors ${
+                    dark
+                      ? "text-oa-nightInk3 hover:text-oa-nightInk"
+                      : "text-oa-ink3 hover:text-oa-blue"
+                  }`}
+                >
+                  {c.label}
+                </Link>
+              ) : (
+                <span
+                  aria-current="page"
+                  className={`inline-flex min-h-11 items-center uppercase tracking-wider ${
+                    dark ? "text-oa-orange" : "text-oa-blue"
+                  }`}
+                >
+                  {c.label}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+/** Terminal strip: the other pages in this group, as links on a wire. Full
+ *  bleed, hairline top. On a phone it runs off the right edge in its own
+ *  scroller rather than wrapping into six 44px rows — one contained scroller,
+ *  no page overflow, and the wire visibly continues past the viewport. */
+function SiblingWire({
+  label,
+  pages,
+  currentPath,
+}: {
+  label: string;
+  pages: ReadonlyArray<readonly [string, string]>;
+  currentPath: string;
+}) {
+  const others = pages.filter(([to]) => to !== currentPath);
+  if (others.length === 0) return null;
+
+  return (
+    <div className="relative z-10 border-t border-white/10 bg-oa-night">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-1.5 sm:py-3">
+        <div className="sm:flex sm:items-baseline sm:gap-8">
+          <p className="shrink-0 pt-3 font-mono text-xs uppercase tracking-wider text-oa-nightInk3 sm:pt-0">
+            {label}
+          </p>
+          <ul className="-mx-4 flex flex-nowrap gap-x-6 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:gap-x-7 sm:gap-y-0 sm:overflow-x-visible sm:px-0">
+            {others.map(([to, name]) => (
+              <li key={to} className="shrink-0">
+                <Link
+                  to={to}
+                  className="inline-flex min-h-11 items-center whitespace-nowrap text-sm text-oa-nightInk2 transition-colors hover:text-oa-orange"
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Terminal strip for industry pages: the panel's own items, numbered, running
+ *  the full width instead of stacked in a card off to the right. This is the
+ *  whole reason an industry hero does not look like a service hero. */
+function ScopeStrip({
+  title,
+  items,
+  footer,
+}: {
+  title: string;
+  items: string[];
+  footer?: string[];
+}) {
+  /* Column count follows the item count so the last row is never a single
+     orphan cell sitting under four empty ones - six items read as 3x2, not
+     5+1. Static class strings because Tailwind cannot see a computed one. */
+  const cols =
+    {
+      1: "sm:grid-cols-1",
+      2: "sm:grid-cols-2",
+      3: "sm:grid-cols-3",
+      4: "sm:grid-cols-2 lg:grid-cols-4",
+      5: "sm:grid-cols-3 lg:grid-cols-5",
+      6: "sm:grid-cols-3",
+    }[items.length] ?? "sm:grid-cols-3 lg:grid-cols-4";
+
+  return (
+    <div className="relative z-10 border-t border-white/10 bg-oa-night">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <p className="font-mono text-xs uppercase tracking-wider text-oa-nightInk3">
+          {title}
+        </p>
+        <ol className={`mt-6 grid grid-cols-2 gap-x-6 gap-y-6 ${cols}`}>
+          {items.map((item, i) => (
+            <li key={item} className="border-t border-white/15 pt-3">
+              <span className="font-mono text-xs text-oa-orange">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-2 text-sm leading-snug text-oa-nightInk2">
+                {item}
+              </p>
+            </li>
+          ))}
+        </ol>
+        {footer && footer.length > 0 && (
+          <p className="mt-7 font-mono text-xs uppercase tracking-wider text-oa-nightInk3">
+            {footer.join("  ·  ")}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Terminal strip for the company pages. Same treatment as the homepage strip,
+ *  deliberately: it is the one element on the site a government buyer has to be
+ *  able to read and copy. Every value is read from shared/companyProfile, and
+ *  the last cell is the live SBA record so the row above it can be checked
+ *  rather than believed. */
+function IdentifierRail() {
+  const rows: [string, string][] = [
+    ["UEI", siteConfig.identifiers.uei],
+    ["CAGE", siteConfig.identifiers.cage],
+    ["Primary NAICS", siteConfig.codes.naics[0]],
+    ["SAM.gov", "Active"],
+    ["Founded", siteConfig.foundingDate],
+  ];
+  return (
+    <div className="relative z-10 border-t border-white/10 bg-oa-night">
+      <div className="mx-auto flex max-w-[1200px] flex-wrap items-end gap-x-6 gap-y-4 px-4 py-4 font-mono text-sm sm:gap-x-10 sm:px-6 sm:py-5 lg:px-8">
+        <dl className="flex flex-wrap gap-x-6 gap-y-4 sm:gap-x-10">
+          {rows.map(([label, value]) => (
+            <div key={label}>
+              {/* 12px floor. These get transcribed by hand. */}
+              <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
+                {label}
+              </dt>
+              <dd className="text-oa-nightInk2">{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <a
+          href={siteConfig.sbaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-11 items-center gap-1.5 text-sm text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+        >
+          Verify on SBA
+          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  );
+}
+
+/** Small mono record under the hero copy. Used for the things that date a
+ *  page: a legal document's effective date, a capability statement's revision. */
+function MetaLine({
+  meta,
+  dark,
+}: {
+  meta: { label: string; value: string }[];
+  dark: boolean;
+}) {
+  /* w-fit, not full width: a hairline running 900px across an empty column with
+     two 12px labels under it reads as a rule someone forgot to remove. It
+     should be exactly as wide as the record it underlines. */
+  return (
+    <dl
+      className={`mt-8 flex w-fit flex-wrap gap-x-8 gap-y-3 border-t pt-5 font-mono text-xs ${
+        dark ? "border-white/12" : "border-oa-hairline"
+      }`}
+    >
+      {meta.map((m) => (
+        <div key={m.label}>
+          <dt
+            className={`uppercase tracking-wider ${
+              dark ? "text-oa-nightInk3" : "text-oa-ink3"
+            }`}
+          >
+            {m.label}
+          </dt>
+          <dd className={`mt-1 ${dark ? "text-oa-nightInk2" : "text-oa-ink2"}`}>
+            {m.value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/**
+ * Page hero. See the block comment above for what varies and why.
  *
- * Replaces the old pattern of a centred heading on a blue gradient with an
- * orange sub-line - the orange failed contrast, and centring everything left
- * no hierarchy. `bullets` renders the short proof list several service pages
- * carried in their hero.
+ * The signature is unchanged apart from the optional `meta`, so all twenty-one
+ * existing call sites keep working; what a page gets is decided by its route.
  */
 export function PageHero({
   eyebrow,
@@ -396,6 +791,7 @@ export function PageHero({
   panel,
   primary,
   secondary,
+  meta,
   children,
 }: {
   eyebrow?: string;
@@ -403,18 +799,16 @@ export function PageHero({
   lede?: React.ReactNode;
   bullets?: string[];
   /**
-   * Right-hand substance panel.
+   * The page's own key points.
    *
-   * The inner-page heroes are left-aligned in a 1200px container, so without
-   * this the right ~40% is dead space - which reads as "there should be an
-   * image here". There should not. A photograph on a consulting page is either
-   * stock (in which case it makes the firm indistinguishable from every
-   * competitor, and becomes the LCP element for 150-400KB) or it does not
-   * exist, because there is no photography budget.
+   * On service and company pages this renders as the right-hand card, so the
+   * right ~40% of a left-aligned hero carries something a buyer reads instead
+   * of reading as "there should be a photograph here". There should not: stock
+   * photography makes the firm indistinguishable from every competitor and
+   * becomes the LCP element for 150-400KB.
    *
-   * So the space carries something a buyer actually reads instead: the page's
-   * own key points, and where relevant a credential they can verify. Costs
-   * nothing to load.
+   * On INDUSTRY pages the same content renders full-bleed as the numbered
+   * scope strip instead. Same words either way.
    *
    * CONTENT RULE: everything in here must already be true and already on the
    * page. `items` is normally the hero bullet list relocated. Do not write new
@@ -428,8 +822,118 @@ export function PageHero({
   };
   primary?: { label: string; to?: string; href?: string; download?: string };
   secondary?: { label: string; to?: string; href?: string; download?: string };
+  /** Dates and revisions — the things that tell a reader how stale this is. */
+  meta?: { label: string; value: string }[];
   children?: React.ReactNode;
 }) {
+  const path = normalisePath(useLocation().pathname);
+  const kind = classifyPath(path);
+  const dark = kind !== "utility";
+  const crumbs = crumbsFor(path);
+
+  /* Industry pages spend the panel on the full-width scope strip, so the card
+     is suppressed and the headline takes the whole measure. */
+  const showCard = Boolean(panel) && kind !== "industry";
+
+  /* Company pages already carry "SBA Certified WOSB / EDWOSB" in the identifier
+     rail below, with the link that proves it. Repeating it inside the card in
+     the same hero is the duplication the panel footer exists to avoid. */
+  const cardFooter = kind === "company" ? undefined : panel?.footer;
+
+  /* Eyebrow not rendered — see the note in SectionHeading above. The kicker
+     sat directly over the h1 and was the first thing read. */
+  const heading = (
+    <h1
+      className={
+        dark
+          ? "text-h1 font-semibold text-oa-nightInk"
+          : "max-w-3xl text-h2 font-semibold text-oa-ink [&_.text-oa-orange]:text-oa-orangeText"
+      }
+    >
+      {title}
+    </h1>
+  );
+
+  const ledeEl = lede ? (
+    <p
+      className={
+        dark ? "text-lede text-oa-nightInk2" : "max-w-2xl text-oa-ink2"
+      }
+    >
+      {lede}
+    </p>
+  ) : null;
+
+  const rest = (
+    <>
+      {bullets && bullets.length > 0 && (
+        <ul className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+          {bullets.map((b) => (
+            <li
+              key={b}
+              className={`flex items-start gap-2.5 ${
+                dark ? "text-oa-nightInk2" : "text-oa-ink2"
+              }`}
+            >
+              <span
+                className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${
+                  dark ? "bg-oa-orange" : "bg-oa-blue"
+                }`}
+                aria-hidden="true"
+              />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {(primary || secondary) && (
+        <div
+          className={`flex flex-col gap-3 sm:flex-row ${dark ? "mt-9" : "mt-7"}`}
+        >
+          {primary && (
+            <PrimaryCTA
+              to={primary.to}
+              href={primary.href}
+              download={primary.download}
+            >
+              {primary.label}
+            </PrimaryCTA>
+          )}
+          {secondary && (
+            <SecondaryCTA
+              to={secondary.to}
+              href={secondary.href}
+              download={secondary.download}
+              tone={dark ? "dark" : "light"}
+            >
+              {secondary.label}
+            </SecondaryCTA>
+          )}
+        </div>
+      )}
+
+      {children}
+
+      {meta && meta.length > 0 && <MetaLine meta={meta} dark={dark} />}
+    </>
+  );
+
+  /* ---- UTILITY: paper, compact, no dark band at all. -------------------- */
+  if (!dark) {
+    return (
+      <section className="relative border-b border-oa-hairline bg-oa-surface">
+        <HeroRail crumbs={crumbs} dark={false} />
+        <div className="mx-auto max-w-[1200px] px-4 py-9 sm:px-6 md:py-11 lg:px-8">
+          {heading}
+          {ledeEl && <div className="mt-4">{ledeEl}</div>}
+          {rest}
+        </div>
+      </section>
+    );
+  }
+
+  /* ---- NIGHT: service, industry, company. ------------------------------- */
   return (
     <section className="relative overflow-hidden bg-oa-night">
       <div
@@ -440,114 +944,132 @@ export function PageHero({
         }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 pointer-events-none" style={GRAIN} aria-hidden="true" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={GRAIN}
+        aria-hidden="true"
+      />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 lg:pt-28 pb-16 md:pb-20">
-        {/* 7/5 split when a panel is supplied, otherwise the original single
-            column. The panel drops below the text on anything under lg. */}
-        <div
-          className={
-            panel
-              ? "grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14"
-              : ""
-          }
-        >
-        <div className={panel ? "" : "max-w-4xl"}>
-          {/* Eyebrow not rendered — see the note in SectionHeading above. Same
-              reasoning applies to the page hero, where the kicker sits directly
-              over the h1 and is the first thing a visitor reads. */}
-          <h1 className="text-h1 font-semibold text-oa-nightInk">
-            {title}
-          </h1>
-          {lede && (
-            <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">{lede}</p>
-          )}
+      <HeroRail crumbs={crumbs} dark />
 
-          {bullets && bullets.length > 0 && (
-            <ul className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2.5 text-oa-nightInk2">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-oa-orange"
-                    aria-hidden="true"
-                  />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {(primary || secondary) && (
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              {primary && (
-                <PrimaryCTA
-                  to={primary.to}
-                  href={primary.href}
-                  download={primary.download}
-                >
-                  {primary.label}
-                </PrimaryCTA>
-              )}
-              {secondary && (
-                <SecondaryCTA
-                  to={secondary.to}
-                  href={secondary.href}
-                  download={secondary.download}
-                >
-                  {secondary.label}
-                </SecondaryCTA>
-              )}
-            </div>
-          )}
-
-          {children}
-        </div>
-
-        {panel && (
-          <aside className="rounded-xl border border-white/12 bg-white/[0.04] p-7 backdrop-blur-sm">
-            <h2 className="text-sm font-semibold text-oa-nightInk">
-              {panel.title}
-            </h2>
-            <ul className="mt-5 space-y-3.5 border-t border-white/10 pt-5">
-              {panel.items.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <svg
-                    className="mt-1 h-4 w-4 shrink-0 text-oa-orange"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M3 8.5l3.5 3.5L13 4.5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span className="text-sm leading-relaxed text-oa-nightInk2">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {panel.footer && panel.footer.length > 0 && (
-              <ul className="mt-6 space-y-1.5 border-t border-white/10 pt-5">
-                {panel.footer.map((f) => (
-                  <li
-                    key={f}
-                    className="font-mono text-[11px] uppercase tracking-wider text-oa-nightInk3"
-                  >
-                    {f}
-                  </li>
-                ))}
-              </ul>
+      {/* Tighter than the old pt-20/24/28 pb-16/20: the rail above and the
+          terminal strip below now carry height that the padding used to fake. */}
+      <div
+        className={`relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 ${
+          kind === "industry" ? "pb-10 md:pb-12" : "pb-12 md:pb-16"
+        }`}
+      >
+        {/* INDUSTRY: no right-hand panel, so the headline row would leave the
+            right 45% of a 1200px container as bare navy - the exact "there
+            should be a photograph here" hole the panel was invented to fill.
+            The lede moves there instead, tapped off the headline column by a
+            short vertical hairline. Nothing new is written; the same sentence
+            simply sits beside the headline rather than under it. */}
+        {kind === "industry" ? (
+          /* Explicit row/column placement rather than source order, so a phone
+             reads headline -> lede -> buttons (you are told what this is before
+             you are asked to act) while 1024px+ puts the lede beside the
+             headline. Source order is the mobile order. */
+          <div className="grid gap-x-14 gap-y-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-y-0">
+            <div className="lg:col-start-1 lg:row-start-1">{heading}</div>
+            {ledeEl && (
+              <div className="lg:col-start-2 lg:row-start-1 lg:self-end lg:border-l lg:border-white/15 lg:pl-10">
+                {ledeEl}
+              </div>
             )}
-          </aside>
+            <div className="lg:col-start-1 lg:row-start-2">{rest}</div>
+          </div>
+        ) : (
+          <div
+            className={
+              showCard
+                ? `grid gap-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14 ${
+                    /* Company keeps the boxed card and top-aligns it. Service
+                       stretches, so the panel's rule runs the full height of
+                       the hero body and the space under a short headline reads
+                       as a column rather than as a gap someone forgot. */
+                    kind === "company" ? "items-start" : "items-stretch"
+                  }`
+                : ""
+            }
+          >
+            <div className={showCard ? "" : "max-w-4xl"}>
+              {heading}
+              {ledeEl && <div className="mt-6 max-w-2xl">{ledeEl}</div>}
+              {rest}
+            </div>
+
+            {showCard && panel && (
+              <aside
+                className={
+                  kind === "company"
+                    ? "rounded-xl border border-white/12 bg-white/[0.04] p-7"
+                    : /* Ruled column, not a box. Depth from a hairline and a
+                         surface step is the site's rule; a second rounded
+                         rectangle on a page already full of them is not. */
+                      "border-t border-white/15 pt-7 lg:h-full lg:border-l lg:border-t-0 lg:pl-10 lg:pt-1"
+                }
+              >
+                <h2 className="text-sm font-semibold text-oa-nightInk">
+                  {panel.title}
+                </h2>
+                <ul className="mt-5 space-y-3.5 border-t border-white/10 pt-5">
+                  {panel.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <svg
+                        className="mt-1 h-4 w-4 shrink-0 text-oa-orange"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 8.5l3.5 3.5L13 4.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-oa-nightInk2">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {cardFooter && cardFooter.length > 0 && (
+                  <ul className="mt-6 space-y-1.5 border-t border-white/10 pt-5">
+                    {cardFooter.map((f) => (
+                      <li
+                        key={f}
+                        className="font-mono text-xs uppercase tracking-wider text-oa-nightInk3"
+                      >
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </aside>
+            )}
+          </div>
         )}
-        </div>
       </div>
+
+      {kind === "service" && (
+        <SiblingWire
+          label="Also in Services"
+          pages={SERVICE_PAGES}
+          currentPath={path}
+        />
+      )}
+      {kind === "industry" && panel && (
+        <ScopeStrip
+          title={panel.title}
+          items={panel.items}
+          footer={panel.footer}
+        />
+      )}
+      {kind === "company" && <IdentifierRail />}
     </section>
   );
 }

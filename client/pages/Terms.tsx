@@ -32,20 +32,20 @@ export default function Terms() {
 
   return (
     <Layout>
+      {/* Date moved into the hero's meta record - same reasoning as Privacy.
+          The date itself is untouched. */}
       <PageHero
         eyebrow="Legal"
         title="Terms & Conditions — Using the OneAlgorithm Website"
+        meta={[
+          { label: "Document", value: "OneAlgorithm Terms & Conditions" },
+          { label: "Last updated", value: "1/16/2025" },
+        ]}
       />
 
       <Section tone="paper">
         <Prose>
-          <p className="text-lede text-oa-ink">
-            <strong>OneAlgorithm</strong>
-            <br />
-            Last updated: 1/16/2025
-          </p>
-
-          <h2 className={`${HEADING} pt-6`}>Acceptance of Terms</h2>
+          <h2 className={HEADING}>Acceptance of Terms</h2>
           <p>
             By accessing or using the OneAlgorithm website (the "Site"), you
             agree to be bound by these Terms &amp; Conditions and all applicable
