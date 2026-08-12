@@ -65,8 +65,39 @@
       window.trackFormSubmission = function () {
         if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
         gtag("event", "generate_lead", {
+          method: "form",
           form_id: "contact",
           page_location: location.href
+        });
+      };
+
+      // Phone and email clicks, added 2026-08-12.
+      //
+      // The stated goal of this business is "we want our phone ringing", and
+      // until now a phone click was the one conversion the site could not see.
+      // A form submission fired generate_lead; tapping the number on a mobile
+      // fired nothing at all, so every call the website produced was
+      // attributed to nowhere — the same blind spot the form had before
+      // trackFormSubmission was defined.
+      //
+      // Deliberately the SAME event name as the form, separated by `method`.
+      // A tapped phone number is a lead by any definition that matters here, so
+      // it should sit in the same conversion count rather than a parallel one
+      // nobody remembers to look at — while `method` still allows splitting
+      // phone from email from form in a report.
+      //
+      // ⚠️ Sending the event is necessary but NOT sufficient: generate_lead has
+      // to be marked as a key event in the GA4 admin before it counts as a
+      // conversion. That is a setting in GA4, not something this file can do.
+      //
+      // No preventDefault and no delay. A tel: link must dial instantly; the
+      // beacon transport survives the navigation on its own.
+      window.trackContactClick = function (method) {
+        if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
+        gtag("event", "generate_lead", {
+          method: method,
+          page_location: location.href,
+          transport_type: "beacon"
         });
       };
     </script>
@@ -82,6 +113,21 @@
     <meta name="author" content="OneAlgorithm" />
 
     <!-- Canonical URL -->
+    <!-- Preload the body face. It is self-hosted and on the critical path, but
+         the browser cannot discover it until it has downloaded and parsed the
+         CSS that declares the @font-face — so without this, first paint uses
+         the fallback and then swaps, which is the flash of unstyled text.
+         `crossorigin` is required on font preloads even for same-origin files:
+         fonts are fetched in CORS mode, and omitting it makes the browser fetch
+         the file a SECOND time rather than reuse the preloaded one. -->
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <link rel="canonical" href="https://onealgorithm.com/" />
 
     <!-- Sitemap for Search Engines and AI Crawlers -->

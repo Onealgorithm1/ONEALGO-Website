@@ -128,10 +128,14 @@ export default {
       },
       fontFamily: {
         // The site shipped with no fontFamily at all, so everything rendered in
-        // Segoe UI / SF. Instrument Sans is a variable grotesque: serious enough
-        // for a government reader, current enough not to read as a template.
+        // Segoe UI / SF. IBM Plex Sans replaced Instrument Sans on 2026-08-12 --
+        // see the note in client/global.css. Short version: Instrument Sans was
+        // flagged by name as one of the faces AI-generated UIs converge on, and
+        // it was carrying ~90% of the text on every page. Plex was drawn for
+        // technical communication, which is what this site is, and it pairs with
+        // the JetBrains Mono already used for the identifier strip.
         sans: [
-          "Instrument Sans",
+          "IBM Plex Sans",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",

@@ -7,9 +7,30 @@
    Self-hosted rather than fetched from Google, so there is no third-party
    request on the critical path and no dependency to keep in the lockfile. */
 
+/* IBM Plex Sans, replacing Instrument Sans on 2026-08-12.
+ *
+ * Instrument Sans was not bad -- it was ANONYMOUS. A design-quality detector
+ * flagged it by name: "Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans and
+ * Space Grotesk are used on so many sites they no longer feel distinctive. Each
+ * new wave of AI-generated UIs converges on the same handful of faces." It was
+ * carrying ~90% of the text on every page, so it was the single largest
+ * contributor to the site reading as machine-made.
+ *
+ * Plex was chosen over the alternatives for a reason that outlives fashion: IBM
+ * commissioned it for technical and engineering communication, and this site
+ * publishes a CAGE code, fails its own build on a contrast regression and
+ * prints its own Lighthouse scores. The face and the argument match.
+ *
+ * It also completes a pairing that was already half-shipped -- JetBrains Mono
+ * was already self-hosted below, and a mono beside a technical grotesque makes
+ * the identifier strip read as deliberate rather than as a default.
+ *
+ * 45KB against 29KB for Instrument Sans; with the mono that is 85KB of a 120KB
+ * budget. SIL Open Font License, self-hosted like the others -- no Google Fonts
+ * request on the critical path and nothing to keep in the lockfile. */
 @font-face {
-  font-family: "Instrument Sans";
-  src: url("/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2-variations");
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2-variations");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
