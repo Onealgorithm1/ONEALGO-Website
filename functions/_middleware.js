@@ -25,10 +25,34 @@
 const PRODUCTION_HOSTS = new Set(["onealgorithm.com", "www.onealgorithm.com"]);
 
 export async function onRequest({ request, next }) {
-  const response = await next();
-  const { hostname } = new URL(request.url);
+  const url = new URL(request.url);
+  const { hostname } = url;
+  const isPreview = !PRODUCTION_HOSTS.has(hostname);
 
-  if (!PRODUCTION_HOSTS.has(hostname)) {
+  /* The blog only exists on the production zone.
+     /blog is served by the `oa-blog-debrand` Worker, which proxies Ghost and is
+     bound to a route on onealgorithm.com — that route intercepts before Pages
+     is reached. A pages.dev preview is not in that zone, so no Worker runs and
+     Pages answers /blog with its own 404. `public/_redirects` deliberately has
+     no rule for it, and says so.
+
+     Nothing is broken, but on a preview the header's Careers link 301s to
+     /blog/tag/careers/ and lands on a 404, which reads exactly like a
+     regression to anyone reviewing the site. Sending blog paths to the live
+     blog keeps the navigation honest during review.
+
+     Preview hosts only. On production this branch never runs and the Worker
+     handles /blog exactly as it does today. */
+  if (isPreview && url.pathname.startsWith("/blog")) {
+    return Response.redirect(
+      `https://onealgorithm.com${url.pathname}${url.search}`,
+      302, // temporary: this is an artifact of previewing, not a real rule
+    );
+  }
+
+  const response = await next();
+
+  if (isPreview) {
     // Clone before mutating: the response from next() may have immutable
     // headers when it comes from the static asset handler.
     const out = new Response(response.body, response);
