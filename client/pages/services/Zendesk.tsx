@@ -35,10 +35,23 @@ import {
  * visible nowhere on the page while still sitting in the meta description. It
  * is back, once, in the hero lede.
  *
- * TKTK - the Salesforce partnership on /services/salesforce names its
- * AppExchange listing id so a reader can look it up. This one has no equivalent
- * reference in the repository: no Zendesk partner directory URL, no partner id.
- * Get one and the sentence becomes checkable rather than merely asserted.
+ * "CERTIFIED" WAS DROPPED, 2026-08-12. The partnership is real and documented:
+ * a signed Zendesk Partner Agreement (SharePoint, 08_Contracts/
+ * Partners_and_Subcontractors/Zendesk, executed May 2026), a completed Zendesk
+ * Global Due Diligence Questionnaire signed 20 May 2026, and ongoing partner
+ * enablement with a Zendesk account team. So "Zendesk partner" is supported.
+ *
+ * "Certified" is a different word. Zendesk uses it for individual exam-based
+ * credentials, and nothing in the record shows anyone here holds one. Signing a
+ * partner agreement makes you a partner, not a certified one, and on a site
+ * whose whole argument is that its claims can be checked, the stronger move is
+ * the smaller word.
+ *
+ * STILL OPEN: /services/salesforce names its AppExchange listing id, so a
+ * reader can look it up without asking. There is no equivalent public
+ * reference here -- Zendesk's partner directory could not be verified from
+ * this machine. If OneAlgorithm appears in it, link the listing and this
+ * becomes checkable rather than merely true.
  *
  * The capability copy was the least generic on the site and is kept in the same
  * order; each body now names the actual Zendesk object it means (triggers,
@@ -87,13 +100,13 @@ export default function Zendesk() {
   useSEO({
     title: "OneAlgorithm — Zendesk Implementation & Support",
     description:
-      "Zendesk Implementation & Support from OneAlgorithm — setup, configuration, support workflow design, automation, knowledge base, reporting, and Salesforce/CRM integration. One Algorithm is a certified Zendesk partner.",
+      "Zendesk Implementation & Support from OneAlgorithm — setup, configuration, support workflow design, automation, knowledge base, reporting, and Salesforce/CRM integration. One Algorithm is a Zendesk partner.",
     canonical: getCanonicalUrl("/services/zendesk"),
     keywords:
       "Zendesk implementation, Zendesk support, Zendesk configuration, Zendesk automation, Zendesk Salesforce integration, customer support software, help desk setup",
     ogTitle: "OneAlgorithm — Zendesk Implementation & Support",
     ogDescription:
-      "Implement, configure, integrate, and optimize Zendesk for customer support and service operations. Certified Zendesk partner.",
+      "Implement, configure, integrate, and optimize Zendesk for customer support and service operations. Zendesk partner.",
     ogUrl: getCanonicalUrl("/services/zendesk"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Zendesk Implementation & Support — OneAlgorithm",
@@ -114,14 +127,14 @@ export default function Zendesk() {
       />
 
       <PageHero
-        eyebrow="Certified Zendesk partner"
+        eyebrow="Zendesk partner"
         title={
           <>
             <span className="text-oa-orange">Zendesk</span> Implementation &amp;
             Support
           </>
         }
-        lede="We're a certified Zendesk partner. We set Zendesk up, build the ticket workflow around how your team already works, automate the routing, and connect it to the CRM you already run — so support and sales stop emailing each other for context."
+        lede="We're a Zendesk partner, under a partner agreement signed in 2026. We set Zendesk up, build the ticket workflow around how your team already works, automate the routing, and connect it to the CRM you already run — so support and sales stop emailing each other for context."
         // Panel items are the CAPABILITIES card titles from further down this
         // page, verbatim. No hero bullets existed here and nothing new was
         // written.

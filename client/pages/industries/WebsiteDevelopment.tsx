@@ -1,156 +1,158 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { Monitor, Smartphone, Zap, Search, Shield, Palette } from "lucide-react";
 import {
   PageHero,
   Section,
   SectionHeading,
   Card,
   CardGrid,
+  Prose,
+  Split,
   CTABand,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 
-/* Website development industry page - 2026 refresh.
+/* Website development (industry) - copy rewritten and page cut down 2026-08-12.
  *
- * Beyond the visual system:
+ * THE DUPLICATE PROBLEM, RESOLVED THE OTHER WAY
  *
- *  1. The closing "Schedule a Consultation" button was inert - no asChild, no
- *     to, no onClick. It was the only conversion point in that block and it did
- *     nothing. It is now the primary CTA on the closing band and goes to
- *     /contact.
- *  2. The page was near-verbatim identical to /services/website-development.
- *     The copy is unchanged; the framing now reads as "you are buying a site,
- *     here is what you get", and the hero links across to the service page.
- *  3. The generic blue-500 accent on icons, hover borders and ticks was not the
- *     brand blue. Icons are now brand blue; the tick rows became cards so the
- *     bold lead-ins survive without a coloured bullet.
+ * This page carried Modern Design / Responsive Development / Performance
+ * Optimized / SEO Ready / Secure & Reliable / Custom Solutions - the exact six
+ * commodity features that were deleted from /services/website-development on
+ * 2026-08-12 for being table stakes ("in 2026 that is a restaurant advertising
+ * food"). They survived here only because nobody looked at this file the same
+ * day. They are gone now.
  *
- * No claim on this page changed. See REDESIGN-NOTES.md.
+ * WHY THE PAGE IS KEPT RATHER THAN GUTTED TO A REDIRECT
+ *
+ * There is exactly one thing an industry-flavoured web page can say that the
+ * service page cannot: what changes between sectors. The build is the same
+ * build; what differs is what the site has to connect to and which standard it
+ * is measured against. That is four short paragraphs, it is true, and it links
+ * to the four industry pages - which is also the only internal-linking job this
+ * page was ever going to do well.
+ *
+ * Everything else defers to /services/website-development, which is the best
+ * page on this site and prints its own Lighthouse scores.
  */
 
-const FEATURES = [
+const BY_SECTOR = [
   {
-    icon: Monitor,
-    title: "Modern Design",
-    body: "Clean, professional websites that reflect your brand and engage your audience.",
+    title: "Construction",
+    body: "The site is usually the smallest part. What takes the time is the owner-facing project pages and the subcontractor portal behind the login, and whether either can read from the systems that hold the job data.",
+    to: "/industries/construction",
   },
   {
-    icon: Smartphone,
-    title: "Responsive Development",
-    body: "Websites that work perfectly across all devices and screen sizes.",
+    title: "Manufacturing",
+    body: "Product and specification catalogues that have to stay in step with the system of record, rather than being retyped into a CMS twice a year and quietly going stale.",
+    to: "/industries/manufacturing",
   },
   {
-    icon: Zap,
-    title: "Performance Optimized",
-    body: "Fast-loading websites built for optimal user experience and search rankings.",
+    title: "E-commerce",
+    body: "The store is a platform decision made before we arrive. The build work is the surrounding pages, the joins to stock and support, and keeping the whole thing fast enough that the checkout is not the slow part.",
+    to: "/industries/ecommerce",
   },
   {
-    icon: Search,
-    title: "SEO Ready",
-    body: "Built with search engine optimization best practices from the ground up.",
-  },
-  {
-    icon: Shield,
-    title: "Secure & Reliable",
-    body: "Enterprise-grade security and reliable hosting for peace of mind.",
-  },
-  {
-    icon: Palette,
-    title: "Custom Solutions",
-    body: "Tailored functionality and integrations to meet your specific business needs.",
-  },
-];
-
-const BENEFITS = [
-  {
-    title: "Professional Results",
-    body: "Clean, modern designs that establish credibility and trust.",
-  },
-  {
-    title: "Better Performance",
-    body: "Fast-loading, optimized websites improve user experience and search rankings.",
-  },
-  {
-    title: "Mobile-First Design",
-    body: "Responsive layouts ensure your site works perfectly on all devices.",
-  },
-  {
-    title: "Custom Functionality",
-    body: "Tailored solutions that meet your unique business requirements.",
+    title: "Government and public sector",
+    body: "Section 508 and WCAG conformance stop being a preference and become the acceptance criteria. We already run WCAG AA contrast as a build gate on our own site, so this is the sector where our habits cost a buyer nothing extra.",
+    to: "/industries/government",
   },
 ];
 
 export default function WebsiteDevelopment() {
   useSEO({
-    title: "Website Development Solutions — OneAlgorithm",
+    title: "Website Development by Sector — OneAlgorithm",
     description:
-      "Modern design, responsive builds, performance, SEO, and security for business websites.",
+      "The build is the same build in every sector. What changes is what the site connects to and which accessibility standard it is measured against. Website development from a small IT consultancy in Malvern, PA.",
     canonical: getCanonicalUrl("/industries/website-development"),
-    ogTitle: "Website Development Solutions — OneAlgorithm",
+    keywords:
+      "website development by industry, accessible website development, WCAG AA website build, subcontractor portal development, public sector website accessibility",
+    ogTitle: "Website Development by Sector — OneAlgorithm",
     ogDescription:
-      "Fast, secure, and SEO‑ready websites tailored to your needs.",
+      "What actually changes between sectors in a website project — and what does not.",
     ogUrl: getCanonicalUrl("/industries/website-development"),
   });
 
   return (
     <Layout>
       <PageHero
-        eyebrow="Industries — Website Development"
         title={
           <>
-            Website Development{" "}
-            <span className="text-oa-orange">Solutions</span>
+            Website development:{" "}
+            <span className="text-oa-orange">what changes between sectors</span>
           </>
         }
-        lede="Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications."
-        // Panel is the feature grid's own titles, read off the same array. No
-        // new capability appears here that the page does not already describe.
+        lede="Mostly, nothing. The same standards apply whoever you are, and they are set out on our website development service page, with the scores measured on it. What genuinely differs is what the site has to connect to, and who is allowed to reject it."
         panel={{
-          title: "What you get",
-          items: FEATURES.map((f) => f.title),
+          title: "Constant in every sector",
+          items: [
+            "WCAG AA contrast enforced at build time",
+            "Content readable without JavaScript",
+            "Zero measured layout shift",
+            "You own the code, assets and accounts",
+          ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{
-          label: "View development services",
+          label: "Development services",
           to: "/services/website-development",
         }}
       />
 
       <Section tone="paper">
         <SectionHeading
-          eyebrow="What you get"
-          title="Website Development Features"
-          lede="Comprehensive web development services that create digital experiences designed to engage users and drive results."
+          title="What actually differs"
+          lede="Four sectors we work in, and the part of a web project that changes shape in each."
         />
-
-        <CardGrid columns={3} className="mt-12">
-          {FEATURES.map((f) => (
-            <Card key={f.title} icon={f.icon} title={f.title} body={f.body} />
+        <CardGrid columns={2} className="mt-12">
+          {BY_SECTOR.map((s) => (
+            <Card key={s.title} title={s.title} body={s.body} to={s.to} />
           ))}
         </CardGrid>
       </Section>
 
       <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Why OneAlgorithm"
-          title="Why Choose Our Web Development Services?"
+        <Split
+          left={<SectionHeading title="The rest of it is on one page" />}
+          right={
+            <Prose>
+              <p>
+                Our{" "}
+                <Link
+                  className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                  to="/services/website-development"
+                >
+                  website development page
+                </Link>{" "}
+                is the argument, and it is deliberately unusual: it publishes
+                the Lighthouse scores measured on itself, including the one that
+                is worse, and asks you to open DevTools and check. That is a
+                better use of your time than a second page describing
+                responsiveness.
+              </p>
+              <p>
+                Two things it also says, which belong here as well. We have no
+                published client work on this site yet — one client site is on a
+                preview the client has not signed off, and we will not publish
+                someone else&rsquo;s site as a portfolio piece before they say
+                we can. And you own everything: the code, the assets and the
+                accounts, with no page builder you cannot leave.
+              </p>
+            </Prose>
+          }
         />
-
-        <CardGrid columns={2} className="mt-12">
-          {BENEFITS.map((b) => (
-            <Card key={b.title} title={b.title} body={b.body} />
-          ))}
-        </CardGrid>
       </Section>
 
-      {/* The "Schedule a Consultation" label is kept - it is the one the old
-          page used - but the button now actually goes somewhere. */}
       <CTABand
-        title="Ready to Build Your Website?"
-        body="Let's create a website that represents your brand and drives business results."
-        primary={{ label: "Schedule a Consultation", to: "/contact" }}
+        title="Bring us something that has to work"
+        body="A rebuild, a site that fails an accessibility audit, or a build nobody can maintain. Tell us what is actually wrong with it and we will tell you what we would do."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{
+          label: "Development services",
+          to: "/services/website-development",
+        }}
       />
     </Layout>
   );

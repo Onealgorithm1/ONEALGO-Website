@@ -1,133 +1,194 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import { Factory, Cog, BarChart3, Shield, Clock, Zap } from "lucide-react";
+import {
+  Cpu,
+  Network,
+  Database,
+  ShieldCheck,
+  Boxes,
+  Users,
+} from "lucide-react";
 import {
   PageHero,
   Section,
   SectionHeading,
   Card,
   CardGrid,
-  CheckList,
+  Prose,
+  Split,
   CTABand,
 } from "../../components/site";
 
-/* Manufacturing - 2026 refresh.
+/* Manufacturing - copy rewritten 2026-08-12.
  *
- * Presentation only: the copy is carried over unchanged. This page was the
- * worst of the three for off-brand colour - green-500 was doing the job of the
- * brand orange in the hero, the CTA, the feature hovers and the tick discs.
+ * WHAT WAS WRONG WITH THIS PAGE
  *
- * Section order is inverted relative to construction: the outcome list leads
- * and the feature grid follows, so the two pages do not read as one template
- * with the nouns swapped.
+ * Six feature cards describing a manufacturing product suite this firm does not
+ * sell - "Predictive maintenance scheduling to prevent equipment failures",
+ * "Real-time quality control monitoring and defect tracking" - followed by four
+ * outcome claims ("Increase Efficiency", "Prevent Downtime") with nothing
+ * behind them. No plant, no engagement and no number anywhere in this
+ * repository supports any of it.
+ *
+ * WHY THIS PAGE STILL DESERVES TO EXIST
+ *
+ * Of the four commercial industry pages this one has the strongest claim: the
+ * Operations Technology service is genuinely plant-facing (SCADA, industrial
+ * IoT, OT security, maintenance systems) and Oracle ERP is genuinely a
+ * manufacturer's back office. So the page now describes those two services
+ * where they meet, and says outright that predictive maintenance is a data
+ * question before it is a product.
+ *
+ * Every capability named below maps to /services/operations-technology or
+ * /services/oracle-erp. Nothing new was invented, and the outcome claims are
+ * gone rather than rewritten.
  */
 
-const FEATURES = [
+const WORK = [
   {
-    icon: BarChart3,
-    title: "Production Tracking",
-    body: "Track production, inventory, and supply chain activity in one unified platform.",
+    icon: Network,
+    title: "Getting data off the equipment",
+    body: "Most plants already emit far more than anyone reads. The work is getting it off the line and into something a person looks at weekly — sensors, historians and industrial IoT integration before anything called a dashboard.",
   },
   {
-    icon: Cog,
-    title: "Workflow Automation",
-    body: "Automated workflows reduce downtime and optimize capacity planning.",
+    icon: ShieldCheck,
+    title: "The boundary between OT and IT",
+    body: "Plant networks and business systems have different uptime rules, different security models and often different owners. We work both sides, and we treat the boundary as the actual project rather than a wiring detail.",
   },
   {
-    icon: Shield,
-    title: "Quality Control",
-    body: "Real-time quality control monitoring and defect tracking.",
+    icon: Database,
+    title: "Oracle ERP, full lifecycle",
+    body: "Finance, supply chain and operations: readiness assessment, configuration, data migration, go-live, and the hypercare and support that follow it.",
   },
   {
-    icon: Clock,
-    title: "Predictive Maintenance",
-    body: "Predictive maintenance scheduling to prevent equipment failures.",
+    icon: Cpu,
+    title: "SCADA and industrial automation",
+    body: "Supervisory control and data acquisition, automated line processes, and edge processing where the round trip to a data centre is too slow to be useful.",
   },
   {
-    icon: Zap,
-    title: "Resource Optimization",
-    body: "Resource optimization ensures maximum efficiency and minimal waste.",
+    icon: Boxes,
+    title: "Maintenance systems, honestly scoped",
+    body: "Before a model can tell you a bearing is going, something has to have been recording that bearing for long enough to know what normal looks like. Often that record does not exist yet, and we would rather say so than sell a pilot.",
   },
   {
-    icon: Factory,
-    title: "Connected Systems",
-    body: "Integrated systems provide live data insights across all operations.",
+    icon: Users,
+    title: "Engineers added to your team",
+    body: "Integration and platform people working inside your team, on your tools, for a sprint or for a year — including through a go-live when your own staff still have a plant to run.",
   },
-];
-
-const BENEFITS = [
-  "Increase Efficiency: streamlined workflows and automated processes reduce waste and maximize output.",
-  "Prevent Downtime: predictive maintenance and real-time monitoring keep equipment running smoothly.",
-  "Improve Quality: continuous monitoring and defect tracking ensure consistent product quality.",
-  "Data-Driven Decisions: real-time analytics provide insights for continuous improvement.",
 ];
 
 export default function Manufacturing() {
   useSEO({
-    title: "Manufacturing Solutions — OneAlgorithm",
+    title: "Manufacturing Technology, OT and ERP — OneAlgorithm",
     description:
-      "Production tracking, workflow automation, quality control, and predictive maintenance for manufacturers.",
+      "Operations technology and ERP work for manufacturers: SCADA, industrial IoT, OT security, and full-lifecycle Oracle ERP. A small IT consultancy in Malvern, PA.",
     canonical: getCanonicalUrl("/industries/manufacturing"),
-    ogTitle: "Manufacturing Solutions — OneAlgorithm",
+    keywords:
+      "manufacturing technology consulting, operations technology, SCADA integration, industrial IoT, OT security, Oracle ERP for manufacturers, plant floor systems integration",
+    ogTitle: "Manufacturing Technology, OT and ERP — OneAlgorithm",
     ogDescription:
-      "Integrated systems delivering live data insights across operations.",
+      "Plant-floor operations technology and the ERP work behind it — and a plain account of what we have not done.",
     ogUrl: getCanonicalUrl("/industries/manufacturing"),
   });
 
   return (
     <Layout>
       <PageHero
-        eyebrow="Manufacturing"
         title={
           <>
-            Manufacturing <span className="text-oa-orange">solutions</span>
+            Manufacturing:{" "}
+            <span className="text-oa-orange">
+              the plant floor and the systems behind it
+            </span>
           </>
         }
-        lede="Boost efficiency with connected systems, streamlined production workflows, and live data insights."
-        // Panel is the feature grid's own titles, read off the same array. No
-        // new capability appears here that the page does not already describe.
+        lede="We do two kinds of work for manufacturers. Operations technology on the floor — SCADA, industrial IoT, OT security, maintenance systems — and the ERP and integration work behind it. Usually the data already exists; it just stops at the machine."
         panel={{
-          title: "What you get",
-          items: FEATURES.map((f) => f.title),
+          title: "What that means in practice",
+          items: [
+            "SCADA and industrial IoT integration",
+            "OT-to-IT network and security work",
+            "Oracle ERP implementation and support",
+            "Production reporting from real sources",
+            "Maintenance systems, scoped honestly",
+            "Engineers added to your team",
+          ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "All industries", to: "/industries" }}
       />
 
-      <Section tone="surface">
-        <SectionHeading
-          eyebrow="Why us"
-          title="Why choose our manufacturing solutions?"
-        />
-        <div className="mt-10 max-w-3xl">
-          <CheckList items={BENEFITS} />
-        </div>
-      </Section>
-
       <Section tone="paper">
         <SectionHeading
-          eyebrow="What you get"
-          title="Manufacturing management features"
-          lede="Advanced tools designed to optimize production processes and increase operational efficiency."
+          title="Six things we get called about"
+          lede="Each is a service on this site. What changes in a plant is what sits on the other end: a PLC, a historian, a line that cannot be stopped for a migration."
         />
         <CardGrid columns={3} className="mt-12">
-          {FEATURES.map((feature) => (
-            <Card
-              key={feature.title}
-              icon={feature.icon}
-              title={feature.title}
-              body={feature.body}
-            />
+          {WORK.map((w) => (
+            <Card key={w.title} icon={w.icon} title={w.title} body={w.body} />
           ))}
         </CardGrid>
+
+        <p className="mt-10 max-w-[68ch] text-oa-ink2">
+          The full descriptions live on{" "}
+          <Link
+            className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+            to="/services/operations-technology"
+          >
+            operations technology
+          </Link>{" "}
+          and{" "}
+          <Link
+            className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+            to="/services/oracle-erp"
+          >
+            Oracle ERP
+          </Link>
+          .
+        </p>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <Split
+          left={<SectionHeading title="What we are not" />}
+          right={
+            <Prose>
+              <p>
+                We are not an MES or a quality-management product, and we do not
+                resell one. We work on the equipment, networks and business
+                systems you already run.
+              </p>
+              <p>
+                We have published no manufacturing case study and we will not
+                imply one. One Algorithm is a small IT consultancy in Malvern,
+                Pennsylvania, founded in 2020, and the plant and enterprise
+                experience behind this work was earned by the team as employees
+                at larger organizations — set out on our{" "}
+                <Link
+                  className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                  to="/about"
+                >
+                  about page
+                </Link>
+                .
+              </p>
+              <p>
+                The useful conversation is a specific one: which line, which
+                system, and what happens today when the two disagree.
+              </p>
+            </Prose>
+          }
+        />
       </Section>
 
       <CTABand
-        title="Ready to optimize production?"
-        body="Discover how our manufacturing solutions can transform your operations and increase efficiency."
+        title="Tell us where the data stops"
+        body="At the machine, at the historian, or at the ledger. Bring one line and the report someone builds by hand about it, and we will tell you what it would take to close that gap."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "All industries", to: "/industries" }}
       />
     </Layout>
   );

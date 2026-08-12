@@ -22,43 +22,51 @@ import {
   createWebPageSchema,
 } from "../components/StructuredData";
 
-/* Industries hub - 2026 refresh.
+/* Industries hub - 2026 refresh, copy rewritten 2026-08-12.
  *
- * Three substantive changes beyond the visual system:
+ * Three structural changes were made in the refresh: one shared <Card> instead
+ * of two card designs, GOVERNMENT added (the nav linked it, the hub did not),
+ * and the Government card phrased strictly as eligibility because the firm has
+ * NOT been awarded a government contract. The hero pill - "combined 40+ years of
+ * sector experience | Avg. 30-40% efficiency improvements post-implementation" -
+ * was dropped as two unsourced numbers in a proof-shaped box.
  *
- *  1. The grid was visually inconsistent - three cards used `border-2` and the
- *     two later additions used `border-0 shadow-lg`, so the same grid carried
- *     two card designs. All six are now the one shared <Card>.
- *  2. GOVERNMENT was missing. The nav links /industries/government and the page
- *     exists, but the hub a visitor actually browses had no route in.
- *  3. ELIGIBILITY IS NOT EXPERIENCE. The firm is SBA-certified WOSB/EDWOSB and
- *     SAM registered but has NOT been awarded a government contract, so the
- *     Government card is phrased as eligibility and registration only. It uses
- *     the same wording as the homepage. Nothing here claims federal delivery.
+ * THE COPY PASS, 2026-08-12
  *
- * Copy is carried over. The one claim dropped is the hero pill - "combined 40+
- * years of sector experience | Avg. 30-40% efficiency improvements
- * post-implementation" - two unsourced numbers in a proof-shaped box, the same
- * pattern removed from the services hub. See REDESIGN-NOTES.md.
+ * "Deep understanding of your industry's operational challenges, compliance
+ * requirements, and competitive pressures" was the hero lede, and the same
+ * sentence again as the section lede. It asserts sector expertise this firm
+ * cannot evidence - there is no case study, no named client engagement and no
+ * sector practice anywhere in this repository - on the exact page where a
+ * visitor is deciding whether we know their world.
+ *
+ * The replacement says what is true: one consultancy, the same services, and
+ * six pages that each state plainly where that lands and where it stops. Two of
+ * the six are not industries at all, and the page now admits that rather than
+ * padding the grid to look like a sector practice.
+ *
+ * Card bodies are written to match the rewritten pages behind them. The
+ * Government line is left VERBATIM because it is deliberately identical to the
+ * homepage's; do not "improve" one copy of it.
  */
 
 const INDUSTRIES = [
   {
     icon: Building2,
     title: "Construction",
-    body: "Keep projects on track with smarter coordination, automated task management, and real-time visibility from the field to the office.",
+    body: "Connecting the field app, the estimating tool and the accounting package a firm already bought, so a job number means one thing in all three.",
     to: "/industries/construction",
   },
   {
     icon: Factory,
     title: "Manufacturing",
-    body: "Boost efficiency with connected systems, streamlined production workflows, and live data insights.",
+    body: "Operations technology on the plant floor — SCADA, industrial IoT, OT security — and the Oracle ERP work behind it.",
     to: "/industries/manufacturing",
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce",
-    body: "Scale your online business with integrated platforms that connect inventory, payments, and customer data for streamlined operations.",
+    body: "The joins between the store and everything behind it: stock, payments, the ledger, and a help desk that can see the order.",
     to: "/industries/ecommerce",
   },
   {
@@ -70,57 +78,54 @@ const INDUSTRIES = [
   {
     icon: Megaphone,
     title: "Marketing",
-    body: "Connect the tools that generate demand — campaigns, analytics and CRM — so every enquiry is measured and nothing is lost between systems.",
+    body: "Not an industry, and the page says so. A short signpost to the social media management and MarTech service pages.",
     to: "/industries/marketing",
   },
   {
     icon: Code,
     title: "Website Development",
-    body: "Sites built to be found and to convert — fast, accessible, and measurable, rather than rebuilt every time the business changes.",
+    body: "Also not an industry. What genuinely changes between sectors in a web project, which is less than most agencies imply.",
     to: "/industries/website-development",
   },
 ];
 
 export default function Industries() {
   useSEO({
-    title: "OneAlgorithm — Industries We Serve",
+    title:
+      "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
     description:
-      "Specialized technology solutions for Construction, Manufacturing, and E-Commerce. Tailored IT consulting, automation, and digital transformation services.",
+      "Where our work lands: construction, manufacturing, e-commerce and government, plus two pages that are not industries at all. Each says plainly what we do and what we have not done.",
     canonical: getCanonicalUrl("/industries"),
     keywords:
-      "industry technology solutions, construction technology, manufacturing technology, e-commerce technology, industry-specific IT consulting, digital transformation by industry",
-    ogTitle: "OneAlgorithm — Industries We Serve",
+      "construction technology consulting, manufacturing systems integration, e-commerce integration, government contracting WOSB EDWOSB, IT consulting by industry, Malvern PA",
+    ogTitle: "Industries — OneAlgorithm",
     ogDescription:
-      "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries.",
+      "Construction, manufacturing, e-commerce and government — and a plain account of where our experience stops.",
     ogUrl: getCanonicalUrl("/industries"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
-    twitterTitle:
-      "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
+    ogImage: "https://onealgorithm.com/og-image.jpg",
+    twitterTitle: "Industries — OneAlgorithm",
     twitterDescription:
-      "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services by OneAlgorithm.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+      "Construction, manufacturing, e-commerce and government — and a plain account of where our experience stops.",
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
   return (
     <Layout>
       <StructuredData
         data={createWebPageSchema(
-          "Industry-Focused Technology Solutions - OneAlgorithm | Construction, Manufacturing & E-Commerce",
-          "Specialized technology solutions for Construction, Manufacturing, and E-Commerce industries. Tailored IT consulting, automation, and digital transformation services.",
+          "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
+          "Where our work lands: construction, manufacturing, e-commerce and government, plus two pages that are not industries at all. Each says plainly what we do and what we have not done.",
           "https://onealgorithm.com/industries",
         )}
       />
 
       <PageHero
-        eyebrow="Industries"
         title={
           <>
-            Industry-focused{" "}
-            <span className="text-oa-orange">technology expertise</span>
+            The same consultancy,{" "}
+            <span className="text-oa-orange">in six different rooms</span>
           </>
         }
-        lede="Deep understanding of your industry's operational challenges, compliance requirements, and competitive pressures. We deliver solutions tailored to your specific market dynamics."
+        lede="We are not a sector specialist and these are not six practices. It is one small IT consultancy doing the same integration, platform and web work, and each page below says plainly how that lands in that industry — and what we have not done there."
         // The panel is the same six verticals the grid below lists, read off the
         // one array so the two can never disagree. No new sectors or claims.
         panel={{
@@ -133,9 +138,8 @@ export default function Industries() {
 
       <Section tone="paper">
         <SectionHeading
-          eyebrow="Where we work"
-          title="We specialize in these key vertical markets"
-          lede="Industry-focused consulting that understands your unique operational challenges, compliance requirements, and competitive pressures. Choose your industry below to see how we help companies like yours."
+          title="Six pages, and two of them are not industries"
+          lede="Four sectors where the work has a shape worth describing, and two — marketing and website development — that are functions every business has. Those two are kept short and point at the service pages that own the detail."
         />
 
         <CardGrid columns={3} className="mt-12">
@@ -150,17 +154,19 @@ export default function Industries() {
           ))}
         </CardGrid>
 
-        <p className="mt-10 max-w-3xl text-oa-ink2">
+        <p className="mt-10 max-w-[68ch] text-oa-ink2">
           <strong className="font-semibold text-oa-ink">
-            Not sure if you fit a specific industry?
+            Your sector is not on this list.
           </strong>{" "}
-          Contact us to discuss your business model and technology needs.
+          That is the normal case, and it usually does not matter. The systems
+          are the same systems, and the question we would ask you first is the
+          same one: which two of them disagree, and who fixes it by hand today?
         </p>
       </Section>
 
       <CTABand
-        title="Don't see your industry?"
-        body="We work with businesses across many sectors. Let's discuss how our solutions can be tailored to your specific industry needs."
+        title="Tell us what you are trying to fix"
+        body="Bring the system that is slowing you down, or the role you cannot fill. We will tell you what it would take to put it right — including when the answer is that it is not worth doing."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "View our services", to: "/services" }}
       />

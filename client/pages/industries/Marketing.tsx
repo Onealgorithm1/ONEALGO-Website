@@ -1,153 +1,139 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { Target, TrendingUp, Users, Zap, BarChart3, Mail } from "lucide-react";
 import {
   PageHero,
   Section,
   SectionHeading,
   Card,
   CardGrid,
+  Prose,
   CTABand,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 
-/* Marketing industry page - 2026 refresh.
+/* Marketing (industry) - copy rewritten and page cut down 2026-08-12.
  *
- * Converted onto the shared primitives. Two things beyond the visual system:
+ * MARKETING IS NOT AN INDUSTRY, AND THIS PAGE WAS A DUPLICATE
  *
- *  1. The page was near-verbatim identical to /services/marketing. The copy is
- *     unchanged, but the framing now answers "you run marketing, here is what
- *     you get" rather than repeating the service capability list. The hero
- *     links across to the service page so the two stop competing.
- *  2. Purple was the accent on every icon, hover border and tick. It is not a
- *     brand colour. Icons are brand blue on light, orange on dark; the tick
- *     rows became cards so the bold lead-ins survive.
+ * It carried the same six feature cards and the same four "Why Choose Our
+ * Marketing Solutions?" claims as /services/marketing, word for word - which
+ * REDESIGN-NOTES already flagged as unresolved: "the industry and service
+ * versions of Website Development and Marketing still share word-for-word body
+ * copy. Someone needs to decide which page owns them."
  *
- * No claim on this page changed. See REDESIGN-NOTES.md.
+ * Decided: the SERVICE pages own them. /services/marketing describes the social
+ * media management work (and is compliance copy Meta reviews), /services/martech
+ * describes the platform work. Two pages competing for one query helps nobody,
+ * least of all a site that currently ranks for almost nothing unbranded.
+ *
+ * So this page is now a short signpost that says what a marketing team gets and
+ * sends them to the page that owns the detail. Roughly 70% of the old copy is
+ * gone; none of it was lost, because every sentence still exists on the service
+ * pages it was copied from.
+ *
+ * RECOMMENDATION IN THE HANDOVER: retire this route and 301 it to
+ * /services/marketing. It cannot be deleted from here without touching
+ * components/site.tsx and Layout.tsx, which are out of scope for this pass.
  */
 
-const FEATURES = [
+const CALLS = [
   {
-    icon: Target,
-    title: "Campaign Management",
-    body: "Create campaigns that adapt instantly to customer behavior and preferences.",
+    title: "Our channels are managed by nobody in particular",
+    body: "We manage the Facebook Pages and Instagram business accounts our clients own: planning and publishing content, keeping profiles current, and reporting what each channel delivered. Accounts stay yours and access can be withdrawn at any time.",
+    to: "/services/marketing",
+    label: "Marketing and social media",
   },
   {
-    icon: TrendingUp,
-    title: "AI-Driven Insights",
-    body: "Leverage artificial intelligence to understand customer patterns and optimize strategies.",
+    title: "The tools do not talk to each other",
+    body: "Campaign platform, customer data, CRM and the e-commerce or service systems either side of them. This is integration work wearing a marketing hat, and it is most of what a marketing team actually calls us about.",
+    to: "/services/martech",
+    label: "MarTech",
   },
   {
-    icon: Users,
-    title: "Customer Journeys",
-    body: "Design personalized customer journeys from first touch to conversion.",
-  },
-  {
-    icon: BarChart3,
-    title: "ROI Tracking",
-    body: "Advanced analytics for ROI tracking and campaign optimization.",
-  },
-  {
-    icon: Mail,
-    title: "Lead Nurturing",
-    body: "Automated lead nurturing and customer retention workflows.",
-  },
-  {
-    icon: Zap,
-    title: "Marketing Automation",
-    body: "Streamline repetitive tasks and focus on strategic initiatives.",
-  },
-];
-
-/* Previously four tick rows with a bold lead-in. As cards the lead-in keeps its
- * own weight without a coloured bullet doing the work. Copy is unchanged. */
-const BENEFITS = [
-  {
-    title: "Increase Conversions",
-    body: "Personalized campaigns drive higher engagement and conversion rates.",
-  },
-  {
-    title: "Optimize ROI",
-    body: "Data-driven insights ensure marketing budgets deliver maximum returns.",
-  },
-  {
-    title: "Automate Workflows",
-    body: "Free your team to focus on strategy while automation handles routine tasks.",
-  },
-  {
-    title: "Build Relationships",
-    body: "Nurture leads and customers with personalized experiences.",
+    title: "Nobody can tell what the spend did",
+    body: "Search visibility and paid media, and the analytics underneath both, so a channel report and a revenue report can be read side by side instead of argued about.",
+    to: "/services/seo",
+    label: "SEO",
   },
 ];
 
 export default function Marketing() {
   useSEO({
-    title: "Marketing Solutions — OneAlgorithm",
+    title: "Technology for Marketing Teams — OneAlgorithm",
     description:
-      "Campaign management, AI insights, journeys, and automation for growth teams.",
+      "What a marketing team gets from us: social media management on accounts you own, MarTech integration between campaign tools and CRM, and the analytics underneath. The detail lives on our service pages.",
     canonical: getCanonicalUrl("/industries/marketing"),
-    ogTitle: "Marketing Solutions — OneAlgorithm",
+    keywords:
+      "marketing technology consulting, martech integration, social media management services, campaign platform CRM integration, marketing analytics consulting",
+    ogTitle: "Technology for Marketing Teams — OneAlgorithm",
     ogDescription:
-      "Personalized experiences and measurable ROI across channels.",
+      "Marketing is a function, not an industry. Here is what a marketing team gets, and where the detail lives.",
     ogUrl: getCanonicalUrl("/industries/marketing"),
   });
 
   return (
     <Layout>
       <PageHero
-        eyebrow="Industries — Marketing"
         title={
           <>
-            Data-Driven Marketing{" "}
-            <span className="text-oa-orange">Solutions</span>
+            Marketing is a function,{" "}
+            <span className="text-oa-orange">not an industry</span>
           </>
         }
-        lede="Create campaigns that adapt instantly to customer behavior and preferences with AI-driven insights and automated lead nurturing."
-        // Panel is the feature grid's own titles, read off the same array. No
-        // new capability appears here that the page does not already describe.
+        lede="This page exists because marketing teams buy technology like everyone else. The work itself is described in full on two service pages, and those are the ones to read — this is a short account of what a marketing team gets and where to go next."
         panel={{
           title: "What a marketing team gets",
-          items: FEATURES.map((f) => f.title),
+          items: [
+            "Facebook Pages and Instagram accounts managed",
+            "Campaign platform wired to your CRM",
+            "Analytics that reconcile channel and revenue",
+            "SEO and paid media, when you want them run",
+          ],
           footer: ["SBA Certified WOSB / EDWOSB"],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{
-          label: "View marketing services",
-          to: "/services/marketing",
-        }}
+        secondary={{ label: "Marketing services", to: "/services/marketing" }}
       />
 
       <Section tone="paper">
         <SectionHeading
-          eyebrow="For marketing and growth teams"
-          title="What a marketing team gets"
-          lede="Comprehensive marketing tools designed to drive engagement, conversions, and customer loyalty."
+          title="Three reasons a marketing team calls us"
+          lede="Each card links to the page that owns the detail, so nothing here is said twice in two places."
         />
-
         <CardGrid columns={3} className="mt-12">
-          {FEATURES.map((f) => (
-            <Card key={f.title} icon={f.icon} title={f.title} body={f.body} />
+          {CALLS.map((c) => (
+            <Card key={c.title} title={c.title} body={c.body} to={c.to} />
           ))}
         </CardGrid>
-      </Section>
 
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Why OneAlgorithm"
-          title="Why Choose Our Marketing Solutions?"
-        />
-
-        <CardGrid columns={2} className="mt-12">
-          {BENEFITS.map((b) => (
-            <Card key={b.title} title={b.title} body={b.body} />
-          ))}
-        </CardGrid>
+        <Prose className="mt-10">
+          <p>
+            We have published no marketing case studies and hold no client
+            testimonials, so there are none to show you. What we can show you is{" "}
+            <Link
+              className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+              to="/services/website-development"
+            >
+              this site&rsquo;s own measured scores
+            </Link>
+            , and the four people who would do the work, on our{" "}
+            <Link
+              className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+              to="/about"
+            >
+              about page
+            </Link>
+            .
+          </p>
+        </Prose>
       </Section>
 
       <CTABand
-        title="Ready to Transform Your Marketing?"
-        body="See how our marketing solutions can drive better results and increase customer engagement."
+        title="Tell us what your reporting cannot answer"
+        body="The question your marketing stack should be able to answer and cannot — usually it is which spend produced which revenue. We will tell you whether that is a tooling problem or a plumbing one."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "Marketing services", to: "/services/marketing" }}
       />
     </Layout>
   );
