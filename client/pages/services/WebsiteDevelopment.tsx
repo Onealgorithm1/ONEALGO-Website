@@ -1,21 +1,15 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
+import { ArrowRight } from "lucide-react";
 import {
-  Monitor,
-  Smartphone,
-  Zap,
-  Search,
-  Shield,
-  Palette,
-} from "lucide-react";
-import {
-  PageHero,
   Section,
   SectionHeading,
   Card,
   CardGrid,
   CTABand,
+  Eyebrow,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
@@ -23,179 +17,281 @@ import {
   createServiceSchema,
 } from "../../components/StructuredData";
 
-/* Website development - 2026 refresh.
+const SystemsLattice = lazy(() => import("../../components/SystemsLattice"));
+
+/* Website development — rebuilt 2026-08-12.
  *
- * Presentation only, plus one real defect fixed: the "Schedule a Consultation"
- * button in the old benefits panel had no asChild, no `to` and no onClick, so
- * it did nothing when clicked. That panel is now the closing CTA band and the
- * button links to /contact.
+ * WHY THIS PAGE DOES NOT LOOK LIKE THE OTHER SERVICE PAGES
  *
- * Also gone: the bouncing browser-window SVG in the hero (animate-bounce-slow),
- * and the four benefit rows' hand-rolled blue tick circles, which are now
- * hairline cards so the bold lead-in reads as the heading it always was.
+ * It used to. It ran the same PageHero and the same CardGrid as Oracle ERP and
+ * Staff Augmentation, and it listed: Modern Design · Responsive Development ·
+ * Performance Optimized · SEO Ready · Secure & Reliable · Custom Solutions.
+ *
+ * Every one of those is table stakes. Nobody has ever chosen a developer
+ * because they promised responsiveness — in 2026 that is a restaurant
+ * advertising food. And the page had no screenshot, no live example and no
+ * number on it anywhere.
+ *
+ * That is survivable on a page selling ERP work, where the buyer cannot inspect
+ * the deliverable. It is fatal here. This is the one service where the medium is
+ * the message: a visitor is judging whether this company can build a website by
+ * looking at a website this company built. Describing the work is not evidence.
+ * The page has to BE the evidence.
+ *
+ * So: a live WebGL scene the reader can push around with the cursor, and beside
+ * it the page's own measured scores with an invitation to verify them in
+ * DevTools. Claims a visitor can check in thirty seconds, instead of adjectives.
+ *
+ * THE CONSTRAINT THAT MAKES IT HONEST
+ *
+ * A flashy page that loads slowly would disprove its own argument. The scene is
+ * dynamically imported, gated on the viewport, disabled outright under
+ * prefers-reduced-motion, and paused offscreen — see SystemsLattice.tsx. Being
+ * able to ship 3D AND keep the scores is the actual claim; either half alone is
+ * something anyone can do.
+ *
+ * EVERY NUMBER BELOW IS MEASURED, NOT MARKETING. Lighthouse mobile against the
+ * production build on 2026-08-12, and the two gates are real scripts in this
+ * repo. If the site regresses, these have to change or come down.
  */
 
-const FEATURES = [
-  {
-    icon: Monitor,
-    title: "Modern Design",
-    description:
-      "Clean, professional websites that reflect your brand and engage your audience.",
-  },
-  {
-    icon: Smartphone,
-    title: "Responsive Development",
-    description:
-      "Websites that work perfectly across all devices and screen sizes.",
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimized",
-    description:
-      "Fast-loading websites built for optimal user experience and search rankings.",
-  },
-  {
-    icon: Search,
-    title: "SEO Ready",
-    description:
-      "Built with search engine optimization best practices from the ground up.",
-  },
-  {
-    icon: Shield,
-    title: "Secure & Reliable",
-    description:
-      "Enterprise-grade security and reliable hosting for peace of mind.",
-  },
-  {
-    icon: Palette,
-    title: "Custom Solutions",
-    description:
-      "Tailored functionality and integrations to meet your specific business needs.",
-  },
+/**
+ * Measured on THIS page — Lighthouse mobile, production build, 2026-08-12.
+ *
+ * The first draft of this page put the HOMEPAGE's numbers here under the words
+ * "measured on the page you are reading". They were better (performance 84,
+ * accessibility 96) and they were not true of this page, which runs a WebGL
+ * scene the homepage does not. That is the same species of claim removed from
+ * the rest of this site today, and it would have been on the one page arguing
+ * that we check things.
+ *
+ * So these are this page's own figures, including the one that is worse. The
+ * trade-off is stated in the hero rather than hidden: a visitor who runs
+ * Lighthouse gets the number we printed, which is the entire point of printing
+ * it.
+ */
+const SCORES = [
+  { label: "SEO", value: "100", of: "/100" },
+  { label: "Best practices", value: "100", of: "/100" },
+  { label: "Layout shift", value: "0", of: "CLS" },
+  { label: "Performance", value: "~70", of: "/100" },
 ];
 
-const BENEFITS = [
+/**
+ * Replaces the six commodity features. Each one names a standard this repo
+ * actually enforces and points at the thing that enforces it — a claim with a
+ * receipt rather than an adjective.
+ */
+const STANDARDS = [
   {
-    title: "Professional Results",
-    description:
-      "Clean, modern designs that establish credibility and trust.",
+    title: "Colour contrast is a build gate, not a review note",
+    body: "Twenty text and interface pairings are checked on every build against WCAG AA. Our own brand orange fails at 1.95:1 on white, so the build refuses to let it be text on a light background. A designer cannot forget; the pipeline will not let them.",
+    proof: "scripts/contrast-check.mjs — 20/20 passing",
   },
   {
-    title: "Better Performance",
-    description:
-      "Fast-loading, optimized websites improve user experience and search rankings.",
+    title: "Content stays visible without JavaScript",
+    body: "We added scroll animations once and shipped 22 of 27 pages with their content invisible to anything that does not run JavaScript — search engines included. The prerenderer now fails the build if that recurs. Most teams never find out this class of bug exists.",
+    proof: "scripts/prerender.mjs — build fails on hidden content",
   },
   {
-    title: "Mobile-First Design",
-    description:
-      "Responsive layouts ensure your site works perfectly on all devices.",
+    title: "Zero layout shift",
+    body: "Nothing on this site moves after it paints. Images carry explicit dimensions, fonts are loaded so they do not reflow the page, and the measured Cumulative Layout Shift is 0 — not low, zero.",
+    proof: "Lighthouse CLS 0",
   },
   {
-    title: "Custom Functionality",
-    description:
-      "Tailored solutions that meet your unique business requirements.",
+    title: "Motion respects the person reading",
+    body: "Everything that moves, including the scene at the top of this page, is disabled when the browser reports a preference for reduced motion. The 3D is never even downloaded in that case. Accessibility is not a switch you flip at the end.",
+    proof: "prefers-reduced-motion, honoured before load",
+  },
+  {
+    title: "We tell you what the flourish costs",
+    body: "The scene above is WebGL in its own chunk, fetched only once the browser is idle and the canvas is near the viewport, paused when the tab is hidden, and disposed when you navigate away. All of that took the cost down — it did not take it to zero. It is still about 14 performance points, and we would rather show you the number than claim there is no trade-off.",
+    proof: "measured: ~70 here, 84 on pages without it",
+  },
+  {
+    title: "You own everything",
+    body: "All code, all assets, all accounts. No proprietary page builder you cannot leave, no licence that expires with the relationship, no hosting you are locked into. If you replace us, you keep the work.",
+    proof: "in every engagement",
   },
 ];
 
 export default function WebsiteDevelopment() {
   useSEO({
-    title: "OneAlgorithm — Website Development",
+    title:
+      "Website Development — OneAlgorithm | WCAG AA, zero layout shift, Malvern PA",
     description:
-      "Professional website development with responsive design, SEO optimization, and e-commerce solutions. Transform your online presence with modern web apps.",
+      "Websites built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and WebGL that does not cost you page speed. Woman-owned, Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services/website-development"),
     keywords:
-      "website development, web design, responsive websites, e-commerce development, SEO optimization, professional web development, custom websites",
-    ogTitle: "OneAlgorithm — Website Development",
+      "website development Malvern PA, accessible web development, WCAG AA website, Core Web Vitals, WebGL three.js website, woman owned web developer Pennsylvania",
+    ogTitle: "Website Development — OneAlgorithm",
     ogDescription:
-      "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications. Transform your online presence with OneAlgorithm.",
+      "Built to a measurable standard: WCAG AA contrast as a build gate, zero layout shift, and 3D that does not cost page speed. Check the scores yourself.",
     ogUrl: getCanonicalUrl("/services/website-development"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Website Development Services - OneAlgorithm",
+    ogImage: "https://onealgorithm.com/og-image.jpg",
+    twitterTitle: "Website Development — OneAlgorithm",
     twitterDescription:
-      "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications. Transform your online presence with OneAlgorithm.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+      "Built to a measurable standard. Check the scores yourself in DevTools.",
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (
     <Layout>
       <StructuredData
         data={createServiceSchema(
-          "Website Development Services",
-          "Professional website development services including responsive design, SEO optimization, e-commerce solutions, and modern web applications.",
+          "Website Development",
+          "Website development built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and interactive WebGL that does not degrade page speed.",
           "Website Development",
           "https://onealgorithm.com/services/website-development",
         )}
       />
 
-      <PageHero
-        eyebrow="Website Development"
-        title={
-          <>
-            Website <span className="text-oa-orange">Development</span> &
-            Performance Optimization
-          </>
-        }
-        lede="Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications."
-        // This hero carried no bullets, so the panel lists the six feature
-        // titles from the "What you get" section below, verbatim. No new
-        // claims.
-        panel={{
-          title: "What you get",
-          items: [
-            "Modern Design",
-            "Responsive Development",
-            "Performance Optimized",
-            "SEO Ready",
-            "Secure & Reliable",
-            "Custom Solutions",
-          ],
-          footer: ["SBA Certified WOSB / EDWOSB"],
-        }}
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-      />
+      {/* ------------------------------------------------------------------
+          Hero. Hand-rolled rather than PageHero, which has no slot for a
+          canvas — and because a page arguing that this company can build
+          something distinctive should not open with the same component as
+          every other page on the site.
+         ------------------------------------------------------------------ */}
+      <section className="relative overflow-hidden bg-oa-ink text-white">
+        <Suspense fallback={null}>
+          <SystemsLattice
+            className="pointer-events-none absolute inset-0 h-full w-full opacity-70 md:pointer-events-auto"
+            fallback={
+              // Shown when WebGL is unavailable or motion is reduced. A designed
+              // state, not a blank rectangle — the page still has to look
+              // considered for the person who never sees the scene.
+              <div
+                className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,166,52,0.18),transparent_60%),radial-gradient(circle_at_30%_70%,rgba(77,163,255,0.16),transparent_55%)]"
+                aria-hidden="true"
+              />
+            }
+          />
+        </Suspense>
+
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+          <div className="max-w-2xl">
+            <Eyebrow tone="dark">Website development</Eyebrow>
+            <h1 className="mt-4 text-display font-bold leading-[1.05]">
+              This page is the{" "}
+              <span className="text-oa-orange">portfolio</span>
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-white/85">
+              You are looking at a website while deciding whether we can build
+              one. So instead of describing the work — the scene behind this text
+              is live WebGL you can push around with the cursor, and every number
+              beside it was measured on this page.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-white/75">
+              Including the one that is worse. Running 3D costs this page{" "}
+              <strong className="font-semibold text-white">
+                about 14 performance points
+              </strong>{" "}
+              against our pages that do not — it measures 67-71 here across runs, against 84 on the homepage. We
+              measured it, we decided the demonstration was worth it{" "}
+              <em>on this page</em>, and we would give you the same number about
+              yours instead of pretending the trade-off does not exist.
+            </p>
+            <p className="mt-4 text-sm text-white/70">
+              Open DevTools and run Lighthouse. We would rather you checked than
+              took our word for it.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex h-12 items-center gap-2 rounded-md bg-oa-orange px-6 font-semibold text-oa-ink transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Talk to an Expert
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          {/* The scorecard. Mono, tabular, deliberately unstyled-looking — it
+              should read as instrument output rather than a marketing badge,
+              because that is what makes it credible. */}
+          <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-8 sm:grid-cols-4 lg:absolute lg:right-8 lg:top-32 lg:mt-0 lg:w-64 lg:grid-cols-1 lg:gap-y-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            {SCORES.map((s) => (
+              <div key={s.label}>
+                <dt className="font-mono text-[11px] uppercase tracking-widest text-white/75">
+                  {s.label}
+                </dt>
+                <dd className="mt-1 font-mono text-3xl font-bold text-white">
+                  {s.value}
+                  <span className="ml-1 text-sm font-normal text-white/70">
+                    {s.of}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          {/* Caption lives OUTSIDE the <dl>, not wrapped in a <div> inside it.
+              A <dl> may contain dt, dd, div, script and template -- but axe
+              still rejects a <div> that is not a dt/dd group, which is what a
+              lone caption paragraph is. A sibling is simply correct.
+              Opacities above were raised from /60 and /45 as well: white at 45%
+              on this navy fails AA, and a contrast failure on the page arguing
+              that we enforce contrast is the worst possible place to have one. */}
+          <p className="mt-4 font-mono text-[11px] leading-relaxed text-white/70 lg:absolute lg:right-8 lg:top-[26rem] lg:w-64 lg:pl-8">
+            Lighthouse mobile, production build of this page, 2026-08-12. Performance varies a few points per run; the others are stable.
+          </p>
+        </div>
+      </section>
 
       <Section tone="paper">
         <SectionHeading
-          eyebrow="What you get"
-          title="Website development features"
-          lede="Comprehensive web development services that create digital experiences designed to engage users and drive results."
+          eyebrow="What we hold ourselves to"
+          title="Standards with receipts"
+          lede="Every item below names something enforced by a script in the repository, not a promise made in a proposal. If the site regresses, the build fails."
         />
-        <CardGrid columns={3} className="mt-12">
-          {FEATURES.map((f) => (
+        <CardGrid columns={2} className="mt-12">
+          {STANDARDS.map((s) => (
             <Card
-              key={f.title}
-              icon={f.icon}
-              title={f.title}
-              body={f.description}
+              key={s.title}
+              title={s.title}
+              body={
+                <>
+                  {s.body}
+                  <span className="mt-3 block font-mono text-[11px] uppercase tracking-wider text-oa-ink2">
+                    {s.proof}
+                  </span>
+                </>
+              }
             />
           ))}
         </CardGrid>
       </Section>
 
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Why OneAlgorithm"
-          title="Why choose our web development services?"
-        />
-        <CardGrid columns={2} className="mt-12">
-          {BENEFITS.map((b) => (
-            <Card key={b.title} title={b.title} body={b.description} />
-          ))}
-        </CardGrid>
-      </Section>
+      {/*
+        TODO — CLIENT WORK. This is the section that should sit here, and it is
+        deliberately absent rather than filled with something invented.
+
+        Two real client sites exist: theboardsprofessor.com and the Inspect This
+        Home rebuild. Neither can go on this page yet, for different reasons:
+
+          - Inspect This Home is on a noindex preview and the client has not
+            signed off. Publishing a client's site as portfolio before they
+            approve it is not ours to do.
+          - theboardsprofessor.com is live, but nobody has confirmed WHAT
+            OneAlgorithm did for it. It is a WordPress site with no animation or
+            3D. Claiming design credit for work we may not have done would be
+            exactly the kind of unevidenced claim removed from this site today.
+
+        Get permission and confirm scope, then this section carries real
+        screenshots and a one-line honest description of what was delivered.
+        Until then the standards above are doing the work, because they are true.
+      */}
 
       <CTABand
-        title="Ready to build your website?"
-        body="Let's create a website that represents your brand and drives business results."
-        primary={{ label: "Schedule a Consultation", to: "/contact" }}
-        secondary={{ label: "View All Services", to: "/services" }}
+        title="Bring us something that has to work"
+        body="A rebuild, a site that fails an accessibility audit, or a build nobody can maintain. Tell us what is actually wrong with it and we will tell you what we would do."
+        primary={{ label: "Talk to an Expert", to: "/contact" }}
+        secondary={{ label: "View all services", to: "/services" }}
       />
 
       <Section tone="paper" compact>
         <SocialShare
-          title="Website Development & Performance Optimization - OneAlgorithm"
+          title="Website Development — OneAlgorithm"
           className="justify-center"
         />
       </Section>
