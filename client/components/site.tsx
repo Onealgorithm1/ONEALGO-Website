@@ -242,9 +242,24 @@ export function SectionHeading({
   const dark = tone === "dark";
   return (
     <Reveal className={`max-w-3xl ${className}`}>
-      {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
+      {/* The eyebrow is deliberately NOT rendered. Measured 2026-08-12: the
+          kicker-above-heading pattern fired 19 times across 7 pages and is the
+          loudest generated-UI signature on this site. The detector's wording:
+          "A tiny tracked uppercase label sitting as its own block directly
+          above a heading is banned outright, repeated or not. Generated kickers
+          never earn their place: the heading carries its own weight."
+
+          It also accounted for most of the all-caps-body findings, since every
+          kicker was a run of uppercase.
+
+          The `eyebrow` prop is kept and inert rather than removed, because 73
+          call sites pass one and deleting them all in the same change would be
+          a 26-file mechanical diff that buries this decision and is far harder
+          to reverse if it turns out to be wrong. If a kicker's words actually
+          mattered, the fix is to work them into the heading or the lede -- not
+          to switch this back on. Once that pass is done, delete the prop. */}
       <h2
-        className={`${eyebrow ? "mt-4" : ""} text-h2 font-semibold ${
+        className={`text-h2 font-semibold ${
           dark ? "text-oa-nightInk" : "text-oa-ink"
         }`}
       >
@@ -409,10 +424,10 @@ export function PageHero({
           }
         >
         <div className={panel ? "" : "max-w-4xl"}>
-          {eyebrow && <Eyebrow tone="dark">{eyebrow}</Eyebrow>}
-          <h1
-            className={`${eyebrow ? "mt-5" : ""} text-h1 font-semibold text-oa-nightInk`}
-          >
+          {/* Eyebrow not rendered — see the note in SectionHeading above. Same
+              reasoning applies to the page hero, where the kicker sits directly
+              over the h1 and is the first thing a visitor reads. */}
+          <h1 className="text-h1 font-semibold text-oa-nightInk">
             {title}
           </h1>
           {lede && (

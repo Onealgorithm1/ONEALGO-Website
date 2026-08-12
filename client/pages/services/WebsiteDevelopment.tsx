@@ -9,7 +9,6 @@ import {
   Card,
   CardGrid,
   CTABand,
-  Eyebrow,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
@@ -170,7 +169,6 @@ export default function WebsiteDevelopment() {
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
           <div className="max-w-2xl">
-            <Eyebrow tone="dark">Website development</Eyebrow>
             <h1 className="mt-4 text-display font-bold leading-[1.05]">
               This page is the{" "}
               <span className="text-oa-orange">portfolio</span>

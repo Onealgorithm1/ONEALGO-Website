@@ -411,7 +411,24 @@ export default function Index() {
             This is the ONLY copy of these identifiers on the page - the
             government section used to render the same table a second time.
             Tighter column gap on mobile so it packs into fewer rows. */}
-        <div className="relative z-10 border-t border-white/10 bg-oa-night/70 backdrop-blur-sm">
+        {/* OPAQUE, not /70 + blur. Measured 2026-08-12 with impeccable, which
+            samples RENDERED PIXELS rather than CSS colours: at 70% opacity the
+            video showed through and the identifiers measured as low as 1.0:1
+            against a 4.5:1 requirement -- "SAM.gov" and the UEI itself were the
+            worst. Depending on which frame was playing they were close to
+            invisible.
+
+            Nothing else caught this. axe computes contrast from CSS colour
+            pairs and cannot see through a video; scripts/contrast-check.mjs
+            validates palette pairings, not composited output; Lighthouse scored
+            the page 96 for accessibility. A tool that samples pixels was the
+            only way to find it.
+
+            This is the one element on the page a government buyer must be able
+            to READ and copy, so legibility wins over letting the video show
+            through. The blur goes too -- it does nothing behind an opaque
+            surface and only costs a compositor layer. */}
+        <div className="relative z-10 border-t border-white/10 bg-oa-night">
           <dl className="mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-4 sm:gap-x-10 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 font-mono text-sm">
             {[
               ["UEI", siteConfig.identifiers.uei],
@@ -421,7 +438,10 @@ export default function Index() {
               ["Founded", siteConfig.foundingDate],
             ].map(([label, value]) => (
               <div key={label}>
-                <dt className="text-[11px] uppercase tracking-wider text-oa-nightInk3">
+                {/* 12px, not 11px. Flagged as tiny-text: below 12px is hard to
+                    read on high-DPI screens, and these are identifiers someone
+                    has to transcribe accurately. */}
+                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
                   {label}
                 </dt>
                 <dd className="text-oa-nightInk2">{value}</dd>
@@ -434,7 +454,6 @@ export default function Index() {
       {/* ================= CREDENTIALS ================= */}
       <section className="bg-oa-paper border-b border-oa-hairline">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-14 md:py-16">
-          <Eyebrow>Independently verifiable</Eyebrow>
           <div className="mt-7 grid gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-2 lg:grid-cols-4">
             {CREDENTIALS.map((c) => (
               <a
@@ -467,7 +486,6 @@ export default function Index() {
                 they were the best copy on the page and were doing that work
                 below the fold. This section keeps only what the hero does not
                 say, so the page does not state its own positioning twice. */}
-            <Eyebrow>What we do</Eyebrow>
             <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
               What we build, and what we keep running
             </h2>
@@ -522,7 +540,6 @@ export default function Index() {
       <section className="border-y border-oa-hairline bg-oa-surface">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <Eyebrow>How we work</Eyebrow>
             <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
               Four steps, and we stay for the fourth
             </h2>
@@ -550,7 +567,6 @@ export default function Index() {
         />
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <Eyebrow tone="dark">Why OneAlgorithm</Eyebrow>
             <h2 className="mt-4 text-h2 font-semibold text-oa-nightInk">
               Built around how you actually work
             </h2>
@@ -577,7 +593,6 @@ export default function Index() {
       <section className="bg-oa-paper">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <Eyebrow>Industries</Eyebrow>
             <h2 className="mt-4 text-h2 font-semibold text-oa-ink">Where we work</h2>
           </div>
 
@@ -611,7 +626,6 @@ export default function Index() {
               the full lists live on /capabilities and /industries/government. */}
           <div className="overflow-hidden rounded-2xl border border-oa-hairline bg-oa-surface">
             <div className="p-8 md:p-12">
-              <Eyebrow>For government buyers</Eyebrow>
               <h2 className="mt-4 text-h3 font-semibold text-oa-ink">
                 Set-aside eligible and registered to receive award
               </h2>
@@ -653,7 +667,6 @@ export default function Index() {
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-[22rem_1fr]">
             <div>
-              <Eyebrow>Common questions</Eyebrow>
               <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
                 Before you get in touch
               </h2>
