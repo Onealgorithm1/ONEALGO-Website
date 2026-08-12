@@ -198,13 +198,21 @@ export default function CapabilitiesMainContent() {
           />
         </div>
 
-        {(complianceProfile.pendingCertifications.length > 0 ||
+        {(complianceProfile.certifications.length > 0 ||
           (siteConfig.certifications?.length ?? 0) > 0) && (
           <CardGrid columns={2} className="mt-5">
-            {complianceProfile.pendingCertifications.length > 0 && (
+            {complianceProfile.certifications.length > 0 && (
+              /* Each row carries its number and expiry. A certification with
+                 neither is not something a contracting officer can check, and
+                 this list previously read "Certified" seven times under a field
+                 literally named `pendingCertifications`. */
               <Card title="Certifications & Registrations">
                 <div className="mt-5">
-                  <CheckList items={complianceProfile.pendingCertifications} />
+                  <CheckList
+                    items={complianceProfile.certifications.map(
+                      (cert) => `${cert.name} — ${cert.detail}`,
+                    )}
+                  />
                 </div>
               </Card>
             )}
@@ -259,9 +267,27 @@ export default function CapabilitiesMainContent() {
         </section>
       )}
 
+      {/*
+        Corporate Contract Experience — RENAMED and RE-SOURCED 2026-08-12.
+
+        This ran as "Commercial Project Highlights" over three cards, two of
+        which were not One Algorithm contracts at all: BMC Software (individual
+        prior employment, listed again further down this same page as exactly
+        that) and Republic Services (likewise, and bracketed with an unrelated
+        radius180 engagement). The dollar values on all three were wrong.
+
+        A contracting officer reads a card with a customer name and a dollar
+        figure as a contract. So the heading now says contract, the rows are
+        the company's own corporate contract table, and the footnote states the
+        two things that stop a reader over-reading them: these are
+        subcontracts, and there is no federal prime work behind them.
+      */}
       {projectHighlights.length > 0 && (
         <section>
-          <SectionHeading title="Commercial Project Highlights" />
+          <SectionHeading
+            title="Corporate Contract Experience"
+            lede="Contracts held by One Algorithm LLC. All are commercial and all were performed as a subcontractor on a time-and-materials basis."
+          />
           <CardGrid columns={2} className="mt-10">
             {projectHighlights.map((project) => (
               <Card key={project.title} title={project.title}>
@@ -271,6 +297,11 @@ export default function CapabilitiesMainContent() {
               </Card>
             ))}
           </CardGrid>
+          <p className="mt-8 text-sm leading-relaxed text-oa-ink2">
+            One Algorithm holds no federal prime contracts and has no CPARS
+            record to date. Contract values and customer references are
+            available on request.
+          </p>
         </section>
       )}
 
@@ -332,16 +363,8 @@ export default function CapabilitiesMainContent() {
             {pastPerformanceClients.map((client) => (
               <li
                 key={client.name}
-                className="flex flex-col items-center justify-center gap-2 bg-oa-surface p-6 text-center"
+                className="flex items-center justify-center bg-oa-surface p-6 text-center"
               >
-                {client.logoUrl ? (
-                  <img
-                    src={client.logoUrl}
-                    alt={client.name}
-                    loading="lazy"
-                    className="h-12 max-w-full object-contain"
-                  />
-                ) : null}
                 <span className="text-sm font-medium text-oa-ink">
                   {client.name}
                 </span>

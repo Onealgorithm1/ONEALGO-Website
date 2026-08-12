@@ -304,13 +304,26 @@ export default function Government() {
           }
           right={
             <Prose>
+              {/* NOT a joint venture, and not SBA-compliant. Both words were
+                  wrong and both were hard-coded here rather than read from the
+                  data, so correcting the data file did not reach this page.
+
+                  The signed agreement (Dec 2025 / Jan 2026) says the opposite
+                  in two places -- "Nothing in this Agreement creates a
+                  partnership, joint venture entity..." -- and there is no JV
+                  entity, no JV UEI or CAGE, none of the 13 CFR 125.8 machinery,
+                  and a default 50/50 split where SBA requires at least 51% to
+                  the small business. Calling it an SBA-compliant JV to a
+                  contracting officer is a misrepresentation, not a wording
+                  preference. It is a teaming agreement, which is a real and
+                  useful thing to have. */}
               <p>
-                {jointVenturePartner.name} is our SBA-compliant joint venture
-                partner, a veteran-owned small business (
-                {jointVenturePartner.cage}, {jointVenturePartner.uei}, SAM
-                registration active), covering federal IT modernization,
-                cybersecurity, AI/ML integration and infrastructure support
-                alongside us.
+                We have a teaming agreement with {jointVenturePartner.name}, a
+                veteran-owned small business ({jointVenturePartner.cage},{" "}
+                {jointVenturePartner.uei}, SAM registration active), covering
+                federal IT modernization, cybersecurity, AI/ML integration and
+                infrastructure support alongside us. It is a teaming agreement
+                rather than a joint venture: there is no separate JV entity.
               </p>
               <p>
                 Bonding capacity is {complianceProfile.bondingCapacity}. We are

@@ -170,11 +170,23 @@ const CREDENTIALS: {
     reference: "Listing a0N3A00000EV7SwUAL",
     href: "https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a0N3A00000EV7SwUAL",
   },
+  /* Was "Registered Supplier / Supplier 35896", linking to
+     dgs.internet.state.pa.us. That host no longer resolves at all -- checked
+     2026-08-12, connection refused -- because Pennsylvania moved DGS onto
+     pa.gov. A table whose whole premise is "every row links to the issuing
+     authority's own registry" is actively worse than no table when one of the
+     links is dead, so this is the evidenced registration instead: the COSTARS
+     contract number, which is what the corporate records hold and what a
+     Pennsylvania buyer would actually search on.
+
+     The link is COSTARS' supplier page rather than a per-supplier record,
+     because the new pa.gov search has no stable deep link. Noted so nobody
+     "fixes" it back to a record URL that does not exist. */
   {
-    authority: "Pennsylvania Dept. of General Services",
-    credential: "Registered Supplier",
-    reference: "Supplier 35896",
-    href: "https://dgs.internet.state.pa.us/suppliersearch/Home/Details/35896",
+    authority: "Pennsylvania DGS (COSTARS)",
+    credential: "Cooperative purchasing supplier",
+    reference: "Contract 4400033848",
+    href: "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
   },
   {
     authority: "Virginia Dept. of Small Business",

@@ -77,23 +77,34 @@ export const siteConfig: CompanyConfig = {
   },
   sbaUrl:
     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1",
+  /*
+   * NAICS and PSC — CORRECTED 2026-08-12 to match the SAM.gov entity record
+   * for UEI W8DYK38MEKP3 / CAGE 14G18 (registration activated 21 Apr 2026,
+   * expires 17 Apr 2027).
+   *
+   * The page tells a contracting officer these are "published" codes, so they
+   * have to be the ones actually on the registration. Five NAICS were listed
+   * here that are not on the SAM record — 541613, 519210, 611430, 561311 and
+   * 561320 — and 541715, which is on it, was missing. Two PSCs were listed
+   * that are not on the record either: U099 (Education/Training — Other) and
+   * H270 (Quality control — ADP equipment).
+   *
+   * Primary NAICS is 541511, Custom Computer Programming Services, which is
+   * what CapabilitiesMainContent labels naics[0] as. Keep 541511 first.
+   */
   codes: {
     naics: [
       "541511",
       "541512",
       "541519",
       "541611",
-      "541613",
       "541618",
-      "519210",
-      "611430",
-      "561311",
-      "561320",
+      "541715",
       "513210",
       "518210",
       "519290",
     ],
-    psc: ["DA10", "7A20", "7E20", "U099", "R408", "7A21", "H270"],
+    psc: ["7A20", "7A21", "7E20", "DA10", "R408"],
   },
   geo: {
     latitude: 40.042445799999996,

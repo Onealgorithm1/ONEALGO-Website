@@ -17,7 +17,7 @@ import CapabilitiesMainContent from "../components/CapabilitiesMainContent";
  * UPDATE THIS BY HAND whenever any code, identifier, registration or
  * certification on this page changes.
  */
-const LAST_UPDATED = "August 10, 2026";
+const LAST_UPDATED = "August 12, 2026";
 
 /* The hero's own identifier strip used to be declared here as HERO_IDENTIFIERS
    and rendered inside <PageHero>'s children. PageHero now draws that rail

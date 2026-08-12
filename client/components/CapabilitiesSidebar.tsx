@@ -4,7 +4,7 @@ import { Card } from "./site";
 import { siteConfig } from "../lib/siteConfig";
 import { getPostalAddress } from "../../shared/companyProfile";
 import {
-  registrations,
+  complianceProfile,
   procurementRegistrations,
 } from "../../shared/capabilities-data";
 
@@ -61,6 +61,13 @@ export default function CapabilitiesSidebar() {
     ["FedConnect", procurementRegistrations.federal.fedConnect],
     ["GSA eBuy", procurementRegistrations.federal.gsa_ebuy],
   ];
+  /* Was a hand-written list of six rows reading off a separate `registrations`
+     object, which held the same facts as `complianceProfile` and had already
+     drifted from it — that object carried "SDB & SB: Cert # 561511", a number
+     that is the company's Jaggaer supplier ID and not a certificate at all.
+     The duplicate object is deleted; this rail reads the one list. */
+  const certificationRows: [string, string][] =
+    complianceProfile.certifications.map((cert) => [cert.name, cert.detail]);
   const stateAndLocal: [string, string][] =
     procurementRegistrations.stateAndLocal.map((item) => [
       item.label,
@@ -89,18 +96,11 @@ export default function CapabilitiesSidebar() {
         />
       </Card>
 
-      <Card title="Registrations">
-        <IdentifierRows
-          rows={[
-            ["EDWOSB", registrations.edwosb],
-            ["WBENC WBE", registrations.wbenc.wbe],
-            ["WBENC WOSB", registrations.wbenc.wosb],
-            ["SDB & SB", registrations.sdb_sb],
-            ["NMSDC MBE", registrations.nmsdc_mbe],
-            ["VA SWaM", registrations.va_swam],
-          ]}
-        />
-      </Card>
+      {certificationRows.length > 0 && (
+        <Card title="Certifications">
+          <IdentifierRows rows={certificationRows} />
+        </Card>
+      )}
 
       <Card title="Procurement">
         {federal.length > 0 && (

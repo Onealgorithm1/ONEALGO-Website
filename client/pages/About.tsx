@@ -87,8 +87,8 @@ const FACTS: [string, string][] = [
 const CREDENTIALS: [string, string][] = [
   [sbaUrl, "SBA-certified WOSB / EDWOSB"],
   [
-    "https://www.dgs.internet.state.pa.us/suppliersearch/Home/Details/35896",
-    "PA DGS registered supplier",
+    "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
+    "PA COSTARS supplier (4400033848)",
   ],
   ["https://directory.sbsd.virginia.gov/#/directory", "Virginia SWaM certified"],
   [
