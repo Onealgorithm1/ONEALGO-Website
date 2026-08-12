@@ -120,6 +120,47 @@ const STANDARDS = [
   },
 ];
 
+/**
+ * Client work. Both live, both linked, so nothing here has to be taken on
+ * trust — a visitor opens the site and judges it directly.
+ *
+ * The Inspect This Home figures are Lighthouse mobile against the live site on
+ * 2026-08-12, two runs. They are unusually good and they are real; if that site
+ * regresses these come down, exactly like the numbers in the hero.
+ *
+ * The Boards Professor row carries no score on purpose. We deploy and run the
+ * site, and it is a static capture of the client's existing WordPress build
+ * rather than something rebuilt from scratch, so its Lighthouse number measures
+ * WordPress rather than our work. Printing 37 would be misleading in one
+ * direction and printing nothing without explanation would be misleading in the
+ * other — hence the note. A React rebuild exists and is not live, so it is not
+ * claimed here.
+ */
+const CLIENTS = [
+  {
+    name: "Inspect This Home Inspections",
+    what: "Built and maintained",
+    href: "https://inspectthishomeinspections.com",
+    body: "A New York licensed, veteran-owned home inspector on Long Island. Built from scratch: booking, service pages, a sample report, and copy written around what a buyer is actually deciding. It carries the licence and InterNACHI numbers in the header so a client can verify them without asking.",
+    scores: [
+      { label: "Performance", value: "95" },
+      { label: "Accessibility", value: "100" },
+      { label: "Best practices", value: "100" },
+      { label: "SEO", value: "100" },
+      { label: "Layout shift", value: "0" },
+    ],
+    note: null as string | null,
+  },
+  {
+    name: "The Boards Professor",
+    what: "Migrated and hosted",
+    href: "https://theboardsprofessor.com",
+    body: "USMLE, COMLEX and ABIM tutoring from physician-educators. We moved the site onto Cloudflare Pages and run it there — the domain serves byte-for-byte what we deploy.",
+    scores: null as { label: string; value: string }[] | null,
+    note: "No Lighthouse score is printed here because it would not measure our work. The live site is the client's existing WordPress build served statically, so the number reflects WordPress. A rebuild is underway and will be listed when it is live.",
+  },
+];
+
 export default function WebsiteDevelopment() {
   useSEO({
     title:
@@ -272,25 +313,71 @@ export default function WebsiteDevelopment() {
         </CardGrid>
       </Section>
 
-      {/*
-        TODO — CLIENT WORK. This is the section that should sit here, and it is
-        deliberately absent rather than filled with something invented.
+      {/* CLIENT WORK.
+          This section replaced a TODO on 2026-08-12. That note said the two
+          sites could not be shown yet — Inspect This Home was on a noindex
+          preview awaiting sign-off, and nobody had confirmed what we did for
+          The Boards Professor. Both were checked and both resolved: Inspect
+          This Home is live on its own domain and indexable, and
+          theboardsprofessor.com is byte-identical to the Pages project we
+          deploy it from.
 
-        Two real client sites exist: theboardsprofessor.com and the Inspect This
-        Home rebuild. Neither can go on this page yet, for different reasons:
+          Every link goes to the live site, so a visitor can check the work in
+          one click rather than reading a description of it. Numbers appear on
+          the Inspect This Home row only, because they were measured; there is
+          no number on the other row rather than an estimate standing in for
+          one. */}
+      <Section tone="paper">
+        <SectionHeading
+          title="Sites we built and run"
+          lede="Two, both live. We would rather show you two you can open than a wall of logos you cannot check."
+        />
 
-          - Inspect This Home is on a noindex preview and the client has not
-            signed off. Publishing a client's site as portfolio before they
-            approve it is not ours to do.
-          - theboardsprofessor.com is live, but nobody has confirmed WHAT
-            OneAlgorithm did for it. It is a WordPress site with no animation or
-            3D. Claiming design credit for work we may not have done would be
-            exactly the kind of unevidenced claim removed from this site today.
+        <ul className="mt-12 border-t border-oa-hairlineStrong">
+          {CLIENTS.map((c) => (
+            <li key={c.href} className="border-b border-oa-hairline">
+              <div className="flex flex-col gap-5 py-8 md:flex-row md:items-start md:gap-10">
+                <div className="md:w-[38%] md:shrink-0">
+                  <h3 className="text-h3 font-semibold text-oa-ink">{c.name}</h3>
+                  <p className="mt-1 font-mono text-sm text-oa-ink3">{c.what}</p>
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-oa-blue hover:underline"
+                  >
+                    {c.href.replace("https://", "")}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </div>
 
-        Get permission and confirm scope, then this section carries real
-        screenshots and a one-line honest description of what was delivered.
-        Until then the standards above are doing the work, because they are true.
-      */}
+                <div className="flex-1">
+                  <p className="leading-relaxed text-oa-ink2">{c.body}</p>
+                  {c.scores && (
+                    <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
+                      {c.scores.map((s) => (
+                        <div key={s.label}>
+                          <dt className="font-mono text-[11px] uppercase tracking-widest text-oa-ink3">
+                            {s.label}
+                          </dt>
+                          <dd className="mt-0.5 font-mono text-xl font-bold text-oa-ink">
+                            {s.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                  {c.note && (
+                    <p className="mt-4 text-sm leading-relaxed text-oa-ink3">
+                      {c.note}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       <CTABand
         title="Bring us something that has to work"
