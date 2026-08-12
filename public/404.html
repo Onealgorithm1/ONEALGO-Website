@@ -5,14 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Page not found — OneAlgorithm</title>
 <!--
-  This file exists to make missing pages return a real 404.
+  THIS is the 404 that ships. client/pages/NotFound.tsx is only reachable by
+  client-side navigation inside an already-loaded app; a cold request for a
+  missing URL never boots React, because `_redirects` ends with
 
-  Without it Cloudflare Pages falls back to the app shell and answers 200 for
-  any path at all, so /wp-login.php, /.env, a mistyped link and a hallucinated
-  URL were all valid pages as far as a crawler was concerned. Bing had crawled
-  thousands of URLs against a sitemap of 28. The canonical tag kept the junk out
-  of the index, but the crawl budget was spent regardless, and a soft 404 is a
-  quality signal search engines act on.
+      /*    /404.html    404
+
+  and Cloudflare Pages serves this file with a real 404 status. Keep the two in
+  rough agreement, but this one is the one a search engine and a lost visitor
+  actually see.
+
+  Why the rule exists at all: without it Pages falls back to the app shell and
+  answers 200 for any path, so /wp-login.php, /.env, a mistyped link and a
+  hallucinated URL were all valid pages as far as a crawler was concerned. Bing
+  had crawled thousands of URLs against a sitemap of 28. The canonical tag kept
+  the junk out of the index, but the crawl budget was spent regardless, and a
+  soft 404 is a quality signal search engines act on.
+
+  Everything here is inlined and self-contained on purpose. This page must
+  render when the thing that broke IS the asset pipeline, so it may not depend
+  on the CSS bundle, the JS bundle, or anything with a hashed filename. The two
+  fonts are the site's real self-hosted files and degrade to system faces if
+  they fail; the colours are the `oa` palette from tailwind.config.ts, copied by
+  hand because there is no build step here. If the palette changes, change it
+  here too -- scripts/contrast-check.mjs cannot see this file.
 
   noindex is belt and braces: a 404 is already not indexed, but this page is
   static and could in principle be requested directly.
@@ -20,46 +36,84 @@
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://onealgorithm.com/">
 <style>
-  :root { color-scheme: light dark; }
+  @font-face {
+    font-family: "IBM Plex Sans";
+    src: url("/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2-variations");
+    font-weight: 400 700; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+    font-weight: 400 700; font-style: normal; font-display: swap;
+  }
   * { box-sizing: border-box; }
   body {
-    margin: 0; min-height: 100vh; display: grid; place-items: center;
-    padding: 24px; background: #f6f7f9; color: #14161a;
-    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+    background: #04182b; color: #fff;
+    font: 400 16px/1.6 "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  .card {
-    max-width: 520px; width: 100%; background: #fff; border: 1px solid #e5e7eb;
-    border-radius: 14px; padding: 40px 36px; text-align: center;
+  main {
+    flex: 1; width: 100%; max-width: 720px; margin: 0 auto;
+    padding: 96px 24px 64px;
   }
-  .mark { font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; color: #6b7280; }
-  h1 { font-size: 1.6rem; margin: 14px 0 10px; letter-spacing: -.02em; }
-  p { margin: 0 0 26px; color: #4b5563; }
-  .links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  a.btn {
-    display: inline-block; padding: 10px 18px; border-radius: 8px;
-    text-decoration: none; font-size: .92rem; font-weight: 600;
-    background: #1d4ed8; color: #fff;
+  /* The identifier strip is this site's signature: a real, verifiable fact set
+     in mono. It belongs here more than anywhere -- it is the one thing on a
+     dead URL that still proves you reached the right company. */
+  .id {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 13px; letter-spacing: .06em; color: #9fb3c8;
   }
-  a.alt { background: #fff; color: #1f2937; border: 1px solid #d1d5db; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #0d0f12; color: #f3f4f6; }
-    .card { background: #16181d; border-color: #262a31; }
-    p { color: #9ca3af; }
-    a.alt { background: #16181d; color: #e5e7eb; border-color: #343a43; }
+  .id b { display: block; font-weight: 400; color: #fff; }
+  h1 {
+    margin: 28px 0 16px;
+    font-size: clamp(2.125rem, 1.2rem + 3.9vw, 3.5rem);
+    line-height: 1.06; letter-spacing: -.03em; font-weight: 700;
   }
+  h1 span { color: #ffa634; }
+  p { margin: 0 0 32px; max-width: 52ch; color: #dbe4ee; font-size: 1.1875rem; }
+  /* Divided rows, not a grid of cards -- the site's rule is that depth comes
+     from a 1px hairline, never a shadow or a nested box. */
+  ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #0d2b42; }
+  li { border-bottom: 1px solid #0d2b42; }
+  li a {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    min-height: 44px; padding: 16px 4px;
+    color: #fff; text-decoration: none; font-weight: 600;
+  }
+  li a:hover, li a:focus-visible { background: #072338; }
+  li a em {
+    font-style: normal; font-weight: 400; color: #9fb3c8; font-size: .9375rem;
+  }
+  a:focus-visible { outline: 2px solid #7fb4e6; outline-offset: 2px; }
+  .cta {
+    display: inline-block; margin-top: 40px; min-height: 44px;
+    padding: 12px 24px; border-radius: 8px;
+    /* An orange fill always takes an INK label. White on #ffa634 is 1.95:1. */
+    background: #ffa634; color: #0d1b2a; font-weight: 700; text-decoration: none;
+  }
+  .cta:hover { background: #ffb757; } /* same hover as PrimaryCTA in site.tsx */
 </style>
 </head>
 <body>
-  <main class="card">
-    <div class="mark">OneAlgorithm</div>
-    <h1>We couldn&rsquo;t find that page</h1>
-    <p>The link may be out of date, or the address mistyped. Everything below still works.</p>
-    <div class="links">
-      <a class="btn" href="/">Home</a>
-      <a class="btn alt" href="/services">Services</a>
-      <a class="btn alt" href="/industries">Industries</a>
-      <a class="btn alt" href="/contact">Contact us</a>
-    </div>
+  <main>
+    <p class="id">ONEALGORITHM &middot; HTTP 404<b>That address does not exist</b></p>
+
+    <h1>We don&rsquo;t have a page <span>at that address</span></h1>
+    <p>
+      The link is probably out of date, or a character got lost on the way.
+      Nothing is broken on our side &mdash; everything below is working.
+    </p>
+
+    <ul>
+      <li><a href="/">Home <em>What we build, and what we keep running</em></a></li>
+      <li><a href="/services">Services <em>Salesforce, Oracle ERP, Zendesk, integration, web</em></a></li>
+      <li><a href="/industries">Industries <em>Construction, manufacturing, e-commerce, government</em></a></li>
+      <li><a href="/capabilities">Capabilities <em>UEI, CAGE, NAICS and PSC codes for market research</em></a></li>
+      <li><a href="/blog">Blog <em>Writing, and current openings</em></a></li>
+    </ul>
+
+    <a class="cta" href="/contact">Tell us what you were looking for</a>
   </main>
 </body>
 </html>
