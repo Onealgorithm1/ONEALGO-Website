@@ -540,6 +540,29 @@ function crumbsFor(path: string): Crumb[] {
  * structure, not trim".
  */
 function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
+  /* The same crumbs, for machines.
+     BreadcrumbList is one of the few structured-data types still earning a rich
+     result in Google's current gallery -- FAQPage and HowTo both stopped
+     appearing, in May 2026 and 2023 respectively -- and this site had none on
+     any of its 26 pages. The markup was already here and correct as navigation;
+     only the machine-readable half was missing, which is the cheapest kind of
+     gap to close.
+
+     `item` is omitted on the last crumb, per Google's guidance: the current
+     page is the position it occupies, not a link to somewhere else. */
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.label,
+      ...(c.to && i < crumbs.length - 1
+        ? { item: `https://onealgorithm.com${c.to === "/" ? "" : c.to}` }
+        : {}),
+    })),
+  };
+
   return (
     <nav
       aria-label="Breadcrumb"
@@ -547,6 +570,12 @@ function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
         dark ? "border-white/10 bg-black/15" : "border-oa-hairline bg-oa-paper"
       }`}
     >
+      <script
+        type="application/ld+json"
+        // The crumbs are generated from the route, so this can never disagree
+        // with what is rendered below it -- both read the same array.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <ol className="mx-auto flex max-w-[1200px] flex-wrap items-center px-4 sm:px-6 lg:px-8 font-mono text-xs">
         {crumbs.map((c, i) => {
           const current = i === crumbs.length - 1;

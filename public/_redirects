@@ -21,6 +21,13 @@
 /careers     /blog/tag/careers/    301
 /careers/*   /blog/tag/careers/    301
 
+# /about-us was the old URL for the about page and Google still surfaces it —
+# it was returning a 404 to anyone who clicked that result. A 301 keeps the
+# accrued signal and, more importantly, stops sending a real visitor to a dead
+# end from a search result the company did not choose to have.
+/about-us     /about    301
+/about-us/*   /about    301
+
 # Anything that matches no file is genuinely missing, so say so.
 #
 # Cloudflare Pages was serving 404.html for unknown paths but with a 200 status,
