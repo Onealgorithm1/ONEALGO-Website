@@ -2,6 +2,37 @@
 // takes it back out again when that page goes away.
 import React from "react";
 
+// Canonical business identity. Four schema blocks below used to keep their own
+// copies and had drifted: three different business names, two different sets of
+// coordinates (one ~2 miles off), two different emails, and a LinkedIn URL that
+// pointed at an unrelated company in Hyderabad. They all read from here now so
+// they cannot drift apart again.
+// Verified 2026-08-18 against the Google Business Profile and each live profile.
+// ponytail: TikTok is the one entry not re-verified (tooling could not reach it).
+const NAP = {
+  name: "OneAlgorithm Consulting",
+  alternateName: "One Algorithm",
+  telephone: "1 (610) 890-9711",
+  telephoneE164: "+1-610-890-9711",
+  email: "service@onealgorithm.com",
+  address: {
+    streetAddress: "625 Swedesford Rd, Unit B",
+    addressLocality: "Malvern",
+    addressRegion: "PA",
+    postalCode: "19355",
+    addressCountry: "US",
+  },
+  geo: { latitude: 40.0424458, longitude: -75.5771397 },
+  sameAs: [
+    "https://www.linkedin.com/company/onealgorithmllc",
+    "https://x.com/onealgorithm",
+    "https://www.facebook.com/profile.php?id=61578073689046",
+    "https://www.instagram.com/onealgorithm",
+    "https://youtube.com/@onealgorithm",
+    "https://www.tiktok.com/@one.algorithm",
+  ],
+};
+
 interface OrganizationSchema {
   type: "Organization";
   name: string;
@@ -20,6 +51,7 @@ interface OrganizationSchema {
     email: string;
     contactType: string;
   };
+  alternateName?: string;
   sameAs: string[];
   services?: string[];
 }
@@ -137,30 +169,19 @@ export function StructuredData({ data }: StructuredDataProps) {
 export function createOrganizationSchema(): OrganizationSchema {
   return {
     type: "Organization",
-    name: "OneAlgorithm",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     description:
       "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
-    address: {
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
+    address: NAP.address,
     contactPoint: {
-      telephone: "+1-610-890-9711",
-      email: "service@onealgorithm.com",
+      telephone: NAP.telephoneE164,
+      email: NAP.email,
       contactType: "Customer Service",
     },
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithmllc",
-      "https://www.facebook.com/share/1694s7Yy3p/",
-      "https://www.instagram.com/onealgorithm",
-      "https://youtube.com/@onealgorithm",
-      "https://www.tiktok.com/@one.algorithm",
-    ],
+    sameAs: NAP.sameAs,
     services: [
       "IT Consulting",
       "Website Development",
@@ -177,27 +198,17 @@ export function createOrganizationSchemaDetailed() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "One Algorithm",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     description:
       "Custom software development, system integration, and growth marketing agency serving Philadelphia and nationwide clients",
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     foundingDate: "2020",
-    telephone: "1 (610) 890-9711",
-    email: "contact@onealgorithm.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "40.0366",
-      longitude: "-75.5135",
-    },
+    telephone: NAP.telephone,
+    email: NAP.email,
+    address: { "@type": "PostalAddress", ...NAP.address },
+    geo: { "@type": "GeoCoordinates", ...NAP.geo },
     sameAs: [
       "https://linkedin.com/company/onealgorithm",
       "https://twitter.com/onealgorithm",
@@ -311,38 +322,24 @@ export function createLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "One Algorithm",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     image: "https://onealgorithm.com/logo.webp",
-    telephone: "1 (610) 890-9711",
-    email: "service@onealgorithm.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 40.0424458,
-      longitude: -75.5771397,
-    },
+    telephone: NAP.telephone,
+    email: NAP.email,
+    address: { "@type": "PostalAddress", ...NAP.address },
+    geo: { "@type": "GeoCoordinates", ...NAP.geo },
     areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
     priceRange: "$$$",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "09:00",
-      closes: "18:00",
+      closes: "17:00",
     },
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithm",
-      "https://twitter.com/onealgorithm",
-      "https://www.facebook.com/onealgorithm",
-    ],
+    sameAs: NAP.sameAs,
   };
 }
 
@@ -424,16 +421,10 @@ export function createContactPageSchema(): ContactPageSchema {
     url: "https://onealgorithm.com/contact",
     mainEntity: {
       type: "Organization",
-      name: "OneAlgorithm",
-      telephone: "+1-610-890-9711",
-      email: "service@onealgorithm.com",
-      address: {
-        streetAddress: "625 Swedesford Rd",
-        addressLocality: "Malvern",
-        addressRegion: "PA",
-        postalCode: "19355",
-        addressCountry: "US",
-      },
+      name: NAP.name,
+      telephone: NAP.telephoneE164,
+      email: NAP.email,
+      address: NAP.address,
     },
   };
 }

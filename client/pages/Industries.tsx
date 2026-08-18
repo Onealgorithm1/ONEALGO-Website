@@ -62,7 +62,7 @@ export default function Industries() {
 
             {/* Proof point */}
             <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4 inline-block mb-8">
-              <p className="text-onealgo-orange-500 text-sm font-semibold">Industry experts with combined 40+ years of sector experience | Avg. 30-40% efficiency improvements post-implementation</p>
+              <p className="text-onealgo-orange-500 text-sm font-semibold">Industry experts with combined 30+ years of sector experience | Avg. 30-40% efficiency improvements post-implementation</p>
             </div>
 
             {/* Dual CTA */}
