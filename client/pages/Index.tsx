@@ -366,7 +366,7 @@ export default function Index() {
                   We analyze your current infrastructure, identify optimization
                   opportunities, and develop comprehensive strategies that align
                   technology investments with business objectives. Our expert
-                  team brings 40+ years of combined CRM and technology
+                  team brings 30+ years of combined CRM and technology
                   experience.
                 </p>
                 <p className="text-gray-700">
@@ -514,7 +514,7 @@ export default function Index() {
                         Expert Team
                       </h4>
                       <p className="text-gray-700 text-sm">
-                        Certified consultants with 40+ years of combined CRM and
+                        Certified consultants with 30+ years of combined CRM and
                         technology experience
                       </p>
                     </div>

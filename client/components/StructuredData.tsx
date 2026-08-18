@@ -311,7 +311,8 @@ export function createLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "One Algorithm",
+    name: "OneAlgorithm Consulting",
+    alternateName: "One Algorithm",
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     image: "https://onealgorithm.com/logo.webp",
@@ -319,7 +320,7 @@ export function createLocalBusinessSchema() {
     email: "service@onealgorithm.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "625 Swedesford Rd",
+      streetAddress: "625 Swedesford Rd, Unit B",
       addressLocality: "Malvern",
       addressRegion: "PA",
       postalCode: "19355",
@@ -336,12 +337,12 @@ export function createLocalBusinessSchema() {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "09:00",
-      closes: "18:00",
+      closes: "17:00",
     },
     sameAs: [
       "https://www.linkedin.com/company/onealgorithm",
       "https://twitter.com/onealgorithm",
-      "https://www.facebook.com/onealgorithm",
+      "https://www.facebook.com/profile.php?id=61578073689046",
     ],
   };
 }
