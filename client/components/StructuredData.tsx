@@ -2,37 +2,38 @@
 // takes it back out again when that page goes away.
 import React from "react";
 
-// Canonical business identity. Four schema blocks below used to keep their own
-// copies and had drifted: three different business names, two different sets of
-// coordinates (one ~2 miles off), two different emails, and a LinkedIn URL that
-// pointed at an unrelated company in Hyderabad. They all read from here now so
-// they cannot drift apart again.
+import { siteConfig } from "../lib/siteConfig";
+
+// Identity comes from shared/companyProfile.ts. Four schema blocks below used to
+// keep their own copies and had drifted: three different business names,
+// coordinates ~2 miles apart, two different emails, and a LinkedIn URL pointing
+// at an unrelated company in Hyderabad. One source now, so they cannot diverge.
 // Verified 2026-08-18 against the Google Business Profile and each live profile.
-// ponytail: TikTok is the one entry not re-verified (tooling could not reach it).
+// ponytail: TikTok is the one link not re-verified (tooling could not reach it).
+const A = siteConfig.address;
 const NAP = {
-  name: "OneAlgorithm Consulting",
-  alternateName: "One Algorithm",
-  telephone: "1 (610) 890-9711",
+  name: siteConfig.gbpName,
+  alternateName: siteConfig.name,
+  telephone: siteConfig.contact.phonePrimary,
   telephoneE164: "+1-610-890-9711",
-  email: "service@onealgorithm.com",
+  email: siteConfig.contact.emailPrimary,
   address: {
-    streetAddress: "625 Swedesford Rd, Unit B",
-    addressLocality: "Malvern",
-    addressRegion: "PA",
-    postalCode: "19355",
-    addressCountry: "US",
+    streetAddress: A.street + ", " + A.streetUnit,
+    addressLocality: A.city,
+    addressRegion: A.region,
+    postalCode: A.postalCode,
+    addressCountry: A.country,
   },
-  geo: { latitude: 40.0424458, longitude: -75.5771397 },
+  geo: { latitude: siteConfig.geo.latitude, longitude: siteConfig.geo.longitude },
   sameAs: [
-    "https://www.linkedin.com/company/onealgorithmllc",
-    "https://x.com/onealgorithm",
-    "https://www.facebook.com/profile.php?id=61578073689046",
-    "https://www.instagram.com/onealgorithm",
-    "https://youtube.com/@onealgorithm",
-    "https://www.tiktok.com/@one.algorithm",
+    siteConfig.social.linkedin,
+    siteConfig.social.x,
+    siteConfig.social.facebook,
+    siteConfig.social.instagram,
+    siteConfig.social.youtube,
+    siteConfig.social.tiktok,
   ],
 };
-
 interface OrganizationSchema {
   type: "Organization";
   name: string;
@@ -209,11 +210,7 @@ export function createOrganizationSchemaDetailed() {
     email: NAP.email,
     address: { "@type": "PostalAddress", ...NAP.address },
     geo: { "@type": "GeoCoordinates", ...NAP.geo },
-    sameAs: [
-      "https://linkedin.com/company/onealgorithm",
-      "https://twitter.com/onealgorithm",
-      "https://github.com/onealgorithm",
-    ],
+    sameAs: [...NAP.sameAs, "https://github.com/Onealgorithm1"],
     // Plain text, not a GeoCircle. The circle carried geoRadius: "Worldwide",
     // and geoRadius must be a number of metres or a Distance - prose made the
     // whole shape invalid. A circle centred on the office cannot express
@@ -278,7 +275,7 @@ export function createFAQSchema() {
         name: "Where is One Algorithm located?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "One Algorithm is located at 625 Swedesford Rd, Malvern, PA 19355. We serve clients in the Philadelphia metro area and nationwide, with experience working with companies across the United States and internationally.",
+          text: "One Algorithm is located at 625 Swedesford Rd, Unit B, Malvern, PA 19355. We serve clients in the Philadelphia metro area and nationwide, with experience working with companies across the United States and internationally.",
         },
       },
       {

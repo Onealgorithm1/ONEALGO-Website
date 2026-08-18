@@ -188,7 +188,7 @@ export default function Privacy() {
                   <strong>Phone:</strong> 1 (610) 890-9711
                 </p>
                 <p>
-                  <strong>Address:</strong> 625 Swedesford Rd, Malvern, PA 19355
+                  <strong>Address:</strong> 625 Swedesford Rd, Unit B, Malvern, PA 19355
                 </p>
               </div>
             </div>

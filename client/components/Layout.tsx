@@ -820,7 +820,7 @@ function Layout({ children }: LayoutProps) {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/share/1694s7Yy3p/"
+                  href="https://www.facebook.com/people/One-Algorithm/61578073689046/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-blue-800 hover:bg-blue-500 p-3 rounded-full transition-all duration-300 hover:scale-110"
