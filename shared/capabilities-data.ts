@@ -26,8 +26,6 @@ export interface KeyPerson {
   name: string;
   role: string;
   summary: string;
-  email?: string;
-  phone?: string;
 }
 
 export interface FederalExperienceItem {
@@ -193,8 +191,6 @@ export const keyPersonnel: KeyPerson[] = [
     name: "Louis Rubino",
     role: "Director, Compliance & Contract Administration",
     summary: "Federal compliance, proposal operations, and partner management.",
-    email: "lrubino@onealgorithm.com",
-    phone: "(516) 451-5139",
   },
   {
     name: "Sreenivas Amirisetti",
