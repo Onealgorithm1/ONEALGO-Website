@@ -1,6 +1,8 @@
 // Shared company metadata for both client and server consumption
 export interface CompanyConfig {
   name: string;
+  // Exact name on the Google Business Profile. Structured data must match it.
+  gbpName: string;
   legalName: string;
   url: string;
   logo: string;
@@ -38,6 +40,7 @@ export interface CompanyConfig {
   social: {
     linkedin: string;
     facebook: string;
+    x: string;
     instagram: string;
     youtube: string;
     tiktok: string;
@@ -49,6 +52,7 @@ export interface CompanyConfig {
 
 export const siteConfig: CompanyConfig = {
   name: "OneAlgorithm",
+  gbpName: "OneAlgorithm Consulting",
   legalName: "ONE ALGORITHM LLC",
   url: "https://www.onealgorithm.com",
   logo: "https://onealgorithm.com/media/oa-logo.webp",
@@ -107,12 +111,13 @@ export const siteConfig: CompanyConfig = {
     psc: ["7A20", "7A21", "7E20", "DA10", "R408"],
   },
   geo: {
-    latitude: 40.042445799999996,
+    latitude: 40.0424458,
     longitude: -75.5771397,
   },
   social: {
     linkedin: "https://www.linkedin.com/company/onealgorithmllc",
-    facebook: "https://www.facebook.com/share/1694s7Yy3p/",
+    facebook: "https://www.facebook.com/people/One-Algorithm/61578073689046/",
+    x: "https://x.com/onealgorithm",
     instagram: "https://www.instagram.com/onealgorithm",
     youtube: "https://youtube.com/@onealgorithm",
     tiktok: "https://www.tiktok.com/@one.algorithm",

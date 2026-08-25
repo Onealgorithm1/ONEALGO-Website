@@ -811,7 +811,7 @@ export default function Contact() {
                     <MapPin className="w-4 h-4 text-oa-blue mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-oa-ink2 text-sm">
-                        625 Swedesford Rd
+                        625 Swedesford Rd, Unit B
                         <br />
                         Malvern, PA 19355
                         <br />

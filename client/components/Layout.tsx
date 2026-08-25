@@ -997,7 +997,7 @@ function Layout({ children }: LayoutProps) {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/share/1694s7Yy3p/"
+                  href="https://www.facebook.com/people/One-Algorithm/61578073689046/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"

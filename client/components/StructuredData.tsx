@@ -2,6 +2,38 @@
 // takes it back out again when that page goes away.
 import React from "react";
 
+import { siteConfig } from "../lib/siteConfig";
+
+// Identity comes from shared/companyProfile.ts. Four schema blocks below used to
+// keep their own copies and had drifted: three different business names,
+// coordinates ~2 miles apart, two different emails, and a LinkedIn URL pointing
+// at an unrelated company in Hyderabad. One source now, so they cannot diverge.
+// Verified 2026-08-18 against the Google Business Profile and each live profile.
+// ponytail: TikTok is the one link not re-verified (tooling could not reach it).
+const A = siteConfig.address;
+const NAP = {
+  name: siteConfig.gbpName,
+  alternateName: siteConfig.name,
+  telephone: siteConfig.contact.phonePrimary,
+  telephoneE164: "+1-610-890-9711",
+  email: siteConfig.contact.emailPrimary,
+  address: {
+    streetAddress: A.street + ", " + A.streetUnit,
+    addressLocality: A.city,
+    addressRegion: A.region,
+    postalCode: A.postalCode,
+    addressCountry: A.country,
+  },
+  geo: { latitude: siteConfig.geo.latitude, longitude: siteConfig.geo.longitude },
+  sameAs: [
+    siteConfig.social.linkedin,
+    siteConfig.social.x,
+    siteConfig.social.facebook,
+    siteConfig.social.instagram,
+    siteConfig.social.youtube,
+    siteConfig.social.tiktok,
+  ],
+};
 interface OrganizationSchema {
   type: "Organization";
   name: string;
@@ -20,6 +52,7 @@ interface OrganizationSchema {
     email: string;
     contactType: string;
   };
+  alternateName?: string;
   sameAs: string[];
   services?: string[];
 }
@@ -153,30 +186,19 @@ export function StructuredData({ data }: StructuredDataProps) {
 export function createOrganizationSchema(): OrganizationSchema {
   return {
     type: "Organization",
-    name: "OneAlgorithm",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     description:
       "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
-    address: {
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
+    address: NAP.address,
     contactPoint: {
-      telephone: "+1-610-890-9711",
-      email: "service@onealgorithm.com",
+      telephone: NAP.telephoneE164,
+      email: NAP.email,
       contactType: "Customer Service",
     },
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithmllc",
-      "https://www.facebook.com/share/1694s7Yy3p/",
-      "https://www.instagram.com/onealgorithm",
-      "https://youtube.com/@onealgorithm",
-      "https://www.tiktok.com/@one.algorithm",
-    ],
+    sameAs: NAP.sameAs,
     services: [
       "IT Consulting",
       "Website Development",
@@ -193,58 +215,18 @@ export function createOrganizationSchemaDetailed() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "One Algorithm",
-    /* Was "serving Philadelphia and nationwide clients". The company is in
-       MALVERN, which is what the postal address below, the SBA registration,
-       every page of this site and llms.txt all say. Structured data is the one
-       format built for a machine to extract and repeat a fact, so a wrong city
-       here is a wrong city in whatever quotes it back.
-
-       The email was contact@onealgorithm.com, which is not the address the
-       company publishes anywhere else -- companyProfile.ts, the footer, the
-       contact page and the capability statement all say service@. An address in
-       the schema that nobody monitors is worse than none. */
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     description:
       "IT consultancy in Malvern, Pennsylvania: Salesforce, Oracle ERP and Zendesk implementation, system and API integration, staff augmentation and web development. Woman-owned, SBA-certified WOSB/EDWOSB, serving clients nationwide.",
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     foundingDate: "2020",
-    telephone: "1 (610) 890-9711",
-    email: "service@onealgorithm.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "40.0366",
-      longitude: "-75.5135",
-    },
-    // Corrected 2026-08-12. These three pointed at profiles that are NOT ours:
-    // linkedin.com/company/onealgorithm (ours is /onealgorithmllc),
-    // twitter.com/onealgorithm and github.com/onealgorithm (neither appears
-    // anywhere on this site).
-    //
-    // `sameAs` is how Google resolves this website to the entity behind it, so
-    // wrong URLs weaken the Knowledge Panel -- and ~97% of this site's search
-    // traffic is people typing the company name, which is exactly the traffic a
-    // Knowledge Panel serves. This was quietly costing the one thing that works.
-    //
-    // Sourced from the footer in Layout.tsx, which is the source of truth, and
-    // kept identical to the Organization block's `sameAs` above -- two schema
-    // objects describing one company must not disagree about which accounts are
-    // ours, or the contradiction is the thing a crawler has to resolve.
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithmllc",
-      "https://www.facebook.com/share/1694s7Yy3p/",
-      "https://www.instagram.com/onealgorithm",
-      "https://youtube.com/@onealgorithm",
-      "https://www.tiktok.com/@one.algorithm",
-    ],
+    telephone: NAP.telephone,
+    email: NAP.email,
+    address: { "@type": "PostalAddress", ...NAP.address },
+    geo: { "@type": "GeoCoordinates", ...NAP.geo },
+    sameAs: [...NAP.sameAs, "https://github.com/Onealgorithm1"],
     // Plain text, not a GeoCircle. The circle carried geoRadius: "Worldwide",
     // and geoRadius must be a number of metres or a Distance - prose made the
     // whole shape invalid. A circle centred on the office cannot express
@@ -337,25 +319,15 @@ export function createLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "One Algorithm",
+    name: NAP.name,
+    alternateName: NAP.alternateName,
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     image: "https://onealgorithm.com/logo.webp",
-    telephone: "1 (610) 890-9711",
-    email: "service@onealgorithm.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "625 Swedesford Rd",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      postalCode: "19355",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 40.0424458,
-      longitude: -75.5771397,
-    },
+    telephone: NAP.telephone,
+    email: NAP.email,
+    address: { "@type": "PostalAddress", ...NAP.address },
+    geo: { "@type": "GeoCoordinates", ...NAP.geo },
     areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
     priceRange: "$$$",
     // Corrected 2026-08-12. This said Mon-Fri 09:00-18:00 while the site sells
@@ -370,31 +342,11 @@ export function createLocalBusinessSchema() {
     // convention for always-open.
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
     },
-    // Corrected 2026-08-12: this was the THIRD sameAs list in this file and the
-    // second one pointing at accounts that are not ours -- /onealgorithm rather
-    // than /onealgorithmllc, a Twitter account that does not appear anywhere on
-    // this site, and facebook.com/onealgorithm rather than the share link the
-    // footer actually uses. All three schema objects now carry the identical
-    // list, taken from the footer in Layout.tsx.
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithmllc",
-      "https://www.facebook.com/share/1694s7Yy3p/",
-      "https://www.instagram.com/onealgorithm",
-      "https://youtube.com/@onealgorithm",
-      "https://www.tiktok.com/@one.algorithm",
-    ],
+    sameAs: NAP.sameAs,
   };
 }
 
@@ -477,16 +429,10 @@ export function createContactPageSchema(): ContactPageSchema {
     url: "https://onealgorithm.com/contact",
     mainEntity: {
       type: "Organization",
-      name: "OneAlgorithm",
-      telephone: "+1-610-890-9711",
-      email: "service@onealgorithm.com",
-      address: {
-        streetAddress: "625 Swedesford Rd",
-        addressLocality: "Malvern",
-        addressRegion: "PA",
-        postalCode: "19355",
-        addressCountry: "US",
-      },
+      name: NAP.name,
+      telephone: NAP.telephoneE164,
+      email: NAP.email,
+      address: NAP.address,
     },
   };
 }
