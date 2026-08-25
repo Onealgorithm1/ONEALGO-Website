@@ -316,8 +316,12 @@ export const strategicPartnerships: string[] = [
 export const keyPersonnel: KeyPerson[] = [
   {
     name: "Louis Rubino",
-    role: "Director, Compliance & Contract Administration",
-    summary: "Federal compliance, proposal operations, and partner management.",
+    /* Kept in step with client/components/TeamSection.tsx deliberately: /about
+       and /capabilities gave the same person DIFFERENT titles, which is a live
+       credibility problem. If one changes, change both. */
+    role: "Director of Operations",
+    summary:
+      "Operations, contracts and invoicing, federal registrations and certifications, internal systems, and marketing.",
   },
   {
     name: "Sreenivas Amirisetti",
