@@ -58,14 +58,29 @@ for (const s of SITES) {
   });
   await new Promise((r) => setTimeout(r, 1200));
 
+  // Desktop card at 1x: the 2x version was 111–160KB and arrived late enough
+  // to read as a blank box. 1280 wide is plenty for a 420px card.
   const card = join(OUT, `${s.slug}-card.webp`);
-  await page.screenshot({ path: card, type: "webp", quality: 82 });
+  await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
+  await new Promise((r) => setTimeout(r, 600));
+  await page.screenshot({ path: card, type: "webp", quality: 74 });
+  await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 2 });
+  await new Promise((r) => setTimeout(r, 600));
 
   const full = join(OUT, `${s.slug}-full.webp`);
   await page.screenshot({ path: full, type: "webp", quality: 80, fullPage: true });
 
   const h = await page.evaluate(() => document.documentElement.scrollHeight);
-  console.log(`  ${s.slug}: card 1280x800, full 1280x${h}`);
+
+  /* Phone card. A desktop capture squeezed into a 340px card is unreadable —
+     Louis, 2026-08-25: "the sizing is off". So phones get the site's OWN
+     phone layout, first screen, 390 wide. */
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+  await new Promise((r) => setTimeout(r, 1500));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: join(OUT, `${s.slug}-phone.webp`), type: "webp", quality: 78, clip: { x: 0, y: 0, width: 390, height: 488 } });
+
+  console.log(`  ${s.slug}: card 1280x800, phone 390x488, full 1280x${h}`);
   await page.close();
 }
 await browser.close();

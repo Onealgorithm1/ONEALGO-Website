@@ -58,7 +58,8 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open the live site
+            <span className="wk-visit-long">Open the live site</span>
+            <span className="wk-visit-short">Open site</span>
           </a>
           <button type="button" className="wk-close" onClick={onClose} aria-label="Close preview">
             ✕
@@ -135,6 +136,10 @@ export default function WorkCarousel() {
           <li key={w.slug} className="wk-card">
             <button type="button" className="wk-btn" onClick={() => setOpen(w)}>
               <span className="wk-shot">
+                <picture>
+                  {/* Phones see the site's own phone layout, not a desktop
+                      capture shrunk to 340px. */}
+                  <source media="(max-width: 639px)" srcSet={`/work/${w.slug}-phone.webp`} width={780} height={976} />
                 <img
                   src={`/work/${w.slug}-card.webp`}
                   alt={`The ${w.name} website`}
@@ -146,6 +151,7 @@ export default function WorkCarousel() {
                   loading="eager"
                   decoding="async"
                 />
+                </picture>
               </span>
               <span className="wk-meta">
                 <span className="wk-name">{w.name}</span>

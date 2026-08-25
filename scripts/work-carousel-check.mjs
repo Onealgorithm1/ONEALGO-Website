@@ -91,7 +91,7 @@ try {
   await check("every entry in work.ts has both of its images on disk", () => {
     assert.ok(SLUGS.length > 0, "no entries parsed out of client/data/work.ts");
     for (const slug of SLUGS) {
-      for (const kind of ["card", "full"]) {
+      for (const kind of ["card", "phone", "full"]) {
         const f = path.join(ROOT, "public", "work", `${slug}-${kind}.webp`);
         assert.ok(fs.existsSync(f), `missing ${slug}-${kind}.webp — run scripts/work-shots.mjs`);
         assert.ok(fs.statSync(f).size > 8000, `${slug}-${kind}.webp is only ${fs.statSync(f).size} bytes`);
