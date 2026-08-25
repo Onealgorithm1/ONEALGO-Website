@@ -87,7 +87,8 @@ export default function HeroFrame() {
   const ref = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef<HTMLElement>(null);
   const reduced = !!useReducedMotion();
-  const playVideo = useHeroVideo();
+  const filmRef = useRef<HTMLVideoElement>(null);
+  const playVideo = useHeroVideo(filmRef);
 
   /* Background parallax: the film drifts against the scroll instead of tracking
      it one-to-one, so the hero has depth without a second asset. Transform only,
@@ -280,6 +281,7 @@ export default function HeroFrame() {
       <div className="hg-slide">
         <article ref={frameRef} className="hg-s" style={{ background: NIGHT }}>
           <motion.video
+            ref={filmRef}
             className="hs-film"
             style={reduced ? undefined : { y: filmY }}
             autoPlay={playVideo}

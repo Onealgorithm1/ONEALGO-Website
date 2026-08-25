@@ -1,75 +1,118 @@
 import React from "react";
 
-/* Hero video gating. Lifted out of Index.tsx on 2026-08-24 so
-   /services/website-development could reuse it — importing it from the page
-   module would have pulled the entire homepage into that route's chunk.
-   Index.tsx re-exports both names, so client/pages/Index.spec.ts is unchanged. */
+/* Shared by the homepage and /services/website-development. Lives here rather
+   than in a page module because importing it from the homepage would have
+   pulled the entire homepage into the other route's chunk. Index.tsx
+   re-exports both names, so client/pages/Index.spec.ts is unchanged. */
 
-/** ⛔ THE VIEWPORT GATE IS GONE — 2026-08-24, at Louis's direction: "the video
- *  isn't playing on home and website page", reported from his own phone after
- *  he had been told the gate existed.
- *
- *  What it used to say, and why it was wrong to keep: the film is 746KB of webm
- *  and on a phone the scrim reduces it to dark texture, so paying three quarters
- *  of a megabyte on a cellular connection for something you cannot tell is
- *  moving was a byte that had not earned its place. That reasoning was sound for
- *  the homepage's heavy scrim. It stopped being sound when the same component
- *  became the hero of /services/website-development, where the film IS the
- *  background and its absence reads as a broken page.
- *
- *  ⛔ THE COST IS REAL AND IT IS NOW PAID ON PHONES: 746KB webm / 576KB mp4, on
- *  a page already over its LCP and TBT budget. `preload="none"` and the 70KB
- *  poster keep it off the critical path — it is fetched after first paint, not
- *  before — but it is fetched.
- *
- *  The two remaining conditions are not preferences, they are the visitor's
- *  explicit instructions, and they stay: a reduced-motion request, and a
- *  Save-Data header. In both cases the <source> elements are never rendered, so
- *  nothing is downloaded at all rather than merely paused. */
 export function shouldPlayHeroVideo(env: {
   reducedMotion: boolean;
-  /** Retained so callers and the spec keep compiling; deliberately unused. */
   wideViewport?: boolean;
   saveData: boolean;
 }) {
   return !env.reducedMotion && !env.saveData;
 }
 
-/** Returns false on the server and on the first client render, which is the
- *  point: the prerendered HTML then contains no <source> at all, so nothing
- *  can start fetching before the decision has been made. */
-/** Returns false on the server and on the first client render, which is the
- *  point: the prerendered HTML then contains no <source> at all, so nothing
- *  can start fetching before the decision has been made. */
-export function useHeroVideo() {
+/**
+ * Whether the hero film should be attached and playing.
+ *
+ * Three gates, all of which must be open:
+ *
+ *   1. The environment allows it — no reduced-motion request, no Save-Data.
+ *      (shouldPlayHeroVideo, unchanged, and the spec covers it.)
+ *   2. ⛔ FIRST PAINT HAS HAPPENED. Until 2026-08-25 `play` went true in the
+ *      mount effect, so `<video autoplay>` began fetching the 729KB film at
+ *      once — before the CSS, the fonts and the 69KB poster the visitor
+ *      actually sees first. On Lighthouse's mobile throttle that film alone
+ *      is ~3.6s of bandwidth, all of it spent ahead of first paint. The
+ *      signal is the `first-contentful-paint` entry from a PerformanceObserver
+ *      with `buffered: true`, because this effect can easily run AFTER the
+ *      paint and an unbuffered observer would never fire. `load` was
+ *      considered and rejected by the reviewer: it is not a paint signal, and
+ *      it starts the film for a visitor who has already scrolled away.
+ *   3. The hero is on screen, when a ref is given. A visitor who lands and
+ *      scrolls straight past the hero does not pay for a film they will not
+ *      see. Once started, the film stays started — un-attaching sources on
+ *      every scroll would re-fetch on every return.
+ *
+ * The <source> elements are rendered only while this is true, so nothing is
+ * requested until every gate is open. `preload="none"` alone does not stop a
+ * fetch once `autoplay` and a source are present.
+ */
+export function useHeroVideo(ref?: React.RefObject<HTMLVideoElement | null>) {
   const [play, setPlay] = React.useState(false);
 
   React.useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    // Kept only so the existing add/removeEventListener wiring below is
-    // unchanged; the width no longer decides anything.
     const wide = window.matchMedia("(min-width: 768px)");
-    const update = () =>
-      setPlay(
-        shouldPlayHeroVideo({
-          reducedMotion: motion.matches,
-          wideViewport: wide.matches,
-          // Not in every browser's typings, and absent entirely in Safari.
-          saveData:
-            (navigator as Navigator & { connection?: { saveData?: boolean } })
-              .connection?.saveData === true,
-        }),
-      );
+    let allowed = false;
+    let painted = false;
+    let visible = !ref; // no ref → visibility is not a gate
+    let started = false;
 
-    update();
-    motion.addEventListener("change", update);
-    wide.addEventListener("change", update);
-    return () => {
-      motion.removeEventListener("change", update);
-      wide.removeEventListener("change", update);
+    const update = () => {
+      if (allowed && painted && visible) started = true;
+      setPlay(started && allowed);
     };
-  }, []);
+    const env = () => {
+      allowed = shouldPlayHeroVideo({
+        reducedMotion: motion.matches,
+        wideViewport: wide.matches,
+        saveData:
+          (navigator as Navigator & { connection?: { saveData?: boolean } })
+            .connection?.saveData === true,
+      });
+      update();
+    };
+    env();
+    motion.addEventListener("change", env);
+    wide.addEventListener("change", env);
+
+    let po: PerformanceObserver | undefined;
+    if (typeof PerformanceObserver !== "undefined") {
+      try {
+        po = new PerformanceObserver((list) => {
+          if (list.getEntries().some((e) => e.name === "first-contentful-paint")) {
+            painted = true;
+            po?.disconnect();
+            update();
+          }
+        });
+        po.observe({ type: "paint", buffered: true });
+      } catch {
+        // A browser without the paint entry type: do not hold the film
+        // hostage to a signal that will never come.
+        painted = true;
+        update();
+      }
+    } else {
+      painted = true;
+      update();
+    }
+
+    let io: IntersectionObserver | undefined;
+    const el = ref?.current;
+    if (ref && el && typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(
+        ([entry]) => {
+          visible = entry.isIntersecting;
+          update();
+        },
+        { threshold: 0.01 },
+      );
+      io.observe(el);
+    } else if (ref) {
+      visible = true;
+      update();
+    }
+
+    return () => {
+      motion.removeEventListener("change", env);
+      wide.removeEventListener("change", env);
+      po?.disconnect();
+      io?.disconnect();
+    };
+  }, [ref]);
 
   return play;
 }
-

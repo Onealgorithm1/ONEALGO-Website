@@ -149,5 +149,25 @@ if (/<script[^>]+clarity\.ms/.test(html)) {
          'revisited - mobile TBT is already over the 200ms budget with GA4 alone.');
 }
 
-console.log(failures ? `\n${failures} failure(s).` : '\nAnalytics hostname guards are correct (GA4 + Clarity).');
+// --- the static 404 page carries the same guard --------------------------------
+
+// public/404.html is hand-written and self-contained; it got analytics on
+// 2026-08-25 so broken inbound links become visible. It must use the SAME
+// allowlist, or preview 404s pollute the property from a page nobody audits.
+const html404 = readFileSync(join(root, 'public', '404.html'), 'utf8');
+const list404 = html404.match(/HOSTS\s*=\s*\[([^\]]*)\]/);
+const hosts404 = list404 ? [...list404[1].matchAll(/["']([^"']+)["']/g)].map(m => m[1]) : [];
+
+if (hosts404.length && hosts404.every(h => MUST_REPORT.includes(h)) && MUST_REPORT.every(h => hosts404.includes(h))) {
+    pass('404.html uses the same production allowlist');
+} else {
+    fail(`404.html allowlist is ${hosts404.length ? hosts404.join(', ') : 'missing'} — must equal ${MUST_REPORT.join(', ')}`);
+}
+if (/HOSTS\.indexOf\(location\.hostname\)\s*!==\s*-1\)\s*\{[\s\S]{0,600}gtag\(\s*["']config["']/.test(html404)) {
+    pass('404.html gtag("config") is inside its hostname guard');
+} else {
+    fail('404.html sends gtag("config") outside the hostname guard');
+}
+
+console.log(failures ? `\n${failures} failure(s).` : '\nAnalytics hostname guards are correct (GA4 + Clarity + 404).');
 process.exit(failures ? 1 : 0);

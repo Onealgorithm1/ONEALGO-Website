@@ -2,14 +2,12 @@
 <html lang="en">
   <head>
 
-    <!-- Preload critical CSS (non-blocking) and fonts -->
-    <link
-      rel="preload"
-      href="/assets/index.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="/assets/index.css" /></noscript>
+    <!-- ⛔ No hand-written <link> to /assets/index.css here. Vite injects the
+         stylesheet itself, WITH crossorigin; a second link without it is a
+         different request mode, so the browser downloaded the same 124KB twice
+         before first paint (measured 2026-08-25). The old "preload + onload"
+         trick also never made the CSS non-blocking, because Vite's link was
+         blocking regardless — it only bought the duplicate. -->
 
     <!-- Font preloads removed: the three .woff2 files they pointed at are saved
          HTML 404 pages, not fonts, so these were high-priority requests for
@@ -22,8 +20,15 @@
 
     <!-- Google Analytics 4. GA4 enhanced measurement already tracks SPA route
          changes via history events, so no per-route call is needed here. -->
+    <!-- fetchpriority="low", NOT deferred to `load`: a deferred loader loses
+         the whole session of anyone who leaves before load, and on a page that
+         paints at ~5s on mobile that is not a corner case. Low priority keeps
+         the request early — the session is still recorded — while letting
+         the CSS, fonts and poster win the bandwidth race before first paint.
+         184KB, and it was contending with everything. -->
     <script
       async
+      fetchpriority="low"
       src="https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"
     ></script>
     <script>
@@ -293,7 +298,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+    <!-- No SVG icon link. /favicon.svg was a 512px PNG base64-wrapped in an
+         <svg> element — 104KB, and Chrome preferred it over the 2.8KB PNG,
+         fetching it before first paint. The PNG icons below cover 16-192px. -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />

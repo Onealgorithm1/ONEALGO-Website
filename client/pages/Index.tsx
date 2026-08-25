@@ -311,7 +311,10 @@ function Eyebrow({
 }
 
 export default function Index() {
-  const playHeroVideo = useHeroVideo();
+  // The ref lets the hook hold the film until the hero is on screen; the
+  // hook also waits for first paint. See client/lib/heroVideo.ts.
+  const heroVideoRef = React.useRef<HTMLVideoElement>(null);
+  const playHeroVideo = useHeroVideo(heroVideoRef);
 
   useSEO({
     title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
@@ -356,6 +359,7 @@ export default function Index() {
           never fetched. */}
       <section className="relative overflow-hidden bg-oa-night">
         <video
+          ref={heroVideoRef}
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay={playHeroVideo}
           muted

@@ -142,9 +142,17 @@ async function main() {
             }
           }
         };
-        settle();
-        await wait(150);
-        settle();
+        // ⛔ Poll, do not count. Two fixed passes still lost the race on
+        // /about — 3 of 7 runs on 2026-08-25 tripped the gate below with one
+        // element at opacity 0, because the animation loop re-applied its
+        // inline style after the second sweep. So sweep until the DOM has no
+        // inline `opacity: 0` left, or give up after ~2s and let the gate say
+        // so; a flake that fails loudly beats one that ships hidden content.
+        for (let pass = 0; pass < 12; pass++) {
+          settle();
+          await wait(150);
+          if (!document.querySelector('[style*="opacity: 0"]')) break;
+        }
       });
 
       const html = "<!doctype html>\n" + (await page.content());

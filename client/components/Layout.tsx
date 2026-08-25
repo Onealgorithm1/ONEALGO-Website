@@ -83,7 +83,10 @@ function Layout({ children }: LayoutProps) {
       // off. Driven at 390x844 -> 844x390: the page froze completely, no scroll,
       // nothing clickable, no visible way out. 768 is Tailwind's `md`; if that
       // breakpoint moves, this moves with it.
-      if (window.innerWidth >= 768) setMobileMenuOpen(false);
+      // 1024 is Tailwind's `lg`. The desktop nav moved from md to lg on
+      // 2026-08-25 because at 768-1023px its seven items overflowed the bar
+      // by 54px; the drawer now covers that range, so this threshold moved too.
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
     };
 
     window.addEventListener("resize", handleResize);
@@ -263,7 +266,7 @@ function Layout({ children }: LayoutProps) {
               a duplicate taking up space next to About. The homepage stays
               reachable by crawlers through that logo link.
             */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
               <Link
                 to="/about"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
@@ -544,7 +547,7 @@ function Layout({ children }: LayoutProps) {
                 else, 24x24, against the 44 that WCAG 2.5.5 and the iOS HIG both
                 ask for. h-11 w-11 is 44; the negative margin keeps the icon
                 optically where it already sat rather than shunting the bar. */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <button
                 ref={burgerButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -589,7 +592,7 @@ function Layout({ children }: LayoutProps) {
         <div
           ref={mobilePanelRef}
           id="mobile-nav"
-          className="md:hidden fixed inset-0 z-[100] flex flex-col overscroll-contain bg-white"
+          className="lg:hidden fixed inset-0 z-[100] flex flex-col overscroll-contain bg-white"
         >
           <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
             <Link
