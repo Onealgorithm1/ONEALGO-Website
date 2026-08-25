@@ -99,9 +99,15 @@ try {
     }
   });
 
+  /* --live: open PRODUCTION instead of the local build. A client site that
+     allowlists only onealgorithm.com in frame-ancestors refuses a frame from
+     localhost, so its live preview can only be proven from the real origin,
+     after deploy. */
+  const LIVE = process.argv.includes("--live");
+  const BASE = LIVE ? "https://onealgorithm.com" : `http://localhost:${port}`;
   const page = await browser.newPage();
   await page.setViewport({ width: 1440, height: 900 });
-  await page.goto(`http://localhost:${port}${ROUTE}`, { waitUntil: "networkidle0" });
+  await page.goto(`${BASE}${ROUTE}`, { waitUntil: "networkidle0" });
 
   await check("one card per entry, and the carousel sits above the rest of the page", async () => {
     const n = await page.$$eval(".wk-card", (els) => els.length);
@@ -139,6 +145,17 @@ try {
         for (let t = 0; t < 40 && !frame; t++) {
           frame = page.frames().find((f) => f !== page.mainFrame() && f.url().startsWith(item.url));
           if (!frame) await new Promise((r) => setTimeout(r, 250));
+        }
+        if (!frame && !LIVE) {
+          /* Refused from localhost. That is only acceptable if the site's own
+             headers say it allowlists onealgorithm.com — then the refusal is
+             the allowlist working, and --live is where this gets proven. */
+          const res = await fetch(item.url, { method: "HEAD" }).catch(() => null);
+          const csp = (res && res.headers.get("content-security-policy")) || "";
+          assert.ok(/frame-ancestors[^;]*onealgorithm\.com/.test(csp),
+            "no child frame for " + item.url + " and its headers do not allowlist onealgorithm.com (CSP: " + (csp || "none") + ")");
+          console.log("        (allowlisted to onealgorithm.com — cannot be framed from localhost; run with --live after deploy)");
+          return;
         }
         assert.ok(frame, "no child frame for " + item.url + " — the client site refused to be framed, or never loaded");
         const seen = await frame.evaluate((marker) => new Promise((resolve) => {
@@ -179,7 +196,7 @@ try {
   await check("no page-level horizontal scroll at 390px", async () => {
     const p = await browser.newPage();
     await p.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
-    await p.goto(`http://localhost:${port}${ROUTE}`, { waitUntil: "networkidle0" });
+    await p.goto(`${BASE}${ROUTE}`, { waitUntil: "networkidle0" });
     const over = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     await p.close();
     assert.ok(over <= 1, `page scrolls sideways by ${over}px at 390`);
