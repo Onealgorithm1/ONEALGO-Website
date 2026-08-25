@@ -24,6 +24,14 @@ export type WorkItem = {
   note: string;
   url: string;
   shot: string;
+  /** Show the LIVE site in an iframe. Only true once the client site's
+   *  headers allow onealgorithm.com to frame it (CSP frame-ancestors) —
+   *  checked with curl, not assumed. False falls back to the screenshot. */
+  embed: boolean;
+  /** Text that proves the LIVE site rendered inside the frame (the check
+   *  script looks for it in the child document — a blank refusal page or a
+   *  browser error page would pass a mere "frame exists" test). */
+  marker: string;
 };
 
 export const WORK: WorkItem[] = [
@@ -34,6 +42,8 @@ export const WORK: WorkItem[] = [
     note: "Booking, tutor profiles and reviews pulled from two platforms into one page.",
     url: "https://theboardsprofessor.com/",
     shot: "2026-08-25",
+    embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-08-25)
+    marker: "Boards Professor",
   },
   {
     slug: "inspect-this-home",
@@ -42,5 +52,10 @@ export const WORK: WorkItem[] = [
     note: "Service pages by area, online scheduling, and reports the owner updates himself.",
     url: "https://inspectthishomeinspections.com/",
     shot: "2026-08-25",
+    // Its _headers send X-Frame-Options: SAMEORIGIN. The frame-ancestors
+    // allowlist is on its `review` branch (2026-08-25) and goes to production
+    // only on Louis's word; flip this to true the moment curl shows it live.
+    embed: false,
+    marker: "Inspect This Home",
   },
 ];

@@ -72,6 +72,13 @@ if (!fs.existsSync(path.join(DIST, "index.html"))) {
    node and work.ts is TypeScript. Only the slugs are needed. */
 const workSrc = fs.readFileSync(path.join(ROOT, "client", "data", "work.ts"), "utf8");
 const SLUGS = [...workSrc.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]);
+/* Per entry: url, whether the LIVE site is embedded, and the text that proves
+   the live site (not a refusal or error page) rendered inside the frame. */
+const ITEMS = SLUGS.map((slug) => {
+  const block = workSrc.slice(workSrc.indexOf('slug: "' + slug + '"'));
+  const grab = (key) => { const m = block.match(new RegExp(key + ':[ ]*"([^"]+)"')); return m ? m[1] : ""; };
+  return { slug, url: grab("url"), marker: grab("marker"), embed: /embed:[ ]*true/.test(block.slice(0, block.indexOf("},"))) };
+});
 
 console.log(`\nWork carousel — ${ROUTE}  (${SLUGS.length} entries in work.ts)\n`);
 
@@ -108,38 +115,66 @@ try {
     assert.equal(order, "after-hero", "the carousel is not directly after the hero");
   });
 
-  await check("clicking a card opens the preview WITHOUT leaving the page", async () => {
-    const before = page.url();
-    await page.click(".wk-card .wk-btn");
-    await page.waitForSelector("dialog.wk-modal[open]", { timeout: 5000 });
-    assert.equal(page.url(), before, "the click navigated away — the preview must stay on our page");
-  });
-
-  await check("the preview image decodes and is not a blank capture", async () => {
-    const r = await page.evaluate(async () => {
-      const img = document.querySelector(".wk-modal-scroll img");
-      if (!img) return { err: "no image in the modal" };
-      if (!img.complete) await new Promise((res) => { img.onload = res; img.onerror = res; });
-      if (!img.naturalWidth) return { err: "image failed to load: " + img.getAttribute("src") };
-      /* Sample the top of the bitmap. A blank capture is a single flat colour;
-         a real page has at least a logo and some type in its first screen. */
-      const c = document.createElement("canvas");
-      const w = (c.width = 220), h = (c.height = 160);
-      c.getContext("2d").drawImage(img, 0, 0, img.naturalWidth, Math.round(img.naturalWidth * 0.72), 0, 0, w, h);
-      const d = c.getContext("2d").getImageData(0, 0, w, h).data;
-      const seen = new Set();
-      for (let i = 0; i < d.length; i += 4) seen.add((d[i] >> 4) + "," + (d[i + 1] >> 4) + "," + (d[i + 2] >> 4));
-      return { natural: [img.naturalWidth, img.naturalHeight], distinct: seen.size };
+  /* Every card, in order: open, prove the preview is the real thing, close.
+     Two kinds of preview exist and each has its own failure mode that a
+     "dialog opened" test would miss: an embedded site can be REFUSED by the
+     client's headers (blank box, or a browser error page — both non-empty
+     documents), and a screenshot can be a blank capture. */
+  for (const [i, item] of ITEMS.entries()) {
+    await check(`${item.slug}: clicking the card opens the preview WITHOUT leaving the page`, async () => {
+      const before = page.url();
+      const cards = await page.$$(".wk-card .wk-btn");
+      await cards[i].click();
+      await page.waitForSelector("dialog.wk-modal[open]", { timeout: 5000 });
+      assert.equal(page.url(), before, "the click navigated away — the preview must stay on our page");
     });
-    assert.ok(!r.err, r.err);
-    assert.ok(r.natural[1] > r.natural[0], `full capture is ${r.natural[0]}x${r.natural[1]} — that is not a full page`);
-    assert.ok(r.distinct >= 8, `only ${r.distinct} distinct colours in the top of the preview — it is a blank capture`);
-  });
 
-  await check("Escape closes the preview", async () => {
-    await page.keyboard.press("Escape");
-    await page.waitForFunction(() => !document.querySelector("dialog.wk-modal[open]"), { timeout: 5000 });
-  });
+    if (item.embed) {
+      await check(`${item.slug}: the LIVE site renders inside the frame (marker "${item.marker}")`, async () => {
+        const src = await page.$eval("dialog.wk-modal iframe.wk-frame", (f) => f.getAttribute("src"));
+        assert.equal(src, item.url, `iframe src is ${src}`);
+        const sandbox = await page.$eval("dialog.wk-modal iframe.wk-frame", (f) => f.getAttribute("sandbox") || "");
+        assert.ok(!/allow-top-navigation/.test(sandbox), "the frame may navigate our page away: " + sandbox);
+        let frame = null;
+        for (let t = 0; t < 40 && !frame; t++) {
+          frame = page.frames().find((f) => f !== page.mainFrame() && f.url().startsWith(item.url));
+          if (!frame) await new Promise((r) => setTimeout(r, 250));
+        }
+        assert.ok(frame, "no child frame for " + item.url + " — the client site refused to be framed, or never loaded");
+        const seen = await frame.evaluate((marker) => new Promise((resolve) => {
+          const look = () => (document.body && document.body.innerText.includes(marker)) || document.title.includes(marker);
+          const t0 = Date.now();
+          const tick = () => (look() ? resolve(true) : Date.now() - t0 > 15000 ? resolve(false) : setTimeout(tick, 250));
+          tick();
+        }), item.marker).catch((e) => "ERR " + e.message);
+        assert.equal(seen, true, `"${item.marker}" never appeared in the framed document (${String(seen)})`);
+      });
+    } else {
+      await check(`${item.slug}: the preview image decodes and is not a blank capture`, async () => {
+        const r = await page.evaluate(async () => {
+          const img = document.querySelector(".wk-modal-scroll img");
+          if (!img) return { err: "no image in the modal" };
+          if (!img.complete) await new Promise((res) => { img.onload = res; img.onerror = res; });
+          if (!img.naturalWidth) return { err: "image failed to load: " + img.getAttribute("src") };
+          const c = document.createElement("canvas");
+          const w = (c.width = 220), h = (c.height = 160);
+          c.getContext("2d").drawImage(img, 0, 0, img.naturalWidth, Math.round(img.naturalWidth * 0.72), 0, 0, w, h);
+          const d = c.getContext("2d").getImageData(0, 0, w, h).data;
+          const seen = new Set();
+          for (let k = 0; k < d.length; k += 4) seen.add((d[k] >> 4) + "," + (d[k + 1] >> 4) + "," + (d[k + 2] >> 4));
+          return { natural: [img.naturalWidth, img.naturalHeight], distinct: seen.size };
+        });
+        assert.ok(!r.err, r.err);
+        assert.ok(r.natural[1] > r.natural[0], `full capture is ${r.natural[0]}x${r.natural[1]} — that is not a full page`);
+        assert.ok(r.distinct >= 8, `only ${r.distinct} distinct colours in the top of the preview — it is a blank capture`);
+      });
+    }
+
+    await check(`${item.slug}: Escape closes the preview`, async () => {
+      await page.keyboard.press("Escape");
+      await page.waitForFunction(() => !document.querySelector("dialog.wk-modal[open]"), { timeout: 5000 });
+    });
+  }
 
   await check("no page-level horizontal scroll at 390px", async () => {
     const p = await browser.newPage();

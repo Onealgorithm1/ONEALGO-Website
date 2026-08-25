@@ -6,17 +6,20 @@ import { WORK, type WorkItem } from "../data/work";
  * thumbnail that will take them to a preview of the website but will not make
  * them leave our website".
  *
- * ⛔ WHY A SCREENSHOT AND NOT AN <iframe> OF THE LIVE SITE. The obvious build is
- * an iframe in a modal. It cannot work: inspectthishomeinspections.com sends
- * `x-frame-options: SAMEORIGIN`, so the browser refuses to render it inside our
- * page and the visitor gets a blank box — and there is no event we can catch to
- * fall back, because the refusal happens before our code runs. Checked with
- * curl before building, not after. theboardsprofessor.com happens to allow it
- * today, but a preview that works for half the carousel is not a feature.
+ * LIVE SITE OR SCREENSHOT. Louis, 2026-08-25: "have it open up like a real
+ * website instead of a thumbnail picture". An <iframe> of the live site does
+ * that — navigable, animated, real — but only when the client site's headers
+ * let onealgorithm.com frame it. A site that sends X-Frame-Options or a CSP
+ * without us in frame-ancestors renders as a BLANK box, and there is no event
+ * to catch: the refusal happens before our code runs. So `embed` in work.ts is
+ * set per site from a curl of its headers, never assumed, and a site that is
+ * not embeddable keeps the full-page screenshot. Both sites are ours to
+ * configure; Inspect This Home's allowlist is on its review branch.
  *
- * The screenshot is also the better product: it opens instantly, it costs the
- * visitor no third-party request, and it does not appear in the client's own
- * analytics as phantom traffic every time someone glances at our page.
+ * The iframe is sandboxed to what a site needs to work (scripts, same-origin
+ * cookies, forms, popups) minus top-navigation, so nothing inside it can move
+ * the visitor off our page. A preview registers in the client's analytics as
+ * a visit referred by onealgorithm.com — true, and filterable on their side.
  *
  * ponytail: native scroll-snap for the rail and a native <dialog> for the
  * preview — no carousel library, no focus-trap library. <dialog> gives Esc to
@@ -62,17 +65,33 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
           </button>
         </div>
       </div>
-      <div className="wk-modal-scroll">
-        {/* Full-page capture. Scrolls inside the modal, so the visitor can read
-            the whole site without loading it. */}
-        <img
-          src={`/work/${item.slug}-full.webp`}
-          alt={`Full page of the ${item.name} website`}
-          width={1280}
+      {item.embed ? (
+        <iframe
+          className="wk-frame"
+          src={item.url}
+          title={`Live preview of the ${item.name} website`}
           loading="eager"
-          decoding="async"
+          referrerPolicy="strict-origin-when-cross-origin"
+          /* Everything the client site needs to WORK (scripts, its own
+             cookies, forms, popups for booking flows) and nothing that lets
+             it act on OUR page: no allow-top-navigation, so a link with
+             target=_top inside the frame cannot carry the visitor off
+             onealgorithm.com. Reviewer finding, 2026-08-25. */
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
         />
-      </div>
+      ) : (
+        <div className="wk-modal-scroll">
+          {/* Full-page capture. Scrolls inside the modal, so the visitor can
+              read the whole site without loading it. */}
+          <img
+            src={`/work/${item.slug}-full.webp`}
+            alt={`Full page of the ${item.name} website`}
+            width={1280}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )}
     </dialog>
   );
 }
@@ -96,7 +115,8 @@ export default function WorkCarousel() {
         <div>
           <h2 id="wk-h" className="wk-title">Websites we built</h2>
           <p className="wk-lede">
-            Open any of them here — the preview stays on this page.
+            Open any of them here — the site loads inside this page, and you
+            can click around it.
           </p>
         </div>
         {/* Arrows are a convenience on top of a rail that already scrolls by
