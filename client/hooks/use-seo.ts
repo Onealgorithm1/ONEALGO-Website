@@ -21,6 +21,12 @@ interface SEOConfig {
   /** Emit <meta name="robots" content="noindex, follow">. For pages that exist
    *  but should never appear in search results, such as the 404 page. */
   noindex?: boolean;
+  /** One image to <link rel="preload"> at high priority — the LCP element.
+   *  Per ROUTE, not in index.html: the hero poster is the LCP element on two of
+   *  26 pages, and a global preload would spend 70KB on the other 24 for
+   *  nothing. The prerenderer snapshots <head> after this runs, so on those two
+   *  pages the tag is in the served HTML where the parser sees it first. */
+  preloadImage?: string;
 }
 
 export function useSEO(config: SEOConfig) {
@@ -47,6 +53,7 @@ export function useSEO(config: SEOConfig) {
     config.twitterDescription,
     config.twitterImage,
     config.noindex,
+    config.preloadImage,
   ]);
 }
 
@@ -63,9 +70,23 @@ function applySEO({
   twitterDescription,
   twitterImage,
   noindex,
+  preloadImage,
 }: SEOConfig) {
   if (title) {
     document.title = title;
+  }
+  // Exactly one route-owned preload at a time: replace on navigation, remove
+  // when the next page has none. Marked with a data attribute so it never
+  // touches the static preloads index.html ships (fonts, CSS).
+  document.querySelectorAll('link[data-seo-preload]').forEach((el) => el.remove());
+  if (preloadImage) {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = preloadImage;
+    link.setAttribute("fetchpriority", "high");
+    link.setAttribute("data-seo-preload", "");
+    document.head.appendChild(link);
   }
 
   // Overwrite the robots directive, then put it back - never delete it.

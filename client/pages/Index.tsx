@@ -113,11 +113,21 @@ const CREDENTIALS: {
   reference: string | null;
   href: string;
 }[] = [
+  // WBENC and NMSDC, not the SBA row that sat here. Large corporates run
+  // supplier-diversity programmes that look for exactly these two; a federal
+  // set-aside certificate means nothing to that buyer. The SBA certificate is
+  // on /capabilities and /industries/government, where its buyer looks.
   {
-    authority: "U.S. Small Business Administration",
-    credential: "Certified WOSB / EDWOSB",
-    reference: "UEI W8DYK38MEKP3",
-    href: siteConfig.sbaUrl,
+    authority: "Women's Business Enterprise National Council",
+    credential: "Certified WBE",
+    reference: "WBE2600434",
+    href: "/capabilities",
+  },
+  {
+    authority: "National Minority Supplier Development Council",
+    credential: "Certified MBE",
+    reference: "PT100000051",
+    href: "/capabilities",
   },
   {
     authority: "Salesforce AppExchange",
@@ -125,30 +135,11 @@ const CREDENTIALS: {
     reference: "Listing a0N3A00000EV7SwUAL",
     href: "https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a0N3A00000EV7SwUAL",
   },
-  /* Was "Registered Supplier / Supplier 35896", linking to
-     dgs.internet.state.pa.us. That host no longer resolves at all -- checked
-     2026-08-12, connection refused -- because Pennsylvania moved DGS onto
-     pa.gov. A table whose whole premise is "every row links to the issuing
-     authority's own registry" is actively worse than no table when one of the
-     links is dead, so this is the evidenced registration instead: the COSTARS
-     contract number, which is what the corporate records hold and what a
-     Pennsylvania buyer would actually search on.
-
-     The link is COSTARS' supplier page rather than a per-supplier record,
-     because the new pa.gov search has no stable deep link. Noted so nobody
-     "fixes" it back to a record URL that does not exist. */
-  {
-    authority: "Pennsylvania DGS (COSTARS)",
-    credential: "Cooperative purchasing supplier",
-    reference: "Contract 4400033848",
-    href: "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
-  },
-  {
-    authority: "Virginia Dept. of Small Business",
-    credential: "SWaM Certified",
-    reference: null,
-    href: "https://directory.sbsd.virginia.gov/#/directory",
-  },
+  /* The PA COSTARS and Virginia SWaM rows that followed are state procurement
+     vehicles. They moved to /industries/government on 2026-08-25, where they
+     already appeared and where the buyer who searches on a COSTARS contract
+     number actually is. (The COSTARS link is the supplier page rather than a
+     per-record URL because pa.gov has no stable deep link — noted there.) */
 ];
 
 /** Capability tiles, ordered by where revenue actually comes from today.
@@ -272,7 +263,7 @@ const INDUSTRIES = [
     name: "Government",
     icon: Landmark,
     href: "/industries/government",
-    body: "Set-aside eligible and SAM registered, with NAICS and PSC codes published for market research.",
+    body: "Registered and eligible for public-sector work. Everything a buyer needs to verify it is on this page.",
   },
 ];
 
@@ -325,10 +316,14 @@ export default function Index() {
   useSEO({
     title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     description:
-      "OneAlgorithm delivers staff augmentation, website development, Oracle ERP and Salesforce implementation, and system integration — with 24/7 support. SBA-certified WOSB/EDWOSB. Based in Malvern, PA.",
+      "OneAlgorithm is a woman-owned IT consultancy working with companies across the United States: website development, Salesforce, Oracle ERP, system integration and 24/7 support.",
     canonical: getCanonicalUrl("/"),
+    // The LCP element on this page is the hero video poster (measured with
+    // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
+    // fetch it early; now something does. See preloadImage in use-seo.ts.
+    preloadImage: "/media/hero-poster.webp",
     keywords:
-      "staff augmentation, website development, Oracle ERP implementation, Salesforce consulting partner, system integration, API integration, operations automation, EDWOSB, WOSB, Malvern PA technology consulting",
+      "website development, Salesforce consulting partner, Oracle ERP implementation, system integration, API integration, operations automation, staff augmentation, IT consulting, woman-owned business, WBENC certified",
     ogTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
     ogDescription:
       "Staff augmentation, website development, ERP and CRM implementation — from strategy to support, with 24/7 coverage.",
@@ -391,12 +386,17 @@ export default function Index() {
             plus dropping the second CTA, buys it back without shrinking type. */}
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-14 sm:pt-20 md:pt-28 lg:pt-32 pb-10 sm:pb-16 md:pb-20">
           <div className="max-w-4xl">
-            {/* This line was previously buried in the capabilities section
-                halfway down the page. It is the only headline on the site that
-                could not be lifted wholesale by a competitor, so it leads. */}
+            {/* Louis, 2026-08-25: the homepage carries the "a beautiful website
+                is not effective if people can't find you" idea, and the site
+                sells COMMERCIAL work nationally — federal is a small section and
+                a bonus. Three reviewers this morning put the "found" message
+                here rather than on a service page. The old headline, "People,
+                platforms and the systems in between", was kept because a
+                competitor could not lift it; distinctiveness is not what a
+                buyer came for, and the second half of it survives below. */}
             <h1 className="text-display font-semibold text-oa-nightInk">
-              People, platforms and{" "}
-              <span className="text-oa-orange">the systems in between</span>
+              Websites people can find,{" "}
+              <span className="text-oa-orange">and the systems behind them</span>
             </h1>
 
             {/* The tagline. Previously set smaller than the paragraph beneath
@@ -407,10 +407,12 @@ export default function Index() {
             </p>
 
             <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
-              A woman-owned IT consultancy in Malvern, Pennsylvania: Oracle ERP,
-              Salesforce, web development and system integration. Add senior
-              people to your team, or hand us the whole build — the same team is
-              there from the first workshop to the run-state.
+              A woman-owned IT consultancy working with companies across the
+              United States: website development, Salesforce, Oracle ERP and
+              system integration — and the search, ads and follow-up that get a
+              business found. Add senior people to your team, or hand us the
+              whole build; the same team is there from the first workshop to the
+              run-state.
             </p>
 
             {/* ONE action. The capability-statement PDF used to sit here as a
@@ -434,49 +436,15 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Identifier strip. A contracting officer copy-pastes a UEI; it
-            previously existed only inside JSON-LD, where no human sees it.
-            This is the ONLY copy of these identifiers on the page - the
-            government section used to render the same table a second time.
-            Tighter column gap on mobile so it packs into fewer rows. */}
-        {/* OPAQUE, not /70 + blur. Measured 2026-08-12 with impeccable, which
-            samples RENDERED PIXELS rather than CSS colours: at 70% opacity the
-            video showed through and the identifiers measured as low as 1.0:1
-            against a 4.5:1 requirement -- "SAM.gov" and the UEI itself were the
-            worst. Depending on which frame was playing they were close to
-            invisible.
-
-            Nothing else caught this. axe computes contrast from CSS colour
-            pairs and cannot see through a video; scripts/contrast-check.mjs
-            validates palette pairings, not composited output; Lighthouse scored
-            the page 96 for accessibility. A tool that samples pixels was the
-            only way to find it.
-
-            This is the one element on the page a government buyer must be able
-            to READ and copy, so legibility wins over letting the video show
-            through. The blur goes too -- it does nothing behind an opaque
-            surface and only costs a compositor layer. */}
-        <div className="relative z-10 border-t border-white/10 bg-oa-night">
-          <dl className="mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-4 sm:gap-x-10 px-4 sm:px-6 lg:px-8 py-4 sm:py-5 font-mono text-sm">
-            {[
-              ["UEI", siteConfig.identifiers.uei],
-              ["CAGE", siteConfig.identifiers.cage],
-              ["Primary NAICS", siteConfig.codes.naics[0]],
-              ["SAM.gov", "Active"],
-              ["Founded", siteConfig.foundingDate],
-            ].map(([label, value]) => (
-              <div key={label}>
-                {/* 12px, not 11px. Flagged as tiny-text: below 12px is hard to
-                    read on high-DPI screens, and these are identifiers someone
-                    has to transcribe accurately. */}
-                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
-                  {label}
-                </dt>
-                <dd className="text-oa-nightInk2">{value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        {/* ⛔ The identifier strip — UEI · CAGE · NAICS · SAM.gov, above the fold
+            on every viewport — was removed from the homepage on 2026-08-25.
+            Louis: "federal contracting is supposed to be a small picture on this
+            website … if we win a project, which we haven't, is just a bonus."
+            Three reviewers read the strip as a commercial buyer and all three
+            said it made them leave: it is procurement-speak that says the site
+            is for contracting officers. The identifiers live on /capabilities
+            and /industries/government, which is where that buyer looks, and
+            they remain in the Organization structured data. */}
       </section>
 
       {/* ================= CREDENTIALS =================
@@ -498,8 +466,8 @@ export default function Index() {
         <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 md:py-16 lg:px-8">
           <table className="w-full border-collapse text-left">
             <caption className="mb-6 text-left font-mono text-xs uppercase tracking-[0.06em] text-oa-ink3">
-              Registrations and certifications &middot; each links to the
-              issuing authority&rsquo;s own registry
+              Certifications and partnerships &middot; reference numbers shown,
+              every one of them checkable
             </caption>
             <thead className="sr-only md:not-sr-only">
               <tr className="border-b border-oa-hairlineStrong">
@@ -540,8 +508,10 @@ export default function Index() {
                   <td className="block md:table-cell md:py-5 md:text-right">
                     <a
                       href={c.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      /* Two rows now point at /capabilities; our own page
+                         does not open in a new tab. */
+                      target={c.href.startsWith("/") ? undefined : "_blank"}
+                      rel={c.href.startsWith("/") ? undefined : "noopener noreferrer"}
                       className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-oa-blue hover:underline md:min-h-0"
                     >
                       Verify
@@ -773,15 +743,12 @@ export default function Index() {
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16">
             <div>
               <h2 className="text-h3 font-semibold text-oa-ink">
-                Set-aside eligible and registered to receive award
+                Buying for government? That has its own page.
               </h2>
               <p className="mt-5 max-w-[68ch] leading-relaxed text-oa-ink2">
-                SBA-certified WOSB/EDWOSB with an active SAM registration,{" "}
-                {siteConfig.codes.naics.length} published NAICS codes and{" "}
-                {siteConfig.codes.psc.length} PSC codes, and state procurement
-                registrations across Pennsylvania, Virginia and others — so a
-                contracting officer can verify eligibility during market
-                research. The UEI and CAGE code are at the top of this page.
+                Registrations, eligibility, codes and the capability statement
+                are all on the government page — everything a contracting
+                officer needs, kept out of everyone else&rsquo;s way.
               </p>
             </div>
             <div className="flex flex-col gap-3 md:items-start md:justify-center">

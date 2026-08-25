@@ -1290,38 +1290,36 @@ function Layout({ children }: LayoutProps) {
               page can reach back through window.opener.
             */}
             <div>
+              {/* ⛔ Three public-sector registrations — SBA WOSB/EDWOSB, PA
+                  COSTARS, Virginia SWaM — used to sit here on all 26 pages, with
+                  a comment calling them trust signals for government buyers.
+                  They are, and that is the problem: on a commercial service
+                  page they say "set-aside vendor" to a buyer who is not one.
+                  Removed 2026-08-25; they stay on /industries/government and
+                  /capabilities. What remains is what a commercial buyer values:
+                  the Salesforce partnership and the two supplier-diversity
+                  certificates corporate programmes actually track. */}
               <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
-                Certifications
+                Partners and certifications
               </h3>
               <div className={footerLinkList}>
-                {[
-                  [
-                    "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18",
-                    "SBA Certified WOSB / EDWOSB",
-                  ],
-                  [
-                    "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
-                    "PA COSTARS Supplier (4400033848)",
-                  ],
-                  [
-                    "https://directory.sbsd.virginia.gov/#/directory",
-                    "Virginia SWaM Certified",
-                  ],
-                  [
-                    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
-                    "Salesforce Consulting Partner",
-                  ],
-                ].map(([href, label]) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener"
-                    className={footerLink}
-                  >
-                    {label}
-                  </a>
-                ))}
+                <a
+                  href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL"
+                  target="_blank"
+                  rel="noopener"
+                  className={footerLink}
+                >
+                  Salesforce Consulting Partner
+                </a>
+                {/* No public verification page exists for these two, so they
+                    point at /capabilities, where the certificate numbers and
+                    expiry dates are listed. */}
+                <Link to="/capabilities" className={footerLink}>
+                  WBENC Certified WBE
+                </Link>
+                <Link to="/capabilities" className={footerLink}>
+                  NMSDC Certified MBE
+                </Link>
                 {/*
                   The UEI and SWaM numbers are no longer printed here. They stay
                   in the Organization structured data as identifiers, which is

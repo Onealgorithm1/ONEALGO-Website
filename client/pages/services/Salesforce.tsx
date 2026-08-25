@@ -86,16 +86,10 @@ const CREDENTIALS = [
     detail: "AppExchange listing a0N3A00000EV7SwUAL",
     href: APPEXCHANGE_URL,
   },
-  {
-    name: "SBA-certified WOSB and EDWOSB",
-    detail: "Certified 14 Apr 2026 · set-aside eligible",
-    href: SBA_VERIFY_URL,
-  },
-  {
-    name: "SAM.gov registered",
-    detail: "UEI W8DYK38MEKP3 · CAGE 14G18 · active to 17 Apr 2027",
-    href: SBA_VERIFY_URL,
-  },
+  // ⛔ The SBA WOSB/EDWOSB and SAM.gov cards that sat here moved to
+  // /capabilities and /industries/government on 2026-08-25. This is a
+  // commercial service page; the two certificates below are the ones a
+  // corporate supplier-diversity programme actually looks for.
   { name: "NMSDC MBE", detail: "Certificate PT100000051" },
   { name: "WBENC WBE", detail: "Certificate WBE2600434" },
   { name: "Virginia SWaM", detail: "Certificate 843564" },
@@ -195,7 +189,7 @@ const FAQS = [
   },
   {
     q: "Where are you located, and do you work outside Pennsylvania?",
-    a: "Our office is at 625 Swedesford Road in Malvern, Pennsylvania, in Chester County about 25 miles west of Philadelphia. We work with clients across the Philadelphia metro area and nationwide, and support across the time zones our clients operate in.",
+    a: "Our office is at 625 Swedesford Road, Malvern, Pennsylvania. We work with clients across the United States, and support across the time zones our clients operate in.",
   },
   {
     q: "What does a Salesforce implementation cost?",
@@ -206,10 +200,6 @@ const FAQS = [
     a: "Sales Cloud tracks the work of winning business — leads, opportunities and pipeline. Service Cloud tracks the work of supporting customers after they buy — cases, queues and escalation. Plenty of companies need both, and some need far less than they were sold. That is the first thing we look at.",
   },
   {
-    q: "Can you take on federal work as a small business?",
-    a: "We are SBA-certified WOSB and EDWOSB, registered in SAM.gov under UEI W8DYK38MEKP3 and CAGE 14G18, and eligible for set-aside awards. That is eligibility and registration, not past performance — we do not hold a federal Salesforce contract and do not claim one.",
-  },
-  {
     q: "We already have an admin. Can you do just the data migration?",
     a: "Yes. The four stages of the work are separable. If you only need the records moved off your current system, cleaned, loaded and reconciled against the totals, take that stage on its own.",
   },
@@ -218,18 +208,18 @@ const FAQS = [
 export default function Salesforce() {
   useSEO({
     // Brand last, location in. 58 characters.
-    title: "Salesforce Consulting Partner in Malvern, PA | OneAlgorithm",
+    title: "Salesforce Consulting Partner | OneAlgorithm",
     // 155 characters. The previous one was 203 and lost its last third to SERP
     // truncation.
     description:
-      "Listed Salesforce Consulting Partner in Malvern, PA: 16 certified people, 52 certifications. Sales and Service Cloud, migration, and a free org review.",
+      "Listed Salesforce Consulting Partner working with companies across the United States: 16 certified people, 52 certifications. Sales and Service Cloud, migration, and a free org review.",
     canonical: getCanonicalUrl("/services/salesforce"),
-    ogTitle: "Salesforce Consulting Partner in Malvern, PA — OneAlgorithm",
+    ogTitle: "Salesforce Consulting Partner — OneAlgorithm",
     ogDescription:
       "16 Salesforce-certified people and 52 certifications, published by Salesforce. Commercial and government CRM work, and a free one-week review of the org you already have.",
     ogUrl: getCanonicalUrl("/services/salesforce"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Salesforce Consulting Partner in Malvern, PA — OneAlgorithm",
+    twitterTitle: "Salesforce Consulting Partner — OneAlgorithm",
     twitterDescription:
       "16 Salesforce-certified people, 52 certifications, published on the AppExchange. Commercial and government CRM work, and a free one-week org review.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
@@ -240,7 +230,7 @@ export default function Salesforce() {
       <StructuredData
         data={createServiceSchema(
           "Salesforce Implementation & Consulting Services",
-          "Salesforce implementation and consulting from a listed AppExchange Consulting Partner in Malvern, Pennsylvania: Sales Cloud and Service Cloud configuration, Flow automation, data migration and reconciliation, API integrations, Hypercare after go-live, and a free one-week review of an existing org.",
+          "Salesforce implementation and consulting from a listed AppExchange Consulting Partner working with companies across the United States: Sales Cloud and Service Cloud configuration, Flow automation, data migration and reconciliation, API integrations, Hypercare after go-live, and a free one-week review of an existing org.",
           "CRM & Salesforce Implementation",
           "https://onealgorithm.com/services/salesforce",
         )}
@@ -257,7 +247,7 @@ export default function Salesforce() {
             and consulting
           </>
         }
-        lede="We configure Sales Cloud and Service Cloud, automate the workflow behind them, move the data off whatever you're on now, and stay on afterwards while people learn it. Commercial and government buyers both, from Malvern, Pennsylvania."
+        lede="We configure Sales Cloud and Service Cloud, automate the workflow behind them, move the data off whatever you're on now, and stay on afterwards while people learn it. For commercial teams anywhere in the United States."
         /* The hero's right column is the VERIFICATION CARD, not a bullet list.
            Reasoning: this page's whole argument is that our proof is a record in
            someone else's registry rather than an adjective in ours — so show the
@@ -302,8 +292,8 @@ export default function Salesforce() {
             </div>
           ),
           footer: [
-            "Salesforce Consulting Partner — Malvern, PA",
-            "SBA Certified WOSB / EDWOSB",
+            "Salesforce Consulting Partner",
+            "WBENC and NMSDC certified",
           ],
         }}
         primary={{ label: "Get a free org review", to: "/contact" }}
@@ -325,8 +315,8 @@ export default function Salesforce() {
       <Section tone="night" grid bordered compact>
         <SectionHeading
           tone="dark"
-          title="A woman-owned Salesforce partner near Philadelphia"
-          lede="Every credential below is a certificate or a registry entry with a number attached. Three of them link straight to the registry that issued them."
+          title="A woman-owned Salesforce partner, wherever you are"
+          lede="Every credential below is a certificate or a registry entry with a number attached."
         />
         {/* One flat, self-contained sentence that answers the query in the shape an
             answer engine can lift: "X is a Y in Z, with N." AI answers quote a
@@ -336,14 +326,15 @@ export default function Salesforce() {
         <Reveal>
           <p className="mt-8 max-w-3xl text-lede text-oa-nightInk2 leading-relaxed">
             <strong className="font-semibold text-oa-nightInk">
-              One Algorithm is a woman-owned Salesforce consulting partner in
-              Malvern, Pennsylvania, in Chester County about 25 miles west of
-              Philadelphia.
+              One Algorithm is a woman-owned Salesforce Consulting Partner
+              working with companies across the United States.
             </strong>{" "}
+            {/* 16 / 52 verified against the AppExchange listing on 2026-08-25;
+                re-check when the listing changes, the numbers are theirs. */}
             Salesforce lists 16 certified professionals and 52 certifications
-            against our AppExchange record. We are SBA-certified WOSB and EDWOSB
-            and registered in SAM.gov, and we work with commercial and government
-            buyers across the Philadelphia metro area and nationwide.
+            against our AppExchange record. We are WBENC- and NMSDC-certified, which is what a
+            supplier-diversity programme looks for, and the same team is there
+            from the first workshop to the run-state.
           </p>
         </Reveal>
         {/* The official "Salesforce Partner" badge — the ONE piece of Salesforce
@@ -540,44 +531,12 @@ export default function Salesforce() {
             </p>
           </Reveal>
 
-          <Reveal className="border-t border-white/20 pt-8">
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">
-              Government and regulated
-            </p>
-            <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
-              You are buying under a set-aside, or you answer to an auditor
-            </h3>
-            <p className="mt-4 text-oa-nightInk2 leading-relaxed">
-              The same automation and permissions work, built to survive an
-              audit. We are a woman-owned small business in Chester County,
-              certified and registered to receive award — and the certifications
-              are published in a registry you can check rather than asserted
-              here.
-            </p>
-            <div className="mt-7">
-              <CheckList
-                tone="dark"
-                items={[
-                  "SBA-certified WOSB and EDWOSB — set-aside eligible",
-                  "SAM.gov registered: UEI W8DYK38MEKP3, CAGE 14G18, active to 17 April 2027",
-                  "Workflow automation and permission models built to be audited",
-                ]}
-              />
-            </div>
-            <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
-              That is eligibility and registration, not a delivery record. We
-              hold no federal Salesforce contract and do not claim one.
-            </p>
-            <a
-              className="mt-2 inline-flex items-center gap-2 py-3 text-sm font-medium text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
-              href={SBA_VERIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Verify us in the SBA registry
-              <span aria-hidden="true">→</span>
-            </a>
-          </Reveal>
+          {/* ⛔ A "Government and regulated" block stood here — set-aside,
+              SAM.gov, UEI, CAGE, "answer to an auditor" — on a COMMERCIAL
+              service page. Removed 2026-08-25 (Louis: federal is a small
+              section and a bonus). Its content, including the statement that
+              the firm holds no federal Salesforce contract, is on
+              /industries/government and /capabilities. */}
         </div>
       </Section>
 

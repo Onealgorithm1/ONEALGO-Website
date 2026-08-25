@@ -151,6 +151,10 @@ export default function WebsiteDevelopment() {
     keywords:
       "custom website design, website development, web application development, custom website, website redesign, accessible website, WCAG 2.1 AA, mobile-first web design, own your website code",
     canonical: getCanonicalUrl("/services/website-development"),
+    // The LCP element on this page is the hero video poster (measured with
+    // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
+    // fetch it early; now something does. See preloadImage in use-seo.ts.
+    preloadImage: "/media/hero-poster.webp",
     ogTitle: "Custom Website Design & Development — OneAlgorithm",
     ogDescription:
       "Accessible, fast websites you own outright. No page builder, no template, and no licence you have to keep paying to stay online.",
