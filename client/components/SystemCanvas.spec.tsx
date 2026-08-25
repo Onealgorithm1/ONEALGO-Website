@@ -124,10 +124,31 @@ describe("the rendered canvas", () => {
     for (const sys of Object.values(CANVAS_SYSTEMS)) {
       expect(html).toContain(sys.label);
     }
+    // "hub" is the plate in the middle — a route may start or end there,
+    // because records LAND in onealgo-hub and its three writes LEAVE from it.
+    // Anything else must be a drawn, labelled system.
     for (const route of CANVAS_ROUTES) {
-      expect(CANVAS_SYSTEMS[route.from]).toBeDefined();
-      expect(CANVAS_SYSTEMS[route.to]).toBeDefined();
+      if (route.from !== "hub") expect(CANVAS_SYSTEMS[route.from]).toBeDefined();
+      if (route.to !== "hub") expect(CANVAS_SYSTEMS[route.to]).toBeDefined();
+      expect(route.from === "hub" && route.to === "hub").toBe(false);
     }
+    // Every route is a flow the hub actually runs; the event names are the
+    // ones its code uses. Adding a route means adding it to this list with
+    // the file that emits it, or it is an invented integration.
+    const REAL = [
+      "search_queries.upsert", // scripts/sync.mjs → lib/sql.js
+      "instagram.followers", // scripts/sync.mjs → metrics
+      "book_cash", // scripts/sync.mjs → metrics
+      "grants_open", // scripts/sync.mjs → metrics
+      "transcript.stored", // app/api/teams-transcripts → recordings
+      "media.generated", // lib/connectors/higgsfield.js → media_generations
+      "sheet.write", // app/api/sheets
+      "provider.stale", // lib/freshness.js → lib/alert.js
+      "post.publish", // scripts/linkedin-post.mjs
+      "post.id", // its acknowledgement
+      "brief.read", // app/api/brief
+    ];
+    for (const route of CANVAS_ROUTES) expect(REAL).toContain(route.event);
   });
 
   it("says on its face that the traffic is not real", () => {

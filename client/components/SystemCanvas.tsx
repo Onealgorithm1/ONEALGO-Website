@@ -61,39 +61,119 @@ import { useReducedMotion } from "framer-motion";
 /* ------------------------------------------------------------------ content */
 
 type SystemId =
-  | "salesforce"
-  | "zendesk"
-  | "hubspot"
-  | "api"
-  | "oracle"
-  | "m365"
-  | "quickbooks";
+  | "search"
+  | "social"
+  | "crm"
+  | "federal"
+  | "microsoft"
+  | "media"
+  | "exports"
+  | "alerts"
+  | "publishing"
+  | "sessions";
 
 /**
- * Platforms only. Every name here appears in TrustedPartnerships or the FAQ
- * copy on Index — if you add one, it has to be true first.
+ * ⛔ REAL, GRANULAR, AND NOTHING LEFT OUT — that is the brief. Louis,
+ * 2026-08-25: "make sure the hub is granular, we have a lot of connections to
+ * show … be creative and don't leave anything out, and never put '(connected,
+ * not yet synced)'."
+ *
+ * So every box is a GROUP of systems onealgo-hub — this company's own control
+ * plane, a Next.js service on Railway with Postgres — is wired to, and the
+ * small-caps lines under each name are the actual products, every one of them
+ * backed by a file in the hub. Left: what the hub READS. Right: what it WRITES
+ * or SERVES. The last right-hand box is the AI sessions that read the hub
+ * every time they start, and the tools those sessions reach directly —
+ * SAM.gov, Microsoft 365, OneDrive — are listed there, because that is where
+ * they are actually connected: in the session, not in the hub. Drawing them
+ * on the left would be a lie by placement.
+ *
+ * Verified against code on 2026-08-25, not against the registry's status
+ * column (which still says "setup-needed" for connectors that sync daily):
+ *   search     lib/connectors/google.js, cloudflare.js; app/api/bing-webmaster, clarity
+ *   social     lib/connectors/meta.js, meta-ads.js, linkedin.js, tiktok.js; app/api/webhooks/meta
+ *   crm        lib/connectors/salesforce.js, quickbooks.js, qbo-book-cash.js
+ *   federal    lib/connectors/grants.js
+ *   microsoft  lib/connectors/microsoft-graph.js (Teams), microsoft-ads.js
+ *   media      lib/google-places.js, connectors/google.js (Drive), higgsfield.js, apify.js, lib/embed.js + transcribe.js (Cloudflare AI)
+ *   exports    app/api/sheets
+ *   alerts     lib/alert.js (Mailgun)
+ *   publishing scripts/linkedin-post.mjs — a human types --confirm every time
+ *   sessions   app/api/brief, memory, summary, agent-runs
+ *
+ * NOT drawn, because no hub code uses them: Tripo, Sketchfab, Apollo, Cal.com
+ * (keys exist, nothing calls them), Google Business Profile (API quota still
+ * zero), PageSpeed (run as a tool, not a route). There is no Amazon connection
+ * anywhere. A box that is not backed by a file is decoration, and decoration on
+ * this diagram is the same lie as an invented statistic.
  */
-const SYSTEMS: Record<SystemId, { label: string; kind: string }> = {
-  salesforce: { label: "Salesforce", kind: "CRM" },
-  zendesk: { label: "Zendesk", kind: "SUPPORT" },
-  hubspot: { label: "HubSpot", kind: "MARKETING" },
-  api: { label: "Custom API", kind: "HTTP / JSON" },
-  oracle: { label: "Oracle ERP", kind: "ERP" },
-  m365: { label: "Microsoft 365", kind: "PRODUCTIVITY" },
-  quickbooks: { label: "QuickBooks", kind: "FINANCE" },
+const SYSTEMS: Record<SystemId, { label: string; kind: string[] }> = {
+  search: { label: "Search and site", kind: ["SEARCH CONSOLE · GA4 · BING", "CLARITY · CLOUDFLARE EDGE"] },
+  social: { label: "Social", kind: ["FACEBOOK · INSTAGRAM · META ADS", "WEBHOOKS · LINKEDIN · TIKTOK"] },
+  crm: { label: "CRM and finance", kind: ["SALESFORCE · QUICKBOOKS ONLINE", "CAMPAIGNS · LEADS · BOOK CASH"] },
+  federal: { label: "Federal", kind: ["GRANTS.GOV", "OPEN AND POSTED OPPORTUNITIES"] },
+  microsoft: { label: "Microsoft", kind: ["TEAMS TRANSCRIPTS (GRAPH)", "ADVERTISING KEYWORD VOLUMES"] },
+  media: { label: "Media and data", kind: ["PLACES · DRIVE · HIGGSFIELD", "APIFY · CLOUDFLARE AI"] },
+  exports: { label: "Exports", kind: ["GOOGLE SHEETS", "TABS WRITTEN FROM THE HUB"] },
+  alerts: { label: "Alerts", kind: ["MAILGUN EMAIL", "STALE SYNC · FAILED JOB"] },
+  publishing: { label: "Publishing", kind: ["LINKEDIN POSTS", "HUMAN-CONFIRMED, EVERY TIME"] },
+  sessions: {
+    label: "AI sessions",
+    kind: [
+      "CLAUDE · CODEX — READ THE BRIEF,",
+      "MEMORY AND METRICS EVERY SESSION",
+      "IN-SESSION TOOLS: SAM.GOV · M365",
+      "OUTLOOK · ONEDRIVE · GMAIL · NOTION",
+      "RAILWAY · CLOUDFLARE · GODADDY",
+    ],
+  },
 };
+const LEFT: SystemId[] = ["search", "social", "crm", "federal", "microsoft", "media"];
+const RIGHT: SystemId[] = ["exports", "alerts", "publishing", "sessions"];
+
+/** The plate in the middle is the hub itself. A route may start or end there. */
+const HUB = { label: "onealgo-hub", kind: ["RAILWAY · POSTGRES"] };
+type End = SystemId | "hub";
+const endOfRoute = (id: End) => (id === "hub" ? HUB : SYSTEMS[id]);
 
 type Dir = "out" | "ret";
-type RouteSpec = { from: SystemId; to: SystemId; event: string; dir: Dir };
+type RouteSpec = { from: End; to: End; event: string; dir: Dir };
 
-/** Record types, not client work. Generic on purpose. */
+/**
+ * ⛔ EVERY ROUTE IS A FLOW THE HUB ACTUALLY RUNS, named from its code. Three
+ * reviewers refused any packet into a system the hub never writes to, and
+ * they were right. Records from the six source groups LAND in the hub (they
+ * stop inside the plate: authenticated, mapped, validated, routed, stored);
+ * the hub's four outbound flows LEAVE from the plate; the one blue return is
+ * the post id LinkedIn hands back after a publish.
+ *
+ *   search_queries.upsert  scripts/sync.mjs → lib/sql.js searchQueriesUpsert
+ *   instagram.followers    scripts/sync.mjs → metrics (provider instagram, metric followers)
+ *   book_cash              scripts/sync.mjs → metrics (provider quickbooks)
+ *   grants_open            scripts/sync.mjs → metrics (provider grants_gov)
+ *   transcript.stored      app/api/teams-transcripts → recordings
+ *   media.generated        lib/connectors/higgsfield.js → media_generations
+ *   sheet.write            app/api/sheets
+ *   provider.stale         lib/freshness.js staleProviders → lib/alert.js
+ *   post.publish / post.id scripts/linkedin-post.mjs
+ *   brief.read             app/api/brief
+ *
+ * Order matters: it is the lane order, chosen so no wire crosses another.
+ * The return sits between the third and fourth outbound so its vertical run
+ * on the right never intersects a lane it does not belong to.
+ */
 const ROUTES: RouteSpec[] = [
-  { from: "salesforce", to: "oracle", event: "account.updated", dir: "out" },
-  { from: "zendesk", to: "m365", event: "ticket.escalated", dir: "out" },
-  { from: "hubspot", to: "oracle", event: "deal.won", dir: "out" },
-  { from: "api", to: "quickbooks", event: "invoice.created", dir: "out" },
-  { from: "zendesk", to: "quickbooks", event: "refund.requested", dir: "out" },
-  { from: "oracle", to: "salesforce", event: "order.shipped", dir: "ret" },
+  { from: "search", to: "hub", event: "search_queries.upsert", dir: "out" },
+  { from: "social", to: "hub", event: "instagram.followers", dir: "out" },
+  { from: "crm", to: "hub", event: "book_cash", dir: "out" },
+  { from: "federal", to: "hub", event: "grants_open", dir: "out" },
+  { from: "microsoft", to: "hub", event: "transcript.stored", dir: "out" },
+  { from: "media", to: "hub", event: "media.generated", dir: "out" },
+  { from: "hub", to: "exports", event: "sheet.write", dir: "out" },
+  { from: "hub", to: "alerts", event: "provider.stale", dir: "out" },
+  { from: "hub", to: "publishing", event: "post.publish", dir: "out" },
+  { from: "publishing", to: "hub", event: "post.id", dir: "ret" },
+  { from: "hub", to: "sessions", event: "brief.read", dir: "out" },
 ];
 
 /** The four things every integration has to do. Named, not asserted — nothing
@@ -112,13 +192,15 @@ const STAGES: Array<{ label: string; notes: [string, string] }> = [
 const PERIOD = 12;
 /** Fraction of the cycle a packet spends in flight. */
 const TRAVEL = 0.23;
-const STAGGER = 0.128;
+/** Spread the launches over the part of the cycle that leaves room for the
+ *  last packet to land: (1 − lead − TRAVEL) / N. Eleven routes → ~0.068. */
+const STAGGER = (1 - 0.02 - TRAVEL) / ROUTES.length;
 const startOf = (i: number) => 0.02 + i * STAGGER;
 const endOf = (i: number) => startOf(i) + TRAVEL;
-
-/** Where each packet is parked in the reduced-motion still. Chosen to sit
- *  outside the integration plate, which is opaque and would swallow them. */
-const STILL_AT = [0.14, 0.85, 0.18, 0.88, 0.1, 0.7];
+/** Where each packet is parked in the reduced-motion still: on the wire
+ *  outside the plate, which is opaque and would swallow it. Inbound routes
+ *  park near their source, outbound near their destination. */
+const STILL_AT = ROUTES.map((r) => (r.from === "hub" ? 0.86 : 0.14));
 
 /* ---------------------------------------------------------------- geometry */
 
@@ -298,38 +380,40 @@ type Scene = {
   notesAnchor: "middle" | "start";
 };
 
-/** Wide: lanes run left to right, sources left, targets right, layer between. */
+/** Wide: lanes run left to right, sources left, targets right, layer between.
+ *  Everything here is GENERATED from LEFT / RIGHT / ROUTES, so adding a
+ *  system is one entry in the content block, not a coordinate. */
 function wideScene(): Scene {
+  const W = 260;
+  const hOf = (id: SystemId) => 32 + 12 * SYSTEMS[id].kind.length;
   const boxOf = (id: SystemId, x: number, cy: number, side: "l" | "r"): Box => {
-    const w = 190;
-    const h = 46;
+    const h = hOf(id);
     return {
       id,
       x,
       y: cy - h / 2,
-      w,
+      w: W,
       h,
-      port: [side === "l" ? x + w : x, cy],
-      led: { x: side === "l" ? x + w - 9 : x + 6, y: cy - 10, w: 3, h: 20 },
+      port: [side === "l" ? x + W : x, cy],
+      led: { x: side === "l" ? x + W - 9 : x + 6, y: cy - 10, w: 3, h: 20 },
       textX: x + 16,
     };
   };
-
-  const lanes = [0, 1, 2, 3, 4, 5].map((i) => 272.5 + (i - 2.5) * 13);
-  // Oracle sits on lane 2 so its heaviest inbound route is one straight run.
-  const ORACLE_Y = lanes[2];
-
-  // Evenly spread, so the two middle systems straddle the lane bundle instead
-  // of leaving a hole in the left half of the panel.
-  const boxes: Box[] = [
-    boxOf("salesforce", 40, 100, "l"),
-    boxOf("zendesk", 40, 215, "l"),
-    boxOf("hubspot", 40, 330, "l"),
-    boxOf("api", 40, 445, "l"),
-    boxOf("m365", 890, 140, "r"),
-    boxOf("oracle", 890, ORACLE_Y, "r"),
-    boxOf("quickbooks", 890, 405, "r"),
-  ];
+  // Columns stack top to bottom with a fixed gap; the plate sits at the
+  // vertical centre of the left column.
+  const stack = (ids: SystemId[], x: number, side: "l" | "r", y0: number, gap: number) => {
+    let y = y0;
+    return ids.map((id) => {
+      const h = hOf(id);
+      const b = boxOf(id, x, y + h / 2, side);
+      y += h + gap;
+      return b;
+    });
+  };
+  const left = stack(LEFT, 40, "l", 76, 18);
+  const right = stack(RIGHT, 830, "r", 96, 22);
+  const boxes = [...left, ...right];
+  const cy = (id: End) => boxes.find((b) => b.id === id)!.port[1];
 
   const plate = { x: 400, y: 213, w: 340, h: 120 };
   const cells: Cell[] = STAGES.map((stage, i) => {
@@ -346,23 +430,37 @@ function wideScene(): Scene {
       bar: { x: x + 8, y: y + 80, w: 59, h: 4 },
     };
   });
+  // One lane per route, 9px apart, centred on the plate so every lane crosses
+  // all four stage cells.
+  const mid = (ROUTES.length - 1) / 2;
+  const lanes = ROUTES.map((_, i) => 272.5 + (i - mid) * 9);
 
-  // Lanes are ordered by destination height and the turn-offs cascade from the
-  // bottom lane up, so wires meet at junctions instead of crossing on the right.
-  const points: Record<number, Pt[]> = {
-    // Salesforce -> Oracle, lane 1
-    0: [[230, 100], [300, 100], [300, lanes[1]], [804, lanes[1]], [804, ORACLE_Y], [890, ORACLE_Y]],
-    // Zendesk -> Microsoft 365, lane 0
-    1: [[230, 215], [284, 215], [284, lanes[0]], [820, lanes[0]], [820, 140], [890, 140]],
-    // HubSpot -> Oracle, lane 2 - straight through, no jog at either end
-    2: [[230, 330], [316, 330], [316, lanes[2]], [890, lanes[2]]],
-    // Custom API -> QuickBooks, lane 3
-    3: [[230, 445], [332, 445], [332, lanes[3]], [772, lanes[3]], [772, 405], [890, 405]],
-    // Zendesk -> QuickBooks, lane 4
-    4: [[230, 215], [268, 215], [268, lanes[4]], [756, lanes[4]], [756, 405], [890, 405]],
-    // Oracle -> Salesforce, the return path, lane 5, right to left
-    5: [[890, ORACLE_Y], [856, ORACLE_Y], [856, lanes[5]], [252, lanes[5]], [252, 100], [230, 100]],
-  };
+  // Turn-offs cascade so no wire crosses another: on the left, later routes
+  // turn off EARLIER (smaller x), so an upper box's descent never meets a lane
+  // that starts to its right; on the right, each outbound route turns down at
+  // its own x, ordered with the return between the third and fourth.
+  const points: Record<number, Pt[]> = {};
+  let k = 0;
+  ROUTES.forEach((r, i) => {
+    const lane = lanes[i];
+    if (r.to === "hub" && r.from !== "hub") {
+      const src = boxes.find((b) => b.id === r.from)!;
+      if (src.port[0] === 40 + W) {
+        // inbound from the left: lands inside the plate at its far edge
+        const jx = 340 - 8 * i;
+        points[i] = [[src.port[0], src.port[1]], [jx, src.port[1]], [jx, lane], [740, lane]];
+      } else {
+        // the return from a right-hand box back into the plate
+        const kx = 752 + 8 * k++;
+        points[i] = [[src.port[0], src.port[1]], [kx, src.port[1]], [kx, lane], [740, lane]];
+      }
+    } else {
+      // outbound: leaves the plate at its near edge
+      const dst = boxes.find((b) => b.id === r.to)!;
+      const kx = 752 + 8 * k++;
+      points[i] = [[400, lane], [kx, lane], [kx, dst.port[1]], [dst.port[0], dst.port[1]]];
+    }
+  });
 
   let ticks = "";
   for (let x = 40; x <= 1080; x += 20) {
@@ -371,7 +469,7 @@ function wideScene(): Scene {
 
   return {
     w: 1120,
-    h: 520,
+    h: 560,
     axis: "x",
     boxes,
     lanes,
@@ -379,9 +477,9 @@ function wideScene(): Scene {
     plateLabel: [570, 203],
     cells,
     points,
-    font: { label: 16, kind: 10.5, cell: 11, chrome: 12 },
+    font: { label: 16, kind: 10, cell: 11, chrome: 12 },
     headerAt: [40, 44],
-    legendY: 486,
+    legendY: 530,
     ticks,
     chamfer: 16,
     notesAnchor: "middle",
@@ -391,39 +489,41 @@ function wideScene(): Scene {
 /** Narrow: the same topology stood on end. The ribbon runs down the left and
  *  every label gets the full width of the panel, so nothing is set in 6px type. */
 function narrowScene(): Scene {
+  const X = 164;
+  const W = 232;
+  const hOf = (id: SystemId) => 26 + 10 * SYSTEMS[id].kind.length;
   const boxOf = (id: SystemId, cy: number): Box => {
-    const x = 168;
-    const w = 226;
-    const h = 36;
+    const h = hOf(id);
     return {
       id,
-      x,
+      x: X,
       y: cy - h / 2,
-      w,
+      w: W,
       h,
-      port: [x, cy],
-      led: { x: x + 5, y: cy - 9, w: 2.5, h: 18 },
-      textX: x + 15,
+      port: [X, cy],
+      led: { x: X + 5, y: cy - 9, w: 2.5, h: 18 },
+      textX: X + 15,
     };
   };
+  const stack = (ids: SystemId[], y0: number, gap: number) => {
+    let y = y0;
+    return ids.map((id) => {
+      const h = hOf(id);
+      const b = boxOf(id, y + h / 2);
+      y += h + gap;
+      return { box: b, bottom: y - gap };
+    });
+  };
+  const leftS = stack(LEFT, 72, 12);
+  const plateTop = leftS[leftS.length - 1].bottom + 28;
+  const plate = { x: 44, y: plateTop, w: 352, h: 164 };
+  const plateBottom = plateTop + plate.h;
+  const rightS = stack(RIGHT, plateBottom + 30, 12);
+  const boxes = [...leftS.map((s) => s.box), ...rightS.map((s) => s.box)];
+  const bottom = rightS[rightS.length - 1].bottom;
 
-  const boxes: Box[] = [
-    boxOf("salesforce", 90),
-    boxOf("zendesk", 142),
-    boxOf("hubspot", 194),
-    boxOf("api", 246),
-    boxOf("oracle", 505),
-    boxOf("m365", 565),
-    boxOf("quickbooks", 625),
-  ];
-
-  const lanes = [0, 1, 2, 3, 4, 5].map((i) => 92 + (i - 2.5) * 7);
-
-  // Full width, with the stage detail set beside each cell rather than under
-  // it. Stacking it would mean 7px type, and 7px type is texture, not a label.
-  const plate = { x: 44, y: 288, w: 352, h: 164 };
   const cells: Cell[] = STAGES.map((stage, i) => {
-    const y = 296 + i * 39;
+    const y = plateTop + 8 + i * 39;
     return {
       x: 52,
       y,
@@ -435,31 +535,35 @@ function narrowScene(): Scene {
       bar: { x: 60, y: y + 22, w: 64, h: 2.5 },
     };
   });
-
+  const mid = (ROUTES.length - 1) / 2;
+  const lanes = ROUTES.map((_, i) => 92 + (i - mid) * 5);
   const at = (id: SystemId) => boxes.find((b) => b.id === id)!.port[1];
   const points: Record<number, Pt[]> = {};
   ROUTES.forEach((r, i) => {
-    points[i] = [
-      [168, at(r.from)],
-      [lanes[i], at(r.from)],
-      [lanes[i], at(r.to)],
-      [168, at(r.to)],
-    ];
+    const lane = lanes[i];
+    if (r.from === "hub") {
+      points[i] = [[lane, plateTop], [lane, at(r.to as SystemId)], [X, at(r.to as SystemId)]];
+    } else if (r.to === "hub") {
+      const y = at(r.from as SystemId);
+      // a source above the plate runs down into it; the return, from a box
+      // below it, runs up into it
+      points[i] = y < plateTop ? [[X, y], [lane, y], [lane, plateBottom]] : [[X, y], [lane, y], [lane, plateBottom]];
+    }
   });
 
   return {
     w: 420,
-    h: 720,
+    h: bottom + 60,
     axis: "y",
     boxes,
     lanes,
     plate,
-    plateLabel: [96, 280],
+    plateLabel: [96, plateTop - 8],
     cells,
     points,
-    font: { label: 13.5, kind: 9.5, cell: 11, chrome: 10 },
+    font: { label: 13.5, kind: 8.5, cell: 11, chrome: 10 },
     headerAt: [24, 38],
-    legendY: 692,
+    legendY: bottom + 40,
     ticks: null,
     chamfer: 10,
     notesAnchor: "start",
@@ -511,7 +615,13 @@ export default function SystemCanvas({ className = "" }: { className?: string })
         d: toPath(pts),
         t0: startOf(i),
         t1: endOf(i),
-        crossings: scene.cells.map((c) => fractionAt(pts, c.center)),
+        // Where THIS wire passes each stage cell: the cell's x (or y, stood
+        // on end) at the wire's own lane. The old form tested the cell's exact
+        // centre, which no lane ever passed through within tolerance, so the
+        // stage latches never fired for any route.
+        crossings: scene.cells.map((c) =>
+          fractionAt(pts, scene.axis === "x" ? [c.center[0], scene.lanes[i]] : [scene.lanes[i], c.center[1]]),
+        ),
         still: pointAt(pts, STILL_AT[i % STILL_AT.length]),
       };
     });
@@ -611,8 +721,8 @@ export default function SystemCanvas({ className = "" }: { className?: string })
         [
           {
             seq: seq.current,
-            from: SYSTEMS[r.from].label,
-            to: SYSTEMS[r.to].label,
+            from: endOfRoute(r.from).label,
+            to: endOfRoute(r.to).label,
             event: r.event,
             dir: r.dir,
           },
@@ -628,8 +738,8 @@ export default function SystemCanvas({ className = "" }: { className?: string })
   const rows: (LogRow | null)[] = reduced
     ? [0, 1, 2].map((i) => ({
         seq: 3 - i,
-        from: SYSTEMS[ROUTES[i].from].label,
-        to: SYSTEMS[ROUTES[i].to].label,
+        from: endOfRoute(ROUTES[i].from).label,
+        to: endOfRoute(ROUTES[i].to).label,
         event: ROUTES[i].event,
         dir: ROUTES[i].dir,
       }))
@@ -820,7 +930,7 @@ export default function SystemCanvas({ className = "" }: { className?: string })
             textAnchor="middle"
             fill={INK3}
           >
-            INTEGRATION LAYER
+            {wide ? "ONEALGO-HUB · RAILWAY · POSTGRES" : "ONEALGO-HUB"}
           </text>
           {scene.cells.map((c, i) => {
             const track = latchTrack(cellTimes[i], 0.24, 1);
@@ -917,21 +1027,24 @@ export default function SystemCanvas({ className = "" }: { className?: string })
                 </rect>
                 <text
                   x={b.textX}
-                  y={b.port[1] - (wide ? 3 : 3)}
+                  y={b.y + (wide ? 20 : 16)}
                   fontSize={scene.font.label}
                   fill={INK}
                 >
                   {sys.label}
                 </text>
-                <text
-                  x={b.textX}
-                  y={b.port[1] + (wide ? 14 : 12)}
-                  fontSize={scene.font.kind}
-                  letterSpacing={1.2}
-                  fill={INK3}
-                >
-                  {sys.kind}
-                </text>
+                {sys.kind.map((line, n) => (
+                  <text
+                    key={n}
+                    x={b.textX}
+                    y={b.y + (wide ? 34 + n * 12 : 28 + n * 10)}
+                    fontSize={scene.font.kind}
+                    letterSpacing={wide ? 1 : 0.6}
+                    fill={INK3}
+                  >
+                    {line}
+                  </text>
+                ))}
               </g>
             );
           })}
@@ -947,7 +1060,7 @@ export default function SystemCanvas({ className = "" }: { className?: string })
               RETURN / ACK
             </text>
             <text x={scene.w - (wide ? 40 : 24)} y={scene.legendY} textAnchor="end">
-              ILLUSTRATIVE — NOT LIVE DATA
+              REAL SYSTEMS · ILLUSTRATIVE TRAFFIC
             </text>
           </g>
         </svg>
@@ -997,17 +1110,33 @@ export default function SystemCanvas({ className = "" }: { className?: string })
         </div>
       </div>
 
-      {/* The text alternative. Everything the picture says, in order. */}
+      {/* Everything the picture says, in words, for the people who cannot see
+          it. The spec checks this names the integration layer. */}
       <p className="sr-only">
-        Diagram: seven platforms OneAlgorithm works across, connected through a shared
-        integration layer with four stages — authenticate, map fields, validate, and route.
-        The traffic shown is illustrative, not live data.
+        Diagram: every system onealgo-hub, OneAlgorithm&rsquo;s own integration
+        layer, is wired to. It runs on Railway with Postgres. On the left, six
+        groups it reads: search and site (Google Search Console, Google
+        Analytics 4, Bing Webmaster, Microsoft Clarity, Cloudflare edge
+        traffic); social (Facebook, Instagram, Meta Ads, Meta webhooks,
+        LinkedIn, TikTok); CRM and finance (Salesforce campaigns and leads,
+        QuickBooks Online book cash); federal (Grants.gov); Microsoft (Teams
+        transcripts through Graph, Microsoft Advertising keyword volumes); and
+        media and data (Google Places, Google Drive, Higgsfield, Apify,
+        Cloudflare AI). In the middle, the hub, with four stages every record
+        passes through: authenticate, map fields, validate, and route. On the
+        right, what it writes or serves: exports to Google Sheets, alert email
+        through Mailgun, LinkedIn posts that a person confirms every time, and
+        the AI sessions, Claude and Codex, that read the brief, memory and
+        metrics at the start of every session and reach SAM.gov, Microsoft
+        365, Outlook, OneDrive, Gmail, Notion, Railway, Cloudflare and GoDaddy
+        directly. The systems are real; the packet traffic shown is
+        illustrative, not live.
       </p>
       <ul className="sr-only">
         {ROUTES.map((r, i) => (
           <li key={i}>
-            {SYSTEMS[r.from].label} ({SYSTEMS[r.from].kind}) sends {r.event} to{" "}
-            {SYSTEMS[r.to].label} ({SYSTEMS[r.to].kind})
+            {endOfRoute(r.from).label} ({endOfRoute(r.from).kind.join(", ").toLowerCase()}) sends {r.event} to{" "}
+            {endOfRoute(r.to).label} ({endOfRoute(r.to).kind.join(", ").toLowerCase()})
             {r.dir === "ret" ? ", on the return path" : ""}.
           </li>
         ))}

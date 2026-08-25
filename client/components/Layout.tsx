@@ -1102,6 +1102,21 @@ function Layout({ children }: LayoutProps) {
                 >
                   Contact
                 </Link>
+                {/* The firm's own Google Business listing — "OneAlgorithm
+                    Consulting", place ID ChIJnQw01SfzxokRJhcvpzCljCE — had ZERO
+                    reviews on 2026-08-25, which is why this says "Review us"
+                    and not "Read our reviews". Two reviewers put it here, beside
+                    Contact, rather than in the social icon row: it is an ask,
+                    not a profile. Louis, 2026-08-25: "add our google business
+                    review link to our footer". */}
+                <a
+                  href="https://search.google.com/local/writereview?placeid=ChIJnQw01SfzxokRJhcvpzCljCE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={footerLink}
+                >
+                  Review us on Google
+                </a>
                 {/*
                   Careers now lives on the blog, so this points there rather
                   than at a page on this site. AI Information stays local.
