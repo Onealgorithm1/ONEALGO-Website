@@ -104,5 +104,50 @@ if (ids.length === 1 && ids[0] === 'G-RC48CMQ05T') {
     fail(`expected exactly one measurement id G-RC48CMQ05T, found: ${ids.join(', ') || 'none'}`);
 }
 
-console.log(failures ? `\n${failures} failure(s).` : '\nAnalytics hostname guard is correct.');
+// --- Microsoft Clarity rides the SAME allowlist -------------------------------
+
+// Clarity is a second analytics tag on the same page with the same failure mode:
+// if it runs on staging and previews, the heatmaps and recordings are a mix of
+// real visitors and our own deploys, and nothing errors to say so. It reuses
+// ANALYTICS_HOSTS rather than declaring its own list, so this only has to prove
+// the reuse is real.
+
+const CLARITY_ID = 'y7nmhim5ql';
+
+const clarityIds = [...new Set(
+    [...html.matchAll(/["']clarity["'][^)]*?["']([a-z0-9]{8,12})["']/g)].map(m => m[1])
+)];
+
+if (clarityIds.length === 1 && clarityIds[0] === CLARITY_ID) {
+    pass(`single Clarity project id ${clarityIds[0]}`);
+} else {
+    fail(`expected exactly one Clarity project id ${CLARITY_ID}, found: ${clarityIds.join(', ') || 'none'}`);
+}
+
+// Same shape as the gtag assertion above: an allowlist nothing consults is worse
+// than no allowlist, because it reads as protection.
+const clarityGuarded =
+    /ANALYTICS_HOSTS\.includes\(\s*location\.hostname\s*\)\s*\)\s*\{[\s\S]{0,1400}?clarity\.ms\/tag/.test(html);
+
+if (clarityGuarded) {
+    pass('Clarity injection is inside the hostname guard');
+} else {
+    fail('The Clarity tag is NOT behind ANALYTICS_HOSTS.includes(location.hostname). ' +
+         'Staging and preview deploys would record into the production project.');
+}
+
+// Deliberately injected on `load` and not parsed in the head: mobile TBT on this
+// site is already over budget with GA4 alone. A plain <script src> for clarity.ms
+// means someone pasted Microsoft's stock snippet back in and undid that.
+if (/<script[^>]+clarity\.ms/.test(html)) {
+    fail('Clarity is loaded as a <script src> in the markup. It must be injected ' +
+         'on `load` instead - see the comment above the snippet in index.html.');
+} else if (/addEventListener\(\s*["']load["'][\s\S]{0,800}?clarity\.ms\/tag/.test(html)) {
+    pass('Clarity is injected on `load`, not parsed in the head');
+} else {
+    fail('Clarity is not injected on `load`. It was moved without the reason being ' +
+         'revisited - mobile TBT is already over the 200ms budget with GA4 alone.');
+}
+
+console.log(failures ? `\n${failures} failure(s).` : '\nAnalytics hostname guards are correct (GA4 + Clarity).');
 process.exit(failures ? 1 : 0);
