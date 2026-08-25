@@ -14,11 +14,9 @@
 /assets/*.woff2
   Cache-Control: max-age=31536000, immutable
 
-# index.css is deliberately NOT fingerprinted - see assetFileNames in
-# vite.config.ts, which keeps a stable name so index.html can preload it without
-# knowing the hash. Marking a stable filename immutable told browsers to hold it
-# for a year, so a returning visitor could keep a stylesheet from an old deploy
-# indefinitely with no way to invalidate it. Revalidating costs one cheap
-# conditional request and makes deploys actually take effect.
+# CSS is fingerprinted too (vite.config.ts assetFileNames), so it can be
+# immutable like the JS. It was a stable name with max-age=0 until 2026-08-25,
+# when Cloudflare's zone Browser Cache TTL (4h) silently raised that max-age and
+# returning visitors paired the old stylesheet with the new HTML.
 /assets/*.css
-  Cache-Control: max-age=0, must-revalidate
+  Cache-Control: max-age=31536000, immutable

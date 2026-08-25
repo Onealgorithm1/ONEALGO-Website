@@ -50,11 +50,15 @@ export default defineConfig(({ mode }) => ({
         // Optimize file names for better caching
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: (chunkInfo) => {
-          const ext = chunkInfo.name?.split(".").pop();
-          if (ext === "css") return "assets/[name].[ext]";
-          return "assets/[name].[hash].[ext]";
-        },
+        // ⛔ The CSS is fingerprinted like everything else. It used to be a
+        // stable /assets/index.css so index.html could hand-write a preload
+        // for it; that preload is gone (Vite injects the link itself), and the
+        // stable name broke production on 2026-08-25: Cloudflare's zone-wide
+        // Browser Cache TTL (4h) overrides any lower max-age from _headers, so
+        // a returning visitor kept the OLD stylesheet for up to four hours
+        // against the NEW HTML and saw an unstyled site. A hash in the name is
+        // the only cache-busting that survives someone else's cache settings.
+        assetFileNames: "assets/[name].[hash].[ext]",
       },
     },
     // Increase chunk size warning limit after optimization
