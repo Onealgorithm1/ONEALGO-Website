@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import HeroFrame from "../../components/HeroSlides";
 import WorkCarousel from "../../components/WorkCarousel";
+import { FAQS } from "../../data/faqs";
 import { MeasureRule, Parallax } from "../../components/Instrument";
 import {
   Section,
@@ -132,48 +133,7 @@ const HANDOVER = [
   "Written so another developer can pick it up",
 ];
 
-const FAQS: { id: string; q: string; a: string }[] = [
-  {
-    id: "faq-animation",
-    q: "Is the animation at the top real, or is it a video?",
-    a: "Both, and you can tell them apart. The moving background is our own brand film. The lettering in front of it is not video at all — it is a canvas particle system running in your browser: the two lines of text are drawn to an offscreen buffer, sampled pixel by pixel, and every opaque pixel becomes a particle that springs back to its home position and scatters when your cursor gets close. Move your cursor across the words and watch them react, which is the part a video cannot do.",
-  },
-  {
-    id: "faq-cost",
-    q: "What does a website cost?",
-    a: "It depends on how many pages, how much of the content already exists, and whether it needs to connect to anything you already run. We will not print a number on a web page and then discover your project is nothing like it. Tell us what you need and we will put the scope and the price in writing before implementation begins.",
-  },
-  {
-    id: "faq-ownership",
-    q: "Do I own the site when you are finished?",
-    a: "Yes — the source code, the domain, the hosting account and the content. It goes in your repository and your accounts. There is no proprietary builder you would have to stay on, and another developer can pick the work up without us.",
-  },
-  {
-    id: "faq-timing",
-    q: "How long does it take to build a website?",
-    a: "It depends on the size of the site and, more than anything, on how fast content and feedback come back — across the industry those two things cause more delay than the build itself. We work quickly and we do not sit on a queue: your project starts when we agree the scope, not weeks later. We will give you the schedule in writing along with the scope, so you have a date rather than a guess, and you can watch the site take shape in a browser the whole way through rather than waiting for a reveal.",
-  },
-  {
-    id: "faq-mobile",
-    q: "Will my website work properly on a phone?",
-    a: "It is built on a phone first. Every layout is designed at 390 pixels wide before it is opened out to a laptop, because that is the hardest case and most of your visitors will arrive on it. Tap targets are sized for thumbs, text stays readable without zooming, and nothing scrolls sideways. We test on real widths rather than trusting a preview pane.",
-  },
-  {
-    id: "faq-existing",
-    q: "Can you work with the site I already have?",
-    a: "Often, yes. Sometimes the honest answer is that rebuilding is cheaper than fixing, and we will tell you which one you are looking at rather than quoting whichever is bigger.",
-  },
-  {
-    id: "faq-location",
-    q: "Where are you based, and do you work remotely?",
-    a: "Our office is at 625 Swedesford Road in Malvern, Pennsylvania, but we take work anywhere in the United States and most of it runs remotely. You review the site in your own browser as it is built, so where we sit makes no practical difference to how a project runs.",
-  },
-  {
-    id: "faq-accessibility",
-    q: "Do you do accessibility properly, or just say so?",
-    a: "Properly. Sites are built to WCAG 2.1 AA — semantic markup, keyboard navigation, real focus states, and contrast checked rather than eyeballed. It is also the same work that makes a site readable to search engines, so it is not a cost centre.",
-  },
-];
+
 
 export default function WebsiteDevelopment() {
   useSEO({
