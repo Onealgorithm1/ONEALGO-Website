@@ -72,7 +72,7 @@ export const FAQS: Faq[] = [
   {
     id: "faq-location",
     q: "Where are you based, and do you work remotely?",
-    a: "Our office is at 625 Swedesford Road in Malvern, Pennsylvania, but we take work anywhere in the United States and most of it runs remotely. You review the site in your own browser as it is built, so where we sit makes no practical difference to how a project runs.",
+    a: "Our office is at 625 Swedesford Road, Unit B, in Malvern, Pennsylvania, but we take work anywhere in the United States and most of it runs remotely. You review the site in your own browser as it is built, so where we sit makes no practical difference to how a project runs.",
   },
   {
     id: "faq-animation",

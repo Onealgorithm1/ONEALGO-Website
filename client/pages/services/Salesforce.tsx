@@ -189,7 +189,7 @@ const FAQS = [
   },
   {
     q: "Where are you located, and do you work outside Pennsylvania?",
-    a: "Our office is at 625 Swedesford Road, Malvern, Pennsylvania. We work with clients across the United States, and support across the time zones our clients operate in.",
+    a: "Our office is at 625 Swedesford Road, Unit B, Malvern, Pennsylvania. We work with clients across the United States, and support across the time zones our clients operate in.",
   },
   {
     q: "What does a Salesforce implementation cost?",
