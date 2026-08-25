@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import HeroFrame from "../../components/HeroSlides";
 import WorkCarousel from "../../components/WorkCarousel";
+import Roadmap from "../../components/Roadmap";
 import { FAQS } from "../../data/faqs";
 import { MeasureRule, Parallax } from "../../components/Instrument";
 import {
@@ -243,6 +244,16 @@ export default function WebsiteDevelopment() {
           <ProcessSteps steps={PROCESS} />
         </div>
       </Section>
+
+      {/* The road after launch. Louis, 2026-08-25: "make a animated roadmap";
+          his framing, "a beautiful website is awesome but not effective if
+          people can't find you - this is how we get you found." Sits after
+          HOW WE BUILD (the four stages above) and before cost, because it is
+          what happens once the site is live. Three reviewers on the design
+          before a line was written; their verdicts are in the component and
+          in client/data/roadmap.ts. It renders its own <section> and ground,
+          so it is not wrapped in <Section>. */}
+      <Roadmap />
 
       {/* ⛔ PRICE AND TIMING GET THEIR OWN SECTION. "How much does a website
           cost" and "how long does it take" are the two highest-intent queries in

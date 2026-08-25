@@ -792,3 +792,57 @@
 .wk-modal-scroll{height:calc(100% - 68px);overflow-y:auto;overflow-x:hidden;background:#fff}
 .wk-modal-scroll img{width:100%;height:auto;display:block}
 @media (max-width:639px){.wk-modal{width:96vw;height:90vh}.wk-visit{padding:8px 11px;font-size:.8rem}}
+
+/* ── The road after launch ─────────────────────────────────────────────────
+   One curved SVG segment per stop, sized by that stop's own <li>, so the road
+   always meets its pins at every width. The <ol> is the content; the SVG is
+   decoration. See client/components/Roadmap.tsx for the reasoning. */
+.rd{background:#04182b;color:#fff;padding:clamp(48px,8vh,96px) clamp(20px,5vw,64px) clamp(56px,9vh,112px);border-top:1px solid rgba(255,255,255,.08)}
+.rd-head{max-width:46rem;margin:0 auto clamp(36px,6vh,64px);text-align:center}
+.rd-eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb3c8}
+.rd-title{margin-top:12px;font-size:clamp(1.75rem,3.4vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.rd-lede{margin:16px auto 0;max-width:38rem;color:#dbe4ee;font-size:clamp(1rem,1.15vw,1.125rem);line-height:1.6}
+
+/* 54rem, not 64: two reviewers called the desktop composition sparse — copy
+   pushed to the far edges with empty navy either side of a 120px road. */
+.rd-road{list-style:none;margin:0 auto;padding:0;max-width:54rem}
+.rd-stop{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:18px;min-height:150px}
+/* ⛔ grid-row:1 on BOTH cells is load-bearing. With auto-placement the copy
+   cell, which sits in column 1 at desktop widths, has a LOWER column start than
+   the lane in column 2 — and sparse packing moves the cursor to a NEW ROW for
+   that. Lane alone in row 1 (0px tall, its children are absolute), copy in row
+   2. The segment then faithfully filled a 0px lane. Measured in the built page:
+   lanes of 0px, 9px and 190px across five identical items. Explicit rows make
+   the row height the item height, every time. */
+.rd-lane{position:relative;grid-column:1;grid-row:1;align-self:stretch}
+/* The base layer sets svg{height:auto}; this segment must be the height of its
+   item or the road breaks at every join. Unlayered, so it wins. */
+.rd-seg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
+.rd-surface{fill:none;stroke:rgba(255,255,255,.16);stroke-width:14;stroke-linecap:butt}
+.rd-centre{fill:none;stroke:#ffa634;stroke-width:2;stroke-dasharray:6 7;stroke-linecap:round}
+/* Pin sits on the road at the segment's entry, --x set per stop from ROAD_X. */
+.rd-pin{position:absolute;top:0;left:var(--x,50%);transform:translate(-50%,-4px);width:30px;height:30px;border-radius:999px;background:#04182b;border:3px solid #ffa634;color:#fff;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:1}
+.rd-stop:first-child .rd-pin{background:#ffa634;color:#0d1b2a}
+
+.rd-body{grid-column:2;grid-row:1;padding:2px 0 34px;max-width:34rem}
+.rd-stop-title{font-size:clamp(1.15rem,1.7vw,1.4rem);font-weight:600;line-height:1.25}
+.rd-text{margin-top:10px;color:#dbe4ee;line-height:1.6;font-size:clamp(.95rem,1.05vw,1.05rem)}
+.rd-links{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px}
+.rd-link{display:inline-block;color:#fff;font-weight:600;border-bottom:1px solid rgba(255,166,52,.75);padding-bottom:2px;text-decoration:none;transition:border-color .18s ease,color .18s ease}
+.rd-link:hover{border-color:#ffa634;color:#ffa634}
+.rd-link:focus-visible{outline:2px solid #ffa634;outline-offset:4px;border-radius:2px}
+.rd-here{display:inline-block;margin-top:12px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#ffa634}
+
+.rd-end{margin:8px auto 0;max-width:36rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.rd-end-text{color:#dbe4ee;line-height:1.6;font-size:clamp(1rem,1.15vw,1.125rem)}
+
+/* Desktop: the road runs down the centre and the copy alternates sides, pins
+   leaning toward whichever side the copy is on (ROAD_X does the leaning). */
+@media (min-width:900px){
+  .rd-stop{grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);column-gap:28px;min-height:170px}
+  .rd-lane{grid-column:2}
+  .rd-stop:nth-child(odd) .rd-body{grid-column:1;justify-self:end}
+  .rd-stop:nth-child(even) .rd-body{grid-column:3;justify-self:start}
+  .rd-body{padding-top:0;padding-bottom:44px}
+  .rd-pin{width:34px;height:34px;font-size:.85rem}
+}
