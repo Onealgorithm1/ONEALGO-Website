@@ -398,9 +398,12 @@ export default function Index() {
                 platforms and the systems in between", was kept because a
                 competitor could not lift it; distinctiveness is not what a
                 buyer came for, and the second half of it survives below. */}
+            {/* Louis, 2026-08-25: "put our original heading and tagline on
+                home page". This is the pre-redesign heading verbatim
+                (main@974d206), with the two-line tagline under it. */}
             <h1 className="text-display font-semibold text-oa-nightInk">
-              Websites people can find,{" "}
-              <span className="text-oa-orange">and the systems behind them</span>
+              Transform Operations,{" "}
+              <span className="text-oa-orange">Accelerate Growth</span>
             </h1>
 
             {/* The tagline. Previously set smaller than the paragraph beneath
@@ -408,6 +411,10 @@ export default function Index() {
                 sits directly under the headline at 9.19:1 on this ground. */}
             <p className="mt-5 font-mono text-eyebrow uppercase text-oa-orange">
               From Strategy to Support
+            </p>
+            <p className="mt-3 max-w-2xl text-xl font-medium text-oa-nightInk">
+              Think bigger. Build smarter. Move faster — with technology
+              solutions tailored to you.
             </p>
 
             <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
