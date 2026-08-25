@@ -90,12 +90,21 @@ ok('Contact.tsx still calls the hook', () =>
 
 // --- 3. the Salesforce target ------------------------------------------------
 
-ok('the form still posts to the BPO org', () =>
-    assert.ok(contact.includes('00Dbn00000plgUf'),
-        'the org id changed - confirm it is still the org that owns the leads'));
+// The org id left the client on the redesign: the page posts to /api/lead and
+// functions/api/lead.js sets `oid` from SALESFORCE_OID in the Pages environment,
+// so the browser never sees it. The check follows the id to where it lives now.
+const leadFn = fs.readFileSync(new URL('../functions/api/lead.js', import.meta.url), 'utf8');
+
+ok('the page posts to the lead function, not straight to Salesforce', () =>
+    assert.ok(/fetch\("\/api\/lead"/.test(contact) && !contact.includes('00Dbn00000plgUf'),
+        'Contact.tsx should call /api/lead and carry no org id of its own'));
+
+ok('the lead function takes the org id from the Pages environment', () =>
+    assert.ok(/lead\.set\("oid",\s*env\.SALESFORCE_OID\)/.test(leadFn),
+        'oid must come from env.SALESFORCE_OID - a hard-coded id here would be the old bug in a new file'));
 
 ok('lead_source uses a value the org actually has', () => {
-    const m = /addHiddenField\("lead_source",\s*"([^"]+)"\)/.exec(contact);
+    const m = /lead\.set\("lead_source",\s*"([^"]+)"\)/.exec(leadFn);
     assert.ok(m, 'lead_source is no longer sent');
     // The LeadSource picklist in 00Dbn00000plgUfEAI has "Web" and does NOT have
     // "Website". Salesforce drops an invalid picklist value without erroring,

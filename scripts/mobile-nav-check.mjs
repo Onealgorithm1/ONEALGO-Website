@@ -222,15 +222,18 @@ async function main() {
     );
   });
 
-  await check("crossing the md breakpoint with it open does not freeze the page", async () => {
-    // Turning a phone to landscape crosses 768px. `md:hidden` takes the drawer
-    // off screen, and if the state does not follow, the scroll lock and the
-    // `inert` on everything else stay on with nothing visible to undo them.
+  await check("crossing the lg breakpoint with it open does not freeze the page", async () => {
+    // Rotating a tablet crosses 1024px. `lg:hidden` takes the drawer off
+    // screen (the header moved from md to lg on 2026-08-25 because the desktop
+    // nav overflowed at 768–1023px), and if the state does not follow, the
+    // scroll lock and the `inert` on everything else stay on with nothing
+    // visible to undo them. A phone in landscape (844px) now keeps the drawer,
+    // which is the intended behaviour, so it is not the width used here.
     await page.click('nav button[aria-controls="mobile-nav"]');
     await page.waitForSelector("#mobile-nav", { timeout: 5000 });
-    await page.setViewport({ width: 844, height: 390, isMobile: true, hasTouch: true });
+    await page.setViewport({ width: 1180, height: 820, isMobile: true, hasTouch: true });
     await page.waitForFunction(() => !document.getElementById("mobile-nav"), { timeout: 5000 })
-      .catch(() => { throw new Error("the drawer is still mounted past the md breakpoint"); });
+      .catch(() => { throw new Error("the drawer is still mounted past the lg breakpoint"); });
     const stuck = await page.evaluate(() => ({
       overflow: document.body.style.overflow,
       inert: document.querySelector("nav").hasAttribute("inert") || document.querySelector("main").hasAttribute("inert"),
