@@ -66,6 +66,7 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
         </div>
       </div>
       {item.embed ? (
+        <div className="wk-frame-wrap" data-loading="Loading the live site…">
         <iframe
           className="wk-frame"
           src={item.url}
@@ -79,6 +80,7 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
              onealgorithm.com. Reviewer finding, 2026-08-25. */
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
         />
+        </div>
       ) : (
         <div className="wk-modal-scroll">
           {/* Full-page capture. Scrolls inside the modal, so the visitor can
@@ -138,7 +140,10 @@ export default function WorkCarousel() {
                   alt={`The ${w.name} website`}
                   width={1280}
                   height={800}
-                  loading="lazy"
+                  /* Eager, not lazy: these sit directly under the hero and a
+                     lazy image on a busy main thread showed as a blank navy
+                     box for two seconds — Louis read it as "not rendering". */
+                  loading="eager"
                   decoding="async"
                 />
               </span>

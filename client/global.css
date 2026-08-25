@@ -790,7 +790,9 @@
 .wk-close{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;cursor:pointer;font-size:.95rem}
 .wk-close:hover{background:rgba(255,255,255,.1)}
 .wk-modal-scroll{height:calc(100% - 68px);overflow-y:auto;overflow-x:hidden;background:#fff}
-.wk-frame{display:block;width:100%;height:calc(100% - 68px);border:0;background:#fff}
+.wk-frame-wrap{position:relative;height:calc(100% - 68px);background:#fff}
+.wk-frame-wrap::before{content:attr(data-loading);position:absolute;inset:0;display:grid;place-items:center;color:#5b6b7c;font-size:.9rem}
+.wk-frame{position:relative;display:block;width:100%;height:100%;border:0;background:transparent}
 .wk-modal-scroll img{width:100%;height:auto;display:block}
 @media (max-width:639px){.wk-modal{width:96vw;height:90vh}.wk-visit{padding:8px 11px;font-size:.8rem}}
 
