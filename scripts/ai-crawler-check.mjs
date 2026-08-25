@@ -23,9 +23,10 @@
  *
  * ⚠️ `--live` is the one that matters. If it fails while the local check
  * passes, production is simply BEHIND this repo: the served file is whatever the
- * last production deploy shipped. Verified 2026-08-25 — the live file was the
- * 2026-08-06 version (nothing had been pushed to production since), not, as
- * this comment used to claim, Cloudflare's managed robots.txt. Cloudflare's
+ * last production deploy shipped. Verified 2026-08-25 — the live file was
+ * main's copy (last touched 2026-08-06; main had been deployed on 2026-08-19
+ * without this branch's rewrite), not, as this comment used to claim,
+ * Cloudflare's managed robots.txt. Cloudflare's
  * feature PREPENDS a block ending `# END Cloudflare Managed Content` and never
  * drops the origin file (developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/);
  * that marker is the tell if it is ever switched on. Also: the bare
