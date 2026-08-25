@@ -91,8 +91,10 @@ const teamMembers: TeamMember[] = [
   {
     id: "louis",
     name: "Louis Rubino",
-    title: "Director of Operations",
-    /* Title is OPERATIONS, deliberately. Louis runs marketing, internal
+    title: "Director of Operations and Program Manager",
+    /* Louis asked for "Program Manager" in the title (2026-08-25); it is
+       mirrored in shared/capabilities-data.ts — change both or neither.
+       Title is OPERATIONS, deliberately. Louis runs marketing, internal
        integrations, invoicing, tooling and subscriptions, paperwork, email
        campaigns, compliance and contracts. An earlier pass titled him
        "Director, Compliance & Contract Administration", which he rejected as

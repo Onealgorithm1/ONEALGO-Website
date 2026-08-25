@@ -319,7 +319,7 @@ export const keyPersonnel: KeyPerson[] = [
     /* Kept in step with client/components/TeamSection.tsx deliberately: /about
        and /capabilities gave the same person DIFFERENT titles, which is a live
        credibility problem. If one changes, change both. */
-    role: "Director of Operations",
+    role: "Director of Operations and Program Manager",
     summary:
       "Operations, contracts and invoicing, federal registrations and certifications, internal systems, and marketing.",
   },
