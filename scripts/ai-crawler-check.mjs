@@ -21,10 +21,16 @@
  *   node scripts/ai-crawler-check.mjs            # checks public/robots.txt
  *   node scripts/ai-crawler-check.mjs --live     # also checks what is SERVED
  *
- * ⚠️ `--live` is the one that matters and it is expected to FAIL today.
- * Cloudflare's Managed robots.txt replaces the served file, and Cloudflare also
- * 403s several of these agents at the edge. Those are dashboard settings; this
- * script cannot change them, only prove they are still in the way.
+ * ⚠️ `--live` is the one that matters. If it fails while the local check
+ * passes, production is simply BEHIND this repo: the served file is whatever the
+ * last production deploy shipped. Verified 2026-08-25 — the live file was the
+ * 2026-08-06 version (nothing had been pushed to production since), not, as
+ * this comment used to claim, Cloudflare's managed robots.txt. Cloudflare's
+ * feature PREPENDS a block ending `# END Cloudflare Managed Content` and never
+ * drops the origin file (developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/);
+ * that marker is the tell if it is ever switched on. Also: the bare
+ * onealgorithm-staging.pages.dev host is the staging project's PRODUCTION-branch
+ * deploy, which nobody updates — check staging.onealgorithm-staging.pages.dev.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -131,9 +137,10 @@ if (LIVE) {
     const served = await res.text();
     if (served.trim() !== local.trim()) {
       console.log(
-        `\n⚠️  THE SERVED FILE IS NOT THIS FILE. Something upstream — Cloudflare's\n` +
-          `    Managed robots.txt — is replacing it. Everything below describes what\n` +
-          `    the world actually sees, which is what counts.`,
+        `\n⚠️  THE SERVED FILE IS NOT THIS FILE. Either production has not been\n` +
+          `    deployed since public/robots.txt last changed (git log -- public/robots.txt),\n` +
+          `    or a "# END Cloudflare Managed Content" marker means Cloudflare's managed\n` +
+          `    block was switched on. Everything below describes what the world sees.`,
       );
     }
     await run(`${ORIGIN}/robots.txt (what the world sees)`, served);
