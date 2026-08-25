@@ -52,10 +52,10 @@ export const WORK: WorkItem[] = [
     note: "Service pages by area, online scheduling, and reports the owner updates himself.",
     url: "https://inspectthishomeinspections.com/",
     shot: "2026-08-25",
-    // Its _headers send X-Frame-Options: SAMEORIGIN. The frame-ancestors
-    // allowlist is on its `review` branch (2026-08-25) and goes to production
-    // only on Louis's word; flip this to true the moment curl shows it live.
-    embed: false,
+    // Its production sends `Content-Security-Policy: frame-ancestors 'self'
+    // https://onealgorithm.com https://www.onealgorithm.com` since 2026-08-25
+    // (Louis: "Push"); curl-verified before this flipped.
+    embed: true,
     marker: "Inspect This Home",
   },
 ];
