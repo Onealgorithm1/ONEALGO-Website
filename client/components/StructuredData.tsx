@@ -29,6 +29,7 @@ interface ServiceSchema {
   name: string;
   description: string;
   provider: {
+    "@type": "Organization";
     name: string;
     url: string;
   };
@@ -108,13 +109,28 @@ export function StructuredData({ data }: StructuredDataProps) {
   const serialised = JSON.stringify(
     data["@context"]
       ? data
-      : {
-          "@context": "https://schema.org",
-          "@type": data.type || data["@type"],
-          ...data,
-        },
+      : (() => {
+          // Strip the internal `type` key. It is how these helpers spell
+          // "@type", but spreading it through left BOTH `"@type":"Service"`
+          // and a bare `"type":"Service"` in the emitted JSON-LD, which is not
+          // a schema.org property. Verified in the browser 2026-08-24.
+          const { type: _legacyType, ...rest } = data as Record<string, unknown>;
+          return {
+            "@context": "https://schema.org",
+            "@type": data.type || data["@type"],
+            ...rest,
+          };
+        })(),
   );
-  const scriptId = `schema-${(data.type || "schema").toString().toLowerCase()}`;
+  /* Keyed on the RESOLVED type, not the legacy `type` key. Helpers that set
+     "@context"/"@type" directly (createLocalBusinessSchema, createFAQSchema)
+     have no `type`, so every one of them resolved to "schema-schema" — two on
+     one page collided and the second mounting removed the first from <head>.
+     Caught 2026-08-24: LocalBusiness silently vanished from /services/salesforce
+     because FAQPage took the same id. */
+  const scriptId = `schema-${(data.type || data["@type"] || "schema")
+    .toString()
+    .toLowerCase()}`;
 
   React.useEffect(() => {
     document.getElementById(scriptId)?.remove();
@@ -394,6 +410,7 @@ export function createServiceSchema(
     name: serviceName,
     description: description,
     provider: {
+      "@type": "Organization",
       name: "OneAlgorithm",
       url: "https://onealgorithm.com",
     },

@@ -53,55 +53,10 @@ import SystemCanvas from "../components/SystemCanvas";
    Verify with `node scripts/contrast-check.mjs`.
 --------------------------------------------------------------------------- */
 
-/** The hero video is decoration, so it is only fetched when it can actually be
- *  seen and when fetching it is not rude.
- *
- *  All three conditions must hold. It is 746KB of webm, and on a phone the
- *  scrim reduces it to dark texture -- you cannot tell it is moving. Paying
- *  three quarters of a megabyte, plus decode, on a mobile connection for
- *  something invisible is the definition of a byte that has not earned its
- *  place. The poster is a 70KB webp and is what a phone sees now. */
-export function shouldPlayHeroVideo(env: {
-  reducedMotion: boolean;
-  wideViewport: boolean;
-  saveData: boolean;
-}) {
-  return env.wideViewport && !env.reducedMotion && !env.saveData;
-}
+import { useHeroVideo } from "@/lib/heroVideo";
+/* Re-exported so client/pages/Index.spec.ts keeps importing from this module. */
+export { shouldPlayHeroVideo, useHeroVideo } from "@/lib/heroVideo";
 
-/** Returns false on the server and on the first client render, which is the
- *  point: the prerendered HTML then contains no <source> at all, so nothing
- *  can start fetching before the decision has been made. */
-function useHeroVideo() {
-  const [play, setPlay] = React.useState(false);
-
-  React.useEffect(() => {
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    // Matches the `md` breakpoint the rest of the site uses.
-    const wide = window.matchMedia("(min-width: 768px)");
-    const update = () =>
-      setPlay(
-        shouldPlayHeroVideo({
-          reducedMotion: motion.matches,
-          wideViewport: wide.matches,
-          // Not in every browser's typings, and absent entirely in Safari.
-          saveData:
-            (navigator as Navigator & { connection?: { saveData?: boolean } })
-              .connection?.saveData === true,
-        }),
-      );
-
-    update();
-    motion.addEventListener("change", update);
-    wide.addEventListener("change", update);
-    return () => {
-      motion.removeEventListener("change", update);
-      wide.removeEventListener("change", update);
-    };
-  }, []);
-
-  return play;
-}
 
 /** ~1KB of SVG noise. Kills gradient banding and stops the scrim reading as a
  *  flat filter laid over the footage. */

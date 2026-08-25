@@ -512,3 +512,283 @@
     }
   }
 }
+
+/* ---- SiteAssembly (the /services/website-development hero) ---- */
+.sa-frame{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+@media (max-width:767px){.sa-frame{transform:none!important}}
+.sa-scene{animation:sa-wipe-in .55s cubic-bezier(.2,.8,.2,1) both}
+.sa-scene.is-leaving{animation:sa-wipe-out .8s cubic-bezier(.6,0,.8,.2) both}
+.sa-grid{opacity:0;animation:sa-in .5s ease both,sa-out .6s ease both;animation-delay:.05s,1.6s}
+.sa-block{opacity:0;transform:scaleY(.6);transform-origin:top;outline:1px dashed rgba(127,180,230,.7);outline-offset:-1px;animation:sa-block .55s cubic-bezier(.2,.8,.2,1) both,sa-unwire .5s ease both;animation-delay:var(--d,0s),1.7s}
+.sa-paint{--paint:0;background-color:transparent}
+.sa-paint{animation:sa-paint .6s ease both;animation-delay:1.5s}
+.sa-type{clip-path:inset(0 100% 0 0);animation:sa-type .7s steps(18) both;animation-delay:var(--d,0s)}
+.sa-pop{opacity:0;transform:scale(.85);animation:sa-pop .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+.sa-photo{opacity:0;animation:sa-in .8s ease both;animation-delay:3.05s}
+.sa-shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);animation:sa-shine 1.1s ease both;animation-delay:3.4s}
+.sa-log li{opacity:0;animation:sa-in .3s ease both;animation-delay:var(--d,0s)}
+.sa-roll>span{opacity:0;animation:sa-in .3s ease both,sa-out .3s ease both;animation-delay:var(--d,0s),calc(var(--d,0s) + .68s)}
+.sa-roll>span.is-last{animation:sa-in .3s ease both;animation-delay:var(--d,0s)}
+.sa-check{opacity:0;animation:sa-in .3s ease both;animation-delay:3.75s}
+.sa-cursor{opacity:0;animation:sa-cursor 1.4s ease both;animation-delay:3.3s}
+@keyframes sa-in{to{opacity:1}}
+@keyframes sa-out{to{opacity:0}}
+@keyframes sa-unwire{to{outline-color:transparent}}
+@keyframes sa-block{to{opacity:1;transform:scaleY(1)}}
+@keyframes sa-paint{to{background-color:var(--to)}}
+@keyframes sa-type{to{clip-path:inset(0 0 0 0)}}
+@keyframes sa-pop{to{opacity:1;transform:scale(1)}}
+@keyframes sa-shine{to{transform:translateX(120%)}}
+@keyframes sa-wipe-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes sa-wipe-out{to{opacity:0;transform:translateY(-8px) scale(.985)}}
+@keyframes sa-cursor{0%{opacity:0;transform:translate(60px,40px)}30%{opacity:1}70%{transform:translate(0,0)}80%{transform:translate(0,0) scale(.85)}100%{opacity:1;transform:translate(0,0)}}
+@media (prefers-reduced-motion:reduce){
+  .sa-frame{transition:none}
+  .sa-scene,.sa-grid,.sa-block,.sa-paint,.sa-type,.sa-pop,.sa-photo,.sa-log li,.sa-roll>span.is-last,.sa-check,.sa-cursor{animation:none!important;opacity:1;transform:none;clip-path:none}
+  .sa-roll>span:not(.is-last){display:none}
+  .sa-block{outline:none}.sa-grid{opacity:0}
+  .sa-paint{background-color:var(--to)}
+  .sa-shine{display:none}
+}
+/* impeccable-disable gradient-text: three slides reproduce 21st.dev templates whose signature is gradient text (Background Paths, Hero Section Dark, Lamp) */
+
+/* ---- Website-development hero ------------------------------------------------
+   Was a fourteen-frame carousel (eight adapted 21st.dev templates plus six
+   hand-built frames). Louis cut it to a single frame on 2026-08-24 — the canvas
+   particle field in HeroSlides.tsx — and ~12KB of this file went with it. The
+   removed rules are in git history alongside the components they styled.
+
+   .hg is still the wrapper and .hg-slide still owns the height, so the frame
+   fills the viewport minus the header and the rail's old footprint. Everything
+   below is transform/opacity only, so it stays on the compositor and never
+   competes with the canvas for main-thread time. */
+.hg{position:relative;background:#04182b}
+/* 64px is the sticky header. The old value also subtracted 88px for the
+   carousel rail; the rail went with the carousel, so the frame takes that
+   space back. */
+.hg-slide{min-width:0;height:calc(100svh - 64px);min-height:520px;display:flex}
+.hg-s{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;overflow:hidden;isolation:isolate;font-family:"IBM Plex Sans",system-ui,sans-serif}
+
+/* The copy layer, its pointer-parallax, the rise-in animation, the accent
+   underline and the (hover:hover) sentence swap all lived here. Louis cut the
+   subline on 2026-08-24 and the frame is the canvas alone.
+   The scroll cue went the same day: a 1px orange hairline pulsing at the bottom
+   centre, which on a phone read as a stray artefact rather than an affordance —
+   "There is a little yellow line in the middle of the bottom of the hero needs
+   to be removed". The hero no longer runs full-height on mobile, so the section
+   below it is already visible at the fold and nothing needs to hint at it. */
+
+@media (max-width:639px){
+  .hg-slide{height:min(calc(100svh - 64px),580px)}
+}
+
+@media (prefers-reduced-motion:reduce){
+}
+
+/* Orphaned: nothing imports splite.tsx or the unfurling gallery any more, but
+   Showcase.tsx still uses .preserve-3d. */
+.loader{width:36px;height:36px;border:3px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:hg-spin 1s linear infinite}
+@keyframes hg-spin{to{transform:rotate(360deg)}}
+.preserve-3d{transform-style:preserve-3d}
+
+/* ---- Instrument layer (/services/website-development) -------------------------
+   The design system for that page's body. Radius 0 throughout — the site's 8px
+   radius belongs to buttons, and the contrast between the two is what makes the
+   instrument layer read as measured rather than decorated.
+   Motion tiers come from onealgo-design-kb/ui-ux-pro-max/data/motion.csv:
+   hover "Subtle" = displacement under 2px, 150-200ms; parallax "Subtle" = small
+   delta, scrubbed. All of it collapses under prefers-reduced-motion. */
+.inst{border:1px solid var(--inst-line);padding:20px;font-family:"JetBrains Mono",ui-monospace,monospace}
+.inst-dark{--inst-line:rgba(255,255,255,.14);--inst-dim:#9fb3c8;--inst-ink:#fff}
+.inst-light{--inst-line:#d3dae4;--inst-dim:#5a6b7d;--inst-ink:#0d1b2a}
+.inst-head{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--inst-dim);padding-bottom:14px;border-bottom:1px solid var(--inst-line)}
+.inst-list{margin:0}
+/* Was a flex row with the label left and the value right; at panel widths the
+   labels wrapped to two lines and the notes wrapped raggedly against them.
+   Label over value reads cleanly at every width and needs no breakpoint. */
+.inst-row{padding:13px 0;border-bottom:1px solid var(--inst-line)}
+.inst-row dt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--inst-dim)}
+.inst-row dd{margin:4px 0 0;display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.inst-val{font-size:clamp(19px,1.9vw,24px);font-weight:600;color:var(--inst-ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.inst-note{font-size:10px;color:var(--inst-dim);text-align:right}
+.inst-foot{margin:14px 0 0;font-size:11px;line-height:1.6;color:var(--inst-dim)}
+
+/* The measure rule — the layout motif. */
+.mrule{position:relative;padding-top:14px}
+.mrule-line{display:block;height:1px;background:#d3dae4;transform-origin:left}
+.mrule-dark .mrule-line{background:rgba(255,255,255,.2)}
+.mrule-meta{display:flex;align-items:baseline;gap:14px;padding-top:10px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.mrule-i{color:#9a4f00;font-weight:700}
+.mrule-dark .mrule-i{color:#ffa634}
+.mrule-l{color:#5a6b7d}
+.mrule-dark .mrule-l{color:#9fb3c8}
+/* #647486, not a lighter grey: the measurement has to clear 4.5:1 on BOTH
+   paper (4.79:1) and surface (4.49:1). The obvious #8494a6 was 2.91:1. */
+.mrule-w{margin-left:auto;color:#647486;font-variant-numeric:tabular-nums}
+
+/* Specimen rows — the hover state the page had none of. Under 2px of travel so
+   it reads as feedback, not as movement. */
+.spec{position:relative;border-top:1px solid #d3dae4;padding-top:32px;transition:transform .2s cubic-bezier(.22,1,.36,1),border-color .2s}
+.spec::before{content:"";position:absolute;top:-1px;left:0;width:100%;height:1px;background:#ffa634;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.spec:hover,.spec:focus-within{transform:translateY(-2px);border-color:transparent}
+.spec:hover::before,.spec:focus-within::before{transform:scaleX(1)}
+.spec-n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;color:#9a4f00;font-variant-numeric:tabular-nums;transition:color .2s}
+/* Hover goes DARKER, not brighter — #c26200 read as more active but only made
+   4.17:1. #a85600 is 5.26:1 and still reads as a state change. */
+.spec:hover .spec-n{color:#a85600}
+
+@media (prefers-reduced-motion:reduce){
+  .spec,.spec::before,.spec-n{transition:none}
+  .spec:hover,.spec:focus-within{transform:none}
+}
+
+/* FAQ disclosures. The rows used to be static paragraphs wearing a hover state
+   that implied they would open. Now they do. */
+.faq{padding:0}
+.faq>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0 22px 4px}
+.faq>summary::-webkit-details-marker{display:none}
+.faq>summary:focus-visible{outline:2px solid #9a4f00;outline-offset:2px}
+.faq-mark{position:relative;flex:none;width:14px;height:14px}
+.faq-mark::before,.faq-mark::after{content:"";position:absolute;background:#9a4f00;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.faq-mark::before{top:6px;left:0;width:14px;height:2px}
+.faq-mark::after{left:6px;top:0;width:2px;height:14px}
+.faq[open] .faq-mark::after{transform:scaleY(0)}
+.faq-a{margin:0;padding:0 46px 24px 4px;max-width:72ch}
+
+/* Ticks were #005eaa — a third colour on a page locked to navy and orange, and
+   sixteen of them marching down the body read as template. Scoped to this
+   page's specimen rows so the shared CheckList is untouched elsewhere. */
+.spec-list .text-oa-blue{color:#35485c}
+
+/* Mobile hero. The type resolved to ~35px in a 780px frame — 10% of the hero,
+   smaller than the h1 below it — and the 6-second scatter destroyed it at that
+   size. Give the frame back to the type and let the burst run only where there
+   is a pointer to justify it. */
+@media (max-width:639px){
+  .hg-slide{height:min(calc(100svh - 64px),580px)}
+  .hs-bottom{bottom:56px}
+  /* The drag belongs to the hero, not to the scroller. Paired with the pointer
+     capture in HeroSlides.tsx — without both, "drag a finger" does nothing.
+     Scoped to narrow widths so a trackpad two-finger scroll over the hero on a
+     small laptop is never trapped. */
+}
+
+@media (prefers-reduced-motion:reduce){
+  .faq-mark::before,.faq-mark::after{transition:none}
+}
+
+/* Handover list in the closing panel. Same instrument shell, list instead of a
+   readout — these are commitments, not measurements, so no pulsing figures. */
+.hand{margin:0;padding:0;list-style:none}
+.hand li{position:relative;padding:13px 0 13px 22px;border-bottom:1px solid var(--inst-line);font-size:13px;line-height:1.5;color:#dbe4ee}
+.hand li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:1px;background:#ffa634}
+
+/* Answers shortcut. The page's first links sit above the fold here — before
+   this, there were no interactive elements at all between the intro CTAs and
+   the closing band, roughly 60% of the page. */
+.ans{margin:0;padding:0;list-style:none}
+.ans a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--inst-line);font-size:13px;line-height:1.4;color:#dbe4ee;transition:color .2s cubic-bezier(.22,1,.36,1)}
+.ans a svg{width:16px;height:16px;flex:none;color:#ffa634;transform:translateX(-4px);opacity:0;transition:transform .25s cubic-bezier(.22,1,.36,1),opacity .25s}
+.ans a:hover,.ans a:focus-visible{color:#fff}
+.ans a:hover svg,.ans a:focus-visible svg{transform:translateX(0);opacity:1}
+.ans a:focus-visible{outline:2px solid #ffa634;outline-offset:3px}
+.inst-light .ans a{color:#35485c}
+.inst-light .ans a:hover,.inst-light .ans a:focus-visible{color:#0d1b2a}
+
+@media (prefers-reduced-motion:reduce){
+  .ans a,.ans a svg{transition:none}
+  .ans a svg{opacity:1;transform:none}
+}
+
+/* Scrim between the brand film and the particle canvas. Heavier top and bottom
+   so the frame meets the header and the section below it cleanly, lighter
+   through the middle where the film should still read. */
+/* Two layers. The vertical gradient joins the frame to the header and to the
+   section below; the radial pool sits under the type, which is where the film
+   is busiest and brightest. The homepage's scrim tops out at .72 through the
+   middle — that is fine there, where the headline is HTML with its own weight
+   behind it, and not fine here, where the letters are 2px particles with the
+   film showing between every one of them. Measured against the brightest frame
+   of hero.webm, not guessed. */
+.hs-scrim{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(120% 62% at 50% 52%,rgba(4,24,43,.72) 0%,rgba(4,24,43,.34) 55%,rgba(4,24,43,0) 100%),
+  linear-gradient(180deg,rgba(4,24,43,.95) 0%,rgba(4,24,43,.80) 40%,rgba(4,24,43,.86) 72%,rgba(4,24,43,.96) 100%)}
+/* The film. Taller than the frame so the parallax shift never exposes bare
+   ground at the top or bottom, and anchored above centre because the interesting
+   part of hero.webm sits high. See PARALLAX_SHIFT in HeroSlides.tsx — the two
+   numbers are a pair. */
+.hs-film{position:absolute;left:0;right:0;top:-15%;height:130%;width:100%;object-fit:cover;z-index:0}
+
+/* The particle band. Was inset-0 — a full-bleed canvas over the entire hero,
+   which is what made the reactive surface cover the whole first screen.
+   Centred on the type and tall enough for the scatter to live inside it.
+   ⛔ Never put touch-action on this: it traps page scroll on a phone. */
+/* ⛔ `width:100%` IS LOAD-BEARING — do not drop it back to left:0;right:0 alone.
+   A <canvas> is a REPLACED element with an intrinsic aspect ratio (its width and
+   height ATTRIBUTES). `left:0;right:0` does not stretch one the way it stretches
+   a div. This rule sets height, the base layer sets `canvas{height:auto}`, and
+   with width unresolved the used width came out as height x intrinsic ratio:
+   373px x (933/465) = 748px inside a 1521px parent. The JS then measured that
+   748 and rasterised the type to fit it, which is why desktop type rendered at
+   half size and sat left of centre while the code says textAlign "center".
+   .hs-film carries the same declaration for the same reason — <video> is a
+   replaced element too, and it was fixed there and missed here. */
+/* ⛔ THE BAND AND THE COPY ARE IN NORMAL FLOW, NOT ABSOLUTE. Both were absolute
+   first and the tagline landed on the descenders of "development" — two boxes
+   pinned to the same container cannot space themselves against each other.
+   .hg-s is a centred flex column, so as flow siblings they stack and centre as
+   one block at any height. The film and the scrim stay absolute behind them. */
+.hs-band{position:relative;width:100%;height:min(44vh,330px);min-height:180px;z-index:2;flex:0 0 auto}
+@media (max-width:639px){.hs-band{height:min(38vh,260px);min-height:150px}}
+
+.hs-copy{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;padding:clamp(14px,3vh,34px) 24px 0;text-align:center}
+.hs-tag{font-weight:700;letter-spacing:.02em;color:#fff;font-size:clamp(1.05rem,1.7vw,1.6rem);line-height:1.2}
+.hs-sub{max-width:46rem;color:rgba(255,255,255,.82);font-size:clamp(.9rem,1.05vw,1.05rem);line-height:1.55}
+@media (max-width:639px){.hs-copy{gap:12px;padding-top:14px}.hs-sub{font-size:.88rem;max-width:26rem}}
+
+/* ── Websites we built ─────────────────────────────────────────────────────
+   A scroll-snap rail, not a carousel library. Native scrolling already gives
+   drag, wheel, trackpad, keyboard and momentum; a library would re-implement
+   all of it worse and ship 12KB to do it. */
+.wk{background:#04182b;padding:clamp(40px,6vh,72px) 0 clamp(48px,7vh,84px);border-bottom:1px solid rgba(255,255,255,.08)}
+.wk-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:0 clamp(20px,5vw,64px);margin-bottom:clamp(20px,3vh,32px)}
+.wk-title{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:700;color:#fff;line-height:1.15}
+.wk-lede{margin-top:6px;color:rgba(255,255,255,.72);font-size:clamp(.9rem,1.05vw,1rem)}
+.wk-arrows{display:none;gap:8px}
+@media (min-width:900px){.wk-arrows{display:flex}}
+.wk-arrows button{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font-size:1.25rem;line-height:1;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.wk-arrows button:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+
+.wk-rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(20px,5vw,64px) 12px;margin:0;list-style:none;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.wk-rail::-webkit-scrollbar{height:8px}
+.wk-rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:999px}
+.wk-card{flex:0 0 min(88vw,420px);scroll-snap-align:start}
+
+.wk-btn{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;color:inherit;transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.wk-btn:hover,.wk-btn:focus-visible{transform:translateY(-4px);border-color:rgba(255,166,52,.55);background:rgba(255,255,255,.07)}
+.wk-btn:focus-visible{outline:2px solid #ffa634;outline-offset:3px}
+/* The lift is decoration; anyone who asked not to be moved does not get moved. */
+@media (prefers-reduced-motion:reduce){.wk-btn{transition:none}.wk-btn:hover,.wk-btn:focus-visible{transform:none}}
+
+.wk-shot{display:block;aspect-ratio:16/10;overflow:hidden;background:#06223c}
+.wk-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.wk-meta{display:block;padding:16px 18px 18px}
+.wk-name{display:block;color:#fff;font-weight:600;font-size:1.05rem}
+.wk-sector{display:block;color:#ffa634;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.wk-note{display:block;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5;margin-top:10px}
+.wk-open{display:inline-block;margin-top:12px;color:#fff;font-size:.85rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:2px}
+
+/* The preview. A native <dialog>, so Esc, focus return and the inert background
+   are the platform's job rather than ours. */
+.wk-modal{width:min(1100px,94vw);max-width:none;height:min(88vh,900px);padding:0;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:#04182b;color:#fff;overflow:hidden}
+.wk-modal::backdrop{background:rgba(2,10,20,.78)}
+.wk-modal-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.12);background:#04182b}
+.wk-modal-name{font-weight:600;font-size:1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wk-modal-sector{color:#ffa634;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.wk-visit{display:inline-block;background:#ffa634;color:#12212e;font-weight:600;font-size:.85rem;padding:9px 14px;border-radius:8px;text-decoration:none}
+.wk-visit:hover{background:#ffb757}
+.wk-close{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;cursor:pointer;font-size:.95rem}
+.wk-close:hover{background:rgba(255,255,255,.1)}
+.wk-modal-scroll{height:calc(100% - 68px);overflow-y:auto;overflow-x:hidden;background:#fff}
+.wk-modal-scroll img{width:100%;height:auto;display:block}
+@media (max-width:639px){.wk-modal{width:96vw;height:90vh}.wk-visit{padding:8px 11px;font-size:.8rem}}

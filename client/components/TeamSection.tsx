@@ -61,14 +61,20 @@ const teamMembers: TeamMember[] = [
     ],
     industries: ["Manufacturing", "Construction", "E-commerce"],
     background:
-      "Runs strategy, operations and client delivery across the firm's government and commercial work.",
+      "Leads strategy, operations and client delivery, and owns the certifications the firm bids under.",
     image: "/media/team-1.webp",
     linkedinUrl: "https://www.linkedin.com/in/swapna-amirisetti/",
   },
   {
     id: "sreenivas",
     name: "Sreenivas Amirisetti, MBA",
-    title: "Secretary & Director of Operations",
+    /* Was "Secretary & Director of Operations". He was simultaneously CTO on
+       /capabilities and "Salesforce Practice Director" on his own LinkedIn — three
+       titles for one person, which the company's own notes call a live credibility
+       risk. This version matches the public profile a buyer will actually check.
+       "Secretary" is a corporate-officer role and belongs in the filings, not here.
+       ⚠️ Confirm with Sreenivas before this ships. Changed 2026-08-24. */
+    title: "Chief Technology Officer",
     expertise: [
       "Salesforce Ecosystem",
       "Enterprise Systems Integration",
@@ -85,24 +91,40 @@ const teamMembers: TeamMember[] = [
   {
     id: "louis",
     name: "Louis Rubino",
-    title: "Director",
+    title: "Director of Operations",
+    /* Title is OPERATIONS, deliberately. Louis runs marketing, internal
+       integrations, invoicing, tooling and subscriptions, paperwork, email
+       campaigns, compliance and contracts. An earlier pass titled him
+       "Director, Compliance & Contract Administration", which he rejected as
+       pinning him to one slice — correctly. But the answer to a wide remit is
+       not a wider LIST: nine bullets in a four-person firm reads as "they only
+       have one guy". Operations is the word that contains all of it, and the
+       closing line claims the scope outright instead of enumerating it.
+       Revised 2026-08-24 on Louis's correction.
+       ⚠️ "NIST 800-171" was removed from this list. The company does not hold
+       NIST 800-171 compliance (confirmed by Louis 2026-08-24) and that claim was
+       stripped from the AppExchange listing the same day; leaving it as personal
+       expertise invites the same question from the same buyer.
+       ⚠️ No PMI credential is implied anywhere here. Louis holds three PMI
+       CERTIFICATES OF COMPLETION, not PMP/CAPM/PgMP. "Program oversight"
+       describes work, not a credential — keep it that way. */
     expertise: [
-      "FAR/DFARS Compliance",
+      "Business Operations",
       "Government Contracting",
-      "Proposal Coordination",
-      "NIST 800-171",
-      "Operations Management",
+      "Contract & Invoice Administration",
+      "Marketing Operations",
+      "Systems & Tooling",
     ],
     industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "Handles compliance and government contracting — the certifications, registrations and regulatory requirements that keep the firm eligible to bid.",
+      "Runs operations — contracts and invoicing, the federal registrations and small-business certifications the firm bids under, the internal systems it runs on, and marketing.",
     image: "/media/team-3.webp",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
   {
     id: "sahith",
     name: "Sahith Valluru",
-    title: "Business Development Manager & Communications Expert",
+    title: "Business Development Manager",
     expertise: [
       "Strategic Partnerships",
       "Business Development",
@@ -136,7 +158,7 @@ export default function TeamSection() {
     <Section tone="surface">
       <SectionHeading
         title="The four people who run it"
-        lede="There is no account layer here. The people who scope the work are the people who build it, and every profile below links out so you can check the history yourself."
+        lede="Four people, named, with public profiles you can open. The person who scopes your work stays on it through delivery."
       />
 
       <CardGrid columns={2} className="mt-12">

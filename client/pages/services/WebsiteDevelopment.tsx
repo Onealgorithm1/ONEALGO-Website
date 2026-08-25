@@ -1,183 +1,203 @@
-import React, { Suspense, lazy } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
-import { ArrowRight } from "lucide-react";
+import HeroFrame from "../../components/HeroSlides";
+import WorkCarousel from "../../components/WorkCarousel";
+import { MeasureRule, Parallax } from "../../components/Instrument";
 import {
   Section,
   SectionHeading,
-  Card,
-  CardGrid,
-  CTABand,
+  Reveal,
+  CheckList,
+  ProcessSteps,
+  PrimaryCTA,
+  SecondaryCTA,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createLocalBusinessSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
-const SystemsLattice = lazy(() => import("../../components/SystemsLattice"));
-
-/* Website development — rebuilt 2026-08-12.
+/* Website development — rebuilt 2026-08-24.
  *
- * WHY THIS PAGE DOES NOT LOOK LIKE THE OTHER SERVICE PAGES
+ * WHAT WAS WRONG. The page was the 14-frame carousel and nothing else. Measured
+ * before this rewrite: 93 words in <main>, ZERO links in <main> — no call to
+ * action of any kind — an <h1> that was `sr-only` so no human ever saw it, and a
+ * heading outline made of slide captions ("Design is everything.", "Guide them
+ * through your message."). Three schema types. The meta description said "Five of
+ * the most popular hero designs" when there were fourteen slides.
  *
- * It used to. It ran the same PageHero and the same CardGrid as Oracle ERP and
- * Staff Augmentation, and it listed: Modern Design · Responsive Development ·
- * Performance Optimized · SEO Ready · Secure & Reliable · Custom Solutions.
+ * It was a showreel that ended, and the visitor fell off the edge of the page.
  *
- * Every one of those is table stakes. Nobody has ever chosen a developer
- * because they promised responsiveness — in 2026 that is a restaurant
- * advertising food. And the page had no screenshot, no live example and no
- * number on it anywhere.
+ * ⭐ THE HERO IS NOW ONE FRAME. The carousel went 14 → 9 → 6 → 5 → 1 over the
+ * course of 2026-08-24 as Louis cut it down, ending at "i only want frame 4 —
+ * called Rebuild". What survives is the canvas particle field in HeroSlides.tsx.
+ * ⛔ That file is untracked, so the removed frames are NOT in git history — see
+ * the note at the top of it before promising anyone a rollback.
  *
- * That is survivable on a page selling ERP work, where the buyer cannot inspect
- * the deliverable. It is fatal here. This is the one service where the medium is
- * the message: a visitor is judging whether this company can build a website by
- * looking at a website this company built. Describing the work is not evidence.
- * The page has to BE the evidence.
+ * THE ARGUMENT THIS PAGE MAKES. The hero is live browser code — a canvas
+ * particle system, drawn per frame, reacting to the pointer. No video and no
+ * screenshots, verifiable by anyone who opens the inspector, which is exactly
+ * the buyer this page is for. ⛔ That claim appears in the lede, in the hero
+ * copy and in the first FAQ answer. If a video or a screenshot is ever added to
+ * this page, all three change in the same commit.
  *
- * So: a live scene the reader can push around with the cursor, and beside
- * it the page's own measured scores with an invitation to verify them in
- * DevTools. Claims a visitor can check in thirty seconds, instead of adjectives.
+ * ⭐ PERFORMANCE WAS THE OTHER REASON TO CUT. Dropping the robot frame removed
+ * the ONLY three.js import in the codebase and a 943KB (249KB gzipped) lazy
+ * chunk; dropping the rest took the WebGL shader runtime, the lazy UFO chunk and
+ * embla-carousel off this route entirely. LCP measured 5.0s before any of it.
+ * ⛔ Do not reintroduce three.js, or a carousel, for decoration without
+ * re-measuring LCP first.
  *
- * THE CONSTRAINT THAT MAKES IT HONEST
+ * One frame also means no rail and no auto-advance, so the carousel's only CTA
+ * button is gone. That is safe only because "Start a project" sits immediately
+ * below the hero — ⛔ keep it there.
  *
- * A flashy page that loads slowly would disprove its own argument. The scene is
- * dynamically imported, gated on the viewport, reduced to a single static frame
- * under prefers-reduced-motion, and paused offscreen — see SystemsLattice.tsx.
- *
- * It used to be three.js, and that cost about fourteen performance points even
- * loaded as carefully as we knew how. On 2026-08-12 it was rewritten in plain
- * canvas: same scene, no dependency, 720KB out of the build, and the gap
- * against the rest of the site closed. Careful loading reduces what a library
- * costs; it never removes it. Asking whether the library was needed does.
- *
- * EVERY NUMBER BELOW IS MEASURED, NOT MARKETING. Lighthouse mobile against the
- * PRERENDERED production build on 2026-08-12 — three runs, 79/81/79 — and the
- * two gates are real scripts in this repo. Measure the un-prerendered build and
- * you get 74-77; that is not what ships, so it is not what is printed. If the
- * site regresses, these have to change or come down.
+ * ⛔ WHAT IS DELIBERATELY NOT HERE. No client names and no case studies. This firm
+ * does have live website clients, but naming a client publicly needs that client's
+ * consent and none is on file. Same rule as /services/salesforce. Do not add logos
+ * or names to fill this out.
+ * ⛔ No invented turnaround times, no invented prices, no "hundreds of sites".
  */
 
-/**
- * Measured on THIS page — Lighthouse mobile, production build, 2026-08-12.
- *
- * The first draft of this page put the HOMEPAGE's numbers here under the words
- * "measured on the page you are reading". They were better (performance 84,
- * accessibility 96) and they were not true of this page, which runs a scene
- * the homepage does not. That is the same species of claim removed from
- * the rest of this site today, and it would have been on the one page arguing
- * that we check things.
- *
- * So these are this page's own figures, including the one that is worse. The
- * trade-off is stated in the hero rather than hidden: a visitor who runs
- * Lighthouse gets the number we printed, which is the entire point of printing
- * it.
- */
-const SCORES = [
-  { label: "SEO", value: "100", of: "/100" },
-  { label: "Best practices", value: "100", of: "/100" },
-  { label: "Layout shift", value: "0", of: "CLS" },
-  { label: "Performance", value: "~80", of: "/100" },
-];
-
-/**
- * Replaces the six commodity features. Each one names a standard this repo
- * actually enforces and points at the thing that enforces it — a claim with a
- * receipt rather than an adjective.
- */
-const STANDARDS = [
+const BUILD = [
   {
-    title: "Colour contrast is a build gate, not a review note",
-    body: "Twenty text and interface pairings are checked on every build against WCAG AA. Our own brand orange fails at 1.95:1 on white, so the build refuses to let it be text on a light background. A designer cannot forget; the pipeline will not let them.",
-    proof: "scripts/contrast-check.mjs — 20/20 passing",
-  },
-  {
-    title: "Content stays visible without JavaScript",
-    body: "We added scroll animations once and shipped 22 of 27 pages with their content invisible to anything that does not run JavaScript — search engines included. The prerenderer now fails the build if that recurs. Most teams never find out this class of bug exists.",
-    proof: "scripts/prerender.mjs — build fails on hidden content",
-  },
-  {
-    title: "Zero layout shift",
-    body: "Nothing on this site moves after it paints. Images carry explicit dimensions, fonts are loaded so they do not reflow the page, and the measured Cumulative Layout Shift is 0 — not low, zero.",
-    proof: "Lighthouse CLS 0",
-  },
-  {
-    title: "Motion respects the person reading",
-    body: "Everything that moves, including the scene at the top of this page, stops when the browser reports a preference for reduced motion. The scene still draws — one static frame, no loop, no listeners — because the picture is worth seeing standing still and a blank box is not an accommodation. Accessibility is not a switch you flip at the end.",
-    proof: "prefers-reduced-motion — one static frame, no animation loop",
-  },
-  {
-    title: "We tell you what the flourish costs",
-    body: "The scene above was three.js, deferred and disposed carefully, and it still cost about fourteen performance points. Careful loading reduces a dependency's cost; it does not remove it. So we removed the dependency instead — the same scene is now a few hundred lines of canvas, 720KB left the build, and the gap against our other pages closed. The discipline worth paying for is asking whether the library was needed, not tuning how it loads.",
-    proof: "720KB removed; this page and the homepage now measure the same",
-  },
-  {
-    title: "You own everything",
-    body: "All code, all assets, all accounts. No proprietary page builder you cannot leave, no licence that expires with the relationship, no hosting you are locked into. If you replace us, you keep the work.",
-    proof: "in every engagement",
-  },
-];
-
-/**
- * Client work. Both live, both linked, so nothing here has to be taken on
- * trust — a visitor opens the site and judges it directly.
- *
- * The Inspect This Home figures are Lighthouse mobile against the live site on
- * 2026-08-12, two runs. They are unusually good and they are real; if that site
- * regresses these come down, exactly like the numbers in the hero.
- *
- * The Boards Professor row carries no score on purpose. We deploy and run the
- * site, and it is a static capture of the client's existing WordPress build
- * rather than something rebuilt from scratch, so its Lighthouse number measures
- * WordPress rather than our work. Printing 37 would be misleading in one
- * direction and printing nothing without explanation would be misleading in the
- * other — hence the note. A React rebuild exists and is not live, so it is not
- * claimed here.
- */
-const CLIENTS = [
-  {
-    name: "Inspect This Home Inspections",
-    what: "Built and maintained",
-    href: "https://inspectthishomeinspections.com",
-    body: "A New York licensed, veteran-owned home inspector on Long Island. Built from scratch: booking, service pages, a sample report, and copy written around what a buyer is actually deciding. It carries the licence and InterNACHI numbers in the header so a client can verify them without asking.",
-    scores: [
-      { label: "Performance", value: "95" },
-      { label: "Accessibility", value: "100" },
-      { label: "Best practices", value: "100" },
-      { label: "SEO", value: "100" },
-      { label: "Layout shift", value: "0" },
+    title: "Sites people can actually use",
+    description:
+      "Hand-written HTML, CSS and TypeScript rather than a page builder's output. Accessible to WCAG 2.1 AA, fast on a phone on a bad connection, and readable by the search engines and AI assistants that decide whether anyone finds you.",
+    details: [
+      "Semantic markup, real headings, keyboard-reachable everything",
+      "Core Web Vitals treated as a budget, not an afterthought",
+      "Structured data so machines can read what the page says",
+      "Tested at 390px first, then out to desktop widths",
     ],
-    note: null as string | null,
   },
   {
-    name: "The Boards Professor",
-    what: "Migrated and hosted",
-    href: "https://theboardsprofessor.com",
-    body: "USMLE, COMLEX and ABIM tutoring from physician-educators. We moved the site onto Cloudflare Pages and run it there — the domain serves byte-for-byte what we deploy.",
-    scores: null as { label: string; value: string }[] | null,
-    note: "No Lighthouse score is printed here because it would not measure our work. The live site is the client's existing WordPress build served statically, so the number reflects WordPress. A rebuild is underway and will be listed when it is live.",
+    title: "Interaction that is not a template",
+    description:
+      "The hero above is the demonstration — a particle field rasterised from live text and redrawn every frame, reacting to your pointer. Written for this site, not installed from a template.",
+    details: [
+      "WebGL, canvas and 3D work built and re-coloured for the brand, not dropped in",
+      "Motion that respects prefers-reduced-motion without breaking",
+      "3D and product configurators where they earn their place",
+      "Every effect degrades to something legible if it fails",
+    ],
+  },
+  {
+    title: "The parts behind the page",
+    description:
+      "A site that only looks good is half a job. Forms that reach a person, a CMS the client can actually edit, analytics that answer a question, and the integrations that connect the site to whatever runs the business.",
+    details: [
+      "Forms wired to email and CRM, with a record when one fails",
+      "CMS setup where the client will genuinely maintain content",
+      "Analytics and conversion tracking configured, not just installed",
+      "Integration with Salesforce, Zendesk or whatever you already run",
+    ],
+  },
+  /* ⛔ "You own all of it" used to be the fourth item here, repeating what the
+     closing handover panel says in more detail. Both OpenRouter reviewers flagged
+     it independently as the page's clearest remaining duplication, and Louis had
+     already said "do not make it redundant". Ownership is now made in ONE place:
+     the panel at the close, which is also where HANDOVER is defined. If that
+     panel is ever removed, this page stops making its ownership argument. */
+];
+
+const PROCESS = [
+  {
+    title: "What it is for",
+    body: "Who the site is talking to and what it has to make them do. If the honest answer is that a one-page site would work, we say that before anyone builds five.",
+  },
+  {
+    title: "Design in the browser",
+    body: "Real type, real content, real widths — not a picture of a website. You see it on your own phone, because that is where it gets judged.",
+  },
+  {
+    title: "Build and wire",
+    body: "The site gets written, the forms get connected, the tracking goes on, and the content goes in. You get a link and can watch it come together.",
+  },
+  {
+    title: "Launch and stay",
+    body: "We deploy it, check it on real devices, and stay on afterwards. Sites break when nobody is watching them — that is what ongoing support is for.",
+  },
+];
+
+/* Was BUILD[3].details, back when ownership was also a fourth "what we build"
+   item. That item is gone; this is the single source now. */
+const HANDOVER = [
+  "Source in your own repository, from day one and at handover",
+  "Domain and DNS in your account, not ours",
+  "Deployed somewhere you control and can move",
+  "Written so another developer can pick it up",
+];
+
+const FAQS: { id: string; q: string; a: string }[] = [
+  {
+    id: "faq-animation",
+    q: "Is the animation at the top real, or is it a video?",
+    a: "Both, and you can tell them apart. The moving background is our own brand film. The lettering in front of it is not video at all — it is a canvas particle system running in your browser: the two lines of text are drawn to an offscreen buffer, sampled pixel by pixel, and every opaque pixel becomes a particle that springs back to its home position and scatters when your cursor gets close. Move your cursor across the words and watch them react, which is the part a video cannot do.",
+  },
+  {
+    id: "faq-cost",
+    q: "What does a website cost?",
+    a: "It depends on how many pages, how much of the content already exists, and whether it needs to connect to anything you already run. We will not print a number on a web page and then discover your project is nothing like it. Tell us what you need and we will put the scope and the price in writing before implementation begins.",
+  },
+  {
+    id: "faq-ownership",
+    q: "Do I own the site when you are finished?",
+    a: "Yes — the source code, the domain, the hosting account and the content. It goes in your repository and your accounts. There is no proprietary builder you would have to stay on, and another developer can pick the work up without us.",
+  },
+  {
+    id: "faq-timing",
+    q: "How long does it take to build a website?",
+    a: "It depends on the size of the site and, more than anything, on how fast content and feedback come back — across the industry those two things cause more delay than the build itself. We work quickly and we do not sit on a queue: your project starts when we agree the scope, not weeks later. We will give you the schedule in writing along with the scope, so you have a date rather than a guess, and you can watch the site take shape in a browser the whole way through rather than waiting for a reveal.",
+  },
+  {
+    id: "faq-mobile",
+    q: "Will my website work properly on a phone?",
+    a: "It is built on a phone first. Every layout is designed at 390 pixels wide before it is opened out to a laptop, because that is the hardest case and most of your visitors will arrive on it. Tap targets are sized for thumbs, text stays readable without zooming, and nothing scrolls sideways. We test on real widths rather than trusting a preview pane.",
+  },
+  {
+    id: "faq-existing",
+    q: "Can you work with the site I already have?",
+    a: "Often, yes. Sometimes the honest answer is that rebuilding is cheaper than fixing, and we will tell you which one you are looking at rather than quoting whichever is bigger.",
+  },
+  {
+    id: "faq-location",
+    q: "Where are you based, and do you work remotely?",
+    a: "Our office is at 625 Swedesford Road in Malvern, Pennsylvania, but we take work anywhere in the United States and most of it runs remotely. You review the site in your own browser as it is built, so where we sit makes no practical difference to how a project runs.",
+  },
+  {
+    id: "faq-accessibility",
+    q: "Do you do accessibility properly, or just say so?",
+    a: "Properly. Sites are built to WCAG 2.1 AA — semantic markup, keyboard navigation, real focus states, and contrast checked rather than eyeballed. It is also the same work that makes a site readable to search engines, so it is not a cost centre.",
   },
 ];
 
 export default function WebsiteDevelopment() {
   useSEO({
-    title:
-      "Website Development — OneAlgorithm | WCAG AA, zero layout shift, Malvern PA",
+    // Was "…in Malvern, PA". De-localised 2026-08-24 — the firm takes work
+    // nationwide and the local framing was capping the page. 58 chars.
+    title: "Custom Website Design & Development | OneAlgorithm",
+    // The original claimed "Five of the most popular hero designs". 154 chars.
     description:
-      "Websites built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and an interactive scene that costs no measurable page speed. Woman-owned, Malvern, Pennsylvania.",
-    canonical: getCanonicalUrl("/services/website-development"),
+      "Custom websites and web apps for businesses across the US — accessible, fast, and yours to own outright. No page builder, no template, no licence to renew.",
+    /* index.html sets a site-wide keywords default that names EDWOSB, WOSB and
+       Malvern PA. Google ignores meta keywords outright and Bing gives it
+       effectively nothing, so this is tidiness rather than ranking — but this
+       page is not about certifications or a location, so it should not say it is. */
     keywords:
-      "website development Malvern PA, accessible web development, WCAG AA website, Core Web Vitals, interactive canvas website, woman owned web developer Pennsylvania",
-    ogTitle: "Website Development — OneAlgorithm",
+      "custom website design, website development, web application development, custom website, website redesign, accessible website, WCAG 2.1 AA, mobile-first web design, own your website code",
+    canonical: getCanonicalUrl("/services/website-development"),
+    ogTitle: "Custom Website Design & Development — OneAlgorithm",
     ogDescription:
-      "Built to a measurable standard: WCAG AA contrast as a build gate, zero layout shift, and an interactive scene with no dependency behind it. Check the scores yourself.",
+      "Accessible, fast websites you own outright. No page builder, no template, and no licence you have to keep paying to stay online.",
     ogUrl: getCanonicalUrl("/services/website-development"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Website Development — OneAlgorithm",
+    twitterTitle: "Custom Website Design & Development — OneAlgorithm",
     twitterDescription:
-      "Built to a measurable standard. Check the scores yourself in DevTools.",
+      "Accessible, fast websites you own outright. Everything on the page is live code.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -185,213 +205,215 @@ export default function WebsiteDevelopment() {
     <Layout>
       <StructuredData
         data={createServiceSchema(
-          "Website Development",
-          "Website development built to a measurable standard: WCAG AA contrast enforced at build time, zero cumulative layout shift, content readable without JavaScript, and an interactive scene that costs no measurable page speed.",
-          "Website Development",
+          "Website Design & Development",
+          "Custom website design and development for businesses across the United States: accessible to WCAG 2.1 AA, fast on mobile, custom interaction and 3D, integrated with the systems a business already runs, and owned outright by the client.",
+          "Website Design & Development",
           "https://onealgorithm.com/services/website-development",
         )}
       />
+      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createFAQSchema(FAQS)} />
 
-      {/* ------------------------------------------------------------------
-          Hero. Hand-rolled rather than PageHero, which has no slot for a
-          canvas — and because a page arguing that this company can build
-          something distinctive should not open with the same component as
-          every other page on the site.
-         ------------------------------------------------------------------ */}
-      <section className="relative overflow-hidden bg-oa-ink text-white">
-        <Suspense fallback={null}>
-          <SystemsLattice
-            className="pointer-events-none absolute inset-0 h-full w-full opacity-70 md:pointer-events-auto"
-            fallback={
-              // Shown when canvas is unavailable. A designed
-              // state, not a blank rectangle — the page still has to look
-              // considered for the person who never sees the scene.
-              <div
-                className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,166,52,0.18),transparent_60%),radial-gradient(circle_at_30%_70%,rgba(77,163,255,0.16),transparent_55%)]"
-                aria-hidden="true"
-              />
-            }
-          />
-        </Suspense>
+      {/* One frame, not fourteen. Louis cut the carousel down to this on
+          2026-08-24: "i only want frame 4". It is the hook and the portfolio at
+          once — and it is the only thing above the fold, so it carries the LCP. */}
+      <HeroFrame />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="mt-4 text-display font-bold leading-[1.05]">
-              This page is the{" "}
-              <span className="text-oa-orange">portfolio</span>
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/85">
-              You are looking at a website while deciding whether we can build
-              one. So instead of describing the work — the scene behind this text
-              is live, you can push it around with the cursor, and every number
-              beside it was measured on this page.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-white/75">
-              This page used to run the scene in{" "}
-              <strong className="font-semibold text-white">three.js</strong>, and
-              it cost about fourteen performance points. We had published that
-              number rather than hide it. Then we asked the better question —
-              whether the effect needed a 3D engine at all — and it did not. It
-              is points, lines between near neighbours and a cursor field, which
-              is a few hundred lines of plain canvas.{" "}
-              <strong className="font-semibold text-white">
-                A 720KB dependency came out of the build
-              </strong>{" "}
-              and the picture did not change. This page and our homepage now
-              measure within a point of each other.
-            </p>
-            <p className="mt-4 text-sm text-white/70">
-              Open DevTools and run Lighthouse. We would rather you checked than
-              took our word for it — and if you do, you will also see the number
-              we have not fixed yet: this site&rsquo;s largest paint is slower
-              than we want, and we are working on it.
-            </p>
+      {/* Sites we built, directly under the hero — Louis, 2026-08-25. */}
+      <WorkCarousel />
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-oa-orange px-6 font-semibold text-oa-ink transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Talk to an Expert
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
+      {/* ⛔ THE SECTION THAT WAS HERE IS GONE ON PURPOSE — do not restore it
+          without asking. Louis, 2026-08-25: "remove the section underneath the
+          hero bring the call to action up and use our tagline". It held the
+          <h1>, a lede paragraph, the two CTAs and the AnswersPanel, and it
+          repeated the hero's own words directly beneath the hero.
 
-          {/* The scorecard. Mono, tabular, deliberately unstyled-looking — it
-              should read as instrument output rather than a marketing badge,
-              because that is what makes it credible. */}
-          <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-8 sm:grid-cols-4 lg:absolute lg:right-8 lg:top-32 lg:mt-0 lg:w-64 lg:grid-cols-1 lg:gap-y-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-            {SCORES.map((s) => (
-              <div key={s.label}>
-                <dt className="font-mono text-[11px] uppercase tracking-widest text-white/75">
-                  {s.label}
-                </dt>
-                <dd className="mt-1 font-mono text-3xl font-bold text-white">
-                  {s.value}
-                  <span className="ml-1 text-sm font-normal text-white/70">
-                    {s.of}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-          {/* Caption lives OUTSIDE the <dl>, not wrapped in a <div> inside it.
-              A <dl> may contain dt, dd, div, script and template -- but axe
-              still rejects a <div> that is not a dt/dd group, which is what a
-              lone caption paragraph is. A sibling is simply correct.
-              Opacities above were raised from /60 and /45 as well: white at 45%
-              on this navy fails AA, and a contrast failure on the page arguing
-              that we enforce contrast is the worst possible place to have one. */}
-          <p className="mt-4 font-mono text-[11px] leading-relaxed text-white/70 lg:absolute lg:right-8 lg:top-[26rem] lg:w-64 lg:pl-8">
-            Lighthouse mobile, production build of this page, 2026-08-12. Performance varies a few points per run; the others are stable.
-          </p>
-        </div>
-      </section>
+          WHERE ITS PARTS WENT: the <h1> and both CTAs moved INTO the hero (see
+          HeroSlides.tsx) so the first screen now asks for the click. The lede
+          ("no page builder, no licence, you have your code from day one" — note
+          "hand-coded" was dropped from this page on 2026-08-25 at Louis's
+          request; do not reintroduce it if this copy is ever restored) and the AnswersPanel were NOT moved — they are in git history at
+          this commit if either is wanted back further down the page. */}
 
       <Section tone="paper">
+        <MeasureRule index={1} label="what we build" reading={`${BUILD.length} things`} />
         <SectionHeading
-          eyebrow="What we hold ourselves to"
-          title="Standards with receipts"
-          lede="Every item below names something enforced by a script in the repository, not a promise made in a proposal. If the site regresses, the build fails."
+          title="What we build"
+          lede="Three things, and none of them is a template with your logo dropped into it."
         />
-        <CardGrid columns={2} className="mt-12">
-          {STANDARDS.map((s) => (
-            <Card
-              key={s.title}
-              title={s.title}
-              body={
-                <>
-                  {s.body}
-                  <span className="mt-3 block font-mono text-[11px] uppercase tracking-wider text-oa-ink2">
-                    {s.proof}
-                  </span>
-                </>
-              }
-            />
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* CLIENT WORK.
-          This section replaced a TODO on 2026-08-12. That note said the two
-          sites could not be shown yet — Inspect This Home was on a noindex
-          preview awaiting sign-off, and nobody had confirmed what we did for
-          The Boards Professor. Both were checked and both resolved: Inspect
-          This Home is live on its own domain and indexable, and
-          theboardsprofessor.com is byte-identical to the Pages project we
-          deploy it from.
-
-          Every link goes to the live site, so a visitor can check the work in
-          one click rather than reading a description of it. Numbers appear on
-          the Inspect This Home row only, because they were measured; there is
-          no number on the other row rather than an estimate standing in for
-          one. */}
-      <Section tone="paper">
-        <SectionHeading
-          title="Sites we built and run"
-          lede="Two, both live. We would rather show you two you can open than a wall of logos you cannot check."
-        />
-
-        <ul className="mt-12 border-t border-oa-hairlineStrong">
-          {CLIENTS.map((c) => (
-            <li key={c.href} className="border-b border-oa-hairline">
-              <div className="flex flex-col gap-5 py-8 md:flex-row md:items-start md:gap-10">
-                <div className="md:w-[38%] md:shrink-0">
-                  <h3 className="text-h3 font-semibold text-oa-ink">{c.name}</h3>
-                  <p className="mt-1 font-mono text-sm text-oa-ink3">{c.what}</p>
-                  <a
-                    href={c.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-oa-blue hover:underline"
-                  >
-                    {c.href.replace("https://", "")}
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                </div>
-
-                <div className="flex-1">
-                  <p className="leading-relaxed text-oa-ink2">{c.body}</p>
-                  {c.scores && (
-                    <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
-                      {c.scores.map((s) => (
-                        <div key={s.label}>
-                          <dt className="font-mono text-[11px] uppercase tracking-widest text-oa-ink3">
-                            {s.label}
-                          </dt>
-                          <dd className="mt-0.5 font-mono text-xl font-bold text-oa-ink">
-                            {s.value}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  )}
-                  {c.note && (
-                    <p className="mt-4 text-sm leading-relaxed text-oa-ink3">
-                      {c.note}
+        {/* ⛔ Was an <ol> with 01/02/03/04 markers. These four are unordered
+            attributes, not a sequence, so the numbering asserted an order that
+            does not exist — the banlist item about decorative structure, and a
+            markup lie besides. <ul>, no numbers. The titles were <h2>, which
+            made them peers of the section heading and left the page with a flat
+            outline of fourteen sibling h2s, directly under a bullet claiming
+            "semantic markup, real headings". <h3>. */}
+        <ul className="mt-12 space-y-10 md:space-y-12">
+          {BUILD.map((b) => (
+            <li key={b.title}>
+              <Reveal>
+                <div className="spec grid gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,6fr)] md:gap-14">
+                  <div>
+                    <div className="flex items-baseline gap-4">
+                      <h3 className="text-h3 font-semibold text-oa-ink">
+                        {b.title}
+                      </h3>
+                    </div>
+                    <p className="mt-4 max-w-xl text-oa-ink2 leading-relaxed">
+                      {b.description}
                     </p>
-                  )}
+                  </div>
+                  <div className="spec-list md:pt-1">
+                    <CheckList items={b.details} />
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             </li>
           ))}
         </ul>
       </Section>
 
-      <CTABand
-        title="Bring us something that has to work"
-        body="A rebuild, a site that fails an accessibility audit, or a build nobody can maintain. Tell us what is actually wrong with it and we will tell you what we would do."
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{ label: "View all services", to: "/services" }}
-      />
-
-      <Section tone="paper" compact>
-        <SocialShare
-          title="Website Development — OneAlgorithm"
-          className="justify-center"
+      <Section tone="surface" bordered>
+        <MeasureRule index={2} label="how a build runs" reading={`${PROCESS.length} stages`} />
+        <SectionHeading
+          title="How a build actually runs"
+          lede="Four stages. You review the site in a browser, on real content at real widths — not only in a slide deck."
         />
+        <div className="mt-14">
+          <ProcessSteps steps={PROCESS} />
+        </div>
       </Section>
+
+      {/* ⛔ PRICE AND TIMING GET THEIR OWN SECTION. "How much does a website
+          cost" and "how long does it take" are the two highest-intent queries in
+          this category and they were buried as items 2 and 3 of a collapsed FAQ,
+          3,000px down. Both OpenRouter reviewers raised this independently.
+          ⛔ It still prints no number. No price list has ever been agreed, and
+          invented turnaround times and a "fixed price before any work starts"
+          line were both caught and cut from this page already. Both reviewers
+          proposed billing-model claims ("no hourly billing", "that is what you
+          pay") — REFUSED, because nobody has told me what the billing model is.
+          What is here is the wording already vetted for the FAQ, promoted. */}
+      <Section tone="surface" bordered>
+        <MeasureRule index={3} label="cost and time" reading="the two big questions" />
+        <SectionHeading
+          title="What it costs, and how long it takes"
+          lede="The two questions everybody opens with. Neither has a number on this page, and here is why that is the honest answer rather than a dodge."
+        />
+        <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-14">
+          <Reveal>
+            <div className="spec">
+              <h3 className="text-h3 font-semibold text-oa-ink">The price</h3>
+              <p className="mt-4 text-oa-ink2 leading-relaxed">
+                A site that explains what you do and takes enquiries is not the
+                same job as one that runs a store, a booking calendar and a CRM
+                behind it. Scope sets the price, so a range printed on a web page
+                would be answering a question we have not asked you yet.
+              </p>
+              <p className="mt-4 text-oa-ink2 leading-relaxed">
+                Tell us what the site has to do. We put the scope and the price in
+                writing before implementation begins, and if the number is wrong
+                for you we will say what we would cut to get there. Our pricing is
+                affordable for what it is — hand-built work you own outright — and
+                we would rather show you that against your actual scope than
+                against someone else's average.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <div className="spec">
+              <h3 className="text-h3 font-semibold text-oa-ink">The schedule</h3>
+              <p className="mt-4 text-oa-ink2 leading-relaxed">
+                We work fast, and your project starts when the scope is agreed
+                rather than joining a queue. The schedule goes in writing next to
+                the price, so you get a date instead of a guess.
+              </p>
+              <p className="mt-4 text-oa-ink2 leading-relaxed">
+                The honest part: across this industry the delays are almost never
+                technical. They are content that has not been written and feedback
+                that sits unanswered. We keep that from happening by walking you
+                through each stage as it happens and putting the site in your
+                browser early, so you are reviewing real pages rather than waiting
+                for a reveal at the end.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section tone="paper">
+        <MeasureRule index={4} label="questions" reading={`${FAQS.length} answered`} />
+        <SectionHeading
+          title="Questions we get asked before the first call"
+          lede="If an answer is not here it is because we could not make it true for every project. Ask and we will tell you what it depends on."
+        />
+        {/* These were static paragraphs that lifted and glowed on hover exactly
+            as though they would expand. Ten such rows on the page and not one
+            interactive element between the intro and the CTA band — a false
+            affordance repeated ten times. Native <details>: keyboard-operable,
+            no library, and now the hover means what it looks like it means.
+            The FAQPage schema is emitted separately from FAQS, so collapsing
+            the answers costs nothing in search. */}
+        <div className="mt-12 space-y-4">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <details className="spec faq" id={f.id}>
+                <summary>
+                  <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                  <span className="faq-mark" aria-hidden="true" />
+                </summary>
+                <p className="faq-a text-oa-ink2 leading-relaxed">{f.a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* The shared CTABand puts 672px of content in a 1425px band and leaves
+          53% of it empty — the same defect this page fixed in the intro and then
+          repeated at the close, where it matters more. CTABand is used on every
+          other page, so it is replaced here rather than changed. The right half
+          carries the handover list: the page's lede says the ownership item is
+          the one worth reading before signing anything with anyone, so it is the
+          last thing on the page rather than the fourth item in a list. */}
+      <Section tone="night" grid>
+        <MeasureRule index={5} label="what you leave with" reading={`${HANDOVER.length} handed over`} tone="dark" />
+        <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:gap-16">
+          <Reveal>
+            <h2 className="text-h2 font-semibold text-oa-nightInk">
+              Tell us what the site has to do
+            </h2>
+            <p className="mt-5 text-lede text-oa-nightInk2 leading-relaxed">
+              A rebuild, a first site, or a page that looks fine and converts
+              nobody. Describe what it needs to do and we will tell you what it
+              would take — or call (610) 890-9711 and ask.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <PrimaryCTA to="/contact">Start a project</PrimaryCTA>
+              <SecondaryCTA href="tel:+16108909711">
+                Call (610) 890-9711
+              </SecondaryCTA>
+            </div>
+          </Reveal>
+          <Parallax depth={22}>
+            <div className="inst inst-dark">
+              <div className="inst-head">
+                <span>what transfers to you</span>
+              </div>
+              <ul className="hand">
+                {HANDOVER.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+              <p className="inst-foot">
+                No proprietary builder you cannot leave, no licence that lapses,
+                and no hosting you are locked into because we hold the keys.
+              </p>
+            </div>
+          </Parallax>
+        </div>
+      </Section>
+
     </Layout>
   );
 }

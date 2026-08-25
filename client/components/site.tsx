@@ -821,12 +821,18 @@ export function PageHero({
   primary,
   secondary,
   meta,
+  siblings = true,
   children,
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   lede?: React.ReactNode;
   bullets?: string[];
+  /* Service pages carry a wire of the ten sibling services under the hero.
+     A page that is a conversion target rather than a directory entry can turn
+     it off: on /services/salesforce it put ten exits above the first proof
+     the visitor sees. Defaults true so the other service pages are unchanged. */
+  siblings?: boolean;
   /**
    * The page's own key points.
    *
@@ -848,6 +854,14 @@ export function PageHero({
     items: string[];
     /** Verifiable credentials only, e.g. "SBA Certified WOSB / EDWOSB". */
     footer?: string[];
+    /**
+     * Renders INSTEAD of `items`, for a hero whose strongest asset is a thing
+     * to look at rather than a list to read. Added 2026-08-24 for
+     * /services/salesforce, whose proof is a third-party registry record — a
+     * card that reproduces the record beats five bullets describing it.
+     * Same rule as `items` applies: nothing in here may be a new claim.
+     */
+    slot?: React.ReactNode;
   };
   primary?: { label: string; to?: string; href?: string; download?: string };
   secondary?: { label: string; to?: string; href?: string; download?: string };
@@ -1042,29 +1056,35 @@ export function PageHero({
                 <h2 className="text-sm font-semibold text-oa-nightInk">
                   {panel.title}
                 </h2>
-                <ul className="mt-5 space-y-3.5 border-t border-white/10 pt-5">
-                  {panel.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg
-                        className="mt-1 h-4 w-4 shrink-0 text-oa-orange"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3 8.5l3.5 3.5L13 4.5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <span className="text-sm leading-relaxed text-oa-nightInk2">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {panel.slot ? (
+                  <div className="mt-5 border-t border-white/10 pt-5">
+                    {panel.slot}
+                  </div>
+                ) : (
+                  <ul className="mt-5 space-y-3.5 border-t border-white/10 pt-5">
+                    {panel.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <svg
+                          className="mt-1 h-4 w-4 shrink-0 text-oa-orange"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M3 8.5l3.5 3.5L13 4.5"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span className="text-sm leading-relaxed text-oa-nightInk2">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {cardFooter && cardFooter.length > 0 && (
                   <ul className="mt-6 space-y-1.5 border-t border-white/10 pt-5">
@@ -1084,7 +1104,7 @@ export function PageHero({
         )}
       </div>
 
-      {kind === "service" && (
+      {kind === "service" && siblings && (
         <SiblingWire
           label="Also in Services"
           pages={SERVICE_PAGES}

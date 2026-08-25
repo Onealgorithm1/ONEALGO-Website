@@ -43,6 +43,11 @@ export default function BinaryGlobeSVG({
         )}
         loading="eager"
         decoding="async"
+        /* This 30x30 logo is the Largest Contentful Paint element on pages
+           whose hero paints late — Lighthouse names it directly on
+           /services/website-development and flags the missing priority hint.
+           It costs nothing on pages where it is not the LCP. */
+        fetchPriority="high"
       />
     </picture>
   );
