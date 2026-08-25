@@ -103,6 +103,10 @@ ok('the lead function takes the org id from the Pages environment', () =>
     assert.ok(/lead\.set\("oid",\s*env\.SALESFORCE_OID\)/.test(leadFn),
         'oid must come from env.SALESFORCE_OID - a hard-coded id here would be the old bug in a new file'));
 
+ok('an empty optional message is accepted when a service is chosen', () =>
+    assert.ok(/if \(!message && !need\)/.test(leadFn),
+        'the page labels "Tell us more" optional; the function must not require it (2026-08-25 bug)'));
+
 ok('lead_source uses a value the org actually has', () => {
     const m = /lead\.set\("lead_source",\s*"([^"]+)"\)/.exec(leadFn);
     assert.ok(m, 'lead_source is no longer sent');

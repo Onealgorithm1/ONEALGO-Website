@@ -90,7 +90,13 @@ export async function onRequest({ request, env }) {
   // addresses loses a lead, which is worse than accepting a typo.
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return json(400, { error: "That email address does not look right." });
-  if (!message) return json(400, { error: "Please tell us what you need." });
+  // "Tell us more" is labelled OPTIONAL on the page; the service dropdown is
+  // the required one. Until 2026-08-25 this required `message`, so anyone who
+  // picked a service and left the optional box empty got "Please tell us what
+  // you need", the bot check reset, and the form read as broken. Louis found
+  // it the day the redesign went live. One of the two is enough.
+  const need = field("whatYouNeed");
+  if (!message && !need) return json(400, { error: "Please tell us what you need." });
 
   const token = typeof body.turnstileToken === "string" ? body.turnstileToken : "";
   if (!token) return json(400, { error: "Please complete the check below." });
@@ -132,7 +138,9 @@ export async function onRequest({ request, env }) {
   lead.set("company", field("company"));
   lead.set(
     "description",
-    field("whatYouNeed") ? `Service: ${field("whatYouNeed")}\n\n${message}` : message,
+    [need && `Service: ${need}`, message].filter(Boolean).join("
+
+"),
   );
   lead.set("lead_source", "Web");
 
