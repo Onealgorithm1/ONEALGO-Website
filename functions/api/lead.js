@@ -138,9 +138,7 @@ export async function onRequest({ request, env }) {
   lead.set("company", field("company"));
   lead.set(
     "description",
-    [need && `Service: ${need}`, message].filter(Boolean).join("
-
-"),
+    [need && `Service: ${need}`, message].filter(Boolean).join("\n\n"),
   );
   lead.set("lead_source", "Web");
 
