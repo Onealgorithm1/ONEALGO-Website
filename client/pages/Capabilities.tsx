@@ -17,7 +17,7 @@ import CapabilitiesMainContent from "../components/CapabilitiesMainContent";
  * UPDATE THIS BY HAND whenever any code, identifier, registration or
  * certification on this page changes.
  */
-const LAST_UPDATED = "August 12, 2026";
+const LAST_UPDATED = "August 26, 2026";
 
 /* The hero's own identifier strip used to be declared here as HERO_IDENTIFIERS
    and rendered inside <PageHero>'s children. PageHero now draws that rail
@@ -93,14 +93,23 @@ export default function Capabilities() {
         </div>
       </PageHero>
 
-      <Section tone="paper">
+      {/* `compact` on purpose: this section IS the page, so the standard
+          py-20/md:py-28 was 80px of nothing before a contracting officer
+          reached the first identifier.
+
+          The columns are ORDERED, not just stacked. Below lg the rail drops
+          under the statement — source order put the rail first, so a phone
+          opened on the contact card and the credentials were 2,700px down.
+          Everything in the rail except Contact is a desktop-only duplicate of
+          the main column and is hidden there rather than repeated here. */}
+      <Section tone="paper" compact allowSticky>
         <div className="grid gap-10 lg:grid-cols-[19rem_1fr] lg:gap-14">
-          <div>
+          <div className="order-2 lg:order-1">
             <div className="lg:sticky lg:top-24">
               <CapabilitiesSidebar />
             </div>
           </div>
-          <div>
+          <div className="order-1 lg:order-2">
             <CapabilitiesMainContent />
           </div>
         </div>

@@ -157,8 +157,15 @@ const PROCESS = [
     body: "You interview them. We tell you where each one is light before you find it out yourself in week three.",
   },
   {
+    /* E-Verify earns its place on THIS page rather than only on /capabilities:
+       it is the one credential that does commercial work, because a client
+       taking on contract staff is the person who actually carries the risk.
+       ⛔ The wording is deliberately limited to our own employees — the
+       company's E-Verify account is configured to "Verify Its Own Employees",
+       and we do engage subcontractors, who are their own employers' hires.
+       "Everyone we place is E-Verified" would be false. Do not widen it. */
     title: "Onboarding",
-    body: "Access, accounts, environment, context. One of us stays involved through the first weeks so the ramp-up isn't your lead's second job.",
+    body: "Access, accounts, environment, context. One of us stays involved through the first weeks so the ramp-up isn't your lead's second job. Our own employees have their work authorisation confirmed through E-Verify — we have been enrolled since 2024.",
   },
   {
     title: "While they're with you",

@@ -199,10 +199,45 @@ function Layout({ children }: LayoutProps) {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setIndustriesDropdownOpen(false);
-    try {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (_) {
-      window.scrollTo(0, 0);
+
+    // A URL carrying a fragment is a promise to land on that section, so honour
+    // it instead of jumping to the top. Without this the footer's "We
+    // participate in E-Verify" link drops the visitor on Company Overview and
+    // leaves them to scroll seven sections to reach the evidence.
+    //
+    // The target usually does NOT exist yet: every route is a lazy chunk, so on
+    // a cross-page jump this effect runs before the destination has mounted.
+    // Hence the retry — a single getElementById here silently fell back to the
+    // top of the page. It gives up after ~1s so a stale fragment still lands
+    // somewhere sensible rather than leaving the visitor mid-document.
+    let frame = 0;
+    let raf = 0;
+    const deadline = 60; // frames, ~1s at 60fps
+    const toTop = () => {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (_) {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    if (!location.hash) {
+      toTop();
+    } else {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const seek = () => {
+        const target = document.getElementById(id);
+        if (target) {
+          // Instant, not smooth: a verification link should arrive, and a
+          // smooth scroll across a long page reads as the link having failed.
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+        } else if (frame++ < deadline) {
+          raf = window.requestAnimationFrame(seek);
+        } else {
+          toTop();
+        }
+      };
+      seek();
     }
 
     // Move focus to the new page. In a single-page app the browser does not do
@@ -213,10 +248,19 @@ function Layout({ children }: LayoutProps) {
     // directly does not yank focus out of the address bar.
     if (firstRender.current) {
       firstRender.current = false;
-      return;
+    } else {
+      mainRef.current?.focus();
     }
-    mainRef.current?.focus();
-  }, [location.pathname]);
+
+    // Cancel a seek still in flight, or navigating away mid-retry leaves a loop
+    // running that will yank the NEXT page to an element that is not on it.
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+    // location.hash is a dependency too: navigating from /capabilities to
+    // /capabilities#verify-credentials changes only the fragment, and without it
+    // the effect never runs and the link appears to do nothing.
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -1349,9 +1393,22 @@ function Layout({ children }: LayoutProps) {
               roughly 180px of footer. All three still say exactly the same
               thing; they now share one row and one rule. */}
           <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
+            {/* "We participate in E-Verify" was a bare assertion on all 26
+                pages. It now lands on the verification block at the foot of
+                /capabilities — the company ID, the enrollment date and the DHS
+                search tool — rather than the top of that page, which is why the
+                route effect above honours the fragment. The link is internal on
+                purpose: the proof is worth reaching, but 26 pages of outbound
+                links to a federal site hand that site the authority instead of
+                earning us any. */}
             <p className="text-xs text-oa-nightInk3">
-              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·
-              We participate in E-Verify
+              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·{" "}
+              <Link
+                to="/capabilities#verify-credentials"
+                className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
+              >
+                We participate in E-Verify
+              </Link>
             </p>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">

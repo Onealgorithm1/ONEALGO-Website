@@ -185,6 +185,7 @@ export function Section({
   bordered = false,
   grid = false,
   compact = false,
+  allowSticky = false,
   id,
 }: {
   tone?: Tone;
@@ -202,6 +203,21 @@ export function Section({
    */
   grid?: boolean;
   compact?: boolean;
+  /**
+   * Drop the clipping so a `position: sticky` child can actually pin.
+   *
+   * ⛔ `overflow: hidden` on an ancestor silently kills sticky in every
+   * browser — no error, no warning, the element just scrolls away like static
+   * content. /capabilities has had `lg:sticky lg:top-24` on its rail since the
+   * refresh and it has never once pinned: measured at 1440px the rail's top
+   * went 881 → -19 → -919 → -1819 as the page scrolled, perfectly linear. The
+   * cost was 4,001px of empty 304px-wide column, 47% of the page height, which
+   * is precisely the "too much white space" the client reported.
+   *
+   * Only set this on a section with no absolutely-positioned decoration to
+   * clip — the grain layer and the band rules both rely on the clipping.
+   */
+  allowSticky?: boolean;
   /** Anchor target, for in-page links. */
   id?: string;
 }) {
@@ -228,7 +244,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative overflow-hidden ${TONE_BG[tone]} ${rules} ${className}`}
+      className={`relative ${allowSticky ? "" : "overflow-hidden"} ${TONE_BG[tone]} ${rules} ${className}`}
     >
       {grid && dark && (
         <div
@@ -1144,9 +1160,14 @@ export function Card({
   children?: React.ReactNode;
 }) {
   const dark = tone === "dark";
+  /* p-5 below 640px, p-7 above. 28px of padding on each side of a 390px screen
+     left 334px for the content, which is what made card-heavy pages scroll
+     forever on a phone. Desktop is deliberately unchanged, so this cannot
+     regress a wide layout — it only stops narrow ones wasting a sixth of their
+     width on gutters. */
   const base = dark
-    ? "h-full rounded-xl border border-white/12 bg-white/[0.03] p-7"
-    : "h-full rounded-xl border border-oa-hairline bg-oa-surface p-7";
+    ? "h-full rounded-xl border border-white/12 bg-white/[0.03] p-5 sm:p-7"
+    : "h-full rounded-xl border border-oa-hairline bg-oa-surface p-5 sm:p-7";
   const interactive = to
     ? dark
       ? " transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25"
