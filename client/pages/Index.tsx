@@ -151,9 +151,16 @@ const CREDENTIALS: {
      per-record URL because pa.gov has no stable deep link — noted there.) */
 ];
 
-/** Capability tiles, ordered by where revenue actually comes from today.
+/** Capability tiles, ordered by the positioning the listings now carry -
+ *  NOT by revenue. Staff augmentation still earns today and is deliberately
+ *  in the secondary list rather than a featured card; see rule 2 at the top
+ *  of this file before "correcting" that back.
+ *
  *  Every one links to a service page that already exists - which the old SEO
- *  prose block did not do at all: 1,100 words and not one internal link. */
+ *  prose block did not do at all: 1,100 words and not one internal link. And
+ *  until 2026-08-26 the homepage linked to none of /services/seo,
+ *  /services/google-ads or /services/marketing, so the three services the
+ *  business now leads with were orphaned from the front door. */
 const CAPABILITIES = [
   {
     title: "Website Development",
@@ -604,10 +611,10 @@ export default function Index() {
           </div>
 
           {/* The other seven are a divided list, not seven more cards.
-              Two cards above six cards is one shape at two sizes, which is why
-              this band read as eight identical rectangles. Cards and rows are
-              different KINDS of object, so the hierarchy is now legible at a
-              glance: two things this firm leads with, six it also does. */}
+              Cards above more cards is one shape at two sizes, which is why
+              this band used to read as eight identical rectangles. Cards and
+              rows are different KINDS of object, so the hierarchy is legible at
+              a glance: four things this firm leads with, seven it also does. */}
           <ul className="mt-10 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-10">
             {CAPABILITIES.filter((c) => !c.feature).map((c) => (
               <li key={c.title} className="border-b border-oa-hairline">
