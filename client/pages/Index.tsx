@@ -36,9 +36,18 @@ import SystemCanvas from "../components/SystemCanvas";
       which is why it stopped directing attention. It now marks the tagline,
       the primary CTA and dark-section accents - and nothing else.
 
-   2. LEAD WITH THE REVENUE. Staff augmentation and web development are the
-      services actually producing revenue today, so they lead the capability
-      grid. Oracle ERP and Salesforce follow.
+   2. THE FRONT DOOR SELLS THE SMALL-BUSINESS FIVE. Louis, 2026-08-26:
+      "stop saying federal, we are going after web development, seo, google
+      ads, marketing and crm work for small business". Website Development,
+      SEO, Google Ads and CRM lead the capability grid; Marketing heads the
+      list beneath. Staff augmentation still produces revenue today and is
+      deliberately NOT deleted - it sits at the top of that list, one click
+      away. Oracle ERP, IT Consulting, Operations Technology and Zendesk
+      remain as secondary pages: the positioning changed, the capability
+      did not. Before this, /services/seo, /services/google-ads and
+      /services/marketing existed and were routed but had ZERO links from
+      the homepage - the three things we now sell were orphaned from our
+      own front door.
 
    3. ELIGIBILITY IS NOT EXPERIENCE. The firm is SBA-certified and SAM
       registered but has NOT yet been awarded a government contract. Every
@@ -147,26 +156,48 @@ const CREDENTIALS: {
  *  prose block did not do at all: 1,100 words and not one internal link. */
 const CAPABILITIES = [
   {
-    title: "Staff Augmentation",
-    body: "Senior practitioners embedded alongside your team, on your tools and your timeline - for a sprint or for a year.",
-    href: "/services/staff-augmentation",
-    feature: true,
-  },
-  {
     title: "Website Development",
     body: "Fast, accessible, search-ready sites and web applications - built, launched and maintained.",
     href: "/services/website-development",
     feature: true,
   },
   {
+    title: "SEO",
+    body: "The work that gets you found: local search, your Google Business Profile, and pages that answer what people actually type.",
+    href: "/services/seo",
+    feature: true,
+  },
+  {
+    title: "Google Ads",
+    body: "Campaigns built, run and cut back to what converts, so the budget goes to the clicks that call you.",
+    href: "/services/google-ads",
+    feature: true,
+  },
+  {
+    title: "CRM and Salesforce",
+    body: "The system that keeps track of your customers, set up and wired to the rest of your tools - from a listed Salesforce Consulting Partner.",
+    href: "/services/salesforce",
+    feature: true,
+  },
+  {
+    title: "Marketing and Social",
+    body: "Campaigns, content and the social accounts, handled.",
+    href: "/services/marketing",
+  },
+  {
+    title: "Staff Augmentation",
+    body: "Senior practitioners embedded alongside your team, on your tools and your timeline - for a sprint or for a year.",
+    href: "/services/staff-augmentation",
+  },
+  {
+    title: "MarTech",
+    body: "Marketing platforms wired together so the data lands where you can use it.",
+    href: "/services/martech",
+  },
+  {
     title: "Oracle ERP",
     body: "Implementation and transformation across finance, supply chain and operations.",
     href: "/services/oracle-erp",
-  },
-  {
-    title: "Salesforce",
-    body: "Sales, Service and Marketing Cloud, from a listed Consulting Partner.",
-    href: "/services/salesforce",
   },
   {
     title: "IT Consulting",
@@ -177,11 +208,6 @@ const CAPABILITIES = [
     title: "Operations Technology",
     body: "Automation, IoT and process integration on the plant floor.",
     href: "/services/operations-technology",
-  },
-  {
-    title: "MarTech & SEO",
-    body: "Marketing platforms wired together, and the search visibility to feed them.",
-    href: "/services/martech",
   },
   {
     title: "Zendesk",
@@ -317,24 +343,24 @@ export default function Index() {
   const playHeroVideo = useHeroVideo(heroVideoRef);
 
   useSEO({
-    title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+    title: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     description:
-      "OneAlgorithm is a woman-owned IT consultancy working with companies across the United States: website development, Salesforce, Oracle ERP, system integration and 24/7 support.",
+      "We build and market websites for small businesses in Chester County and the Philadelphia area: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern PA.",
     canonical: getCanonicalUrl("/"),
     // The LCP element on this page is the hero video poster (measured with
     // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
     // fetch it early; now something does. See preloadImage in use-seo.ts.
     preloadImage: "/media/hero-poster.webp",
     keywords:
-      "website development, Salesforce consulting partner, Oracle ERP implementation, system integration, API integration, operations automation, staff augmentation, IT consulting, woman-owned business, WBENC certified",
-    ogTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+      "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design, woman-owned business",
+    ogTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     ogDescription:
-      "Staff augmentation, website development, ERP and CRM implementation — from strategy to support, with 24/7 coverage.",
+      "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     ogUrl: getCanonicalUrl("/"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+    twitterTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     twitterDescription:
-      "Staff augmentation, website development, ERP and CRM implementation — from strategy to support, with 24/7 coverage.",
+      "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -418,12 +444,12 @@ export default function Index() {
             </p>
 
             <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
-              A woman-owned IT consultancy working with companies across the
-              United States: website development, Salesforce, Oracle ERP and
-              system integration — and the search, ads and follow-up that get a
-              business found. Add senior people to your team, or hand us the
-              whole build; the same team is there from the first workshop to the
-              run-state.
+              We build websites for small businesses and then do the work that
+              gets them found: search, Google Ads, the marketing, and the CRM
+              that keeps track of who called. Most people come to us with a site
+              that isn't bringing in work, or a system they have outgrown.
+              Woman-owned, based in Malvern — and still doing ERP, integration
+              and staff augmentation for larger teams nationally.
             </p>
 
             {/* ONE action. The capability-statement PDF used to sit here as a
@@ -552,7 +578,11 @@ export default function Index() {
             </h2>
           </div>
 
-          {/* The two revenue-leading services get the wide row. */}
+          {/* The four services the business now leads with get the wide row -
+              the same four the Google Business Profile and the Apple place card
+              name, so the front door and the listings finally agree. Four fills
+              the 2-col grid exactly; a fifth would dangle, so Marketing heads
+              the list below rather than sitting there as a lonely fifth card. */}
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
             {CAPABILITIES.filter((c) => c.feature).map((c) => (
               <Link
@@ -573,7 +603,7 @@ export default function Index() {
             ))}
           </div>
 
-          {/* The other six are a divided list, not six more cards.
+          {/* The other seven are a divided list, not seven more cards.
               Two cards above six cards is one shape at two sizes, which is why
               this band read as eight identical rectangles. Cards and rows are
               different KINDS of object, so the hierarchy is now legible at a

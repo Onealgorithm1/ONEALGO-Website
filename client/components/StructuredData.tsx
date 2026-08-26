@@ -218,7 +218,7 @@ export function createOrganizationSchemaDetailed() {
     name: NAP.name,
     alternateName: NAP.alternateName,
     description:
-      "IT consultancy in Malvern, Pennsylvania: Salesforce, Oracle ERP and Zendesk implementation, system and API integration, staff augmentation and web development. Woman-owned, SBA-certified WOSB/EDWOSB, serving clients nationwide.",
+      "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and still delivering Salesforce, Oracle ERP, integration and staff augmentation for larger teams nationally.",
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/media/oa-logo.webp",
     foundingDate: "2020",
@@ -328,7 +328,21 @@ export function createLocalBusinessSchema() {
     email: NAP.email,
     address: { "@type": "PostalAddress", ...NAP.address },
     geo: { "@type": "GeoCoordinates", ...NAP.geo },
-    areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
+    // Pinned to the live Google Business Profile service area, read from the
+    // API on 2026-08-26 (businessType CUSTOMER_AND_BUSINESS_LOCATION, 6 places).
+    // This previously read ["United States", "Canada", "India", "United Arab
+    // Emirates"], which contradicted the profile Google actually ranks and
+    // repeated the over-broad radius that was removed from the profile itself
+    // the same morning. LocalBusiness describes the Malvern entity; the
+    // company-wide reach still lives on the Organization schema and /about.
+    areaServed: [
+      "Chester County, PA",
+      "Delaware County, PA",
+      "Montgomery County, PA",
+      "Bucks County, PA",
+      "Philadelphia County, PA",
+      "New Castle County, DE",
+    ],
     priceRange: "$$$",
     // Corrected 2026-08-12. This said Mon-Fri 09:00-18:00 while the site sells
     // 24/7 support (Index.tsx:207, :269) -- and 24/7 is real, not marketing.

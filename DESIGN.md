@@ -9,6 +9,8 @@ colors:
   ink:          "#0d1b2a"   # text on light
   ink2:         "#35485c"   # body text on light
   ink3:         "#5a6b7d"   # meta text on light
+  primary:      "#005eaa"   # = blue. Declared so the palette is never auto-generated.
+  blue:         "#005eaa"   # brand blue. 6.60:1 on paper, 6.19:1 on surface - safe as text on light.
   orange:       "#ffa634"   # brand accent. Backgrounds and dark-ground text ONLY.
   orangeText:   "#9a4f00"   # the ONLY orange permitted as text on a light ground (6.01:1)
   paper:        "#ffffff"
@@ -16,9 +18,12 @@ colors:
   hairline:     "#e3e9f0"
   hairlineStrong: "#d3dae4"
 typography:
-  display: "IBM Plex Sans"
-  body:    "IBM Plex Sans"
-  mono:    "JetBrains Mono"
+  display:
+    fontFamily: "IBM Plex Sans"
+  body:
+    fontFamily: "IBM Plex Sans"
+  mono:
+    fontFamily: "JetBrains Mono"
 rounded:
   none:   "0px"    # every instrument element
   button: "8px"    # buttons only
