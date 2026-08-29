@@ -173,6 +173,20 @@ async function main() {
          here. */
       await page.evaluate(() => {
         document.querySelectorAll("#oa-consent").forEach((n) => n.remove());
+
+        /* The hero film's <source> elements are rendered by React only once
+           useHeroVideo opens every gate -- but puppeteer scrolls and paints
+           above, so by serialisation time those gates ARE open and the sources
+           are in the DOM. They were being written into all 27 static files,
+           which handed the preload scanner a 728KB webm to fetch before the CSS
+           and defeated the gate chain entirely for every real visitor. Measured
+           2026-08-29: mobile LCP 7.4s, unmoved by a fix to the gate itself,
+           because the gate was never what production ran.
+           Removing them restores the intended behaviour: the poster paints, and
+           the client re-adds the sources when the gates say so. */
+        document
+          .querySelectorAll("video > source")
+          .forEach((n) => n.remove());
       });
 
       const html = "<!doctype html>\n" + (await page.content());
@@ -190,6 +204,17 @@ async function main() {
       // nothing caught it - the pages still built, still had the right title,
       // still passed the length check above. A prerendered page whose body is
       // transparent is worse than no prerender at all.
+      // ⛔ A <source> in the static HTML is a fetch the gate chain cannot stop:
+      // the preload scanner acts on it before any script runs. Fail the build
+      // rather than ship it again.
+      const bakedSources = (html.match(/<source[^>]*ssrc=/g) || []).length;
+      if (bakedSources) {
+        throw new Error(
+          `ships ${bakedSources} baked <source> element(s) — the hero film would ` +
+            `be fetched before the gate chain runs`,
+        );
+      }
+
       const hiddenOpacity = (html.match(/opacity:\s*0(?![.\d])/g) || []).length;
       const hiddenShift = (html.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
       if (hiddenOpacity || hiddenShift) {
