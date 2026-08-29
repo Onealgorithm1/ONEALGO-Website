@@ -391,7 +391,9 @@ export default function Privacy() {
             <li>
               <strong className="text-oa-ink">Microsoft</strong> — email and
               calls you send us directly, because our company email runs on
-              Microsoft 365.
+              Microsoft 365; and, if you agreed to analytics, how you used the
+              page, through Microsoft Clarity. Clarity passes what it collects
+              to Microsoft's advertising network as well as to us.
             </li>
           </ul>
           <p>
@@ -420,8 +422,12 @@ export default function Privacy() {
               no LinkedIn, no TikTok, no retargeting tags.
             </li>
             <li>
-              There is no session recording, no heatmap tool, and no chat widget
-              watching what you type.
+              There is no chat widget watching what you type, and no tool that
+              records anything you enter into a form. We do use Microsoft
+              Clarity, which replays how a page was used — where a visit
+              scrolled to, what got clicked — but only if you agreed to
+              analytics, and it masks the text of form fields. Decline, or send
+              Global Privacy Control, and it never loads.
             </li>
             <li>
               Our fonts are served from this domain, not from Google Fonts, so
