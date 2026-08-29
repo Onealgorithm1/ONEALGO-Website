@@ -46,3 +46,27 @@ describe("shouldPlayHeroVideo", () => {
     ).toBe(false);
   });
 });
+
+/* The connection gate, added 2026-08-29. Deliberately separate from the width
+   gate that was removed above: width was never the problem. A phone on wifi can
+   afford the 728KB film; a laptop on a bad tether cannot, and on Lighthouse's
+   mobile profile that film competes with the 23KB poster that is the LCP. */
+describe("shouldPlayHeroVideo — connection", () => {
+  it("plays on a fast connection", () => {
+    expect(shouldPlayHeroVideo(env({ slowConnection: false }))).toBe(true);
+  });
+
+  it("never plays when the connection is slow", () => {
+    expect(shouldPlayHeroVideo(env({ slowConnection: true }))).toBe(false);
+  });
+
+  it("still plays when the API is absent — undefined must not read as slow", () => {
+    expect(shouldPlayHeroVideo(env({ slowConnection: undefined }))).toBe(true);
+  });
+
+  it("stays off on a slow connection even on a wide viewport", () => {
+    expect(
+      shouldPlayHeroVideo(env({ slowConnection: true, wideViewport: true })),
+    ).toBe(false);
+  });
+});

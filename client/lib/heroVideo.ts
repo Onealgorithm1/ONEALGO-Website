@@ -9,8 +9,9 @@ export function shouldPlayHeroVideo(env: {
   reducedMotion: boolean;
   wideViewport?: boolean;
   saveData: boolean;
+  slowConnection?: boolean;
 }) {
-  return !env.reducedMotion && !env.saveData;
+  return !env.reducedMotion && !env.saveData && !env.slowConnection;
 }
 
 /**
@@ -55,12 +56,27 @@ export function useHeroVideo(ref?: React.RefObject<HTMLVideoElement | null>) {
       setPlay(started && allowed);
     };
     const env = () => {
+      /* effectiveType is the browser's own estimate of the round trip, not the
+         screen. Deliberately NOT a width gate: that one was removed on purpose
+         (see the spec), and width was never the thing that hurt — a phone on
+         office wifi can afford the film, a laptop tethered to a bad signal
+         cannot. 728KB of webm on a 3G estimate is bandwidth taken from the
+         23KB poster that IS the Largest Contentful Paint. Measured 2026-08-29:
+         mobile LCP 7.4s against a 2.5s target, 2.4s of it element render delay.
+         Absent API (Safari) reads as fast, so the film plays as before. */
+      const conn = (
+        navigator as Navigator & {
+          connection?: { saveData?: boolean; effectiveType?: string };
+        }
+      ).connection;
       allowed = shouldPlayHeroVideo({
         reducedMotion: motion.matches,
         wideViewport: wide.matches,
-        saveData:
-          (navigator as Navigator & { connection?: { saveData?: boolean } })
-            .connection?.saveData === true,
+        saveData: conn?.saveData === true,
+        slowConnection:
+          conn?.effectiveType === "slow-2g" ||
+          conn?.effectiveType === "2g" ||
+          conn?.effectiveType === "3g",
       });
       update();
     };
