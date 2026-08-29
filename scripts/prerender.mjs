@@ -20,12 +20,18 @@ const DIST = path.join(__dirname, "..", "dist", "spa");
 // or a second build on the same machine, failed the whole thing with EADDRINUSE.
 const PORT = 0;
 
+// ⛔ A route missing from this list is a 404 in production, not a slow page.
+// Every route here becomes a static file; anything routed only in App.tsx has
+// no file for Cloudflare to serve. /services/application-development shipped
+// on 2026-08-29 routed but unlisted, and 404'd live while every neighbouring
+// service page worked. When you add a page to App.tsx, add it here too.
 const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
   "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
   "/services/it-consulting", "/services/operations-technology",
   "/services/oracle-erp", "/services/salesforce", "/services/zendesk",
+  "/services/application-development",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", "/industries/website-development", "/industries/government",
 ];
