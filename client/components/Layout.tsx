@@ -43,6 +43,43 @@ const mobileSubLink =
 const mobileSubLinkNested =
   "flex min-h-[44px] items-center rounded-lg px-3 pl-8 py-2.5 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950";
 
+/* NAVIGATION DATA - added 2026-08-27.
+ *
+ * The Services menu used to be eleven <Link> blocks written out by hand, TWICE
+ * (once for desktop, once for the mobile drawer). That duplication is why the
+ * menu drifted away from the router: /industries/marketing and
+ * /industries/website-development are real routes that no menu ever linked to,
+ * so the only way to reach them was a search result. Both menus now render from
+ * this one array, so a page cannot be added to the site and forgotten in the
+ * navigation again.
+ *
+ * WHY ONLY SIX. The homepage was repositioned on 2026-08-26 to "websites, SEO,
+ * Google Ads, marketing and CRM for small business in Chester County and the
+ * Philadelphia area", but the navigation still led with Oracle ERP, Zendesk and
+ * Staff Augmentation - so a small-business visitor opened the menu and found an
+ * enterprise IT firm. This list is now exactly the five services named in that
+ * approved positioning, plus Application Development.
+ *
+ * THE ENTERPRISE PAGES ARE NOT DELETED. Oracle ERP, Zendesk, IT Consulting,
+ * Operations Technology, MarTech and Staff Augmentation are still sold, still
+ * live at their own URLs, and still linked from the /services index and from
+ * the sibling wire under every service hero - so no URL breaks and no ranking
+ * is lost. They are simply no longer the first thing a local business reads.
+ * Louis's call, 2026-08-27.
+ *
+ * Labels are deliberately short ("Websites", not "Website Development"). The
+ * long form made the sibling wire under the hero reflow as it loaded, measured
+ * at CLS 0.166 against a 0.1 budget on a page whose siblings measured 0.000.
+ */
+const SERVICE_ITEMS: { to: string; label: string }[] = [
+  { to: "/services/website-development", label: "Websites" },
+  { to: "/services/application-development", label: "App Development" },
+  { to: "/services/seo", label: "SEO" },
+  { to: "/services/google-ads", label: "Google Ads" },
+  { to: "/services/marketing", label: "Marketing" },
+  { to: "/services/salesforce", label: "Salesforce & CRM" },
+];
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -199,10 +236,45 @@ function Layout({ children }: LayoutProps) {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setIndustriesDropdownOpen(false);
-    try {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (_) {
-      window.scrollTo(0, 0);
+
+    // A URL carrying a fragment is a promise to land on that section, so honour
+    // it instead of jumping to the top. Without this the footer's "We
+    // participate in E-Verify" link drops the visitor on Company Overview and
+    // leaves them to scroll seven sections to reach the evidence.
+    //
+    // The target usually does NOT exist yet: every route is a lazy chunk, so on
+    // a cross-page jump this effect runs before the destination has mounted.
+    // Hence the retry — a single getElementById here silently fell back to the
+    // top of the page. It gives up after ~1s so a stale fragment still lands
+    // somewhere sensible rather than leaving the visitor mid-document.
+    let frame = 0;
+    let raf = 0;
+    const deadline = 60; // frames, ~1s at 60fps
+    const toTop = () => {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (_) {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    if (!location.hash) {
+      toTop();
+    } else {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const seek = () => {
+        const target = document.getElementById(id);
+        if (target) {
+          // Instant, not smooth: a verification link should arrive, and a
+          // smooth scroll across a long page reads as the link having failed.
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+        } else if (frame++ < deadline) {
+          raf = window.requestAnimationFrame(seek);
+        } else {
+          toTop();
+        }
+      };
+      seek();
     }
 
     // Move focus to the new page. In a single-page app the browser does not do
@@ -213,10 +285,19 @@ function Layout({ children }: LayoutProps) {
     // directly does not yank focus out of the address bar.
     if (firstRender.current) {
       firstRender.current = false;
-      return;
+    } else {
+      mainRef.current?.focus();
     }
-    mainRef.current?.focus();
-  }, [location.pathname]);
+
+    // Cancel a seek still in flight, or navigating away mid-retry leaves a loop
+    // running that will yank the NEXT page to an element that is not on it.
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+    // location.hash is a dependency too: navigating from /capabilities to
+    // /capabilities#verify-credentials changes only the fragment, and without it
+    // the effect never runs and the link appears to do nothing.
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -321,116 +402,19 @@ function Layout({ children }: LayoutProps) {
                     id="services-menu"
                   >
                     <div className="py-2">
-                      <Link
-                        to="/services/website-development"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Website Development
-                      </Link>
-                      <Link
-                        to="/services/marketing"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Marketing
-                      </Link>
-                      <Link
-                        to="/services/martech"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        MarTech
-                      </Link>
-                      <Link
-                        to="/services/google-ads"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Google Ads
-                      </Link>
-                      <Link
-                        to="/services/seo"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        SEO Services
-                      </Link>
-                      <Link
-                        to="/services/staff-augmentation"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Staff Augmentation
-                      </Link>
-                      <Link
-                        to="/services/it-consulting"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        IT Consulting
-                      </Link>
-                      <Link
-                        to="/services/operations-technology"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Operations Technology
-                      </Link>
-                      <Link
-                        to="/services/oracle-erp"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Oracle ERP
-                      </Link>
-                      <Link
-                        to="/services/salesforce"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Salesforce
-                      </Link>
-                      <Link
-                        to="/services/zendesk"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Zendesk
-                      </Link>
+                      {SERVICE_ITEMS.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                          onClick={() => {
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -679,127 +663,20 @@ function Layout({ children }: LayoutProps) {
 
                 {servicesDropdownOpen && (
                   <div id="mobile-services" className="pl-4">
-                    <Link
-                      to="/services/website-development"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Website Development
-                    </Link>
-                    <Link
-                      to="/services/marketing"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Marketing
-                    </Link>
-                    <Link
-                      to="/services/martech"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      MarTech
-                    </Link>
-                    <Link
-                      to="/services/google-ads"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Google Ads
-                    </Link>
-                    <Link
-                      to="/services/seo"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      SEO Services
-                    </Link>
-                    <Link
-                      to="/services/staff-augmentation"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Staff Augmentation
-                    </Link>
-                    <Link
-                      to="/services/it-consulting"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      IT Consulting
-                    </Link>
-                    <Link
-                      to="/services/operations-technology"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Operations Technology
-                    </Link>
-                    <Link
-                      to="/services/oracle-erp"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Oracle ERP
-                    </Link>
-                    <Link
-                      to="/services/salesforce"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Salesforce
-                    </Link>
-                    <Link
-                      to="/services/zendesk"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Zendesk
-                    </Link>
+                    {SERVICE_ITEMS.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className={mobileSubLink}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
@@ -1349,9 +1226,22 @@ function Layout({ children }: LayoutProps) {
               roughly 180px of footer. All three still say exactly the same
               thing; they now share one row and one rule. */}
           <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
+            {/* "We participate in E-Verify" was a bare assertion on all 26
+                pages. It now lands on the verification block at the foot of
+                /capabilities — the company ID, the enrollment date and the DHS
+                search tool — rather than the top of that page, which is why the
+                route effect above honours the fragment. The link is internal on
+                purpose: the proof is worth reaching, but 26 pages of outbound
+                links to a federal site hand that site the authority instead of
+                earning us any. */}
             <p className="text-xs text-oa-nightInk3">
-              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·
-              We participate in E-Verify
+              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·{" "}
+              <Link
+                to="/capabilities#verify-credentials"
+                className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
+              >
+                We participate in E-Verify
+              </Link>
             </p>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">

@@ -1070,8 +1070,8 @@ export default function SystemCanvas({ className = "" }: { className?: string })
             type="button"
             onClick={() => setHeld((h) => !h)}
             aria-pressed={held}
-            aria-label={held ? "Resume the diagram animation" : "Pause the diagram animation"}
-            className="absolute right-3 top-3 flex min-h-[40px] items-center rounded border border-white/15 bg-oa-night2/80 px-3 font-mono text-[10px] uppercase tracking-[0.18em] text-oa-nightInk2 transition-colors hover:border-oa-orange/60 hover:text-oa-nightInk focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oa-orange"
+            aria-label={held ? "Run: resume the diagram animation" : "Hold: pause the diagram animation"}
+            className="absolute right-3 top-3 flex min-h-[44px] items-center rounded border border-white/15 bg-oa-night2/80 px-3 font-mono text-[10px] uppercase tracking-[0.18em] text-oa-nightInk2 transition-colors hover:border-oa-orange/60 hover:text-oa-nightInk focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oa-orange"
           >
             {held ? "Run" : "Hold"}
           </button>
@@ -1101,7 +1101,22 @@ export default function SystemCanvas({ className = "" }: { className?: string })
                   </span>
                 </li>
               ) : (
-                <li key={i} className="text-oa-nightInk3/30">
+                /* Filler rows that hold the log height steady while it fills.
+                   aria-hidden keeps a screen reader from announcing "dot dot
+                   dot dot" four times, which is a real improvement and the
+                   reason it is here.
+
+                   ponytail: it does NOT clear the axe color-contrast finding
+                   (1.86:1, #32475a on #04182b) and was verified not to -
+                   aria-hidden hides from assistive tech, not from eyes, and
+                   contrast is a visual rule. Ceiling: the homepage a11y gate
+                   will keep reporting 3 nodes here. These dots are "pure
+                   decoration" and therefore exempt under WCAG 1.4.3
+                   Incidental, but axe cannot know that. Upgrade path if the
+                   gate must go green: stop using text characters and draw the
+                   placeholder as a CSS dotted rule (border-bottom dotted), so
+                   there is no text for the rule to measure. */
+                <li key={i} className="text-oa-nightInk3/30" aria-hidden="true">
                   ····
                 </li>
               ),

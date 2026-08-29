@@ -27,8 +27,18 @@ export interface CompanyConfig {
     cage: string;
     uei: string;
     duns: string;
+    /** E-Verify Company ID, four to seven digits. */
+    everify: string;
   };
+  /** ISO date the E-Verify Memorandum of Understanding was signed. */
+  everifyEnrolledDate: string;
   sbaUrl: string;
+  /** Public E-Verify participating-employer search. There is no per-employer
+   *  permalink — see the note on `identifiers.everify`. */
+  everifyUrl: string;
+  /** Public D&B Business Directory profile. Empty until the URL is supplied —
+   *  see the note on the value; the link renders only when this is set. */
+  dunsUrl: string;
   codes: {
     naics: string[];
     psc: string[];
@@ -77,10 +87,83 @@ export const siteConfig: CompanyConfig = {
   identifiers: {
     cage: "14G18",
     uei: "W8DYK38MEKP3",
-    duns: "117847561",
+    /*
+     * D-U-N-S — CORRECTED 2026-08-26. This read 117847561, which is the number
+     * printed on the marketing capability statements, and the website inherited
+     * it from there. It is wrong.
+     *
+     * The company's own D&B D-U-N-S Profile Manager
+     * (smallbusiness.dnb.com/duns-manager/company-profile, read while signed in
+     * on 2026-08-26) states "D-U-N-S Number: 11-883-5343" for One Algorithm LLC.
+     * 118835343 is also the number already given to every third party that keeps
+     * its own copy: the DHS E-Verify company profile, the Customers Bank ACH
+     * enrollment, and the SF1449 price volumes filed on CRIMS RFQ030ADV26Q0024
+     * and N0024426QS006. 117847561 appears only in documents this company wrote
+     * about itself.
+     *
+     * ⛔ Correcting the website does not correct the federal responses already
+     * filed with the wrong number, nor the capability statements in SharePoint
+     * (10_Strategy_and_Planning/01_Marketing/Capability_Statements), which are
+     * hand-made and still carry it. The PDF this repo serves at
+     * public/docs/capability-statement.pdf is NOT one of them — it prints no
+     * D-U-N-S at all, which scripts/identifiers-check.mjs now asserts.
+     */
+    duns: "118835343",
+    /*
+     * E-Verify Company ID. Source: the company's own account profile at
+     * everify.uscis.gov/account/company/profile, exported 13 May 2026 and held
+     * at 06_Compliance/Employment_and_HR/E-Verify. Enrolled 4 Feb 2024, one
+     * hiring site, configured to verify its own employees.
+     *
+     * ⛔ There is no public link that resolves this ID. The E-Verify employer
+     * search is a Tableau dashboard with no per-employer permalink, and it does
+     * not publish company IDs at all — it is searched by NAME. So the number is
+     * shown as a fact a buyer can quote back to DHS, and `everifyUrl` points at
+     * the tool where the name can be checked, the same way the Virginia SWaM
+     * directory is handled in the footer.
+     */
+    everify: "2375403",
   },
+  everifyEnrolledDate: "2024-02-04",
   sbaUrl:
     "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1",
+  /*
+   * The DHS Tableau dashboard itself, rather than the e-verify.gov page that
+   * embeds it — one click closer to the data, and it is the same workbook (the
+   * wrapper renders an identical viz, down to the 70,555 record count).
+   * Louis supplied this URL on 2026-08-26. If the host ever moves, the stable
+   * fallback is https://www.e-verify.gov/e-verify-employer-search.
+   *
+   * ⛔ It CANNOT be deep-linked to one employer. Tableau filter parameters on
+   * the query string are ignored by this workbook — `?Business Name=One
+   * Algorithm` was tested on 2026-08-26 and left the field empty. The visitor
+   * has to drive the two filters, which is why the page spells out how.
+   *
+   * ⛔ And the date filter is not optional advice: it opens on "This year", and
+   * "Last 30 years" returns NOTHING AT ALL (the query appears to give up on that
+   * range — the table goes blank even with no name typed). "Last 3 years" is
+   * what actually works and it covers the 2024 enrolment.
+   */
+  everifyUrl:
+    "https://bigdataanalyticspub-sb.uscis.dhs.gov/views/E-VerifyEmployerSearch_17259895596010/Dashboard",
+  /*
+   * The public D&B Business Directory profile. Supplied by Louis 2026-08-26 and
+   * fetched to confirm it is the right company before publishing: Malvern PA,
+   * 625 Swedesford Rd Ste B, key principal Swapna Amirisetti, custom computer
+   * programming services, marked "Claimed" and "Added By One Algorithm LLC".
+   * The URL is only discoverable from inside the signed-in D&B account — it is
+   * not indexed by Google under this name.
+   *
+   * ⛔ The page does NOT display the D-U-N-S number, so it proves the listing,
+   * not the digits. The copy on /capabilities says so; do not upgrade it to
+   * "verify our D-U-N-S here".
+   *
+   * ⚠️ The Company Website field on that profile is BLANK — which is why nothing
+   * on dnb.com links here. Filling it is worth more than this link is: it points
+   * dnb.com AT us, and that is the direction that carries authority.
+   */
+  dunsUrl:
+    "https://www.dnb.com/business-directory/company-profiles.one_algorithm_llc.4761c12e5f980069052b864facbfc6a2.html",
   /*
    * NAICS and PSC — CORRECTED 2026-08-12 to match the SAM.gov entity record
    * for UEI W8DYK38MEKP3 / CAGE 14G18 (registration activated 21 Apr 2026,

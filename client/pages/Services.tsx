@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import {
+  Boxes,
   Code,
   Users,
   Megaphone,
@@ -57,6 +58,12 @@ const SERVICES = [
     title: "Website Development",
     body: "Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications.",
     to: "/services/website-development",
+  },
+  {
+    icon: Boxes,
+    title: "Application Development",
+    body: "Internal control panels, iOS and Android apps, customer portals and Salesforce applications — built so your company owns the code, the cloud accounts and the signing keys.",
+    to: "/services/application-development",
   },
   {
     icon: Database,

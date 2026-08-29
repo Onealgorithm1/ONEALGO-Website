@@ -31,3 +31,9 @@ build-artifacts/
 
 # wrangler pages dev local state
 .wrangler/
+
+# Screenshots and one-off measurement scripts used while working on a layout.
+# The scripts are worth keeping locally and worthless in review — they capture
+# page heights and viewport slices, and their output is megabytes of PNG.
+research/shots/
+verify*.md

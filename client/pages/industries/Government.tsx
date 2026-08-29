@@ -132,6 +132,7 @@ const IDENTIFIERS: [string, string][] = [
   ["UEI", siteConfig.identifiers.uei],
   ["CAGE", siteConfig.identifiers.cage],
   ["D-U-N-S", siteConfig.identifiers.duns],
+  ["E-Verify Company ID", siteConfig.identifiers.everify],
   ["SAM.gov", "Active"],
   ["Primary NAICS", siteConfig.codes.naics[0]],
   ["Legal name", siteConfig.legalName],
@@ -199,12 +200,36 @@ export default function Government() {
       <Section tone="paper">
         <SectionHeading
           title="Set-aside eligible and registered to receive award"
-          lede="Six fields, so market research takes a minute rather than an email. Each one is held in a registry outside this company, and the SBA record is linked from our about page."
+          /* Counted from the array rather than typed: this read "Six fields"
+             while the grid below rendered seven, because adding E-Verify did
+             not touch the sentence. */
+          lede={`${IDENTIFIERS.length} fields, so market research takes a minute rather than an email. Each one is held in a registry outside this company, and the SBA record is linked from our about page.`}
         />
 
         <dl className="mt-12 grid gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-2 lg:grid-cols-3">
-          {IDENTIFIERS.map(([label, value]) => (
-            <div key={label} className="bg-oa-surface p-6">
+          {/* The grid draws its rules with gap-px over a hairline background, so
+              any track the last row does not fill paints as a solid grey block.
+              The final cell is stretched across whatever the row has left over.
+              Derived from the count rather than hardcoded, because the count is
+              exactly what changed when E-Verify was added. */}
+          {IDENTIFIERS.map(([label, value], i) => (
+            <div
+              key={label}
+              className={[
+                "bg-oa-surface p-6",
+                i === IDENTIFIERS.length - 1 && IDENTIFIERS.length % 2 === 1
+                  ? "sm:col-span-2"
+                  : "",
+                i === IDENTIFIERS.length - 1 && IDENTIFIERS.length % 3 === 1
+                  ? "lg:col-span-3"
+                  : "",
+                i === IDENTIFIERS.length - 1 && IDENTIFIERS.length % 3 === 2
+                  ? "lg:col-span-2"
+                  : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
               <dt className="font-mono text-[11px] uppercase tracking-wider text-oa-ink3">
                 {label}
               </dt>

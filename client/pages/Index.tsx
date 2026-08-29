@@ -23,6 +23,7 @@ import {
 } from "../components/StructuredData";
 import { JSONLDScript } from "../components/JSONLDScript";
 import SystemCanvas from "../components/SystemCanvas";
+import { IdentifierRail } from "../components/site";
 
 /* ---------------------------------------------------------------------------
    Homepage - 2026 refresh.
@@ -36,9 +37,18 @@ import SystemCanvas from "../components/SystemCanvas";
       which is why it stopped directing attention. It now marks the tagline,
       the primary CTA and dark-section accents - and nothing else.
 
-   2. LEAD WITH THE REVENUE. Staff augmentation and web development are the
-      services actually producing revenue today, so they lead the capability
-      grid. Oracle ERP and Salesforce follow.
+   2. THE FRONT DOOR SELLS THE SMALL-BUSINESS FIVE. Louis, 2026-08-26:
+      "stop saying federal, we are going after web development, seo, google
+      ads, marketing and crm work for small business". Website Development,
+      SEO, Google Ads and CRM lead the capability grid; Marketing heads the
+      list beneath. Staff augmentation still produces revenue today and is
+      deliberately NOT deleted - it sits at the top of that list, one click
+      away. Oracle ERP, IT Consulting, Operations Technology and Zendesk
+      remain as secondary pages: the positioning changed, the capability
+      did not. Before this, /services/seo, /services/google-ads and
+      /services/marketing existed and were routed but had ZERO links from
+      the homepage - the three things we now sell were orphaned from our
+      own front door.
 
    3. ELIGIBILITY IS NOT EXPERIENCE. The firm is SBA-certified and SAM
       registered but has NOT yet been awarded a government contract. Every
@@ -107,51 +117,45 @@ const HERO_SCRIM: React.CSSProperties = {
  *  `reference: null` renders an em dash. Virginia's directory is searched by
  *  name and issues no public certificate number we hold, and inventing one to
  *  make the column look full would defeat the entire point of the table. */
-const CREDENTIALS: {
-  authority: string;
-  credential: string;
-  reference: string | null;
-  href: string;
-}[] = [
-  // WBENC and NMSDC, not the SBA row that sat here. Large corporates run
-  // supplier-diversity programmes that look for exactly these two; a federal
-  // set-aside certificate means nothing to that buyer. The SBA certificate is
-  // on /capabilities and /industries/government, where its buyer looks.
-  {
-    authority: "Women's Business Enterprise National Council",
-    credential: "Certified WBE",
-    reference: "WBE2600434",
-    href: "/capabilities",
-  },
-  {
-    authority: "National Minority Supplier Development Council",
-    credential: "Certified MBE",
-    reference: "PT100000051",
-    href: "/capabilities",
-  },
-  {
-    authority: "Salesforce AppExchange",
-    credential: "Consulting Partner",
-    reference: "Listing a0N3A00000EV7SwUAL",
-    href: "https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a0N3A00000EV7SwUAL",
-  },
-  /* The PA COSTARS and Virginia SWaM rows that followed are state procurement
-     vehicles. They moved to /industries/government on 2026-08-25, where they
-     already appeared and where the buyer who searches on a COSTARS contract
-     number actually is. (The COSTARS link is the supplier page rather than a
-     per-record URL because pa.gov has no stable deep link — noted there.) */
-];
+/* The CREDENTIALS array that lived here is gone. The canonical certification
+   list is CERTIFICATIONS in components/site.tsx, rendered by the hero rail on
+   every page that shows one -- so the homepage and /about cannot drift apart on
+   what this company claims. */
 
-/** Capability tiles, ordered by where revenue actually comes from today.
+/** Capability tiles, ordered by the positioning the listings now carry -
+ *  NOT by revenue. Staff augmentation still earns today and is deliberately
+ *  in the secondary list rather than a featured card; see rule 2 at the top
+ *  of this file before "correcting" that back.
+ *
  *  Every one links to a service page that already exists - which the old SEO
- *  prose block did not do at all: 1,100 words and not one internal link. */
-const CAPABILITIES = [
-  {
-    title: "Staff Augmentation",
-    body: "Senior practitioners embedded alongside your team, on your tools and your timeline - for a sprint or for a year.",
-    href: "/services/staff-augmentation",
-    feature: true,
-  },
+ *  prose block did not do at all: 1,100 words and not one internal link. And
+ *  until 2026-08-26 the homepage linked to none of /services/seo,
+ *  /services/google-ads or /services/marketing, so the three services the
+ *  business now leads with were orphaned from the front door. */
+/* ORDER IS LOAD-BearING in the secondary list. Oracle ERP and Zendesk sit
+   together because they are the only two rows there that carry a mark, and at
+   three columns they were previously two grid rows apart with unmarked rows
+   between -- which made the logos read as sprinkled rather than deliberate.
+   Adjacent, they land side by side on desktop and stacked on mobile, so the
+   marks read as a set. Marketing and Social still heads the list.
+
+   `logo` names a file in public/media/logos/ and is set ONLY where the service
+   IS a named platform -- Salesforce, Google Ads, Oracle, Zendesk. It is absent
+   from the other seven because there is no platform to name, and a mark
+   invented for "IT Consulting" would be decoration.
+
+   ⛔ Only the four files listed as REAL in public/media/logos/README.txt may be
+   used. The rest of that folder is placeholders, several of which are the
+   company name typed in Inter. The marks are used nominatively -- to say which
+   platform the work runs on -- and must not be arranged to imply endorsement or
+   that these companies are clients. */
+const CAPABILITIES: {
+  title: string;
+  body: string;
+  href: string;
+  feature?: boolean;
+  logo?: string;
+}[] = [
   {
     title: "Website Development",
     body: "Fast, accessible, search-ready sites and web applications - built, launched and maintained.",
@@ -159,14 +163,51 @@ const CAPABILITIES = [
     feature: true,
   },
   {
+    title: "SEO",
+    body: "The work that gets you found: local search, your Google Business Profile, and pages that answer what people actually type.",
+    href: "/services/seo",
+    feature: true,
+  },
+  {
+    title: "Google Ads",
+    body: "Campaigns built, run and cut back to what converts, so the budget goes to the clicks that call you.",
+    href: "/services/google-ads",
+    logo: "google-ads",
+    feature: true,
+  },
+  {
+    title: "CRM and Salesforce",
+    body: "The system that keeps track of your customers, set up and wired to the rest of your tools - from a listed Salesforce Consulting Partner.",
+    href: "/services/salesforce",
+    logo: "salesforce",
+    feature: true,
+  },
+  {
+    title: "Marketing and Social",
+    body: "Campaigns, content and the social accounts, handled.",
+    href: "/services/marketing",
+  },
+  {
+    title: "Staff Augmentation",
+    body: "Senior practitioners embedded alongside your team, on your tools and your timeline - for a sprint or for a year.",
+    href: "/services/staff-augmentation",
+  },
+  {
+    title: "MarTech",
+    body: "Marketing platforms wired together so the data lands where you can use it.",
+    href: "/services/martech",
+  },
+  {
     title: "Oracle ERP",
     body: "Implementation and transformation across finance, supply chain and operations.",
     href: "/services/oracle-erp",
+    logo: "oracle",
   },
   {
-    title: "Salesforce",
-    body: "Sales, Service and Marketing Cloud, from a listed Consulting Partner.",
-    href: "/services/salesforce",
+    title: "Zendesk",
+    body: "Support-desk implementation and ongoing optimization.",
+    href: "/services/zendesk",
+    logo: "zendesk",
   },
   {
     title: "IT Consulting",
@@ -177,16 +218,6 @@ const CAPABILITIES = [
     title: "Operations Technology",
     body: "Automation, IoT and process integration on the plant floor.",
     href: "/services/operations-technology",
-  },
-  {
-    title: "MarTech & SEO",
-    body: "Marketing platforms wired together, and the search visibility to feed them.",
-    href: "/services/martech",
-  },
-  {
-    title: "Zendesk",
-    body: "Support-desk implementation and ongoing optimization.",
-    href: "/services/zendesk",
   },
 ];
 
@@ -317,24 +348,24 @@ export default function Index() {
   const playHeroVideo = useHeroVideo(heroVideoRef);
 
   useSEO({
-    title: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+    title: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     description:
-      "OneAlgorithm is a woman-owned IT consultancy working with companies across the United States: website development, Salesforce, Oracle ERP, system integration and 24/7 support.",
+      "We build and market websites for small businesses in Chester County and the Philadelphia area: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern PA.",
     canonical: getCanonicalUrl("/"),
     // The LCP element on this page is the hero video poster (measured with
     // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
     // fetch it early; now something does. See preloadImage in use-seo.ts.
     preloadImage: "/media/hero-poster.webp",
     keywords:
-      "website development, Salesforce consulting partner, Oracle ERP implementation, system integration, API integration, operations automation, staff augmentation, IT consulting, woman-owned business, WBENC certified",
-    ogTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+      "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design, woman-owned business",
+    ogTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     ogDescription:
-      "Staff augmentation, website development, ERP and CRM implementation — from strategy to support, with 24/7 coverage.",
+      "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     ogUrl: getCanonicalUrl("/"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — IT Consulting & Secure Digital Transformation",
+    twitterTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     twitterDescription:
-      "Staff augmentation, website development, ERP and CRM implementation — from strategy to support, with 24/7 coverage.",
+      "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -417,16 +448,14 @@ export default function Index() {
               solutions tailored to you.
             </p>
 
-            {/* Louis, 2026-08-29: the lede paragraph that sat here was removed
-                on request. It ran "A woman-owned IT consultancy working with
-                companies across the United States..." and listed the whole
-                service line before the visitor had a reason to care.
-
-                The hero still says what the company does: the headline, the
-                "From Strategy to Support" eyebrow and the tagline beneath it
-                all survive, and the single CTA follows immediately. Nothing
-                below moves, because the button already carried its own top
-                margin rather than depending on this paragraph. */}
+            <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
+              We build websites for small businesses and then do the work that
+              gets them found: search, Google Ads, the marketing, and the CRM
+              that keeps track of who called. Most people come to us with a site
+              that isn't bringing in work, or a system they have outgrown.
+              Woman-owned, based in Malvern — and still doing ERP, integration
+              and staff augmentation for larger teams nationally.
+            </p>
 
             {/* ONE action. The capability-statement PDF used to sit here as a
                 second button: it opens a new tab, ends the session and captures
@@ -449,151 +478,124 @@ export default function Index() {
           </div>
         </div>
 
-        {/* ⛔ The identifier strip — UEI · CAGE · NAICS · SAM.gov, above the fold
-            on every viewport — was removed from the homepage on 2026-08-25.
-            Louis: "federal contracting is supposed to be a small picture on this
-            website … if we win a project, which we haven't, is just a bonus."
-            Three reviewers read the strip as a commercial buyer and all three
-            said it made them leave: it is procurement-speak that says the site
-            is for contracting officers. The identifiers live on /capabilities
-            and /industries/government, which is where that buyer looks, and
-            they remain in the Organization structured data. */}
       </section>
 
-      {/* ================= CREDENTIALS =================
-          A real <table>, because this is real tabular data: four rows, three
-          columns, one issuing authority each. The semantics are not decoration
-          -- a screen reader announces "Authority: U.S. Small Business
-          Administration, Credential: Certified WOSB / EDWOSB", which is
-          exactly the association a sighted reader gets from the columns.
+      {/* ⚠️ THE IDENTIFIER STRIP IS BACK, AND IT WAS DELIBERATELY REMOVED ONCE.
+          Removed 2026-08-25 -- Louis: "federal contracting is supposed to be a
+          small picture on this website … if we win a project, which we haven't,
+          is just a bonus." Three reviewers read it as a commercial buyer and
+          all three said the procurement codes made them leave.
 
-          At 390px the columns collapse and each row becomes a stacked block,
-          because four columns of registry data at phone width is unreadable.
-          The three values stay distinguishable by weight and face alone --
-          authority in regular ink2, credential in semibold ink, reference in
-          mono -- so no repeated per-cell labels are needed. The <th> row is
-          hidden there rather than removed, so the scope="col" association
-          survives for assistive tech.
+          Restored 2026-08-28 at Louis's explicit request: the certifications
+          are "supposed to be placed with everything like the about page at the
+          bottom of the hero". It now carries BOTH registers, so a WBE/MBE
+          supplier-diversity buyer -- a commercial audience, not a contracting
+          officer -- is served by the same strip.
+
+          ⛔ If the "it reads as procurement-speak" objection comes back, the
+          fix is to drop the five registration cells and keep the three
+          certifications, NOT to delete the rail. Read this whole note first. */}
+      <IdentifierRail />
+
+      {/* The standalone credentials band that sat here is GONE: the same three
+          certifications now ride in the hero rail above, and printing them
+          twice on one page made the second copy read as filler. The canonical
+          list lives in CERTIFICATIONS in components/site.tsx. */}
+
+      {/* ================= CAPABILITIES =================
+          ONE structure, two weights. Rebuilt 2026-08-28.
+
+          It was four bordered cards over seven divided rows: two different
+          shapes carrying the same kind of content, and the cards were mostly
+          air -- 236px each to hold a title, one sentence and a "Learn more"
+          that repeated four times when the whole tile was already the link.
+
+          The hierarchy that split them was real and is kept, but it is carried
+          by SCALE AND ORDER inside a single list now instead of by a box. The
+          four the business leads with come first, at a larger title, with their
+          sentence. The seven it also does follow at body size, name only.
+
+          ⛔ THE SEVEN LOST THEIR DESCRIPTIONS ON THIS PAGE. That is a content
+          decision, not an oversight: "Strategy, architecture and modernization
+          roadmaps" under a link that already says IT Consulting was the least
+          load-bearing copy in the band, and each name links to a page that
+          explains it properly. If someone wants that copy back, put it on the
+          four leads' pages, not here.
+
+          Measured: 1,160px -> ~580px desktop, 2,168px -> ~890px mobile, for the
+          same eleven services and the same eleven links.
           =============================================== */}
-      <section className="border-b border-oa-hairline bg-oa-paper">
-        <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 md:py-16 lg:px-8">
-          <table className="w-full border-collapse text-left">
-            <caption className="mb-6 text-left font-mono text-xs uppercase tracking-[0.06em] text-oa-ink3">
-              Certifications and partnerships &middot; reference numbers shown,
-              every one of them checkable
-            </caption>
-            <thead className="sr-only md:not-sr-only">
-              <tr className="border-b border-oa-hairlineStrong">
-                <th scope="col" className="pb-3 font-mono text-xs font-normal uppercase tracking-[0.06em] text-oa-ink3">
-                  Authority
-                </th>
-                <th scope="col" className="pb-3 font-mono text-xs font-normal uppercase tracking-[0.06em] text-oa-ink3">
-                  Credential
-                </th>
-                <th scope="col" className="pb-3 font-mono text-xs font-normal uppercase tracking-[0.06em] text-oa-ink3">
-                  Reference
-                </th>
-                <th scope="col" className="pb-3">
-                  <span className="sr-only">Registry link</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {CREDENTIALS.map((c) => (
-                <tr
-                  key={c.credential}
-                  className="block border-b border-oa-hairline py-5 md:table-row md:py-0"
-                >
-                  <td className="block text-oa-ink2 md:table-cell md:py-5 md:pr-6">
-                    {c.authority}
-                  </td>
-                  <td className="block font-semibold text-oa-ink md:table-cell md:py-5 md:pr-6">
-                    {c.credential}
-                  </td>
-                  <td className="block font-mono text-sm text-oa-ink3 md:table-cell md:py-5 md:pr-6">
-                    {c.reference ?? <span aria-hidden="true">&mdash;</span>}
-                    {c.reference === null && (
-                      <span className="sr-only">
-                        No public reference number issued
-                      </span>
-                    )}
-                  </td>
-                  <td className="block md:table-cell md:py-5 md:text-right">
-                    <a
-                      href={c.href}
-                      /* Two rows now point at /capabilities; our own page
-                         does not open in a new tab. */
-                      target={c.href.startsWith("/") ? undefined : "_blank"}
-                      rel={c.href.startsWith("/") ? undefined : "noopener noreferrer"}
-                      className="inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-oa-blue hover:underline md:min-h-0"
-                    >
-                      Verify
-                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                      <span className="sr-only">
-                        {c.credential} with {c.authority}, opens in a new tab
-                      </span>
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* ================= CAPABILITIES ================= */}
       <section className="bg-oa-paper">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-16 md:pb-20">
-          <div className="max-w-3xl">
-            {/* The heading and lede that used to sit here are now the hero -
-                they were the best copy on the page and were doing that work
-                below the fold. This section keeps only what the hero does not
-                say, so the page does not state its own positioning twice. */}
-            <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
-              What we build, and what we keep running
-            </h2>
-          </div>
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-12 md:pb-16">
+          <h2 className="max-w-3xl text-h2 font-semibold text-oa-ink">
+            What we build, and what we keep running
+          </h2>
 
-          {/* The two revenue-leading services get the wide row. */}
-          <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          {/* The four the front door leads with - the same four the Google
+              Business Profile and the Apple place card name, so the listings
+              and the site agree. */}
+          <ul className="mt-8 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-12">
             {CAPABILITIES.filter((c) => c.feature).map((c) => (
-              <Link
-                key={c.title}
-                to={c.href}
-                className="group flex flex-col rounded-xl border border-oa-hairline bg-oa-surface p-8 transition-all duration-200 hover:-translate-y-0.5 hover:border-oa-blue/40"
-              >
-                <h3 className="text-h3 font-semibold text-oa-ink">{c.title}</h3>
-                <p className="mt-3 flex-1 leading-relaxed text-oa-ink2">{c.body}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-oa-blue">
-                  Learn more
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                    aria-hidden="true"
-                  />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* The other six are a divided list, not six more cards.
-              Two cards above six cards is one shape at two sizes, which is why
-              this band read as eight identical rectangles. Cards and rows are
-              different KINDS of object, so the hierarchy is now legible at a
-              glance: two things this firm leads with, six it also does. */}
-          <ul className="mt-10 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-10">
-            {CAPABILITIES.filter((c) => !c.feature).map((c) => (
               <li key={c.title} className="border-b border-oa-hairline">
                 <Link
                   to={c.href}
-                  className="group flex items-baseline gap-4 py-5 transition-colors hover:bg-oa-surface"
+                  className="group flex items-baseline gap-4 py-4 transition-colors hover:bg-oa-surface"
                 >
                   <span className="flex-1">
-                    <span className="block font-semibold text-oa-ink">
+                    <span className="flex items-center gap-2.5 text-lg font-semibold leading-snug text-oa-ink">
+                      {/* aria-hidden + empty alt: the platform name is right
+                          next to it, so announcing the mark too would just
+                          repeat the word. */}
+                      {c.logo && (
+                        <img
+                          src={`/media/logos/${c.logo}.svg`}
+                          alt=""
+                          aria-hidden="true"
+                          width={18}
+                          height={18}
+                          className="h-[18px] w-[18px] shrink-0"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
                       {c.title}
                     </span>
                     <span className="mt-1 block text-sm leading-relaxed text-oa-ink2">
                       {c.body}
                     </span>
+                  </span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0 text-oa-blue transition-transform duration-200 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Name only, three across. These are "we also do this" - the name is
+              the whole message and the page behind it does the explaining. */}
+          <ul className="mt-8 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-3">
+            {CAPABILITIES.filter((c) => !c.feature).map((c) => (
+              <li key={c.title} className="border-b border-oa-hairline">
+                <Link
+                  to={c.href}
+                  className="group flex items-center justify-between gap-4 py-3 text-oa-ink transition-colors hover:bg-oa-surface"
+                >
+                  <span className="flex items-center gap-2.5 font-medium">
+                    {c.logo && (
+                      <img
+                        src={`/media/logos/${c.logo}.svg`}
+                        alt=""
+                        aria-hidden="true"
+                        width={16}
+                        height={16}
+                        className="h-4 w-4 shrink-0"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    {c.title}
                   </span>
                   <ArrowRight
                     className="h-4 w-4 shrink-0 text-oa-blue transition-transform duration-200 group-hover:translate-x-1"

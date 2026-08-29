@@ -46,8 +46,16 @@ export default function BinaryGlobeSVG({
         /* This 30x30 logo is the Largest Contentful Paint element on pages
            whose hero paints late — Lighthouse names it directly on
            /services/website-development and flags the missing priority hint.
-           It costs nothing on pages where it is not the LCP. */
-        fetchPriority="high"
+           It costs nothing on pages where it is not the LCP.
+
+           ⛔ Spread as lowercase `fetchpriority`, not the camelCase prop. React
+           only learned `fetchPriority` in 19; on the 18.3 in this project it is
+           an unrecognised prop, so it logged "React does not recognize the
+           fetchPriority prop on a DOM element" on every page load AND never
+           reached the HTML — the hint was silently absent, which is the part
+           that mattered. Lowercase passes straight through to the attribute.
+           Revisit if this project moves to React 19. */
+        {...{ fetchpriority: "high" }}
       />
     </picture>
   );
