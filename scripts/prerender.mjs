@@ -161,6 +161,20 @@ async function main() {
         }
       });
 
+      /* Strip runtime-only UI before serialising.
+         ⛔ page.content() returns the DOM as it stands AFTER scripts have run,
+         so anything appended at runtime gets baked into the static file. The
+         cookie banner did exactly that on 2026-08-29: every prerendered page
+         shipped with a hard-coded <div id="oa-consent">, and because the
+         runtime script returns early once a choice is stored, that copy never
+         got its click handlers. The banner was visible and its buttons did
+         nothing -- including for visitors who had already accepted.
+         Anything injected by script rather than rendered by React belongs
+         here. */
+      await page.evaluate(() => {
+        document.querySelectorAll("#oa-consent").forEach((n) => n.remove());
+      });
+
       const html = "<!doctype html>\n" + (await page.content());
 
       // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves
