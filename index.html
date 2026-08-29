@@ -26,11 +26,11 @@
          the request early — the session is still recorded — while letting
          the CSS, fonts and poster win the bandwidth race before first paint.
          184KB, and it was contending with everything. -->
-    <script
-      async
-      fetchpriority="low"
-      src="https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T"
-    ></script>
+    <!-- ⛔ The gtag script tag was here and loaded unconditionally. GA4 sets
+         cookies, and under GDPR/ePrivacy those need consent BEFORE they are
+         set, not disclosure afterwards. A privacy policy that describes the
+         cookie does not make setting it lawful. It is now injected by
+         oaConsent() below, only after the visitor accepts. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -54,9 +54,73 @@
       // not a redirect) and its visitors are real. Once www 301s to the apex
       // domain it will never execute this, and the entry can be dropped.
       const ANALYTICS_HOSTS = ["onealgorithm.com", "www.onealgorithm.com"];
-      if (ANALYTICS_HOSTS.includes(location.hostname)) {
+
+      /* Consent gate. Deliberately small: one analytics tool, so one yes/no
+         decision. No category toggles, no vendor list, no consent-management
+         platform — none of that is required to be lawful here, and each piece
+         is another thing to maintain and another second of load.
+
+         What compliance actually needs, and all this does:
+           - nothing that sets a cookie runs before a choice is made
+           - refusing is exactly as easy as accepting (equal buttons, no dark
+             pattern, no pre-selection)
+           - the choice persists, and can be changed from /privacy
+         Declining is remembered so the banner does not nag. */
+      function oaLoadAnalytics() {
+        if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
+        if (document.getElementById("ga-tag")) return;
+        const s = document.createElement("script");
+        s.id = "ga-tag";
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
+        document.head.appendChild(s);
         gtag("config", "G-RC48CMQ05T");
       }
+
+      window.oaSetConsent = function (granted) {
+        try {
+          localStorage.setItem("oa-consent", granted ? "granted" : "denied");
+        } catch (e) {
+          /* private mode: honour the click for this page view, remember nothing */
+        }
+        const el = document.getElementById("oa-consent");
+        if (el) el.remove();
+        if (granted) oaLoadAnalytics();
+      };
+
+      (function () {
+        let choice = null;
+        try {
+          choice = localStorage.getItem("oa-consent");
+        } catch (e) {}
+        if (choice === "granted") return oaLoadAnalytics();
+        if (choice === "denied") return;
+        document.addEventListener("DOMContentLoaded", function () {
+          const b = document.createElement("div");
+          b.id = "oa-consent";
+          b.setAttribute("role", "dialog");
+          b.setAttribute("aria-label", "Cookies");
+          b.style.cssText =
+            "position:fixed;left:1rem;bottom:1rem;z-index:9999;max-width:24rem;" +
+            "background:#04182b;color:#dbe4ee;border:1px solid rgba(255,166,52,.35);" +
+            "border-radius:16px;padding:14px 16px;font:14px/1.5 system-ui,sans-serif;" +
+            "box-shadow:0 10px 30px rgba(0,0,0,.35)";
+          b.innerHTML =
+            '<p style="margin:0 0 10px">We use Google Analytics to see which pages bring in work. ' +
+            'Nothing is set unless you agree. <a href="/privacy" style="color:#ffa634">Privacy</a></p>' +
+            '<div style="display:flex;gap:8px">' +
+            '<button type="button" id="oa-yes" style="flex:1;cursor:pointer;border:0;border-radius:8px;padding:8px 12px;font:600 14px system-ui,sans-serif;background:#ffa634;color:#0d1b2a">Accept</button>' +
+            '<button type="button" id="oa-no" style="flex:1;cursor:pointer;border:1px solid #9fb3c8;border-radius:8px;padding:8px 12px;font:600 14px system-ui,sans-serif;background:transparent;color:#dbe4ee">Decline</button>' +
+            "</div>";
+          document.body.appendChild(b);
+          document
+            .getElementById("oa-yes")
+            .addEventListener("click", () => window.oaSetConsent(true));
+          document
+            .getElementById("oa-no")
+            .addEventListener("click", () => window.oaSetConsent(false));
+        });
+      })();
 
       // The contact form calls window.trackFormSubmission() on success, guarded
       // by a typeof check. Nothing ever defined it, so the guard was always

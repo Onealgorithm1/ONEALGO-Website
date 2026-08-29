@@ -266,6 +266,35 @@ export default function Privacy() {
             how long for, where you arrived from, your device and browser, and
             an approximate location that Google derives from your IP address.
           </p>
+          <p>
+            <strong className="text-oa-ink">
+              None of it runs until you agree.
+            </strong>{" "}
+            Nothing from Google loads on your first visit — you are asked first,
+            and if you decline, the script is never fetched and no cookie is
+            set. Withdrawing is as easy as giving it:
+          </p>
+          {/* Withdrawal has to be as easy as consent, so this is a real control
+              rather than a paragraph telling people to clear their cookies. It
+              forgets the stored choice and reloads, which brings the banner
+              back. oaSetConsent and the "oa-consent" key are defined in
+              index.html — keep the key in step if either changes. */}
+          <p>
+            <button
+              type="button"
+              className="rounded-md bg-oa-night px-4 py-2 font-semibold text-oa-nightInk"
+              onClick={() => {
+                try {
+                  localStorage.removeItem("oa-consent");
+                } catch (e) {
+                  /* private mode: nothing was stored to forget */
+                }
+                location.reload();
+              }}
+            >
+              Change my cookie choice
+            </button>
+          </p>
           <p>We also send Google three specific events:</p>
           <ul className={LIST}>
             <li>You submitted the contact form.</li>
