@@ -43,6 +43,43 @@ const mobileSubLink =
 const mobileSubLinkNested =
   "flex min-h-[44px] items-center rounded-lg px-3 pl-8 py-2.5 text-[14px] text-gray-500 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950";
 
+/* NAVIGATION DATA - added 2026-08-27.
+ *
+ * The Services menu used to be eleven <Link> blocks written out by hand, TWICE
+ * (once for desktop, once for the mobile drawer). That duplication is why the
+ * menu drifted away from the router: /industries/marketing and
+ * /industries/website-development are real routes that no menu ever linked to,
+ * so the only way to reach them was a search result. Both menus now render from
+ * this one array, so a page cannot be added to the site and forgotten in the
+ * navigation again.
+ *
+ * WHY ONLY SIX. The homepage was repositioned on 2026-08-26 to "websites, SEO,
+ * Google Ads, marketing and CRM for small business in Chester County and the
+ * Philadelphia area", but the navigation still led with Oracle ERP, Zendesk and
+ * Staff Augmentation - so a small-business visitor opened the menu and found an
+ * enterprise IT firm. This list is now exactly the five services named in that
+ * approved positioning, plus Application Development.
+ *
+ * THE ENTERPRISE PAGES ARE NOT DELETED. Oracle ERP, Zendesk, IT Consulting,
+ * Operations Technology, MarTech and Staff Augmentation are still sold, still
+ * live at their own URLs, and still linked from the /services index and from
+ * the sibling wire under every service hero - so no URL breaks and no ranking
+ * is lost. They are simply no longer the first thing a local business reads.
+ * Louis's call, 2026-08-27.
+ *
+ * Labels are deliberately short ("Websites", not "Website Development"). The
+ * long form made the sibling wire under the hero reflow as it loaded, measured
+ * at CLS 0.166 against a 0.1 budget on a page whose siblings measured 0.000.
+ */
+const SERVICE_ITEMS: { to: string; label: string }[] = [
+  { to: "/services/website-development", label: "Websites" },
+  { to: "/services/application-development", label: "App Development" },
+  { to: "/services/seo", label: "SEO" },
+  { to: "/services/google-ads", label: "Google Ads" },
+  { to: "/services/marketing", label: "Marketing" },
+  { to: "/services/salesforce", label: "Salesforce & CRM" },
+];
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -365,116 +402,19 @@ function Layout({ children }: LayoutProps) {
                     id="services-menu"
                   >
                     <div className="py-2">
-                      <Link
-                        to="/services/website-development"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Website Development
-                      </Link>
-                      <Link
-                        to="/services/marketing"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Marketing
-                      </Link>
-                      <Link
-                        to="/services/martech"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        MarTech
-                      </Link>
-                      <Link
-                        to="/services/google-ads"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Google Ads
-                      </Link>
-                      <Link
-                        to="/services/seo"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        SEO Services
-                      </Link>
-                      <Link
-                        to="/services/staff-augmentation"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Staff Augmentation
-                      </Link>
-                      <Link
-                        to="/services/it-consulting"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        IT Consulting
-                      </Link>
-                      <Link
-                        to="/services/operations-technology"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Operations Technology
-                      </Link>
-                      <Link
-                        to="/services/oracle-erp"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Oracle ERP
-                      </Link>
-                      <Link
-                        to="/services/salesforce"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Salesforce
-                      </Link>
-                      <Link
-                        to="/services/zendesk"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setServicesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Zendesk
-                      </Link>
+                      {SERVICE_ITEMS.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                          onClick={() => {
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -723,127 +663,20 @@ function Layout({ children }: LayoutProps) {
 
                 {servicesDropdownOpen && (
                   <div id="mobile-services" className="pl-4">
-                    <Link
-                      to="/services/website-development"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Website Development
-                    </Link>
-                    <Link
-                      to="/services/marketing"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Marketing
-                    </Link>
-                    <Link
-                      to="/services/martech"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      MarTech
-                    </Link>
-                    <Link
-                      to="/services/google-ads"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Google Ads
-                    </Link>
-                    <Link
-                      to="/services/seo"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      SEO Services
-                    </Link>
-                    <Link
-                      to="/services/staff-augmentation"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Staff Augmentation
-                    </Link>
-                    <Link
-                      to="/services/it-consulting"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      IT Consulting
-                    </Link>
-                    <Link
-                      to="/services/operations-technology"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Operations Technology
-                    </Link>
-                    <Link
-                      to="/services/oracle-erp"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Oracle ERP
-                    </Link>
-                    <Link
-                      to="/services/salesforce"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Salesforce
-                    </Link>
-                    <Link
-                      to="/services/zendesk"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setServicesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Zendesk
-                    </Link>
+                    {SERVICE_ITEMS.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className={mobileSubLink}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setServicesDropdownOpen(false);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>

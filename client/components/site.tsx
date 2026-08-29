@@ -458,13 +458,14 @@ type HeroClass = "service" | "industry" | "company" | "utility";
    the same commit as a hero redesign. The orphan checker
    (scripts/orphan-check.mjs) catches the reverse case. */
 const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
-  ["/services/staff-augmentation", "Staff Augmentation"],
-  ["/services/website-development", "Website Development"],
+  ["/services/staff-augmentation", "Staffing"],
+  ["/services/website-development", "Websites"],
+  ["/services/application-development", "App Development"],
   ["/services/oracle-erp", "Oracle ERP"],
   ["/services/salesforce", "Salesforce"],
   ["/services/it-consulting", "IT Consulting"],
-  ["/services/operations-technology", "Operations Technology"],
-  ["/services/marketing", "Marketing & Social"],
+  ["/services/operations-technology", "Operations Tech"],
+  ["/services/marketing", "Marketing"],
   ["/services/martech", "MarTech"],
   ["/services/google-ads", "Google Ads"],
   ["/services/seo", "SEO"],
@@ -745,11 +746,51 @@ function ScopeStrip({
   );
 }
 
-/** Terminal strip for the company pages. Same treatment as the homepage strip,
- *  deliberately: it is the one element on the site a government buyer has to be
- *  able to read and copy. Every value is read from shared/companyProfile, and
- *  the last cell is the live SBA record so the row above it can be checked
- *  rather than believed. */
+/** The certifications that carry a checkable number. Canonical list, shared,
+ *  so the hero rail says the same thing on every page that renders it. The
+ *  longer "don't take our word for it" list on /about (COSTARS, SWaM) is a
+ *  superset kept on that page -- those two are searched by name and issue no
+ *  public number we hold, so they cannot carry their own reference here. */
+export const CERTIFICATIONS: Credential[] = [
+  {
+    credential: "Certified WBE",
+    short: "WBENC",
+    authority: "Women's Business Enterprise National Council",
+    reference: "WBE2600434",
+    href: "/capabilities",
+  },
+  {
+    credential: "Certified MBE",
+    short: "NMSDC",
+    authority: "National Minority Supplier Development Council",
+    reference: "PT100000051",
+    href: "/capabilities",
+  },
+  {
+    credential: "Consulting Partner",
+    short: "Salesforce",
+    authority: "Salesforce AppExchange",
+    reference: "a0N3A00000EV7SwUAL",
+    href: "https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a0N3A00000EV7SwUAL",
+  },
+];
+
+/** Terminal strip at the foot of the hero. It is the one element on the site a
+ *  government or supplier-diversity buyer has to be able to read and copy.
+ *
+ *  TWO REGISTERS, ONE STRIP. Louis, 2026-08-28: the certifications belong "with
+ *  everything like the about page at the bottom of the hero". They are kept as
+ *  two labelled groups rather than nine equal cells in a row, because they
+ *  answer different questions -- "who are you, on paper" and "what are you
+ *  certified as" -- and a nine-cell run reads as a wall of codes with no way in.
+ *
+ *  WHITESPACE. The groups are separated by a hairline and a full row of space,
+ *  not by a bigger gap: at 1440 a gap large enough to read as a separator also
+ *  pushes the last cell off the measure. Within a group the column gap is
+ *  deliberately wider than the row gap, so the eye tracks across a row rather
+ *  than down a column -- these are pairs, not a table.
+ *
+ *  Every value is read from shared/companyProfile; nothing here is typed in. */
 function IdentifierRail() {
   const rows: [string, string][] = [
     ["UEI", siteConfig.identifiers.uei],
@@ -760,28 +801,145 @@ function IdentifierRail() {
   ];
   return (
     <div className="relative z-10 border-t border-white/10 bg-oa-night">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-end gap-x-6 gap-y-4 px-4 py-4 font-mono text-sm sm:gap-x-10 sm:px-6 sm:py-5 lg:px-8">
-        <dl className="flex flex-wrap gap-x-6 gap-y-4 sm:gap-x-10">
-          {rows.map(([label, value]) => (
-            <div key={label}>
-              {/* 12px floor. These get transcribed by hand. */}
-              <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
-                {label}
-              </dt>
-              <dd className="text-oa-nightInk2">{value}</dd>
-            </div>
-          ))}
+      <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
+        {/* ---- registration ---- */}
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+          <dl className="flex flex-wrap gap-x-8 gap-y-5 font-mono text-sm sm:gap-x-12">
+            {rows.map(([label, value]) => (
+              <div key={label}>
+                {/* 12px floor. These get transcribed by hand. */}
+                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
+                  {label}
+                </dt>
+                <dd className="mt-1 text-oa-nightInk2">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <a
+            href={siteConfig.sbaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center gap-1.5 font-mono text-sm text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
+          >
+            Verify on SBA
+            <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          </a>
+        </div>
+
+        {/* ---- certifications ---- */}
+        {/* Two columns at phone width, not a stack. Measured 2026-08-28: stacked,
+            the three certifications ran 210px on their own because each label
+            plus its 44px tap target is ~70px. Paired, the same content is ~140px
+            and the rail drops from 494px to ~420px -- which matters directly
+            under a hero, where every pixel pushes the page down. It relaxes to
+            a single wrapping row from sm up, where all three fit across. */}
+        <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-6 font-mono text-sm sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-5">
+          {CERTIFICATIONS.map((c) => {
+            const external = !c.href.startsWith("/");
+            return (
+              <div key={c.credential}>
+                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
+                  {c.credential} &middot; {c.short}
+                </dt>
+                <dd className="mt-1">
+                  {/* The reference number IS the link: a badge is a claim, a
+                      number pointing at the registry that issued it is a
+                      record. ⛔ Never truncate one -- it exists to be copied. */}
+                  <a
+                    href={c.href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="inline-flex min-h-11 items-center gap-1.5 text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
+                  >
+                    {c.reference ?? "Verify"}
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    <span className="sr-only">
+                      {c.credential} with {c.authority}
+                      {external ? ", opens in a new tab" : ""}
+                    </span>
+                  </a>
+                </dd>
+              </div>
+            );
+          })}
         </dl>
-        <a
-          href={siteConfig.sbaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex min-h-11 items-center gap-1.5 text-sm text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
-        >
-          Verify on SBA
-          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-        </a>
       </div>
+    </div>
+  );
+}
+
+export { IdentifierRail };
+
+export type Credential = {
+  /** What we hold. Shown as the label. */
+  credential: string;
+  /** The issuing body, abbreviated -- WBENC, not "Women's Business Enterprise
+   *  National Council". The full name goes in `authority` for screen readers. */
+  short: string;
+  authority: string;
+  /** The checkable number. `null` where the registry issues none. */
+  reference: string | null;
+  href: string;
+};
+
+/** Certifications in the IdentifierRail treatment -- label over value, mono,
+ *  one wrapping strip.
+ *
+ *  Louis, 2026-08-28: "it shoul look like the way you have it on the about
+ *  page". The four-column table this replaces cost 394px on desktop and 652px
+ *  on mobile to carry three facts. The rail is the same information as two
+ *  short lines: what we hold, and the number that proves it.
+ *
+ *  The REFERENCE NUMBER is the link. That is the whole argument of this
+ *  element -- a badge is a claim, "WBE2600434" pointing at the registry that
+ *  issued it is a record. ⛔ Do not replace these with certification seal
+ *  images, and do not truncate a reference: it exists to be copied.
+ *
+ *  Shared so the homepage and /about cannot drift apart on what we claim. */
+export function CredentialRail({
+  items,
+  caption,
+  className = "",
+}: {
+  items: Credential[];
+  caption?: string;
+  className?: string;
+}) {
+  return (
+    <div className={className}>
+      {caption ? (
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.06em] text-oa-ink3">
+          {caption}
+        </p>
+      ) : null}
+      <dl className="flex flex-wrap gap-x-10 gap-y-5 border-t border-oa-hairline pt-5 font-mono text-sm sm:gap-x-12">
+        {items.map((c) => {
+          const external = !c.href.startsWith("/");
+          return (
+            <div key={c.credential}>
+              {/* 12px floor, same as IdentifierRail: these get transcribed. */}
+              <dt className="text-xs uppercase tracking-wider text-oa-ink3">
+                {c.credential} &middot; {c.short}
+              </dt>
+              <dd className="mt-1">
+                <a
+                  href={c.href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="inline-flex min-h-11 items-center gap-1.5 text-oa-blue underline underline-offset-4 hover:text-oa-blue700 sm:min-h-0"
+                >
+                  {c.reference ?? "Verify"}
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <span className="sr-only">
+                    {c.credential} with {c.authority}
+                    {external ? ", opens in a new tab" : ""}
+                  </span>
+                </a>
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
     </div>
   );
 }

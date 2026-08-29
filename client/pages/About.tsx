@@ -17,6 +17,8 @@ import {
   Prose,
   Card,
   CTABand,
+  CredentialRail,
+  type Credential,
 } from "../components/site";
 
 /* About - 2026 refresh, restructured 2026-08-12.
@@ -84,17 +86,29 @@ const FACTS: [string, string][] = [
    fetched and confirmed to list this company. The Virginia SWaM directory is a
    single-page app with no per-record permalink, so it links to the directory
    rather than implying a deep link that does not exist. */
-const CREDENTIALS: [string, string][] = [
-  [sbaUrl, "SBA-certified WOSB / EDWOSB"],
-  [
-    "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
-    "PA COSTARS supplier (4400033848)",
-  ],
-  ["https://directory.sbsd.virginia.gov/#/directory", "Virginia SWaM certified"],
-  [
-    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
-    "Salesforce Consulting Partner",
-  ],
+/* Restructured 2026-08-28 from [href, label] tuples to the shared Credential
+   shape, so this page and the homepage render certifications through the same
+   CredentialRail and cannot drift apart on what we claim.
+
+   ⛔ `reference: null` renders "Verify" rather than a number, and that is
+   deliberate: Virginia's directory is searched by name and issues no public
+   certificate number we hold. Inventing one to make the row look complete
+   would destroy the only thing this element is for. */
+const CREDENTIALS: Credential[] = [
+  {
+    credential: "COSTARS supplier",
+    short: "PA DGS",
+    authority: "Pennsylvania Department of General Services",
+    reference: "4400033848",
+    href: "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
+  },
+  {
+    credential: "SWaM certified",
+    short: "Virginia SBSD",
+    authority: "Virginia Department of Small Business and Supplier Diversity",
+    reference: null,
+    href: "https://directory.sbsd.virginia.gov/#/directory",
+  },
 ];
 
 const SEO_DESCRIPTION =
@@ -194,20 +208,12 @@ export default function About() {
                 Open them.
               </p>
 
-              <ul className="mt-6 divide-y divide-oa-hairline border-t border-oa-hairline">
-                {CREDENTIALS.map(([href, label]) => (
-                  <li key={href} className="py-3.5">
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener"
-                      className="font-medium text-oa-blue hover:text-oa-blue700"
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {/* WBENC / NMSDC / Salesforce are NOT repeated here -- they now
+                  ride in the hero rail at the top of this page. What is left is
+                  the pair that rail cannot carry: COSTARS and SWaM are searched
+                  by name and issue no public number, so they have nothing to
+                  print in a reference cell and belong in a list of links. */}
+              <CredentialRail items={CREDENTIALS} className="mt-6" />
 
               <dl className="mt-6 grid gap-3 border-t border-oa-hairline pt-5 sm:grid-cols-2">
                 <div>

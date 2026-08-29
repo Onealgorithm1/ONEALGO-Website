@@ -70,6 +70,9 @@ const Government = lazy(() => import("./pages/industries/Government"));
 const WebsiteDevelopment = lazy(
   () => import("./pages/services/WebsiteDevelopment"),
 );
+const ApplicationDevelopment = lazy(
+  () => import("./pages/services/ApplicationDevelopment"),
+);
 const Marketing = lazy(() => import("./pages/services/Marketing"));
 const Seo = lazy(() => import("./pages/services/Seo"));
 const Martech = lazy(() => import("./pages/services/Martech"));
@@ -137,6 +140,10 @@ const App = () => (
               <Route
                 path="/services/website-development"
                 element={<WebsiteDevelopment />}
+              />
+              <Route
+                path="/services/application-development"
+                element={<ApplicationDevelopment />}
               />
               <Route path="/services/marketing" element={<Marketing />} />
               <Route path="/services/seo" element={<Seo />} />
