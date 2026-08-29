@@ -89,6 +89,13 @@
       };
 
       (function () {
+        /* Global Privacy Control. Under CCPA/CPRA a GPC header or
+           navigator.globalPrivacyControl is a legally binding opt-out, so asking
+           these visitors would be theatre -- and showing a banner to someone who
+           has already refused at browser level is the dark pattern the rule
+           exists to stop. Treat as denied, load nothing, show nothing. */
+        if (navigator.globalPrivacyControl === true) return;
+
         let choice = null;
         try {
           choice = localStorage.getItem("oa-consent");
@@ -100,17 +107,39 @@
           b.id = "oa-consent";
           b.setAttribute("role", "dialog");
           b.setAttribute("aria-label", "Cookies");
-          b.style.cssText =
-            "position:fixed;left:1rem;bottom:1rem;z-index:9999;max-width:24rem;" +
-            "background:#04182b;color:#dbe4ee;border:1px solid rgba(255,166,52,.35);" +
-            "border-radius:16px;padding:14px 16px;font:14px/1.5 system-ui,sans-serif;" +
-            "box-shadow:0 10px 30px rgba(0,0,0,.35)";
+          /* A stylesheet rather than inline styles, because the two shapes are
+             a media query and cssText cannot hold one. Phone: a compact card
+             above the thumb. Desktop: a full-width strip along the bottom,
+             text left and buttons right, so it never sits over the hero. */
+          const css = document.createElement("style");
+          css.textContent =
+            "#oa-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:9999;" +
+            "max-width:23rem;margin-inline:auto;background:#04182b;color:#dbe4ee;" +
+            "border:1px solid rgba(255,166,52,.35);border-radius:16px;padding:11px 13px;" +
+            "font:12px/1.45 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.35)}" +
+            "#oa-consent p{margin:0 0 9px}" +
+            "#oa-consent .oa-btns{display:flex;gap:8px}" +
+            "#oa-consent button{flex:1;cursor:pointer;border-radius:8px;padding:7px 12px;" +
+            "font:600 12px system-ui,sans-serif}" +
+            "#oa-yes{border:0;background:#ffa634;color:#0d1b2a}" +
+            "#oa-no{border:1px solid #9fb3c8;background:transparent;color:#dbe4ee}" +
+            "#oa-consent a{color:#ffa634}" +
+            "@media(min-width:768px){" +
+            "#oa-consent{left:0;right:0;bottom:0;max-width:none;margin:0;border-radius:0;" +
+            "border-left:0;border-right:0;border-bottom:0;padding:10px 24px;" +
+            "display:flex;align-items:center;justify-content:center;gap:20px}" +
+            "#oa-consent p{margin:0;max-width:70ch}" +
+            "#oa-consent .oa-btns{flex:none}" +
+            "#oa-consent button{flex:none;min-width:104px}}";
+          document.head.appendChild(css);
+
           b.innerHTML =
-            '<p style="margin:0 0 10px">We use Google Analytics to see which pages bring in work. ' +
-            'Nothing is set unless you agree. <a href="/privacy" style="color:#ffa634">Privacy</a></p>' +
-            '<div style="display:flex;gap:8px">' +
-            '<button type="button" id="oa-yes" style="flex:1;cursor:pointer;border:0;border-radius:8px;padding:8px 12px;font:600 14px system-ui,sans-serif;background:#ffa634;color:#0d1b2a">Accept</button>' +
-            '<button type="button" id="oa-no" style="flex:1;cursor:pointer;border:1px solid #9fb3c8;border-radius:8px;padding:8px 12px;font:600 14px system-ui,sans-serif;background:transparent;color:#dbe4ee">Decline</button>' +
+            "<p>We use Google Analytics to see which pages bring in work. " +
+            "Nothing is set unless you agree, and we never sell or rent your information. " +
+            '<a href="/privacy">Privacy</a></p>' +
+            '<div class="oa-btns">' +
+            '<button type="button" id="oa-yes">Accept</button>' +
+            '<button type="button" id="oa-no">Decline</button>' +
             "</div>";
           document.body.appendChild(b);
           document

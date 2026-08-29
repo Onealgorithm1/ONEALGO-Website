@@ -1103,21 +1103,27 @@ export default function SystemCanvas({ className = "" }: { className?: string })
               ) : (
                 /* Filler rows that hold the log height steady while it fills.
                    aria-hidden keeps a screen reader from announcing "dot dot
-                   dot dot" four times, which is a real improvement and the
-                   reason it is here.
+                   dot dot" four times.
 
-                   ponytail: it does NOT clear the axe color-contrast finding
-                   (1.86:1, #32475a on #04182b) and was verified not to -
-                   aria-hidden hides from assistive tech, not from eyes, and
-                   contrast is a visual rule. Ceiling: the homepage a11y gate
-                   will keep reporting 3 nodes here. These dots are "pure
-                   decoration" and therefore exempt under WCAG 1.4.3
-                   Incidental, but axe cannot know that. Upgrade path if the
-                   gate must go green: stop using text characters and draw the
-                   placeholder as a CSS dotted rule (border-bottom dotted), so
-                   there is no text for the rule to measure. */
-                <li key={i} className="text-oa-nightInk3/30" aria-hidden="true">
-                  ····
+                   This is the upgrade path the previous note described, taken
+                   on 2026-08-29. It used to render the literal characters
+                   "····" in nightInk3/30, which axe measured at 1.86:1 and
+                   reported as three color-contrast nodes on the homepage. The
+                   dots are pure decoration and therefore exempt under WCAG
+                   1.4.3 Incidental, so the site was never actually failing --
+                   but axe cannot know that, and a gate that is permanently red
+                   for a known-exempt reason is a gate nobody reads. A real
+                   regression would have hidden behind these three.
+
+                   Drawn as a dotted border instead: identical appearance, no
+                   text node for a contrast rule to measure. Keep it text-free
+                   if this is restyled. */
+                <li
+                  key={i}
+                  aria-hidden="true"
+                  className="flex h-[1.2em] items-center"
+                >
+                  <span className="w-16 border-b border-dotted border-oa-nightInk3/30" />
                 </li>
               ),
             )}
