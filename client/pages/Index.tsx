@@ -417,14 +417,16 @@ export default function Index() {
               solutions tailored to you.
             </p>
 
-            <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
-              A woman-owned IT consultancy working with companies across the
-              United States: website development, Salesforce, Oracle ERP and
-              system integration — and the search, ads and follow-up that get a
-              business found. Add senior people to your team, or hand us the
-              whole build; the same team is there from the first workshop to the
-              run-state.
-            </p>
+            {/* Louis, 2026-08-29: the lede paragraph that sat here was removed
+                on request. It ran "A woman-owned IT consultancy working with
+                companies across the United States..." and listed the whole
+                service line before the visitor had a reason to care.
+
+                The hero still says what the company does: the headline, the
+                "From Strategy to Support" eyebrow and the tagline beneath it
+                all survive, and the single CTA follows immediately. Nothing
+                below moves, because the button already carried its own top
+                margin rather than depending on this paragraph. */}
 
             {/* ONE action. The capability-statement PDF used to sit here as a
                 second button: it opens a new tab, ends the session and captures
