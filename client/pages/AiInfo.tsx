@@ -24,7 +24,7 @@ export default function AiInfo() {
   useSEO({
     title: "About OneAlgorithm — AI & Search Information",
     description:
-      "OneAlgorithm is a Malvern, PA-based IT consulting, website development, and digital marketing company serving Construction, Manufacturing, and E-Commerce businesses.",
+      "OneAlgorithm is a Malvern, PA IT consulting, web development and digital marketing company serving construction, manufacturing and e-commerce.",
     canonical: getCanonicalUrl("/ai-info"),
     keywords:
       "OneAlgorithm, IT consulting Malvern PA, website development, operations technology, staff augmentation, digital marketing",

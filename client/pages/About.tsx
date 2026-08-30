@@ -112,7 +112,7 @@ const CREDENTIALS: Credential[] = [
 ];
 
 const SEO_DESCRIPTION =
-  "One Algorithm is a woman- and minority-owned small business in Malvern, Pennsylvania, founded in 2020. Meet the four people who run it — leadership, delivery, compliance and partnerships — and check the certifications yourself.";
+  "A woman- and minority-owned small business in Malvern, Pennsylvania, founded in 2020. Meet the four people who run it, and check the certifications yourself.";
 
 export default function About() {
   useSEO({

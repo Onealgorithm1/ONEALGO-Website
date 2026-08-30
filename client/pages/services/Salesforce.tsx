@@ -212,7 +212,7 @@ export default function Salesforce() {
     // 155 characters. The previous one was 203 and lost its last third to SERP
     // truncation.
     description:
-      "Listed Salesforce Consulting Partner working with companies across the United States: 16 certified people, 52 certifications. Sales and Service Cloud, migration, and a free org review.",
+      "Listed Salesforce Consulting Partner: 16 certified people, 52 certifications. Sales and Service Cloud, data migration, and a free org review.",
     canonical: getCanonicalUrl("/services/salesforce"),
     ogTitle: "Salesforce Consulting Partner — OneAlgorithm",
     ogDescription:

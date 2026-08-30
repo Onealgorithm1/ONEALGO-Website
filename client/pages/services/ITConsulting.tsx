@@ -134,7 +134,7 @@ export default function ITConsulting() {
   useSEO({
     title: "OneAlgorithm — IT Consulting",
     description:
-      "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. A woman-owned consultancy in Malvern, Pennsylvania.",
+      "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing and tool selection. Malvern, PA.",
     canonical: getCanonicalUrl("/services/it-consulting"),
     // `keywords` is kept as-is. Google ignores it, and it is the only record on
     // the page of the terms this URL has historically been optimised for -

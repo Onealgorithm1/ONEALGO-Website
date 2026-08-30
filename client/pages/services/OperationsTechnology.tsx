@@ -192,7 +192,7 @@ export default function OperationsTechnology() {
   useSEO({
     title: "OneAlgorithm — Operations Tech",
     description:
-      "Operations technology: industrial automation, SCADA and real-time monitoring, IoT and sensor integration, OT network security, and maintenance systems driven by run-hour and condition data.",
+      "Operations technology: industrial automation, SCADA and real-time monitoring, IoT and sensor integration, OT network security and maintenance systems.",
     canonical: getCanonicalUrl("/services/operations-technology"),
     keywords:
       "operations technology, industrial automation, process optimization, monitoring systems, equipment integration, OT services, manufacturing technology",

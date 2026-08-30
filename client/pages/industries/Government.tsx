@@ -151,7 +151,7 @@ export default function Government() {
     title:
       "Government Contracting — OneAlgorithm | WOSB/EDWOSB, SAM registered",
     description:
-      "Set-aside eligible and registered to receive award: SBA-certified WOSB/EDWOSB, active SAM registration, UEI W8DYK38MEKP3, CAGE 14G18, published NAICS and PSC codes, and state procurement registrations. No contract has been awarded yet, and we say so.",
+      "SBA-certified WOSB/EDWOSB, active SAM registration, UEI W8DYK38MEKP3, CAGE 14G18, set-aside eligible. No contract awarded yet, and we say so.",
     canonical: getCanonicalUrl("/industries/government"),
     keywords:
       "WOSB EDWOSB contractor, SAM registered small business, UEI W8DYK38MEKP3, CAGE 14G18, set-aside eligible IT contractor, COSTARS eVA registered supplier, small business teaming partner",

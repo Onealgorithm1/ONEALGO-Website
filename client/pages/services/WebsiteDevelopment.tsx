@@ -68,7 +68,7 @@ const BUILD = [
   {
     title: "Sites people can actually use",
     description:
-      "Hand-written HTML, CSS and TypeScript rather than a page builder's output. Accessible to WCAG 2.1 AA, fast on a phone on a bad connection, and readable by the search engines and AI assistants that decide whether anyone finds you.",
+      "Built to web standards rather than assembled in a page builder. Accessible to WCAG 2.1 AA, fast on a phone on a bad connection, and readable by the search engines and AI assistants that decide whether anyone finds you.",
     details: [
       "Semantic markup, real headings, keyboard-reachable everything",
       "Core Web Vitals treated as a budget, not an afterthought",
@@ -289,7 +289,7 @@ export default function WebsiteDevelopment() {
                 Tell us what the site has to do. We put the scope and the price in
                 writing before implementation begins, and if the number is wrong
                 for you we will say what we would cut to get there. Our pricing is
-                affordable for what it is — hand-built work you own outright — and
+                affordable for what it is — custom work you own outright — and
                 we would rather show you that against your actual scope than
                 against someone else's average.
               </p>

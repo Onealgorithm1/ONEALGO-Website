@@ -62,7 +62,7 @@ export default function Marketing() {
   useSEO({
     title: "Technology for Marketing Teams — OneAlgorithm",
     description:
-      "What a marketing team gets from us: social media management on accounts you own, MarTech integration between campaign tools and CRM, and the analytics underneath. The detail lives on our service pages.",
+      "What a marketing team gets from us: social media on accounts you own, MarTech integration between campaign tools and CRM, and the analytics under it.",
     canonical: getCanonicalUrl("/industries/marketing"),
     keywords:
       "marketing technology consulting, martech integration, social media management services, campaign platform CRM integration, marketing analytics consulting",

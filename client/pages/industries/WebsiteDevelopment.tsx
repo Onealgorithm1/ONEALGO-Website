@@ -64,7 +64,7 @@ export default function WebsiteDevelopment() {
   useSEO({
     title: "Website Development by Sector — OneAlgorithm",
     description:
-      "The build is the same build in every sector. What changes is what the site connects to and which accessibility standard it is measured against. Website development from a small IT consultancy in Malvern, PA.",
+      "The build is the same in every sector. What changes is what the site connects to, and which accessibility standard it is measured against.",
     canonical: getCanonicalUrl("/industries/website-development"),
     keywords:
       "website development by industry, accessible website development, WCAG AA website build, subcontractor portal development, public sector website accessibility",

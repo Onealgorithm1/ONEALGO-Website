@@ -100,7 +100,7 @@ export default function Zendesk() {
   useSEO({
     title: "OneAlgorithm — Zendesk Implementation & Support",
     description:
-      "Zendesk Implementation & Support from OneAlgorithm — setup, configuration, support workflow design, automation, knowledge base, reporting, and Salesforce/CRM integration. One Algorithm is a Zendesk partner.",
+      "Zendesk implementation and support: setup, workflow design, automation, knowledge base, reporting and Salesforce integration. A Zendesk partner.",
     canonical: getCanonicalUrl("/services/zendesk"),
     keywords:
       "Zendesk implementation, Zendesk support, Zendesk configuration, Zendesk automation, Zendesk Salesforce integration, customer support software, help desk setup",

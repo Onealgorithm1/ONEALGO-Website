@@ -94,7 +94,7 @@ export default function Industries() {
     title:
       "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
     description:
-      "Where our work lands: construction, manufacturing, e-commerce and government, plus two pages that are not industries at all. Each says plainly what we do and what we have not done.",
+      "Where our work lands: construction, manufacturing, e-commerce and government. Each page says plainly what we do and what we have not done.",
     canonical: getCanonicalUrl("/industries"),
     keywords:
       "construction technology consulting, manufacturing systems integration, e-commerce integration, government contracting WOSB EDWOSB, IT consulting by industry, Malvern PA",
@@ -113,7 +113,7 @@ export default function Industries() {
       <StructuredData
         data={createWebPageSchema(
           "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
-          "Where our work lands: construction, manufacturing, e-commerce and government, plus two pages that are not industries at all. Each says plainly what we do and what we have not done.",
+          "Where our work lands: construction, manufacturing, e-commerce and government. Each page says plainly what we do and what we have not done.",
           "https://onealgorithm.com/industries",
         )}
       />
