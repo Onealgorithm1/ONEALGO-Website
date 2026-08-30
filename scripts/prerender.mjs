@@ -74,7 +74,25 @@ async function main() {
   const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
   let ok = 0, failed = [];
 
-  for (const route of ROUTES) {
+  /* ⛔ RENDER IN PARALLEL. This was a serial for-loop and it cost 135s for 27
+     routes -- roughly 5s each, nearly all of it the fixed scroll-and-settle
+     waits below rather than real work, and it dominated every Cloudflare build
+     (the vite build beside it is ~12s). The routes are independent: each gets
+     its own page, writes its own file and shares nothing but the browser and
+     the static server, so there is no ordering to preserve.
+
+     Concurrency is deliberately modest. CI build containers are memory-limited
+     and every worker holds a live page with a full React app in it; 5 was
+     comfortable locally and leaves headroom. Override with PRERENDER_CONCURRENCY.
+
+     Log lines now interleave by completion rather than by route order, which is
+     why each one still names its route. */
+  const CONCURRENCY = Math.max(1, Number(process.env.PRERENDER_CONCURRENCY) || 5);
+  const queue = [...ROUTES];
+
+  const worker = async () => {
+    let route;
+    while ((route = queue.shift()) !== undefined) {
     const page = await browser.newPage();
     try {
       // Third-party requests are blocked for the render. Waiting for
@@ -231,7 +249,11 @@ async function main() {
     } finally {
       await page.close();
     }
-  }
+    }
+  };
+  await Promise.all(
+    Array.from({ length: Math.min(CONCURRENCY, ROUTES.length) }, worker),
+  );
 
   await browser.close();
   server.close();
