@@ -346,6 +346,19 @@
     --marquee-fade: 2rem;
   }
 
+  /* ⛔ isolation + translateZ(0) on the overlays are WebKit-load-bearing.
+     The track is a composited layer (its transform animates), and WebKit was
+     compositing it ABOVE these overlays despite the z-index -- reproduced in
+     Playwright WebKit at iPhone metrics on 2026-08-30: no fade at either end,
+     logos sliced mid-letter at full opacity at the clip edge, popping in and
+     out abruptly, which reads as flicker. Chrome honours plain z-index here,
+     which is why desktop checks never showed it. isolate pins the stacking
+     context; translateZ(0) lifts each overlay into the compositor so the
+     z-order is resolved there, where the track lives. */
+  .marquee {
+    isolation: isolate;
+  }
+
   .marquee::before,
   .marquee::after {
     content: "";
@@ -354,6 +367,7 @@
     bottom: 0;
     width: var(--marquee-fade);
     z-index: 1;
+    transform: translateZ(0);
     pointer-events: none;
   }
 
