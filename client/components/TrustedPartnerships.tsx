@@ -71,48 +71,48 @@ import React from "react";
    ORIGINAL file rather than the reversed one. Only Notion qualifies -- its
    black N and rule sit on the logo's own white page, and whitening them would
    merge the N into the page and produce a solid white blob. */
-type Mark = { name: string; file: string; h: number; ownGround?: boolean };
+type Mark = { name: string; file: string; h: number; w: number; ownGround?: boolean };
 
 const PLATFORMS: Mark[] = [
   // Enterprise platforms and CRM
-  { name: "Salesforce", file: "salesforce", h: 21.7 },
-  { name: "Oracle", file: "oracle", h: 9.4 },
-  { name: "Microsoft", file: "microsoft", h: 12 },
-  { name: "Microsoft Dynamics 365", file: "dynamics-365", h: 18.5 },
-  { name: "ServiceNow", file: "servicenow", h: 10 },
-  { name: "Zendesk", file: "zendesk", h: 22 },
-  { name: "HubSpot", file: "hubspot", h: 14.1 },
-  { name: "Zoho", file: "zoho", h: 17.2 },
-  { name: "monday.com", file: "monday", h: 10.5 },
-  { name: "QuickBooks", file: "quickbooks", h: 14.5 },
-  { name: "DocuSign", file: "docusign", h: 11.7 },
-  { name: "Twilio", file: "twilio", h: 14.2 },
+  { name: "Salesforce", file: "salesforce", h: 21.7, w: 31 },
+  { name: "Oracle", file: "oracle", h: 9.4, w: 72 },
+  { name: "Microsoft", file: "microsoft", h: 12, w: 56.3 },
+  { name: "Microsoft Dynamics 365", file: "dynamics-365", h: 18.5, w: 53.3 },
+  { name: "ServiceNow", file: "servicenow", h: 10, w: 67.7 },
+  { name: "Zendesk", file: "zendesk", h: 22, w: 31 },
+  { name: "HubSpot", file: "hubspot", h: 14.1, w: 48 },
+  { name: "Zoho", file: "zoho", h: 17.2, w: 39.3 },
+  { name: "monday.com", file: "monday", h: 10.5, w: 107 },
+  { name: "QuickBooks", file: "quickbooks", h: 14.5, w: 57.3 },
+  { name: "DocuSign", file: "docusign", h: 11.7, w: 58 },
+  { name: "Twilio", file: "twilio", h: 14.2, w: 47.7 },
   // Marketing, advertising and social
-  { name: "Zapier", file: "zapier", h: 17.6 },
-  { name: "Google Ads", file: "google-ads", h: 29.1 },
-  { name: "Google Analytics", file: "google-analytics", h: 16.5 },
-  { name: "Meta", file: "meta", h: 11.7 },
-  { name: "Instagram", file: "instagram", h: 26 },
-  { name: "LinkedIn", file: "linkedin", h: 13.1 },
-  { name: "TikTok", file: "tiktok", h: 10 },
+  { name: "Zapier", file: "zapier", h: 17.6, w: 38.7 },
+  { name: "Google Ads", file: "google-ads", h: 29.1, w: 23.3 },
+  { name: "Google Analytics", file: "google-analytics", h: 16.5, w: 48.3 },
+  { name: "Meta", file: "meta", h: 11.7, w: 58 },
+  { name: "Instagram", file: "instagram", h: 26, w: 26 },
+  { name: "LinkedIn", file: "linkedin", h: 13.1, w: 51.3 },
+  { name: "TikTok", file: "tiktok", h: 10, w: 44 },
   // Build, commerce and infrastructure
-  { name: "Cloudflare", file: "cloudflare", h: 16.5 },
-  { name: "WordPress", file: "wordpress", h: 26 },
-  { name: "Shopify", file: "shopify", h: 14.6 },
-  { name: "Stripe", file: "stripe", h: 16.8 },
-  { name: "GitHub", file: "github", h: 11 },
-  { name: "Notion", file: "notion", h: 22, ownGround: true },
-  { name: "Ghost", file: "ghost", h: 18 },
+  { name: "Cloudflare", file: "cloudflare", h: 16.5, w: 50.3 },
+  { name: "WordPress", file: "wordpress", h: 26, w: 26 },
+  { name: "Shopify", file: "shopify", h: 14.6, w: 46.7 },
+  { name: "Stripe", file: "stripe", h: 16.8, w: 40 },
+  { name: "GitHub", file: "github", h: 11, w: 38.7 },
+  { name: "Notion", file: "notion", h: 22, w: 22, ownGround: true },
+  { name: "Ghost", file: "ghost", h: 18, w: 42 },
   /* AI. These are the models and tools actually in the working stack, not a
      list of what is fashionable: Claude runs the build agent, and GPT, Gemini,
      Grok and DeepSeek are the four families the fleet-review process sends work
      to. ⛔ Groq, Higgsfield and Tripo3D are also in use but have no official
      mark from a citable source, so they are named in type below, not drawn. */
-  { name: "Claude", file: "claude", h: 12 },
-  { name: "OpenAI", file: "openai", h: 13.5 },
-  { name: "Google Gemini", file: "google-gemini", h: 15.8 },
-  { name: "Grok", file: "grok", h: 13.7 },
-  { name: "DeepSeek", file: "deepseek", h: 12 },
+  { name: "Claude", file: "claude", h: 12, w: 56 },
+  { name: "OpenAI", file: "openai", h: 13.5, w: 50.7 },
+  { name: "Google Gemini", file: "google-gemini", h: 15.8, w: 42.3 },
+  { name: "Grok", file: "grok", h: 13.7, w: 49.3 },
+  { name: "DeepSeek", file: "deepseek", h: 12, w: 56.7 },
 ];
 
 /* Worked on, but shown as type: no official mark exists from a citable source,
@@ -131,7 +131,7 @@ const NO_MARK = [
 function Row({ ariaHidden }: { ariaHidden?: boolean }) {
   return (
     <ul
-      className={`flex shrink-0 items-center gap-8 pr-8 sm:gap-10 sm:pr-10 motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-y-6 motion-reduce:pr-0 ${
+      className={`flex shrink-0 items-center gap-8 pr-8 motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-y-6 motion-reduce:pr-0 ${
         /* ⛔ The wrap has to happen HERE, not on the track. global.css puts
            flex-wrap on .marquee-track, but the track's only children are these
            two <ul>s -- so it wrapped the lists, not the logos, and this row
@@ -148,8 +148,15 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
       }`}
       aria-hidden={ariaHidden || undefined}
     >
+      {/* w-28 = 112px fixed cell + the 32px gap = a uniform 144px
+          centre-to-centre pitch. With mark widths running 23-105px, a uniform
+          EDGE gap reads as random spacing -- a 23px mark looks stranded and a
+          105px one crowded. Uniform pitch with each mark centred is what the
+          eye accepts as evenly spaced. 112 clears the widest mark (monday.com,
+          105px). Recommendation from the external design review, adopted with
+          its numbers. */}
       {PLATFORMS.map((p) => (
-        <li key={p.file} className="flex shrink-0 items-center">
+        <li key={p.file} className="flex w-28 shrink-0 items-center justify-center">
           {/* Fixed-height slot so the strip's height never depends on which
               marks have decoded, and 62 images cannot shift the footer. */}
           <span className="flex h-8 items-center">
@@ -169,8 +176,15 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
               /* Meaningful on the real row -- no adjacent text names the
                  platform, so the alt IS the content. Empty on the duplicate so
                  the list is not announced twice. */
-              width={Math.round(p.h * 4)}
-              height={Math.round(p.h)}
+              /* ⛔ Attributes are the TRUE pixel dimensions of the PNG, and
+                 style pins BOTH box dimensions. The old width attr was a
+                 lazy h*4 placeholder, and measurement proved (WebKit AND
+                 Chromium, loaded images) that the box follows the
+                 attr-derived aspect-ratio -- every mark sat in a 4:1 box,
+                 wide marks shrunk by object-contain, narrow ones swimming in
+                 invisible slack, so visible gaps ran 32-130px. */
+              width={Math.round(p.w * 3)}
+              height={Math.round(p.h * 3)}
               /* ⛔ NOT lazy, and NOT async-decoded. Both were here and both
                  caused the flicker the client reported: inside a track that is
                  permanently translating, the browser kept deferring decode
@@ -178,7 +192,7 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
                  every loop. The whole set is 79KB of SVG. Nothing to defer. */
               loading="eager"
               decoding="sync"
-              style={{ height: `${p.h}px` }}
+              style={{ height: `${p.h}px`, width: `${p.w}px` }}
               className="w-auto max-w-none object-contain"
             />
           </span>
