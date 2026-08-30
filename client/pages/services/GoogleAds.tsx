@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
 import {
@@ -180,6 +181,17 @@ export default function GoogleAds() {
               <div className="mt-8">
                 <CheckList items={WHY_US} tone="dark" />
               </div>
+              <p className="mt-6 max-w-xl leading-relaxed text-oa-nightInk2">
+                Advertising around Philadelphia?{" "}
+                <Link
+                  className="text-oa-orange underline underline-offset-4"
+                  to="/services/google-ads-philadelphia"
+                >
+                  Google Ads management in Philadelphia
+                </Link>{" "}
+                covers the geography, call-tracking and service-area problems
+                specific to a local account.
+              </p>
             </>
           }
           right={

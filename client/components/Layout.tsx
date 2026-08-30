@@ -1169,7 +1169,12 @@ function Layout({ children }: LayoutProps) {
               rel="noopener" on every target="_blank": without it the opened
               page can reach back through window.opener.
             */}
-            <div>
+            {/* col-span-2 on mobile. At 390px the footer is a two-column grid,
+                and this block sat in the left cell of its own row with the whole
+                right half empty beneath a Services list that had already ended.
+                Spanning both columns closes that gap. From md up the grid is
+                five columns and this returns to a single one. */}
+            <div className="col-span-2 md:col-span-1">
               {/* ⛔ Three public-sector registrations — SBA WOSB/EDWOSB, PA
                   COSTARS, Virginia SWaM — used to sit here on all 26 pages, with
                   a comment calling them trust signals for government buyers.
