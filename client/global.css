@@ -342,33 +342,61 @@
      transparent; if the footer ground ever changes colour, change these with
      it. The fade width stays proportional to the viewport: a flat 6rem was
      dissolving more than half of a 390px screen. */
+  /* ⛔ The fade width is sized against the MARKS, not the screen. At 2rem
+     (32px) the zone was narrower than most wordmarks (50-105px), so a bright
+     mark stayed near full brightness until the last instant and then vanished
+     at the clip line -- which, in motion, reads as popping ("going through
+     the fade point", filmed on an iPhone). Frame-measured on WebKit: the
+     gradient itself never failed; it was simply too narrow and too shallow.
+     3.5rem covers most of a wordmark's width, and the eased stops below pull
+     brightness down early instead of linearly. */
   .marquee {
-    --marquee-fade: 2rem;
+    --marquee-fade: 3.5rem;
   }
 
-  /* ⛔ isolation + translateZ(0) on the overlays are WebKit-load-bearing.
-     The track is a composited layer (its transform animates), and WebKit was
-     compositing it ABOVE these overlays despite the z-index -- reproduced in
-     Playwright WebKit at iPhone metrics on 2026-08-30: no fade at either end,
-     logos sliced mid-letter at full opacity at the clip edge, popping in and
-     out abruptly, which reads as flicker. Chrome honours plain z-index here,
-     which is why desktop checks never showed it. isolate pins the stacking
-     context; translateZ(0) lifts each overlay into the compositor so the
-     z-order is resolved there, where the track lives. */
+  /* ⛔ The edge fades are REAL <div>s in the component, rendered AFTER the
+     track -- not ::before/::after, and not a mask. History, all photographed
+     or frame-captured on WebKit on 2026-08-30: a mask over the animated track
+     re-rasterises the whole strip per frame (shimmer); pseudo-element
+     overlays were composited only intermittently above the animated layer,
+     so the fade strobed in and out frame to frame even with isolation and
+     z-index (Chrome renders both correctly, which hid all of it). Document
+     order is the one stacking rule WebKit honours reliably against an
+     animated sibling. */
   .marquee {
     isolation: isolate;
   }
 
-  .marquee::before,
-  .marquee::after {
-    content: "";
+  .marquee-fade {
     position: absolute;
     top: 0;
     bottom: 0;
     width: var(--marquee-fade);
-    z-index: 1;
+    z-index: 2;
     transform: translateZ(0);
     pointer-events: none;
+  }
+
+  .marquee-fade-l {
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      #04182b 0%,
+      rgba(4, 24, 43, 0.92) 30%,
+      rgba(4, 24, 43, 0.6) 60%,
+      rgba(4, 24, 43, 0) 100%
+    );
+  }
+
+  .marquee-fade-r {
+    right: 0;
+    background: linear-gradient(
+      270deg,
+      #04182b 0%,
+      rgba(4, 24, 43, 0.92) 30%,
+      rgba(4, 24, 43, 0.6) 60%,
+      rgba(4, 24, 43, 0) 100%
+    );
   }
 
   .marquee::before {
@@ -383,7 +411,7 @@
 
   @media (min-width: 640px) {
     .marquee {
-      --marquee-fade: 4rem;
+      --marquee-fade: 5rem;
     }
   }
 
@@ -429,9 +457,8 @@
   @media (prefers-reduced-motion: reduce) {
     /* Static rows need no edge fade -- hide the overlays so they do not sit on
        top of the first and last mark of each wrapped row. */
-    .marquee::before,
-    .marquee::after {
-      content: none;
+    .marquee-fade {
+      display: none;
     }
 
     .marquee-track {

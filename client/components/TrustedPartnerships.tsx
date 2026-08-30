@@ -252,6 +252,16 @@ export default function TrustedPartnerships() {
           <Row />
           <Row ariaHidden />
         </div>
+        {/* ⛔ REAL elements, not ::before/::after, and AFTER the track on
+            purpose. The fades were pseudo-elements and WebKit composited them
+            intermittently over the animated track -- frame-stacking production
+            in Playwright WebKit showed the fade present in some frames and
+            gone in others, so marks strobed at the edges (Louis spotted it in
+            the stack before I did). Later-in-DOM positioned siblings paint
+            above earlier ones by document order, which WebKit gets right even
+            where its z-index-vs-animated-layer ordering is buggy. */}
+        <div aria-hidden="true" className="marquee-fade marquee-fade-l" />
+        <div aria-hidden="true" className="marquee-fade marquee-fade-r" />
       </div>
 
       {/* The eight with no citable official mark. "Also" is doing real work
