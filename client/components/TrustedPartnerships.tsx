@@ -224,7 +224,14 @@ export default function TrustedPartnerships() {
           cloud, ServiceNow its green "o" -- so no brand colour is lost and
           nothing is recoloured in the sense the assets' README forbids.
           ⛔ Notion is the one exception and loads the original: see ownGround. */}
-      <div className="marquee relative mt-3">
+      {/* ⛔ overflow-hidden is LOAD-BEARING, and it has been lost once already:
+          the white plate wrapper used to carry it, and removing the plate
+          removed the clip with it. Without it the ~5,000px track paints across
+          the whole viewport -- logos sail PAST the fade overlays and cut hard
+          at the screen edge (photographed on an iPhone 2026-08-30), and the
+          giant unclipped paint region is itself a flicker source on iOS. The
+          clip is what pins the fades to the strip's real edges. */}
+      <div className="marquee relative mt-3 overflow-hidden">
         {/* ⛔ motion-reduce:w-full is load-bearing. global.css switches the
             track to flex-wrap under reduced motion so nothing scrolls out of
             reach -- but an element at width:max-content is exactly as wide as
