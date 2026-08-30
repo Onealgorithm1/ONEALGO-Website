@@ -386,6 +386,20 @@
        pressure on the phones that were already flickering. */
   }
 
+  /* ⛔ THE iOS FLICKER FIX -- the third attempt, and the one aimed at the
+     actual mechanism. iOS WebKit re-rasterises SVG <img> content that rides a
+     CSS transform animation: every frame of the 60s loop, all 62 vector marks
+     were being re-drawn, which is the continuous whole-strip shimmer reported
+     from an iPhone (decode mode, the container mask, and clipping were all
+     fixed first and none of them stopped it). Promoting each mark to its own
+     tiny composited layer caches it as a static texture, so the track's
+     transform moves pixels instead of re-drawing vectors. 62 layers at ~50x26px
+     is trivial GPU memory -- unlike the one 5,000px track layer. */
+  .marquee-track img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
   .marquee:hover .marquee-track,
   .marquee:focus-within .marquee-track {
     animation-play-state: paused;
