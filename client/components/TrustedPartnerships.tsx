@@ -5,7 +5,7 @@ import React from "react";
  *
  * The motion, the edge fade and the pause-on-hover are unchanged from the
  * version that scrolled plain company names -- `.marquee` in global.css still
- * does all of it. What changed is what scrolls: 26 real marks instead of 26
+ * does all of it. What changed is what scrolls: 31 real marks instead of 18
  * words.
  *
  * WHY IT WAS TYPE BEFORE: every SVG in public/media/logos/ except four is a
@@ -17,22 +17,30 @@ import React from "react";
  * they sit in their own folder so nobody can reach into the placeholder folder
  * by accident.
  *
- * ⛔ FIVE PLATFORMS WE WORK ON ARE NOT SHOWN: MuleSoft, Aircall, Hootsuite,
- * Metricool and Oneflow have no official mark obtainable from a citable source.
- * They are named in type below the rail instead. Do not "fix" that by drawing
+ * ⛔ EIGHT PLATFORMS WE WORK ON ARE NOT SHOWN: MuleSoft, Aircall, Hootsuite,
+ * Metricool, Oneflow, Groq, Higgsfield and Tripo3D have no official mark
+ * obtainable from a citable source. They are named in type below instead. Do not "fix" that by drawing
  * something approximate -- an invented mark is the exact bug this section
  * already had once.
  *
  * Two decisions worth keeping:
  *
- * 1. A LIGHT RAIL, NOT THE NIGHT GROUND. The marks are used unmodified, which
- *    is both the licence position and the rule in their README. Unmodified
- *    means several of them (Zendesk #03363D, GitHub, Notion) are near-black and
- *    would disappear on the footer's navy. A reversed all-white set was built
- *    and rejected for a second reason too: flattening a mark to one colour
- *    destroys any logo whose counter is a white shape -- the "in" in LinkedIn,
- *    the N in Notion and the wordmark inside the Salesforce cloud all became
- *    solid blobs.
+ * 1. BRAND COLOUR ON THE NIGHT GROUND, WITH SIX EXCEPTIONS. Two treatments
+ *    were built and rejected before this one. A reversed all-white set failed
+ *    because flattening a mark to one colour destroys any logo whose counter is
+ *    a white shape -- the "in" in LinkedIn, the N in Notion and the wordmark
+ *    inside the Salesforce cloud all became solid blobs. A white rail then
+ *    failed because on a phone it rendered as a tall white capsule the width of
+ *    the screen and read as a giant button.
+ *
+ *    What actually works: measure every mark against #04182b and treat only the
+ *    ones that fail. 25 of the 31 come in at 4.5:1 or better and keep full
+ *    brand colour. Six do not -- GitHub 1.05:1, Zendesk 1.37, Ghost 2.16,
+ *    WordPress 3.49, and OpenAI and Grok which carry no fill and paint black by
+ *    inheritance -- and every one of those is MONOCHROME, so its reversed form
+ *    is the same artwork in white and there is no brand hue to lose. Those load
+ *    from on-dark/. ⛔ Do not extend on-dark/ to a mark that carries colour;
+ *    that is recolouring, which the assets' README forbids.
  *
  * 2. EQUAL OPTICAL AREA, NOT EQUAL HEIGHT. See HEIGHTS below.
  *
@@ -44,7 +52,7 @@ import React from "react";
 /**
  * HEIGHTS — why each mark has its own.
  *
- * Sizing 26 logos to one height does not make them look the same size. These
+ * Sizing 31 logos to one height does not make them look the same size. These
  * marks run from 0.8:1 (Google Ads, taller than wide) to 10:1 (monday.com) -- a
  * twelvefold spread. One shared height turns the wide wordmarks into
  * billboards; one shared width shrinks the square glyphs to nothing.
@@ -59,7 +67,11 @@ import React from "react";
  * ⛔ If you swap a file, recompute from the new viewBox. Do not reuse the old
  * number: a different drawing of the same brand has different padding baked in.
  */
-type Mark = { name: string; file: string; h: number };
+/* ownGround: this mark supplies its own light background, so it must load the
+   ORIGINAL file rather than the reversed one. Only Notion qualifies -- its
+   black N and rule sit on the logo's own white page, and whitening them would
+   merge the N into the page and produce a solid white blob. */
+type Mark = { name: string; file: string; h: number; ownGround?: boolean };
 
 const PLATFORMS: Mark[] = [
   // Enterprise platforms and CRM
@@ -89,7 +101,7 @@ const PLATFORMS: Mark[] = [
   { name: "Shopify", file: "shopify", h: 14.6 },
   { name: "Stripe", file: "stripe", h: 16.8 },
   { name: "GitHub", file: "github", h: 11 },
-  { name: "Notion", file: "notion", h: 22 },
+  { name: "Notion", file: "notion", h: 22, ownGround: true },
   { name: "Ghost", file: "ghost", h: 18 },
   /* AI. These are the models and tools actually in the working stack, not a
      list of what is fashionable: Claude runs the build agent, and GPT, Gemini,
@@ -138,20 +150,24 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
     >
       {PLATFORMS.map((p) => (
         <li key={p.file} className="flex shrink-0 items-center">
-          {/* Fixed-height slot so 26 async images cannot shift the footer as
-              they decode, and so the rail's height never depends on which
-              marks have loaded. */}
+          {/* Fixed-height slot so the strip's height never depends on which
+              marks have decoded, and 62 images cannot shift the footer. */}
           <span className="flex h-8 items-center">
             <img
-              src={`/media/platforms/${p.file}.svg`}
+              src={`/media/platforms/${p.ownGround ? "" : "on-dark/"}${p.file}.svg`}
               alt={ariaHidden ? "" : p.name}
               /* Meaningful on the real row -- no adjacent text names the
                  platform, so the alt IS the content. Empty on the duplicate so
                  the list is not announced twice. */
               width={Math.round(p.h * 4)}
               height={Math.round(p.h)}
-              loading="lazy"
-              decoding="async"
+              /* ⛔ NOT lazy, and NOT async-decoded. Both were here and both
+                 caused the flicker the client reported: inside a track that is
+                 permanently translating, the browser kept deferring decode
+                 until a mark crossed into view, so logos visibly popped in on
+                 every loop. The whole set is 79KB of SVG. Nothing to defer. */
+              loading="eager"
+              decoding="sync"
               style={{ height: `${p.h}px` }}
               className="w-auto max-w-none object-contain"
             />
@@ -190,23 +206,34 @@ export default function TrustedPartnerships() {
         implied.
       </p>
 
-      {/* Two elements, deliberately. The rail carries the shape and the light
-          ground; `.marquee` carries the fade mask and sits INSIDE it. Putting
-          the mask on the rail itself would fade the white ground along with the
-          logos, because a mask applies to an element's background too -- the
-          rounded ends would have dissolved into the navy. */}
-      <div className="mt-3 overflow-hidden rounded-2xl bg-oa-paper px-5 py-4 sm:px-6">
-        <div className="marquee relative">
-          {/* ⛔ motion-reduce:w-full is load-bearing. global.css switches the
-              track to flex-wrap under reduced motion so nothing scrolls out of
-              reach -- but an element at width:max-content is exactly as wide as
-              its content, so it can never wrap. The fallback silently did
-              nothing and the row just overflowed, hidden, with most of the
-              marks unreachable. Releasing the width is what lets it wrap. */}
-          <div className="marquee-track flex w-max motion-reduce:w-full">
-            <Row />
-            <Row ariaHidden />
-          </div>
+      {/* ⛔ NO PLATE. There was a white rounded rail here so that unmodified
+          near-black marks stayed legible. On a phone it rendered as a tall
+          white capsule the full width of the screen and read as a giant
+          button, not a logo strip. The marks now sit straight on the footer
+          ground.
+
+          Legibility is handled in the ASSETS, not here. Rendering all 31 on
+          #04182b showed 17 with ink that sank into the ground -- not only the
+          obvious all-black marks but the dark wordmark half of Claude,
+          Cloudflare, LinkedIn, Meta, monday.com, QuickBooks, ServiceNow,
+          Shopify, TikTok, HubSpot and Dynamics. So each mark has a reversed
+          twin in on-dark/, built by one rule: ink that is BOTH invisible on the
+          ground (<3:1) AND a dark neutral (lightness <0.35) becomes white;
+          everything else is untouched. That is what an official reversed
+          lockup does -- LinkedIn keeps its blue box, Cloudflare its orange
+          cloud, ServiceNow its green "o" -- so no brand colour is lost and
+          nothing is recoloured in the sense the assets' README forbids.
+          ⛔ Notion is the one exception and loads the original: see ownGround. */}
+      <div className="marquee relative mt-3">
+        {/* ⛔ motion-reduce:w-full is load-bearing. global.css switches the
+            track to flex-wrap under reduced motion so nothing scrolls out of
+            reach -- but an element at width:max-content is exactly as wide as
+            its content, so it can never wrap. The fallback silently did
+            nothing and the row just overflowed, hidden, with most of the
+            marks unreachable. Releasing the width is what lets it wrap. */}
+        <div className="marquee-track flex w-max motion-reduce:w-full">
+          <Row />
+          <Row ariaHidden />
         </div>
       </div>
 
