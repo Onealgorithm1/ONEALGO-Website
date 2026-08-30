@@ -327,26 +327,44 @@
      read, and under reduced motion it stops moving and wraps to multiple rows
      so nothing becomes unreachable. The track holds the list twice, so
      translating it exactly -50% loops seamlessly. */
+  /* ⛔ NO mask-image HERE. The edge fade was a mask on this element, and a
+     mask over an animated child is a documented flicker source on iOS Safari:
+     the browser re-rasterises the whole masked group every frame, and this
+     track is enormous -- 31 marks twice over is ~5,000px, which at a phone's
+     3x DPR is past GPU texture limits, so the layer thrashes and the logos
+     visibly flickered on device (reported live 2026-08-30; an earlier decode
+     fix did not touch it because decode was never the cause).
+
+     The mask only ever existed to fade the strip against the white rail. The
+     strip now sits on the solid footer navy, so the same fade is two gradient
+     OVERLAYS painted on top -- ordinary static compositing that cannot force a
+     re-raster of the moving layer. The gradients are oa-night (#04182b) to
+     transparent; if the footer ground ever changes colour, change these with
+     it. The fade width stays proportional to the viewport: a flat 6rem was
+     dissolving more than half of a 390px screen. */
   .marquee {
-    /* The fade was a flat 6rem. On a 390px phone that is 192px of a 358px rail
-       -- more than half the strip dissolved, which looked like a rendering
-       fault rather than a soft edge. It is now proportional to the viewport and
-       only reaches the original 6rem where there is room for it. */
     --marquee-fade: 2rem;
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 var(--marquee-fade),
-      #000 calc(100% - var(--marquee-fade)),
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 var(--marquee-fade),
-      #000 calc(100% - var(--marquee-fade)),
-      transparent 100%
-    );
+  }
+
+  .marquee::before,
+  .marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--marquee-fade);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, #04182b, rgba(4, 24, 43, 0));
+  }
+
+  .marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, #04182b, rgba(4, 24, 43, 0));
   }
 
   @media (min-width: 640px) {
@@ -363,7 +381,9 @@
 
   .marquee-track {
     animation: marquee 60s linear infinite;
-    will-change: transform;
+    /* ⛔ NO will-change. A permanently-running transform animation promotes its
+       own layer; will-change on a ~5,000px element only added GPU memory
+       pressure on the phones that were already flickering. */
   }
 
   .marquee:hover .marquee-track,
@@ -373,17 +393,21 @@
 
   @keyframes marquee {
     from {
-      transform: translateX(0);
+      /* translate3d, not translateX: keeps the track on the compositor for the
+         whole loop instead of letting Safari drop and re-promote the layer. */
+      transform: translate3d(0, 0, 0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marquee {
-      -webkit-mask-image: none;
-      mask-image: none;
+    /* Static rows need no edge fade -- hide the overlays so they do not sit on
+       top of the first and last mark of each wrapped row. */
+    .marquee::before,
+    .marquee::after {
+      content: none;
     }
 
     .marquee-track {
