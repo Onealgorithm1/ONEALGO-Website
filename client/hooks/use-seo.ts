@@ -140,15 +140,15 @@ function applySEO({
     metaDescription.setAttribute("content", description);
   }
 
-  if (keywords) {
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement("meta");
-      metaKeywords.setAttribute("name", "keywords");
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute("content", keywords);
-  }
+  /* ⛔ NO <meta name="keywords">. Google's own SEO Starter Guide lists it by name
+     under "things we believe you shouldn't focus on": Google Search does not use
+     the keywords meta tag, and has not since 2009. It was rendering on all 26
+     pages and doing nothing but adding weight and telling competitors exactly
+     what we target.
+
+     The `keywords` prop is deliberately still ACCEPTED and ignored, so the 26
+     pages that pass it did not all need editing. Those strings are still useful
+     as an author's note about a page's intent — they just no longer ship. */
 
   if (ogTitle) {
     let ogTitleMeta = document.querySelector('meta[property="og:title"]');

@@ -29,7 +29,7 @@ const LAST_UPDATED = "August 26, 2026";
 
 export default function Capabilities() {
   useSEO({
-    title: "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
+    title: "Capabilities & Federal Contracting Profile | OneAlgorithm",
     description:
       "Cloud modernization, cybersecurity compliance and systems integration. SBA-certified WOSB/EDWOSB, SAM registered. CAGE 14G18 | UEI W8DYK38MEKP3",
     canonical: getCanonicalUrl("/capabilities"),
@@ -42,7 +42,7 @@ export default function Capabilities() {
     keywords:
       "OneAlgorithm capabilities, federal contracting, cloud modernization, DevSecOps, NIST 800-171, DFARS, cybersecurity compliance, CAGE 14G18, UEI W8DYK38MEKP3, NAICS 541511",
     ogTitle:
-      "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
+      "Capabilities & Federal Contracting Profile | OneAlgorithm",
     ogDescription:
       "Cloud modernization, cybersecurity compliance, and systems integration. SBA-certified WOSB/EDWOSB, SAM registered and set-aside eligible.",
     ogUrl: getCanonicalUrl("/capabilities"),

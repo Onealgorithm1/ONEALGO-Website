@@ -149,14 +149,14 @@ const FEDERAL: [string, string][] = [
 export default function Government() {
   useSEO({
     title:
-      "Government Contracting — OneAlgorithm | WOSB/EDWOSB, SAM registered",
+      "Government Contracting — WOSB/EDWOSB, SAM Registered",
     description:
       "SBA-certified WOSB/EDWOSB, active SAM registration, UEI W8DYK38MEKP3, CAGE 14G18, set-aside eligible. No contract awarded yet, and we say so.",
     canonical: getCanonicalUrl("/industries/government"),
     keywords:
       "WOSB EDWOSB contractor, SAM registered small business, UEI W8DYK38MEKP3, CAGE 14G18, set-aside eligible IT contractor, COSTARS eVA registered supplier, small business teaming partner",
     ogTitle:
-      "Government Contracting — OneAlgorithm | WOSB/EDWOSB, SAM registered",
+      "Government Contracting — WOSB/EDWOSB, SAM Registered",
     ogDescription:
       "The eligibility record a contracting officer can verify — certifications, identifiers, codes and procurement registrations. No award claimed.",
     ogUrl: getCanonicalUrl("/industries/government"),
