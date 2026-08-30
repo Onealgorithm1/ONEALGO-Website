@@ -71,7 +71,7 @@ export default function ECommerce() {
   useSEO({
     title: "E-Commerce Systems Integration & Support — OneAlgorithm",
     description:
-      "E-commerce integration work: connecting storefront, inventory, payments, accounting and Zendesk so one order looks the same in every system. Plus the site itself, built to a measured standard.",
+      "E-commerce integration: storefront, inventory, payments, accounting and Zendesk connected so one order looks the same in every system.",
     canonical: getCanonicalUrl("/industries/ecommerce"),
     keywords:
       "e-commerce systems integration, ecommerce Zendesk implementation, order and inventory integration, ecommerce CRM integration, e-commerce web development Malvern PA",

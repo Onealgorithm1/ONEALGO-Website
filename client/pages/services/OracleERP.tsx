@@ -164,7 +164,7 @@ export default function OracleERP() {
   useSEO({
     title: "OneAlgorithm — Oracle ERP Implementation Services",
     description:
-      "Oracle Cloud ERP implementation: Financials, SCM and HCM configuration, legacy data migration reconciled before cutover, Oracle Integration Cloud connections, and Hypercare through the first month-end.",
+      "Oracle Cloud ERP: Financials, SCM and HCM configuration, legacy data reconciled before cutover, and Hypercare through the first month-end.",
     canonical: getCanonicalUrl("/services/oracle-erp"),
     keywords:
       "Oracle ERP implementation, Oracle Cloud ERP, Oracle Financials, Oracle SCM, Oracle HCM, ERP data migration, Oracle integration, enterprise resource planning",

@@ -115,7 +115,7 @@ export default function ApplicationDevelopment() {
   useSEO({
     title: "OneAlgorithm — Application Development",
     description:
-      "Custom application development: internal control panels, iOS and Android apps, customer-facing web applications and Salesforce platform apps — built so your company owns the code, the cloud accounts and the signing keys.",
+      "Custom application development: internal control panels, iOS and Android apps, and Salesforce platform apps, built so you own the code and the keys.",
     canonical: getCanonicalUrl("/services/application-development"),
     keywords:
       "application development, custom software development, mobile app development, web application development, internal tools, Salesforce application development, Philadelphia, Chester County",

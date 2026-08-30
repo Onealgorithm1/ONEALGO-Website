@@ -70,7 +70,7 @@ export default function Construction() {
   useSEO({
     title: "Construction Technology & Systems Integration — OneAlgorithm",
     description:
-      "Systems integration, Salesforce, job reporting and web work for construction firms. We connect the field, estimating and accounting systems you already own. Small IT consultancy in Malvern, PA.",
+      "Systems integration, Salesforce, job reporting and web work for construction firms. We connect the field, estimating and accounting systems you own.",
     canonical: getCanonicalUrl("/industries/construction"),
     keywords:
       "construction technology consulting, construction systems integration, Salesforce for construction, job cost reporting integration, construction software integration Pennsylvania",

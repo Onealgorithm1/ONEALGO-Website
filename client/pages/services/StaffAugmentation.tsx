@@ -177,7 +177,7 @@ export default function StaffAugmentation() {
   useSEO({
     title: "OneAlgorithm — Staff Augmentation",
     description:
-      "Staff augmentation: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead. Dedicated, fixed-scope or hourly.",
+      "Staff augmentation: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
     canonical: getCanonicalUrl("/services/staff-augmentation"),
     keywords:
       "staff augmentation, IT staffing, software developers, technical talent, team scaling, remote developers, IT specialists, talent solutions",

@@ -350,7 +350,7 @@ export default function Index() {
   useSEO({
     title: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     description:
-      "We build and market websites for small businesses in Chester County and the Philadelphia area: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern PA.",
+      "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Woman-owned, Malvern PA.",
     canonical: getCanonicalUrl("/"),
     // The LCP element on this page is the hero video poster (measured with
     // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to

@@ -31,7 +31,7 @@ export default function Capabilities() {
   useSEO({
     title: "Company Capabilities & Federal Contracting Profile | OneAlgorithm",
     description:
-      "Cloud modernization, cybersecurity compliance, and systems integration. SBA-certified WOSB/EDWOSB, SAM registered and set-aside eligible. CAGE: 14G18 | UEI: W8DYK38MEKP3",
+      "Cloud modernization, cybersecurity compliance and systems integration. SBA-certified WOSB/EDWOSB, SAM registered. CAGE 14G18 | UEI W8DYK38MEKP3",
     canonical: getCanonicalUrl("/capabilities"),
     // "ISO 9001" was listed here alongside the real CAGE and UEI identifiers,
     // which reads as a held certification. Removed rather than left to be taken

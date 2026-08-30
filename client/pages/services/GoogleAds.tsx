@@ -97,7 +97,7 @@ export default function GoogleAds() {
   useSEO({
     title: "OneAlgorithm — Google Ads Management",
     description:
-      "Google Ads management: account structure, keywords and negatives, audience targeting, bid strategy, landing page testing, and conversion tracking that counts each conversion once.",
+      "Google Ads management: account structure, keywords and negatives, bid strategy, landing page testing, and conversion tracking that counts once.",
     canonical: getCanonicalUrl("/services/google-ads"),
     keywords:
       "Google Ads management, PPC agency, paid search, search advertising, Google Ads optimization, paid media, remarketing, conversion tracking",

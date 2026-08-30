@@ -152,7 +152,7 @@ export default function Marketing() {
   useSEO({
     title: "OneAlgorithm — Marketing & Social Media Management Services",
     description:
-      "Marketing services including social media management for Facebook Pages and Instagram business accounts, campaign management, AI-driven insights, and performance reporting for our clients.",
+      "Marketing services: social media management for Facebook and Instagram business accounts, campaign management, and performance reporting.",
     canonical: getCanonicalUrl("/services/marketing"),
     keywords:
       "social media management, Facebook Page management, Instagram management, marketing services, campaign management, AI marketing, customer journey optimization, marketing analytics, digital marketing automation",

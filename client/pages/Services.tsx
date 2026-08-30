@@ -144,7 +144,7 @@ export default function Services() {
   useSEO({
     title: "OneAlgorithm — Services",
     description:
-      "Comprehensive technology services including staff augmentation, website development, IT consulting, operations technology, Oracle ERP and Salesforce implementation. Accelerate business growth.",
+      "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A woman-owned consultancy in Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services"),
     keywords:
       "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
