@@ -778,103 +778,85 @@ export const CERTIFICATIONS: Credential[] = [
 /** Terminal strip at the foot of the hero. It is the one element on the site a
  *  government or supplier-diversity buyer has to be able to read and copy.
  *
- *  TWO REGISTERS, ONE STRIP. Louis, 2026-08-28: the certifications belong "with
- *  everything like the about page at the bottom of the hero". They are kept as
- *  two labelled groups rather than nine equal cells in a row, because they
- *  answer different questions -- "who are you, on paper" and "what are you
- *  certified as" -- and a nine-cell run reads as a wall of codes with no way in.
+ *  ONE LINE. Louis, 2026-08-30: "put everything on one line on the bottom of
+ *  the hero". The two stacked label-over-value groups this replaces cost
+ *  ~420px on a phone directly under the hero; the same nine facts as one
+ *  dot-separated stream are a single line at 1440 and a three-line wrap at
+ *  390. Labels sit inline before their values, dimmer, so the stream stays
+ *  scannable without the vertical cost.
  *
- *  WHITESPACE. The groups are separated by a hairline and a full row of space,
- *  not by a bigger gap: at 1440 a gap large enough to read as a separator also
- *  pushes the last cell off the measure. Within a group the column gap is
- *  deliberately wider than the row gap, so the eye tracks across a row rather
- *  than down a column -- these are pairs, not a table.
+ *  The reference numbers remain the links: a badge is a claim, a number
+ *  pointing at the registry that issued it is a record. ⛔ Never truncate one.
+ *  The Salesforce Consulting Partner entry stays OFF this strip (Louis,
+ *  2026-08-30: "doesn't belong" beside the diversity certifications).
  *
  *  Every value is read from shared/companyProfile; nothing here is typed in. */
 function IdentifierRail() {
-  const rows: [string, string][] = [
+  const facts: [string, string][] = [
     ["UEI", siteConfig.identifiers.uei],
     ["CAGE", siteConfig.identifiers.cage],
-    ["Primary NAICS", siteConfig.codes.naics[0]],
+    ["NAICS", siteConfig.codes.naics[0]],
     ["SAM.gov", "Active"],
     ["Founded", siteConfig.foundingDate],
   ];
+  const certs = CERTIFICATIONS.filter((c) => c.credential.startsWith("Certified"));
+  const Dot = () => (
+    <span aria-hidden="true" className="select-none text-oa-nightInk3/50">
+      &middot;
+    </span>
+  );
   return (
     <div className="relative z-10 border-t border-white/10 bg-oa-night">
-      <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
-        {/* ---- registration ---- */}
-        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
-          {/* grid-cols-3 at phone width, not flex-wrap: five wrapped cells
-              made two rows whose columns did not line up (UEI was wider than
-              SAM.gov, so row two drifted). A strict grid gives 3+2 cells on
-              shared column edges, which is what reads as "organized" when the
-              content is codes. From sm up it relaxes to the single row. */}
-          <dl className="grid w-full grid-cols-3 gap-x-6 gap-y-5 font-mono text-sm sm:flex sm:w-auto sm:flex-wrap sm:gap-x-12">
-            {rows.map(([label, value]) => (
-              <div key={label}>
-                {/* 12px floor. These get transcribed by hand. */}
-                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
+      <div className="mx-auto max-w-[1200px] px-4 py-4 sm:px-6 lg:px-8">
+        {/* text-xs at every width, deliberately: 12px is this element's
+            documented floor (the values get transcribed by hand), and at 14px
+            the full stream measures ~1,190px against the 1,136px measure --
+            two lines, which defeats the point of a one-line rail. */}
+        <ul className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 font-mono text-xs">
+          {facts.map(([label, value], i) => (
+            <li key={label} className="flex items-center gap-x-2.5 whitespace-nowrap">
+              {i > 0 && <Dot />}
+              <span>
+                <span className="uppercase tracking-wider text-oa-nightInk3">
                   {label}
-                </dt>
-                <dd className="mt-1 text-oa-nightInk2">{value}</dd>
-              </div>
-            ))}
-          </dl>
-          <a
-            href={siteConfig.sbaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-1.5 font-mono text-sm text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
-          >
-            Verify on SBA
-            <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-          </a>
-        </div>
-
-        {/* ---- certifications ---- */}
-        {/* Two columns at phone width, not a stack. Measured 2026-08-28: stacked,
-            the three certifications ran 210px on their own because each label
-            plus its 44px tap target is ~70px. Paired, the same content is ~140px
-            and the rail drops from 494px to ~420px -- which matters directly
-            under a hero, where every pixel pushes the page down. It relaxes to
-            a single wrapping row from sm up, where all three fit across. */}
-        <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-6 font-mono text-sm sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-5">
-          {/* ⛔ Diversity certifications ONLY on the hero rail. Louis,
-              2026-08-30: the Salesforce Consulting Partner entry "doesn't
-              belong" here -- it is a commercial partnership, and next to WBENC
-              and NMSDC it muddied what this strip certifies. It remains in
-              CERTIFICATIONS for the pages that list everything. Two entries
-              also fill the phone's two columns exactly, where three left a
-              straggler on its own row. */}
-          {CERTIFICATIONS.filter((c) => c.credential.startsWith("Certified")).map((c) => {
-            const external = !c.href.startsWith("/");
-            return (
-              <div key={c.credential}>
-                <dt className="text-xs uppercase tracking-wider text-oa-nightInk3">
-                  {c.credential} &middot; {c.short}
-                </dt>
-                <dd className="mt-1">
-                  {/* The reference number IS the link: a badge is a claim, a
-                      number pointing at the registry that issued it is a
-                      record. ⛔ Never truncate one -- it exists to be copied. */}
-                  <a
-                    href={c.href}
-                    target={external ? "_blank" : undefined}
-                    rel={external ? "noopener noreferrer" : undefined}
-                    className="inline-flex min-h-11 items-center gap-1.5 text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
-                  >
-                    {c.reference ?? "Verify"}
-                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                    <span className="sr-only">
-                      {c.credential} with {c.authority}
-                      {external ? ", opens in a new tab" : ""}
-                    </span>
-                  </a>
-                </dd>
-              </div>
-            );
-          })}
-        </dl>
+                </span>{" "}
+                <span className="text-oa-nightInk2">{value}</span>
+              </span>
+            </li>
+          ))}
+          {certs.map((c) => (
+            <li key={c.credential} className="flex items-center gap-x-2.5 whitespace-nowrap">
+              <Dot />
+              <span>
+                <span className="uppercase tracking-wider text-oa-nightInk3">
+                  {c.short}
+                </span>{" "}
+                <a
+                  href={c.href}
+                  className="inline-flex min-h-11 items-center gap-1 text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
+                >
+                  {c.reference}
+                  <span className="sr-only">
+                    {" "}
+                    — {c.credential} with {c.authority}
+                  </span>
+                </a>
+              </span>
+            </li>
+          ))}
+          <li className="flex items-center gap-x-2.5 whitespace-nowrap">
+            <Dot />
+            <a
+              href={siteConfig.sbaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-1.5 text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk sm:min-h-0"
+            >
+              Verify on SBA
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );
