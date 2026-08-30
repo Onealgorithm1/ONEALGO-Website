@@ -32,6 +32,8 @@ const ROUTES = [
   "/services/it-consulting", "/services/operations-technology",
   "/services/oracle-erp", "/services/salesforce", "/services/zendesk",
   "/services/application-development",
+  "/services/web-design-chester-county", "/services/web-design-philadelphia",
+  "/services/google-ads-philadelphia",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", "/industries/website-development", "/industries/government",
 ];
