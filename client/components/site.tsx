@@ -804,7 +804,12 @@ function IdentifierRail() {
       <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
         {/* ---- registration ---- */}
         <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
-          <dl className="flex flex-wrap gap-x-8 gap-y-5 font-mono text-sm sm:gap-x-12">
+          {/* grid-cols-3 at phone width, not flex-wrap: five wrapped cells
+              made two rows whose columns did not line up (UEI was wider than
+              SAM.gov, so row two drifted). A strict grid gives 3+2 cells on
+              shared column edges, which is what reads as "organized" when the
+              content is codes. From sm up it relaxes to the single row. */}
+          <dl className="grid w-full grid-cols-3 gap-x-6 gap-y-5 font-mono text-sm sm:flex sm:w-auto sm:flex-wrap sm:gap-x-12">
             {rows.map(([label, value]) => (
               <div key={label}>
                 {/* 12px floor. These get transcribed by hand. */}
@@ -834,7 +839,14 @@ function IdentifierRail() {
             under a hero, where every pixel pushes the page down. It relaxes to
             a single wrapping row from sm up, where all three fit across. */}
         <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-6 font-mono text-sm sm:flex sm:flex-wrap sm:gap-x-12 sm:gap-y-5">
-          {CERTIFICATIONS.map((c) => {
+          {/* ⛔ Diversity certifications ONLY on the hero rail. Louis,
+              2026-08-30: the Salesforce Consulting Partner entry "doesn't
+              belong" here -- it is a commercial partnership, and next to WBENC
+              and NMSDC it muddied what this strip certifies. It remains in
+              CERTIFICATIONS for the pages that list everything. Two entries
+              also fill the phone's two columns exactly, where three left a
+              straggler on its own row. */}
+          {CERTIFICATIONS.filter((c) => c.credential.startsWith("Certified")).map((c) => {
             const external = !c.href.startsWith("/");
             return (
               <div key={c.credential}>
