@@ -172,7 +172,7 @@ async function main() {
         // inline style after the second sweep. So sweep until the DOM has no
         // inline `opacity: 0` left, or give up after ~2s and let the gate say
         // so; a flake that fails loudly beats one that ships hidden content.
-        for (let pass = 0; pass < 12; pass++) {
+        for (let pass = 0; pass < 24; pass++) {
           settle();
           await wait(150);
           if (!document.querySelector('[style*="opacity: 0"]')) break;
@@ -254,6 +254,26 @@ async function main() {
   await Promise.all(
     Array.from({ length: Math.min(CONCURRENCY, ROUTES.length) }, worker),
   );
+
+  /* ⛔ RETRY ONCE, SERIALLY. The settle loop below races framer-motion's
+     animation loop: it sweeps inline `opacity: 0` off revealed sections and
+     gives up after a bounded number of passes. That race is winnable alone and
+     losable under load, so parallelising made it flaky -- /industries/government
+     failed exactly this way on a Cloudflare build container while passing three
+     for three locally.
+
+     The gate itself is right and stays: shipping a page whose content is
+     invisible without JS is worse than failing. But a transient loss should not
+     break a deploy, so failures get one more attempt with the queue drained and
+     nothing else competing for CPU. A route that is genuinely broken still
+     fails twice and still fails the build. */
+  if (failed.length) {
+    console.log(`
+Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
+    queue.push(...failed);
+    failed.length = 0;
+    await worker();
+  }
 
   await browser.close();
   server.close();
