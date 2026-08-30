@@ -386,19 +386,15 @@
        pressure on the phones that were already flickering. */
   }
 
-  /* ⛔ THE iOS FLICKER FIX -- the third attempt, and the one aimed at the
-     actual mechanism. iOS WebKit re-rasterises SVG <img> content that rides a
-     CSS transform animation: every frame of the 60s loop, all 62 vector marks
-     were being re-drawn, which is the continuous whole-strip shimmer reported
-     from an iPhone (decode mode, the container mask, and clipping were all
-     fixed first and none of them stopped it). Promoting each mark to its own
-     tiny composited layer caches it as a static texture, so the track's
-     transform moves pixels instead of re-drawing vectors. 62 layers at ~50x26px
-     is trivial GPU memory -- unlike the one 5,000px track layer. */
-  .marquee-track img {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
+  /* ⛔ Do NOT promote the marquee imgs to their own layers, and do NOT put a
+     mask on .marquee. Both were shipped chasing an iOS flicker and both made
+     things worse in different ways: a mask over the animated track forces
+     per-frame re-raster of the whole group, and per-img translateZ(0) made
+     Safari cull the backing stores of offscreen marks -- the animation carried
+     empty layers into view (photographed dead spots, restored by a tap). The
+     durable fix was neither: the marks are served as pre-rasterised PNGs
+     (scripts/rasterize-marks.mjs), which shimmer-proof and cull-proof the
+     strip without any compositor hints. */
 
   .marquee:hover .marquee-track,
   .marquee:focus-within .marquee-track {
