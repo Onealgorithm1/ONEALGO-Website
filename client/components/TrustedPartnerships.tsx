@@ -148,15 +148,17 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
       }`}
       aria-hidden={ariaHidden || undefined}
     >
-      {/* w-28 = 112px fixed cell + the 32px gap = a uniform 144px
-          centre-to-centre pitch. With mark widths running 23-105px, a uniform
-          EDGE gap reads as random spacing -- a 23px mark looks stranded and a
-          105px one crowded. Uniform pitch with each mark centred is what the
-          eye accepts as evenly spaced. 112 clears the widest mark (monday.com,
-          105px). Recommendation from the external design review, adopted with
-          its numbers. */}
+      {/* Content-width cells with one uniform 32px gap between REAL logo
+          edges. A fixed 112px cell (previous iteration, from the external
+          review) gave a metronome pitch but read as sparse on a phone -- 2.7
+          marks per viewport, and Louis called it: "spaced too far apart".
+          The uniform-pitch argument existed to solve spacing that LOOKED
+          random, but the randomness was the phantom 4:1 attribute boxes, now
+          fixed: with every mark at its true width, a constant edge gap is
+          genuinely constant, which is how most production logo marquees are
+          set. Density roughly doubles. */}
       {PLATFORMS.map((p) => (
-        <li key={p.file} className="flex w-28 shrink-0 items-center justify-center">
+        <li key={p.file} className="flex shrink-0 items-center">
           {/* Fixed-height slot so the strip's height never depends on which
               marks have decoded, and 62 images cannot shift the footer. */}
           <span className="flex h-8 items-center">
