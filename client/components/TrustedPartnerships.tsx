@@ -154,7 +154,17 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
               marks have decoded, and 62 images cannot shift the footer. */}
           <span className="flex h-8 items-center">
             <img
-              src={`/media/platforms/${p.ownGround ? "" : "on-dark/"}${p.file}.svg`}
+              src={`/media/platforms/png/${p.file}.png`}
+              /* ⛔ PNG, not the SVGs sitting right next to them -- iOS Safari
+                 has two failure modes for SVG <img> in a transform-animated
+                 track, BOTH shipped and photographed on a real iPhone on
+                 2026-08-30: vectors re-rasterised every frame (whole-strip
+                 shimmer), and -- after the "standard" per-img translateZ(0)
+                 fix -- offscreen layer backings culled, so the animation
+                 carried EMPTY marks into view until a tap forced a repaint.
+                 A decoded bitmap has neither problem. The PNGs are 3x for
+                 iPhone DPR; scripts/rasterize-marks.mjs regenerates them and
+                 owns the on-dark/notion source selection. */
               alt={ariaHidden ? "" : p.name}
               /* Meaningful on the real row -- no adjacent text names the
                  platform, so the alt IS the content. Empty on the duplicate so
