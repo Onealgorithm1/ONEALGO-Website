@@ -92,7 +92,7 @@ const INDUSTRIES = [
 export default function Industries() {
   useSEO({
     title:
-      "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
+      "Construction, Manufacturing & E-Commerce IT — OneAlgorithm",
     description:
       "Where our work lands: construction, manufacturing, e-commerce and government. Each page says plainly what we do and what we have not done.",
     canonical: getCanonicalUrl("/industries"),
@@ -112,7 +112,7 @@ export default function Industries() {
     <Layout>
       <StructuredData
         data={createWebPageSchema(
-          "Industries — OneAlgorithm | Construction, Manufacturing, E-Commerce, Government",
+          "Construction, Manufacturing & E-Commerce IT — OneAlgorithm",
           "Where our work lands: construction, manufacturing, e-commerce and government. Each page says plainly what we do and what we have not done.",
           "https://onealgorithm.com/industries",
         )}

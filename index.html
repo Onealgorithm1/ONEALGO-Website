@@ -235,10 +235,13 @@
       name="description"
       content="We build and market websites for small businesses in Chester County and the Philadelphia area: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern PA."
     />
-    <meta
-      name="keywords"
-      content="small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design, woman-owned business"
-    />
+    <!-- ⛔ NO <meta name="keywords"> HERE. Google's SEO Starter Guide lists it by
+         name under "things we believe you shouldn't focus on" — Google Search
+         has not used the keywords meta tag since 2009. Because this shell is
+         inherited by every prerendered route, one tag here shipped on all 26
+         pages: no ranking value, and it published our exact target list to
+         anyone reading source. Removing it from use-seo.ts alone did nothing;
+         this hardcoded copy was the real source. -->
     <meta name="author" content="OneAlgorithm" />
 
     <!-- Canonical URL -->
