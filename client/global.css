@@ -328,20 +328,37 @@
      so nothing becomes unreachable. The track holds the list twice, so
      translating it exactly -50% loops seamlessly. */
   .marquee {
+    /* The fade was a flat 6rem. On a 390px phone that is 192px of a 358px rail
+       -- more than half the strip dissolved, which looked like a rendering
+       fault rather than a soft edge. It is now proportional to the viewport and
+       only reaches the original 6rem where there is room for it. */
+    --marquee-fade: 2rem;
     -webkit-mask-image: linear-gradient(
       90deg,
       transparent 0,
-      #000 6rem,
-      #000 calc(100% - 6rem),
+      #000 var(--marquee-fade),
+      #000 calc(100% - var(--marquee-fade)),
       transparent 100%
     );
     mask-image: linear-gradient(
       90deg,
       transparent 0,
-      #000 6rem,
-      #000 calc(100% - 6rem),
+      #000 var(--marquee-fade),
+      #000 calc(100% - var(--marquee-fade)),
       transparent 100%
     );
+  }
+
+  @media (min-width: 640px) {
+    .marquee {
+      --marquee-fade: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee {
+      --marquee-fade: 6rem;
+    }
   }
 
   .marquee-track {
