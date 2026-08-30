@@ -16,6 +16,7 @@ import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createLocalBusinessSchema,
 } from "../../components/StructuredData";
 
 /* Web design — Philadelphia. Added 2026-08-30. Second of three local pages.
@@ -98,6 +99,13 @@ export default function WebDesignPhiladelphia() {
           "https://onealgorithm.com/services/web-design-philadelphia",
         )}
       />
+
+      {/* Google's Local Business structured-data doc: a page targeting a
+          locality should carry the business itself — address, geo, hours,
+          areaServed — not only the Service. Same helper the homepage,
+          /services/salesforce and /services/website-development already use, so
+          the entity stays consistent rather than becoming a second business. */}
+      <StructuredData data={createLocalBusinessSchema()} />
 
       <PageHero
         eyebrow="Philadelphia"
