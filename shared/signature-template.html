@@ -2,9 +2,9 @@
      Generated per person by scripts/build-signatures.mjs. Do not hand-edit the output.
      Rules this file obeys, because Outlook renders with the Word engine:
        - tables only, no flex/grid/float, no web fonts
-       - one <style> block, for the logo hover ONLY; every other style is inline,
-         because Outlook ignores the block and Gmail strips it (see the note below)
-       - every style inline; every colour and text-decoration stated explicitly
+       - EVERY style inline, no <style> block at all: Outlook ignores one, Gmail strips
+         one, and it is one more thing a copy-paste into a signature editor can mangle
+       - every colour and text-decoration stated explicitly
        - px line-height with mso-line-height-rule:exactly
        - width/height attributes on every img (attr ratio beats intrinsic — see memory)
        - images at 2x. {{ASSETS}} is the hosted /sig folder for the web-paste build,
@@ -12,66 +12,32 @@
          Outlook embeds them into the message so they can never be blocked.
          (data URIs are not an option - Gmail strips them)
      Palette is brand-locked from DESIGN.md. Orange appears exactly once, as the rule. -->
-<!-- The logo hover, carried over from client/global.css.
-     ⭐ ONE LINE, TWO STATES. The site's effect grows its own underline beneath the
-     wordmark, which put a second horizontal rule 9px above the letterhead separator
-     — two lines saying the same thing. So the separator IS the underline now: at
-     rest a 2px navy letterhead rule, on hover the orange-to-blue brand gradient
-     wiping across it from the centre. Nothing was added to fix this; one element
-     was removed.
-
-     ⛔ :hover needs a <style> block, which classic Outlook (Word engine) ignores
-     outright and Gmail strips. So the gradient fill is `display:none` INLINE and
-     switched on only by the block below — a client that drops the CSS shows the
-     clean navy rule and never a stray orange bar. The rule itself stays a real
-     <td bgcolor>, which is the only construction Word renders reliably.
-
-     Motion obeys the guidelines: transform only (never `width`, which is layout),
-     properties listed explicitly (never `transition:all`), a :focus-visible path
-     for keyboards, and a prefers-reduced-motion variant — the site's global reset
-     at client/global.css:80 does not travel with a pasted signature. -->
-<style type="text/css">
-  .oa-mark { display:inline-block; transition:transform .3s cubic-bezier(.34,1.56,.64,1), filter .3s ease; }
-  /* !important is load-bearing: the inline display:none is what hides the gradient
-     from Outlook and Gmail, and an inline style outranks a class rule without it. */
-  .oa-rule-fill { display:block !important; height:2px; font-size:0; line-height:2px;
-                  background:linear-gradient(90deg,#ffa634,#005eaa);
-                  transform:scaleX(0); transform-origin:center;
-                  transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
-  .oa-head:hover .oa-mark,
-  .oa-logo:focus-visible .oa-mark { transform:scale(1.08); filter:drop-shadow(0 0 20px rgba(255,166,52,.3)); }
-  .oa-head:hover .oa-rule-fill,
-  .oa-logo:focus-visible .oa-rule-fill { transform:scaleX(1); }
-  .oa-logo:focus-visible { outline:2px solid #005eaa; outline-offset:4px; }
-  @media (prefers-reduced-motion: reduce) {
-    .oa-mark, .oa-rule-fill { transition:none; }
-    .oa-head:hover .oa-mark,
-    .oa-logo:focus-visible .oa-mark { transform:none; filter:none; }
-  }
-</style>
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:'IBM Plex Sans','Segoe UI',Arial,Helvetica,sans-serif;">
   <tr>
     <td style="padding:2px 0 2px 0;">
 
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;">
 
-        <!-- letterhead: the site's own logo, rebuilt as text + the globe image rather
-             than a raster, so the colours are exactly onealgorithm.com's (#ffa634 /
-             #005eaa) and the mark stays crisp at any zoom. The whole lockup is the
-             link to the company URL. -->
+        <!-- Letterhead. ⛔ ONE IMAGE, not live text plus an inline globe.
+             The lockup has to survive being copied out of a browser and pasted into the
+             Outlook web signature editor, and a run of styled spans with an <img> between
+             them does not: the clipboard round-trip re-flows the image and the globe
+             drifts off the baseline. A single PNG cannot drift.
+             Built by scripts/render-wordmark.mjs from the real self-hosted IBM Plex Sans
+             and the real globe, so the colours are exactly the site's (#ffa634 / #005eaa)
+             rather than the navy in the old Brand_Assets artwork.
+             ⛔ No :hover any more - it never fired in Outlook (Word ignores <style>) and
+             the extra markup was one more thing for a paste to mangle. -->
         <tr>
-          <td class="oa-head">
+          <td>
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;">
               <tr>
                 <td style="padding:0 0 8px 0;">
-                  <a href="{{BASE}}" class="oa-logo" style="text-decoration:none;border:0;display:inline-block;">
-                    <span class="oa-mark" style="display:inline-block;font-size:26px;line-height:32px;mso-line-height-rule:exactly;font-weight:700;letter-spacing:-0.3px;white-space:nowrap;font-family:'IBM Plex Sans','Segoe UI',Arial,Helvetica,sans-serif;"><span style="color:#ffa634;">One</span><span style="color:#005eaa;">Alg</span><img src="{{ASSETS}}/globe.png" width="24" height="24" alt="o" align="middle" style="border:0;outline:none;width:24px;height:24px;vertical-align:middle;"><span style="color:#005eaa;">rithm</span></span>
-                  </a>
+                  <a href="{{BASE}}" style="text-decoration:none;border:0;"><img src="{{ASSETS}}/wordmark.png" width="180" height="32" alt="OneAlgorithm" style="display:block;border:0;outline:none;width:180px;height:32px;"></a>
                 </td>
               </tr>
-              <!-- the letterhead separator, and the hover underline. Same line. -->
               <tr>
-                <td height="2" bgcolor="#04182b" style="height:2px;line-height:2px;font-size:0;background-color:#04182b;"><span class="oa-rule-fill" style="display:none;"></span></td>
+                <td height="2" bgcolor="#04182b" style="height:2px;line-height:2px;font-size:0;background-color:#04182b;">&nbsp;</td>
               </tr>
             </table>
           </td>

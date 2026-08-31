@@ -284,10 +284,17 @@ const marksRow = () =>
       `style="display:block;border:0;outline:none;width:${m.w}px;height:${m.h}px;"></a></td>`,
   ).join("");
 
+/* The template is heavily commented for whoever maintains it; none of that belongs in
+ * a recipient's mailbox, and it is dead weight on every copy-paste into a signature
+ * editor. ⛔ Leaves conditional comments alone - `<!--[if mso]>` is functional. */
+const stripComments = (html) =>
+  html.replace(/<!--(?!\[if)[\s\S]*?-->/g, "").replace(/\n{3,}/g, "\n\n");
+
 function render(template, p) {
   const { identifiers, codes } = siteConfig;
   const sep = `<span style="color:#d3dae4;"> &middot; </span>`;
-  return template
+  return stripComments(
+    template
     .replace(/\{\{ASSETS\}\}/g, ASSETS)
     .replace(/\{\{BASE\}\}/g, BASE)
     .replace(/\{\{PHOTO\}\}/g, p.photo)
@@ -308,7 +315,8 @@ function render(template, p) {
     )
     .replace(/\{\{MARKS\}\}/g, marksRow())
     .replace(/\{\{PARTNERS\}\}/g, partnersRow())
-    .replace(/\{\{SF_LISTING\}\}/g, SF_LISTING);
+    .replace(/\{\{SF_LISTING\}\}/g, SF_LISTING),
+  );
 }
 
 /* Classic Outlook reads a signature as a complete document, not a fragment. */
@@ -462,6 +470,11 @@ async function buildAssets() {
 
   // the globe that stands in for the "o" in the wordmark, at 2x its 24px box
   await sharp(join(ROOT, "public", "globe-logo.png")).resize(48, 48).png({ compressionLevel: 9 }).toFile(join(dir, "globe.png"));
+
+  /* The wordmark. Rendered by a headless browser rather than composed here, because it
+     needs the real IBM Plex Sans; see scripts/render-wordmark.mjs for why it is a PNG. */
+  const { execFileSync } = await import("node:child_process");
+  execFileSync(process.execPath, [join(ROOT, "scripts", "render-wordmark.mjs")], { stdio: "inherit" });
 
   /* The orange accent rule, 2x of 26x2. ⛔ It has to be an image: Word gives a
      background-coloured <td> a paragraph with margin-bottom:6pt, which rendered the
