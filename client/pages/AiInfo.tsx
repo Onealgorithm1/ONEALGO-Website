@@ -2,6 +2,10 @@ import React from "react";
 import Layout from "@/components/Layout";
 import { Section, Prose } from "@/components/site";
 import { useSEO, getCanonicalUrl } from "@/hooks/use-seo";
+import {
+  StructuredData,
+  createBreadcrumbSchema,
+} from "@/components/StructuredData";
 import { Link } from "react-router-dom";
 
 /* AI / crawler information page - 2026 refresh.
@@ -79,6 +83,12 @@ export default function AiInfo() {
 
   return (
     <Layout>
+      <StructuredData
+        data={createBreadcrumbSchema([
+          { label: "Home", to: "/" },
+          { label: "AI Information" },
+        ])}
+      />
       <Section tone="paper">
         <Prose>
           <h1 className="text-h1 font-semibold text-oa-ink">

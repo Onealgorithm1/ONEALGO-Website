@@ -450,3 +450,35 @@ export function createContactPageSchema(): ContactPageSchema {
     },
   };
 }
+
+/**
+ * BreadcrumbList for pages that do NOT use PageHero.
+ *
+ * PageHero renders HeroRail, which emits both the visible breadcrumb and its
+ * schema from the route, so almost every page gets this for free. Two do not:
+ * /services/website-development uses the canvas HeroFrame instead (the section
+ * that carried the rail was removed deliberately on 2026-08-25), and /ai-info is
+ * a plain utility page. Both were missing BreadcrumbList entirely — measured with
+ * URL Inspection, which reports Breadcrumbs as the ONLY rich result Google
+ * currently detects anywhere on this site.
+ *
+ * ⛔ Per Google's breadcrumb guidance, `item` is omitted on the final crumb: the
+ * current page is the position it occupies, not a link elsewhere. Same rule
+ * HeroRail follows, so the two emitters cannot disagree.
+ */
+export function createBreadcrumbSchema(
+  crumbs: readonly { label: string; to?: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.label,
+      ...(c.to && i < crumbs.length - 1
+        ? { item: `https://onealgorithm.com${c.to === "/" ? "" : c.to}` }
+        : {}),
+    })),
+  };
+}
