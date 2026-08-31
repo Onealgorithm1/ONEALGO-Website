@@ -243,28 +243,47 @@ const iconImg = (kind) => {
   return `<img src="${ASSETS}/i-${file}.png" width="16" height="16" alt="${label}" title="${label}" style="display:block;border:0;outline:none;width:16px;height:16px;">`;
 };
 
-function contactRows(p) {
-  const rows = [];
-  const row = (kind, valueHtml) =>
-    `                      <tr>` +
+/**
+ * Contact block, two columns. One stacked column of six rows left a tall ragged edge
+ * against a 104px photo; splitting it balances the block against the photo and halves
+ * its height. Left is the wider set (email, LinkedIn, website), right the numbers.
+ * Columns are built from whatever the person actually has, so a missing fax or mobile
+ * just shortens that side rather than leaving a gap.
+ */
+function contactBlock(p) {
+  const cell = (kind, valueHtml) =>
+    `<tr>` +
     `<td width="24" valign="top" style="width:24px;padding-top:2px;">${iconImg(kind)}</td>` +
-    `<td valign="top" style="font-size:12px;line-height:20px;mso-line-height-rule:exactly;color:#35485c;">${valueHtml}</td>` +
+    `<td valign="top" style="font-size:12px;line-height:20px;mso-line-height-rule:exactly;color:#35485c;white-space:nowrap;">${valueHtml}</td>` +
     `</tr>`;
 
-  if (p.direct) rows.push(row("direct", link(`tel:${tel(p.direct)}`, p.direct, "#35485c")));
-  if (p.mobile) rows.push(row("mobile", link(`tel:${tel(p.mobile)}`, p.mobile, "#35485c")));
-  if (p.fax) rows.push(row("fax", `${esc(p.fax)}<span style="color:#5a6b7d;"> fax</span>`));
-  if (p.email) rows.push(row("email", link(`mailto:${p.email}`, p.email)));
-  if (p.linkedin) rows.push(row("linkedin", link(p.linkedin, p.linkedin.replace(/^https:\/\/www\./, "").replace(/\/$/, ""))));
-  rows.push(
-    row(
+  const left = [];
+  if (p.email) left.push(cell("email", link(`mailto:${p.email}`, p.email)));
+  if (p.linkedin) left.push(cell("linkedin", link(p.linkedin, p.linkedin.replace(/^https:\/\/www\./, "").replace(/\/$/, ""))));
+  left.push(
+    cell(
       "web",
       link(`${BASE}/`, "onealgorithm.com") +
         (p.book ? `<span style="color:#d3dae4;"> &nbsp;|&nbsp; </span>${link(p.book, "Book a time")}` : ""),
     ),
   );
-  return rows.join("\n");
+
+  const right = [];
+  if (p.direct) right.push(cell("direct", link(`tel:${tel(p.direct)}`, p.direct, "#35485c")));
+  if (p.mobile) right.push(cell("mobile", link(`tel:${tel(p.mobile)}`, p.mobile, "#35485c")));
+  if (p.fax) right.push(cell("fax", `${esc(p.fax)}<span style="color:#5a6b7d;"> fax</span>`));
+
+  const col = (rows) =>
+    `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;color:#35485c;">${rows.join("")}</table>`;
+
+  return (
+    `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">` +
+    `<tr><td valign="top">${col(left)}</td>` +
+    `<td width="30" style="width:30px;font-size:0;line-height:0;">&nbsp;</td>` +
+    `<td valign="top">${col(right)}</td></tr></table>`
+  );
 }
+
 
 function plainText(p) {
   // The machine-readable half. The signature we are replacing was a single PNG,
@@ -329,7 +348,7 @@ function render(template, p) {
     .replace(/\{\{PHOTO\}\}/g, p.photo)
     .replace(/\{\{NAME\}\}/g, esc(p.name))
     .replace(/\{\{TITLE\}\}/g, esc(p.title))
-    .replace(/\{\{CONTACT_ROWS\}\}/g, contactRows(p))
+    .replace(/\{\{CONTACT_BLOCK\}\}/g, contactBlock(p))
     .replace(/\{\{CERTIFICATIONS\}\}/g, CERTIFICATIONS.map(esc).join(sep))
     .replace(
       /\{\{IDENTIFIERS\}\}/g,
@@ -588,6 +607,16 @@ document.addEventListener("click", async (e) => {
 <\/script>` +
     `</body></html>`;
   writeFileSync(join(OUT, "all.html"), all, "utf8");
+
+  /* The same page, published at onealgorithm.com/sig/team.html so it can be shared with
+   * the team. It belongs on our own domain rather than an artifact host because the
+   * signature images already live at /sig/ — anywhere else and every image would need
+   * re-hosting or inlining. ⛔ noindex: it is for the team, not for search. */
+  writeFileSync(
+    join(ROOT, "public", "sig", "team.html"),
+    all.replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">'),
+    "utf8",
+  );
 
   /* A bare page holding ONLY the signature, for Ctrl+A / Ctrl+C into the Outlook-on-the-web
    * signature editor. ⛔ That editor is the real install path on this mailbox: roaming
