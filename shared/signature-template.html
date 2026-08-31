@@ -1,0 +1,160 @@
+<!-- One Algorithm email signature — master template.
+     Generated per person by scripts/build-signatures.mjs. Do not hand-edit the output.
+     Rules this file obeys, because Outlook renders with the Word engine:
+       - tables only, no flex/grid/float, no web fonts
+       - one <style> block, for the logo hover ONLY; every other style is inline,
+         because Outlook ignores the block and Gmail strips it (see the note below)
+       - every style inline; every colour and text-decoration stated explicitly
+       - px line-height with mso-line-height-rule:exactly
+       - width/height attributes on every img (attr ratio beats intrinsic — see memory)
+       - images at 2x. {{ASSETS}} is the hosted /sig folder for the web-paste build,
+         and the signature's own _files folder for the classic-Outlook install, where
+         Outlook embeds them into the message so they can never be blocked.
+         (data URIs are not an option - Gmail strips them)
+     Palette is brand-locked from DESIGN.md. Orange appears exactly once, as the rule. -->
+<!-- The logo hover, carried over from client/global.css.
+     ⭐ ONE LINE, TWO STATES. The site's effect grows its own underline beneath the
+     wordmark, which put a second horizontal rule 9px above the letterhead separator
+     — two lines saying the same thing. So the separator IS the underline now: at
+     rest a 2px navy letterhead rule, on hover the orange-to-blue brand gradient
+     wiping across it from the centre. Nothing was added to fix this; one element
+     was removed.
+
+     ⛔ :hover needs a <style> block, which classic Outlook (Word engine) ignores
+     outright and Gmail strips. So the gradient fill is `display:none` INLINE and
+     switched on only by the block below — a client that drops the CSS shows the
+     clean navy rule and never a stray orange bar. The rule itself stays a real
+     <td bgcolor>, which is the only construction Word renders reliably.
+
+     Motion obeys the guidelines: transform only (never `width`, which is layout),
+     properties listed explicitly (never `transition:all`), a :focus-visible path
+     for keyboards, and a prefers-reduced-motion variant — the site's global reset
+     at client/global.css:80 does not travel with a pasted signature. -->
+<style type="text/css">
+  .oa-mark { display:inline-block; transition:transform .3s cubic-bezier(.34,1.56,.64,1), filter .3s ease; }
+  /* !important is load-bearing: the inline display:none is what hides the gradient
+     from Outlook and Gmail, and an inline style outranks a class rule without it. */
+  .oa-rule-fill { display:block !important; height:2px; font-size:0; line-height:2px;
+                  background:linear-gradient(90deg,#ffa634,#005eaa);
+                  transform:scaleX(0); transform-origin:center;
+                  transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+  .oa-head:hover .oa-mark,
+  .oa-logo:focus-visible .oa-mark { transform:scale(1.08); filter:drop-shadow(0 0 20px rgba(255,166,52,.3)); }
+  .oa-head:hover .oa-rule-fill,
+  .oa-logo:focus-visible .oa-rule-fill { transform:scaleX(1); }
+  .oa-logo:focus-visible { outline:2px solid #005eaa; outline-offset:4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .oa-mark, .oa-rule-fill { transition:none; }
+    .oa-head:hover .oa-mark,
+    .oa-logo:focus-visible .oa-mark { transform:none; filter:none; }
+  }
+</style>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:'IBM Plex Sans','Segoe UI',Arial,Helvetica,sans-serif;">
+  <tr>
+    <td style="padding:2px 0 2px 0;">
+
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;">
+
+        <!-- letterhead: the site's own logo, rebuilt as text + the globe image rather
+             than a raster, so the colours are exactly onealgorithm.com's (#ffa634 /
+             #005eaa) and the mark stays crisp at any zoom. The whole lockup is the
+             link to the company URL. -->
+        <tr>
+          <td class="oa-head">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;">
+              <tr>
+                <td style="padding:0 0 8px 0;">
+                  <a href="{{BASE}}" class="oa-logo" style="text-decoration:none;border:0;display:inline-block;">
+                    <span class="oa-mark" style="display:inline-block;font-size:26px;line-height:32px;mso-line-height-rule:exactly;font-weight:700;letter-spacing:-0.3px;white-space:nowrap;font-family:'IBM Plex Sans','Segoe UI',Arial,Helvetica,sans-serif;"><span style="color:#ffa634;">One</span><span style="color:#005eaa;">Alg</span><img src="{{ASSETS}}/globe.png" width="26" height="26" alt="o" style="border:0;outline:none;width:26px;height:26px;vertical-align:-5px;"><span style="color:#005eaa;">rithm</span></span>
+                  </a>
+                </td>
+              </tr>
+              <!-- the letterhead separator, and the hover underline. Same line. -->
+              <tr>
+                <td height="2" bgcolor="#04182b" style="height:2px;line-height:2px;font-size:0;background-color:#04182b;"><span class="oa-rule-fill" style="display:none;"></span></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr><td height="11" style="height:11px;line-height:11px;font-size:0;">&nbsp;</td></tr>
+
+        <!-- person -->
+        <tr>
+          <td>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+              <tr>
+                <td width="120" valign="top" style="width:120px;">
+                  <img src="{{ASSETS}}/{{PHOTO}}" width="120" height="120" alt="{{NAME}}" style="display:block;border:0;outline:none;width:120px;height:120px;">
+                </td>
+                <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+                <td valign="top" style="font-family:'IBM Plex Sans','Segoe UI',Arial,Helvetica,sans-serif;">
+
+                  <div style="font-size:17px;line-height:21px;mso-line-height-rule:exactly;font-weight:600;color:#0d1b2a;letter-spacing:-0.2px;">{{NAME}}</div>
+                  <div style="font-size:12px;line-height:17px;mso-line-height-rule:exactly;color:#35485c;padding-top:1px;">{{TITLE}}</div>
+
+                  <!-- the single accent: 26px orange rule -->
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:8px 0 8px 0;">
+                    <tr><td width="26" height="2" bgcolor="#ffa634" style="width:26px;height:2px;line-height:2px;font-size:0;background-color:#ffa634;">&nbsp;</td></tr>
+                  </table>
+
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;color:#35485c;">
+{{CONTACT_ROWS}}
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="11" style="height:11px;line-height:11px;font-size:0;">&nbsp;</td></tr>
+        <tr><td height="1" bgcolor="#e3e9f0" style="height:1px;line-height:1px;font-size:0;background-color:#e3e9f0;">&nbsp;</td></tr>
+        <tr><td height="10" style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>
+
+        <!-- capability ledger: text, never seal images. Certifications and identifiers
+             are read from shared/companyProfile.ts, so they cannot drift from the site. -->
+        <tr>
+          <td>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="580" style="border-collapse:collapse;width:580px;color:#35485c;">
+              <!-- Certifications and partnerships share ONE row: both are logo groups, and
+                   stacking them made two graphic bands where one reads faster. Four cells —
+                   label, marks, label, marks — so each group keeps its own heading. -->
+              <!-- Certifications and partnerships share ONE row. The two groups are told
+                   apart by a real 1px column rule rather than by a gap: whitespace alone
+                   needed ~26px to read as a break, the rule does it in 1px and matches the
+                   horizontal hairline above. A bgcolor <td> is the only vertical rule the
+                   Word engine renders reliably — it fills the row height on its own. -->
+              <tr>
+                <td width="82" valign="middle" style="width:82px;font-size:10px;line-height:44px;mso-line-height-rule:exactly;letter-spacing:0.8px;color:#005eaa;font-weight:600;text-transform:uppercase;">Certified</td>
+                <td width="305" valign="middle" style="width:305px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;color:#35485c;">
+                    <tr>{{MARKS}}</tr>
+                  </table>
+                </td>
+                <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+                <td width="1" bgcolor="#e3e9f0" style="width:1px;font-size:0;line-height:0;background-color:#e3e9f0;">&nbsp;</td>
+                <td width="18" style="width:18px;font-size:0;line-height:0;">&nbsp;</td>
+                <td width="58" valign="middle" style="width:58px;font-size:10px;line-height:44px;mso-line-height-rule:exactly;letter-spacing:0.8px;color:#005eaa;font-weight:600;text-transform:uppercase;">Partner</td>
+                <td valign="middle" style="line-height:44px;mso-line-height-rule:exactly;">{{PARTNERS}}</td>
+              </tr>
+              <tr><td colspan="7" height="8" style="height:8px;line-height:8px;font-size:0;">&nbsp;</td></tr>
+              <tr>
+                <td width="82" valign="top" style="width:82px;font-size:10px;line-height:17px;mso-line-height-rule:exactly;letter-spacing:0.8px;color:#005eaa;font-weight:600;text-transform:uppercase;">Registered</td>
+                <td colspan="6" valign="top" style="font-size:12px;line-height:17px;mso-line-height-rule:exactly;color:#35485c;">{{IDENTIFIERS}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr><td height="11" style="height:11px;line-height:11px;font-size:0;">&nbsp;</td></tr>
+        <tr>
+          <!-- impeccable-disable undersized-ui-text: confidentiality fine print, deliberately subordinate to the signature -->
+          <!-- impeccable-disable tiny-text: same line; a legal notice that outsized the contact details would be worse -->
+          <td style="font-size:9px;line-height:13px;mso-line-height-rule:exactly;color:#5a6b7d;">Confidential. If this reached you in error, please reply and delete it.</td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
