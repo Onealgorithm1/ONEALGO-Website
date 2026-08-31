@@ -132,7 +132,7 @@ const PROCESS = [
 
 export default function ITConsulting() {
   useSEO({
-    title: "OneAlgorithm — IT Consulting",
+    title: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
     description:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing and tool selection. Malvern, PA.",
     canonical: getCanonicalUrl("/services/it-consulting"),
@@ -141,7 +141,7 @@ export default function ITConsulting() {
     // including "digital transformation", which is now off the visible copy.
     keywords:
       "IT consulting, strategic IT planning, technology audit, digital transformation, cybersecurity consulting, business process optimization, IT strategy",
-    ogTitle: "OneAlgorithm — IT Consulting",
+    ogTitle: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
     ogDescription:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. Malvern, Pennsylvania.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),

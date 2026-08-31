@@ -82,13 +82,14 @@ function loadTurnstile(): Promise<void> {
 
 export default function Contact() {
   useSEO({
-    title: "OneAlgorithm — Contact Us",
+    title: "Contact OneAlgorithm — Malvern, PA · (610) 890-9711",
     description:
-      "Contact OneAlgorithm for IT consulting, web development, and automation solutions.",
+      "Call 1 (610) 890-9711 or send the form — a person replies within one business day. Websites, SEO, Google Ads and CRM from Malvern, PA.",
     canonical: getCanonicalUrl("/contact"),
-    ogTitle: "OneAlgorithm — Contact Us",
+    ogTitle: "Contact OneAlgorithm — Malvern, PA · (610) 890-9711",
     ogDescription:
-      "Get in touch with OneAlgorithm for technology consulting and services.",
+      "Call 1 (610) 890-9711 or send the form — a person replies within one business day.",
+    ogUrl: getCanonicalUrl("/contact"),
   });
   const [formData, setFormData] = useState({
     firstName: "",

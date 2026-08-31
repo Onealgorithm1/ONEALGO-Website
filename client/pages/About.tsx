@@ -132,6 +132,24 @@ export default function About() {
   return (
     <Layout>
       <StructuredData data={createOrganizationSchema()} />
+      {/* The page's whole pitch is the people; give Google the same four
+          principals as machine-readable entities tied to the org. Names,
+          titles and profiles mirror TeamSection.tsx exactly. */}
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            { name: "Swapna Amirisetti", jobTitle: "President & CEO", sameAs: "https://www.linkedin.com/in/swapna-amirisetti/" },
+            { name: "Sreenivas Amirisetti", jobTitle: "Chief Technology Officer", sameAs: "https://www.linkedin.com/in/samirisetti/" },
+            { name: "Louis Rubino", jobTitle: "Director of Operations and Program Manager", sameAs: "https://www.linkedin.com/in/louiscrubino/" },
+            { name: "Sahith Valluru", jobTitle: "Business Development Manager", sameAs: "https://www.linkedin.com/in/sahith-valluru/" },
+          ].map((person) => ({
+            "@type": "Person",
+            ...person,
+            worksFor: { "@id": "https://onealgorithm.com/#org" },
+          })),
+        }}
+      />
       <StructuredData
         data={createWebPageSchema(
           "About OneAlgorithm — the people who run it",

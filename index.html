@@ -407,11 +407,12 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://onealgorithm.com/#org",
         "name": "OneAlgorithm Consulting",
         "alternateName": "One Algorithm",
         "legalName": "ONE ALGORITHM LLC",
         "url": "https://onealgorithm.com",
-        "logo": "https://onealgorithm.com/globe-logo.png",
+        "logo": "https://onealgorithm.com/media/oa-logo.webp",
         "description": "OneAlgorithm builds and markets websites for small businesses: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern, Pennsylvania.",
         "address": {
           "@type": "PostalAddress",
@@ -557,12 +558,15 @@
     <!-- Application JavaScript (compiled from TypeScript) -->
     <script type="module" src="/client/App.tsx"></script>
 
-    <!-- Fallback for older browsers -->
+    <!-- The prerendered content above is fully readable without JavaScript,
+         so no scare banner: the old "JavaScript Required" block was false and
+         put a duplicate generic <h1> in every page's source. Only interactive
+         pieces (forms, menus) need JS, and they degrade to links. -->
     <noscript>
-      <div style="padding: 2rem; text-align: center">
-        <h1>JavaScript Required</h1>
-        <p>Please enable JavaScript to use this application.</p>
-      </div>
+      <p style="padding: 1rem; text-align: center">
+        Interactive features need JavaScript; everything else on this page
+        works without it.
+      </p>
     </noscript>
   </body>
 </html>

@@ -113,13 +113,13 @@ const DISCIPLINE = [
 
 export default function ApplicationDevelopment() {
   useSEO({
-    title: "OneAlgorithm — Application Development",
+    title: "Application Development Services | OneAlgorithm",
     description:
       "Custom application development: internal control panels, iOS and Android apps, and Salesforce platform apps, built so you own the code and the keys.",
     canonical: getCanonicalUrl("/services/application-development"),
     keywords:
       "application development, custom software development, mobile app development, web application development, internal tools, Salesforce application development, Philadelphia, Chester County",
-    ogTitle: "OneAlgorithm — Application Development",
+    ogTitle: "Application Development Services | OneAlgorithm",
     ogDescription:
       "Internal control panels, mobile apps, web applications and Salesforce platform apps — built so you own the code, the accounts and the keys.",
     ogUrl: getCanonicalUrl("/services/application-development"),

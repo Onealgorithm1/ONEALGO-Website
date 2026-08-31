@@ -1068,6 +1068,33 @@ function Layout({ children }: LayoutProps) {
                   Google Ads
                 </Link>
                 <Link
+                  to="/services/web-design-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Web Design Philadelphia
+                </Link>
+                <Link
+                  to="/services/web-design-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Web Design Chester County
+                </Link>
+                <Link
+                  to="/services/google-ads-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Google Ads Philadelphia
+                </Link>
+                <Link
                   to="/services/website-development"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
