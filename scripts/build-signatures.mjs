@@ -137,14 +137,13 @@ const MARKS = [
 const TEAM = [
   {
     slug: "louis-rubino",
+    linkedin: "https://www.linkedin.com/in/louiscrubino/",
     name: "Louis Rubino",
     title: "Director",
     photo: "lou-circle.png",
-    /* Head-and-shoulders box in the 1024x1024 source, read off a coordinate grid:
-     * head top y=65, chin y=563, shoulders begin y=666, face centre x=537. Ends just
-     * into the shoulders. ⛔ Per person — a fixed box is wrong for anyone framed
-     * differently, so everyone else falls back to content-aware placement until
-     * someone actually looks at their crop. */
+    /* Head-and-shoulders box read off a coordinate grid of the source. ⛔ Per person —
+     * a box read off one person's framing is wrong for anyone standing differently. */
+    src: "brand:/Website Pics/Louis rubino.png",
     crop: { left: 172, top: 30, width: 730, height: 730 },
     email: "lrubino@onealgorithm.com",
     direct: "610.890.9722 ext. 1002",
@@ -153,31 +152,49 @@ const TEAM = [
   },
   {
     slug: "swapna-amirisetti",
+    linkedin: "https://www.linkedin.com/in/swapna-amirisetti/",
     name: "Swapna Amirisetti",
-    title: null, // TKTK — key principal on the D&B profile; needs her actual title
+    // Title from our own About page schema (client/pages/About.tsx).
+    title: "President & CEO",
     photo: "swapna-circle.png",
-    email: "samirisetti@onealgorithm.com",
+    src: "repo:public/media/team-1.webp",
+    crop: { left: 275, top: 20, width: 340, height: 340 },
+    /* ⛔ swapna@, NOT samirisetti@ — that one is Sreenivas. Verified from a header
+     * reading "To: Sreenivas Amirisetti <samirisetti@onealgorithm.com>". Two Amirisettis
+     * share the surname and the obvious guess is the wrong one. */
+    email: "swapna@onealgorithm.com",
+    /* ⛔ No phone. (610) 298-9069 appears as her contact in Louis's own NMSDC profile
+     * reply to US Bank, but one form submission is not consent to put a number on every
+     * outbound email. Ask her before adding it. */
     direct: null,
     mobile: null,
     book: null,
   },
   {
     slug: "sreenivas-amirisetti",
+    linkedin: "https://www.linkedin.com/in/samirisetti/",
     name: "Sreenivas Amirisetti",
-    title: null, // TKTK — "Executive, lead technical" on the Adobe record is not a title
+    title: "Chief Technology Officer",
     photo: "sreenivas-circle.png",
-    email: "sreeni@onealgorithm.com",
-    direct: null,
+    src: "repo:public/media/team-2.webp",
+    crop: { left: 175, top: 25, width: 380, height: 380 },
+    email: "samirisetti@onealgorithm.com",
+    // Already published on the website as contact.phoneAlt, so safe to repeat here.
+    direct: "832.434.9891",
     mobile: null,
     book: null,
   },
   {
     slug: "sahith-valluru",
+    linkedin: "https://www.linkedin.com/in/sahith-valluru/",
     name: "Sahith Valluru",
-    title: null, // TKTK
+    title: "Business Development Manager",
     photo: "sahith-circle.png",
-    email: null,
-    direct: null,
+    src: "repo:public/media/team-4.webp",
+    crop: { left: 200, top: 45, width: 380, height: 380 },
+    email: "SValluru@onealgorithm.com",
+    // The main company line until he has his own extension (Louis, 2026-08-31).
+    direct: "610.890.9711",
     mobile: null,
     book: null,
   },
@@ -211,6 +228,7 @@ const ICONS = {
   mobile: ["smartphone", "Mobile"],
   email: ["mail", "Email"],
   web: ["globe", "Website"],
+  linkedin: ["linkedin", "LinkedIn"],
 };
 
 const iconImg = (kind) => {
@@ -229,6 +247,7 @@ function contactRows(p) {
   if (p.direct) rows.push(row("direct", link(`tel:${tel(p.direct)}`, p.direct, "#35485c")));
   if (p.mobile) rows.push(row("mobile", link(`tel:${tel(p.mobile)}`, p.mobile, "#35485c")));
   if (p.email) rows.push(row("email", link(`mailto:${p.email}`, p.email)));
+  if (p.linkedin) rows.push(row("linkedin", link(p.linkedin, p.linkedin.replace(/^https:\/\/www\./, "").replace(/\/$/, ""))));
   rows.push(
     row(
       "web",
@@ -252,6 +271,7 @@ function plainText(p) {
     p.mobile && `Mobile  ${p.mobile}`,
     p.email && `Email   ${p.email}`,
     `Web     onealgorithm.com`,
+    p.linkedin && `LinkedIn ${p.linkedin}`,
     p.book && `Book    ${p.book}`,
     "",
     `Certified   ${CERTIFICATIONS.join(" | ")}`,
@@ -385,47 +405,29 @@ async function buildAssets() {
 
   const BRAND =
     "C:/Users/User/OneDrive - One Algorithm LLC/One Algorithm LLC – Corporate Records/10_Strategy_and_Planning/01_Marketing/Brand_Assets";
-  const HEADSHOTS = {
-    lou: "/Website Pics/Louis rubino.png",
-    swapna: "/Website Pics/Swapna Amirisetti.png",
-    sreenivas: "/Website Pics/Sreenivas Amirisetti.png",
-    sahith: "/Website Pics/Sahith Valluru.png",
-  };
   const D = 208; // 2x the 104px display box
-  const r = D / 2;
-  const circle = Buffer.from(`<svg width="${D}" height="${D}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`);
-  // A ring baked into the PNG. ⛔ Not a CSS border: Word will not round one, so a square
-  // border around a circular photo is what Outlook would have drawn.
+  const rad = D / 2;
+  const circle = Buffer.from(`<svg width="${D}" height="${D}"><circle cx="${rad}" cy="${rad}" r="${rad}" fill="#fff"/></svg>`);
+  /* A ring baked into the PNG. ⛔ Not a CSS border: Word will not round one, so Outlook
+     would draw a square border around a circular photo. */
   const ring = Buffer.from(
-    `<svg width="${D}" height="${D}"><circle cx="${r}" cy="${r}" r="${r - 2}" fill="none" stroke="#d3dae4" stroke-width="4"/></svg>`,
+    `<svg width="${D}" height="${D}"><circle cx="${rad}" cy="${rad}" r="${rad - 2}" fill="none" stroke="#d3dae4" stroke-width="4"/></svg>`,
   );
-  for (const [slug, file] of Object.entries(HEADSHOTS)) {
-    const person = TEAM.find((t) => t.photo === `${slug}-circle.png`);
-    let img = sharp(BRAND + file);
-    if (person?.crop) img = img.extract(person.crop).resize(D, D);
-    else img = img.resize(D, D, { fit: "cover", position: sharp.strategy.attention });
+  for (const person of TEAM) {
+    if (!person.src) continue;
+    const file = person.src.startsWith("brand:")
+      ? BRAND + person.src.slice(6)
+      : join(ROOT, person.src.slice(5));
+    if (!existsSync(file)) { console.log(`  skipped headshot, missing: ${file}`); continue; }
+    let img = sharp(file);
+    img = person.crop
+      ? img.extract(person.crop).resize(D, D)
+      : img.resize(D, D, { fit: "cover", position: sharp.strategy.attention });
     await img
       .composite([{ input: circle, blend: "dest-in" }, { input: ring }])
       .png({ palette: true, quality: 80, effort: 10 })
-      .toFile(join(dir, `${slug}-circle.png`));
+      .toFile(join(dir, person.photo));
   }
-
-  const SBA =
-    BRAND.replace("/10_Strategy_and_Planning/01_Marketing/Brand_Assets", "") +
-    "/06_Compliance/Registrations_and_Certifications/Federal/SBA_CERT";
-  for (const [src, out] of [["WOSB Certified.png", "m-sba-wosb.png"], ["EDWOSB Certified.png", "m-sba-edwosb.png"]]) {
-    // extracted from decals-and-icons.zip alongside the READ-FIRST.txt quoted above
-    await sharp(join(SBA, "decals", src)).resize({ height: 100 }).flatten({ background: "#ffffff" })
-      .png({ compressionLevel: 9 }).toFile(join(dir, out));
-  }
-
-  /* NMSDC certified badge. ⛔ It is a dense hexagon with stacked text inside, so it
-     needs a TALLER box than the wordmarks to stay legible, not a shorter one — at 46px
-     it read as a coloured blob. Square badges carry less than their bounding box. */
-  await sharp(
-    BRAND.replace("/10_Strategy_and_Planning/01_Marketing/Brand_Assets", "") +
-      "/06_Compliance/Registrations_and_Certifications/One Algorithm Certifications/Third_Party/NMSDC/NMSDC_MBE_Certified_Badge.png",
-  ).resize({ height: 112 }).flatten({ background: "#ffffff" }).png({ compressionLevel: 9 }).toFile(join(dir, "m-nmsdc.png"));
 
   /* SWaM. ⛔ NOT publicly downloadable — SBSD gates it behind the certification portal
      plus a written permission form (sbsd@sbsd.virginia.gov), and the only copies on the
@@ -481,6 +483,15 @@ async function buildAssets() {
      rule as a 14px orange block in Outlook. */
   await sharp({ create: { width: 52, height: 6, channels: 3, background: "#ffa634" } })
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule.png"));
+
+  /* The letterhead rule and the ledger hairline, as images for the same reason as the
+     orange accent: a bgcolor <td> carrying &nbsp; keeps the cell's line-height, which on
+     mobile Outlook rendered the 1px hairline as a ~25px grey BAND and thickened the 2px
+     navy rule. An image is exactly the height it says it is. */
+  await sharp({ create: { width: 1160, height: 4, channels: 3, background: "#04182b" } })
+    .png({ compressionLevel: 9 }).toFile(join(dir, "rule-navy.png"));
+  await sharp({ create: { width: 1160, height: 2, channels: 3, background: "#e3e9f0" } })
+    .png({ compressionLevel: 9 }).toFile(join(dir, "rule-hair.png"));
   console.log(`assets rebuilt -> ${dir}`);
 }
 
