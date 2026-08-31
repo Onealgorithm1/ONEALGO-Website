@@ -21,6 +21,7 @@ import {
   createServiceSchema,
   createLocalBusinessSchema,
   createFAQSchema,
+  createBreadcrumbSchema,
 } from "../../components/StructuredData";
 
 /* Website development — rebuilt 2026-08-24.
@@ -169,6 +170,16 @@ export default function WebsiteDevelopment() {
 
   return (
     <Layout>
+      {/* This page uses the canvas HeroFrame rather than PageHero, so it never
+          received HeroRail's BreadcrumbList. Schema only: the visible rail was
+          removed from this page deliberately on 2026-08-25 and stays removed. */}
+      <StructuredData
+        data={createBreadcrumbSchema([
+          { label: "Home", to: "/" },
+          { label: "Services", to: "/services" },
+          { label: "Website Development" },
+        ])}
+      />
       <StructuredData
         data={createServiceSchema(
           "Website Design & Development",
