@@ -127,7 +127,8 @@ const MARKS = [
 
 /**
  * The roster. `photo` files live in public/sig/ at 240x240 (2x of the 120px display size),
- * circle-cropped from the real headshots in Brand_Assets/Website Pics. Palette PNG
+ * circle-cropped at 208x208 (2x of 104) from Brand_Assets/Website Pics, with a
+ * 2px #d3dae4 ring baked in. Palette PNG
  * with alpha: a circle needs transparency, and 8-bit takes it from 105KB to 25KB.
  *
  * ⛔ A person with a `null` field is NOT generated. Titles are facts, not
@@ -137,8 +138,14 @@ const TEAM = [
   {
     slug: "louis-rubino",
     name: "Louis Rubino",
-    title: "Director, Compliance and Contract Administration",
+    title: "Director",
     photo: "lou-circle.png",
+    /* Head-and-shoulders box in the 1024x1024 source, read off a coordinate grid:
+     * head top y=65, chin y=563, shoulders begin y=666, face centre x=537. Ends just
+     * into the shoulders. ⛔ Per person — a fixed box is wrong for anyone framed
+     * differently, so everyone else falls back to content-aware placement until
+     * someone actually looks at their crop. */
+    crop: { left: 172, top: 30, width: 730, height: 730 },
     email: "lrubino@onealgorithm.com",
     direct: "610.890.9722 ext. 1002",
     mobile: "516.451.5139",
@@ -376,15 +383,22 @@ async function buildAssets() {
     sreenivas: "/Website Pics/Sreenivas Amirisetti.png",
     sahith: "/Website Pics/Sahith Valluru.png",
   };
-  const D = 240; // 2x the 120px display box
-  const circle = Buffer.from(
-    `<svg width="${D}" height="${D}"><circle cx="${D / 2}" cy="${D / 2}" r="${D / 2}" fill="#fff"/></svg>`,
+  const D = 208; // 2x the 104px display box
+  const r = D / 2;
+  const circle = Buffer.from(`<svg width="${D}" height="${D}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`);
+  // A ring baked into the PNG. ⛔ Not a CSS border: Word will not round one, so a square
+  // border around a circular photo is what Outlook would have drawn.
+  const ring = Buffer.from(
+    `<svg width="${D}" height="${D}"><circle cx="${r}" cy="${r}" r="${r - 2}" fill="none" stroke="#d3dae4" stroke-width="4"/></svg>`,
   );
   for (const [slug, file] of Object.entries(HEADSHOTS)) {
-    await sharp(BRAND + file)
-      .resize(D, D, { fit: "cover", position: sharp.strategy.attention })
-      .composite([{ input: circle, blend: "dest-in" }])
-      .png({ palette: true, quality: 78, effort: 10 })
+    const person = TEAM.find((t) => t.photo === `${slug}-circle.png`);
+    let img = sharp(BRAND + file);
+    if (person?.crop) img = img.extract(person.crop).resize(D, D);
+    else img = img.resize(D, D, { fit: "cover", position: sharp.strategy.attention });
+    await img
+      .composite([{ input: circle, blend: "dest-in" }, { input: ring }])
+      .png({ palette: true, quality: 80, effort: 10 })
       .toFile(join(dir, `${slug}-circle.png`));
   }
 
@@ -446,8 +460,14 @@ async function buildAssets() {
   // when Salesforce moved to the PARTNER row as its own logo (p-salesforce.png). A
   // partnership was never a certification.
 
-  // the globe that stands in for the "o" in the wordmark, at 2x its 26px box
-  await sharp(join(ROOT, "public", "globe-logo.png")).resize(60, 60).png({ compressionLevel: 9 }).toFile(join(dir, "globe.png"));
+  // the globe that stands in for the "o" in the wordmark, at 2x its 24px box
+  await sharp(join(ROOT, "public", "globe-logo.png")).resize(48, 48).png({ compressionLevel: 9 }).toFile(join(dir, "globe.png"));
+
+  /* The orange accent rule, 2x of 26x2. ⛔ It has to be an image: Word gives a
+     background-coloured <td> a paragraph with margin-bottom:6pt, which rendered the
+     rule as a 14px orange block in Outlook. */
+  await sharp({ create: { width: 52, height: 4, channels: 3, background: "#ffa634" } })
+    .png({ compressionLevel: 9 }).toFile(join(dir, "rule.png"));
   console.log(`assets rebuilt -> ${dir}`);
 }
 
@@ -490,6 +510,19 @@ if (flag("preview")) {
       .join("") +
     `</body></html>`;
   writeFileSync(join(OUT, "preview.html"), page, "utf8");
+
+  /* A bare page holding ONLY the signature, for Ctrl+A / Ctrl+C into the Outlook-on-the-web
+   * signature editor. ⛔ That editor is the real install path on this mailbox: roaming
+   * signatures live in the MAILBOX, so a file dropped in %APPDATA%\Microsoft\Signatures
+   * is read once and then superseded by whatever Outlook uploaded. Paste beats file copy. */
+  for (const p2 of built) {
+    writeFileSync(
+      join(OUT, `copy-${p2.slug}.html`),
+      `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(p2.name)} — select all and copy</title></head>` +
+        `<body style="margin:0;padding:24px;background:#ffffff;">${p2.body}</body></html>`,
+      "utf8",
+    );
+  }
 }
 
 if (flag("install")) {
