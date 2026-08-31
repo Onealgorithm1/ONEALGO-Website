@@ -201,7 +201,7 @@ const TEAM = [
      * — he is not in the extension table yet. ⭐ This also settles 9711 vs 9722: 9711 is
      * the main line, 9722 is Louis's DID on ext 1002. Both were right, for different things. */
     direct: "610.890.9711",
-    mobile: null,
+    mobile: "267.890.4684", // supplied by Louis, 2026-08-31
     book: null,
   },
 ];
