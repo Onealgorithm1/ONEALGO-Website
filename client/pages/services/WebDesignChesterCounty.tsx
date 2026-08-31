@@ -180,6 +180,20 @@ export default function WebDesignChesterCounty() {
                 certainly are. Being nearby changes how easy the first
                 conversation is, not what gets built or how long it takes.
               </p>
+              {/* "How much does a website cost" is the one demand-verified
+                  question near these pages (Bing, 90d: 136 impressions; the
+                  local-modified terms all measured zero) — link the existing
+                  vetted answer instead of duplicating it here. */}
+              <p className="mt-4 max-w-xl leading-relaxed text-oa-nightInk2">
+                Wondering what it costs?{" "}
+                <a
+                  href="/services/website-development#faq-cost"
+                  className="font-semibold text-oa-orange underline underline-offset-4"
+                >
+                  The straight answer is on the build page
+                </a>
+                .
+              </p>
             </>
           }
           right={
