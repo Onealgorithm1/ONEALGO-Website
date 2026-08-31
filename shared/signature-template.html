@@ -58,10 +58,18 @@
                   <div style="font-size:17px;line-height:21px;mso-line-height-rule:exactly;font-weight:600;color:#0d1b2a;letter-spacing:-0.2px;">{{NAME}}</div>
                   <div style="font-size:12px;line-height:17px;mso-line-height-rule:exactly;color:#35485c;padding-top:1px;">{{TITLE}}</div>
 
-                  <!-- The single accent. ⛔ An IMAGE, not a bgcolor <td>: Word wraps the
-                       cell content in a paragraph carrying margin-bottom:6.0pt, which turned
-                       this 2px rule into a 14px orange block in Outlook. An img is exact. -->
-                  <div style="padding:8px 0 8px 0;font-size:0;line-height:0;"><img src="{{ASSETS}}/rule.png" width="26" height="2" alt="" style="display:block;border:0;outline:none;width:26px;height:2px;"></div>
+                  <!-- The single accent. ⛔ An IMAGE, not a bgcolor <td>: Word wraps a
+                       coloured cell's content in a paragraph carrying margin-bottom:6.0pt,
+                       which turned this into a 14px orange BLOCK in Outlook.
+                       ⛔ And in a one-cell TABLE at 3px, not a <div> at 2px. A 2px image
+                       inside a div is the exact shape of a spacer GIF, which mail clients
+                       and signature editors strip, and Word turns the div into a paragraph
+                       that can collapse it. A table cell with explicit width/height is the
+                       construction Word renders most reliably, and the alt is an em dash
+                       rather than "" so nothing classes it as removable decoration. -->
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:8px 0 8px 0;">
+                    <tr><td width="26" height="3" style="width:26px;height:3px;line-height:3px;font-size:0;"><img src="{{ASSETS}}/rule.png" width="26" height="3" alt="&#8212;" style="display:block;border:0;outline:none;width:26px;height:3px;"></td></tr>
+                  </table>
 
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;color:#35485c;">
 {{CONTACT_ROWS}}

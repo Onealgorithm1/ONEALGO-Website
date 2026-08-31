@@ -476,10 +476,10 @@ async function buildAssets() {
   const { execFileSync } = await import("node:child_process");
   execFileSync(process.execPath, [join(ROOT, "scripts", "render-wordmark.mjs")], { stdio: "inherit" });
 
-  /* The orange accent rule, 2x of 26x2. ⛔ It has to be an image: Word gives a
+  /* The orange accent rule, 2x of 26x3. ⛔ It has to be an image: Word gives a
      background-coloured <td> a paragraph with margin-bottom:6pt, which rendered the
      rule as a 14px orange block in Outlook. */
-  await sharp({ create: { width: 52, height: 4, channels: 3, background: "#ffa634" } })
+  await sharp({ create: { width: 52, height: 6, channels: 3, background: "#ffa634" } })
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule.png"));
   console.log(`assets rebuilt -> ${dir}`);
 }
