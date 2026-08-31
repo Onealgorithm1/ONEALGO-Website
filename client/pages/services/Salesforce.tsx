@@ -404,36 +404,54 @@ export default function Salesforce() {
             from the first workshop to the run-state.
           </p>
         </Reveal>
-        {/* The official "Salesforce Partner" badge — the ONE piece of Salesforce
-            art this firm is entitled to. FY27 set, downloaded 2026-08-24 from the
-            Partner Community (Learn → Branding Guidelines → Badges).
-            ⛔ Do NOT add the Summit, Expert or Accredited badges from that zip:
-            Summit is a tier we do not hold, and Expert/Accredited require earned
-            competencies — every competency row on our listing reads "–".
-            ⛔ Do not recolour, invert or crop it; inverted renditions are
-            prohibited outright. It carries its own light ground by design, which
-            is why it sits on the night section without a plate behind it.
-            Linked to the listing, which is what Penrod and Coastal both do. */}
+        {/* Louis, 2026-09-01, looking at it on his phone: "I don't like this
+            logo I'd rather you just use the Cloud and put the text partner
+            after it."
+
+            WHY THE ISSUED BADGE CAME OFF. The FY27 Partner Program pack
+            (`~/Downloads/Partner Program Badges.zip`) was re-checked today and
+            ⛔ THERE IS NO DARK OR REVERSED VARIANT OF ANY BADGE IN IT — all 70
+            assets carry the same pale-blue gradient plate, and inverting or
+            recolouring one is prohibited outright. On this night section that
+            plate reads as a washed-out sticker, which is exactly what Louis
+            saw. There was no version of "keep the badge" that looked right.
+
+            WHAT REPLACED IT, and why this is the safer of the two options: the
+            product mark used referentially, plus a FACTUAL TEXT STATEMENT in
+            our own typography, linked to the registry entry that proves it.
+            That is a page saying a true thing — not a re-drawn credential.
+            ⛔ Do NOT turn this back into a badge lookalike: no pale plate
+            behind it, no lockup with the OneAlgorithm logo, and never the
+            words Summit, Expert or Accredited — those are tiers and
+            competencies we do not hold (every competency row on our listing
+            reads "–"). The link is load-bearing: it is what makes the claim
+            checkable rather than decorative. */}
         <Reveal className="lg:justify-self-end">
           <a
             href={APPEXCHANGE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oa-orange"
+            className="group inline-flex items-center gap-5 rounded-xl border border-white/15 bg-white/[0.04] px-7 py-6 transition-colors hover:border-white/30 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oa-orange"
           >
-            {/* ⛔ width/height ATTRIBUTES set the ratio the engine believes,
-                and they beat both the intrinsic size and CSS aspect-ratio —
-                see [[img-width-attr-aspect-ratio-trap]]. 240x137 is the
-                asset's real 360x206 ratio, not a guess. */}
+            {/* alt="" — the visible text beside it already names the thing, so
+                a screen reader announcing "Salesforce" first is duplication. */}
             <img
-              src="/salesforce-partner-badge.png"
-              alt="Salesforce Partner"
-              width={240}
-              height={137}
+              src="/media/platforms/salesforce.svg"
+              alt=""
+              width={273}
+              height={191}
               loading="lazy"
               decoding="async"
-              className="h-auto w-[200px] sm:w-[240px]"
+              className="h-auto w-[76px] shrink-0"
             />
+            <span>
+              <span className="block text-2xl font-semibold leading-none text-oa-nightInk">
+                Partner
+              </span>
+              <span className="mt-2.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-oa-nightInk3 underline decoration-white/25 underline-offset-4 transition-colors group-hover:text-oa-nightInk2 group-hover:decoration-oa-orange">
+                Verify on AppExchange
+              </span>
+            </span>
           </a>
         </Reveal>
         </div>
