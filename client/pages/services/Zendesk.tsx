@@ -98,13 +98,13 @@ const CAPABILITIES = [
 
 export default function Zendesk() {
   useSEO({
-    title: "OneAlgorithm — Zendesk Implementation & Support",
+    title: "Zendesk Implementation & Support Services | OneAlgorithm",
     description:
       "Zendesk implementation and support: setup, workflow design, automation, knowledge base, reporting and Salesforce integration. A Zendesk partner.",
     canonical: getCanonicalUrl("/services/zendesk"),
     keywords:
       "Zendesk implementation, Zendesk support, Zendesk configuration, Zendesk automation, Zendesk Salesforce integration, customer support software, help desk setup",
-    ogTitle: "OneAlgorithm — Zendesk Implementation & Support",
+    ogTitle: "Zendesk Implementation & Support Services | OneAlgorithm",
     ogDescription:
       "Implement, configure, integrate, and optimize Zendesk for customer support and service operations. Zendesk partner.",
     ogUrl: getCanonicalUrl("/services/zendesk"),

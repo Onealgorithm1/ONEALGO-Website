@@ -1,44 +1,56 @@
 # OneAlgorithm
 
-> OneAlgorithm is a woman-owned technology and marketing company working with clients across the United States, specializing in IT consulting, website development, operations technology, staff augmentation, and digital marketing. We help Construction, Manufacturing, and E-Commerce businesses automate workflows, modernize systems, and grow through technology.
+> OneAlgorithm is a woman-owned technology and marketing company based in
+> Malvern, Pennsylvania (Chester County, Philadelphia metro), working with
+> clients across the United States. We build and market websites for small
+> businesses — web development, SEO, Google Ads, marketing and CRM — and still
+> deliver Salesforce, Oracle ERP, systems integration and staff augmentation
+> for larger teams nationally.
 
 ## About
 
-- **Company name**: OneAlgorithm LLC
-- **Headquarters**: Malvern, Pennsylvania, United States (clients nationwide)
+- **Company name**: OneAlgorithm LLC (brand: OneAlgorithm Consulting)
+- **Headquarters**: 625 Swedesford Rd, Unit B, Malvern, Pennsylvania 19355
+- **Phone**: 1 (610) 890-9711
 - **Website**: https://onealgorithm.com
 - **Contact**: https://onealgorithm.com/contact
+- **Certifications**: SBA-certified WOSB and EDWOSB; WBENC; NMSDC. Verify at
+  https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18
+- **Identifiers**: UEI W8DYK38MEKP3 · CAGE 14G18 · D-U-N-S 118835343
 
 ## Services
 
-- **IT Consulting**: Technology strategy, system assessments, digital transformation roadmaps
-- **Website Development**: Custom websites, e-commerce platforms, web applications, landing pages
-- **Operations Technology**: Workflow automation, ERP/CRM integration, process optimization
-- **Staff Augmentation**: On-demand developers, IT specialists, and tech talent
-- **Digital Marketing**: SEO, paid ads, content marketing, social media, brand strategy
+- Website development: https://onealgorithm.com/services/website-development
+- SEO: https://onealgorithm.com/services/seo
+- Google Ads management: https://onealgorithm.com/services/google-ads
+- Marketing & social media: https://onealgorithm.com/services/marketing
+- Salesforce consulting: https://onealgorithm.com/services/salesforce
+- Oracle ERP implementation: https://onealgorithm.com/services/oracle-erp
+- Zendesk implementation: https://onealgorithm.com/services/zendesk
+- MarTech integration: https://onealgorithm.com/services/martech
+- IT consulting: https://onealgorithm.com/services/it-consulting
+- Operations technology: https://onealgorithm.com/services/operations-technology
+- Staff augmentation: https://onealgorithm.com/services/staff-augmentation
 
-## Industries Served
+## Local (Philadelphia metro)
 
-- **Construction**: Project management systems, field operations tech, scheduling tools
-- **Manufacturing**: Production automation, inventory systems, operations dashboards
-- **E-Commerce**: Storefront development, fulfillment integration, marketing automation
+- Web design, Philadelphia: https://onealgorithm.com/services/web-design-philadelphia
+- Web design, Chester County: https://onealgorithm.com/services/web-design-chester-county
+- Google Ads, Philadelphia: https://onealgorithm.com/services/google-ads-philadelphia
 
-## Key Pages
+## Industries
 
-- Homepage: https://onealgorithm.com/
-- Services: https://onealgorithm.com/services
-- IT Consulting: https://onealgorithm.com/services/it-consulting
-- Website Development: https://onealgorithm.com/services/website-development
-- Operations Technology: https://onealgorithm.com/services/operations-technology
-- Staff Augmentation: https://onealgorithm.com/services/staff-augmentation
-- Marketing: https://onealgorithm.com/services/marketing
-- Industries: https://onealgorithm.com/industries
-- About: https://onealgorithm.com/about
-- Blog: https://onealgorithm.com/blog/
-- Careers: https://onealgorithm.com/blog/careers/
-- Contact: https://onealgorithm.com/contact
+Construction, manufacturing, e-commerce, and marketing teams:
+https://onealgorithm.com/industries
+Government work is eligibility only — no contract has been awarded yet, and we
+say so plainly: https://onealgorithm.com/industries/government
 
-## Social & Profiles
+## Key pages
 
-- LinkedIn: https://www.linkedin.com/company/onealgorithmllc
-- GitHub: https://github.com/Onealgorithm1
+- Capabilities statement (federal): https://onealgorithm.com/capabilities
+- About the team: https://onealgorithm.com/about
+- Blog: https://onealgorithm.com/blog
+- How we use AI, and this file's purpose: https://onealgorithm.com/ai-info
+
+Every fact in this file is checkable; figures that could not be verified were
+left out rather than estimated. Updated 2026-08-31.

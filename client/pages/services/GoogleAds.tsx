@@ -96,13 +96,13 @@ const WHY_US = [
 
 export default function GoogleAds() {
   useSEO({
-    title: "OneAlgorithm — Google Ads Management",
+    title: "Google Ads Management for Small Business | OneAlgorithm",
     description:
       "Google Ads management: account structure, keywords and negatives, bid strategy, landing page testing, and conversion tracking that counts once.",
     canonical: getCanonicalUrl("/services/google-ads"),
     keywords:
       "Google Ads management, PPC agency, paid search, search advertising, Google Ads optimization, paid media, remarketing, conversion tracking",
-    ogTitle: "OneAlgorithm — Google Ads Management",
+    ogTitle: "Google Ads Management for Small Business | OneAlgorithm",
     ogDescription:
       "Google Ads management: campaign structure, negatives, audience targeting, bid strategy, landing page testing, and conversion tracking that counts each conversion once.",
     ogUrl: getCanonicalUrl("/services/google-ads"),

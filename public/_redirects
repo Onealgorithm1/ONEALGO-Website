@@ -40,3 +40,8 @@
 # file, and all 28 real routes are prerendered as static files by
 # scripts/prerender.mjs, so nothing legitimate reaches this rule.
 /*           /404.html                         404
+
+# The pre-redesign services URL still sits in the brand SERP and 404s — Google
+# holds signal for it (audit 2026-08-31). Both slash forms, to the live hub.
+/our-services  /services  301
+/our-services/  /services  301

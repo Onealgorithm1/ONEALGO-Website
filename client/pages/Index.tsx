@@ -389,6 +389,23 @@ export default function Index() {
           are never rendered, so the 1.3MB of video is not merely paused, it is
           never fetched. */}
       <section className="relative overflow-hidden bg-oa-night">
+        {/* The poster as a REAL image, painted under the video. Traced
+            2026-08-31: the hero <video> was the LCP element, and a video's
+            poster paints ~1.2s later than an equivalent <img> (63% of the
+            whole LCP was that render delay — the file itself downloads in
+            9ms). A plain bitmap <img> paints at image speed; the video then
+            covers it when (and if) it loads. Decorative twin of the poster,
+            so empty alt + aria-hidden, like the scrim and grain layers. */}
+        <img
+          src="/media/hero-poster.webp"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          width={1200}
+          height={500}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <video
           ref={heroVideoRef}
           className="absolute inset-0 h-full w-full object-cover"
@@ -448,7 +465,15 @@ export default function Index() {
               solutions tailored to you.
             </p>
 
-            <p className="mt-6 max-w-2xl text-lede text-oa-nightInk2">
+            {/* The H1 above is the client's own heading, verbatim, by his
+                instruction (2026-08-25) — it stays. This H2 carries the query
+                words the page ranks for, per the audit: the heading layer must
+                say what the title tag promises. */}
+            <h2 className="mt-6 max-w-2xl text-xl font-semibold text-oa-nightInk">
+              Websites, SEO and Google Ads for small businesses — from Malvern,
+              Pennsylvania
+            </h2>
+            <p className="mt-3 max-w-2xl text-lede text-oa-nightInk2">
               We build websites for small businesses and then do the work that
               gets them found: search, Google Ads, the marketing, and the CRM
               that keeps track of who called. Most people come to us with a site
@@ -704,7 +729,7 @@ export default function Index() {
       <section className="bg-oa-paper">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <h2 className="mt-4 text-h2 font-semibold text-oa-ink">Where we work</h2>
+            <h2 className="mt-4 text-h2 font-semibold text-oa-ink">Industries we serve</h2>
           </div>
 
           {/* Full-width divided rows, not a 4-up card grid.

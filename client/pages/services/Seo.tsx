@@ -156,13 +156,13 @@ const QUESTIONS = [
 
 export default function Seo() {
   useSEO({
-    title: "OneAlgorithm — SEO Services",
+    title: "SEO Services for Small Business — Philadelphia | OneAlgorithm",
     description:
       "SEO services starting with the technical audit: crawl and index coverage, Core Web Vitals, duplicate titles, then content, outreach and reporting.",
     canonical: getCanonicalUrl("/services/seo"),
     keywords:
       "SEO services, technical SEO, content SEO, link building, organic traffic, search engine optimization, local SEO",
-    ogTitle: "OneAlgorithm — SEO Services",
+    ogTitle: "SEO Services for Small Business — Philadelphia | OneAlgorithm",
     ogDescription:
       "Technical SEO first — crawl coverage, Core Web Vitals, duplicate URLs and titles — then keyword and content strategy, outreach, and reporting from your own Search Console.",
     ogUrl: getCanonicalUrl("/services/seo"),

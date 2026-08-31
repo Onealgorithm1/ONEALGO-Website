@@ -190,13 +190,13 @@ const FOCUS_AREAS = [
 
 export default function OperationsTechnology() {
   useSEO({
-    title: "OneAlgorithm — Operations Tech",
+    title: "Operations Technology (OT) Consulting | OneAlgorithm",
     description:
       "Operations technology: industrial automation, SCADA and real-time monitoring, IoT and sensor integration, OT network security and maintenance systems.",
     canonical: getCanonicalUrl("/services/operations-technology"),
     keywords:
       "operations technology, industrial automation, process optimization, monitoring systems, equipment integration, OT services, manufacturing technology",
-    ogTitle: "OneAlgorithm — Operations Tech",
+    ogTitle: "Operations Technology (OT) Consulting | OneAlgorithm",
     ogDescription:
       "Industrial automation, SCADA and monitoring, IoT integration, OT network security and maintenance systems — connecting what happens on the floor to the systems that plan the work.",
     ogUrl: getCanonicalUrl("/services/operations-technology"),

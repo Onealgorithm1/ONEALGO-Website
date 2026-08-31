@@ -87,13 +87,13 @@ const WHY_US = [
 
 export default function Martech() {
   useSEO({
-    title: "OneAlgorithm — MarTech Services",
+    title: "MarTech Consulting & Stack Integration | OneAlgorithm",
     description:
       "MarTech: connecting your CRM, email, ad platforms, analytics and website so customer data is in one place and the reporting actually reconciles.",
     canonical: getCanonicalUrl("/services/martech"),
     keywords:
       "MarTech, marketing technology, marketing automation, customer data platform, personalization, digital advertising, campaign management, marketing integration",
-    ogTitle: "OneAlgorithm — MarTech Services",
+    ogTitle: "MarTech Consulting & Stack Integration | OneAlgorithm",
     ogDescription:
       "Connect your CRM, email, ad platforms and analytics so customer data lives in one place, follow-up is automated, and the reporting reconciles with the CRM.",
     ogUrl: getCanonicalUrl("/services/martech"),

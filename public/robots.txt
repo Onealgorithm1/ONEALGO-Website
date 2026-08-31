@@ -1,53 +1,9 @@
 # onealgorithm.com — robots.txt
 #
-# ⚠️ READ THIS FIRST. THIS FILE IS CURRENTLY NOT WHAT VISITORS SEE.
+# Cloudflare's managed robots.txt and AI-crawler blocking were verified OFF via
+# the zone API on 2026-08-31 (ai_bots_protection: disabled, cf_robots_variant:
+# off) — this origin file is what visitors and crawlers actually receive.
 #
-# Cloudflare's "Managed robots.txt" feature is switched on for this zone, and it
-# REPLACES what is served at /robots.txt with its own content — a Content-Signal
-# block declaring `ai-train=no` plus `Disallow: /` rules for the AI crawlers.
-# Verified 2026-08-12: the file served from onealgorithm.com does not match this
-# one (different checksums), and it says the opposite about AI training.
-#
-# Cloudflare is ALSO returning HTTP 403 at the edge to GPTBot, ClaudeBot,
-# PerplexityBot, CCBot and meta-externalagent — so those crawlers never reach
-# the origin at all, whatever any robots.txt says. robots.txt is a request; a
-# 403 is a refusal.
-#
-# So editing this file changes nothing until two dashboard settings change:
-#   1. Cloudflare → AI Crawl Control → the managed robots.txt / block toggle
-#   2. Cloudflare → Security → Bots → block AI scrapers and crawlers
-# Both are account settings, not code. Fixing this file is still worth doing so
-# that the moment those are turned off, the correct rules are already in place.
-#
-# ─────────────────────────────────────────────────────────────────────────────
-# WHY THE AGENT LIST BELOW CHANGED, 2026-08-12
-#
-# The previous version allowed a long list of bots "for maximum SEO visibility"
-# and was missing every crawler that actually produces citations. Each of the
-# three major assistants runs SEPARATE agents for training and for retrieval,
-# and only the retrieval ones decide whether you can be quoted in an answer:
-#
-#   OpenAI      GPTBot            model training
-#               OAI-SearchBot     ChatGPT Search — THIS is the citation crawler
-#               ChatGPT-User      fetches a page because a user asked for it
-#   Anthropic   ClaudeBot         model training
-#               Claude-SearchBot  search indexing
-#               Claude-User       fetches a page because a user asked for it
-#   Perplexity  PerplexityBot     search index
-#               Perplexity-User   user-initiated fetch
-#
-# NONE of OAI-SearchBot, Claude-SearchBot, Claude-User, Perplexity-User or
-# ClaudeBot appeared in the old file. It also named `anthropic-ai` and
-# `Claude-Web`, which Anthropic has retired. So the file was permissive toward
-# the crawlers that take content for training and silent about the ones that
-# hand out citations — precisely backwards for a business that wants to be
-# found.
-#
-# Google-Extended is not a crawler. It is a permission token controlling whether
-# content already fetched by Googlebot may be used for Gemini and AI grounding.
-# Disallowing it removes you from AI Overviews without saving any crawl.
-# ─────────────────────────────────────────────────────────────────────────────
-
 User-agent: *
 Allow: /
 

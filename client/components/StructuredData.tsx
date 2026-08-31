@@ -215,6 +215,9 @@ export function createOrganizationSchemaDetailed() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    // One entity across the whole site: the static block in index.html carries
+    // the same @id, so Google's graph merges them instead of seeing two orgs.
+    "@id": "https://onealgorithm.com/#org",
     name: NAP.name,
     alternateName: NAP.alternateName,
     description:
@@ -231,37 +234,30 @@ export function createOrganizationSchemaDetailed() {
     // and geoRadius must be a number of metres or a Distance - prose made the
     // whole shape invalid. A circle centred on the office cannot express
     // "everywhere" at any radius anyway, and areaServed accepts text directly.
-    areaServed: "Worldwide",
+    // The concrete places the firm actually works from and serves (offices per
+    // the contact page) — "Worldwide" contradicted the LocalBusiness counties.
+    areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Software Development Services",
+      // The services actually sold today — mirrors the /services hub. The old
+      // catalog ("Custom Software Development", "Growth Marketing") was the
+      // pre-refresh positioning and is retired.
+      name: "Technology & Marketing Services",
       itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Custom Software Development",
-            description: "Web, mobile, and SaaS application development",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "System Integration",
-            description:
-              "API integration, CRM/ERP integration, workflow automation",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Growth Marketing",
-            description: "SEO, PPC, content marketing, conversion optimization",
-          },
-        },
-      ],
+        "Website Development",
+        "SEO",
+        "Google Ads Management",
+        "Salesforce Consulting",
+        "Oracle ERP Implementation",
+        "IT Consulting",
+        "MarTech Integration",
+        "Zendesk Implementation",
+        "Operations Technology",
+        "Staff Augmentation",
+      ].map((name) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name },
+      })),
     },
     priceRange: "$$$",
     // No aggregateRating. There was one here claiming 4.8 from 47 reviews, with

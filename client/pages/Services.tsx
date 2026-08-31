@@ -14,6 +14,7 @@ import {
   Search,
   BarChart3,
   Layers,
+  MapPin,
 } from "lucide-react";
 import {
   PageHero,
@@ -47,6 +48,27 @@ import {
  */
 
 const SERVICES = [
+  // The three local pages lead the grid deliberately: they are the pages this
+  // site most needs Google to find, and until 2026-08-31 they had exactly one
+  // internal link each, sitewide.
+  {
+    icon: MapPin,
+    title: "Web Design — Philadelphia",
+    body: "Website design and development for Philadelphia businesses, from the team in Malvern — sites built to be found and to bring in work.",
+    to: "/services/web-design-philadelphia",
+  },
+  {
+    icon: MapPin,
+    title: "Web Design — Chester County",
+    body: "Local web design for Chester County businesses: Malvern, West Chester, Exton and the towns between. We are based here.",
+    to: "/services/web-design-chester-county",
+  },
+  {
+    icon: MapPin,
+    title: "Google Ads — Philadelphia",
+    body: "Google Ads management for Philadelphia-area businesses — campaigns run by the same team that builds the landing pages.",
+    to: "/services/google-ads-philadelphia",
+  },
   {
     icon: Users,
     title: "Staff Augmentation",
@@ -142,13 +164,13 @@ const APPROACH = [
 
 export default function Services() {
   useSEO({
-    title: "OneAlgorithm — Services",
+    title: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
     description:
       "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A woman-owned consultancy in Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services"),
     keywords:
       "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
-    ogTitle: "OneAlgorithm — Services",
+    ogTitle: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
     ogDescription:
       "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
     ogUrl: getCanonicalUrl("/services"),

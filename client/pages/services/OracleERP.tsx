@@ -162,13 +162,13 @@ const PROCESS = [
 
 export default function OracleERP() {
   useSEO({
-    title: "OneAlgorithm — Oracle ERP Implementation Services",
+    title: "Oracle ERP Implementation Consultants | OneAlgorithm",
     description:
       "Oracle Cloud ERP: Financials, SCM and HCM configuration, legacy data reconciled before cutover, and Hypercare through the first month-end.",
     canonical: getCanonicalUrl("/services/oracle-erp"),
     keywords:
       "Oracle ERP implementation, Oracle Cloud ERP, Oracle Financials, Oracle SCM, Oracle HCM, ERP data migration, Oracle integration, enterprise resource planning",
-    ogTitle: "OneAlgorithm — Oracle ERP Implementation Services",
+    ogTitle: "Oracle ERP Implementation Consultants | OneAlgorithm",
     ogDescription:
       "Oracle Cloud ERP implementation: Financials, SCM and HCM configuration, data migration reconciled before cutover, OIC integrations, and Hypercare through the first month-end.",
     ogUrl: getCanonicalUrl("/services/oracle-erp"),

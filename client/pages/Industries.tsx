@@ -94,7 +94,7 @@ export default function Industries() {
     title:
       "Construction, Manufacturing & E-Commerce IT — OneAlgorithm",
     description:
-      "Where our work lands: construction, manufacturing, e-commerce and government. Each page says plainly what we do and what we have not done.",
+      "IT consulting for construction, manufacturing and e-commerce — ERP, systems integration and web work from a Malvern, PA team. See how it lands in yours.",
     canonical: getCanonicalUrl("/industries"),
     keywords:
       "construction technology consulting, manufacturing systems integration, e-commerce integration, government contracting WOSB EDWOSB, IT consulting by industry, Malvern PA",
