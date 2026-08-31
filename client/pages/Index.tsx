@@ -395,13 +395,16 @@ export default function Index() {
             whole LCP was that render delay — the file itself downloads in
             9ms). A plain bitmap <img> paints at image speed; the video then
             covers it when (and if) it loads. Decorative twin of the poster,
-            so empty alt + aria-hidden, like the scrim and grain layers. */}
+            so empty alt + aria-hidden, like the scrim and grain layers.
+            decoding MUST stay sync: async let Chrome defer the decode behind
+            hydration long-tasks — traced on the 2026-08-31 preview, the img
+            painted 2.3s AFTER first paint. Sync paints it with the frame. */}
         <img
           src="/media/hero-poster.webp"
           alt=""
           aria-hidden="true"
           fetchPriority="high"
-          decoding="async"
+          decoding="sync"
           width={1200}
           height={500}
           className="absolute inset-0 h-full w-full object-cover"
