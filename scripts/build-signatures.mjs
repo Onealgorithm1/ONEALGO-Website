@@ -169,7 +169,7 @@ const TEAM = [
      * Her real direct is ext 1003. The NMSDC submission carries the wrong number for her. */
     direct: "610.890.9822",
     fax: "610.510.4015",
-    mobile: null,
+    mobile: "832.633.7051", // supplied by Louis, 2026-08-31
     book: null,
   },
   {
