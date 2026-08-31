@@ -138,6 +138,13 @@ const PILLARS = [
     details: [
       "Org setup: profiles, permission sets, page layouts",
       "Sales Cloud and Service Cloud configuration",
+      /* Marketing Cloud is INVOICE-BACKED — a recurring, named support work
+         package across consecutive monthly invoices, verified 2026-09-01 in
+         02_Finance. It had never appeared anywhere on this page, while the
+         page led on two clouds that carry no AppExchange competency at all.
+         ⛔ Support and build, which is what the record shows. Do not upgrade
+         this to "campaign strategy" or anything audience-facing. */
+      "Marketing Cloud build and ongoing support",
       "Custom objects and fields where standard ones don't fit",
       "Flow automation for the manual steps",
       "Apex only where clicks genuinely can't do the job",
@@ -147,12 +154,22 @@ const PILLARS = [
   {
     title: "Data migration and integration",
     description:
-      "Getting the records out of the system you're leaving, cleaning them, loading them, and proving the totals still match. Then the API work that keeps Salesforce in step with everything else.",
+      "Getting the records out of the system you're leaving, cleaning them, loading them, and proving the totals still match. Then the API work that keeps Salesforce in step with everything else — the ERP most of all, because that is where the argument about which number is right usually starts.",
+    /* ⛔ THE THREE MIGRATION/SYNC LINES BELOW ARE INVOICE-BACKED, and they are
+       the only delivery evidence on this page that is not a certification
+       count. Verified 2026-09-01 against the paid invoice registers in
+       02_Finance (PO-level work packages: "DOG Synch from SAP to SFDC",
+       "QuickBase Migration", "Kissflow Migration to SFDC"). They describe the
+       PATTERN, never the client — the engagement carries no consent-to-name
+       record, so ⛔ do not add the customer, the sector or the dates. */
     details: [
       "Extract and profile the legacy data before moving any of it",
       "Dedupe and map fields; agree in writing what gets dropped",
       "Load, then reconcile record counts and totals",
+      "ERP-to-Salesforce syncs, SAP included, so both sides agree",
+      "Moves off low-code systems like QuickBase and Kissflow",
       "REST and SOAP integrations, or middleware where that's cheaper",
+      "MuleSoft CloudHub where the job needs a managed runtime",
       "Scheduled syncs, with an alert when one fails",
     ],
   },
@@ -200,6 +217,22 @@ const FAQS = [
     a: "Sales Cloud tracks the work of winning business — leads, opportunities and pipeline. Service Cloud tracks the work of supporting customers after they buy — cases, queues and escalation. Plenty of companies need both, and some need far less than they were sold. That is the first thing we look at.",
   },
   {
+    /* ⛔ READ BEFORE EDITING THIS ANSWER. Louis, 2026-09-01: "We also do
+       MuleSoft." What the record actually supports, checked across SharePoint
+       and the invoice registers on 2026-09-01: a SIGNED CloudHub 2.0
+       integration SOW (both signatures, June 2025), and separately a paid
+       history of SAP-to-Salesforce and low-code migration work. What does NOT
+       exist: any MuleSoft certification held by anyone here, a MuleSoft
+       competency on the AppExchange listing, or a single delivery artefact
+       from that SOW. One person on a 66-strong bench list names MuleSoft.
+       So the answer below says we do the work and does NOT say we are a
+       MuleSoft practice. ⛔ Never add a MuleSoft certification, a competency,
+       a headcount or a years figure here — none of them can be evidenced, and
+       the integration claim stands perfectly well without them. */
+    q: "Do you work with MuleSoft?",
+    a: "Yes, for the integration jobs that need it — MuleSoft is Salesforce's own integration platform, and we scope and build on CloudHub where a managed runtime, scheduling and retry handling are worth paying for. Plenty of integrations do not need it, and a REST job or a cheaper middleware will do. We will tell you which one you are looking at rather than route you to the more expensive answer.",
+  },
+  {
     q: "We already have an admin. Can you do just the data migration?",
     a: "Yes. The four stages of the work are separable. If you only need the records moved off your current system, cleaned, loaded and reconciled against the totals, take that stage on its own.",
   },
@@ -207,8 +240,15 @@ const FAQS = [
 
 export default function Salesforce() {
   useSEO({
-    // Brand last, location in. 58 characters.
-    title: "Salesforce Consulting Partner | OneAlgorithm",
+    /* Brand last. 62 characters.
+       ⛔ Was "Salesforce Consulting Partner | OneAlgorithm" — a bare head term
+       against Salesforce's own directory, Accenture and Slalom, offering the
+       searcher no reason to click. Bing has NEVER served this URL for anything
+       (measured 2026-09-01: every impression the domain holds is branded), so
+       there is no ranking here to protect by leaving it alone. The free org
+       review is the one thing on this page no large partner will match, so it
+       goes in the title where it can win the click. */
+    title: "Salesforce Consulting Partner | Free Org Review | OneAlgorithm",
     // 155 characters. The previous one was 203 and lost its last third to SERP
     // truncation.
     description:
@@ -260,6 +300,27 @@ export default function Salesforce() {
           items: [],
           slot: (
             <div>
+              {/* Louis, 2026-09-01: "I don't like that Logo I like the Cloud."
+                  So the cloud leads the card. This is Salesforce's CORPORATE
+                  mark used REFERENTIALLY — it labels Salesforce's own registry
+                  record, which is what the card contains, and it links to that
+                  record. That is the permitted use.
+                  ⛔ It is NOT a partnership credential and must never stand in
+                  for one: the "Salesforce Partner" badge lower down is the only
+                  mark that says we are a partner. ⛔ Never pair this with the
+                  OneAlgorithm logo as a lockup, never recolour or crop it, and
+                  never let it become the page's own hero graphic.
+                  ⛔ Use the repo SVG, not the 4000x2250 JPG from the Salesforce
+                  media pack — same official mark, but the JPG has a baked WHITE
+                  ground that would sit as a white box on this night panel, and
+                  it is vector here for a fraction of the bytes. */}
+              <img
+                src="/media/platforms/salesforce.svg"
+                alt="Salesforce"
+                width={273}
+                height={191}
+                className="mb-7 h-auto w-[124px]"
+              />
               <dl className="grid grid-cols-3 gap-x-4">
                 {REGISTRY.map((r) => (
                   <div key={r.label} className="flex flex-col">
@@ -323,8 +384,14 @@ export default function Salesforce() {
             direct claim near a matching heading; the rest of this page is written
             as argument, which reads well and extracts badly. Added 2026-08-24
             after the crawler block was lifted and citation became possible. */}
+        {/* Paragraph and badge are ONE object on wide screens. Apart, the badge
+            floated alone in the middle of the band with the whole right-hand
+            half of the section empty beside the text — two faults with one
+            cause. Together, the mark sits next to the sentence it backs, which
+            is the only place a trust mark does any work. */}
+        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[minmax(0,7fr)_auto] lg:gap-16">
         <Reveal>
-          <p className="mt-8 max-w-3xl text-lede text-oa-nightInk2 leading-relaxed">
+          <p className="max-w-3xl text-lede text-oa-nightInk2 leading-relaxed">
             <strong className="font-semibold text-oa-nightInk">
               One Algorithm is a woman-owned Salesforce Consulting Partner
               working with companies across the United States.
@@ -347,28 +414,38 @@ export default function Salesforce() {
             prohibited outright. It carries its own light ground by design, which
             is why it sits on the night section without a plate behind it.
             Linked to the listing, which is what Penrod and Coastal both do. */}
-        <Reveal className="mt-10">
+        <Reveal className="lg:justify-self-end">
           <a
             href={APPEXCHANGE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oa-orange"
           >
+            {/* ⛔ width/height ATTRIBUTES set the ratio the engine believes,
+                and they beat both the intrinsic size and CSS aspect-ratio —
+                see [[img-width-attr-aspect-ratio-trap]]. 240x137 is the
+                asset's real 360x206 ratio, not a guess. */}
             <img
               src="/salesforce-partner-badge.png"
               alt="Salesforce Partner"
-              width={180}
-              height={103}
+              width={240}
+              height={137}
               loading="lazy"
               decoding="async"
-              className="h-auto w-[180px]"
+              className="h-auto w-[200px] sm:w-[240px]"
             />
           </a>
         </Reveal>
+        </div>
         <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
+          {/* ⛔ The <li> must be the DIRECT child of the <ul>. Reveal renders a
+              div, so wrapping the li in it put a div between the two and axe
+              failed both `list` and `listitem` (4 nodes) — the same fault that
+              took the FAQ off a <dl>, noted further down this file. Reveal goes
+              INSIDE the li. */}
           {CREDENTIALS.map((c) => (
-            <Reveal key={c.name}>
-              <li className="border-t border-white/20 pt-5">
+            <li key={c.name} className="border-t border-white/20 pt-5">
+              <Reveal>
                 <p className="text-sm font-semibold text-oa-nightInk">
                   {c.href ? (
                     <a
@@ -386,8 +463,8 @@ export default function Salesforce() {
                 <p className="mt-2 font-mono text-xs leading-relaxed text-oa-nightInk3">
                   {c.detail}
                 </p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
         {/* Required by Salesforce's Trademark & Copyright Usage Guidelines:
@@ -452,14 +529,32 @@ export default function Salesforce() {
           title="What the work actually is"
           lede="Four stages, usually in this order. If you already have an admin and only need stage 03, take that one on its own."
         />
-        <ol className="mt-14 space-y-14 md:space-y-16">
+        {/* ⛔ ONE STAIRCASE, NOT FOUR SLABS. Each stage used to carry its own
+            full-width `border-t`, which gave the four of them the identical
+            silhouette every other band on this page already has — heading
+            left, checklist right, rule on top — and the section read as
+            repetition rather than as the sequence the lede promises. The rule
+            is now a single CONTINUOUS vertical spine with the stage numbers
+            sitting on it, so the eye follows 01 → 04 as one process. The
+            horizontal rule survives below `md`, where the spine is off and the
+            stages would otherwise run together. Structure encoding real
+            information: these genuinely ARE ordered, which is why a numbered
+            spine is honest here and would not be on the FAQ. */}
+        <ol className="mt-14 space-y-14 md:space-y-16 md:border-l md:border-oa-hairlineStrong md:pl-12 lg:pl-16">
           {PILLARS.map((p, i) => (
-            <li key={p.title}>
+            <li key={p.title} className="relative">
               <Reveal>
-                <div className="grid gap-8 border-t border-oa-hairlineStrong pt-8 md:grid-cols-[minmax(0,7fr)_minmax(0,6fr)] md:gap-14">
+                <div className="grid gap-8 border-t border-oa-hairlineStrong pt-8 md:grid-cols-[minmax(0,7fr)_minmax(0,6fr)] md:gap-14 md:border-t-0 md:pt-0">
                   <div>
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-sm text-oa-orangeText">
+                      {/* On md+ the number leaves the text flow and sits ON the
+                          spine. `aria-hidden` because the <ol> already conveys
+                          the order to a screen reader — reading "01" aloud
+                          before every heading is noise. */}
+                      <span
+                        aria-hidden="true"
+                        className="font-mono text-sm text-oa-orangeText md:absolute md:left-0 md:top-1 md:-translate-x-[calc(100%+1.5rem)] lg:-translate-x-[calc(100%+2rem)]"
+                      >
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3 className="text-h3 font-semibold text-oa-ink">
@@ -489,7 +584,7 @@ export default function Salesforce() {
         <SectionHeading
           tone="dark"
           title="Two ways people arrive at this page"
-          lede="Commercial teams and government buyers want different things from a Salesforce partner, and are reassured by completely different evidence. Take whichever half is yours."
+          lede="Some people already own Salesforce and it is not earning its keep. Others have not bought it yet and want to know what they actually need. Those are different problems with different first moves. Take whichever half is yours."
         />
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="border-t border-white/20 pt-8">
@@ -516,7 +611,7 @@ export default function Salesforce() {
                   "The manual steps your team repeats every week, handed to Flow",
                   "Pipeline, cases and queues set up around your process",
                   "The reports your leadership will actually open",
-                  "A license count and a rough cost before anyone signs",
+                  "Integrations that fail quietly, found and alerted on",
                 ]}
               />
             </div>
@@ -536,7 +631,53 @@ export default function Salesforce() {
               service page. Removed 2026-08-25 (Louis: federal is a small
               section and a bonus). Its content, including the statement that
               the firm holds no federal Salesforce contract, is on
-              /industries/government and /capabilities. */}
+              /industries/government and /capabilities.
+
+              ⛔ Its removal left this `lg:grid-cols-2` holding ONE child, so
+              half the section was empty dark space on every screen ≥1024px
+              while the heading promised "two ways". Refilled 2026-09-01 with
+              the OTHER commercial arrival — the pre-purchase buyer — which is
+              a door the page already opens twice (stage 01 of the work, and
+              the "Do I need Sales Cloud or Service Cloud?" FAQ) and had no
+              entry point of its own. ⛔ No new claim is made here: every line
+              restates work described elsewhere on this page. Do not add a
+              client, a number or a timeframe to it. */}
+          <Reveal className="border-t border-white/20 pt-8">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">
+              Not bought yet
+            </p>
+            <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
+              You are being sold Salesforce and cannot tell what you actually
+              need
+            </h3>
+            <p className="mt-4 text-oa-nightInk2 leading-relaxed">
+              The expensive mistakes get made here, before anything is
+              configured — the wrong edition, seats for people who will never
+              log in, and clouds bought together because they were quoted
+              together.{" "}
+              <strong className="font-semibold text-oa-nightInk">
+                We will tell you if a smaller edition does the job, and we will
+                tell you if Salesforce is the wrong answer altogether.
+              </strong>{" "}
+              That is a cheaper thing to find out now than in month four.
+            </p>
+            <div className="mt-7">
+              <CheckList
+                tone="dark"
+                items={[
+                  "What your process actually is now, workarounds included",
+                  "Which clouds and edition you need — and which you don't",
+                  "A license count and a rough cost, before anyone signs",
+                  "Who owns and administers the org after we leave",
+                ]}
+              />
+            </div>
+            <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
+              Nothing here commits you to buying it from us, or to buying it at
+              all. If the honest answer is that your spreadsheet is still doing
+              the job, that is the answer you will get.
+            </p>
+          </Reveal>
         </div>
       </Section>
 
