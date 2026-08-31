@@ -94,6 +94,66 @@ const WHY_US = [
   "Reporting comes out of your own Search Console and GA4 — you keep the accounts and can check every number we send.",
 ];
 
+/* Google Search Essentials names exactly three technical requirements. Not a
+   summary of a blog post about them — the requirements themselves. */
+const REQUIREMENTS = [
+  "Googlebot can reach the page: not blocked in robots.txt, not behind a login, and not carrying a noindex tag somebody left on after launch.",
+  "The page returns a 200. Not a redirect chain, not a 404, and — the one that catches JavaScript apps — not a page that shows “not found” to a human while telling Google everything is fine.",
+  "There is indexable content: real text in a format Google reads, that does not break the spam policies.",
+];
+
+const MYTHS = [
+  "The keywords meta tag. Google has not used it since 2009 and lists it by name under things not to focus on.",
+  "FAQ rich results. They stopped appearing in Google Search on 7 May 2026. Adding the markup today earns nothing.",
+  "A magic word count. Google states there is no minimum or maximum length for ranking. Long is not a strategy.",
+  "Keyword density. Repeating a phrase, or listing the towns you would like to rank in, is what Google’s spam policy calls keyword stuffing.",
+  "Paying to appear. Organic results cost nothing — Google says so twice in its own documentation, presumably because people keep being told otherwise.",
+  "Guaranteed number-one rankings. Nobody can promise one. Google will not even guarantee that a page you submit gets indexed.",
+];
+
+const QUESTIONS = [
+  {
+    q: "Why isn’t my site showing up on Google?",
+    a: "Almost always one of three things, and they have completely different fixes: Google has never crawled the page, it crawled it and chose not to index it, or it is indexed and ranking too low to see. You can tell which in about a minute using URL Inspection in Search Console. We check that before proposing any work, because two of the three make content changes pointless until they are sorted.",
+  },
+  {
+    q: "How long does SEO take?",
+    a: "Google says some changes register within hours and others take months, and suggests waiting a few weeks before judging any of it. In our experience technical fixes move fastest because they unblock something. New pages on a site without much authority are a quarter-scale question, not a month-scale one. Anyone giving you a date is guessing.",
+  },
+  {
+    q: "Do I have to pay Google to appear in the results?",
+    a: "No. Appearing in organic search costs nothing, and Google states this outright in its own documentation. Google Ads is a separate paid product that puts you above the organic results — useful, but it does not improve your organic position and stopping it does not lower one.",
+  },
+  {
+    q: "Should we add FAQ markup to get those dropdowns under our listing?",
+    a: "Not any more. Google retired the FAQ rich result: it stopped appearing on 7 May 2026 and support is being pulled from the reporting and testing tools. The markup is harmless but it will not produce anything. If a proposal you are reading quotes for it, that is a reasonable signal about how current the rest of the proposal is.",
+  },
+  {
+    q: "How many words should a page be?",
+    a: "There is no target. Google is explicit that content length alone does not affect ranking. A 300-word page that answers the question directly will beat a 2,000-word one that circles it, and the long one costs more to write and more to maintain.",
+  },
+  {
+    q: "Will publishing more pages get us more traffic?",
+    a: "Only if each one answers something people actually search for. Publishing many near-identical pages to cover keyword variations is specifically what Google’s scaled content abuse policy targets, and “we used AI” is not a defence — the policy covers content however it was produced. Three pages that earn their place beat thirty that do not.",
+  },
+  {
+    q: "Can you guarantee a number-one ranking?",
+    a: "No, and you should treat anyone who does as a warning. Google does not guarantee that a page you submit will be indexed at all, let alone where it lands. What can be guaranteed is the work: the technical faults get fixed, the pages get written, and you can see every number in your own Search Console.",
+  },
+  {
+    q: "Is my site fast enough?",
+    a: "The thresholds are LCP under 2.5 seconds, INP under 200 milliseconds and CLS under 0.1. The part most people miss: Google grades on real visitors, not a test run on your laptop. A site with little traffic may have no field data at all, which means speed is not currently affecting its ranking — though it is still affecting whether anyone stays.",
+  },
+  {
+    q: "What is the difference between SEO and Google Ads?",
+    a: "Ads buy position now and stop the moment you stop paying. SEO builds slowly and keeps working. Most small businesses want both for a while: ads to make the phone ring this quarter, SEO so that in a year the phone rings without the meter running.",
+  },
+  {
+    q: "Do the reviews on my own website help my ranking?",
+    a: "Not in the way people hope. Google’s guidance is that review markup for your own business is not eligible for rich results — the aggregate rating property is intended for sites reviewing other businesses. What genuinely matters is reviews on your Google Business Profile, which is a different property and, for most local firms, worth more than anything on the website itself.",
+  },
+];
+
 export default function Seo() {
   useSEO({
     title: "OneAlgorithm — SEO Services",
@@ -212,6 +272,74 @@ export default function Seo() {
             </Card>
           }
         />
+      </Section>
+
+      {/* ============================================ WHAT GOOGLE ASKS FOR ===
+          Written 2026-08-30 after reading Google Search Essentials and the
+          reference docs under it, and running the checks described here against
+          our own site and a client's. Everything stated as Google's position is
+          from their published documentation; everything stated as ours is
+          something we measured. No client names, no traffic figures, no case
+          studies — there still aren't any in this repository. */}
+      <Section tone="paper" bordered>
+        <SectionHeading
+          eyebrow="The actual specification"
+          title="What Google actually requires"
+          lede="Most of what gets sold as SEO is opinion. Google publishes the rules, and the hard requirements are shorter than anyone expects — three of them."
+        />
+        <div className="mt-12">
+          <CheckList items={REQUIREMENTS} />
+        </div>
+        <p className="mt-8 max-w-2xl text-oa-ink2 leading-relaxed">
+          Meeting all three does not mean a page gets indexed — Google says so
+          plainly. It means the page is <em>eligible</em>. Everything after that
+          is whether the content deserves the slot, which is why we start with
+          the technical layer and stop talking about it quickly.
+        </p>
+      </Section>
+
+      <Section tone="night" grid>
+        <SectionHeading
+          tone="dark"
+          eyebrow="Not worth your money"
+          title="Things that do not move the needle"
+          lede="Each of these is still being sold in 2026. Each is contradicted by Google's own documentation."
+        />
+        <div className="mt-10">
+          <CheckList items={MYTHS} tone="dark" />
+        </div>
+        <p className="mt-8 max-w-2xl leading-relaxed text-oa-nightInk2">
+          We removed the keywords meta tag from all 26 pages of this site the day
+          we confirmed it, and we found a list of town names on one of our own
+          pages that met Google&rsquo;s definition of keyword stuffing. We took
+          it out. It is easier to notice this on someone else&rsquo;s site than
+          your own.
+        </p>
+      </Section>
+
+      {/* ⛔ NO FAQPage STRUCTURED DATA ON THIS SECTION, DELIBERATELY.
+          Google retired the FAQ rich result: it stopped appearing in Search on
+          2026-05-07 and support is being removed from the reporting and testing
+          tools. Marking these up would earn nothing. They are here because they
+          are the questions we get asked, not to chase a snippet that no longer
+          exists — which is rather the point of the section above. */}
+      <Section tone="paper">
+        <SectionHeading
+          eyebrow="Questions"
+          title="What people ask us about SEO"
+          lede="The ones that come up on nearly every first call, answered the way we would answer them on the phone."
+        />
+        <div className="mt-12 space-y-4">
+          {QUESTIONS.map((f) => (
+            <details className="spec faq" key={f.q}>
+              <summary>
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <span className="faq-mark" aria-hidden="true" />
+              </summary>
+              <p className="faq-a text-oa-ink2 leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
       </Section>
 
       <Section tone="surface" compact bordered>
