@@ -544,8 +544,11 @@ if (flag("preview")) {
     `</body></html>`;
   writeFileSync(join(OUT, "preview.html"), page, "utf8");
 
-  /* Everyone on one screen, for reviewing the set together. Each block also links to
-   * that person's bare copy page, because Ctrl+A has to grab ONE signature, not four. */
+  /* Everyone on one screen, with a real copy button per person. The button writes
+   * text/html to the clipboard via the async Clipboard API, which is what a signature
+   * editor pastes — Ctrl+A on this page would grab all four at once, and selecting one
+   * by hand is fiddly. ⛔ The button and its script live on THIS local page only; they
+   * are never part of a signature. localhost counts as a secure context, so the API works. */
   const all =
     `<!DOCTYPE html><html><head><meta charset="utf-8"><title>One Algorithm signatures</title></head>` +
     `<body style="margin:0;padding:28px;background:#f5f8fb;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">` +
@@ -555,10 +558,34 @@ if (flag("preview")) {
           `<div style="max-width:700px;margin:0 auto 22px;background:#fff;border:1px solid #e3e9f0;">` +
           `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid #e3e9f0;">` +
           `<span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#5a6b7d;">${esc(m.name)}</span>` +
-          `<a href="/copy-${m.slug}.html" style="font-size:12px;color:#005eaa;text-decoration:none;">open to copy &rarr;</a>` +
-          `</div><div style="padding:22px 16px;">${m.body}</div></div>`,
+          `<button data-copy="sig-${m.slug}" style="font:600 12px inherit;color:#fff;background:#005eaa;border:0;border-radius:4px;padding:7px 14px;cursor:pointer;">Copy signature</button>` +
+          `</div><div id="sig-${m.slug}" style="padding:22px 16px;">${m.body}</div></div>`,
       )
       .join("") +
+    `<script>
+document.addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-copy]");
+  if (!b) return;
+  const el = document.getElementById(b.dataset.copy);
+  const label = b.textContent;
+  try {
+    await navigator.clipboard.write([new ClipboardItem({
+      "text/html": new Blob([el.innerHTML], { type: "text/html" }),
+      "text/plain": new Blob([el.innerText], { type: "text/plain" }),
+    })]);
+    b.textContent = "Copied";
+    b.dataset.result = "ok";
+  } catch (err) {
+    // Fallback for any browser that refuses the async API: select it so Ctrl+C works.
+    const r = document.createRange(); r.selectNodeContents(el);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    b.textContent = "Selected - press Ctrl+C";
+    b.dataset.result = "fallback:" + err.name;
+  }
+  b.style.background = "#0d7a3f";
+  setTimeout(() => { b.textContent = label; b.style.background = "#005eaa"; }, 2200);
+});
+<\/script>` +
     `</body></html>`;
   writeFileSync(join(OUT, "all.html"), all, "utf8");
 
