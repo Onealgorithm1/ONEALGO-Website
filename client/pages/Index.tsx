@@ -389,26 +389,11 @@ export default function Index() {
           are never rendered, so the 1.3MB of video is not merely paused, it is
           never fetched. */}
       <section className="relative overflow-hidden bg-oa-night">
-        {/* The poster as a REAL image, painted under the video. Traced
-            2026-08-31: the hero <video> was the LCP element, and a video's
-            poster paints ~1.2s later than an equivalent <img> (63% of the
-            whole LCP was that render delay — the file itself downloads in
-            9ms). A plain bitmap <img> paints at image speed; the video then
-            covers it when (and if) it loads. Decorative twin of the poster,
-            so empty alt + aria-hidden, like the scrim and grain layers.
-            decoding MUST stay sync: async let Chrome defer the decode behind
-            hydration long-tasks — traced on the 2026-08-31 preview, the img
-            painted 2.3s AFTER first paint. Sync paints it with the frame. */}
-        <img
-          src="/media/hero-poster.webp"
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          decoding="sync"
-          width={1200}
-          height={500}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {/* No separate poster <img> here, deliberately. Measured on identical
+            preview infra 2026-08-31: the <video poster> paints WITH the first
+            frame (LCP 2,561ms), while a duplicate <img> behind it became a
+            larger LCP candidate whose paint hydration long-tasks deferred to
+            5,582ms — 3s worse. The poster attribute IS the fast path. */}
         <video
           ref={heroVideoRef}
           className="absolute inset-0 h-full w-full object-cover"
