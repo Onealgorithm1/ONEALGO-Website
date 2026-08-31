@@ -76,11 +76,19 @@ const WHAT_YOU_GET = [
   },
 ];
 
+/* ⛔ This list used to enumerate fourteen towns across four bullets — Malvern,
+   Paoli, Berwyn, Devon, West Chester, Exton, Downingtown and the rest. Measured
+   after publishing: 24 place mentions in 673 words, 3.57% density, against 1.24%
+   and 0.76% on the two sibling local pages.
+   Google's keyword-stuffing policy names this shape exactly: "blocks of text
+   that list cities and regions that a web page is trying to rank for."
+   A visitor needs to know whether we cover them, which one sentence does. The
+   town list was for the crawler, and it went. */
 const COVERAGE = [
-  "Malvern, Paoli, Berwyn, Devon and the Route 30 corridor",
-  "West Chester, Exton, Downingtown and Chester Springs",
-  "Kennett Square, Oxford and southern Chester County",
-  "Phoenixville, Spring City and the northern townships",
+  "The whole of Chester County, and we are inside it rather than driving in",
+  "The surrounding counties: Delaware, Montgomery, Bucks and Philadelphia",
+  "New Castle County, Delaware, which is closer to us than most of Philadelphia",
+  "Anywhere in the United States remotely, which is how most builds run anyway",
 ];
 
 export default function WebDesignChesterCounty() {
@@ -168,10 +176,9 @@ export default function WebDesignChesterCounty() {
                 <CheckList items={COVERAGE} tone="dark" />
               </div>
               <p className="mt-8 max-w-xl leading-relaxed text-oa-nightInk2">
-                We also work in Delaware, Montgomery, Bucks and Philadelphia
-                counties, and in New Castle County, Delaware. Beyond that we
-                take work anywhere in the United States and it runs remotely —
-                you review the site in your own browser either way.
+                If you are wondering whether you are close enough: you almost
+                certainly are. Being nearby changes how easy the first
+                conversation is, not what gets built or how long it takes.
               </p>
             </>
           }
