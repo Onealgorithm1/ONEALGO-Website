@@ -146,7 +146,8 @@ const TEAM = [
     src: "brand:/Website Pics/Louis rubino.png",
     crop: { left: 172, top: 30, width: 730, height: 730 },
     email: "lrubino@onealgorithm.com",
-    direct: "610.890.9722 ext. 1002",
+    direct: "610.890.9722",
+    fax: "610.510.2994",
     mobile: "516.451.5139",
     book: "https://cal.com/mr-rubino",
   },
@@ -163,10 +164,11 @@ const TEAM = [
      * reading "To: Sreenivas Amirisetti <samirisetti@onealgorithm.com>". Two Amirisettis
      * share the surname and the obvious guess is the wrong one. */
     email: "swapna@onealgorithm.com",
-    /* ⛔ No phone. (610) 298-9069 appears as her contact in Louis's own NMSDC profile
-     * reply to US Bank, but one form submission is not consent to put a number on every
-     * outbound email. Ask her before adding it. */
-    direct: null,
+    /* ⛔ (610) 298-9069 is NOT hers. It appears as her contact in the NMSDC profile reply
+     * to US Bank, but the Ooma extension table shows 9069 is SREENIVAS's DID on ext 1001.
+     * Her real direct is ext 1003. The NMSDC submission carries the wrong number for her. */
+    direct: "610.890.9822",
+    fax: "610.510.4015",
     mobile: null,
     book: null,
   },
@@ -179,8 +181,10 @@ const TEAM = [
     src: "repo:public/media/team-2.webp",
     crop: { left: 175, top: 25, width: 380, height: 380 },
     email: "samirisetti@onealgorithm.com",
-    // Already published on the website as contact.phoneAlt, so safe to repeat here.
-    direct: "832.434.9891",
+    /* Ooma ext 1001. ⚠️ The website publishes 832.434.9891 as contact.phoneAlt for this
+     * address; that is a Houston number and not his office DID. Worth reconciling. */
+    direct: "610.298.9069",
+    fax: "610.510.2995",
     mobile: null,
     book: null,
   },
@@ -193,7 +197,9 @@ const TEAM = [
     src: "repo:public/media/team-4.webp",
     crop: { left: 200, top: 45, width: 380, height: 380 },
     email: "SValluru@onealgorithm.com",
-    // The main company line until he has his own extension (Louis, 2026-08-31).
+    /* The main line (Ooma ext 1000, Virtual Receptionist) until he has his own extension
+     * — he is not in the extension table yet. ⭐ This also settles 9711 vs 9722: 9711 is
+     * the main line, 9722 is Louis's DID on ext 1002. Both were right, for different things. */
     direct: "610.890.9711",
     mobile: null,
     book: null,
@@ -228,6 +234,7 @@ const ICONS = {
   mobile: ["smartphone", "Mobile"],
   email: ["mail", "Email"],
   web: ["globe", "Website"],
+  fax: ["printer", "Fax"],
   linkedin: ["linkedin", "LinkedIn"],
 };
 
@@ -246,6 +253,7 @@ function contactRows(p) {
 
   if (p.direct) rows.push(row("direct", link(`tel:${tel(p.direct)}`, p.direct, "#35485c")));
   if (p.mobile) rows.push(row("mobile", link(`tel:${tel(p.mobile)}`, p.mobile, "#35485c")));
+  if (p.fax) rows.push(row("fax", `${esc(p.fax)}<span style="color:#5a6b7d;"> fax</span>`));
   if (p.email) rows.push(row("email", link(`mailto:${p.email}`, p.email)));
   if (p.linkedin) rows.push(row("linkedin", link(p.linkedin, p.linkedin.replace(/^https:\/\/www\./, "").replace(/\/$/, ""))));
   rows.push(
@@ -269,6 +277,7 @@ function plainText(p) {
     "",
     p.direct && `Direct  ${p.direct}`,
     p.mobile && `Mobile  ${p.mobile}`,
+    p.fax && `Fax     ${p.fax}`,
     p.email && `Email   ${p.email}`,
     `Web     onealgorithm.com`,
     p.linkedin && `LinkedIn ${p.linkedin}`,
@@ -534,6 +543,24 @@ if (flag("preview")) {
       .join("") +
     `</body></html>`;
   writeFileSync(join(OUT, "preview.html"), page, "utf8");
+
+  /* Everyone on one screen, for reviewing the set together. Each block also links to
+   * that person's bare copy page, because Ctrl+A has to grab ONE signature, not four. */
+  const all =
+    `<!DOCTYPE html><html><head><meta charset="utf-8"><title>One Algorithm signatures</title></head>` +
+    `<body style="margin:0;padding:28px;background:#f5f8fb;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">` +
+    built
+      .map(
+        (m) =>
+          `<div style="max-width:700px;margin:0 auto 22px;background:#fff;border:1px solid #e3e9f0;">` +
+          `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid #e3e9f0;">` +
+          `<span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#5a6b7d;">${esc(m.name)}</span>` +
+          `<a href="/copy-${m.slug}.html" style="font-size:12px;color:#005eaa;text-decoration:none;">open to copy &rarr;</a>` +
+          `</div><div style="padding:22px 16px;">${m.body}</div></div>`,
+      )
+      .join("") +
+    `</body></html>`;
+  writeFileSync(join(OUT, "all.html"), all, "utf8");
 
   /* A bare page holding ONLY the signature, for Ctrl+A / Ctrl+C into the Outlook-on-the-web
    * signature editor. ⛔ That editor is the real install path on this mailbox: roaming
