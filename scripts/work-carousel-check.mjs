@@ -74,10 +74,17 @@ const workSrc = fs.readFileSync(path.join(ROOT, "client", "data", "work.ts"), "u
 const SLUGS = [...workSrc.matchAll(/slug:\s*"([a-z0-9-]+)"/g)].map((m) => m[1]);
 /* Per entry: url, whether the LIVE site is embedded, and the text that proves
    the live site (not a refusal or error page) rendered inside the frame. */
-const ITEMS = SLUGS.map((slug) => {
-  const block = workSrc.slice(workSrc.indexOf('slug: "' + slug + '"'));
-  const grab = (key) => { const m = block.match(new RegExp(key + ':[ ]*"([^"]+)"')); return m ? m[1] : ""; };
-  return { slug, url: grab("url"), marker: grab("marker"), embed: /embed:[ ]*true/.test(block.slice(0, block.indexOf("},"))) };
+const ITEMS = SLUGS.map((slug, i) => {
+  const from = workSrc.indexOf('slug: "' + slug + '"');
+  /* Stop at the NEXT entry, not at the first "}," — entries now contain a
+     nested `review` object and an unbounded slice would read the next client's
+     fields as this one's. */
+  const to = i + 1 < SLUGS.length ? workSrc.indexOf('slug: "' + SLUGS[i + 1] + '"') : workSrc.length;
+  const block = workSrc.slice(from, to);
+  const grab = (key, src = block) => { const m = src.match(new RegExp(key + ':[ ]*"([^"]+)"')); return m ? m[1] : ""; };
+  const rm = block.match(/review:\s*\{([\s\S]*?)\s*\},/);
+  const review = rm ? { author: grab("author", rm[1]), url: grab("url", rm[1]), disclosure: grab("disclosure", rm[1]) } : null;
+  return { slug, url: grab("url"), marker: grab("marker"), review, embed: /embed:[ ]*true/.test(block) };
 });
 
 console.log(`\nWork carousel — ${ROUTE}  (${SLUGS.length} entries in work.ts)\n`);
@@ -119,6 +126,60 @@ try {
       return hero.compareDocumentPosition(wk) & Node.DOCUMENT_POSITION_FOLLOWING ? "after-hero" : "before-hero";
     });
     assert.equal(order, "after-hero", "the carousel is not directly after the hero");
+  });
+
+  /* ⛔ THE REVIEW LINK IS THE ONE INTERACTIVE THING ON A CARD THAT IS NOT THE
+     CARD. Three ways it silently goes wrong, none of which a screenshot shows:
+     it drifts back INSIDE .wk-btn (an <a> in a <button> — invalid HTML, and
+     axe's nested-interactive rule fails it); it loses target=_blank and starts
+     throwing the visitor off our page, which is the exact thing this whole
+     component exists to prevent; or someone adds stars to a client who never
+     wrote a review, which is a fabricated endorsement. */
+  await check("review links sit OUTSIDE the card button, open in a new tab, and match work.ts", async () => {
+    const seen = await page.$$eval(".wk-card", (cards) => cards.map((c) => {
+      const a = c.querySelector(".wk-stars");
+      return a && {
+        slug: (c.querySelector(".wk-shot img")?.getAttribute("src") || "").split("/").pop().replace("-card.webp", ""),
+        href: a.getAttribute("href"),
+        target: a.getAttribute("target"),
+        rel: a.getAttribute("rel") || "",
+        insideButton: !!a.closest("button"),
+        label: a.getAttribute("aria-label") || "",
+        box: Math.round(a.getBoundingClientRect().height),
+      };
+    }).filter(Boolean));
+
+    const expected = ITEMS.filter((i) => i.review);
+    assert.equal(seen.length, expected.length,
+      `${seen.length} cards show stars, but work.ts declares ${expected.length} reviews — never show a review a client did not write`);
+
+    for (const e of expected) {
+      const got = seen.find((x) => x.slug === e.slug);
+      assert.ok(got, `${e.slug} has a review in work.ts but no stars on the card`);
+      assert.equal(got.insideButton, false, `${e.slug}: the review link is INSIDE the card <button> — invalid HTML (nested interactive)`);
+      assert.equal(got.href, e.review.url, `${e.slug}: link points at ${got.href}, work.ts says ${e.review.url}`);
+      assert.equal(got.target, "_blank", `${e.slug}: the review link would navigate our own page away`);
+      assert.ok(/noopener/.test(got.rel), `${e.slug}: rel is "${got.rel}" — needs noopener`);
+      assert.ok(got.label.includes(e.review.author), `${e.slug}: aria-label does not name the reviewer (${got.label})`);
+      assert.ok(got.box >= 24, `${e.slug}: the link is only ${got.box}px tall — WCAG 2.2 target size minimum is 24px`);
+    }
+  });
+
+  /* ⛔ FTC 16 CFR 255.5. Lou is Louis's father. A review from a family member
+     presented as an ordinary client endorsement is an undisclosed material
+     connection, and the disclosure has to be VISIBLE next to the stars — not in
+     a title attribute, not in a footer, not only in work.ts. */
+  await check("a reviewer with a material connection to us is disclosed on the card itself", async () => {
+    const need = ITEMS.filter((i) => i.review && i.review.disclosure);
+    const shown = await page.$$eval(".wk-vouch", (els) => els.map((e) => ({
+      note: e.querySelector(".wk-vouch-note")?.textContent?.trim() || "",
+      visible: !!e.querySelector(".wk-vouch-note")?.getBoundingClientRect().height,
+    })));
+    for (const e of need) {
+      const hit = shown.find((x) => x.note === e.review.disclosure);
+      assert.ok(hit, `"${e.review.disclosure}" (${e.slug}) is in work.ts but is not rendered on the card`);
+      assert.ok(hit.visible, `the disclosure for ${e.slug} is in the DOM but has no height — it must be readable`);
+    }
   });
 
   /* Every card, in order: open, prove the preview is the real thing, close.

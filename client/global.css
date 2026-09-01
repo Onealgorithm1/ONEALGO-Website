@@ -851,10 +851,10 @@
 .wk-arrows button{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font-size:1.25rem;line-height:1;cursor:pointer;transition:background .18s ease,border-color .18s ease}
 .wk-arrows button:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
 
-.wk-rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(20px,5vw,64px) 12px;margin:0;list-style:none;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.wk-rail{display:flex;align-items:flex-start;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(20px,5vw,64px) 12px;margin:0;list-style:none;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
 .wk-rail::-webkit-scrollbar{height:8px}
 .wk-rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:999px}
-.wk-card{flex:0 0 min(88vw,420px);scroll-snap-align:start}
+.wk-card{flex:0 0 min(88vw,420px);scroll-snap-align:start;position:relative}
 
 .wk-btn{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;color:inherit;transition:transform .22s ease,border-color .22s ease,background .22s ease}
 .wk-btn:hover,.wk-btn:focus-visible{transform:translateY(-4px);border-color:rgba(255,166,52,.55);background:rgba(255,255,255,.07)}
@@ -870,6 +870,21 @@
 .wk-sector{display:block;color:#ffa634;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
 .wk-note{display:block;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5;margin-top:10px}
 .wk-open{display:inline-block;margin-top:12px;color:#fff;font-size:.85rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:2px}
+/* The client's own review of US, sitting beside "Preview" in the card's
+   bottom-right. Absolutely positioned because it is a SIBLING of .wk-btn, not a
+   child: an <a> inside a <button> is invalid and fails axe's nested-interactive
+   rule. Right-aligned column so the stars always land on the "Preview" line and
+   any FTC disclosure stacks directly above them.
+   ponytail: max-width 54% keeps it clear of the note's last line at 420px; if a
+   future note ever runs long enough to collide, give .wk-meta a bottom padding
+   rather than shrinking this. */
+.wk-vouch{position:absolute;right:18px;bottom:18px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:2px;max-width:54%;text-align:right}
+.wk-stars{display:flex;align-items:center;gap:7px;min-height:24px;text-decoration:none;border-radius:6px;padding:6px 8px;margin:-6px -8px;transition:background .18s ease}
+.wk-stars:hover{background:rgba(255,255,255,.08)}
+.wk-stars:focus-visible{outline:2px solid #ffa634;outline-offset:2px}
+.wk-stars-glyph{color:#ffa634;font-size:.8rem;letter-spacing:.05em;line-height:1}
+.wk-stars-label{color:#fff;font-size:.78rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:1px;white-space:nowrap}
+.wk-vouch-note{color:#9fb3c8;font-size:.75rem;line-height:1.3}
 
 /* The preview. A native <dialog>, so Esc, focus return and the inert background
    are the platform's job rather than ours. */

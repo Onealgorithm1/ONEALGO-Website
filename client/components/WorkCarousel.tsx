@@ -132,8 +132,43 @@ export default function WorkCarousel() {
       </div>
 
       <ul ref={rail} className="wk-rail">
-        {WORK.map((w) => (
+        {WORK.map((w) => {
+          /* ⛔ ONE string, used as both the visible label and the start of the
+             accessible name. WCAG 2.5.3 "Label in Name" requires the accessible
+             name to CONTAIN the visible text, and Lighthouse caught the first
+             version failing it — partly because the visible text used a curly
+             apostrophe and the aria-label a straight one, which reads as a
+             match to a human and as a mismatch to a machine. Deriving both from
+             this constant makes that class of bug impossible. */
+          const vouchLabel = w.review && `${w.review.author}’s review of us`;
+          return (
           <li key={w.slug} className="wk-card">
+            {/* ⛔ The review link CANNOT go inside .wk-btn. That is a <button>,
+                and an <a> inside a <button> is invalid HTML — the axe rule
+                "nested-interactive" fails it and assistive tech reads the pair
+                as one confused control. So it is a sibling, lifted into the
+                card's bottom-right corner over the button's own padding, which
+                puts it beside "Preview" without nesting anything. */}
+            {w.review && (
+              <span className="wk-vouch">
+                {/* FTC 16 CFR 255.5: a family, financial or employment tie
+                    between reviewer and business is a material connection and
+                    belongs beside the endorsement, at readable size. */}
+                {w.review.disclosure && (
+                  <span className="wk-vouch-note">{w.review.disclosure}</span>
+                )}
+                <a
+                  className="wk-stars"
+                  href={w.review.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${vouchLabel} — five stars on Google, opens in a new tab`}
+                >
+                  <span aria-hidden="true" className="wk-stars-glyph">★★★★★</span>
+                  <span className="wk-stars-label">{vouchLabel}</span>
+                </a>
+              </span>
+            )}
             <button type="button" className="wk-btn" onClick={() => setOpen(w)}>
               <span className="wk-shot">
                 <picture>
@@ -161,7 +196,8 @@ export default function WorkCarousel() {
               </span>
             </button>
           </li>
-        ))}
+          );
+        })}
       </ul>
 
       {open && <Preview item={open} onClose={close} />}
