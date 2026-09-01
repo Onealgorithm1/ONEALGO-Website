@@ -86,6 +86,20 @@ const WebDesignPhiladelphia = lazy(
 const GoogleAdsPhiladelphia = lazy(
   () => import("./pages/services/GoogleAdsPhiladelphia"),
 );
+/* Salesforce local trio, added 2026-09-01. ⛔ Adding a route here is only half
+   the job — it must also go into scripts/prerender.mjs ROUTES and
+   public/sitemap.xml, or Cloudflare has no file to serve and it 404s live.
+   /services/application-development shipped routed-but-unlisted and did
+   exactly that on 2026-08-29. */
+const SalesforceConsultantPhiladelphia = lazy(
+  () => import("./pages/services/SalesforceConsultantPhiladelphia"),
+);
+const SalesforceConsultantChesterCounty = lazy(
+  () => import("./pages/services/SalesforceConsultantChesterCounty"),
+);
+const SalesforcePartnerPennsylvania = lazy(
+  () => import("./pages/services/SalesforcePartnerPennsylvania"),
+);
 const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
@@ -169,6 +183,18 @@ const App = () => (
               <Route
                 path="/services/google-ads-philadelphia"
                 element={<GoogleAdsPhiladelphia />}
+              />
+              <Route
+                path="/services/salesforce-consultant-philadelphia"
+                element={<SalesforceConsultantPhiladelphia />}
+              />
+              <Route
+                path="/services/salesforce-consultant-chester-county"
+                element={<SalesforceConsultantChesterCounty />}
+              />
+              <Route
+                path="/services/salesforce-consulting-partner-pennsylvania"
+                element={<SalesforcePartnerPennsylvania />}
               />
               <Route
                 path="/services/staff-augmentation"

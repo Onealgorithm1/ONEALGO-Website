@@ -34,6 +34,9 @@ const ROUTES = [
   "/services/application-development",
   "/services/web-design-chester-county", "/services/web-design-philadelphia",
   "/services/google-ads-philadelphia",
+  "/services/salesforce-consultant-philadelphia",
+  "/services/salesforce-consultant-chester-county",
+  "/services/salesforce-consulting-partner-pennsylvania",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", "/industries/website-development", "/industries/government",
 ];

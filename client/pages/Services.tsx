@@ -69,6 +69,29 @@ const SERVICES = [
     body: "Google Ads management for Philadelphia-area businesses — campaigns run by the same team that builds the landing pages.",
     to: "/services/google-ads-philadelphia",
   },
+  /* Salesforce local trio, added 2026-09-01. Same reasoning as the three
+     above: a local page with one inbound link sitewide is close to orphaned,
+     and these are the pages the site most needs found. Each targets a
+     different BUYER, not just a different place name — see the header of
+     SalesforceConsultantPhiladelphia.tsx. */
+  {
+    icon: MapPin,
+    title: "Salesforce Consultant — Philadelphia",
+    body: "For Philadelphia companies that already own Salesforce and suspect it is not earning its keep. Free one-week review of the org you have.",
+    to: "/services/salesforce-consultant-philadelphia",
+  },
+  {
+    icon: MapPin,
+    title: "Salesforce Consultant — Chester County",
+    body: "For businesses still choosing: which edition you actually need, what the licences cost, and a count before you sign. We are in Malvern.",
+    to: "/services/salesforce-consultant-chester-county",
+  },
+  {
+    icon: MapPin,
+    title: "Salesforce Partner — Pennsylvania",
+    body: "What a Salesforce Consulting Partner actually is, and how to check any partner's record on the AppExchange before you hire one.",
+    to: "/services/salesforce-consulting-partner-pennsylvania",
+  },
   {
     icon: Users,
     title: "Staff Augmentation",

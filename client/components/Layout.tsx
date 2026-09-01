@@ -1085,6 +1085,36 @@ function Layout({ children }: LayoutProps) {
                 >
                   Web Design Chester County
                 </Link>
+                {/* Salesforce local trio, 2026-09-01. The footer is the one
+                    place every page links from, which is what keeps a local
+                    page out of orphan territory. */}
+                <Link
+                  to="/services/salesforce-consultant-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce Consultant Philadelphia
+                </Link>
+                <Link
+                  to="/services/salesforce-consultant-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce Consultant Chester County
+                </Link>
+                <Link
+                  to="/services/salesforce-consulting-partner-pennsylvania"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce Partner Pennsylvania
+                </Link>
                 <Link
                   to="/services/google-ads-philadelphia"
                   onClick={() =>

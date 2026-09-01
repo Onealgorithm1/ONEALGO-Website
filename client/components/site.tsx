@@ -490,6 +490,17 @@ const SECTION_LABEL: Record<string, string> = {
   "/privacy": "Privacy",
   "/terms": "Terms",
   "/ai-info": "AI Information",
+  /* The three Salesforce local pages, 2026-09-01. Short labels on purpose:
+     the rail sets crumbs in uppercase, and `labelFromSlug` would render
+     "SALESFORCE CONSULTANT PHILADELPHIA" — 34 characters of all-caps, which
+     the design detector flags as an all-caps-body legibility warning and which
+     reads badly at the top of the page. The place is the only new information
+     in the crumb; "Salesforce" is already the section the reader came through.
+     ⛔ These are NOT in SERVICE_PAGES deliberately — that array drives the
+     sibling rail on every other service page, and it was trimmed on purpose. */
+  "/services/salesforce-consultant-philadelphia": "Philadelphia",
+  "/services/salesforce-consultant-chester-county": "Chester County",
+  "/services/salesforce-consulting-partner-pennsylvania": "Pennsylvania",
 };
 
 const COMPANY_PATHS = ["/about", "/capabilities", "/contact"];

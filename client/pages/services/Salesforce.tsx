@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
 import {
@@ -774,6 +775,54 @@ export default function Salesforce() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      {/* ⭐ THE LOCAL TRIO, linked from the hub page 2026-09-01. This is the
+          authority direction that matters: PageRank decays with every click of
+          distance, so the page with the most standing links down to the three
+          that need to rank. Each link's anchor text carries its target phrase,
+          because the anchor teaches Google more than the destination does.
+          ⛔ This is three links with a sentence each, NOT a town list — a block
+          of place names is the shape Google's keyword-stuffing policy names by
+          name, and one was already removed from WebDesignChesterCounty.tsx for
+          measuring 3.57% place density. Do not turn this into one. */}
+      <Section tone="surface" bordered compact>
+        <SectionHeading
+          eyebrow="Near you"
+          title="Working locally"
+          lede="Three pages for the questions that change depending on where you are and what you have already bought."
+        />
+        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-3">
+          {[
+            {
+              to: "/services/salesforce-consultant-philadelphia",
+              label: "Salesforce consultant in Philadelphia",
+              body: "You already own it and it is not earning its keep.",
+            },
+            {
+              to: "/services/salesforce-consultant-chester-county",
+              label: "Salesforce consultant in Chester County",
+              body: "Still choosing, and unsure which edition you need.",
+            },
+            {
+              to: "/services/salesforce-consulting-partner-pennsylvania",
+              label: "Salesforce Consulting Partner in Pennsylvania",
+              body: "How to check any partner's record before you hire.",
+            },
+          ].map((l) => (
+            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
+              <Link
+                to={l.to}
+                className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange"
+              >
+                {l.label}
+              </Link>
+              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">
+                {l.body}
+              </p>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <CTABand
