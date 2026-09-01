@@ -139,7 +139,7 @@ try {
     const seen = await page.$$eval(".wk-card", (cards) => cards.map((c) => {
       const a = c.querySelector(".wk-stars");
       return a && {
-        slug: (c.querySelector(".wk-shot img")?.getAttribute("src") || "").split("/").pop().replace("-card.webp", ""),
+        slug: (c.querySelector(".wk-shot img")?.getAttribute("src") || "").split("/").pop().split("?")[0].replace("-card.webp", ""),
         href: a.getAttribute("href"),
         target: a.getAttribute("target"),
         rel: a.getAttribute("rel") || "",

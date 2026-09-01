@@ -87,7 +87,7 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
           {/* Full-page capture. Scrolls inside the modal, so the visitor can
               read the whole site without loading it. */}
           <img
-            src={`/work/${item.slug}-full.webp`}
+            src={`/work/${item.slug}-full.webp?v=${item.shot}`}
             alt={`Full page of the ${item.name} website`}
             width={1280}
             loading="eager"
@@ -173,10 +173,23 @@ export default function WorkCarousel() {
               <span className="wk-shot">
                 <picture>
                   {/* Phones see the site's own phone layout, not a desktop
-                      capture shrunk to 340px. */}
-                  <source media="(max-width: 639px)" srcSet={`/work/${w.slug}-phone.webp`} width={780} height={976} />
+                      capture shrunk to 340px.
+
+                      ⛔ `?v={shot}` IS LOad-BEARING, do not tidy it away. These
+                      filenames never change, and Cloudflare's zone Browser
+                      Cache TTL stamps `max-age=14400` on them regardless of what
+                      we send — so a re-captured card keeps showing the OLD
+                      picture on any device that has seen it, for four hours,
+                      while the edge happily serves the new one. Louis, after a
+                      deploy on 2026-09-01: "I don't see any changes". The JS and
+                      CSS are content-hashed and update fine; images are not.
+                      ponytail: the version is the capture DATE, so two captures
+                      on the SAME day still collide. Good enough — re-capturing
+                      twice in one day is the rare case, and the alternative is
+                      hashing every file. */}
+                  <source media="(max-width: 639px)" srcSet={`/work/${w.slug}-phone.webp?v=${w.shot}`} width={780} height={1300} />
                 <img
-                  src={`/work/${w.slug}-card.webp`}
+                  src={`/work/${w.slug}-card.webp?v=${w.shot}`}
                   alt={`The ${w.name} website`}
                   width={1280}
                   height={800}
