@@ -350,14 +350,14 @@ export default function Index() {
   useSEO({
     title: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     description:
-      "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Woman-owned, Malvern PA.",
+      "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Based in Malvern PA.",
     canonical: getCanonicalUrl("/"),
     // The LCP element on this page is the hero video poster (measured with
     // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
     // fetch it early; now something does. See preloadImage in use-seo.ts.
     preloadImage: "/media/hero-poster.webp",
     keywords:
-      "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design, woman-owned business",
+      "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design",
     ogTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
     ogDescription:
       "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
@@ -466,8 +466,11 @@ export default function Index() {
               gets them found: search, Google Ads, the marketing, and the CRM
               that keeps track of who called. Most people come to us with a site
               that isn't bringing in work, or a system they have outgrown.
-              Woman-owned, based in Malvern — and still doing ERP, integration
-              and staff augmentation for larger teams nationally.
+              {/* ⛔ Was "Woman-owned, based in Malvern". Louis 2026-09-01: not a
+                  selling point on a commercial page. Ownership status now leads
+                  only on /capabilities and /industries/government. */}
+              Based in Malvern — and still doing ERP, integration and staff
+              augmentation for larger teams nationally.
             </p>
 
             {/* ONE action. The capability-statement PDF used to sit here as a

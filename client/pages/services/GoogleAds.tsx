@@ -148,7 +148,11 @@ export default function GoogleAds() {
             "Creative & Landing Page Testing",
             "Measurement & Attribution",
           ],
-          footer: ["SBA Certified WOSB / EDWOSB"],
+          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
+             "on all our commercial pages, we don't need to state woman owned.
+             It's not a selling point." It sat in this panel on 19 commercial
+             pages at once. It stays on /capabilities and
+             /industries/government, where a buyer is actively looking for it. */
         }}
         primary={{ label: "Request Google Ads Audit", to: "/contact" }}
         secondary={{ label: "Back to Marketing", to: "/services/marketing" }}

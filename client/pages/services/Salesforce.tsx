@@ -86,13 +86,34 @@ const CREDENTIALS = [
     detail: "AppExchange listing a0N3A00000EV7SwUAL",
     href: APPEXCHANGE_URL,
   },
-  // ⛔ The SBA WOSB/EDWOSB and SAM.gov cards that sat here moved to
-  // /capabilities and /industries/government on 2026-08-25. This is a
-  // commercial service page; the two certificates below are the ones a
-  // corporate supplier-diversity programme actually looks for.
-  { name: "NMSDC MBE", detail: "Certificate PT100000051" },
-  { name: "WBENC WBE", detail: "Certificate WBE2600434" },
-  { name: "Virginia SWaM", detail: "Certificate 843564" },
+  /* ⛔ NMSDC MBE, WBENC WBE and Virginia SWaM came off this list 2026-09-01.
+     Louis: "on all our commercial pages, we don't need to state woman owned.
+     It's not a selling point." All three are diversity certifications — SWaM
+     is literally Small, Women-owned and Minority-owned — so all three go, and
+     all three remain on /capabilities and /industries/government where a
+     buyer is looking for exactly that. (Earlier the same day the SBA
+     WOSB/EDWOSB and SAM.gov cards had already moved there.)
+
+     WHAT REPLACED THEM, and why it is stronger here: Salesforce's own
+     published COMPETENCY breakdown. It is third-party, it is specific to this
+     page's subject, and a commercial buyer evaluating whether we can do the
+     work cares about it far more than about who owns the company. The PAA
+     harvest run the same day is blunt on this — the woman-owned angle appears
+     in none of the real questions buyers ask about Salesforce consulting.
+
+     ⛔ EVERY NUMBER BELOW IS SALESFORCE'S, read off listing a0N3A00000EV7SwUAL.
+     Do not round them, do not sum the four Agentforce rows into one (that
+     total is our arithmetic, not their published figure), and do not add a
+     competency that shows "–" on the listing. Re-read the listing when it
+     changes; a third-party aggregator was circulating "19 certified experts"
+     on 2026-09-01 while the listing itself said 16. */
+  { name: "Platform", detail: "38 certifications" },
+  { name: "Agentforce", detail: "6 certifications" },
+  { name: "Agentforce Marketing", detail: "3 certifications" },
+  { name: "Agentforce Service", detail: "2 certifications" },
+  { name: "Agentforce Sales", detail: "1 certification" },
+  { name: "Data 360", detail: "1 certification" },
+  { name: "Energy & Utilities", detail: "1 certification" },
   /* Zendesk and Microsoft AI Cloud Partner Program are both real and both stay
      on /about and /capabilities. They came off THIS page 2026-08-24: on a
      Salesforce page a Zendesk agreement and a Microsoft program membership are
@@ -352,10 +373,10 @@ export default function Salesforce() {
               </a>
             </div>
           ),
-          footer: [
-            "Salesforce Consulting Partner",
-            "WBENC and NMSDC certified",
-          ],
+          /* ⛔ "WBENC and NMSDC certified" came off this line 2026-09-01 — see
+             the note on the section heading below. The certificates are still
+             on the page, once, in the credentials list. */
+          footer: ["Salesforce Consulting Partner"],
         }}
         primary={{ label: "Get a free org review", to: "/contact" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
@@ -376,8 +397,29 @@ export default function Salesforce() {
       <Section tone="night" grid bordered compact>
         <SectionHeading
           tone="dark"
-          title="A woman-owned Salesforce partner, wherever you are"
-          lede="Every credential below is a certificate or a registry entry with a number attached."
+          /* ⛔ OWNERSHIP STATUS IS OFF THIS PAGE ON PURPOSE. Louis, 2026-09-01:
+             "We don't need to plaster it anywhere but the government pages. On
+             all our commercial pages, we don't need to state woman owned. It's
+             not a selling point."
+
+             The count backed him: this COMMERCIAL page carried SIX mentions of
+             woman-owned / WBENC / NMSDC — MORE than /industries/government (6)
+             and twice /capabilities (3). It was the heaviest page on the site
+             for a status that helps least here. Now zero in rendered copy.
+
+             I argued once for keeping the two certificates on the grounds that
+             large commercial supplier-diversity programmes search for them.
+             Louis overruled it, and the same day's PAA harvest supports him:
+             the woman-owned angle appears in NONE of the questions buyers
+             actually ask about Salesforce consulting. Recording the trade so
+             nobody re-litigates it from scratch — the certifications are live
+             on /capabilities and /industries/government, so a supplier-
+             diversity team can still find them.
+
+             ⛔ Do not re-add ownership status here — not this H2, not the hero
+             panel, not the opening sentence, not the credentials list. */
+          title="A Salesforce partner you can check before you call"
+          lede="Salesforce publishes what our people are certified in, competency by competency. Every figure below is theirs, not ours, and you can open the listing and read it yourself."
         />
         {/* One flat, self-contained sentence that answers the query in the shape an
             answer engine can lift: "X is a Y in Z, with N." AI answers quote a
@@ -392,16 +434,25 @@ export default function Salesforce() {
         <div className="mt-8 grid items-start gap-10 lg:grid-cols-[minmax(0,7fr)_auto] lg:gap-16">
         <Reveal>
           <p className="max-w-3xl text-lede text-oa-nightInk2 leading-relaxed">
+            {/* ⛔ ONE SENTENCE. KEEP IT ONE SENTENCE. Louis, 2026-09-01, on the
+                paragraph that used to run on from here: "It's descriptions like
+                this. I don't like it. It's OK to leave the certifications up,
+                but we don't need large bodies of text."
+
+                What was cut and why nothing was lost: the 16/52 figures are
+                already in the hero card, and the 38-on-Platform figure is now
+                its own card in the competency list directly below. The prose
+                was restating both, plus a supplier-diversity clause that had
+                no business on a commercial page.
+
+                What survives is the flat, self-contained claim an answer
+                engine can lift — "X is a Y in Z" — which is the one job this
+                line does that no other element on the page does. ⛔ Do not
+                append explanation to it, and do not re-add ownership status. */}
             <strong className="font-semibold text-oa-nightInk">
-              One Algorithm is a woman-owned Salesforce Consulting Partner
-              working with companies across the United States.
-            </strong>{" "}
-            {/* 16 / 52 verified against the AppExchange listing on 2026-08-25;
-                re-check when the listing changes, the numbers are theirs. */}
-            Salesforce lists 16 certified professionals and 52 certifications
-            against our AppExchange record. We are WBENC- and NMSDC-certified, which is what a
-            supplier-diversity programme looks for, and the same team is there
-            from the first workshop to the run-state.
+              One Algorithm is a Salesforce Consulting Partner working with
+              companies across the United States.
+            </strong>
           </p>
         </Reveal>
         {/* Louis, 2026-09-01, looking at it on his phone: "I don't like this

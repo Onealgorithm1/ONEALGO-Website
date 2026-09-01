@@ -166,7 +166,7 @@ export default function Services() {
   useSEO({
     title: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
     description:
-      "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A woman-owned consultancy in Malvern, Pennsylvania.",
+      "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A consultancy in Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services"),
     keywords:
       "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
@@ -235,7 +235,11 @@ export default function Services() {
         panel={{
           title: "Why OneAlgorithm",
           items: APPROACH.map((a) => a.title),
-          footer: ["SBA Certified WOSB / EDWOSB"],
+          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
+             "on all our commercial pages, we don't need to state woman owned.
+             It's not a selling point." It sat in this panel on 19 commercial
+             pages at once. It stays on /capabilities and
+             /industries/government, where a buyer is actively looking for it. */
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
         secondary={{ label: "Learn about our approach", to: "/about" }}

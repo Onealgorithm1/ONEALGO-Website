@@ -339,7 +339,11 @@ export default function Contact() {
             "Or call 1 (610) 890-9711 and speak to someone now.",
             "Offices in the USA, India, the UAE and Canada.",
           ],
-          footer: ["SBA Certified WOSB / EDWOSB"],
+          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
+             "on all our commercial pages, we don't need to state woman owned.
+             It's not a selling point." It sat in this panel on 19 commercial
+             pages at once. It stays on /capabilities and
+             /industries/government, where a buyer is actively looking for it. */
         }}
       />
 
@@ -1022,10 +1026,16 @@ export default function Contact() {
             <p className="text-oa-ink2 text-center mb-6 max-w-3xl mx-auto">
               You do not need a defined project or a budget to get in touch. If
               you are weighing whether something is worth doing at all, that is
-              a useful conversation and a short one. We are a woman-owned firm
-              in Malvern, Pennsylvania — SBA-certified WOSB/EDWOSB, a Salesforce
-              Consulting Partner, and registered on SAM.gov, all of which you can
-              check without taking our word for it.
+              {/* ⛔ Dropped "woman-owned" and "SBA-certified WOSB/EDWOSB" here
+                  2026-09-01 (Louis: not a selling point on commercial pages).
+                  The checkable-credentials POINT is what mattered in this
+                  sentence, so it survives — with the credentials a commercial
+                  visitor actually cares about. Both certifications remain on
+                  /capabilities and /industries/government. */}
+              a useful conversation and a short one. We are a firm of four in
+              Malvern, Pennsylvania — a Salesforce Consulting Partner and
+              registered on SAM.gov, both of which you can check without taking
+              our word for it.
             </p>
             <div className="text-center">
               <p className="text-sm text-oa-ink2">

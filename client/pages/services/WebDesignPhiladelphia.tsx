@@ -56,7 +56,10 @@ const CITY_WORK = [
   {
     icon: Building2,
     title: "A firm you can actually reach",
-    body: "Woman-owned, founded in 2020, four people you will meet. Not a network of subcontractors you find out about after the invoice.",
+    /* ⛔ "Woman-owned" dropped 2026-09-01 (Louis: not a selling point on a
+       commercial page). The real claim in this card is the small named team,
+       which is what survives. */
+    body: "Founded in 2020, four people you will meet. Not a network of subcontractors you find out about after the invoice.",
   },
   {
     icon: Clock,
@@ -125,7 +128,11 @@ export default function WebDesignPhiladelphia() {
             "Search structure set up during the build",
             "Code, domain and hosting in your name",
           ],
-          footer: ["SBA Certified WOSB / EDWOSB"],
+          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
+             "on all our commercial pages, we don't need to state woman owned.
+             It's not a selling point." It sat in this panel on 19 commercial
+             pages at once. It stays on /capabilities and
+             /industries/government, where a buyer is actively looking for it. */
         }}
         primary={{ label: "Start a project", to: "/contact" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
