@@ -17,7 +17,7 @@
  * ponytail: two sizes per site, no responsive set, no CDN. A 1280-wide capture
  * downscales fine to a 420px card, and the full-page shot IS the preview.
  */
-import { mkdirSync } from "node:fs";
+import { mkdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import puppeteer from "puppeteer";
 
@@ -75,13 +75,67 @@ for (const s of SITES) {
 
   /* Phone card. A desktop capture squeezed into a 340px card is unreadable —
      Louis, 2026-08-25: "the sizing is off". So phones get the site's OWN
-     phone layout, first screen, 390 wide. */
-  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
-  await new Promise((r) => setTimeout(r, 1500));
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: join(OUT, `${s.slug}-phone.webp`), type: "webp", quality: 78, clip: { x: 0, y: 0, width: 390, height: 488 } });
+     phone layout, 390 wide.
 
-  console.log(`  ${s.slug}: card 1280x800, phone 390x488, full 1280x${h}`);
+     ⛔ 1500ms WAS NOT ENOUGH and it shipped two bad cards (Louis, 2026-09-01:
+     "two of them are not previewing properly on mobile"). Phantom's hero is a
+     <video> that had not painted, so the card showed a dead navy band where the
+     cabinet should be. The desktop path already walks the page to force lazy
+     loading; the phone path did not. It does now, and then waits for the media
+     itself rather than guessing.
+
+     ⛔ 488px of a phone page is a near 1:1 crop, not a miniature site — it cut
+     Inspect This Home off mid-sentence. 650px at 390 wide is exactly 3:5 and
+     matches .wk-shot's mobile aspect-ratio. ⛔ CHANGE ONE AND CHANGE THE OTHER,
+     or the card crops the capture and the extra height is wasted.
+
+     ⛔ 650 is not arbitrary. The Boards Professor's mobile hero runs to y=903
+     and puts its PHOTO below y=470, so a 520px frame caught every word and not
+     one image — Louis, 2026-09-01: "doesn't look anything like mobile view".
+     Measure the tallest client hero before shortening this. */
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+  await page.evaluate(async () => {
+    const step = window.innerHeight;
+    for (let y = 0; y < Math.min(document.body.scrollHeight, step * 4); y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 260));
+    }
+    window.scrollTo(0, 0);
+  });
+  /* Wait for what is actually on the first screen to be ready, not a fixed
+     guess: every image decoded, and any video past its first frame. */
+  /* ⛔ The whole wait is RACED against a hard 8s ceiling. Without it this hung:
+     img.decode() on a lazy image that is never scrolled into view can stay
+     pending forever, Promise.all then never settles, and puppeteer kills the
+     run with "Runtime.callFunctionOn timed out" — which reads like a browser
+     fault rather than our own unbounded wait. */
+  await page.evaluate(async () => {
+    const ready = Promise.all([
+      ...[...document.images].map((i) => (i.decode ? i.decode().catch(() => {}) : null)),
+      ...[...document.querySelectorAll("video")].map((v) =>
+        v.readyState >= 2
+          ? null
+          : new Promise((r) => {
+              v.addEventListener("loadeddata", r, { once: true });
+              setTimeout(r, 4000);
+            }),
+      ),
+    ]);
+    await Promise.race([ready, new Promise((r) => setTimeout(r, 8000))]);
+  });
+  await new Promise((r) => setTimeout(r, 2500));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const phone = join(OUT, `${s.slug}-phone.webp`);
+  await page.screenshot({ path: phone, type: "webp", quality: 78, clip: { x: 0, y: 0, width: 390, height: 650 } });
+
+  /* A blank or near-flat capture compresses to almost nothing. This is the
+     cheapest honest guard against shipping another dead card. */
+  const phoneKB = statSync(phone).size / 1024;
+  if (phoneKB < 12) {
+    throw new Error(`${s.slug}-phone.webp is only ${phoneKB.toFixed(0)}KB — that is a blank or flat capture, not a page`);
+  }
+
+  console.log(`  ${s.slug}: card 1280x800, phone 390x650 (${phoneKB.toFixed(0)}KB), full 1280x${h}`);
   await page.close();
 }
 await browser.close();
