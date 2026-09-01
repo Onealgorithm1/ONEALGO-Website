@@ -36,14 +36,16 @@ export type WorkItem = {
 
 export const WORK: WorkItem[] = [
   {
-    slug: "boards-professor",
-    name: "The Boards Professor",
-    sector: "Medical exam tutoring",
-    note: "Booking, tutor profiles and reviews pulled from two platforms into one page.",
-    url: "https://theboardsprofessor.com/",
-    shot: "2026-08-25",
-    embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-08-25)
-    marker: "Boards Professor",
+    slug: "phantom-arcades",
+    name: "Phantom Arcades",
+    sector: "Custom home arcade cabinets, built in Florida",
+    note: "A configurator that prices the cabinet as you build it, and a page for every machine he has made.",
+    url: "https://phantomarcades.com/",
+    shot: "2026-09-01",
+    // Sends no X-Frame-Options and no CSP at all (curl, 2026-09-01), so
+    // onealgorithm.com may frame it.
+    embed: true,
+    marker: "Phantom Arcades",
   },
   {
     slug: "inspect-this-home",
@@ -51,11 +53,21 @@ export const WORK: WorkItem[] = [
     sector: "Home inspection",
     note: "Service pages by area, online scheduling, and reports the owner updates himself.",
     url: "https://inspectthishomeinspections.com/",
-    shot: "2026-08-25",
+    shot: "2026-09-01",
     // Its production sends `Content-Security-Policy: frame-ancestors 'self'
     // https://onealgorithm.com https://www.onealgorithm.com` since 2026-08-25
     // (Louis: "Push"); curl-verified before this flipped.
     embed: true,
     marker: "Inspect This Home",
+  },
+  {
+    slug: "boards-professor",
+    name: "The Boards Professor",
+    sector: "Medical exam tutoring",
+    note: "Booking, tutor profiles and reviews pulled from two platforms into one page.",
+    url: "https://theboardsprofessor.com/",
+    shot: "2026-09-01",
+    embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-08-25)
+    marker: "Boards Professor",
   },
 ];

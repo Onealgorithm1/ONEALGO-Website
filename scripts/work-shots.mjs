@@ -27,6 +27,7 @@ mkdirSync(OUT, { recursive: true });
 const SITES = [
   { slug: "boards-professor", url: "https://theboardsprofessor.com/" },
   { slug: "inspect-this-home", url: "https://inspectthishomeinspections.com/" },
+  { slug: "phantom-arcades", url: "https://phantomarcades.com/" },
 ];
 
 const browser = await puppeteer.launch({ headless: "new" });
