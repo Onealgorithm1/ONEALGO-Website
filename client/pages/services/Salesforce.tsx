@@ -28,12 +28,16 @@ import {
  * work is published and none is invented here. But nobody had read our own
  * AppExchange listing, where Salesforce publishes:
  *
- *     Certified People: 16      Certifications: 52
+ *     Certified People: 16      Certifications: 53
  *
- * verified 2026-08-24 at appexchange.salesforce.com/appxListingDetail
- * ?listingId=a0N3A00000EV7SwUAL (NOT appxConsultingListingDetail — that 404s).
- * Competencies there: Platform 38, Agentforce 6, Agentforce Marketing 3,
- * Agentforce Service 2, Agentforce Sales 1, Data 360 1, Energy & Utilities 1.
+ * verified 2026-08-24, re-verified 2026-09-02 at
+ * appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL
+ * (NOT appxConsultingListingDetail — that 404s). 2026-09-02: certifications
+ * rose 52→53, the new one an Agentforce cert (6→7); certified PEOPLE unchanged
+ * at 16 — that count already includes the Hyderabad (India) team, so there is
+ * no larger verifiable people figure to publish. Competencies now: Platform 38,
+ * Agentforce 7, Agentforce Marketing 3, Agentforce Service 2, Agentforce
+ * Sales 1, Data 360 1, Energy & Utilities 1 (38+7+3+2+1+1+1 = 53).
  * No ratings — nobody has reviewed us. That is third-party proof held in someone
  * else's system, and it leads the page.
  *
@@ -76,10 +80,10 @@ const SBA_VERIFY_URL =
   "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1";
 
 /* Every figure is Salesforce's own, published on the listing above. Verified
-   2026-08-24. If it changes there, change it here — do not round it, do not
+   2026-08-24, re-verified 2026-09-02. If it changes there, change it here — do not round it, do not
    project it forward, and never add a number that is not on that page. */
 /* Every one of these is a real certificate or registry entry with a number
-   behind it, verified 2026-08-24. Anything that cannot be looked up by a
+   behind it, verified 2026-08-24, re-verified 2026-09-02. Anything that cannot be looked up by a
    stranger does not belong in this list. */
 const CREDENTIALS = [
   {
@@ -109,7 +113,7 @@ const CREDENTIALS = [
      changes; a third-party aggregator was circulating "19 certified experts"
      on 2026-09-01 while the listing itself said 16. */
   { name: "Platform", detail: "38 certifications" },
-  { name: "Agentforce", detail: "6 certifications" },
+  { name: "Agentforce", detail: "7 certifications" },
   { name: "Agentforce Marketing", detail: "3 certifications" },
   { name: "Agentforce Service", detail: "2 certifications" },
   { name: "Agentforce Sales", detail: "1 certification" },
@@ -125,7 +129,7 @@ const CREDENTIALS = [
 
 const REGISTRY = [
   { figure: "16", label: "Salesforce-certified people", short: "certified people" },
-  { figure: "52", label: "Salesforce certifications held", short: "certifications" },
+  { figure: "53", label: "Salesforce certifications held", short: "certifications" },
   { figure: "38", label: "of them on the Platform competency", short: "on Platform" },
 ];
 
@@ -176,7 +180,7 @@ const PILLARS = [
   {
     title: "Data migration and integration",
     description:
-      "Getting the records out of the system you're leaving, cleaning them, loading them, and proving the totals still match. Then the API work that keeps Salesforce in step with everything else — the ERP most of all, because that is where the argument about which number is right usually starts.",
+      "Records out of your old system, cleaned, loaded, and reconciled until the totals match. Then the API work that keeps Salesforce in step with everything else — the ERP most of all, where the argument over which number is right usually starts.",
     /* ⛔ THE THREE MIGRATION/SYNC LINES BELOW ARE INVOICE-BACKED, and they are
        the only delivery evidence on this page that is not a certification
        count. Verified 2026-09-01 against the paid invoice registers in
@@ -216,7 +220,7 @@ const PILLARS = [
 const FAQS = [
   {
     q: "Is OneAlgorithm really a Salesforce partner?",
-    a: "Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing a0N3A00000EV7SwUAL. Salesforce publishes the detail itself: 16 certified people holding 52 certifications, 38 of them on the Platform competency. You can open the listing and check it before you call us.",
+    a: "Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing a0N3A00000EV7SwUAL. Salesforce publishes the detail itself: 16 certified people holding 53 certifications, 38 of them on the Platform competency. You can open the listing and check it before you call us.",
   },
   {
     q: "What is the one-week org review?",
@@ -224,7 +228,7 @@ const FAQS = [
   },
   {
     q: "Can I see case studies or client references?",
-    a: "We have not published Salesforce case studies, and we will not invent any. What you can check instead is Salesforce's own registry entry for us — 16 certified people, 52 certifications, the competency breakdown — and our SBA certification record. Then take the free one-week review and judge the work on your own org rather than on a story about someone else's.",
+    a: "We have not published Salesforce case studies, and we will not invent any. What you can check instead is Salesforce's own registry entry for us — 16 certified people, 53 certifications, the competency breakdown — and our SBA certification record. Then take the free one-week review and judge the work on your own org rather than on a story about someone else's.",
   },
   {
     q: "Where are you located, and do you work outside Pennsylvania?",
@@ -274,16 +278,16 @@ export default function Salesforce() {
     // 155 characters. The previous one was 203 and lost its last third to SERP
     // truncation.
     description:
-      "Listed Salesforce Consulting Partner: 16 certified people, 52 certifications. Sales and Service Cloud, data migration, and a free org review.",
+      "Listed Salesforce Consulting Partner: 16 certified people, 53 certifications. Sales and Service Cloud, data migration, and a free org review.",
     canonical: getCanonicalUrl("/services/salesforce"),
     ogTitle: "Salesforce Consulting Partner — OneAlgorithm",
     ogDescription:
-      "16 Salesforce-certified people and 52 certifications, published by Salesforce. Commercial and government CRM work, and a free one-week review of the org you already have.",
+      "16 Salesforce-certified people and 53 certifications, published by Salesforce. Commercial and government CRM work, and a free one-week review of the org you already have.",
     ogUrl: getCanonicalUrl("/services/salesforce"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Salesforce Consulting Partner — OneAlgorithm",
     twitterDescription:
-      "16 Salesforce-certified people, 52 certifications, published on the AppExchange. Commercial and government CRM work, and a free one-week org review.",
+      "16 Salesforce-certified people, 53 certifications, published on the AppExchange. Commercial and government CRM work, and a free one-week org review.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -309,7 +313,7 @@ export default function Salesforce() {
             and consulting
           </>
         }
-        lede="We configure Sales Cloud and Service Cloud, automate the workflow behind them, move the data off whatever you're on now, and stay on afterwards while people learn it. For commercial teams anywhere in the United States."
+        lede="We set up Sales and Service Cloud, automate the manual steps behind them, move your old data in clean, and stay on while your team learns it — for commercial teams across the U.S."
         /* The hero's right column is the VERIFICATION CARD, not a bullet list.
            Reasoning: this page's whole argument is that our proof is a record in
            someone else's registry rather than an adjective in ours — so show the
@@ -420,7 +424,7 @@ export default function Salesforce() {
              ⛔ Do not re-add ownership status here — not this H2, not the hero
              panel, not the opening sentence, not the credentials list. */
           title="A Salesforce partner you can check before you call"
-          lede="Salesforce publishes what our people are certified in, competency by competency. Every figure below is theirs, not ours, and you can open the listing and read it yourself."
+          lede="Every figure below is Salesforce's, not ours. Open the listing and read it yourself."
         />
         {/* One flat, self-contained sentence that answers the query in the shape an
             answer engine can lift: "X is a Y in Z, with N." AI answers quote a
@@ -440,7 +444,7 @@ export default function Salesforce() {
                 this. I don't like it. It's OK to leave the certifications up,
                 but we don't need large bodies of text."
 
-                What was cut and why nothing was lost: the 16/52 figures are
+                What was cut and why nothing was lost: the 16/53 figures are
                 already in the hero card, and the 38-on-Platform figure is now
                 its own card in the competency list directly below. The prose
                 was restating both, plus a supplier-diversity clause that had
@@ -557,16 +561,18 @@ export default function Salesforce() {
           <div>
             <SectionHeading
               title="Start with a free one-week Salesforce health check"
-              lede="Most people arriving here already own Salesforce and suspect their CRM is not earning what they pay for it. Rather than ask you to take our word for anything, we will spend a week in your org, at no cost, and tell you what is actually wrong with it."
+              lede="You already own Salesforce and suspect it isn't earning its keep. So instead of asking you to take our word for it, we spend a week in your org — free — and tell you what's actually wrong."
             />
             <div className="mt-9">
               <Reveal>
                 <p className="text-oa-ink2 leading-relaxed">
-                  At the end you get a written, ranked list of what we found
-                  and what we would fix first. It is free and it is yours — act
-                  on it with us, with your own admin, or with nobody at all. If
-                  the answer is that your org is basically fine, we will say
-                  that too, and you will not hear from us again unless you ask.
+                  You get a written, ranked list of what we found and what we'd
+                  fix first.{" "}
+                  <strong className="font-semibold text-oa-ink">
+                    It's yours — act on it with us, your own admin, or nobody.
+                  </strong>{" "}
+                  If your org is basically fine, we'll say so, and you won't
+                  hear from us again unless you ask.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <PrimaryCTA to="/contact">
@@ -654,7 +660,7 @@ export default function Salesforce() {
         <SectionHeading
           tone="dark"
           title="Two ways people arrive at this page"
-          lede="Some people already own Salesforce and it is not earning its keep. Others have not bought it yet and want to know what they actually need. Those are different problems with different first moves. Take whichever half is yours."
+          lede="Some already own Salesforce and it isn't earning its keep. Others haven't bought yet and don't know what they need. Different problems, different first moves — take whichever half is yours."
         />
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="border-t border-white/20 pt-8">
@@ -666,13 +672,13 @@ export default function Salesforce() {
               weight
             </h3>
             <p className="mt-4 text-oa-nightInk2 leading-relaxed">
-              Usually that means people are still doing by hand the things the
-              platform was bought to do. Automation is the deep end of our bench
-              — <strong className="font-semibold text-oa-nightInk">38 of our 52
-              certifications are on the Platform competency</strong>, which is
-              the Flow, permissions and integration work that takes those steps
-              off your team. Sales Cloud and Service Cloud get configured around
-              how your people actually work, not the other way round.
+              That usually means people still doing by hand what the platform
+              was bought to automate. Automation is the deep end of our bench —{" "}
+              <strong className="font-semibold text-oa-nightInk">38 of our 53
+              certifications are on the Platform competency</strong> — the Flow,
+              permissions and integration work that takes those steps off your
+              team. Sales and Service Cloud get configured around how your people
+              actually work, not the reverse.
             </p>
             <div className="mt-7">
               <CheckList
@@ -691,8 +697,8 @@ export default function Salesforce() {
                 continuity of the person who scoped it, not the absence of a team. */}
             <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
               You deal with the people who do the work. The practice director who
-              scopes your org stays on it through delivery — you are not
-              introduced to one person and handed to another after the sales call.
+              scopes your org stays on it through delivery — no handoff to a
+              stranger after the sales call.
             </p>
           </Reveal>
 
@@ -743,9 +749,8 @@ export default function Salesforce() {
               />
             </div>
             <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
-              Nothing here commits you to buying it from us, or to buying it at
-              all. If the honest answer is that your spreadsheet is still doing
-              the job, that is the answer you will get.
+              Nothing here commits you to buying — from us, or at all. If your
+              spreadsheet is still doing the job, that's the answer you'll get.
             </p>
           </Reveal>
         </div>
