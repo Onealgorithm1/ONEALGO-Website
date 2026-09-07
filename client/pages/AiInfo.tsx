@@ -42,7 +42,7 @@ export default function AiInfo() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "OneAlgorithm",
-    alternateName: "One Algorithm LLC",
+    alternateName: ["OneAlgorithm", "One Algorithm"],
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     description:

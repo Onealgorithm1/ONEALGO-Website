@@ -13,7 +13,11 @@ import { siteConfig } from "../lib/siteConfig";
 const A = siteConfig.address;
 const NAP = {
   name: siteConfig.gbpName,
-  alternateName: siteConfig.name,
+  // ⛔ BOTH spellings, deliberately. Our client sites credit us as "One Algorithm" while
+  // this site says "OneAlgorithm"; to a search engine those can read as two companies.
+  // alternateName is the field that says they are one. Found 2026-09-07 when an AI could
+  // not connect us to a client site we built.
+  alternateName: [siteConfig.name, "One Algorithm"],
   telephone: siteConfig.contact.phonePrimary,
   telephoneE164: "+1-610-890-9711",
   email: siteConfig.contact.emailPrimary,
@@ -52,7 +56,8 @@ interface OrganizationSchema {
     email: string;
     contactType: string;
   };
-  alternateName?: string;
+  /** One string, or several when a brand is written more than one way in the wild. */
+  alternateName?: string | string[];
   sameAs: string[];
   services?: string[];
 }
