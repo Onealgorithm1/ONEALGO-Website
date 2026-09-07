@@ -869,6 +869,14 @@
 .wk-name{display:block;color:#fff;font-weight:600;font-size:1.05rem}
 .wk-sector{display:block;color:#ffa634;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
 .wk-note{display:block;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5;margin-top:10px}
+/* The client's live domain, as a real link. It is a SIBLING of .wk-btn (see the note in
+   WorkCarousel.tsx) and sits as a thin bar under the card, which is why .wk-vouch above is
+   lifted to bottom:60px — the two would otherwise overlap. This exists so the domain appears
+   in the crawlable HTML at all; before 2026-09-07 it lived only in JavaScript and AI search
+   could not connect the client's name to their site. */
+.wk-site{display:block;margin-top:-1px;padding:11px 18px;border:1px solid rgba(255,255,255,.12);border-top:0;border-radius:0 0 14px 14px;background:rgba(255,255,255,.02);color:#9fb3c8;font-size:.82rem;text-decoration:none;transition:color .18s ease,background .18s ease}
+.wk-site:hover{color:#fff;background:rgba(255,255,255,.06)}
+.wk-site:focus-visible{outline:2px solid #ffa634;outline-offset:2px}
 .wk-open{display:inline-block;margin-top:12px;color:#fff;font-size:.85rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:2px}
 /* The client's own review of US, sitting beside "Preview" in the card's
    bottom-right. Absolutely positioned because it is a SIBLING of .wk-btn, not a
@@ -878,7 +886,7 @@
    ponytail: max-width 54% keeps it clear of the note's last line at 420px; if a
    future note ever runs long enough to collide, give .wk-meta a bottom padding
    rather than shrinking this. */
-.wk-vouch{position:absolute;right:18px;bottom:18px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:2px;max-width:54%;text-align:right}
+.wk-vouch{position:absolute;right:18px;bottom:60px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:2px;max-width:54%;text-align:right}
 .wk-stars{display:flex;align-items:center;gap:7px;min-height:24px;text-decoration:none;border-radius:6px;padding:6px 8px;margin:-6px -8px;transition:background .18s ease}
 .wk-stars:hover{background:rgba(255,255,255,.08)}
 .wk-stars:focus-visible{outline:2px solid #ffa634;outline-offset:2px}

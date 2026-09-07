@@ -99,6 +99,12 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
   );
 }
 
+/** Bare hostname for display: "https://phantomarcades.com/" -> "phantomarcades.com".
+ *  Falls back to the raw string rather than throwing on a malformed URL. */
+function siteHost(u: string): string {
+  try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; }
+}
+
 export default function WorkCarousel() {
   const [open, setOpen] = useState<WorkItem | null>(null);
   const close = useCallback(() => setOpen(null), []);
@@ -208,6 +214,23 @@ export default function WorkCarousel() {
                 <span className="wk-open">Preview</span>
               </span>
             </button>
+            {/* ⛔ SIBLING of .wk-btn, never inside it — an <a> in a <button> is invalid HTML and
+                fails axe's nested-interactive rule, the same reason .wk-vouch sits outside.
+                WHY THIS EXISTS: on 2026-09-07 Louis asked Grok who built phantomarcades.com and
+                it answered that no agency is credited anywhere. The client's URL was in
+                data/work.ts all along, but the renderer never emitted it, so the domain reached
+                the page only inside JavaScript. A crawler saw the client's NAME and no domain,
+                and could not join the two. This puts the domain in the HTML as a real link.
+                ⛔ Do NOT add rel="nofollow" — we want the association counted. */}
+            <a
+              className="wk-site"
+              href={w.url}
+              target="_blank"
+              rel="noopener"
+              aria-label={`Visit the live ${w.name} site at ${siteHost(w.url)}, opens in a new tab`}
+            >
+              {siteHost(w.url)}
+            </a>
           </li>
           );
         })}
