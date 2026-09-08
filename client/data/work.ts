@@ -64,8 +64,15 @@ export const WORK: WorkItem[] = [
     // onealgorithm.com may frame it.
     embed: true,
     marker: "Phantom Arcades",
-    // Dennis's site went live 2026-09-01. No review yet — do not add one until
-    // he writes it himself.
+    review: {
+      author: "Dennis",
+      // Dennis Riese, 5 stars, posted the week of 2026-09-07 — pulled from our own
+      // listing via hub /api/reviews?site=onealgorithm, not typed from memory.
+      // ⛔ This URL points at the LISTING, not the single review: the other two carry
+      // maps.app.goo.gl share links that Louis captured by hand, and there is no API
+      // that mints one. Swap in a share link for Dennis's review when there is one.
+      url: "https://maps.google.com/?cid=2417488728373008166",
+    },
   },
   {
     slug: "inspect-this-home",

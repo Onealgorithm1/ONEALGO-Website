@@ -851,21 +851,28 @@
 .wk-arrows button{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font-size:1.25rem;line-height:1;cursor:pointer;transition:background .18s ease,border-color .18s ease}
 .wk-arrows button:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
 
-.wk-rail{display:flex;align-items:flex-start;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(20px,5vw,64px) 12px;margin:0;list-style:none;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.wk-rail{display:flex;align-items:stretch;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px clamp(20px,5vw,64px) 12px;margin:0;list-style:none;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
 .wk-rail::-webkit-scrollbar{height:8px}
 .wk-rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:999px}
-.wk-card{flex:0 0 min(88vw,420px);scroll-snap-align:start;position:relative}
+/* ⛔ EVERY CARD IS THE SAME HEIGHT, and it is done with stretch rather than a fixed height.
+   The notes in data/work.ts run to different lengths, so left alone each card sized to its own
+   text and the rail looked ragged (Louis, 2026-09-07: "I don't want them to be different sizes").
+   A hard height would have to be re-tuned every time someone edits a note, and would clip the
+   longest one. Instead .wk-rail stretches, the card and button are flex columns, and .wk-open is
+   pushed down by margin-top:auto — so the shortest card grows to match the tallest and "Preview"
+   plus the domain bar line up across all of them whatever the copy does. */
+.wk-card{flex:0 0 min(88vw,420px);scroll-snap-align:start;position:relative;display:flex;flex-direction:column}
 
-.wk-btn{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;color:inherit;transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.wk-btn{display:flex;flex-direction:column;flex:1;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;cursor:pointer;padding:0;color:inherit;transition:transform .22s ease,border-color .22s ease,background .22s ease}
 .wk-btn:hover,.wk-btn:focus-visible{transform:translateY(-4px);border-color:rgba(255,166,52,.55);background:rgba(255,255,255,.07)}
 .wk-btn:focus-visible{outline:2px solid #ffa634;outline-offset:3px}
 /* The lift is decoration; anyone who asked not to be moved does not get moved. */
 @media (prefers-reduced-motion:reduce){.wk-btn{transition:none}.wk-btn:hover,.wk-btn:focus-visible{transform:none}}
 
-.wk-shot{display:block;aspect-ratio:16/10;overflow:hidden;background:#06223c}
+.wk-shot{display:block;flex:0 0 auto;aspect-ratio:16/10;overflow:hidden;background:#06223c}
 .wk-shot picture,.wk-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 .wk-visit-short{display:none}
-.wk-meta{display:block;padding:16px 18px 18px}
+.wk-meta{display:flex;flex-direction:column;flex:1;padding:16px 18px 18px}
 .wk-name{display:block;color:#fff;font-weight:600;font-size:1.05rem}
 .wk-sector{display:block;color:#ffa634;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
 .wk-note{display:block;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5;margin-top:10px}
@@ -877,7 +884,7 @@
 .wk-site{display:block;margin-top:-1px;padding:11px 18px;border:1px solid rgba(255,255,255,.12);border-top:0;border-radius:0 0 14px 14px;background:rgba(255,255,255,.02);color:#9fb3c8;font-size:.82rem;text-decoration:none;transition:color .18s ease,background .18s ease}
 .wk-site:hover{color:#fff;background:rgba(255,255,255,.06)}
 .wk-site:focus-visible{outline:2px solid #ffa634;outline-offset:2px}
-.wk-open{display:inline-block;margin-top:12px;color:#fff;font-size:.85rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:2px}
+.wk-open{display:inline-block;align-self:flex-start;margin-top:auto;padding-top:12px;color:#fff;font-size:.85rem;font-weight:600;border-bottom:1px solid rgba(255,166,52,.7);padding-bottom:2px}
 /* The client's own review of US, sitting beside "Preview" in the card's
    bottom-right. Absolutely positioned because it is a SIBLING of .wk-btn, not a
    child: an <a> inside a <button> is invalid and fails axe's nested-interactive
