@@ -66,12 +66,12 @@ export const WORK: WorkItem[] = [
     marker: "Phantom Arcades",
     review: {
       author: "Dennis",
-      // Dennis Riese, 5 stars, posted the week of 2026-09-07 — pulled from our own
-      // listing via hub /api/reviews?site=onealgorithm, not typed from memory.
-      // ⛔ This URL points at the LISTING, not the single review: the other two carry
-      // maps.app.goo.gl share links that Louis captured by hand, and there is no API
-      // that mints one. Swap in a share link for Dennis's review when there is one.
-      url: "https://maps.google.com/?cid=2417488728373008166",
+      // Dennis Riese, 5 stars, posted the week of 2026-09-07. Share link from Louis
+      // 2026-09-08; the ?g_st= tracking parameter it arrived with is stripped, as on
+      // the other two. Verified it is a review on OUR listing and not on Dennis's own
+      // page: the link's place id 0x218ca530a72f1726 decodes to cid 2417488728373008166,
+      // which is OneAlgorithm Consulting.
+      url: "https://maps.app.goo.gl/s3mparNt8wi9qEtU9",
     },
   },
   {
