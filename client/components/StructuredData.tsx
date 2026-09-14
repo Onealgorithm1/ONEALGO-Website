@@ -38,30 +38,6 @@ const NAP = {
     siteConfig.social.tiktok,
   ],
 };
-interface OrganizationSchema {
-  type: "Organization";
-  name: string;
-  url: string;
-  logo: string;
-  description: string;
-  address: {
-    streetAddress: string;
-    addressLocality: string;
-    addressRegion: string;
-    postalCode: string;
-    addressCountry: string;
-  };
-  contactPoint: {
-    telephone: string;
-    email: string;
-    contactType: string;
-  };
-  /** One string, or several when a brand is written more than one way in the wild. */
-  alternateName?: string | string[];
-  sameAs: string[];
-  services?: string[];
-}
-
 interface ServiceSchema {
   type: "Service";
   name: string;
@@ -187,92 +163,6 @@ export function StructuredData({ data }: StructuredDataProps) {
   return null;
 }
 
-// Helper function to create organization schema
-export function createOrganizationSchema(): OrganizationSchema {
-  return {
-    type: "Organization",
-    name: NAP.name,
-    alternateName: NAP.alternateName,
-    url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/media/oa-logo.webp",
-    description:
-      "OneAlgorithm provides expert IT consulting, website development, operations technology, and staff augmentation services. We transform businesses through intelligent technology solutions.",
-    address: NAP.address,
-    contactPoint: {
-      telephone: NAP.telephoneE164,
-      email: NAP.email,
-      contactType: "Customer Service",
-    },
-    sameAs: NAP.sameAs,
-    services: [
-      "IT Consulting",
-      "Website Development",
-      "Operations Technology",
-      "Staff Augmentation",
-      "Marketing Services",
-      "Business Automation",
-    ],
-  };
-}
-
-// Detailed Organization schema
-export function createOrganizationSchemaDetailed() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    // One entity across the whole site: the static block in index.html carries
-    // the same @id, so Google's graph merges them instead of seeing two orgs.
-    "@id": "https://onealgorithm.com/#org",
-    name: NAP.name,
-    alternateName: NAP.alternateName,
-    description:
-      "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and still delivering Salesforce, Oracle ERP, integration and staff augmentation for larger teams nationally.",
-    url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/media/oa-logo.webp",
-    foundingDate: "2020",
-    telephone: NAP.telephone,
-    email: NAP.email,
-    address: { "@type": "PostalAddress", ...NAP.address },
-    geo: { "@type": "GeoCoordinates", ...NAP.geo },
-    sameAs: [...NAP.sameAs, "https://github.com/Onealgorithm1"],
-    // Plain text, not a GeoCircle. The circle carried geoRadius: "Worldwide",
-    // and geoRadius must be a number of metres or a Distance - prose made the
-    // whole shape invalid. A circle centred on the office cannot express
-    // "everywhere" at any radius anyway, and areaServed accepts text directly.
-    // The concrete places the firm actually works from and serves (offices per
-    // the contact page) — "Worldwide" contradicted the LocalBusiness counties.
-    areaServed: ["United States", "Canada", "India", "United Arab Emirates"],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      // The services actually sold today — mirrors the /services hub. The old
-      // catalog ("Custom Software Development", "Growth Marketing") was the
-      // pre-refresh positioning and is retired.
-      name: "Technology & Marketing Services",
-      itemListElement: [
-        "Website Development",
-        "SEO",
-        "Google Ads Management",
-        "Salesforce Consulting",
-        "Oracle ERP Implementation",
-        "IT Consulting",
-        "MarTech Integration",
-        "Zendesk Implementation",
-        "Operations Technology",
-        "Staff Augmentation",
-      ].map((name) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name },
-      })),
-    },
-    priceRange: "$$$",
-    // No aggregateRating. There was one here claiming 4.8 from 47 reviews, with
-    // no reviews behind it anywhere. Google's structured-data policy treats
-    // unverifiable review markup as a violation and can drop the site's rich
-    // results over it, and it is a false public claim besides. Restore this only
-    // with real, attributable reviews.
-  };
-}
-
 // FAQ schema
 /**
  * Built FROM the FAQs the page actually renders, rather than kept as a second
@@ -320,6 +210,8 @@ export function createLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://onealgorithm.com/#localbusiness",
+    parentOrganization: { "@id": "https://onealgorithm.com/#org" },
     name: NAP.name,
     alternateName: NAP.alternateName,
     url: "https://onealgorithm.com",

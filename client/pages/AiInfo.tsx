@@ -38,49 +38,6 @@ export default function AiInfo() {
     ogUrl: getCanonicalUrl("/ai-info"),
   });
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "OneAlgorithm",
-    alternateName: ["OneAlgorithm", "One Algorithm"],
-    url: "https://onealgorithm.com",
-    logo: "https://onealgorithm.com/logo.webp",
-    description:
-      "OneAlgorithm is a Malvern, PA technology and marketing company providing IT consulting, website development, operations technology, staff augmentation, and digital marketing services to Construction, Manufacturing, and E-Commerce businesses.",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Malvern",
-      addressRegion: "PA",
-      addressCountry: "US",
-    },
-    areaServed: "United States",
-    serviceType: [
-      "IT Consulting",
-      "Website Development",
-      "Operations Technology",
-      "Staff Augmentation",
-      "Digital Marketing",
-    ],
-    knowsAbout: [
-      "Digital Transformation",
-      "Business Automation",
-      "Web Application Development",
-      "ERP Integration",
-      "Construction Technology",
-      "Manufacturing Systems",
-      "E-Commerce Platforms",
-    ],
-    sameAs: [
-      "https://www.linkedin.com/company/onealgorithmllc",
-      "https://github.com/Onealgorithm1",
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      url: "https://onealgorithm.com/contact",
-    },
-  };
-
   return (
     <Layout>
       <StructuredData
@@ -265,11 +222,6 @@ export default function AiInfo() {
             </ul>
           </section>
         </Prose>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </Section>
     </Layout>
   );

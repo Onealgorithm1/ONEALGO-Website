@@ -403,6 +403,13 @@
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
 
     <!-- Structured Data for SEO -->
+    <!-- ⛔ The ONLY node with @id #org on the site. It ships on every page, so no
+         page may emit its own Organization. Until 2026-09-14 the homepage, /about,
+         /capabilities and /ai-info each added a second one (same @id or none) with
+         diverging fields - a conflicting entity definition Semrush flagged as
+         invalid priceRange/geo/services/serviceType on Organization. geo and
+         priceRange belong to the LocalBusiness node on the homepage, which points
+         back here via parentOrganization. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -413,7 +420,28 @@
         "legalName": "ONE ALGORITHM LLC",
         "url": "https://onealgorithm.com",
         "logo": "https://onealgorithm.com/media/oa-logo.webp",
-        "description": "OneAlgorithm builds and markets websites for small businesses: web development, SEO, Google Ads, marketing and CRM. Woman-owned, based in Malvern, Pennsylvania.",
+        "description": "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and still delivering Salesforce, Oracle ERP, integration and staff augmentation for larger teams nationally.",
+        "foundingDate": "2020",
+        "telephone": "+1-610-890-9711",
+        "email": "service@onealgorithm.com",
+        "areaServed": ["United States", "Canada", "India", "United Arab Emirates"],
+        "knowsAbout": ["Website Development", "Search Engine Optimization", "Google Ads", "Salesforce", "Oracle ERP", "Systems Integration", "Business Automation"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Technology & Marketing Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads Management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Salesforce Consulting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Oracle ERP Implementation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Consulting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MarTech Integration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Zendesk Implementation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operations Technology" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Staff Augmentation" } }
+          ]
+        },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "625 Swedesford Rd, Unit B",
@@ -505,6 +533,11 @@
         ],
         "sameAs": [
           "https://www.linkedin.com/company/onealgorithmllc",
+          "https://x.com/onealgorithm",
+          "https://www.facebook.com/people/One-Algorithm/61578073689046/",
+          "https://www.instagram.com/onealgorithm",
+          "https://youtube.com/@onealgorithm",
+          "https://www.tiktok.com/@one.algorithm",
           "https://github.com/Onealgorithm1",
           "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
           "https://www.dgs.internet.state.pa.us/suppliersearch/Home/Details/35896"

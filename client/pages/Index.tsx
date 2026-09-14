@@ -17,7 +17,6 @@ import {
 import { siteConfig } from "../../shared/companyProfile";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
-  createOrganizationSchemaDetailed,
   createFAQSchema,
   createLocalBusinessSchema,
 } from "../components/StructuredData";
@@ -371,7 +370,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <JSONLDScript data={createOrganizationSchemaDetailed()} />
+      {/* Organization is the #org node in index.html; see the note there. */}
       {/* The same FAQS the section below renders. Google requires marked-up
           FAQ content to be visible on the page, so the schema is generated
           from the array rather than kept as a second copy that can drift. */}

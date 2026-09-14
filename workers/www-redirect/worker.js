@@ -27,6 +27,17 @@ export default {
 
     // 301, not 302: this is permanent, and only a permanent redirect passes
     // accumulated ranking signal to the apex domain.
-    return Response.redirect(url.toString(), 301);
+    //
+    // HSTS on the redirect itself: the apex already sends it, but a browser only
+    // honours the header from the host it asked, so www stayed downgradable.
+    // ponytail: max-age=300 is the trial value. Raise to 31536000 once a day
+    // passes with nothing broken. No preload.
+    return new Response(null, {
+      status: 301,
+      headers: {
+        Location: url.toString(),
+        "Strict-Transport-Security": "max-age=300; includeSubDomains",
+      },
+    });
   },
 };

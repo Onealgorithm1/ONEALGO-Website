@@ -5,7 +5,6 @@ import { siteConfig } from "../../shared/companyProfile";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import {
   StructuredData,
-  createOrganizationSchema,
   createWebPageSchema,
 } from "../components/StructuredData";
 import TeamSection from "../components/TeamSection";
@@ -131,7 +130,6 @@ export default function About() {
   });
   return (
     <Layout>
-      <StructuredData data={createOrganizationSchema()} />
       {/* The page's whole pitch is the people; give Google the same four
           principals as machine-readable entities tied to the org. Names,
           titles and profiles mirror TeamSection.tsx exactly. */}

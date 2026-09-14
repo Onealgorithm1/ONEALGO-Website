@@ -1,10 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
-import {
-  StructuredData,
-  createOrganizationSchema,
-} from "../components/StructuredData";
 import { PageHero, Section, CTABand } from "../components/site";
 import CapabilitiesSidebar from "../components/CapabilitiesSidebar";
 import CapabilitiesMainContent from "../components/CapabilitiesMainContent";
@@ -50,8 +46,7 @@ export default function Capabilities() {
 
   return (
     <Layout>
-      <StructuredData data={createOrganizationSchema()} />
-
+      {/* Organization schema is the #org node in index.html, on every page. */}
       <PageHero
         eyebrow="Capabilities statement"
         title={
