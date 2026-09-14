@@ -831,6 +831,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="LinkedIn"
+                  aria-label="LinkedIn"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -847,6 +848,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="TikTok"
+                  aria-label="TikTok"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -863,6 +865,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="YouTube"
+                  aria-label="YouTube"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -879,6 +882,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Facebook"
+                  aria-label="Facebook"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -895,6 +899,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Instagram"
+                  aria-label="Instagram"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -911,6 +916,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Google Business Profile"
+                  aria-label="Google Business Profile"
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"

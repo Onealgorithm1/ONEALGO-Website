@@ -383,6 +383,11 @@ export default function WebsiteDevelopment() {
                 or{" "}
                 <Link className="text-oa-orange underline underline-offset-4" to="/services/web-design-philadelphia">
                   web design in Philadelphia
+                </Link>. Building for a particular sector? See{" "}
+                {/* Added 2026-09-14: /industries/website-development had one
+                    inbound link (Semrush). */}
+                <Link className="text-oa-orange underline underline-offset-4" to="/industries/website-development">
+                  website development by sector
                 </Link>.
               </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">

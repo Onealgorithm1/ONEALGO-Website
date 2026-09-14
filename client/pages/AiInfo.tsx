@@ -134,12 +134,13 @@ export default function AiInfo() {
               </li>
               <li>
                 <strong>Website:</strong>{" "}
-                <a
-                  href="https://onealgorithm.com"
-                  className={LINK}
-                >
-                  https://onealgorithm.com
-                </a>
+                {/* A bare URL as the link text reads to Semrush as "no anchor
+                    text", and the slashless href was the homepage's only link
+                    under that exact URL (2026-09-14). */}
+                <a href="https://onealgorithm.com/" className={LINK}>
+                  OneAlgorithm homepage
+                </a>{" "}
+                (onealgorithm.com)
               </li>
               <li>
                 <strong>LinkedIn:</strong>{" "}

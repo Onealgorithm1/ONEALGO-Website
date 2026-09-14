@@ -242,13 +242,23 @@ export default function Services() {
               className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
             >
               manufacturing
-            </Link>{" "}
-            and{" "}
+            </Link>
+            ,{" "}
             <Link
               to="/industries/ecommerce"
               className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
             >
               e-commerce
+            </Link>{" "}
+            and{" "}
+            {/* Added 2026-09-14: Semrush found /industries/marketing with one
+                inbound link (the /industries hub) - the nav dropdowns only
+                render when opened, so crawlers never see them. */}
+            <Link
+              to="/industries/marketing"
+              className="text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+            >
+              marketing teams
             </Link>
             .
           </>
