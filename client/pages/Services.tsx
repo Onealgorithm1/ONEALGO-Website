@@ -65,6 +65,12 @@ const SERVICES = [
   },
   {
     icon: MapPin,
+    title: "SEO — Chester County",
+    body: "Local SEO for Chester County businesses: your Google Business Profile, reviews and service pages, from the office in Malvern.",
+    to: "/services/seo-chester-county",
+  },
+  {
+    icon: MapPin,
     title: "Google Ads — Philadelphia",
     body: "Google Ads management for Philadelphia-area businesses — campaigns run by the same team that builds the landing pages.",
     to: "/services/google-ads-philadelphia",

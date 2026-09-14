@@ -33,6 +33,7 @@ const ROUTES = [
   "/services/oracle-erp", "/services/salesforce", "/services/zendesk",
   "/services/application-development",
   "/services/web-design-chester-county", "/services/web-design-philadelphia",
+  "/services/seo-chester-county",
   "/services/google-ads-philadelphia",
   "/services/salesforce-consultant-philadelphia",
   "/services/salesforce-consultant-chester-county",

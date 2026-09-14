@@ -134,7 +134,7 @@ export default function WebDesignChesterCounty() {
             <span className="text-oa-orange">built here, owned by you</span>
           </>
         }
-        lede="We are a web development firm on Swedesford Road in Malvern, and we build sites for businesses across Chester County. Custom work rather than a template with your logo dropped into it, and when it is finished the code, the domain and the hosting are in your name — not ours."
+        lede="We are a web development firm on Swedesford Road in Malvern, and we build sites for businesses in West Chester and across Chester County. Custom work rather than a template with your logo dropped into it, and when it is finished the code, the domain and the hosting are in your name — not ours."
         panel={{
           title: "What the build includes",
           items: [
@@ -195,6 +195,13 @@ export default function WebDesignChesterCounty() {
                   className="font-semibold text-oa-orange underline underline-offset-4"
                 >
                   The straight answer is on the build page
+                </a>
+                . Want to be found once it is live?{" "}
+                <a
+                  href="/services/seo-chester-county"
+                  className="font-semibold text-oa-orange underline underline-offset-4"
+                >
+                  Local SEO in Chester County
                 </a>
                 .
               </p>

@@ -258,6 +258,16 @@ export default function Seo() {
                 measures 100 on Lighthouse&rsquo;s SEO audit, and publishes the
                 score that is worse alongside it. Run it yourself.
               </p>
+              <p className="mt-4 max-w-[60ch] leading-relaxed text-oa-ink2">
+                Based near you?{" "}
+                <Link
+                  to="/services/seo-chester-county"
+                  className="font-medium text-oa-blue underline underline-offset-4"
+                >
+                  Local SEO in Chester County
+                </Link>{" "}
+                covers the Business Profile, reviews and map results.
+              </p>
             </>
           }
           right={

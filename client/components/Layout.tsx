@@ -1091,6 +1091,15 @@ function Layout({ children }: LayoutProps) {
                 >
                   Web Design Chester County
                 </Link>
+                <Link
+                  to="/services/seo-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  SEO Chester County
+                </Link>
                 {/* Salesforce local trio, 2026-09-01. The footer is the one
                     place every page links from, which is what keeps a local
                     page out of orphan territory. */}

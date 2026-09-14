@@ -77,6 +77,9 @@ const Marketing = lazy(() => import("./pages/services/Marketing"));
 const Seo = lazy(() => import("./pages/services/Seo"));
 const Martech = lazy(() => import("./pages/services/Martech"));
 const GoogleAds = lazy(() => import("./pages/services/GoogleAds"));
+const SeoChesterCounty = lazy(
+  () => import("./pages/services/SeoChesterCounty"),
+);
 const WebDesignChesterCounty = lazy(
   () => import("./pages/services/WebDesignChesterCounty"),
 );
@@ -172,6 +175,10 @@ const App = () => (
               <Route path="/services/seo" element={<Seo />} />
               <Route path="/services/martech" element={<Martech />} />
               <Route path="/services/google-ads" element={<GoogleAds />} />
+              <Route
+                path="/services/seo-chester-county"
+                element={<SeoChesterCounty />}
+              />
               <Route
                 path="/services/web-design-chester-county"
                 element={<WebDesignChesterCounty />}
