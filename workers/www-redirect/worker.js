@@ -30,13 +30,12 @@ export default {
     //
     // HSTS on the redirect itself: the apex already sends it, but a browser only
     // honours the header from the host it asked, so www stayed downgradable.
-    // ponytail: max-age=300 is the trial value. Raise to 31536000 once a day
-    // passes with nothing broken. No preload.
+    // Trialled at max-age=300 on 2026-09-14, verified, then raised. No preload.
     return new Response(null, {
       status: 301,
       headers: {
         Location: url.toString(),
-        "Strict-Transport-Security": "max-age=300; includeSubDomains",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
       },
     });
   },
