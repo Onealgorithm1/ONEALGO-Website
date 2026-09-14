@@ -67,7 +67,15 @@ import {
  * - No "Proven Track Record" card. Deleted in an earlier pass for having nothing
  *   behind it. It must not come back.
  *
- * SEO: title and description carry the location. A four-person firm cannot take
+ * SEO 2026-09-14: title, H1, description and first sentence now lead with
+ * "salesforce implementation services" — Semrush US: 1,600/mo at keyword
+ * difficulty 14, the lowest-difficulty Salesforce term with real volume (the
+ * bare "salesforce implementation" is 2,900 at 32 and "implementation partner"
+ * 2,400 at 34). Semrush's On Page SEO Checker also asked for aggregateRating
+ * markup: ⛔ NOT added — self-serving review markup breaks Google's policy, and a
+ * fabricated 4.8 rating was already removed from this site once.
+ *
+ * SEO (earlier): title and description carry the location. A four-person firm cannot take
  * "salesforce implementation" off Accenture and Slalom, but it can win Malvern /
  * Chester County / Philadelphia and set-aside searches. The body said "Malvern"
  * zero times before this pass. The FAQ is real questions with real answers and
@@ -205,7 +213,7 @@ const PILLARS = [
       "Hypercare for the first 30-90 days, while the people who have to use it every day find the things nobody thought of. Then managed services — ongoing Salesforce administration on a retainer, at whatever level you need.",
     details: [
       "Hypercare, typically 30-90 days",
-      "Training for admins and for the people using it daily",
+      "User training for admins and for the people using it daily, so adoption does not stall",
       "Reports and dashboards changed as the questions change",
       "Managed services: ongoing administration on a monthly retainer",
       "Release-window testing before every Salesforce upgrade",
@@ -274,11 +282,11 @@ export default function Salesforce() {
        there is no ranking here to protect by leaving it alone. The free org
        review is the one thing on this page no large partner will match, so it
        goes in the title where it can win the click. */
-    title: "Salesforce Consulting Partner | Free Org Review | OneAlgorithm",
+    title: "Salesforce Implementation Services | Free Org Review | OneAlgorithm",
     // 155 characters. The previous one was 203 and lost its last third to SERP
     // truncation.
     description:
-      "Listed Salesforce Consulting Partner: 16 certified people, 53 certifications. Sales and Service Cloud, data migration, and a free org review.",
+      "Salesforce implementation services from a listed Consulting Partner with 16 certified people: Sales and Service Cloud, data migration, and a free org review.",
     canonical: getCanonicalUrl("/services/salesforce"),
     ogTitle: "Salesforce Consulting Partner — OneAlgorithm",
     ogDescription:
@@ -310,10 +318,10 @@ export default function Salesforce() {
         title={
           <>
             <span className="text-oa-orange">Salesforce</span> implementation
-            and consulting
+            services and consulting
           </>
         }
-        lede="We set up Sales and Service Cloud, automate the manual steps behind them, move your old data in clean, and stay on while your team learns it — for commercial teams across the U.S."
+        lede="Salesforce implementation services for commercial teams across the U.S.: we set up Sales and Service Cloud, automate the manual steps behind them, move your old data in clean, and stay on while your team learns it."
         /* The hero's right column is the VERIFICATION CARD, not a bullet list.
            Reasoning: this page's whole argument is that our proof is a record in
            someone else's registry rather than an adjective in ours — so show the
