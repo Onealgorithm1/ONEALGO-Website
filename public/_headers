@@ -20,3 +20,9 @@
 # returning visitors paired the old stylesheet with the new HTML.
 /assets/*.css
   Cache-Control: max-age=31536000, immutable
+
+# Internal email-signature kit. Unlinked, but reachable and it lists staff phone
+# numbers, so keep it out of every index even if a crawler ignores the meta tag.
+# (Semrush audit 2026-09-14 found it taking GA traffic.)
+/sig/*
+  X-Robots-Tag: noindex, nofollow
