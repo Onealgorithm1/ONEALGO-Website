@@ -825,12 +825,20 @@ function Layout({ children }: LayoutProps) {
             it, so the boundary needs a hairline rather than a colour change,
             and the top padding is trimmed - two stacked sections of the same
             colour were reading as one long empty band. */}
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-10 pb-8">
+        {/* The footer runs wider than the 1200px content column above it
+            (Louis, 2026-09-17: "go edge to edge ... or just leave a little
+            space on desktop on each side"). 1600px with the same gutters keeps
+            a margin on a wide monitor instead of letting the lists stretch to
+            the glass. */}
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 border-t border-white/10 pt-10 pb-8">
           <TrustedPartnerships />
 
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-5 md:gap-8">
+          {/* One column per group from lg up, so no list runs long: company 3,
+              quick links 2, services 3 (two columns of links inside), where we
+              work 2, certifications 2. */}
+          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 md:gap-8 lg:grid-cols-12 lg:gap-x-8">
             {/* Company Info */}
-            <div className="col-span-2">
+            <div className="col-span-2 md:col-span-3 lg:col-span-3">
               <OneAlgorithmText size="md" className="text-white mb-3" />
               <p className="mb-5 max-w-md text-sm leading-relaxed text-oa-nightInk2">
                 We streamline operations, automate the busywork, and build tools
@@ -956,7 +964,7 @@ function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="lg:col-span-2">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
                 Quick Links
               </h3>
@@ -1047,11 +1055,15 @@ function Layout({ children }: LayoutProps) {
                 </Link>
               </div>
 
-              {/* Where we work, work order 2026-09-17: the seven local pages as
-                  their own group with descriptive anchors. The footer is the
-                  one place every page links from, which keeps them out of
-                  orphan territory. Moved here from the Services list. */}
-              <h3 className="mt-8 text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
+            </div>
+
+            {/* Where we work, work order 2026-09-17: the seven local pages as
+                their own group with descriptive anchors. The footer is the one
+                place every page links from, which keeps them out of orphan
+                territory. Moved out of the Services list, and given its own
+                column so neither list runs long. */}
+            <div className="col-span-2 md:col-span-1 lg:col-span-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
                 Where we work
               </h3>
               <div className={footerLinkList}>
@@ -1122,7 +1134,7 @@ function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Services */}
-            <div>
+            <div className="col-span-2 md:col-span-2 lg:col-span-3">
               <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
                 {/*
                   The heading links to the services hub.
@@ -1150,7 +1162,9 @@ function Layout({ children }: LayoutProps) {
                   Services
                 </Link>
               </h3>
-              <div className={footerLinkList}>
+              {/* Two columns of links from lg: fourteen services in one column
+                  made this the only block twice the height of its neighbours. */}
+              <div className={`${footerLinkList} lg:columns-2 lg:gap-x-8`}>
                 <Link
                   to="/services/martech"
                   onClick={() =>
@@ -1276,7 +1290,7 @@ function Layout({ children }: LayoutProps) {
                 right half empty beneath a Services list that had already ended.
                 Spanning both columns closes that gap. From md up the grid is
                 five columns and this returns to a single one. */}
-            <div className="col-span-2 md:col-span-1">
+            <div className="col-span-2 md:col-span-1 lg:col-span-2">
               {/* ⛔ Three public-sector registrations — SBA WOSB/EDWOSB, PA
                   COSTARS, Virginia SWaM — used to sit here on all 26 pages, with
                   a comment calling them trust signals for government buyers.
