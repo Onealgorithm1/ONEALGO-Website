@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
+  StructuredData,
+  createServiceSchema,
+} from "../../components/StructuredData";
+import {
   Cpu,
   Network,
   Database,
@@ -95,10 +99,20 @@ export default function Manufacturing() {
 
   return (
     <Layout>
+      {/* Service JSON-LD, work order 2026-09-17: this page had BreadcrumbList
+          only. Same helper as the service pages; no Product or rating markup. */}
+      <StructuredData
+        data={createServiceSchema(
+          "Manufacturing Technology, OT and ERP Services",
+          "Operations technology and ERP work for manufacturers: SCADA, industrial IoT, OT security and full-lifecycle Oracle ERP, connected to the systems that plan the work.",
+          "Operations technology and ERP consulting",
+          "https://onealgorithm.com/industries/manufacturing",
+        )}
+      />
       <PageHero
         title={
           <>
-            Manufacturing:{" "}
+            Manufacturing technology, OT and ERP:{" "}
             <span className="text-oa-orange">
               the plant floor and the systems behind it
             </span>

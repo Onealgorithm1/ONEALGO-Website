@@ -521,6 +521,15 @@ function Layout({ children }: LayoutProps) {
                 down to h-10 to sit inside the 64px bar; #ffa634 is a fill under
                 dark ink here, never a text or border colour.
               */}
+              {/* Click-to-call beside the CTA, work order 2026-09-17: the
+                  site's goal is phone calls and the number was only on three
+                  pages. */}
+              <a
+                href="tel:+16108909711"
+                className="whitespace-nowrap text-sm font-semibold text-gray-900 hover:text-onealgo-blue-950 transition-colors"
+              >
+                (610) 890-9711
+              </a>
               <PrimaryCTA to="/contact" className="h-10 px-5">
                 Talk to an Expert
               </PrimaryCTA>
@@ -782,6 +791,12 @@ function Layout({ children }: LayoutProps) {
             >
               Talk to an Expert
             </Link>
+            <a
+              href="tel:+16108909711"
+              className="mt-2 block w-full rounded-xl border border-gray-200 px-4 py-3.5 text-center text-base font-semibold text-gray-900 transition-colors hover:bg-gray-50"
+            >
+              Call (610) 890-9711
+            </a>
           </div>
         </div>
       )}
@@ -820,6 +835,14 @@ function Layout({ children }: LayoutProps) {
               <p className="mb-5 max-w-md text-sm leading-relaxed text-oa-nightInk2">
                 We streamline operations, automate the busywork, and build tools
                 that let you focus on what matters: growing your business.
+              </p>
+              <p className="-mt-2 mb-5 text-sm">
+                <a
+                  href="tel:+16108909711"
+                  className="inline-block py-3 md:py-0 font-semibold text-oa-nightInk hover:text-white transition-colors"
+                >
+                  Call (610) 890-9711
+                </a>
               </p>
 
               {/* Social Media Icons. p-3.5 around a 16px glyph is a 44px
@@ -1023,6 +1046,79 @@ function Layout({ children }: LayoutProps) {
                   AI Information
                 </Link>
               </div>
+
+              {/* Where we work, work order 2026-09-17: the seven local pages as
+                  their own group with descriptive anchors. The footer is the
+                  one place every page links from, which keeps them out of
+                  orphan territory. Moved here from the Services list. */}
+              <h3 className="mt-8 text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
+                Where we work
+              </h3>
+              <div className={footerLinkList}>
+                <Link
+                  to="/services/web-design-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Web design in Chester County
+                </Link>
+                <Link
+                  to="/services/web-design-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Web design in Philadelphia
+                </Link>
+                <Link
+                  to="/services/seo-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  SEO in Chester County
+                </Link>
+                <Link
+                  to="/services/google-ads-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Google Ads in Philadelphia
+                </Link>
+                <Link
+                  to="/services/salesforce-consultant-philadelphia"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce consultant in Philadelphia
+                </Link>
+                <Link
+                  to="/services/salesforce-consultant-chester-county"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce consultant in Chester County
+                </Link>
+                <Link
+                  to="/services/salesforce-consulting-partner-pennsylvania"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce partner in Pennsylvania
+                </Link>
+              </div>
             </div>
 
             {/* Services */}
@@ -1072,72 +1168,6 @@ function Layout({ children }: LayoutProps) {
                   className={footerLink}
                 >
                   Google Ads
-                </Link>
-                <Link
-                  to="/services/web-design-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Web Design Philadelphia
-                </Link>
-                <Link
-                  to="/services/web-design-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Web Design Chester County
-                </Link>
-                <Link
-                  to="/services/seo-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  SEO Chester County
-                </Link>
-                {/* Salesforce local trio, 2026-09-01. The footer is the one
-                    place every page links from, which is what keeps a local
-                    page out of orphan territory. */}
-                <Link
-                  to="/services/salesforce-consultant-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Consultant Philadelphia
-                </Link>
-                <Link
-                  to="/services/salesforce-consultant-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Consultant Chester County
-                </Link>
-                <Link
-                  to="/services/salesforce-consulting-partner-pennsylvania"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Partner Pennsylvania
-                </Link>
-                <Link
-                  to="/services/google-ads-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Google Ads Philadelphia
                 </Link>
                 <Link
                   to="/services/website-development"

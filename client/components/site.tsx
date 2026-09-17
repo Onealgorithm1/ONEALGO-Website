@@ -1534,6 +1534,19 @@ export function CTABand({
             </SecondaryCTA>
           )}
         </div>
+        {/* Click-to-call in every CTA band (work order 2026-09-17), unless the
+            page already made the call its second button. */}
+        {!secondary?.href?.startsWith("tel:") && (
+          <p className="mt-5 text-oa-nightInk2">
+            Or call{" "}
+            <a
+              href="tel:+16108909711"
+              className="font-semibold text-oa-nightInk underline underline-offset-4 hover:text-white"
+            >
+              (610) 890-9711
+            </a>
+          </p>
+        )}
       </div>
     </Section>
   );

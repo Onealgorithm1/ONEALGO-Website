@@ -656,7 +656,7 @@ export default function Contact() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
                       <a
-                        href="tel:16108909711"
+                        href="tel:+16108909711"
                         onClick={() => window.trackContactClick?.("phone")}
                         className="inline-flex items-center justify-center gap-1.5 font-medium text-oa-blue hover:text-oa-blue600"
                       >
@@ -725,7 +725,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-oa-ink">Phone</h3>
                     <a
-                      href="tel:16108909711"
+                      href="tel:+16108909711"
                         onClick={() => window.trackContactClick?.("phone")}
                       className="text-oa-blue hover:text-oa-blue600"
                     >

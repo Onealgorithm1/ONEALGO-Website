@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
+import {
+  StructuredData,
+  createServiceSchema,
+} from "../../components/StructuredData";
 import { Plug, LifeBuoy, Globe, LineChart, Package, Users } from "lucide-react";
 import {
   PageHero,
@@ -83,11 +87,21 @@ export default function ECommerce() {
 
   return (
     <Layout>
+      {/* Service JSON-LD, work order 2026-09-17: this page had BreadcrumbList
+          only. Same helper as the service pages; no Product or rating markup. */}
+      <StructuredData
+        data={createServiceSchema(
+          "E-Commerce Systems Integration and Support",
+          "E-commerce systems integration and support: storefront, inventory, payments, accounting and Zendesk connected so one order looks the same in every system.",
+          "Systems integration",
+          "https://onealgorithm.com/industries/ecommerce",
+        )}
+      />
       <PageHero
         title={
           <>
-            E-commerce: the store is rarely{" "}
-            <span className="text-oa-orange">the broken part</span>
+            E-commerce systems integration:{" "}
+            <span className="text-oa-orange">the store is rarely the broken part</span>
           </>
         }
         lede="What breaks is the joins. Stock that disagrees with the site, orders that reach the warehouse without the customer record, support agents who cannot see the order they are being asked about. That is the work we do for online retailers."

@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
+import {
+  StructuredData,
+  createServiceSchema,
+} from "../../components/StructuredData";
 import { Plug, Building2, BarChart3, Globe, Users } from "lucide-react";
 import {
   PageHero,
@@ -82,11 +86,21 @@ export default function Construction() {
 
   return (
     <Layout>
+      {/* Service JSON-LD, work order 2026-09-17: this page had BreadcrumbList
+          only. Same helper as the service pages; no Product or rating markup. */}
+      <StructuredData
+        data={createServiceSchema(
+          "Construction Technology and Systems Integration",
+          "Systems integration, Salesforce, job reporting and web work for construction firms: connecting the field app, estimating tool and accounting package a firm already owns, so one job means the same thing in each.",
+          "Systems integration",
+          "https://onealgorithm.com/industries/construction",
+        )}
+      />
       <PageHero
         title={
           <>
-            Technology work for{" "}
-            <span className="text-oa-orange">construction firms</span>
+            Construction technology and{" "}
+            <span className="text-oa-orange">systems integration</span>
           </>
         }
         lede="We are an IT consultancy, not a construction software vendor. What we usually do for a construction business is connect the systems it already bought — the field app, the estimating tool, the accounting package — so the same job means the same thing in each of them."

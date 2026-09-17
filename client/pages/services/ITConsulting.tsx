@@ -132,7 +132,7 @@ const PROCESS = [
 
 export default function ITConsulting() {
   useSEO({
-    title: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
+    title: "IT Support & Consulting in Malvern, PA | OneAlgorithm",
     description:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing and tool selection. Malvern, PA.",
     canonical: getCanonicalUrl("/services/it-consulting"),
@@ -141,7 +141,7 @@ export default function ITConsulting() {
     // including "digital transformation", which is now off the visible copy.
     keywords:
       "IT consulting, strategic IT planning, technology audit, digital transformation, cybersecurity consulting, business process optimization, IT strategy",
-    ogTitle: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
+    ogTitle: "IT Support & Consulting in Malvern, PA | OneAlgorithm",
     ogDescription:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. Malvern, Pennsylvania.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),
@@ -167,8 +167,8 @@ export default function ITConsulting() {
         eyebrow="IT Consulting"
         title={
           <>
-            IT <span className="text-oa-orange">consulting</span> for the
-            systems you already run
+            IT support and consulting{" "}
+            <span className="text-oa-orange">in Malvern and Chester County</span>
           </>
         }
         lede="We inventory what you actually run — servers, licences, the spreadsheet holding a process together — then tell you what to fix first, what to leave alone, and roughly what each will cost. Most of what we recommend reuses something you already own."

@@ -347,7 +347,7 @@ export default function Index() {
   const playHeroVideo = useHeroVideo(heroVideoRef);
 
   useSEO({
-    title: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
+    title: "Web Design, SEO & Salesforce — Malvern, PA | OneAlgorithm",
     description:
       "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Based in Malvern PA.",
     canonical: getCanonicalUrl("/"),
@@ -357,12 +357,12 @@ export default function Index() {
     preloadImage: "/media/hero-poster.webp",
     keywords:
       "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design",
-    ogTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
+    ogTitle: "Web Design, SEO & Salesforce — Malvern, PA | OneAlgorithm",
     ogDescription:
       "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     ogUrl: getCanonicalUrl("/"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — Websites, SEO and Google Ads for Small Business",
+    twitterTitle: "Web Design, SEO & Salesforce — Malvern, PA | OneAlgorithm",
     twitterDescription:
       "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
@@ -433,12 +433,15 @@ export default function Index() {
                 platforms and the systems in between", was kept because a
                 competitor could not lift it; distinctiveness is not what a
                 buyer came for, and the second half of it survives below. */}
-            {/* Louis, 2026-08-25: "put our original heading and tagline on
-                home page". This is the pre-redesign heading verbatim
-                (main@974d206), with the two-line tagline under it. */}
+            {/* Was "Transform Operations, Accelerate Growth" (Louis,
+                2026-08-25). Replaced by Louis's SEO work order of 2026-09-17:
+                the H1 now names what the page sells and where. The tagline
+                underneath is unchanged. */}
             <h1 className="text-display font-semibold text-oa-nightInk">
-              Transform Operations,{" "}
-              <span className="text-oa-orange">Accelerate Growth</span>
+              Websites, SEO and Salesforce{" "}
+              <span className="text-oa-orange">
+                for small businesses in Malvern, PA
+              </span>
             </h1>
 
             {/* The tagline. Previously set smaller than the paragraph beneath
@@ -452,13 +455,10 @@ export default function Index() {
               solutions tailored to you.
             </p>
 
-            {/* The H1 above is the client's own heading, verbatim, by his
-                instruction (2026-08-25) — it stays. This H2 carries the query
-                words the page ranks for, per the audit: the heading layer must
-                say what the title tag promises. */}
+            {/* Used to repeat the query words; the H1 carries them now
+                (work order 2026-09-17), so this introduces the paragraph. */}
             <h2 className="mt-6 max-w-2xl text-xl font-semibold text-oa-nightInk">
-              Websites, SEO and Google Ads for small businesses — from Malvern,
-              Pennsylvania
+              What we build, and who it&rsquo;s for
             </h2>
             <p className="mt-3 max-w-2xl text-lede text-oa-nightInk2">
               We build websites for small businesses and then do the work that

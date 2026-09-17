@@ -222,7 +222,8 @@ export default function OperationsTechnology() {
         eyebrow="Operations Technology"
         title={
           <>
-            Operations <span className="text-oa-orange">technology</span>
+            Operations technology{" "}
+            <span className="text-oa-orange">(OT) consulting</span>
           </>
         }
         lede="Operations technology is the equipment side: controllers, SCADA, sensors, and plant systems that were never meant to talk to the software the office runs on. We connect the two, so what happens on the floor reaches the people who need it without anyone retyping it off a screen."
