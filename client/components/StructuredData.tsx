@@ -36,6 +36,8 @@ const NAP = {
     siteConfig.social.instagram,
     siteConfig.social.youtube,
     siteConfig.social.tiktok,
+    "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
+    "https://clutch.co/profile/one-algorithm",
   ],
 };
 interface ServiceSchema {
