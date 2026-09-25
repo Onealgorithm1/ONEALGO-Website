@@ -391,7 +391,7 @@ export default function Salesforce() {
              on the page, once, in the credentials list. */
           footer: ["Salesforce Consulting Partner"],
         }}
-        primary={{ label: "Get a free org review", to: "/contact" }}
+        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         /* Ten links to unrelated services used to sit here, above every piece of
            proof on the page. Kept on the other service pages, off on this one. */
@@ -583,7 +583,7 @@ export default function Salesforce() {
                   hear from us again unless you ask.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <PrimaryCTA to="/contact">
+                  <PrimaryCTA to="/contact?need=salesforce">
                     Get a free org review
                   </PrimaryCTA>
                   <SecondaryCTA href="tel:+16108909711">
@@ -841,7 +841,7 @@ export default function Salesforce() {
       <CTABand
         title="Tell us what your Salesforce is doing wrong"
         body="An org nobody trusts the data in, a migration that stalled, or a renewal you're not sure you should sign. Describe the symptom and we'll tell you what we'd look at first — or call (610) 890-9711 and ask."
-        primary={{ label: "Get a free org review", to: "/contact" }}
+        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 

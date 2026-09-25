@@ -123,6 +123,19 @@ export default function Contact() {
     if (widgetId.current !== null) window.turnstile?.reset(widgetId.current);
   };
 
+  // ?need=salesforce (every Salesforce page's CTA) pre-picks the service so the
+  // visitor is not asked to describe what they came for twice. Read in an
+  // effect, not at render: prerender.mjs serialises this page with no query
+  // string, so the static HTML stays the generic form.
+  useEffect(() => {
+    const need = new URLSearchParams(window.location.search).get("need");
+    if (need === "salesforce") {
+      setFormData((prev) =>
+        prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Salesforce / CRM" },
+      );
+    }
+  }, []);
+
   useEffect(() => {
     if (isSubmitted) return;
     let cancelled = false;
@@ -499,6 +512,13 @@ export default function Contact() {
                           <SelectValue placeholder="Select your service needs" />
                         </SelectTrigger>
                         <SelectContent>
+                          {/* First, because every Salesforce page's "free org
+                              review" button lands here. Until 2026-09-25 the
+                              list had no Salesforce option at all, so those
+                              leads had to pick "Other" or give up. */}
+                          <SelectItem value="Salesforce / CRM">
+                            Salesforce / CRM
+                          </SelectItem>
                           <SelectItem value="Oracle ERP Implementation">
                             Oracle ERP Implementation
                           </SelectItem>

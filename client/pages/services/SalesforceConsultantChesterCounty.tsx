@@ -179,7 +179,7 @@ export default function SalesforceConsultantChesterCounty() {
             "Who owns and administers the org after we leave",
           ],
         }}
-        primary={{ label: "Get a licence count", to: "/contact" }}
+        primary={{ label: "Get a licence count", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -315,7 +315,7 @@ export default function SalesforceConsultantChesterCounty() {
       <CTABand
         title="Get a licence count before you sign"
         body="Tell us how your team works now and how many people would actually log in. You get an edition recommendation and a rough cost in writing, and if a smaller edition does the job we will say so."
-        primary={{ label: "Get a licence count", to: "/contact" }}
+        primary={{ label: "Get a licence count", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

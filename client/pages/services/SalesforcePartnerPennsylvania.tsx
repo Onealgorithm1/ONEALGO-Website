@@ -153,7 +153,7 @@ export default function SalesforcePartnerPennsylvania() {
             "Office in Malvern, Chester County",
           ],
         }}
-        primary={{ label: "Talk to us", to: "/contact" }}
+        primary={{ label: "Talk to us", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -228,7 +228,7 @@ export default function SalesforcePartnerPennsylvania() {
       <CTABand
         title="Check the record, then talk to us"
         body="If you are weighing up Salesforce partners in Pennsylvania, read our AppExchange listing first and call afterwards. It is a shorter conversation when you already know what we are."
-        primary={{ label: "Talk to us", to: "/contact" }}
+        primary={{ label: "Talk to us", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>
