@@ -28,10 +28,13 @@ const SITES = [
   { slug: "boards-professor", url: "https://theboardsprofessor.com/" },
   { slug: "inspect-this-home", url: "https://inspectthishomeinspections.com/" },
   { slug: "phantom-arcades", url: "https://phantomarcades.com/" },
+  { slug: "gorband", url: "https://www.thegorband.com/" },
 ];
 
 const browser = await puppeteer.launch({ headless: "new" });
-for (const s of SITES) {
+// node scripts/work-shots.mjs <slug> re-shoots just one site
+const only = process.argv[2];
+for (const s of SITES.filter((x) => !only || x.slug === only)) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 2 });
   try {

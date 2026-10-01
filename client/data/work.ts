@@ -12,8 +12,8 @@
  * redesign silently turns this section into a museum of work that no longer
  * looks like that. Re-run the script and update the date together.
  *
- * ⛔ These are other people's businesses and their names appear on our site.
- * Every entry here needs the client's permission before it ships to production.
+ * These are other people's businesses and their names appear on our site. Louis (2026-10-01):
+ * a site WE built can be listed without asking the client; it also gives them a backlink.
  */
 export type WorkItem = {
   slug: string;
@@ -108,5 +108,15 @@ export const WORK: WorkItem[] = [
       // Posted 2026-08-28 under the display name "Shiggity".
       url: "https://maps.app.goo.gl/ssMbAsPBu5wBcgNu6",
     },
+  },
+  {
+    slug: "gorband",
+    name: "The Gorband",
+    sector: "Hand block-printed cotton clothing",
+    note: "Moved off Shopify onto Square: one catalogue and stock count for the website and the market stall.",
+    url: "https://www.thegorband.com/",
+    shot: "2026-10-01",
+    embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-10-01)
+    marker: "Gorband",
   },
 ];
