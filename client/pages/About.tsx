@@ -99,7 +99,7 @@ const CREDENTIALS: Credential[] = [
     short: "PA DGS",
     authority: "Pennsylvania Department of General Services",
     reference: "4400033848",
-    href: "https://www.pa.gov/agencies/dgs/programs-and-services/costars/supplier-information",
+    href: "https://www.pa.gov/services/dgs/register-as-a-costar-supplier",
   },
   {
     credential: "SWaM certified",
