@@ -21,11 +21,13 @@ import {
   CardGrid,
   ProcessSteps,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* IT Consulting - 2026 refresh, copy rewritten 2026-08-12.
@@ -130,6 +132,16 @@ const PROCESS = [
   },
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What does IT consulting involve for a small business?", a: "We inventory what you actually run, including servers, licences and the spreadsheet holding a process together. Then we tell you what to fix first, what to leave alone, and roughly what each will cost. Most of what we recommend reuses something you already own." },
+  { q: "Will you recommend that I buy something new?", a: "Often the fix is a configuration change or a licence you already pay for. We would rather say that than sell you a project." },
+  { q: "How does an engagement run?", a: "In four steps, whether the job is two weeks or two years: assessment, plan, delivery and support. We stay for the fourth." },
+  { q: "Who will I actually work with?", a: "We are a small firm, and the person who scopes the work is the person who does it. There are four of us, and you will meet all of them." },
+];
+
 export default function ITConsulting() {
   useSEO({
     title: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
@@ -154,6 +166,7 @@ export default function ITConsulting() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "IT Consulting Services",
@@ -305,6 +318,22 @@ export default function ITConsulting() {
             }
           />
         </CardGrid>
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What people ask about IT consulting" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

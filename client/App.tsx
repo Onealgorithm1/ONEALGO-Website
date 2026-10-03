@@ -97,6 +97,12 @@ const GoogleAdsPhiladelphia = lazy(
 const SalesforceConsultantPhiladelphia = lazy(
   () => import("./pages/services/SalesforceConsultantPhiladelphia"),
 );
+const SalesforceImplementationCost = lazy(
+  () => import("./pages/services/SalesforceImplementationCost"),
+);
+const OperationalTransformationConsulting = lazy(
+  () => import("./pages/services/OperationalTransformationConsulting"),
+);
 const SalesforceConsultantChesterCounty = lazy(
   () => import("./pages/services/SalesforceConsultantChesterCounty"),
 );
@@ -194,6 +200,14 @@ const App = () => (
               <Route
                 path="/services/salesforce-consultant-philadelphia"
                 element={<SalesforceConsultantPhiladelphia />}
+              />
+              <Route
+                path="/services/salesforce-implementation-cost"
+                element={<SalesforceImplementationCost />}
+              />
+              <Route
+                path="/services/operational-transformation-consulting"
+                element={<OperationalTransformationConsulting />}
               />
               <Route
                 path="/services/salesforce-consultant-chester-county"

@@ -244,7 +244,7 @@ const FAQS = [
   },
   {
     q: "What does a Salesforce implementation cost?",
-    a: "It depends on the edition, the license count and how much of your data has to move, so we will not quote a figure on a web page. What we will do before you sign anything is give you a license count and a rough cost, and tell you if a smaller edition does the job.",
+    a: "It depends on the edition, the license count and how much of your data has to move, so we will not quote our own figure on a web page. The ranges other firms publish, with their sources, are in our Salesforce implementation cost guide. What we will do before you sign anything is give you a license count and a rough cost, and tell you if a smaller edition does the job.",
   },
   {
     q: "Do I need Sales Cloud or Service Cloud?",

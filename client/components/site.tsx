@@ -501,6 +501,8 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-consultant-philadelphia": "Philadelphia",
   "/services/salesforce-consultant-chester-county": "Chester County",
   "/services/salesforce-consulting-partner-pennsylvania": "Pennsylvania",
+  "/services/salesforce-implementation-cost": "Cost guide",
+  "/services/operational-transformation-consulting": "Transformation",
 };
 
 const COMPANY_PATHS = ["/about", "/capabilities", "/contact"];

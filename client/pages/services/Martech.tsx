@@ -11,11 +11,13 @@ import {
   Split,
   PrimaryCTA,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* MarTech services - 2026 refresh.
@@ -85,6 +87,16 @@ const WHY_US = [
   "Reporting that reconciles with the CRM, including the months when the CRM number is the worse one.",
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What is MarTech consulting?", a: "Most marketing stacks are five tools that do not talk to each other and one person exporting spreadsheets between them. We connect them, including the CRM, email, ads, analytics and the website, so a lead's history follows it and the reporting adds up." },
+  { q: "Will I need to buy another marketing tool?", a: "Usually not. Everything we build happens inside a platform you already license, because a stack with a seventh tool in it is rarely the answer." },
+  { q: "What does a MarTech audit include?", a: "We map what you own, what it costs, what is actually connected and what is duplicated. You get a prioritised list, usually including a tool or two you can cancel." },
+  { q: "Can my team run the integrations after you finish?", a: "Yes. We build the APIs and middleware between marketing, CRM, e-commerce and support systems, plus written documentation so your team can run it after we go." },
+];
+
 export default function Martech() {
   useSEO({
     title: "MarTech Consulting & Stack Integration | OneAlgorithm",
@@ -108,6 +120,7 @@ export default function Martech() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "MarTech Services",
@@ -205,6 +218,22 @@ export default function Martech() {
 
       <Section tone="paper" compact bordered>
         <SocialShare />
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What people ask about MarTech" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

@@ -18,11 +18,13 @@ import {
   Split,
   PrimaryCTA,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* SEO services - 2026 refresh.
@@ -154,6 +156,16 @@ const QUESTIONS = [
   },
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What does an SEO audit include?", a: "A crawl of your site, a Core Web Vitals check, what you rank for now, and a prioritised list of fixes. The first few are usually things your own developer can do without us." },
+  { q: "Why fix technical problems before writing content?", a: "Because content on a site search engines struggle to crawl is wasted work. That is why the order is technical fixes, then content, then links." },
+  { q: "Do you buy links or use private blog networks?", a: "No. It breaks Google's guidelines and it is the kind of thing that catches up with a site years later. We do outreach for links a person would plausibly click." },
+  { q: "Can anyone guarantee a number-one ranking?", a: "No. Nobody can promise one, and Google will not even guarantee that a page you submit gets indexed. Reporting comes out of your own Search Console and GA4, so you can check every number we send." },
+];
+
 export default function Seo() {
   useSEO({
     title: "SEO Services for Small Business — Philadelphia | OneAlgorithm",
@@ -177,6 +189,7 @@ export default function Seo() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "SEO Services",
@@ -358,6 +371,22 @@ export default function Seo() {
 
       <Section tone="surface" compact bordered>
         <SocialShare />
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What people ask about SEO services" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand secondary={{ label: "View all services", to: "/services" }} />

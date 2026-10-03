@@ -15,6 +15,8 @@ import {
   BarChart3,
   Layers,
   MapPin,
+  Calculator,
+  Compass,
 } from "lucide-react";
 import {
   PageHero,
@@ -97,6 +99,18 @@ const SERVICES = [
     title: "Salesforce Partner — Pennsylvania",
     body: "What a Salesforce Consulting Partner actually is, and how to check any partner's record on the AppExchange before you hire one.",
     to: "/services/salesforce-consulting-partner-pennsylvania",
+  },
+  {
+    icon: Calculator,
+    title: "Salesforce Implementation Cost",
+    body: "What a Salesforce implementation costs: published market ranges by company size, Salesforce's own list prices, and the costs most buyers miss.",
+    to: "/services/salesforce-implementation-cost",
+  },
+  {
+    icon: Compass,
+    title: "Operational Transformation Consulting",
+    body: "For small businesses and startups: fix how the work runs, then connect the systems that carry it.",
+    to: "/services/operational-transformation-consulting",
   },
   {
     icon: Users,

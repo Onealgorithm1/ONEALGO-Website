@@ -11,12 +11,14 @@ import {
   Split,
   PrimaryCTA,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* Google Ads — Philadelphia. Added 2026-08-30. Third of three local pages.
@@ -75,6 +77,16 @@ const HOW_WE_START = [
   "Then, and only then, look at bids, budgets and new keywords.",
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What do you check first in a Google Ads account?", a: "Geographic targeting against your real service area, the search terms report and the negative keyword list, call and form conversion tracking, and the landing pages. We subtract before adding: read the search terms report and cut the spend that is not converting, then verify tracking, then look at bids, budgets and new keywords." },
+  { q: "Why does a local Google Ads account waste money?", a: "In a local account the biggest leak is usually not the bidding. It is a service area nobody set deliberately, a missing negative keyword list, and phone calls that never get counted as conversions." },
+  { q: "Do I keep ownership of my Google Ads account?", a: "Yes. You keep ownership of the account. If you stop working with us, the history, the conversion data and the learning go with you." },
+  { q: "What do I get from a Google Ads audit?", a: "We look at where the budget is going by search term, whether the geography matches where you can actually serve, whether conversions are counted once, and what the landing page does with the click. You get a prioritised list, and you do not have to hire us to act on it." },
+];
+
 export default function GoogleAdsPhiladelphia() {
   useSEO({
     title: "Google Ads Management Philadelphia — OneAlgorithm",
@@ -94,6 +106,7 @@ export default function GoogleAdsPhiladelphia() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "Google Ads Management in Philadelphia, Pennsylvania",
@@ -193,6 +206,22 @@ export default function GoogleAdsPhiladelphia() {
 
       <Section tone="paper" compact bordered>
         <SocialShare />
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What Philadelphia-area businesses ask about Google Ads" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

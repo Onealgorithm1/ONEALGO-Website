@@ -12,12 +12,14 @@ import {
   Split,
   PrimaryCTA,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* SEO — Chester County. Added 2026-09-14.
@@ -88,6 +90,16 @@ const COVERAGE = [
   "Anywhere in the US remotely, which is how most SEO work runs anyway",
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What does local SEO cover?", a: "Your Google Business Profile set up properly, the right primary category and service area, reviews asked for and answered, one clear page per service, and reporting from your own accounts." },
+  { q: "Why does my Google Business Profile matter so much?", a: "For a local business the map results come from the profile, and its reviews and details are often worth more than anything on the website itself." },
+  { q: "Should I show my address if customers do not come to me?", a: "No. A business that works at the customer's site should hide its address and set a service area instead. That is Google's rule for service-area businesses, and Google can suspend a profile that breaks its guidelines." },
+  { q: "Do you work outside Chester County?", a: "Yes: next door in the neighbouring counties, and anywhere in the US remotely, which is how most SEO work runs anyway. We are inside Chester County rather than driving in." },
+];
+
 export default function SeoChesterCounty() {
   useSEO({
     title: "SEO Chester County PA — Local SEO in Malvern | OneAlgorithm",
@@ -107,6 +119,7 @@ export default function SeoChesterCounty() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "Local SEO in Chester County, Pennsylvania",
@@ -208,6 +221,22 @@ export default function SeoChesterCounty() {
 
       <Section tone="paper" compact bordered>
         <SocialShare />
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What Chester County businesses ask about local SEO" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
 import {
@@ -22,11 +23,13 @@ import {
   CheckList,
   ProcessSteps,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* Operations Technology - 2026 refresh; copy rewritten 2026-08-12.
@@ -188,6 +191,16 @@ const FOCUS_AREAS = [
   },
 ];
 
+/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
+   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
+const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+  { q: "What is operations technology?", a: "It is the equipment side of a business: controllers, SCADA, sensors and plant systems that were never meant to talk to the software the office runs on. We connect the two, so what happens on the floor reaches the people who need it without anyone retyping it off a screen." },
+  { q: "What does OT security involve?", a: "Plant networks were built to trust everything on them, and most still do. We segment them from the office network, control remote vendor access, and inventory what is actually connected." },
+  { q: "Do you analyse a line before changing it?", a: "Yes. We instrument a line before changing it, then look at where the time actually goes. It is rarely where people expect, which is the reason for measuring first." },
+  { q: "Is this the same as operational transformation consulting?", a: "No. Operations technology is the plant-floor side. If what you need is help with how the business runs, who does what and which systems carry the work, that is operational transformation consulting.", to: "/services/operational-transformation-consulting", label: "Operational transformation consulting" },
+];
+
 export default function OperationsTechnology() {
   useSEO({
     title: "Operations Technology (OT) Consulting | OneAlgorithm",
@@ -209,6 +222,7 @@ export default function OperationsTechnology() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "Operations Technology Services",
@@ -305,6 +319,27 @@ export default function OperationsTechnology() {
             <Card key={f.title} title={f.title} body={f.body} />
           ))}
         </CardGrid>
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What people ask about operations technology" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                {f.to ? (
+                  <Link to={f.to} className="mt-3 inline-block text-sm font-semibold text-oa-orangeText underline underline-offset-4">
+                    {f.label}
+                  </Link>
+                ) : null}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

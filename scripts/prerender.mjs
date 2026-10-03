@@ -38,6 +38,8 @@ const ROUTES = [
   "/services/salesforce-consultant-philadelphia",
   "/services/salesforce-consultant-chester-county",
   "/services/salesforce-consulting-partner-pennsylvania",
+  "/services/salesforce-implementation-cost",
+  "/services/operational-transformation-consulting",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", "/industries/website-development", "/industries/government",
 ];

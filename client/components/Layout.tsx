@@ -1131,6 +1131,24 @@ function Layout({ children }: LayoutProps) {
                   Salesforce Partner Pennsylvania
                 </Link>
                 <Link
+                  to="/services/salesforce-implementation-cost"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Salesforce Implementation Cost
+                </Link>
+                <Link
+                  to="/services/operational-transformation-consulting"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={footerLink}
+                >
+                  Operational Transformation Consulting
+                </Link>
+                <Link
                   to="/services/google-ads-philadelphia"
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
