@@ -220,6 +220,22 @@ const TEAM = [
     mobile: null,
     book: null,
   },
+  {
+    slug: "anil-gunti",
+    linkedin: null,
+    // Name as he signs his own mail; title supplied by Louis 2026-10-06.
+    name: "Anil Kumar Gunti",
+    title: "Accounts Manager",
+    photo: "anil-circle.png",
+    // Supplied by Louis 2026-10-06 (1254x1254 headshot); box read off the frame.
+    src: "brand:/Website Pics/Anil Gunti.png",
+    crop: { left: 185, top: 30, width: 860, height: 860 },
+    email: "anil@onealgorithm.com",
+    // Ooma ext 1004; the number on his own signature.
+    direct: "610.298.9068",
+    mobile: null,
+    book: null,
+  },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
