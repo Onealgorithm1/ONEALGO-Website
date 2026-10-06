@@ -204,6 +204,22 @@ const TEAM = [
     mobile: "267.890.4684", // supplied by Louis, 2026-08-31
     book: null,
   },
+  {
+    slug: "rakkesh-perumal",
+    linkedin: null,
+    name: "Rakkesh Perumal",
+    // Title supplied by Louis 2026-09-24.
+    title: "Salesforce Team Lead, US Branch | Application Development",
+    photo: "rakkesh-circle.png",
+    // Supplied by Louis 2026-09-24, already circle-cropped on white, so the crop is the whole frame.
+    src: "brand:/Website Pics/Rakkesh Perumal.png",
+    crop: { left: 0, top: 0, width: 1254, height: 1254 },
+    email: "rakkesh@onealgorithm.com",
+    // Main line (ext 1000) until he has his own extension, same as Sahith.
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -520,6 +536,19 @@ async function buildAssets() {
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule-navy.png"));
   await sharp({ create: { width: 1160, height: 2, channels: 3, background: "#e3e9f0" } })
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule-hair.png"));
+
+  /* Fit every mark into EXACTLY 2x its display box, padding with white rather than
+     stretching. Integer display sizes cannot match every source aspect ratio, and a
+     rounding gap of 1-2% (Salesforce 51x36 shown at 26x18) is a stretched logo. The
+     mark itself is only scaled, never altered, so WBENC's licence still holds. */
+  for (const m of [...MARKS, ...PARTNERS]) {
+    const f = join(dir, m.file);
+    if (!existsSync(f)) continue;
+    const buf = await sharp(f)
+      .resize(m.w * 2, m.h * 2, { fit: "contain", background: "#ffffff" })
+      .flatten({ background: "#ffffff" }).png({ compressionLevel: 9 }).toBuffer();
+    writeFileSync(f, buf);
+  }
   console.log(`assets rebuilt -> ${dir}`);
 }
 
