@@ -90,13 +90,14 @@ const COVERAGE = [
   "Anywhere in the US remotely, which is how most SEO work runs anyway",
 ];
 
-/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
+/* FAQ added 2026-10-03; the Malvern question added 2026-10-06 from the "seo malvern" Search Console recommendation. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
    Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
    visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
 const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
   { q: "What does local SEO cover?", a: "Your Google Business Profile set up properly, the right primary category and service area, reviews asked for and answered, one clear page per service, and reporting from your own accounts." },
   { q: "Why does my Google Business Profile matter so much?", a: "For a local business the map results come from the profile, and its reviews and details are often worth more than anything on the website itself." },
   { q: "Should I show my address if customers do not come to me?", a: "No. A business that works at the customer's site should hide its address and set a service area instead. That is Google's rule for service-area businesses, and Google can suspend a profile that breaks its guidelines." },
+  { q: "Is there an SEO company in Malvern, PA?", a: "Yes. Our office is on Swedesford Road in Malvern, and we do local SEO for Chester County businesses: the Google Business Profile, reviews, one clear page per service, and reporting from your own accounts." },
   { q: "Do you work outside Chester County?", a: "Yes: next door in the neighbouring counties, and anywhere in the US remotely, which is how most SEO work runs anyway. We are inside Chester County rather than driving in." },
 ];
 
