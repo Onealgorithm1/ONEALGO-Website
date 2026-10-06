@@ -229,7 +229,7 @@ const TEAM = [
     photo: "anil-circle.png",
     // Supplied by Louis 2026-10-06 (1254x1254 headshot); box read off the frame.
     src: "brand:/Website Pics/Anil Gunti.png",
-    crop: { left: 185, top: 30, width: 860, height: 860 },
+    crop: { left: 30, top: 0, width: 1190, height: 1190 }, // head and shoulders, matching the team framing
     email: "anil@onealgorithm.com",
     // Ooma ext 1004; the number on his own signature.
     direct: "610.298.9068",
