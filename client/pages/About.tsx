@@ -184,7 +184,36 @@ export default function About() {
                   One Algorithm is a small IT consultancy in Malvern,
                   Pennsylvania, founded in 2020 and owned by the people who work
                   in it. The work is cloud modernization, Salesforce and ERP
-                  implementation, and systems integration. We build to NIST and
+                  implementation, and systems integration. For small and
+                  mid-sized businesses that also means{" "}
+                  <Link
+                    className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                    to="/services/salesforce"
+                  >
+                    Salesforce setup and support
+                  </Link>
+                  ,{" "}
+                  <Link
+                    className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                    to="/services/seo-chester-county"
+                  >
+                    local SEO
+                  </Link>
+                  ,{" "}
+                  <Link
+                    className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                    to="/services/google-ads-philadelphia"
+                  >
+                    Google Ads management
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
+                    to="/services/web-design-chester-county"
+                  >
+                    web design
+                  </Link>
+                  . We build to NIST and
                   DFARS requirements where a contract calls for them, but we are
                   not a dedicated cybersecurity provider and do not take
                   standalone security engagements.
