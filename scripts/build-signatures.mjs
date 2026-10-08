@@ -236,6 +236,48 @@ const TEAM = [
     mobile: null,
     book: null,
   },
+  /* India Salesforce team. Headshots from Loukya 2026-10-07 (fwd by Sahith 10-08), full
+   * names from Sahith's "headshot names" mail; title + main line from Louis 2026-10-08. */
+  {
+    slug: "loukya-nemarugommula",
+    linkedin: null,
+    name: "Loukya Nemarugommula",
+    title: "Salesforce Developer",
+    photo: "loukya-circle.png",
+    src: "brand:/Website Pics/Loukya Nemarugommula (pro).png", // GPT-image pro version of her 10-07 photo
+    crop: { left: 112, top: 0, width: 800, height: 800 },
+    email: "loukya@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
+  {
+    slug: "nandini-talapalli",
+    linkedin: null,
+    name: "Nandini Talapalli",
+    title: "Salesforce Developer",
+    photo: "nandini-circle.png",
+    src: "brand:/Website Pics/Nandini Talapalli (pro).png", // GPT-image pro version of her 10-07 photo
+    crop: { left: 162, top: 60, width: 700, height: 700 },
+    email: "nandini@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
+  {
+    slug: "ramesh-shiva",
+    linkedin: null,
+    // "Ramesh M Shiva" per Sahith; NOT Ramesh Patel (Louis 2026-10-08).
+    name: "Ramesh M Shiva",
+    title: "Salesforce Developer",
+    photo: "ramesh-circle.png",
+    src: "brand:/Website Pics/Ramesh M Shiva (pro).png", // GPT-image pro version of his 10-07 photo
+    crop: { left: 152, top: 110, width: 720, height: 720 },
+    email: "ramesh@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
