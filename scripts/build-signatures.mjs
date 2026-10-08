@@ -247,7 +247,7 @@ const TEAM = [
     src: "brand:/Website Pics/Loukya Nemarugommula (pro).png", // GPT-image pro version of her 10-07 photo
     crop: { left: 112, top: 0, width: 800, height: 800 },
     email: "loukya@onealgorithm.com",
-    direct: "610.890.9711",
+    main: "610.890.9711",
     mobile: null,
     book: null,
   },
@@ -260,7 +260,7 @@ const TEAM = [
     src: "brand:/Website Pics/Nandini Talapalli (pro).png", // GPT-image pro version of her 10-07 photo
     crop: { left: 162, top: 60, width: 700, height: 700 },
     email: "nandini@onealgorithm.com",
-    direct: "610.890.9711",
+    main: "610.890.9711",
     mobile: null,
     book: null,
   },
@@ -274,7 +274,7 @@ const TEAM = [
     src: "brand:/Website Pics/Ramesh M Shiva (pro).png", // GPT-image pro version of his 10-07 photo
     crop: { left: 152, top: 110, width: 720, height: 720 },
     email: "ramesh@onealgorithm.com",
-    direct: "610.890.9711",
+    main: "610.890.9711",
     mobile: null,
     book: null,
   },
@@ -305,6 +305,7 @@ const link = (href, text, color = "#005eaa") =>
  */
 const ICONS = {
   direct: ["phone", "Direct"],
+  main: ["phone", "Main"],
   mobile: ["smartphone", "Mobile"],
   email: ["mail", "Email"],
   web: ["globe", "Website"],
@@ -344,6 +345,7 @@ function contactBlock(p) {
 
   const right = [];
   if (p.direct) right.push(cell("direct", link(`tel:${tel(p.direct)}`, p.direct, "#35485c")));
+  if (p.main) right.push(cell("main", link(`tel:${tel(p.main)}`, p.main, "#35485c")));
   if (p.mobile) right.push(cell("mobile", link(`tel:${tel(p.mobile)}`, p.mobile, "#35485c")));
   if (p.fax) right.push(cell("fax", `${esc(p.fax)}<span style="color:#5a6b7d;"> fax</span>`));
 
@@ -369,6 +371,7 @@ function plainText(p) {
     "One Algorithm LLC",
     "",
     p.direct && `Direct  ${p.direct}`,
+    p.main && `Main  ${p.main}`,
     p.mobile && `Mobile  ${p.mobile}`,
     p.fax && `Fax     ${p.fax}`,
     p.email && `Email   ${p.email}`,
