@@ -11,12 +11,14 @@ import {
   Split,
   PrimaryCTA,
   CTABand,
+  Reveal,
 } from "../../components/site";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
+  createFAQSchema,
 } from "../../components/StructuredData";
 
 /* Web design — Chester County. Added 2026-08-30.
@@ -84,6 +86,63 @@ const WHAT_YOU_GET = [
    that list cities and regions that a web page is trying to rank for."
    A visitor needs to know whether we cover them, which one sentence does. The
    town list was for the crawler, and it went. */
+/* Added 2026-10-09 (GSC: pos 17-19 for "custom website designers in chester county").
+   ⛔ Steps restate PROCESS and the price/schedule promise on /services/website-development;
+   no new prices, durations or results. Towns are places served, never clients. */
+const STEPS = [
+  {
+    title: "Agree what the site is for",
+    body: "Who the site is talking to and what it has to make them do. If the honest answer is that a one-page site would work, we say that before anyone builds five.",
+  },
+  {
+    title: "Scope, price and schedule in writing",
+    body: "You get the price and the schedule in writing before anyone starts building. If the number is wrong for you, we will say what we would cut to get there. Your project starts when the scope is agreed, rather than joining a queue.",
+  },
+  {
+    title: "Design in the browser",
+    body: "Real type, real content, real widths, not a picture of a website. You review it on your own phone, early, rather than waiting for a reveal at the end.",
+  },
+  {
+    title: "Build and wire it up",
+    body: "The site gets written, the forms get connected to email or your CRM, the tracking goes on and the content goes in. Page titles, headings and schema are set up as part of the build.",
+  },
+  {
+    title: "Launch, hand over, stay on",
+    body: "We deploy it and check it on real devices. The source goes in your repository and the domain stays in your account, and we stay on afterwards for support.",
+  },
+];
+
+const TOWNS = [
+  {
+    title: "Malvern",
+    body: "Our office is on Swedesford Road. If you would rather have the first conversation across a table, it is a short trip.",
+  },
+  {
+    title: "West Chester",
+    body: "The county seat. For shops, restaurants and offices people visit, the site has to answer the basics fast on a phone: where you are, when you are open, how to book.",
+  },
+  {
+    title: "Exton",
+    body: "For businesses that quote jobs or take bookings, a custom site can do the specific thing a template cannot, such as sending a quote request straight into the system you already run.",
+  },
+  {
+    title: "Chester Springs",
+    body: "Trades and home services that work at the customer's property need one clear page per service and a quote form that reaches a person.",
+  },
+  {
+    title: "Phoenixville",
+    body: "Independent businesses that want a site that looks like them, not like everyone else using the same theme, and that they own outright.",
+  },
+];
+
+/* ⛔ Every answer restates something already on this page or /services/website-development. */
+const FAQS = [
+  { q: "What makes a custom website different from a template?", a: "A custom site is written in HTML, CSS and TypeScript for your business rather than assembled in a page builder. That matters most when the site has to do something specific: take a booking, quote a job, or talk to the system you already run." },
+  { q: "How much does a custom website cost in Chester County?", a: "It depends on what the site has to do. Describe the scope and you get the price and the schedule in writing before anyone starts building. If the number is wrong for you, we will say what we would cut to get there." },
+  { q: "Who owns the website when it is finished?", a: "You do. The source code is in your repository, the domain is in your account and the hosting is somewhere you control. Another developer can pick it up without us." },
+  { q: "Do you build WordPress sites?", a: "We write sites in HTML, CSS and TypeScript rather than a page builder, so there is no builder licence to keep paying. Where you will genuinely edit content yourself, we set up a CMS you can actually use." },
+];
+
 const COVERAGE = [
   "The whole of Chester County, and we are inside it rather than driving in",
   "The surrounding counties: Delaware, Montgomery, Bucks and Philadelphia",
@@ -110,6 +169,7 @@ export default function WebDesignChesterCounty() {
 
   return (
     <Layout>
+      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "Web Design and Development in Chester County, Pennsylvania",
@@ -163,6 +223,41 @@ export default function WebDesignChesterCounty() {
         <CardGrid columns={2} className="mt-12">
           {WHAT_YOU_GET.map((c) => (
             <Card key={c.title} icon={c.icon} title={c.title} body={c.body} />
+          ))}
+        </CardGrid>
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading
+          eyebrow="Step by step"
+          title="How custom website designers in Chester County should work"
+          lede="This is the order a build runs in with us. You see real pages early, and nothing is built before the price and the schedule are agreed in writing."
+        />
+        <ol className="mt-12 space-y-8">
+          {STEPS.map((s, i) => (
+            <li
+              key={s.title}
+              className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14"
+            >
+              <h3 className="text-lg font-semibold text-oa-ink">
+                <span className="mr-3 text-oa-orange">{i + 1}.</span>
+                {s.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-oa-ink2 md:mt-0">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Who it is for"
+          title="Website design for Malvern, West Chester, Exton, Chester Springs and Phoenixville"
+          lede="Local businesses that have outgrown a template, or never had a proper site at all. What the site needs to do first depends on how your customers reach you."
+        />
+        <CardGrid columns={2} className="mt-12">
+          {TOWNS.map((t) => (
+            <Card key={t.title} title={t.title} body={t.body} />
           ))}
         </CardGrid>
       </Section>
@@ -228,6 +323,22 @@ export default function WebDesignChesterCounty() {
 
       <Section tone="paper" compact bordered>
         <SocialShare />
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading eyebrow="Questions" title="What Chester County businesses ask about custom web design" />
+        <div className="mt-12 space-y-10">
+          {FAQS.map((f) => (
+            <Reveal key={f.q}>
+              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+                <div className="mt-3 md:mt-0">
+                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTABand

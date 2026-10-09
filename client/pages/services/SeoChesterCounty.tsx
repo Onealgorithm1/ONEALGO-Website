@@ -83,6 +83,61 @@ const WHAT_WE_DO = [
   },
 ];
 
+/* Added 2026-10-09 (GSC: pos 12-19 for "seo company chester county pa", "seo malvern",
+   "seo chester springs"). ⛔ Each step restates a practice already on this page or on
+   /services/seo (URL Inspection check, the audit card, Business Profile, reviews,
+   reporting from the client's own accounts). No new promise, price or result. */
+const STEPS = [
+  {
+    title: "Check what Google can see",
+    body: "Before proposing anything we look in Search Console: has Google crawled the page, crawled it and chosen not to index it, or indexed it and ranked it too low to see? Those three have different fixes, and two of them make content work pointless until they are sorted.",
+  },
+  {
+    title: "Audit the site and the profile",
+    body: "A crawl of your site, what you rank for now, a look at your Business Profile, and a prioritized list of fixes. The first few are usually things you can do without us.",
+  },
+  {
+    title: "Fix the Business Profile",
+    body: "The primary category, your hours, services, photos and description, and a service area instead of an address if you work at the customer's site.",
+  },
+  {
+    title: "Write one page per service",
+    body: "A plain page for each thing people search for, and a place page only where you really serve that area and have something specific to say about it.",
+  },
+  {
+    title: "Make your details match everywhere",
+    body: "The same name, address and phone number on the site, the profile and the main directories.",
+  },
+  {
+    title: "Set up reviews, then report",
+    body: "A simple way to ask every customer for a review and reply to each one, and reporting from your own Search Console, so you can check the numbers without taking our word for them.",
+  },
+];
+
+/* Towns as places served, not clients. ⛔ No client is named or implied here. */
+const TOWNS = [
+  {
+    title: "Malvern",
+    body: "Our office is on Swedesford Road, so a Malvern business can sit down with the people doing the work. If you searched \"SEO Malvern\", you are a short drive away.",
+  },
+  {
+    title: "West Chester",
+    body: "The county seat, with a busy borough centre. Shops and offices that customers visit need an accurate address, hours and photos on the profile above all else.",
+  },
+  {
+    title: "Exton",
+    body: "Plenty of businesses here serve the whole area rather than one street. Pages for each service you sell matter more than pages for each town you drive to.",
+  },
+  {
+    title: "Chester Springs",
+    body: "Many businesses here are trades and home services that work at the customer's property. For them the service-area setting, rather than a street address, is the first thing to get right.",
+  },
+  {
+    title: "Phoenixville",
+    body: "A town with its own centre and its own searches. A local business here needs reviews and a profile that say plainly what it does, so it shows up for people nearby.",
+  },
+];
+
 const COVERAGE = [
   "The whole of Chester County, West Chester included — we are inside it rather than driving in",
   "Delaware, Montgomery, Bucks and Philadelphia counties",
@@ -98,6 +153,8 @@ const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
   { q: "Why does my Google Business Profile matter so much?", a: "For a local business the map results come from the profile, and its reviews and details are often worth more than anything on the website itself." },
   { q: "Should I show my address if customers do not come to me?", a: "No. A business that works at the customer's site should hide its address and set a service area instead. That is Google's rule for service-area businesses, and Google can suspend a profile that breaks its guidelines." },
   { q: "Is there an SEO company in Malvern, PA?", a: "Yes. Our office is on Swedesford Road in Malvern, and we do local SEO for Chester County businesses: the Google Business Profile, reviews, one clear page per service, and reporting from your own accounts." },
+  { q: "Do you do SEO for businesses in Chester Springs?", a: "Yes. Chester Springs is a short drive from our Malvern office. For a business that works at the customer's property, the first fix is usually the Business Profile: a service area instead of a street address, and the right primary category." },
+  { q: "How long does local SEO take, and what does it cost?", a: "Google says some changes register within hours and others take months, and suggests waiting a few weeks before judging any of it. Technical fixes usually move fastest. We do not publish a price, because it depends on what the audit finds; ask and we will tell you what we would do first." },
   { q: "Do you work outside Chester County?", a: "Yes: next door in the neighbouring counties, and anywhere in the US remotely, which is how most SEO work runs anyway. We are inside Chester County rather than driving in." },
 ];
 
@@ -183,6 +240,41 @@ export default function SeoChesterCounty() {
           </Link>
           .
         </p>
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading
+          eyebrow="Step by step"
+          title="What working with an SEO company in Chester County, PA looks like"
+          lede="The order matters: there is no point writing new pages for a site Google cannot index, or chasing reviews on a profile in the wrong category."
+        />
+        <ol className="mt-12 space-y-8">
+          {STEPS.map((s, i) => (
+            <li
+              key={s.title}
+              className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14"
+            >
+              <h3 className="text-lg font-semibold text-oa-ink">
+                <span className="mr-3 text-oa-orange">{i + 1}.</span>
+                {s.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-oa-ink2 md:mt-0">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section tone="surface" bordered>
+        <SectionHeading
+          eyebrow="Who it is for"
+          title="SEO in Malvern, West Chester, Exton, Chester Springs and Phoenixville"
+          lede="Local businesses whose customers find them on Google: trades and home services, shops, offices and professional practices. What to fix first depends on how your customers reach you."
+        />
+        <CardGrid columns={2} className="mt-12">
+          {TOWNS.map((t) => (
+            <Card key={t.title} title={t.title} body={t.body} />
+          ))}
+        </CardGrid>
       </Section>
 
       <Section tone="night" grid>
