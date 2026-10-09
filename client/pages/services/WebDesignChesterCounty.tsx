@@ -93,18 +93,18 @@ const COVERAGE = [
 
 export default function WebDesignChesterCounty() {
   useSEO({
-    title: "Web Design Chester County PA — OneAlgorithm",
+    title: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     description:
-      "Custom web design and development for Chester County businesses, from an office in Malvern. You own the code, the domain and the hosting.",
+      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     canonical: getCanonicalUrl("/services/web-design-chester-county"),
-    ogTitle: "Web Design Chester County PA — OneAlgorithm",
+    ogTitle: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     ogDescription:
-      "Custom websites for Chester County businesses, built in Malvern. Accessible, fast, and yours outright — no page builder and no licence to renew.",
+      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     ogUrl: getCanonicalUrl("/services/web-design-chester-county"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Web Design Chester County PA — OneAlgorithm",
+    twitterTitle: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     twitterDescription:
-      "Custom websites for Chester County businesses, built in Malvern. Yours outright, with no page builder and no licence to renew.",
+      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 

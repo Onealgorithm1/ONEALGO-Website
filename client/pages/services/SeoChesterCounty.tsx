@@ -103,18 +103,18 @@ const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
 
 export default function SeoChesterCounty() {
   useSEO({
-    title: "SEO Chester County PA — Local SEO in Malvern | OneAlgorithm",
+    title: "SEO Company in Chester County, PA | Malvern | OneAlgorithm",
     description:
-      "Local SEO for Chester County businesses from an office in Malvern: Google Business Profile, reviews, service pages and the technical fixes that come first.",
+      "SEO services for Chester County, PA businesses, from a Malvern office. Google Business Profile, reviews and technical fixes. See what we fix first.",
     canonical: getCanonicalUrl("/services/seo-chester-county"),
-    ogTitle: "SEO Chester County PA — Local SEO in Malvern | OneAlgorithm",
+    ogTitle: "SEO Company in Chester County, PA | Malvern | OneAlgorithm",
     ogDescription:
-      "Local SEO for Chester County businesses: your Google Business Profile, reviews and service pages, with reporting from your own Search Console.",
+      "SEO services for Chester County, PA businesses, from a Malvern office. Google Business Profile, reviews and technical fixes. See what we fix first.",
     ogUrl: getCanonicalUrl("/services/seo-chester-county"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "SEO Chester County PA — OneAlgorithm",
+    twitterTitle: "SEO Company in Chester County, PA | Malvern | OneAlgorithm",
     twitterDescription:
-      "Local SEO for Chester County businesses from an office in Malvern. No bought links, and every number comes from your own accounts.",
+      "SEO services for Chester County, PA businesses, from a Malvern office. Google Business Profile, reviews and technical fixes. See what we fix first.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
