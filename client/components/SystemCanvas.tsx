@@ -113,18 +113,17 @@ const SYSTEMS: Record<SystemId, { label: string; kind: string[] }> = {
   crm: { label: "CRM and finance", kind: ["SALESFORCE · QUICKBOOKS ONLINE", "CAMPAIGNS · LEADS · BOOK CASH"] },
   federal: { label: "Federal", kind: ["GRANTS.GOV", "OPEN AND POSTED OPPORTUNITIES"] },
   microsoft: { label: "Microsoft", kind: ["TEAMS TRANSCRIPTS (GRAPH)", "ADVERTISING KEYWORD VOLUMES"] },
-  media: { label: "Media and data", kind: ["PLACES · DRIVE · HIGGSFIELD", "APIFY · CLOUDFLARE AI"] },
+  media: { label: "Media and data", kind: ["PLACES · DRIVE", "IMAGE · VIDEO · TRANSCRIPTION"] },
   exports: { label: "Exports", kind: ["GOOGLE SHEETS", "TABS WRITTEN FROM THE HUB"] },
-  alerts: { label: "Alerts", kind: ["MAILGUN EMAIL", "STALE SYNC · FAILED JOB"] },
+  alerts: { label: "Alerts", kind: ["EMAIL ALERTS", "STALE SYNC · FAILED JOB"] },
   publishing: { label: "Publishing", kind: ["LINKEDIN POSTS", "HUMAN-CONFIRMED, EVERY TIME"] },
   sessions: {
-    label: "AI sessions",
+    label: "AI assistants",
     kind: [
-      "CLAUDE · CODEX — READ THE BRIEF,",
-      "MEMORY AND METRICS EVERY SESSION",
-      "IN-SESSION TOOLS: SAM.GOV · M365",
+      "READ THE BRIEF, MEMORY AND",
+      "METRICS EVERY SESSION",
+      "WORK INSIDE SAM.GOV · M365",
       "OUTLOOK · ONEDRIVE · GMAIL · NOTION",
-      "RAILWAY · CLOUDFLARE · GODADDY",
     ],
   },
 };
@@ -132,7 +131,7 @@ const LEFT: SystemId[] = ["search", "social", "crm", "federal", "microsoft", "me
 const RIGHT: SystemId[] = ["exports", "alerts", "publishing", "sessions"];
 
 /** The plate in the middle is the hub itself. A route may start or end there. */
-const HUB = { label: "onealgo-hub", kind: ["RAILWAY · POSTGRES"] };
+const HUB = { label: "OneAlgorithm hub", kind: ["OUR INTEGRATION LAYER"] };
 type End = SystemId | "hub";
 const endOfRoute = (id: End) => (id === "hub" ? HUB : SYSTEMS[id]);
 
@@ -930,7 +929,7 @@ export default function SystemCanvas({ className = "" }: { className?: string })
             textAnchor="middle"
             fill={INK3}
           >
-            {wide ? "ONEALGO-HUB · RAILWAY · POSTGRES" : "ONEALGO-HUB"}
+            {wide ? "ONEALGORITHM HUB · INTEGRATION LAYER" : "ONEALGORITHM HUB"}
           </text>
           {scene.cells.map((c, i) => {
             const track = latchTrack(cellTimes[i], 0.24, 1);
@@ -1134,23 +1133,17 @@ export default function SystemCanvas({ className = "" }: { className?: string })
       {/* Everything the picture says, in words, for the people who cannot see
           it. The spec checks this names the integration layer. */}
       <p className="sr-only">
-        Diagram: every system onealgo-hub, OneAlgorithm&rsquo;s own integration
-        layer, is wired to. It runs on Railway with Postgres. On the left, six
+        Diagram: every system the OneAlgorithm hub, our own integration layer, is wired to. On the left, six
         groups it reads: search and site (Google Search Console, Google
         Analytics 4, Bing Webmaster, Microsoft Clarity, Cloudflare edge
         traffic); social (Facebook, Instagram, Meta Ads, Meta webhooks,
         LinkedIn, TikTok); CRM and finance (Salesforce campaigns and leads,
         QuickBooks Online book cash); federal (Grants.gov); Microsoft (Teams
         transcripts through Graph, Microsoft Advertising keyword volumes); and
-        media and data (Google Places, Google Drive, Higgsfield, Apify,
-        Cloudflare AI). In the middle, the hub, with four stages every record
+        media and data (Google Places, Google Drive, and image, video and transcription services). In the middle, the hub, with four stages every record
         passes through: authenticate, map fields, validate, and route. On the
-        right, what it writes or serves: exports to Google Sheets, alert email
-        through Mailgun, LinkedIn posts that a person confirms every time, and
-        the AI sessions, Claude and Codex, that read the brief, memory and
-        metrics at the start of every session and reach SAM.gov, Microsoft
-        365, Outlook, OneDrive, Gmail, Notion, Railway, Cloudflare and GoDaddy
-        directly. The systems are real; the packet traffic shown is
+        right, what it writes or serves: exports to Google Sheets, email alerts, LinkedIn posts that a person confirms every time, and
+        the AI assistants that read the brief, memory and metrics at the start of every session and work directly inside SAM.gov, Microsoft 365, Outlook, OneDrive, Gmail and Notion. The systems are real; the packet traffic shown is
         illustrative, not live.
       </p>
       <ul className="sr-only">
