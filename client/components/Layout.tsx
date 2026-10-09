@@ -26,6 +26,58 @@ const footerLink =
   "block py-3 md:py-0 text-sm text-oa-nightInk2 hover:text-oa-nightInk transition-colors";
 const footerLinkList = "space-y-0 md:space-y-1.5";
 
+const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+function FooterLink({ to, children }: { to: string; children: React.ReactNode }) {
+  return (
+    <Link to={to} onClick={scrollTop} className={footerLink}>
+      {children}
+    </Link>
+  );
+}
+
+/*
+  Footer link group. From 768px up: a real <h3> and the list, always shown -
+  the <summary> is display:none, so there is no focusable control that does
+  nothing. Below 768px: the h3 is hidden and the native <details>/<summary> is a
+  44px disclosure row. The <details> is rendered OPEN so prerendered HTML
+  (desktop, no-JS, crawlers) carries every link; the effect closes it on phones.
+  ponytail: phones see it open for one frame before hydration closes it - it is
+  below the fold, so no visible shift; upgrade is a CSS-only ::details-content
+  rule once Safari < 18.4 no longer matters.
+*/
+const desktopQuery = "(min-width: 768px)";
+function FooterSection({ title, children }: { title: string; children: React.ReactNode }) {
+  const ref = React.useRef<HTMLDetailsElement>(null);
+  React.useEffect(() => {
+    const mq = window.matchMedia(desktopQuery);
+    const sync = () => {
+      if (ref.current) ref.current.open = mq.matches;
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return (
+    <div>
+      <h3 className="mb-4 hidden text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 md:block">
+        {title}
+      </h3>
+      <details ref={ref} open className="group border-t border-white/10 md:border-0">
+        <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between rounded text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oa-nightInk md:hidden [&::-webkit-details-marker]:hidden">
+          {title}
+          <ChevronDown
+            aria-hidden="true"
+            className="h-4 w-4 transition-transform group-open:rotate-180"
+          />
+        </summary>
+        <div className={`${footerLinkList} pb-2 md:pb-0`}>{children}</div>
+      </details>
+    </div>
+  );
+}
+
+
 /*
   Mobile dropdown rows.
 
@@ -813,9 +865,14 @@ function Layout({ children }: LayoutProps) {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-10 pb-8">
           <TrustedPartnerships />
 
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-5 md:gap-8">
-            {/* Company Info */}
-            <div className="col-span-2">
+          {/* Footer reorganised 2026-10-09 (Louis: "our footer is unorganized
+              looking"). One 21-link Services column became three groups;
+              every href is unchanged. Mobile: brand, contact and
+              certifications stay visible; the three link groups are native
+              <details> disclosures (see FooterSection). */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+            {/* Brand, contact, certifications */}
+            <div className="mb-6 md:mb-0">
               <OneAlgorithmText size="md" className="text-white mb-3" />
               <p className="mb-5 max-w-md text-sm leading-relaxed text-oa-nightInk2">
                 We streamline operations, automate the busywork, and build tools
@@ -824,7 +881,7 @@ function Layout({ children }: LayoutProps) {
 
               {/* Social Media Icons. p-3.5 around a 16px glyph is a 44px
                   target on a phone; desktop keeps the tighter 36px circle. */}
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2.5 lg:gap-2">
                 <a
                   href="https://www.linkedin.com/company/onealgorithmllc"
                   target="_blank"
@@ -930,354 +987,30 @@ function Layout({ children }: LayoutProps) {
                   </svg>
                 </a>
               </div>
-            </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
-                Quick Links
-              </h3>
-              <div className={footerLinkList}>
-                <Link
-                  to="/"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/about"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  About
-                </Link>
-                <Link
-                  to="/capabilities"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Capabilities
-                </Link>
-                <Link
-                  to="/industries"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Industries We Serve
-                </Link>
-                {/* Ghost, served at /blog on this domain. Still a plain <a> -
-                    it is not a route in this SPA, so <Link> would 404. */}
-                <a href="/blog/" className={footerLink}>
-                  Blog
-                </a>
-                <Link
-                  to="/contact"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Contact
-                </Link>
-                {/* The firm's own Google Business listing — "OneAlgorithm
-                    Consulting", place ID ChIJnQw01SfzxokRJhcvpzCljCE — had ZERO
-                    reviews on 2026-08-25, which is why this says "Review us"
-                    and not "Read our reviews". Two reviewers put it here, beside
-                    Contact, rather than in the social icon row: it is an ask,
-                    not a profile. Louis, 2026-08-25: "add our google business
-                    review link to our footer". */}
+              {/* A contact block was removed here earlier at the client's
+                  request. Louis 2026-10-09 asked for phone + town back; no
+                  street address, and no email because the site publishes none. */}
+              <p className="mt-4 text-sm text-oa-nightInk2">
                 <a
-                  href="https://search.google.com/local/writereview?placeid=ChIJnQw01SfzxokRJhcvpzCljCE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={footerLink}
+                  href="tel:+16108909711"
+                  className="inline-block py-3 md:py-0 hover:text-oa-nightInk transition-colors"
                 >
-                  Review us on Google
+                  (610) 890-9711
                 </a>
-                {/*
-                  Careers now lives on the blog, so this points there rather
-                  than at a page on this site. AI Information stays local.
+                <span aria-hidden="true"> · </span>
+                Malvern, PA
+              </p>
 
-                  The careers PAGE, not the blog homepage - this used to drop
-                  candidates on the latest-posts feed and leave them to hunt.
-                */}
-                <a href="/blog/careers/" className={footerLink}>
-                  Careers
-                </a>
-                <Link
-                  to="/ai-info"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  AI Information
-                </Link>
-              </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
-                {/*
-                  The heading links to the services hub.
-
-                  /services was an ORPHAN: the only navigation to it was the
-                  header dropdown trigger, which is a <button>, not a link — and
-                  the dropdown's contents are conditionally rendered, so on a
-                  prerendered page none of those links exist in the HTML at all.
-                  Google reported /services as "URL is unknown to Google": never
-                  discovered, because nothing a crawler can read pointed at it.
-
-                  A heading that is also a link, so it cannot take the list
-                  padding without pushing the column apart. The negative margin
-                  gives it a 44px hit area on mobile while leaving the heading
-                  where it sits; safe here because the nearest neighbouring
-                  target is the mb-4 below it, so the two do not overlap.
-                */}
-                <Link
-                  to="/services"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className="inline-block py-3.5 -my-3.5 md:py-0 md:my-0 hover:text-oa-nightInk2 transition-colors"
-                >
-                  Services
-                </Link>
+              {/* Certifications. SBA WOSB/EDWOSB, PA COSTARS and Virginia SWaM
+                  were removed from here 2026-08-25 - they say "set-aside
+                  vendor" to commercial buyers - and stay on
+                  /industries/government and /capabilities. WBENC/NMSDC have no
+                  public verification page, so they point at /capabilities. */}
+              <h3 className="mt-4 mb-1 md:mt-6 md:mb-3 text-xs font-semibold uppercase tracking-wide text-oa-nightInk3">
+                Partners &amp; certifications
               </h3>
-              <div className={footerLinkList}>
-                <Link
-                  to="/services/martech"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  MarTech
-                </Link>
-                <Link
-                  to="/services/google-ads"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Google Ads
-                </Link>
-                <Link
-                  to="/services/web-design-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Web Design Philadelphia
-                </Link>
-                <Link
-                  to="/services/web-design-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Web Design Chester County
-                </Link>
-                <Link
-                  to="/services/seo-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  SEO Chester County
-                </Link>
-                {/* Salesforce local trio, 2026-09-01. The footer is the one
-                    place every page links from, which is what keeps a local
-                    page out of orphan territory. */}
-                <Link
-                  to="/services/salesforce-consultant-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Consultant Philadelphia
-                </Link>
-                <Link
-                  to="/services/salesforce-consultant-chester-county"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Consultant Chester County
-                </Link>
-                <Link
-                  to="/services/salesforce-consulting-partner-pennsylvania"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Partner Pennsylvania
-                </Link>
-                <Link
-                  to="/services/salesforce-implementation-cost"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce Implementation Cost
-                </Link>
-                <Link
-                  to="/services/operational-transformation-consulting"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Operational Transformation Consulting
-                </Link>
-                <Link
-                  to="/services/google-ads-philadelphia"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Google Ads Philadelphia
-                </Link>
-                <Link
-                  to="/services/website-development"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Website Development
-                </Link>
-                <Link
-                  to="/services/marketing"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Marketing
-                </Link>
-                <Link
-                  to="/services/seo"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  SEO Services
-                </Link>
-                <Link
-                  to="/services/staff-augmentation"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Staff Augmentation
-                </Link>
-                <Link
-                  to="/services/it-consulting"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  IT Consulting
-                </Link>
-                <Link
-                  to="/services/operations-technology"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Operations Technology
-                </Link>
-                <Link
-                  to="/services/oracle-erp"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Oracle ERP
-                </Link>
-                <Link
-                  to="/services/salesforce"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Salesforce
-                </Link>
-                <Link
-                  to="/services/zendesk"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  className={footerLink}
-                >
-                  Zendesk
-                </Link>
-              </div>
-            </div>
-
-            {/*
-              Certifications.
-
-              These are trust signals for federal, state and local buyers, who
-              routinely filter suppliers by set-aside status before reading
-              anything else. They are NOT backlinks — a link from this site to
-              the SBA gives authority to the SBA, not to us. What earns
-              authority is those directories linking back, which is handled
-              separately; two of them already do.
-
-              Every URL here was fetched and confirmed to exist and to list this
-              company. The Virginia SWaM directory is a single-page app with no
-              per-record permalink, so it links to the directory itself rather
-              than implying a deep link that does not exist.
-
-              rel="noopener" on every target="_blank": without it the opened
-              page can reach back through window.opener.
-            */}
-            {/* col-span-2 on mobile. At 390px the footer is a two-column grid,
-                and this block sat in the left cell of its own row with the whole
-                right half empty beneath a Services list that had already ended.
-                Spanning both columns closes that gap. From md up the grid is
-                five columns and this returns to a single one. */}
-            <div className="col-span-2 md:col-span-1">
-              {/* ⛔ Three public-sector registrations — SBA WOSB/EDWOSB, PA
-                  COSTARS, Virginia SWaM — used to sit here on all 26 pages, with
-                  a comment calling them trust signals for government buyers.
-                  They are, and that is the problem: on a commercial service
-                  page they say "set-aside vendor" to a buyer who is not one.
-                  Removed 2026-08-25; they stay on /industries/government and
-                  /capabilities. What remains is what a commercial buyer values:
-                  the Salesforce partnership and the two supplier-diversity
-                  certificates corporate programmes actually track. */}
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3 mb-4">
-                Partners and certifications
-              </h3>
-              <div className={footerLinkList}>
+              <div className="flex flex-wrap gap-x-5 md:block md:space-y-1.5">
                 <a
                   href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL"
                   target="_blank"
@@ -1286,33 +1019,72 @@ function Layout({ children }: LayoutProps) {
                 >
                   Salesforce Consulting Partner
                 </a>
-                {/* No public verification page exists for these two, so they
-                    point at /capabilities, where the certificate numbers and
-                    expiry dates are listed. */}
                 <Link to="/capabilities" className={footerLink}>
                   WBENC Certified WBE
                 </Link>
                 <Link to="/capabilities" className={footerLink}>
                   NMSDC Certified MBE
                 </Link>
-                {/*
-                  The UEI and SWaM numbers are no longer printed here. They stay
-                  in the Organization structured data as identifiers, which is
-                  where they do the work — search engines and AI assistants can
-                  still tie this company to its federal registration.
-                */}
               </div>
             </div>
 
-            {/*
-              Contact block removed at the client's request.
+            {/* "All services" carries the /services link the old heading had:
+                /services was an orphan until the footer linked it. */}
+            <FooterSection title="Services">
+              <FooterLink to="/services">All services</FooterLink>
+              <FooterLink to="/services/martech">MarTech</FooterLink>
+              <FooterLink to="/services/website-development">Website Development</FooterLink>
+              <FooterLink to="/services/seo">SEO Services</FooterLink>
+              <FooterLink to="/services/google-ads">Google Ads</FooterLink>
+              <FooterLink to="/services/marketing">Marketing</FooterLink>
+              <FooterLink to="/services/salesforce">Salesforce</FooterLink>
+              <FooterLink to="/services/zendesk">Zendesk</FooterLink>
+              <FooterLink to="/services/oracle-erp">Oracle ERP</FooterLink>
+              <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
+              <FooterLink to="/services/it-consulting">IT Consulting</FooterLink>
+              <FooterLink to="/services/operations-technology">Operations Technology</FooterLink>
+              <FooterLink to="/services/operational-transformation-consulting">Operational Transformation Consulting</FooterLink>
+            </FooterSection>
 
-              Worth recording: a visible name, address and phone number is a
-              local search signal, and the footer was the only place all three
-              appeared on every page. They remain in the LocalBusiness
-              structured data in index.html, so machines can still read them —
-              but a person now has to reach /contact to find them.
-            */}
+            {/* Local pages. The footer is the one place every page links
+                from, which keeps these out of orphan territory. */}
+            <FooterSection title="Philadelphia & Chester County">
+              <FooterLink to="/services/web-design-philadelphia">Web Design Philadelphia</FooterLink>
+              <FooterLink to="/services/web-design-chester-county">Web Design Chester County</FooterLink>
+              <FooterLink to="/services/seo-chester-county">SEO Chester County</FooterLink>
+              <FooterLink to="/services/google-ads-philadelphia">Google Ads Philadelphia</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-chester-county">Salesforce Consultant Chester County</FooterLink>
+              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner Pennsylvania</FooterLink>
+              <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
+            </FooterSection>
+
+            <FooterSection title="Company">
+              <FooterLink to="/">Home</FooterLink>
+              <FooterLink to="/about">About</FooterLink>
+              <FooterLink to="/capabilities">Capabilities</FooterLink>
+              <FooterLink to="/industries">Industries We Serve</FooterLink>
+              {/* Ghost at /blog - not an SPA route, so a plain <a>. */}
+              <a href="/blog/" className={footerLink}>
+                Blog
+              </a>
+              <FooterLink to="/contact">Contact</FooterLink>
+              {/* Firm's own GBP listing (place ID ChIJnQw01SfzxokRJhcvpzCljCE).
+                  Louis 2026-08-25: "add our google business review link". */}
+              <a
+                href="https://search.google.com/local/writereview?placeid=ChIJnQw01SfzxokRJhcvpzCljCE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={footerLink}
+              >
+                Review us on Google
+              </a>
+              {/* Careers page on the blog, not the blog homepage. */}
+              <a href="/blog/careers/" className={footerLink}>
+                Careers
+              </a>
+              <FooterLink to="/ai-info">AI Information</FooterLink>
+            </FooterSection>
           </div>
 
           {/* Bottom bar. Previously three separately bordered blocks stacked on
