@@ -40,6 +40,7 @@ const LIMITS = {
   firstName: 40,
   lastName: 80,
   email: 80,
+  phone: 40,
   company: 255,
   whatYouNeed: 255,
   message: 30000,
@@ -88,7 +89,13 @@ export async function onRequest({ request, env }) {
   // Deliberately permissive: one @, something either side, no whitespace. The
   // real check is that Salesforce accepts it. Rejecting valid-but-unusual
   // addresses loses a lead, which is worse than accepting a typo.
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+  // The site's callback launcher sends a phone instead of an email. A lead
+  // needs ONE way back to the person; a US number is 10 digits (11 with a 1).
+  const phone = field("phone");
+  const phoneDigits = phone.replace(/\D/g, "");
+  if (phone && !/^1?\d{10}$/.test(phoneDigits))
+    return json(400, { error: "That phone number does not look right." });
+  if ((email || !phone) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return json(400, { error: "That email address does not look right." });
   // "Tell us more" is labelled OPTIONAL on the page; the service dropdown is
   // the required one. Until 2026-08-25 this required `message`, so anyone who
@@ -134,7 +141,8 @@ export async function onRequest({ request, env }) {
   if (field("firstName") && field("firstName") !== lastName)
     lead.set("first_name", field("firstName"));
   lead.set("last_name", lastName);
-  lead.set("email", email);
+  if (email) lead.set("email", email);
+  if (phone) lead.set("phone", phone);
   lead.set("company", field("company"));
   lead.set(
     "description",

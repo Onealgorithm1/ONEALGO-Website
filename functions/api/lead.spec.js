@@ -131,3 +131,43 @@ describe("POST /api/lead", () => {
     expect(calls).toHaveLength(0);
   });
 });
+
+describe("callback requests (phone instead of email)", () => {
+  afterEach(() => vi.unstubAllGlobals());
+  const CALLBACK = {
+    lastName: "Dana Okonkwo",
+    phone: "(610) 555-0142",
+    whatYouNeed: "Callback request",
+    turnstileToken: "a-token",
+  };
+
+  it("forwards a phone-only lead with the phone and no email", async () => {
+    const calls = stubFetch();
+    const res = await onRequest({ request: post(CALLBACK), env: ENV });
+    expect(res.status).toBe(200);
+    const sent = new URLSearchParams(calls.find((c) => c.url !== SITEVERIFY).init.body);
+    expect(sent.get("phone")).toBe("(610) 555-0142");
+    expect(sent.has("email")).toBe(false);
+  });
+
+  it("refuses a bad phone number before spending a siteverify call", async () => {
+    const calls = stubFetch();
+    const res = await onRequest({ request: post({ ...CALLBACK, phone: "555-01" }), env: ENV });
+    expect(res.status).toBe(400);
+    expect(calls).toHaveLength(0);
+  });
+
+  it("still refuses a lead with neither email nor phone", async () => {
+    stubFetch();
+    const { phone, ...noContact } = CALLBACK;
+    const res = await onRequest({ request: post(noContact), env: ENV });
+    expect(res.status).toBe(400);
+  });
+
+  it("still requires the bot check for phone-only leads", async () => {
+    const calls = stubFetch({ verified: false });
+    const res = await onRequest({ request: post(CALLBACK), env: ENV });
+    expect(res.status).toBe(403);
+    expect(calls.some((c) => c.url !== SITEVERIFY)).toBe(false);
+  });
+});

@@ -1,4 +1,5 @@
 import "./global.css";
+import ContactLauncher from "./components/ContactLauncher";
 
 // Initialize Sentry (loaded dynamically from CDN) when DSN is available at runtime
 (function initSentryClient() {
@@ -264,6 +265,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <ContactLauncher />
         </ErrorBoundary>
       </BrowserRouter>
       {/* </NotificationProvider> */}
