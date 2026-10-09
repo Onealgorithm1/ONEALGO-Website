@@ -70,6 +70,20 @@ const LOCAL_FAILURES = [
   },
 ];
 
+/* Added 2026-10-09 for "google ads management philadelphia / pennsylvania".
+   ⛔ Every step restates what /services/google-ads or this page already says we do.
+   No fee, minimum budget or result is stated because none is published on the site.
+   Pennsylvania-wide remote service confirmed by Louis 2026-10-09 (Malvern office). */
+const STEPS: { title: string; body: string }[] = [
+  { title: "Account audit", body: "Where the budget is going by search term, whether the geography matches where you can actually serve, whether conversions are counted once, and what the landing page does with the click. You get a prioritised list." },
+  { title: "Conversion tracking", body: "Tracking is set up and verified first: each lead counted once, phone calls included, and offline imports that match your CRM." },
+  { title: "Search terms and negatives", body: "We read the search terms report, cut the spend that is not converting and build the negative keyword list before adding anything new." },
+  { title: "Geography and structure", body: "Targeting matched to your real service area, and campaigns grouped so the budget splits where you mean it to." },
+  { title: "Landing pages", body: "Ad copy and landing page tests run one variable at a time and left running long enough to mean something." },
+  { title: "Bidding", body: "Smart Bidding where there is enough conversion data to feed it, manual control where there isn't. We tell you which case your account is in before switching anything." },
+  { title: "Reporting cadence", body: "A weekly pass on the account, and a report that leads with cost per acquisition and spend." },
+];
+
 const HOW_WE_START = [
   "Read the search terms report and cut the spend that is not converting.",
   "Verify conversion tracking counts each lead once, including phone calls.",
@@ -84,21 +98,23 @@ const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
   { q: "What do you check first in a Google Ads account?", a: "Geographic targeting against your real service area, the search terms report and the negative keyword list, call and form conversion tracking, and the landing pages. We subtract before adding: read the search terms report and cut the spend that is not converting, then verify tracking, then look at bids, budgets and new keywords." },
   { q: "Why does a local Google Ads account waste money?", a: "In a local account the biggest leak is usually not the bidding. It is a service area nobody set deliberately, a missing negative keyword list, and phone calls that never get counted as conversions." },
   { q: "Do I keep ownership of my Google Ads account?", a: "Yes. You keep ownership of the account. If you stop working with us, the history, the conversion data and the learning go with you." },
+  { q: "Do you manage Google Ads outside Philadelphia, elsewhere in Pennsylvania?", a: "Yes. Our office is in Malvern, and Google Ads work runs remotely inside the account, so we manage campaigns for businesses across Pennsylvania, not only the Philadelphia area. The targeting is set to your service area, wherever that is." },
+  { q: "How often do you work on the account and report?", a: "There is a weekly pass on the account, and the report leads with cost per acquisition and spend. Impressions are in there somewhere, near the bottom." },
   { q: "What do I get from a Google Ads audit?", a: "We look at where the budget is going by search term, whether the geography matches where you can actually serve, whether conversions are counted once, and what the landing page does with the click. You get a prioritised list, and you do not have to hire us to act on it." },
 ];
 
 export default function GoogleAdsPhiladelphia() {
   useSEO({
-    title: "Google Ads Management Philadelphia — OneAlgorithm",
+    title: "Google Ads Management in Philadelphia | OneAlgorithm",
     description:
-      "Google Ads management for Philadelphia-area businesses: geography that matches your service area, tracking that counts calls once, and an account you own.",
+      "Google Ads management in Philadelphia and across Pennsylvania: account audit, call tracking that counts once, negatives, landing pages, weekly reporting.",
     canonical: getCanonicalUrl("/services/google-ads-philadelphia"),
-    ogTitle: "Google Ads Management Philadelphia — OneAlgorithm",
+    ogTitle: "Google Ads Management in Philadelphia | OneAlgorithm",
     ogDescription:
       "Google Ads for Philadelphia-area businesses: the right radius, a real negative list, call tracking that counts once, and an account that stays yours.",
     ogUrl: getCanonicalUrl("/services/google-ads-philadelphia"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Google Ads Management Philadelphia — OneAlgorithm",
+    twitterTitle: "Google Ads Management in Philadelphia | OneAlgorithm",
     twitterDescription:
       "Google Ads for Philadelphia-area businesses. The right radius, a real negative list, and an account that stays yours.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
@@ -162,6 +178,24 @@ export default function GoogleAdsPhiladelphia() {
             <Card key={c.title} icon={c.icon} title={c.title} body={c.body} />
           ))}
         </CardGrid>
+      </Section>
+
+      <Section tone="paper" bordered>
+        <SectionHeading
+          eyebrow="The work, step by step"
+          title="What Google Ads management in Philadelphia includes"
+          lede="How we work on an account, in Philadelphia or anywhere else in Pennsylvania. Tracking comes first if it is not set up."
+        />
+        <ol className="mt-12 grid gap-8 md:grid-cols-2">
+          {STEPS.map((st, i) => (
+            <li key={st.title} className="border-t border-oa-hairlineStrong pt-6">
+              <h3 className="text-lg font-semibold text-oa-ink">
+                {i + 1}. {st.title}
+              </h3>
+              <p className="mt-2 leading-relaxed text-oa-ink2">{st.body}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       <Section tone="night" grid>
