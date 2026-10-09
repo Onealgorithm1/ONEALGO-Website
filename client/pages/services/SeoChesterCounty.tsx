@@ -114,30 +114,6 @@ const STEPS = [
   },
 ];
 
-/* Towns as places served, not clients. ⛔ No client is named or implied here. */
-const TOWNS = [
-  {
-    title: "Malvern",
-    body: "Our office is on Swedesford Road, so a Malvern business can sit down with the people doing the work. If you searched \"SEO Malvern\", you are a short drive away.",
-  },
-  {
-    title: "West Chester",
-    body: "The county seat, with a busy borough centre. Shops and offices that customers visit need an accurate address, hours and photos on the profile above all else.",
-  },
-  {
-    title: "Exton",
-    body: "Plenty of businesses here serve the whole area rather than one street. Pages for each service you sell matter more than pages for each town you drive to.",
-  },
-  {
-    title: "Chester Springs",
-    body: "Many businesses here are trades and home services that work at the customer's property. For them the service-area setting, rather than a street address, is the first thing to get right.",
-  },
-  {
-    title: "Phoenixville",
-    body: "A town with its own centre and its own searches. A local business here needs reviews and a profile that say plainly what it does, so it shows up for people nearby.",
-  },
-];
-
 const COVERAGE = [
   "The whole of Chester County, West Chester included — we are inside it rather than driving in",
   "Delaware, Montgomery, Bucks and Philadelphia counties",
@@ -262,19 +238,6 @@ export default function SeoChesterCounty() {
             </li>
           ))}
         </ol>
-      </Section>
-
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Who it is for"
-          title="SEO in Malvern, West Chester, Exton, Chester Springs and Phoenixville"
-          lede="Local businesses whose customers find them on Google: trades and home services, shops, offices and professional practices. What to fix first depends on how your customers reach you."
-        />
-        <CardGrid columns={2} className="mt-12">
-          {TOWNS.map((t) => (
-            <Card key={t.title} title={t.title} body={t.body} />
-          ))}
-        </CardGrid>
       </Section>
 
       <Section tone="night" grid>

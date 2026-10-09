@@ -88,7 +88,7 @@ const WHAT_YOU_GET = [
    town list was for the crawler, and it went. */
 /* Added 2026-10-09 (GSC: pos 17-19 for "custom website designers in chester county").
    ⛔ Steps restate PROCESS and the price/schedule promise on /services/website-development;
-   no new prices, durations or results. Towns are places served, never clients. */
+   no new prices, durations or results. */
 const STEPS = [
   {
     title: "Agree what the site is for",
@@ -112,35 +112,12 @@ const STEPS = [
   },
 ];
 
-const TOWNS = [
-  {
-    title: "Malvern",
-    body: "Our office is on Swedesford Road. If you would rather have the first conversation across a table, it is a short trip.",
-  },
-  {
-    title: "West Chester",
-    body: "The county seat. For shops, restaurants and offices people visit, the site has to answer the basics fast on a phone: where you are, when you are open, how to book.",
-  },
-  {
-    title: "Exton",
-    body: "For businesses that quote jobs or take bookings, a custom site can do the specific thing a template cannot, such as sending a quote request straight into the system you already run.",
-  },
-  {
-    title: "Chester Springs",
-    body: "Trades and home services that work at the customer's property need one clear page per service and a quote form that reaches a person.",
-  },
-  {
-    title: "Phoenixville",
-    body: "Independent businesses that want a site that looks like them, not like everyone else using the same theme, and that they own outright.",
-  },
-];
-
 /* ⛔ Every answer restates something already on this page or /services/website-development. */
 const FAQS = [
   { q: "What makes a custom website different from a template?", a: "A custom site is written in HTML, CSS and TypeScript for your business rather than assembled in a page builder. That matters most when the site has to do something specific: take a booking, quote a job, or talk to the system you already run." },
   { q: "How much does a custom website cost in Chester County?", a: "It depends on what the site has to do. Describe the scope and you get the price and the schedule in writing before anyone starts building. If the number is wrong for you, we will say what we would cut to get there." },
   { q: "Who owns the website when it is finished?", a: "You do. The source code is in your repository, the domain is in your account and the hosting is somewhere you control. Another developer can pick it up without us." },
-  { q: "Do you build WordPress sites?", a: "We write sites in HTML, CSS and TypeScript rather than a page builder, so there is no builder licence to keep paying. Where you will genuinely edit content yourself, we set up a CMS you can actually use." },
+  { q: "What are your sites built with?", a: "Custom sites written in HTML, CSS and TypeScript rather than assembled in a page builder. Where you will genuinely maintain content yourself, we set up a CMS you can actually edit." },
 ];
 
 const COVERAGE = [
@@ -247,19 +224,6 @@ export default function WebDesignChesterCounty() {
             </li>
           ))}
         </ol>
-      </Section>
-
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Who it is for"
-          title="Website design for Malvern, West Chester, Exton, Chester Springs and Phoenixville"
-          lede="Local businesses that have outgrown a template, or never had a proper site at all. What the site needs to do first depends on how your customers reach you."
-        />
-        <CardGrid columns={2} className="mt-12">
-          {TOWNS.map((t) => (
-            <Card key={t.title} title={t.title} body={t.body} />
-          ))}
-        </CardGrid>
       </Section>
 
       <Section tone="night" grid>
