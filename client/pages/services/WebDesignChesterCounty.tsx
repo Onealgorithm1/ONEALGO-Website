@@ -49,7 +49,7 @@ const WHAT_YOU_GET = [
   {
     icon: Wrench,
     title: "A site built for the job, not a template",
-    body: "Written in HTML, CSS and TypeScript rather than assembled in a page builder. That matters most when the site has to do something specific — take a booking, quote a job, talk to the system you already run.",
+    body: "Written in HTML, CSS and TypeScript rather than assembled in a page builder. That matters most when the site has to do something specific — take a booking, quote a job, talk to the system you already run. If you would rather edit the pages yourself, we build on WordPress instead.",
   },
   {
     icon: Search,
@@ -104,7 +104,7 @@ const STEPS = [
   },
   {
     title: "Build and wire it up",
-    body: "The site gets written, the forms get connected to email or your CRM, the tracking goes on and the content goes in. Page titles, headings and schema are set up as part of the build.",
+    body: "The site gets written in custom code, or in WordPress if you want to edit it yourself. The forms get connected to email or your CRM, the tracking goes on and the content goes in. Page titles, headings and schema are set up as part of the build.",
   },
   {
     title: "Launch, hand over, stay on",
@@ -117,7 +117,7 @@ const FAQS = [
   { q: "What makes a custom website different from a template?", a: "A custom site is written in HTML, CSS and TypeScript for your business rather than assembled in a page builder. That matters most when the site has to do something specific: take a booking, quote a job, or talk to the system you already run." },
   { q: "How much does a custom website cost in Chester County?", a: "It depends on what the site has to do. Describe the scope and you get the price and the schedule in writing before anyone starts building. If the number is wrong for you, we will say what we would cut to get there." },
   { q: "Who owns the website when it is finished?", a: "You do. The source code is in your repository, the domain is in your account and the hosting is somewhere you control. Another developer can pick it up without us." },
-  { q: "What are your sites built with?", a: "Custom sites written in HTML, CSS and TypeScript rather than assembled in a page builder. Where you will genuinely maintain content yourself, we set up a CMS you can actually edit." },
+  { q: "What are your sites built with?", a: "We build both custom-coded sites and WordPress sites. WordPress fits when you want to edit your own pages in a familiar CMS. Custom code, written in HTML, CSS and TypeScript, fits when speed and flexibility matter more, for example when the site has to take bookings or talk to a system you already run." },
 ];
 
 const COVERAGE = [
@@ -131,16 +131,16 @@ export default function WebDesignChesterCounty() {
   useSEO({
     title: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     description:
-      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
+      "Custom website and WordPress designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     canonical: getCanonicalUrl("/services/web-design-chester-county"),
     ogTitle: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     ogDescription:
-      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
+      "Custom website and WordPress designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     ogUrl: getCanonicalUrl("/services/web-design-chester-county"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Custom Website Designers in Chester County, PA | OneAlgorithm",
     twitterDescription:
-      "Custom website designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
+      "Custom website and WordPress designers in Chester County, PA, based in Malvern. You own the code, domain and hosting, with no licence to renew.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
@@ -150,7 +150,7 @@ export default function WebDesignChesterCounty() {
       <StructuredData
         data={createServiceSchema(
           "Web Design and Development in Chester County, Pennsylvania",
-          "Custom website design and development for businesses in Chester County, Pennsylvania, from an office in Malvern: accessible to WCAG 2.1 AA, built without a page builder, integrated with the systems a business already runs, and owned outright by the client.",
+          "Custom website design and development for businesses in Chester County, Pennsylvania, from an office in Malvern: accessible to WCAG 2.1 AA, custom-coded or built on WordPress, integrated with the systems a business already runs, and owned outright by the client.",
           "Web Design",
           "https://onealgorithm.com/services/web-design-chester-county",
         )}
