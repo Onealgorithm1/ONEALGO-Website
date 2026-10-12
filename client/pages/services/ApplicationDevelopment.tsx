@@ -237,7 +237,12 @@ export default function ApplicationDevelopment() {
               <p className="mt-8 max-w-[60ch] leading-relaxed text-oa-ink2">
                 We are specific about this because we have audited projects
                 where it was not true, and the repair is far more expensive than
-                doing it correctly at the start.
+                doing it correctly at the start. For a build that shipped, read
+                the{" "}
+                <a href="/blog/product-configurator-case-study-phantom-arcades/" className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700">
+                  product configurator case study
+                </a>
+                .
               </p>
             </>
           }

@@ -68,7 +68,7 @@ const WORK = [
 
 export default function Construction() {
   useSEO({
-    title: "Construction Technology & Systems Integration — OneAlgorithm",
+    title: "Construction Software Implementation & Integration — OneAlgorithm",
     description:
       "Systems integration, Salesforce, job reporting and web work for construction firms. We connect the field, estimating and accounting systems you own.",
     canonical: getCanonicalUrl("/industries/construction"),
@@ -85,7 +85,7 @@ export default function Construction() {
       <PageHero
         title={
           <>
-            Technology work for{" "}
+            Construction software implementation for{" "}
             <span className="text-oa-orange">construction firms</span>
           </>
         }

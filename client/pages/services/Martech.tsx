@@ -99,9 +99,9 @@ const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
 
 export default function Martech() {
   useSEO({
-    title: "MarTech Consulting & Stack Integration | OneAlgorithm",
+    title: "MarTech Consulting Services & Stack Integration | OneAlgorithm",
     description:
-      "MarTech: connecting your CRM, email, ad platforms, analytics and website so customer data is in one place and the reporting actually reconciles.",
+      "MarTech consulting services: connecting your CRM, email, ad platforms, analytics and website so customer data is in one place and the reporting actually reconciles.",
     canonical: getCanonicalUrl("/services/martech"),
     keywords:
       "MarTech, marketing technology, marketing automation, customer data platform, personalization, digital advertising, campaign management, marketing integration",
@@ -134,7 +134,7 @@ export default function Martech() {
         eyebrow="MarTech"
         title={
           <>
-            MarTech services —{" "}
+            MarTech consulting services —{" "}
             <span className="text-oa-orange">
               the wiring between your marketing tools
             </span>

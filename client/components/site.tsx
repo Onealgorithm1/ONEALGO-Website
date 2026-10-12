@@ -503,6 +503,9 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-consulting-partner-pennsylvania": "Pennsylvania",
   "/services/salesforce-implementation-cost": "Cost guide",
   "/services/operational-transformation-consulting": "Transformation",
+  /* ponytail: slug label read "Seo Chester County" -- Semrush flagged the exact
+     phrase as overused on the page (2026-10-12). Place is the new info. */
+  "/services/seo-chester-county": "Chester County",
 };
 
 const COMPANY_PATHS = ["/about", "/capabilities", "/contact"];

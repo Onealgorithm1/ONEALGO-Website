@@ -177,7 +177,7 @@ export default function StaffAugmentation() {
   useSEO({
     title: "IT Staff Augmentation Services | OneAlgorithm",
     description:
-      "Staff augmentation: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
+      "Staff augmentation services: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
     canonical: getCanonicalUrl("/services/staff-augmentation"),
     keywords:
       "staff augmentation, IT staffing, software developers, technical talent, team scaling, remote developers, IT specialists, talent solutions",
@@ -209,8 +209,8 @@ export default function StaffAugmentation() {
         eyebrow="Staff Augmentation"
         title={
           <>
-            Staff <span className="text-oa-orange">augmentation</span> — our
-            people, inside your team
+            Staff <span className="text-oa-orange">augmentation services</span>{" "}
+            — our people, inside your team
           </>
         }
         lede="Senior practitioners who join your standups, work in your repo and your ticket queue, and take direction from your lead. We carry the employment and the paperwork. For a sprint, or for a year."
@@ -235,7 +235,7 @@ export default function StaffAugmentation() {
         <SectionHeading
           eyebrow="Why it works"
           title="When this beats hiring"
-          lede="Hiring takes months and commits you for years. Often that's the right call. These are the four cases where it isn't."
+          lede="Hiring takes months and commits you for years. Often that's the right call. These are the four cases where staff augmentation services are the better one."
         />
         <CardGrid columns={4} className="mt-12">
           {BENEFITS.map((b) => (

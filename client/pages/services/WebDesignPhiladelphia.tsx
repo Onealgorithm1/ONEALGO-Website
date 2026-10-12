@@ -77,9 +77,9 @@ const HONEST = [
 
 export default function WebDesignPhiladelphia() {
   useSEO({
-    title: "Web Design Philadelphia — OneAlgorithm",
+    title: "Website Design Philadelphia — OneAlgorithm",
     description:
-      "Custom web design and development for Philadelphia businesses. Accessible, fast, integrated with what you already run, and yours to own outright.",
+      "Website design in Philadelphia: custom design and development for local businesses. Accessible, fast, integrated with what you already run, and yours to own outright.",
     canonical: getCanonicalUrl("/services/web-design-philadelphia"),
     ogTitle: "Web Design Philadelphia — OneAlgorithm",
     ogDescription:
@@ -114,7 +114,7 @@ export default function WebDesignPhiladelphia() {
         eyebrow="Philadelphia"
         title={
           <>
-            Web design in Philadelphia —{" "}
+            Website design in Philadelphia —{" "}
             <span className="text-oa-orange">custom, and yours to keep</span>
           </>
         }
@@ -180,6 +180,10 @@ export default function WebDesignPhiladelphia() {
                   className="font-semibold text-oa-orange underline underline-offset-4"
                 >
                   The straight answer is on the build page
+                </a>
+                .{" "}See a worked example:{" "}
+                <a href="/blog/home-inspector-website-design/" className="font-semibold text-oa-orange underline underline-offset-4">
+                  home inspector website design
                 </a>
                 .
               </p>

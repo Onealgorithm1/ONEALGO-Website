@@ -1051,7 +1051,7 @@ function Layout({ children }: LayoutProps) {
             <FooterSection title="Philadelphia & Chester County">
               <FooterLink to="/services/web-design-philadelphia">Web Design Philadelphia</FooterLink>
               <FooterLink to="/services/web-design-chester-county">Web Design Chester County</FooterLink>
-              <FooterLink to="/services/seo-chester-county">SEO Chester County</FooterLink>
+              <FooterLink to="/services/seo-chester-county">Chester County SEO</FooterLink>
               <FooterLink to="/services/google-ads-philadelphia">Google Ads Philadelphia</FooterLink>
               <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
               <FooterLink to="/services/salesforce-consultant-chester-county">Salesforce Consultant Chester County</FooterLink>

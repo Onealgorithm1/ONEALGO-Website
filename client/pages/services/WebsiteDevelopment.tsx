@@ -388,7 +388,10 @@ export default function WebsiteDevelopment() {
                     inbound link (Semrush). */}
                 <Link className="text-oa-orange underline underline-offset-4" to="/industries/website-development">
                   website development by sector
-                </Link>.
+                </Link>. Or read a worked example:{" "}
+                <a className="text-oa-orange underline underline-offset-4" href="/blog/home-inspector-website-design/">
+                  home inspector website design
+                </a>.
               </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <PrimaryCTA to="/contact">Start a project</PrimaryCTA>

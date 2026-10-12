@@ -98,7 +98,7 @@ const CAPABILITIES = [
 
 export default function Zendesk() {
   useSEO({
-    title: "Zendesk Implementation & Support Services | OneAlgorithm",
+    title: "Zendesk Implementation Partner & Support | OneAlgorithm",
     description:
       "Zendesk implementation and support: setup, workflow design, automation, knowledge base, reporting and Salesforce integration. A Zendesk partner.",
     canonical: getCanonicalUrl("/services/zendesk"),
@@ -130,8 +130,8 @@ export default function Zendesk() {
         eyebrow="Zendesk partner"
         title={
           <>
-            <span className="text-oa-orange">Zendesk</span> Implementation &amp;
-            Support
+            <span className="text-oa-orange">Zendesk</span> implementation
+            partner &amp; support
           </>
         }
         lede="We're a Zendesk partner, under a partner agreement signed in 2026. We set Zendesk up, build the ticket workflow around how your team already works, automate the routing, and connect it to the CRM you already run — so support and sales stop emailing each other for context."

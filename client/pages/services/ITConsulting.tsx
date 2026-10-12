@@ -144,7 +144,7 @@ const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
 
 export default function ITConsulting() {
   useSEO({
-    title: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
+    title: "IT Consulting Philadelphia & Malvern, PA | OneAlgorithm",
     description:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing and tool selection. Malvern, PA.",
     canonical: getCanonicalUrl("/services/it-consulting"),
