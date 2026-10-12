@@ -101,17 +101,17 @@ export default function Martech() {
   useSEO({
     title: "MarTech Consulting Services & Stack Integration | OneAlgorithm",
     description:
-      "MarTech consulting services: connecting your CRM, email, ad platforms, analytics and website so customer data is in one place and the reporting actually reconciles.",
+      "MarTech consulting services: connecting your CRM, email, ad platforms, analytics and website so customer data lives in one place and the reporting reconciles.",
     canonical: getCanonicalUrl("/services/martech"),
     keywords:
       "MarTech, marketing technology, marketing automation, customer data platform, personalization, digital advertising, campaign management, marketing integration",
-    ogTitle: "MarTech Consulting & Stack Integration | OneAlgorithm",
+    ogTitle: "MarTech Consulting Services & Stack Integration | OneAlgorithm",
     ogDescription:
       "Connect your CRM, email, ad platforms and analytics so customer data lives in one place, follow-up is automated, and the reporting reconciles with the CRM.",
     ogUrl: getCanonicalUrl("/services/martech"),
     ogImage:
       "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "OneAlgorithm — MarTech Services",
+    twitterTitle: "MarTech Consulting Services — OneAlgorithm",
     twitterDescription:
       "Connecting the CRM, email, ad platforms and analytics you already own, so the customer data is in one place and the reporting adds up.",
     twitterImage:

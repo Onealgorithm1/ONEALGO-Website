@@ -153,12 +153,12 @@ export default function ITConsulting() {
     // including "digital transformation", which is now off the visible copy.
     keywords:
       "IT consulting, strategic IT planning, technology audit, digital transformation, cybersecurity consulting, business process optimization, IT strategy",
-    ogTitle: "Small Business IT Consulting in Malvern, PA | OneAlgorithm",
+    ogTitle: "IT Consulting Philadelphia & Malvern, PA | OneAlgorithm",
     ogDescription:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection. Malvern, Pennsylvania.",
     ogUrl: getCanonicalUrl("/services/it-consulting"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "IT Consulting — OneAlgorithm",
+    twitterTitle: "IT Consulting Philadelphia & Malvern — OneAlgorithm",
     twitterDescription:
       "IT consulting for the systems you already run: technology planning, security reviews, cloud migration sizing, and tool selection.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",

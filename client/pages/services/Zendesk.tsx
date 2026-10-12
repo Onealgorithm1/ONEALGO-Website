@@ -104,12 +104,12 @@ export default function Zendesk() {
     canonical: getCanonicalUrl("/services/zendesk"),
     keywords:
       "Zendesk implementation, Zendesk support, Zendesk configuration, Zendesk automation, Zendesk Salesforce integration, customer support software, help desk setup",
-    ogTitle: "Zendesk Implementation & Support Services | OneAlgorithm",
+    ogTitle: "Zendesk Implementation Partner & Support | OneAlgorithm",
     ogDescription:
       "Implement, configure, integrate, and optimize Zendesk for customer support and service operations. Zendesk partner.",
     ogUrl: getCanonicalUrl("/services/zendesk"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Zendesk Implementation & Support — OneAlgorithm",
+    twitterTitle: "Zendesk Implementation Partner & Support — OneAlgorithm",
     twitterDescription:
       "Implement, configure, integrate, and optimize Zendesk for customer support and service operations.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",

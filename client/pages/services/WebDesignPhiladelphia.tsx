@@ -79,14 +79,14 @@ export default function WebDesignPhiladelphia() {
   useSEO({
     title: "Website Design Philadelphia — OneAlgorithm",
     description:
-      "Website design in Philadelphia: custom design and development for local businesses. Accessible, fast, integrated with what you already run, and yours to own outright.",
+      "Website design in Philadelphia: custom design and development for local businesses. Accessible, fast, integrated with what you run, and yours to own.",
     canonical: getCanonicalUrl("/services/web-design-philadelphia"),
-    ogTitle: "Web Design Philadelphia — OneAlgorithm",
+    ogTitle: "Website Design Philadelphia — OneAlgorithm",
     ogDescription:
       "Custom websites for Philadelphia businesses: accessible, fast, integrated with the systems you already run, and owned outright by you.",
     ogUrl: getCanonicalUrl("/services/web-design-philadelphia"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Web Design Philadelphia — OneAlgorithm",
+    twitterTitle: "Website Design Philadelphia — OneAlgorithm",
     twitterDescription:
       "Custom websites for Philadelphia businesses. Accessible, fast, and owned outright by you.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",

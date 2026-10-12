@@ -74,7 +74,7 @@ export default function Construction() {
     canonical: getCanonicalUrl("/industries/construction"),
     keywords:
       "construction technology consulting, construction systems integration, Salesforce for construction, job cost reporting integration, construction software integration Pennsylvania",
-    ogTitle: "Construction Technology & Systems Integration — OneAlgorithm",
+    ogTitle: "Construction Software Implementation & Integration — OneAlgorithm",
     ogDescription:
       "We connect the field, estimating and accounting systems a construction firm already owns — and we say plainly what we do not do.",
     ogUrl: getCanonicalUrl("/industries/construction"),
