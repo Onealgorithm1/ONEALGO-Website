@@ -47,7 +47,7 @@ import { siteConfig } from "../../shared/companyProfile";
  * close. They are honest gaps. Do not close them by inventing an answer.
  */
 
-const LAST_UPDATED = "August 12, 2026";
+const LAST_UPDATED = "October 13, 2026";
 
 const HEADING = "text-h3 font-semibold text-oa-ink scroll-mt-24 pt-6";
 const SUBHEADING = "text-lg font-semibold text-oa-ink pt-2";
@@ -64,6 +64,7 @@ const SECTIONS = [
   { id: "browsing", title: "What we collect when you are just reading" },
   { id: "cookies", title: "Cookies and analytics" },
   { id: "embeds", title: "The map and the blog" },
+  { id: "social", title: "Instagram and Facebook comments and messages we handle for clients" },
   { id: "processors", title: "Who else sees your information" },
   { id: "notdo", title: "What this site does not do" },
   { id: "retention", title: "How long we keep it" },
@@ -154,7 +155,9 @@ export default function Privacy() {
           <p>
             This policy covers{" "}
             <strong className="text-oa-ink">onealgorithm.com</strong>, including
-            the blog at /blog. It is written by {legalName} ({siteConfig.name}),
+            the blog at /blog, and the social-media comment and message
+            handling described in{" "}
+            <a href="#social" className={LINK}>its own section</a>. It is written by {legalName} ({siteConfig.name}),
             a company registered in Pennsylvania, United States. It describes
             what this website actually does — not what a privacy policy usually
             says.
@@ -361,6 +364,66 @@ export default function Privacy() {
               established from the code here. Add it to the processor list below
               once confirmed. */}
 
+          <H2 id="social" />
+          <p>
+            Some businesses hire us to answer comments and messages on their own
+            Instagram, Facebook and other social accounts. When you comment on,
+            or message, one of those business accounts, our app (OA BPO
+            Connector Hub) receives the following through the platform's
+            official API (Meta, and where a client uses them, Google or TikTok):
+          </p>
+          <ul className={LIST}>
+            <li>your public comment, the post it was on, and the time;</li>
+            <li>
+              your public username or name, and the account ID the platform
+              gives our app for you;
+            </li>
+            <li>the public reply we post under your comment;</li>
+            <li>
+              any private reply we send you, and any direct message you send the
+              business.
+            </li>
+          </ul>
+          <p>
+            We handle this on behalf of that business, our client, and use it
+            only to reply for them: a public reply under your comment and, if
+            you asked about buying or price, one private message with a link to
+            the business's website or order form. We send at most one private
+            message per comment, within 7 days, and nothing more unless you
+            reply. We do not use this data for advertising, do not sell or share
+            it, and do not combine it with other data about you. The business
+            can see these conversations.
+          </p>
+          <p>
+            <strong className="text-oa-ink">Who processes it.</strong> The app
+            runs on <strong className="text-oa-ink">Railway</strong> (hosting
+            and database) and{" "}
+            <strong className="text-oa-ink">Cloudflare</strong> (network). To
+            decide whether a comment needs a reply and to draft it, the comment
+            text is sent to an AI model through{" "}
+            <strong className="text-oa-ink">OpenRouter</strong>. The data
+            arrives from, and replies go back through, the platform's own API —
+            Meta (Instagram and Facebook), Google or TikTok — whose handling of
+            your data is covered by its own privacy policy.
+          </p>
+          {/* TKTK — CONFIRM. Before claiming OpenRouter / the model provider does
+              not train on or retain comment text, check the account's
+              data-policy settings. Not claimed above until checked. */}
+          <p>
+            <strong className="text-oa-ink">How long we keep it.</strong> We
+            keep comment and message records for up to 12 months, so we never
+            reply twice and can show the business what was said, then delete
+            them. To have yours deleted sooner, follow the steps on our{" "}
+            <Link to="/data-deletion" className={LINK}>data deletion page</Link>{" "}
+            or email{" "}
+            <a href={`mailto:${contact.emailPrimary}`} className={LINK}>
+              {contact.emailPrimary}
+            </a>
+            .
+          </p>
+          {/* TKTK — DRAFT FIGURE. 12 months is a draft retention period pending
+              Louis's confirmation, and nothing in the hub enforces it yet. Confirm
+              the number and add the purge job before this goes to production. */}
           <H2 id="processors" />
           <p>
             We do not sell or rent your information. These are the companies
@@ -394,6 +457,12 @@ export default function Privacy() {
               Microsoft 365; and, if you agreed to analytics, how you used the
               page, through Microsoft Clarity. Clarity passes what it collects
               to Microsoft's advertising network as well as to us.
+            </li>
+            <li>
+              <strong className="text-oa-ink">Railway and OpenRouter</strong> —
+              social-media comments and messages we handle for clients, as set
+              out in{" "}
+              <a href="#social" className={LINK}>that section</a>.
             </li>
           </ul>
           <p>

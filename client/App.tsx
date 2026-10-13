@@ -58,6 +58,7 @@ const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const DataDeletion = lazy(() => import("./pages/DataDeletion"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Construction = lazy(() => import("./pages/industries/Construction"));
 const Manufacturing = lazy(() => import("./pages/industries/Manufacturing"));
@@ -259,6 +260,7 @@ const App = () => (
               <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/ai-info" element={<AiInfo />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/data-deletion" element={<DataDeletion />} />
               <Route path="/terms" element={<Terms />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
