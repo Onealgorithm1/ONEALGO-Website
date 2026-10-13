@@ -10,8 +10,9 @@ import { siteConfig } from "../../shared/companyProfile";
  * WHY IT WAS REWRITTEN
  *
  * The previous text was generic and, in three places, simply not true of this
- * website. It claimed Cloudflare Web Analytics (there is no beacon anywhere in
- * this repo), a newsletter signup (no such form exists on this site), and
+ * website. It claimed Cloudflare Web Analytics (not in this repo, but Cloudflare
+ * injects its beacon at the edge on production, checked 2026-10-13, so the
+ * policy now says so), a newsletter signup (no such form exists on this site), and
  * surveys and feedback forms (there are none). It said nothing at all about
  * the things that DO happen: the contact form POSTs straight from the
  * visitor's browser to webto.salesforce.com, the contact page embeds a Google
@@ -65,6 +66,7 @@ const SECTIONS = [
   { id: "cookies", title: "Cookies and analytics" },
   { id: "embeds", title: "The map and the blog" },
   { id: "social", title: "Instagram and Facebook comments and messages we handle for clients" },
+  { id: "data-deletion", title: "How to request deletion of your data" },
   { id: "processors", title: "Who else sees your information" },
   { id: "notdo", title: "What this site does not do" },
   { id: "retention", title: "How long we keep it" },
@@ -253,7 +255,9 @@ export default function Privacy() {
             page that referred you. Cloudflare also uses this to tell automated
             traffic from real visitors and to absorb attacks, and it may set a
             cookie of its own for that purpose. We rely on our legitimate
-            interest in keeping the site up and secure.
+            interest in keeping the site up and secure. Cloudflare Web
+            Analytics also counts page views for us; it is cookieless and does
+            not track you across sites.
           </p>
           <p>
             We do not have a login, a shopping basket, or any feature that
@@ -413,17 +417,59 @@ export default function Privacy() {
             <strong className="text-oa-ink">How long we keep it.</strong> We
             keep comment and message records for up to 12 months, so we never
             reply twice and can show the business what was said, then delete
-            them. To have yours deleted sooner, follow the steps on our{" "}
-            <Link to="/data-deletion" className={LINK}>data deletion page</Link>{" "}
-            or email{" "}
-            <a href={`mailto:${contact.emailPrimary}`} className={LINK}>
-              {contact.emailPrimary}
-            </a>
-            .
+            them. To have yours deleted sooner, follow the steps in{" "}
+            <a href="#data-deletion" className={LINK}>How to request deletion of your data</a>.
           </p>
           {/* TKTK — DRAFT FIGURE. 12 months is a draft retention period pending
               Louis's confirmation, and nothing in the hub enforces it yet. Confirm
               the number and add the purge job before this goes to production. */}
+          <H2 id="data-deletion" />
+          <p>
+            If you commented on, or messaged, an Instagram or Facebook account
+            that One Algorithm manages for a business, you can have every record
+            we hold about you deleted. These are the user data deletion
+            instructions for our app, OA BPO Connector Hub.
+          </p>
+          <Card>
+            <p>
+              Email{" "}
+              <a href={`mailto:${contact.emailPrimary}?subject=${encodeURIComponent("Data deletion")}`} className={LINK}>
+                {contact.emailPrimary}
+              </a>{" "}
+              with the subject <strong className="text-oa-ink">"Data deletion"</strong> and include:
+            </p>
+            <ul className={`${LIST} mt-3`}>
+              <li>your Instagram username or Facebook name;</li>
+              <li>the business account you commented on or messaged.</li>
+            </ul>
+          </Card>
+          <p><strong className="text-oa-ink">What we delete.</strong></p>
+          <ul className={LIST}>
+            <li>your comments and the time they were posted;</li>
+            <li>your username or name and the account ID the platform gave our app;</li>
+            <li>our public replies and private replies to you, and any messages you sent;</li>
+            <li>any notes or classifications attached to those records.</li>
+          </ul>
+          <p>
+            <strong className="text-oa-ink">How long it takes.</strong> We
+            delete your records from our systems within 30 days of your request
+            and confirm by email when it is done.
+          </p>
+          <p>
+            <strong className="text-oa-ink">Removing our app through Facebook.</strong>{" "}
+            Go to Facebook <strong className="text-oa-ink">Settings &amp; Privacy</strong>{" "}
+            &gt; <strong className="text-oa-ink">Settings</strong> &gt;{" "}
+            <strong className="text-oa-ink">Apps and Websites</strong>, find
+            OA BPO Connector Hub and select <strong className="text-oa-ink">Remove</strong>.
+            To have the data we already hold deleted, email us as described above.
+          </p>
+          <p>
+            <strong className="text-oa-ink">What this does not delete.</strong>{" "}
+            Deleting your data from our systems does not remove comments you
+            posted publicly on Instagram or Facebook. Delete those in the app
+            itself. Meta's own handling of your data is covered by Meta's
+            privacy policy.
+          </p>
           <H2 id="processors" />
           <p>
             We do not sell or rent your information. These are the companies

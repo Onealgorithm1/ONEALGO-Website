@@ -488,7 +488,6 @@ const SECTION_LABEL: Record<string, string> = {
   "/capabilities": "Capabilities",
   "/contact": "Contact",
   "/privacy": "Privacy",
-  "/data-deletion": "Data Deletion",
   "/terms": "Terms",
   "/ai-info": "AI Information",
   /* The three Salesforce local pages, 2026-09-01. Short labels on purpose:
