@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone, MessageSquare, X, Loader2, CheckCircle, ArrowLeft } from "lucide-react";
+import { Phone, X, Loader2, CheckCircle } from "lucide-react";
 import { TURNSTILE_SITE_KEY, loadTurnstile } from "../lib/turnstile";
 import OneAlgorithmText from "./OneAlgorithmText";
 
@@ -13,24 +13,13 @@ import OneAlgorithmText from "./OneAlgorithmText";
    so there is nothing to call directly.
 
    ponytail: Turnstile loads only when the panel opens, so the 26 pages nobody
-   opens this on pay nothing for it.
-
-   "Message us" embeds Ooma's own Contact Us widget window (contact-widget.ooma.com)
-   inside this branded panel instead of loading Ooma's widget.js, which adds its
-   own unbrandable launcher. The visitor gives name + mobile + message; it lands
-   in Ooma Messages (610-890-9722) and the reply goes back by text. uuid comes
-   from Ooma admin > System > Contact Us Widget. customer_name MUST be set:
-   blank, Ooma's consent sentence reads "on behalf of ," (the 10-09 problem). */
+   opens this on pay nothing for it. */
 
 const MAIN_LINE = "+16108909711";
 const MAIN_LINE_SHOWN = "(610) 890-9711";
-const OOMA_WIDGET =
-  "https://contact-widget.ooma.com/contact_us_widget?uuid=1bdeab5e-9bbd-49e9-8ec9-a0abee7251db" +
-  "&contactus_url=https://contact-widget.ooma.com&customer_name=One%20Algorithm";
 
 export default function ContactLauncher() {
   const [open, setOpen] = useState(false);
-  const [messaging, setMessaging] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [when, setWhen] = useState("As soon as possible");
@@ -66,7 +55,6 @@ export default function ContactLauncher() {
       panelRef.current?.querySelector<HTMLElement>("a, input")?.focus();
       return;
     }
-    setMessaging(false);
     if (widgetId.current !== null) window.turnstile?.remove(widgetId.current);
     widgetId.current = null;
     setToken("");
@@ -135,23 +123,6 @@ export default function ContactLauncher() {
             </button>
           </div>
 
-          {messaging ? (
-            <div>
-              <button
-                type="button"
-                onClick={() => setMessaging(false)}
-                className="flex min-h-11 items-center gap-1 px-4 text-sm font-semibold text-[#04182b] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#04182b]"
-              >
-                <ArrowLeft className="h-4 w-4" aria-hidden /> Back
-              </button>
-              <iframe
-                title="Message One Algorithm"
-                src={`${OOMA_WIDGET}&client_url=${encodeURIComponent(location.href)}`}
-                className="block h-[min(560px,calc(100vh-11rem))] w-full border-0"
-                sandbox="allow-scripts allow-popups allow-same-origin allow-forms"
-              />
-            </div>
-          ) : (
           <div className="space-y-4 p-4">
             <a
               href={`tel:${MAIN_LINE}`}
@@ -164,21 +135,6 @@ export default function ContactLauncher() {
                 <span className="block text-sm font-normal">Malvern, PA</span>
               </span>
             </a>
-
-            <button
-              type="button"
-              onClick={() => {
-                window.trackContactClick?.("message");
-                setMessaging(true);
-              }}
-              className="flex w-full items-center gap-3 rounded-md border-2 border-[#04182b] px-4 py-3 text-left font-semibold text-[#04182b] hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04182b]"
-            >
-              <MessageSquare className="h-5 w-5" aria-hidden />
-              <span>
-                Message us
-                <span className="block text-sm font-normal">We reply by text</span>
-              </span>
-            </button>
 
             {status === "sent" ? (
               <p className="flex gap-2 text-[15px] text-[#04182b]" role="status">
@@ -225,7 +181,6 @@ export default function ContactLauncher() {
               </form>
             )}
           </div>
-          )}
         </div>
       )}
 
