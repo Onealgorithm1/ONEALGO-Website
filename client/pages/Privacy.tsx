@@ -273,35 +273,6 @@ export default function Privacy() {
             how long for, where you arrived from, your device and browser, and
             an approximate location that Google derives from your IP address.
           </p>
-          <p>
-            <strong className="text-oa-ink">
-              None of it runs until you agree.
-            </strong>{" "}
-            Nothing from Google loads on your first visit — you are asked first,
-            and if you decline, the script is never fetched and no cookie is
-            set. Withdrawing is as easy as giving it:
-          </p>
-          {/* Withdrawal has to be as easy as consent, so this is a real control
-              rather than a paragraph telling people to clear their cookies. It
-              forgets the stored choice and reloads, which brings the banner
-              back. oaSetConsent and the "oa-consent" key are defined in
-              index.html — keep the key in step if either changes. */}
-          <p>
-            <button
-              type="button"
-              className="rounded-md bg-oa-night px-4 py-2 font-semibold text-oa-nightInk"
-              onClick={() => {
-                try {
-                  localStorage.removeItem("oa-consent");
-                } catch (e) {
-                  /* private mode: nothing was stored to forget */
-                }
-                location.reload();
-              }}
-            >
-              Change my cookie choice
-            </button>
-          </p>
           <p>We also send Google three specific events:</p>
           <ul className={LIST}>
             <li>You submitted the contact form.</li>
@@ -316,9 +287,10 @@ export default function Privacy() {
             copies of this site are silent.
           </p>
           <p>
-            There is currently no cookie banner on this site, so these cookies
-            are set when the page loads. If you would rather they were not, you
-            can install the{" "}
+            There is no cookie banner on this site, so these cookies are set
+            when the page loads. If your browser sends Global Privacy Control,
+            we treat that as an opt-out and load none of it. Otherwise you can
+            install the{" "}
             <a
               href="https://tools.google.com/dlpage/gaoptout"
               target="_blank"
@@ -331,12 +303,8 @@ export default function Privacy() {
             your browser's tracking protection. Nothing on this site stops
             working if you do.
           </p>
-          {/* TKTK — LEGAL. EU/UK ePrivacy rules generally require consent BEFORE
-              analytics cookies are set, and this site has no consent banner.
-              Closing this is a decision, not a wording change: either add a
-              consent gate in index.html, or restrict GA4 so it does not run for
-              EU/UK visitors, or accept the risk knowingly. The paragraph above
-              states the fact without characterising it either way. */}
+          {/* Decided 2026-10-14 (Louis): no banner; EU/UK ePrivacy risk accepted
+              knowingly. GPC is honoured in index.html. */}
           {/* TKTK — BUSINESS FACT. Whether Google Signals / Google Ads linking is
               enabled on the GA4 property. If it is, analytics data can feed ad
               personalisation, which counts as "sharing" under the CPRA and would
@@ -498,7 +466,7 @@ export default function Privacy() {
             <li>
               <strong className="text-oa-ink">Microsoft</strong> — email and
               calls you send us directly, because our company email runs on
-              Microsoft 365; and, if you agreed to analytics, how you used the
+              Microsoft 365; and how you used the
               page, through Microsoft Clarity. Clarity passes what it collects
               to Microsoft's advertising network as well as to us.
             </li>
@@ -538,9 +506,8 @@ export default function Privacy() {
               There is no chat widget watching what you type, and no tool that
               records anything you enter into a form. We do use Microsoft
               Clarity, which replays how a page was used — where a visit
-              scrolled to, what got clicked — but only if you agreed to
-              analytics, and it masks the text of form fields. Decline, or send
-              Global Privacy Control, and it never loads.
+              scrolled to, what got clicked. It masks the text of form fields,
+              and if your browser sends Global Privacy Control it never loads.
             </li>
             <li>
               Our fonts are served from this domain, not from Google Fonts, so

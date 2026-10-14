@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone, X, Loader2, CheckCircle } from "lucide-react";
+import { Phone, MessageSquare, X, Loader2, CheckCircle } from "lucide-react";
 import { TURNSTILE_SITE_KEY, loadTurnstile } from "../lib/turnstile";
 import OneAlgorithmText from "./OneAlgorithmText";
 
@@ -13,11 +13,13 @@ import OneAlgorithmText from "./OneAlgorithmText";
    so there is nothing to call directly.
 
    ponytail: Turnstile loads only when the panel opens, so the 26 pages nobody
-   opens this on pay nothing for it. Upgrade path for "Text us": add an sms:
-   link to (610) 890-9722 once Ooma ticket 11834499 enables texting. */
+   opens this on pay nothing for it. "Text us" goes to Louis's ext 1002
+   number, the only one with Ooma texting (ticket 11834499, enabled 2026-10-12). */
 
 const MAIN_LINE = "+16108909711";
 const MAIN_LINE_SHOWN = "(610) 890-9711";
+const TEXT_LINE = "+16108909722";
+const TEXT_LINE_SHOWN = "(610) 890-9722";
 
 export default function ContactLauncher() {
   const [open, setOpen] = useState(false);
@@ -134,6 +136,18 @@ export default function ContactLauncher() {
               <span>
                 Call {MAIN_LINE_SHOWN}
                 <span className="block text-sm font-normal">Malvern, PA</span>
+              </span>
+            </a>
+
+            <a
+              href={`sms:${TEXT_LINE}`}
+              onClick={() => window.trackContactClick?.("sms")}
+              className="flex items-center gap-3 rounded-md border-2 border-[#04182b] px-4 py-3 font-semibold text-[#04182b] hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#04182b]"
+            >
+              <MessageSquare className="h-5 w-5" aria-hidden />
+              <span>
+                Text {TEXT_LINE_SHOWN}
+                <span className="block text-sm font-normal">We reply by text</span>
               </span>
             </a>
 
