@@ -420,9 +420,7 @@ export default function Privacy() {
             them. To have yours deleted sooner, follow the steps in{" "}
             <a href="#data-deletion" className={LINK}>How to request deletion of your data</a>.
           </p>
-          {/* TKTK — DRAFT FIGURE. 12 months is a draft retention period pending
-              Louis's confirmation, and nothing in the hub enforces it yet. Confirm
-              the number and add the purge job before this goes to production. */}
+          {/* 12-month retention confirmed by Louis 2026-10-13; enforced by the hub's daily social-retention job (lib/social-retention.js). */}
           <H2 id="data-deletion" />
           <p>
             If you commented on, or messaged, an Instagram or Facebook account
