@@ -119,4 +119,25 @@ export const WORK: WorkItem[] = [
     embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-10-01)
     marker: "Gorband",
   },
-];
+  {
+    slug: "starzi-bros",
+    name: "Starzi Brothers",
+    sector: "Excavation and concrete contractors",
+    note: "Moved off Squarespace: a page for each service and town, and a quote form that lands in the office inbox.",
+    url: "https://www.starzibros.com/",
+    shot: "2026-10-16",
+    embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-10-16)
+    marker: "Starzi",
+  },
+  {
+    slug: "atlas-amino-club",
+    name: "Atlas Peptides",
+    sector: "Research peptides",
+    note: "A shop with Stripe checkout and a lab certificate for every lot.",
+    url: "https://www.atlasaminoclub.com/",
+    shot: "2026-10-16",
+    // Sends X-Frame-Options: DENY and frame-ancestors 'none' (curl, 2026-10-16),
+    // so the screenshot is shown instead.
+    embed: false,
+    marker: "Atlas",
+  },];

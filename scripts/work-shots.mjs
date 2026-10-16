@@ -29,6 +29,8 @@ const SITES = [
   { slug: "inspect-this-home", url: "https://inspectthishomeinspections.com/" },
   { slug: "phantom-arcades", url: "https://phantomarcades.com/" },
   { slug: "gorband", url: "https://www.thegorband.com/" },
+  { slug: "starzi-bros", url: "https://www.starzibros.com/" },
+  { slug: "atlas-amino-club", url: "https://www.atlasaminoclub.com/", enter: ["I confirm", "No thanks"] }, // age gate, then the discount popup
 ];
 
 const browser = await puppeteer.launch({ headless: "new" });
@@ -43,6 +45,14 @@ for (const s of SITES.filter((x) => !only || x.slug === only)) {
     // networkidle2 times out on sites with a polling widget; the paint is done.
     console.log(`  ${s.slug}: load timed out, capturing anyway`);
   }
+  // A site behind a gate or popup: click each button whose text starts with one of `enter`.
+  const clickThrough = async () => {
+    for (const txt of s.enter ?? []) {
+      await page.evaluate((txt) => [...document.querySelectorAll("button, a")].find((b) => b.textContent.trim().startsWith(txt))?.click(), txt);
+      await new Promise((r) => setTimeout(r, 1500));
+    }
+  };
+  await clickThrough();
   // Let the first paint and any entrance animation settle.
   await new Promise((r) => setTimeout(r, 2500));
 
@@ -127,6 +137,7 @@ for (const s of SITES.filter((x) => !only || x.slug === only)) {
     await Promise.race([ready, new Promise((r) => setTimeout(r, 8000))]);
   });
   await new Promise((r) => setTimeout(r, 2500));
+  await clickThrough(); // popups that open on a timer or on the phone layout
   await page.evaluate(() => window.scrollTo(0, 0));
   const phone = join(OUT, `${s.slug}-phone.webp`);
   await page.screenshot({ path: phone, type: "webp", quality: 78, clip: { x: 0, y: 0, width: 390, height: 650 } });
