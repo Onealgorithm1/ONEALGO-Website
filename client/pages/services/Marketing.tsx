@@ -150,9 +150,17 @@ const BENEFITS = [
 
 export default function Marketing() {
   useSEO({
-    title: "Marketing & Social Media Management Services | OneAlgorithm",
+    /* Was "Marketing & Social Media Management Services | OneAlgorithm" — a bare
+       category label offering the searcher no reason to click. Measured
+       2026-09-08: 39 impressions at position 10.6 and ZERO clicks, so there is
+       no click-through here to protect. Google Business Profile is named because
+       it is both what we actually do first and a term people search; the old
+       title never mentioned it. 52 chars, brand last. */
+    title: "Social Media & Google Business Profile | OneAlgorithm",
+    // Was a feature list. Leads with the order of work instead, which is the one
+    // thing that distinguishes us from an agency selling post volume. 155 chars.
     description:
-      "Marketing services: social media management for Facebook and Instagram business accounts, campaign management, and performance reporting.",
+      "Google Business Profile first, then Facebook and Instagram — for a local business the profile is where buyers actually search. Reported on booked work.",
     canonical: getCanonicalUrl("/services/marketing"),
     keywords:
       "social media management, Facebook Page management, Instagram management, marketing services, campaign management, AI marketing, customer journey optimization, marketing analytics, digital marketing automation",

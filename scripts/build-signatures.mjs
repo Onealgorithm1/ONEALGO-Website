@@ -204,6 +204,80 @@ const TEAM = [
     mobile: "267.890.4684", // supplied by Louis, 2026-08-31
     book: null,
   },
+  {
+    slug: "rakkesh-perumal",
+    linkedin: null,
+    name: "Rakkesh Perumal",
+    // Title supplied by Louis 2026-09-24 (supersedes "Data Analyst" on the 2026-06-08 offer letter).
+    title: "Salesforce Team Lead, US Branch | Application Development",
+    photo: "rakkesh-circle.png",
+    // Supplied by Louis 2026-09-24, already circle-cropped on white, so the crop is the whole frame.
+    src: "brand:/Website Pics/Rakkesh Perumal.png",
+    crop: { left: 0, top: 0, width: 1254, height: 1254 },
+    email: "rakkesh@onealgorithm.com",
+    // Main line (ext 1000) until he has his own extension, same as Sahith.
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
+  {
+    slug: "anil-gunti",
+    linkedin: null,
+    // Name as he signs his own mail; title supplied by Louis 2026-10-06.
+    name: "Anil Kumar Gunti",
+    title: "Accounts Manager",
+    photo: "anil-circle.png",
+    // Supplied by Louis 2026-10-06 (1254x1254 headshot); box read off the frame.
+    src: "brand:/Website Pics/Anil Gunti.png",
+    crop: { left: 30, top: 0, width: 1190, height: 1190 }, // head and shoulders, matching the team framing
+    email: "anil@onealgorithm.com",
+    // Ooma ext 1004; the number on his own signature.
+    direct: "610.298.9068",
+    mobile: null,
+    book: null,
+  },
+  /* India Salesforce team. Headshots from Loukya 2026-10-07 (fwd by Sahith 10-08), full
+   * names from Sahith's "headshot names" mail; title + main line from Louis 2026-10-08. */
+  {
+    slug: "loukya-nemarugommula",
+    linkedin: null,
+    name: "Loukya Nemarugommula",
+    title: "Salesforce Developer",
+    photo: "loukya-circle.png",
+    src: "brand:/Website Pics/Loukya Nemarugommula (pro).png", // GPT-image pro version of her 10-07 photo
+    crop: { left: 112, top: 0, width: 800, height: 800 },
+    email: "loukya@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
+  {
+    slug: "nandini-talapalli",
+    linkedin: null,
+    name: "Nandini Talapalli",
+    title: "Salesforce Developer",
+    photo: "nandini-circle.png",
+    src: "brand:/Website Pics/Nandini Talapalli (pro).png", // GPT-image pro version of her 10-07 photo
+    crop: { left: 162, top: 60, width: 700, height: 700 },
+    email: "nandini@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
+  {
+    slug: "ramesh-shiva",
+    linkedin: null,
+    // "Ramesh M Shiva" per Sahith; NOT Ramesh Patel (Louis 2026-10-08).
+    name: "Ramesh M Shiva",
+    title: "Salesforce Developer",
+    photo: "ramesh-circle.png",
+    src: "brand:/Website Pics/Ramesh M Shiva (pro).png", // GPT-image pro version of his 10-07 photo
+    crop: { left: 152, top: 110, width: 720, height: 720 },
+    email: "ramesh@onealgorithm.com",
+    direct: "610.890.9711",
+    mobile: null,
+    book: null,
+  },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -520,6 +594,19 @@ async function buildAssets() {
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule-navy.png"));
   await sharp({ create: { width: 1160, height: 2, channels: 3, background: "#e3e9f0" } })
     .png({ compressionLevel: 9 }).toFile(join(dir, "rule-hair.png"));
+
+  /* Fit every mark into EXACTLY 2x its display box, padding with white rather than
+     stretching. Integer display sizes cannot match every source aspect ratio, and a
+     rounding gap of 1-2% (Salesforce 51x36 shown at 26x18) is a stretched logo. The
+     mark itself is only scaled, never altered, so WBENC's licence still holds. */
+  for (const m of [...MARKS, ...PARTNERS]) {
+    const f = join(dir, m.file);
+    if (!existsSync(f)) continue;
+    const buf = await sharp(f)
+      .resize(m.w * 2, m.h * 2, { fit: "contain", background: "#ffffff" })
+      .flatten({ background: "#ffffff" }).png({ compressionLevel: 9 }).toBuffer();
+    writeFileSync(f, buf);
+  }
   console.log(`assets rebuilt -> ${dir}`);
 }
 
