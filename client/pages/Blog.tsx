@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import { PageHero, Section, CTABand } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import { usePosts, isJob, longDate, type Post } from "../lib/blogger";
+import { loadTurnstile, TURNSTILE_SITE_KEY, submitBlogSubscription } from "../lib/lead";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
 
 /* /blog and /blog/:slug — articles written in Blogger (see lib/blogger.ts).
  * Job listings share the feed but live on /careers, never here.
@@ -98,6 +101,84 @@ function Index({ posts }: { posts: Post[] }) {
   );
 }
 
+function Subscribe({ post }: { post: Post }) {
+  const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
+  const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const host = useRef<HTMLDivElement>(null);
+  const widget = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (sent) return;
+    let cancelled = false;
+    loadTurnstile().then(() => {
+      if (cancelled || !host.current || !window.turnstile) return;
+      widget.current = window.turnstile.render(host.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (value: string) => setToken(value),
+        "expired-callback": () => setToken(""),
+        "error-callback": () => {
+          setToken("");
+          setError("The anti-spam check failed. Please reload and try again.");
+        },
+        theme: "light",
+      });
+    }).catch(() => {
+      if (!cancelled) setError("The anti-spam check could not load. Please reload and try again.");
+    });
+    return () => {
+      cancelled = true;
+      if (widget.current !== null) window.turnstile?.remove(widget.current);
+      widget.current = null;
+    };
+  }, [sent]);
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (sending) return;
+    setError("");
+    if (!token) {
+      setError("Please complete the anti-spam check, then subscribe again.");
+      return;
+    }
+    setSending(true);
+    try {
+      await submitBlogSubscription(email, post.slug, token);
+      setSent(true);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "We could not save your request. Please try again.");
+      setToken("");
+      if (widget.current !== null) window.turnstile?.reset(widget.current);
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <div className="mt-12 max-w-[68ch] border-t border-oa-hairlineStrong pt-8">
+      <h2 className="text-h3 font-semibold text-oa-ink">Get new posts by email</h2>
+      {sent ? <p role="status" className="mt-4 text-oa-ink2">Your subscription request has been received.</p> : (
+        <form onSubmit={submit} className="mt-4" aria-label="Blog subscription">
+          <label htmlFor="blog-email" className="text-sm font-medium text-oa-ink">Email address</label>
+          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+            <Input id="blog-email" name="email" type="email" autoComplete="email" required maxLength={80}
+              value={email} onChange={(event) => setEmail(event.target.value)}
+              className="min-h-11 min-w-0 flex-1" aria-describedby={error ? "blog-subscribe-error" : undefined} />
+            <Button type="submit" disabled={sending} className="min-h-11 bg-oa-blue text-white hover:bg-oa-blue600">
+              {sending ? "Sending…" : "Subscribe"}
+            </Button>
+          </div>
+          <div ref={host} className="mt-4 min-h-[65px]" />
+          {error && <p id="blog-subscribe-error" role="alert" className="mt-3 text-sm text-oa-ink2">{error}</p>}
+          <p className="mt-3 text-sm text-oa-ink2">By subscribing, you ask for new blog posts by email. <Link to="/privacy" className="text-oa-blue underline">Privacy policy</Link></p>
+        </form>
+      )}
+    </div>
+  );
+}
+
 function Article({ p, related }: { p: Post; related: Post[] }) {
   const url = getCanonicalUrl(`/blog/${p.slug}`);
   return (
@@ -134,6 +215,7 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
         </header>
         {/* Authored by our own Blogger account, not by visitors. */}
         <article className="oa-article mt-10" dangerouslySetInnerHTML={{ __html: p.html }} />
+        <Subscribe key={p.slug} post={p} />
       </Section>
       {related.length > 0 && (
         <Section tone="surface">

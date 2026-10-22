@@ -70,9 +70,14 @@ const TYPES = {
 };
 
 // Static server with SPA fallback so any route loads index.html.
-function serve() {
+function serve(feed) {
   return http.createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split("?")[0]);
+    if (urlPath === "/api/blog") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(feed);
+      return;
+    }
     let file = path.join(DIST, urlPath);
     if (fs.existsSync(file) && fs.statSync(file).isFile()) {
       res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] || "application/octet-stream" });
@@ -91,7 +96,22 @@ async function main() {
   if (!fs.existsSync(path.join(DIST, "index.html"))) {
     throw new Error("dist/spa/index.html not found — run `pnpm build` first.");
   }
-  const server = serve();
+  // Verification escape hatch: the sandbox has no network. Never read fixtures
+  // in the production Pages Function; normal builds still use the live feed.
+  const feed = process.env.BLOG_FEED_FIXTURE
+    ? fs.readFileSync(path.resolve(process.env.BLOG_FEED_FIXTURE), "utf8")
+    : await fetch(`${process.env.BLOGGER_URL || "https://onealgorithm-blog-test.blogspot.com"}/feeds/posts/default?alt=json&max-results=50`, {
+        signal: AbortSignal.timeout(15000),
+      }).then((response) => {
+        if (!response.ok) throw new Error(`Blogger feed returned ${response.status}`);
+        return response.text();
+      });
+  const parsedFeed = JSON.parse(feed);
+  if (!parsedFeed.feed || !Array.isArray(parsedFeed.feed.entry ?? [])) {
+    throw new Error("Blogger response is not a posts feed");
+  }
+  ROUTES.push("/blog", "/careers");
+  const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
 
@@ -113,6 +133,7 @@ async function main() {
      why each one still names its route. */
   const CONCURRENCY = Math.max(1, Number(process.env.PRERENDER_CONCURRENCY) || 5);
   const queue = [...ROUTES];
+  const contentRoutes = new Set(["/blog", "/careers"]);
 
   const worker = async () => {
     let route;
@@ -137,6 +158,24 @@ async function main() {
         waitUntil: "networkidle0",
         timeout: 30000,
       });
+      if (contentRoutes.has(route)) {
+        await page.waitForSelector(route === "/blog" || route === "/careers" ? "main h1" : "main article.oa-article", { timeout: 10000 });
+        // Discover URLs from the rendered indexes, so KEEP_URL in blogger.ts
+        // stays the single authority for migrated Ghost slugs.
+        if (route === "/blog" || route === "/careers") {
+          const links = await page.$$eval(`main a[href^="${route}/"]`, (anchors) =>
+            [...new Set(anchors.map((a) => a.getAttribute("href")))],
+          );
+          for (const link of links) {
+            if (!/^\/(blog|careers)\/[a-z0-9-]+$/.test(link)) throw new Error(`Unsafe content URL: ${link}`);
+            if (!contentRoutes.has(link)) {
+              contentRoutes.add(link);
+              ROUTES.push(link);
+              queue.push(link);
+            }
+          }
+        }
+      }
       await sleep(300); // let the useSEO setTimeout(0) apply title/meta
       // sanity: #root should have real content
       const rootLen = await page.evaluate(() => document.getElementById("root")?.innerHTML.length || 0);
@@ -301,8 +340,22 @@ Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
 
   await browser.close();
   server.close();
+  if (contentRoutes.size !== (parsedFeed.feed.entry ?? []).length + 2) {
+    throw new Error(`Discovered ${contentRoutes.size - 2} post/job URLs for ${(parsedFeed.feed.entry ?? []).length} feed entries`);
+  }
   console.log(`\nPrerendered ${ok}/${ROUTES.length} routes.` + (failed.length ? ` Failed: ${failed.join(", ")}` : ""));
   if (failed.length) process.exit(1);
+
+  // public/sitemap.xml is the existing hand-maintained sitemap. Extend its
+  // built copy using the same <url>/<loc> pattern, without freezing feed URLs.
+  const sitemapFile = path.join(DIST, "sitemap.xml");
+  let sitemap = fs.readFileSync(path.join(__dirname, "..", "public", "sitemap.xml"), "utf8");
+  const additions = [...contentRoutes].filter((route) => !sitemap.includes(`<loc>https://onealgorithm.com${route}</loc>`));
+  sitemap = sitemap.replace("</urlset>", additions.map((route) =>
+    `  <url>\n    <loc>https://onealgorithm.com${route}</loc>\n  </url>\n`,
+  ).join("") + "</urlset>");
+  fs.writeFileSync(sitemapFile, sitemap);
+  console.log(`Sitemap: added ${additions.length} blog/careers URLs.`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
