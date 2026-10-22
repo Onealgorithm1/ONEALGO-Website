@@ -118,7 +118,7 @@ function AuthorLine({ size = 28 }: { size?: number }) {
 function ListItem({ n, p }: { n: number; p: Post }) {
   return (
     <li className="border-t border-oa-hairline py-12 first:pt-0">
-      <div className="grid gap-6 md:grid-cols-[1fr_18rem] md:items-start md:gap-10">
+      <div className="grid gap-6 md:grid-cols-[1fr_22rem] md:items-start md:gap-10">
         <div>
           {p.labels[0] && <Eyebrow>{p.labels[0]}</Eyebrow>}
           <Link to={`/blog/${p.slug}`} className="group mt-2 block">
@@ -142,11 +142,13 @@ function ListItem({ n, p }: { n: number; p: Post }) {
         </div>
         {p.heroImage ? (
           <Link to={`/blog/${p.slug}`} tabIndex={-1} aria-hidden="true">
-            <img src={p.heroImage} alt="" width={320} height={213} loading="lazy" decoding="async"
-              className="aspect-[3/2] w-full rounded-[16px] object-cover" />
+            {/* The hero's own shape (1200x630 ≈ 1.91:1), never cropped. A 3:2 box
+                here was cutting ~22% off the width — the "+" of "+92%" went. */}
+            <img src={p.heroImage} alt="" width={1200} height={630} loading="lazy" decoding="async"
+              className="aspect-[1200/630] w-full rounded-[16px] bg-oa-night object-contain" />
           </Link>
         ) : (
-          <div aria-hidden="true" className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline bg-oa-surface" />
+          <div aria-hidden="true" className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline bg-oa-surface" />
         )}
       </div>
     </li>
