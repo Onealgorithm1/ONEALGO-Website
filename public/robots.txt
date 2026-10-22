@@ -17,13 +17,10 @@ Allow: /
 # Cloudflare-managed file currently omits it entirely and sets ai-train=no.
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
+# 2026-10-22: Ghost decommissioned. The blog is static pages built into this
+# site's own deploy now (scripts/prerender.mjs), and their URLs are written
+# straight into the sitemap below at build time — no second sitemap to declare.
 Sitemap: https://onealgorithm.com/sitemap.xml
-# The blog runs on Ghost at /blog and maintains its own sitemap. The line above
-# covers only the marketing site and contains no blog URLs, so without this the
-# blog is left to be discovered by following internal links rather than being
-# declared. Ghost keeps its sitemap current as posts are published, which is why
-# this points at Ghost's index instead of copying blog URLs into the static one.
-Sitemap: https://onealgorithm.com/blog/sitemap.xml
 
 # ── Retrieval and citation ───────────────────────────────────────────────────
 # These decide whether this company can be named when somebody asks an
