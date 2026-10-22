@@ -159,6 +159,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "1095 Avenue of the Americas, 17th Fl, New York, NY 10036",
+  "nearestOffice": null,
   "events": [
    {
     "name": "World Tour New York",
@@ -310,6 +311,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "1801 K St., Washington, DC 20006; also 8280 Greensboro Dr, McLean, VA 22102",
+  "nearestOffice": null,
   "events": []
  },
  {
@@ -470,6 +472,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "2300 N. Field Street, Dallas, TX 75201",
+  "nearestOffice": null,
   "events": [
    {
     "name": "Texas Dreamin' 2027 (Austin)",
@@ -638,6 +641,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "1225 17th St Suite 500, Denver, CO 80202",
+  "nearestOffice": null,
   "events": [
    {
     "name": "Mile High Dreamin' 2027",
@@ -798,6 +802,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "950 East Paces Ferry Road NE, Suite 3300, Atlanta, GA 30326",
+  "nearestOffice": null,
   "events": [
    {
     "name": "World Tour Essentials Atlanta",
@@ -960,6 +965,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "500 Boylston Street 19th Fl, Boston, MA 02116; also 5 Wall Street, Burlington, MA 01803",
+  "nearestOffice": null,
   "events": [
    {
     "name": "Northeast Dreamin' 2026 (Concord NH, regional)",
@@ -1100,6 +1106,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "744 N. 34th Street, Seattle, WA 98103; also 929 108th Ave NE, Bellevue, WA 98004",
+  "nearestOffice": null,
   "events": [
    {
     "name": "World Tour Essentials Seattle",
@@ -1256,13 +1263,8 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "50 Fremont St., San Francisco, CA 94105; also 181 Lytton and 502 Emerson St, Palo Alto; 2100 Seaport Blvd, Redwood City",
-  "events": [
-   {
-    "name": "Dreamforce 2026 (already held)",
-    "date": "2026-09-15/17",
-    "url": "https://www.salesforce.com/events/world-tour/"
-   }
-  ]
+  "nearestOffice": null,
+  "events": []
  },
  {
   "slug": "los-angeles",
@@ -1397,17 +1399,13 @@ export const SALESFORCE_CITIES = [
     "url": "https://trailblazercommunitygroups.com/salesforce-nonprofit-user-group-los-angeles-united-states/"
    }
   ],
-  "salesforceOffice": "200 Spectrum Center Drive, Suite 1500, Irvine, CA 92618 (nearest listed; no LA office)",
+  "salesforceOffice": null,
+  "nearestOffice": "200 Spectrum Center Drive, Suite 1500, Irvine, CA 92618",
   "events": [
    {
     "name": "World Tour Essentials Los Angeles",
     "date": "2026-12-01",
     "url": "https://www.salesforce.com/events/world-tour/"
-   },
-   {
-    "name": "SoCal Dreamin' 2026 (already held)",
-    "date": "2026",
-    "url": "https://www.roadmapsolutions.org/socal-dreamin/"
    }
   ]
  },
@@ -1557,6 +1555,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "600 Congress Avenue, Austin, TX 78701",
+  "nearestOffice": null,
   "events": [
    {
     "name": "Texas Dreamin' 2027 (Austin)",
@@ -1694,6 +1693,7 @@ export const SALESFORCE_CITIES = [
   },
   "groups": [],
   "salesforceOffice": null,
+  "nearestOffice": null,
   "events": [
    {
     "name": "Architect Dreamin' Americas 2027 (Orlando)",
@@ -1857,6 +1857,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": "333 W Wolf Point Plaza, Chicago, IL 60654",
+  "nearestOffice": null,
   "events": [
    {
     "name": "Midwest Dreamin' 2027 (St. Louis, regional)",
@@ -2015,6 +2016,7 @@ export const SALESFORCE_CITIES = [
    }
   ],
   "salesforceOffice": null,
+  "nearestOffice": null,
   "events": [
    {
     "name": "World Tour Essentials Philadelphia",

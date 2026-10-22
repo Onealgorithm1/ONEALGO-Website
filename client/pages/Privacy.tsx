@@ -274,32 +274,26 @@ export default function Privacy() {
             an approximate location that Google derives from your IP address.
           </p>
           <p>
-            <strong className="text-oa-ink">
-              None of it runs until you agree.
-            </strong>{" "}
-            Nothing from Google loads on your first visit — you are asked first,
-            and if you decline, the script is never fetched and no cookie is
-            set. Withdrawing is as easy as giving it:
+            Analytics loads when the page loads. If your browser sends a Global
+            Privacy Control signal, nothing from Google or Microsoft Clarity
+            loads at all. You can also turn analytics off on this site:
           </p>
-          {/* Withdrawal has to be as easy as consent, so this is a real control
-              rather than a paragraph telling people to clear their cookies. It
-              forgets the stored choice and reloads, which brings the banner
-              back. oaSetConsent and the "oa-consent" key are defined in
-              index.html — keep the key in step if either changes. */}
+          {/* Opt-out control. Sets the "oa-consent" key that index.html reads
+              (denied = load nothing). Keep the key in step if either changes. */}
           <p>
             <button
               type="button"
               className="rounded-md bg-oa-night px-4 py-2 font-semibold text-oa-nightInk"
               onClick={() => {
                 try {
-                  localStorage.removeItem("oa-consent");
+                  localStorage.setItem("oa-consent", "denied");
                 } catch (e) {
-                  /* private mode: nothing was stored to forget */
+                  /* private mode: nothing can be stored */
                 }
                 location.reload();
               }}
             >
-              Change my cookie choice
+              Turn off analytics on this site
             </button>
           </p>
           <p>We also send Google three specific events:</p>
@@ -316,9 +310,8 @@ export default function Privacy() {
             copies of this site are silent.
           </p>
           <p>
-            There is currently no cookie banner on this site, so these cookies
-            are set when the page loads. If you would rather they were not, you
-            can install the{" "}
+            There is no cookie banner on this site, so these cookies are set
+            when the page loads. Besides the button above, you can install the{" "}
             <a
               href="https://tools.google.com/dlpage/gaoptout"
               target="_blank"
@@ -498,8 +491,8 @@ export default function Privacy() {
             <li>
               <strong className="text-oa-ink">Microsoft</strong> — email and
               calls you send us directly, because our company email runs on
-              Microsoft 365; and, if you agreed to analytics, how you used the
-              page, through Microsoft Clarity. Clarity passes what it collects
+              Microsoft 365; and, unless you turned analytics off, how you used
+              the page, through Microsoft Clarity. Clarity passes what it collects
               to Microsoft's advertising network as well as to us.
             </li>
             <li>
@@ -538,9 +531,9 @@ export default function Privacy() {
               There is no chat widget watching what you type, and no tool that
               records anything you enter into a form. We do use Microsoft
               Clarity, which replays how a page was used — where a visit
-              scrolled to, what got clicked — but only if you agreed to
-              analytics, and it masks the text of form fields. Decline, or send
-              Global Privacy Control, and it never loads.
+              scrolled to, what got clicked — and it masks the text of form
+              fields. Turn analytics off above, or send Global Privacy Control,
+              and it never loads.
             </li>
             <li>
               Our fonts are served from this domain, not from Google Fonts, so

@@ -129,56 +129,11 @@
         try {
           choice = localStorage.getItem("oa-consent");
         } catch (e) {}
-        if (choice === "granted") return oaLoadAnalytics();
+        /* Louis 2026-10-22: no banner — analytics loads for every visitor; he accepts the
+           EU/UK ePrivacy risk knowingly. Kept: an explicit opt-out ("denied", set from
+           /privacy) and Global Privacy Control above, both of which cost nothing. */
         if (choice === "denied") return;
-        document.addEventListener("DOMContentLoaded", function () {
-          const b = document.createElement("div");
-          b.id = "oa-consent";
-          b.setAttribute("role", "dialog");
-          b.setAttribute("aria-label", "Cookies");
-          /* A stylesheet rather than inline styles, because the two shapes are
-             a media query and cssText cannot hold one. Phone: a compact card
-             above the thumb. Desktop: a full-width strip along the bottom,
-             text left and buttons right, so it never sits over the hero. */
-          const css = document.createElement("style");
-          css.textContent =
-            "#oa-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:9999;" +
-            "max-width:23rem;margin-inline:auto;background:#04182b;color:#dbe4ee;" +
-            "border:1px solid rgba(255,166,52,.35);border-radius:16px;padding:11px 13px;" +
-            "font:12px/1.45 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.35)}" +
-            "#oa-consent p{margin:0 0 9px}" +
-            "#oa-consent .oa-btns{display:flex;gap:8px}" +
-            "#oa-consent button{flex:1;cursor:pointer;border-radius:8px;padding:7px 12px;" +
-            "font:600 12px system-ui,sans-serif}" +
-            "#oa-yes{border:0;background:#ffa634;color:#0d1b2a}" +
-            "#oa-no{border:1px solid #9fb3c8;background:transparent;color:#dbe4ee}" +
-            "#oa-consent a{color:#ffa634;text-decoration:underline;" +
-            "text-underline-offset:2px}" +
-            "@media(min-width:768px){" +
-            "#oa-consent{left:0;right:0;bottom:0;max-width:none;margin:0;border-radius:0;" +
-            "border-left:0;border-right:0;border-bottom:0;padding:10px 24px;" +
-            "display:flex;align-items:center;justify-content:center;gap:20px}" +
-            "#oa-consent p{margin:0;max-width:70ch}" +
-            "#oa-consent .oa-btns{flex:none}" +
-            "#oa-consent button{flex:none;min-width:104px}}";
-          document.head.appendChild(css);
-
-          b.innerHTML =
-            "<p>We use Google Analytics to see which pages bring in work. " +
-            "Nothing is set unless you agree, and we never sell or rent your information. " +
-            '<a href="/privacy">Privacy</a></p>' +
-            '<div class="oa-btns">' +
-            '<button type="button" id="oa-yes">Accept</button>' +
-            '<button type="button" id="oa-no">Decline</button>' +
-            "</div>";
-          document.body.appendChild(b);
-          document
-            .getElementById("oa-yes")
-            .addEventListener("click", () => window.oaSetConsent(true));
-          document
-            .getElementById("oa-no")
-            .addEventListener("click", () => window.oaSetConsent(false));
-        });
+        oaLoadAnalytics();
       })();
 
       // The contact form calls window.trackFormSubmission() on success, guarded

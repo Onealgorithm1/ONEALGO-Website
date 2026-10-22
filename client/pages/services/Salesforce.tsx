@@ -1,4 +1,5 @@
 import React from "react";
+import { SALESFORCE_CITIES } from "../../data/salesforceCities";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
@@ -813,6 +814,19 @@ export default function Salesforce() {
             <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
               <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
               <p className="mt-2 text-sm leading-relaxed text-oa-ink3">{l.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* 2026-10-22: the wave-2 city pages hang off this hub (moved out of the site footer after the
+          blind review). Each link goes to a page with its own sourced data, not a name-swapped body. */}
+      <Section tone="paper" bordered compact>
+        <SectionHeading eyebrow="By city" title="Salesforce consulting in other cities" lede="Each page carries that city's own business, hiring and Salesforce community data." />
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+          {SALESFORCE_CITIES.filter((c) => c.slug !== "philadelphia").map((c) => (
+            <li key={c.slug}>
+              <Link to={c.path} className="inline-flex min-h-11 items-center text-sm font-medium text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{c.name}</Link>
             </li>
           ))}
         </ul>

@@ -52,7 +52,10 @@ export function CityNarrative({ slug }: { slug: string }) {
   const bigChange = pct(c.size500plus?.value, c.size500plus2018?.value);
   const popChange = pct(c.population?.value, c.population2019?.value);
   const top = c.industries[0];
-  const fedState = c.federalState;
+  // State-level federal line appears on ONE city page per state (the largest without a city figure),
+  // so Dallas/Austin and San Francisco/Los Angeles do not share an identical paragraph.
+  const owner = SALESFORCE_CITIES.filter((x) => x.state === c.state && !x.federal).sort((a, b) => (b.establishments?.value ?? 0) - (a.establishments?.value ?? 0))[0];
+  const fedState = !c.federal && owner?.slug === c.slug ? c.federalState : null;
   return (
     <Section tone="surface" bordered>
       <SectionHeading eyebrow="What the numbers say" title={`Reading the ${c.name} data`} />
@@ -217,7 +220,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         <SectionHeading eyebrow="What we deliver" title="Salesforce work we have done for clients" lede="We describe work by what it was, not who it was for: we name no client without written consent." />
         <ul className="mt-10 grid gap-x-10 gap-y-4 md:grid-cols-2">
           <li className="text-oa-ink2"><strong className="text-oa-ink">Data migration</strong> — QuickBase and Kissflow systems moved into Salesforce.</li>
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Integration</strong> — an SAP-to-Salesforce sync for an enterprise client.</li>
+          <li className="text-oa-ink2"><strong className="text-oa-ink">Integration</strong> — an SAP-to-Salesforce sync for a client.</li>
           <li className="text-oa-ink2"><strong className="text-oa-ink">Marketing Cloud</strong> — about 18 months of ongoing Marketing Cloud support.</li>
           <li className="text-oa-ink2"><strong className="text-oa-ink">Managed services</strong> — weekly Salesforce development and administration for a lending company since May 2026.</li>
         </ul>
@@ -242,7 +245,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
           ) : (
             <p>We found no Trailblazer Community Group listed for {c.name} on <a href={c.sources.trailblazer} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">trailblazercommunitygroups.com</a>.</p>
           )}
-          <p>{c.salesforceOffice ? <>Salesforce lists an office at {c.salesforceOffice}.</> : <>Salesforce lists no office in {c.name}.</>}</p>
+          <p>{c.salesforceOffice ? <>Salesforce lists an office at {c.salesforceOffice}.</> : <>Salesforce lists no office in {c.name}{c.nearestOffice ? <>; the nearest is at {c.nearestOffice}</> : null}.</>}</p>
           {c.events.length > 0 && <p>Upcoming community events in the region: {c.events.map((e) => `${e.name} (${e.date})`).join("; ")}.</p>}
         </div>
       </Section>
