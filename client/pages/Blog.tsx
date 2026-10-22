@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { PageHero, Section, CTABand, Eyebrow, HeroRail } from "../components/site";
+import { PageHero, Section, CTABand, Eyebrow, HeroRail, PrimaryCTA } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import { usePosts, isJob, longDate, shareImage, metaDescription, type Post } from "../lib/blogger";
@@ -424,6 +424,60 @@ const SERVICE_FOR_LABEL: Record<string, [string, string]> = {
   Salesforce: ["/services/salesforce", "Salesforce consulting"],
 };
 
+// The offer under each topic: a specific next step, not "contact us". Every
+// line is something we actually do today (a free look at a site, a
+// Salesforce call); nothing is promised that the service page does not back.
+const OFFER_FOR_LABEL: Record<string, { ask: string; button: string; to: string }> = {
+  SEO: { ask: "Want to know what your own search numbers look like, and what would move them? Send us the address.", button: "Get a free search review", to: "/contact?from=blog-seo" },
+  Websites: { ask: "If your site is not bringing you work, we will look at it and tell you plainly what is wrong.", button: "Get a free site review", to: "/contact?from=blog-websites" },
+  Salesforce: { ask: "Bring us the Salesforce problem that is slowing your team down. We will tell you what it would take to fix.", button: "Talk to a Salesforce consultant", to: "/contact?from=blog-salesforce" },
+};
+
+// One CTA, two placements, and a GA4 event per click that carries the
+// placement, so OUR data decides where it earns its keep. The published
+// studies on CTA placement are vendor numbers with no primary source. What
+// we do have is GA4 scroll data on this blog: only 13-25% of readers reach
+// the bottom of a post, so a bottom-only CTA never meets most of them. Hence
+// one after the first section (mid) and one at the end; compare cta_click
+// by placement after 30 days and drop the loser.
+function PostCTA({ p, placement }: { p: Post; placement: "mid" | "end" }) {
+  const label = p.labels.find((l) => OFFER_FOR_LABEL[l]);
+  const offer = label ? OFFER_FOR_LABEL[label] : { ask: "Tell us what you are trying to fix. We will tell you what it would take to put it right.", button: "Talk to an expert", to: "/contact?from=blog" };
+  const track = () => {
+    const g = (window as any).gtag;
+    if (typeof g === "function") g("event", "cta_click", { placement, post: p.slug, topic: label ?? "general", page_location: location.href });
+  };
+  return (
+    <aside aria-label="Next step" onClick={track}
+      className={`rounded-[16px] bg-oa-night px-6 py-6 sm:flex sm:items-center sm:justify-between sm:gap-6 ${placement === "mid" ? "my-8" : "mt-10"}`}>
+      {/* A solid navy block, not a thin accent line — borrowed from Blogger's
+          own "Notable" theme (checked live, 2026-10-22), which states each
+          post as a confident full-color block rather than a bordered box.
+          Reusing CTABand's own night/orange pairing, not a new colour. */}
+      <p className="text-oa-nightInk2">{offer.ask}</p>
+      {/* !no-underline: this button sits inside .oa-article, whose own
+          `a { underline }` rule (for in-body prose links) would otherwise
+          bleed onto it — confirmed in a screenshot, not assumed. */}
+      <PrimaryCTA to={offer.to} className="mt-4 shrink-0 !no-underline sm:mt-0">{offer.button}</PrimaryCTA>
+    </aside>
+  );
+}
+
+function FoldedSection({ sec }: { sec: Post["sections"][number] }) {
+  return (
+    <details id={sec.id} className="group/sec border-t border-oa-hairline pt-5 [&+details]:mt-5">
+      <summary className="flex min-h-11 cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
+        <h2 className="!mt-0">{sec.title}</h2>
+        <span className="flex shrink-0 items-center gap-1 text-sm font-medium text-oa-blue">
+          <span className="group-open/sec:hidden">Go deeper</span><span className="hidden group-open/sec:inline">Collapse</span>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-open/sec:rotate-180 motion-reduce:transition-none"><path d="M6 9l6 6 6-6" /></svg>
+        </span>
+      </summary>
+      <div className="pt-2" dangerouslySetInnerHTML={{ __html: sec.html }} />
+    </details>
+  );
+}
+
 function Article({ p, related, older, newer }: { p: Post; related: Post[]; older?: Post; newer?: Post }) {
   const url = getCanonicalUrl(`/blog/${p.slug}`);
   const hasToc = p.toc.length >= 3;
@@ -512,26 +566,17 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
               {p.sections.map((sec, i) => sec.id === "" ? (
                 <div key={i} dangerouslySetInnerHTML={{ __html: sec.html }} />
               ) : (
-                <details key={sec.id} id={sec.id} className="group/sec border-t border-oa-hairline pt-5 [&+details]:mt-5">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
-                    <h2 className="!mt-0">{sec.title}</h2>
-                    <span className="flex shrink-0 items-center gap-1 text-sm font-medium text-oa-blue">
-                      <span className="group-open/sec:hidden">Go deeper</span><span className="hidden group-open/sec:inline">Collapse</span>
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-open/sec:rotate-180 motion-reduce:transition-none"><path d="M6 9l6 6 6-6" /></svg>
-                    </span>
-                  </summary>
-                  <div className="pt-2" dangerouslySetInnerHTML={{ __html: sec.html }} />
-                </details>
+                <React.Fragment key={sec.id}>
+                  {i === 2 && <PostCTA p={p} placement="mid" />}
+                  <FoldedSection sec={sec} />
+                </React.Fragment>
               ))}
             </article>
+            <PostCTA p={p} placement="end" />
             {service && (
-              <aside className="mt-10 border border-oa-hairlineStrong bg-oa-surface p-5">
-                <p className={META}>Related service</p>
-                <p className="mt-2 text-oa-ink2">
-                  This is the kind of work we do under{" "}
-                  <Link to={service[0]} className="font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700">{service[1]} →</Link>
-                </p>
-              </aside>
+              <p className={`${META} mt-4`}>
+                Related service: <Link to={service[0]} className="tap normal-case tracking-normal text-oa-blue underline underline-offset-4 hover:text-oa-blue700">{service[1]}</Link>
+              </p>
             )}
             <div className="mt-10 border-t border-oa-hairline pt-6"><ShareBar p={p} /></div>
             {(older || newer) && (
