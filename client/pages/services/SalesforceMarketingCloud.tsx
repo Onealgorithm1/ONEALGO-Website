@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { PartnerBadge } from "./SalesforceCity";
 import SocialShare from "../../components/SocialShare";
 import { Mail, Link2, ShieldCheck, Wrench } from "lucide-react";
 import {
@@ -109,11 +110,12 @@ export default function SalesforceMarketingCloud() {
     ogDescription:
       "Support for a running Marketing Cloud account: sends, journeys, the Salesforce connection and the consent rules around them.",
     ogUrl: getCanonicalUrl("/services/salesforce-marketing-cloud-consulting"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/media/salesforce/og-salesforce-marketing-cloud-consulting.jpg",
+    ogImageSize: [1200, 630],
     twitterTitle: "Salesforce Marketing Cloud Consulting — OneAlgorithm",
     twitterDescription:
       "Marketing Cloud support and CRM connection work from a listed Salesforce Consulting Partner. Free one-week review.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    twitterImage: "https://onealgorithm.com/media/salesforce/og-salesforce-marketing-cloud-consulting.jpg",
   });
 
   return (
@@ -151,6 +153,10 @@ export default function SalesforceMarketingCloud() {
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
+
+      <Section tone="paper" compact>
+        <PartnerBadge />
+      </Section>
 
       <Section tone="surface" bordered>
         <SectionHeading

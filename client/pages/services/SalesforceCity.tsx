@@ -35,6 +35,7 @@ const SERVICES = [
   ["/services/salesforce-integration", "Salesforce integration (SAP and ERP)"],
   ["/services/salesforce-managed-services", "Salesforce managed services"],
   ["/services/salesforce-marketing-cloud-consulting", "Marketing Cloud consulting"],
+  ["/services/staff-augmentation", "Salesforce staff augmentation"],
   ["/services/salesforce-implementation-cost", "Salesforce implementation cost guide"],
 ] as const;
 
@@ -48,6 +49,25 @@ const groupPlace = (url: string, city: string) => {
 };
 const ord = (k: number) => k + (["th", "st", "nd", "rd"][((k % 100) - 20) % 10] || ["th", "st", "nd", "rd"][k % 100] || "th");
 const pct = (a?: number | null, b?: number | null) => (a && b ? Math.round(((a - b) / b) * 1000) / 10 : null);
+
+/** A generated chart (scripts/salesforce-images.mjs). Height follows the generator's layout: 92 + rows*56 + 64. */
+function Chart({ src, alt, rows }: { src: string; alt: string; rows: number }) {
+  return (
+    <figure className="mt-10 max-w-3xl">
+      <img src={src} alt={alt} title={alt} width={800} height={92 + rows * 56 + 64} loading="lazy" decoding="async" className="h-auto w-full border border-oa-hairline" />
+    </figure>
+  );
+}
+
+/** The genuine Salesforce Partner badge (public/salesforce-partner-badge.png, 360x206). */
+export function PartnerBadge() {
+  return (
+    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-11 items-center gap-4 text-sm text-oa-ink2 underline-offset-4 hover:underline">
+      <img src="/salesforce-partner-badge.png" alt="Salesforce Partner badge" width={120} height={69} loading="lazy" decoding="async" />
+      <span>OneAlgorithm on Salesforce AppExchange</span>
+    </a>
+  );
+}
 
 /** Sentences written from this city's numbers only, so no two cities share them. */
 export function CityNarrative({ slug }: { slug: string }) {
@@ -80,6 +100,7 @@ export function CityNarrative({ slug }: { slug: string }) {
           </p>
         )}
       </div>
+      <Chart src={`/media/salesforce/salesforce-jobs-${c.slug}.svg`} rows={c.jobs.length} alt={`Bar chart of open Salesforce roles within 25 miles of ${c.name} on ${c.jobsPulled}: ${c.jobs.map((j) => `${j.role.replace("Salesforce ", "")} ${n(j.count)}`).join(", ")}. Source: LinkedIn public job search.`} />
     </Section>
   );
 }
@@ -90,10 +111,10 @@ export function CityNarrative({ slug }: { slug: string }) {
    ONE sentence so no two city pages share it. */
 const INDUSTRY_FIT: Record<string, string> = {
   "62": "Salesforce work there usually turns on access — who can see which records — enforced with permission sets and sharing rules rather than a pile of profiles",
-  "52": "that is where we currently run weekly Salesforce development for a lending company, covering automation, permissions, bulk data jobs and do-not-call scrubbing",
+  "52": "that is where we currently run ongoing Salesforce development for a lending company",
   "54": "firms like these tend to use Salesforce to track clients, projects and proposals, and need reporting that agrees across all three",
   "31-33": "manufacturers usually need Salesforce to agree with an ERP on accounts, orders and pricing, and we have built an SAP-to-Salesforce sync",
-  "42": "distribution runs on volume, so bulk data loads and de-duplication matter, and we run lead backfills and record moves in the thousands as routine work",
+  "42": "distribution runs on volume, so bulk data loads and de-duplication matter, and we run bulk data jobs as routine work",
   "813": "associations and nonprofits often move member and donor data off older databases, and we have migrated QuickBase and Kissflow systems into Salesforce",
   "51": "these businesses usually need Salesforce connected to billing and product systems, which is integration work we deliver",
   "53": "firms here typically use Salesforce to keep properties, contacts and deals in one place",
@@ -115,6 +136,7 @@ export function CityIndustries({ slug }: { slug: string }) {
           </li>
         ))}
       </ul>
+      <Chart src={`/media/salesforce/${c.slug}-largest-industries.svg`} rows={c.industries.length} alt={`Bar chart of the largest employer groups in the ${c.name} metro by employees: ${c.industries.map((x) => `${x.label} ${n(x.employees)}`).join(", ")}. Source: US Census Bureau, County Business Patterns 2023.`} />
     </Section>
   );
 }
@@ -186,7 +208,9 @@ export default function SalesforceCity({ slug }: { slug: string }) {
     ogTitle: `Salesforce Consultant ${where} — OneAlgorithm`,
     ogDescription: `Salesforce consulting for ${c.name} companies from a listed AppExchange Consulting Partner in Malvern, PA.`,
     ogUrl: getCanonicalUrl(path),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: `https://onealgorithm.com/media/salesforce/og-${slug}.jpg`,
+    ogImageSize: [1200, 630],
+    twitterImage: `https://onealgorithm.com/media/salesforce/og-${slug}.jpg`,
   });
 
   return (
@@ -198,7 +222,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       <PageHero
         eyebrow={c.name}
         title={<>Salesforce consultant for <span className="text-oa-orange">{where}</span> companies</>}
-        lede={`We are a listed AppExchange Consulting Partner based in Malvern, Pennsylvania. We deliver Salesforce work for ${c.name} companies remotely — migrations, integrations, ongoing administration and Marketing Cloud — and come in person when a meeting needs it.`}
+        lede={`We are a listed AppExchange Consulting Partner based in Malvern, Pennsylvania. We deliver Salesforce work for ${c.name} companies remotely — migrations, integrations, ongoing administration, Marketing Cloud and staff augmentation — and come in person when a meeting needs it.`}
         panel={{
           title: "At a glance",
           items: [
@@ -229,6 +253,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         {/* The proof list lives once, on /services/salesforce and each service page — not repeated
             on 12 city pages (dedupe pass 2026-10-22). */}
         <SectionHeading eyebrow="What we deliver" title="Our Salesforce services" />
+        <PartnerBadge />
         <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           {SERVICES.map(([to, label]) => (
             <li key={to}><Link to={to} className="inline-flex min-h-11 items-center font-medium text-oa-ink underline decoration-oa-orange underline-offset-4">{label}</Link></li>

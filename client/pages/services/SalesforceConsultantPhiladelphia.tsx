@@ -20,7 +20,7 @@ import {
   createLocalBusinessSchema,
   createFAQSchema,
 } from "../../components/StructuredData";
-import { CityFacts, CityNarrative, CityIndustries } from "./SalesforceCity";
+import { CityFacts, CityNarrative, CityIndustries, PartnerBadge } from "./SalesforceCity";
 
 /* Salesforce consulting — Philadelphia. Added 2026-09-01. First of three
  * Salesforce local pages (Philadelphia / Chester County / Pennsylvania).
@@ -126,11 +126,12 @@ export default function SalesforceConsultantPhiladelphia() {
     ogDescription:
       "Salesforce consulting for Philadelphia companies, from an office 25 miles west in Malvern. Sales and Service Cloud, Flow automation, integrations, and a free one-week org review.",
     ogUrl: getCanonicalUrl("/services/salesforce-consultant-philadelphia"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/media/salesforce/og-philadelphia.jpg",
+    ogImageSize: [1200, 630],
     twitterTitle: "Salesforce Consultant Philadelphia — OneAlgorithm",
     twitterDescription:
       "Salesforce consulting for Philadelphia companies from a listed AppExchange Consulting Partner in Malvern. Free one-week org review.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    twitterImage: "https://onealgorithm.com/media/salesforce/og-philadelphia.jpg",
   });
 
   return (
@@ -174,6 +175,10 @@ export default function SalesforceConsultantPhiladelphia() {
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
+
+      <Section tone="paper" compact>
+        <PartnerBadge />
+      </Section>
 
       {/* 2026-10-22: sourced local data (Census, BLS, LinkedIn, USAspending). Same table as the
           wave-2 city pages; numbers are generated, not typed. */}

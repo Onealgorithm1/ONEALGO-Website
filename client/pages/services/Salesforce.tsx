@@ -810,6 +810,7 @@ export default function Salesforce() {
             { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
             { to: "/services/salesforce-managed-services", label: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
             { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
+            { to: "/services/staff-augmentation", label: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
           ].map((l) => (
             <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
               <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>

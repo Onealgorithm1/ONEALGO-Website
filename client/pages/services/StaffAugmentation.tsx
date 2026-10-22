@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
 import {
+  Cloud,
   Users,
   Clock,
   Target,
@@ -52,6 +53,12 @@ import {
  */
 
 const SKILLS = [
+  /* Louis 2026-10-22: "We have Salesforce staff augmentation" — added, no client specifics. */
+  {
+    icon: Cloud,
+    name: "Salesforce",
+    description: "Admins, Developers, Consultants, Architects",
+  },
   {
     icon: Code,
     name: "Full-Stack Development",

@@ -14,6 +14,8 @@ interface SEOConfig {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  /** Real pixel size of ogImage; defaults to the site card (1200x500 in index.html). */
+  ogImageSize?: [number, number];
   ogUrl?: string;
   twitterTitle?: string;
   twitterDescription?: string;
@@ -48,6 +50,7 @@ export function useSEO(config: SEOConfig) {
     config.ogTitle,
     config.ogDescription,
     config.ogImage,
+    config.ogImageSize?.join("x"),
     config.ogUrl,
     config.twitterTitle,
     config.twitterDescription,
@@ -65,6 +68,7 @@ function applySEO({
   ogTitle,
   ogDescription,
   ogImage,
+  ogImageSize,
   ogUrl,
   twitterTitle,
   twitterDescription,
@@ -178,6 +182,12 @@ function applySEO({
       document.head.appendChild(ogImageMeta);
     }
     ogImageMeta.setAttribute("content", ogImage);
+    const [w, h] = ogImageSize ?? [1200, 500];
+    for (const [prop, val] of [["og:image:width", w], ["og:image:height", h]] as const) {
+      let m = document.querySelector(`meta[property="${prop}"]`);
+      if (!m) { m = document.createElement("meta"); m.setAttribute("property", prop); document.head.appendChild(m); }
+      m.setAttribute("content", String(val));
+    }
   }
 
   if (ogUrl) {

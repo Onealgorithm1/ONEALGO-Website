@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { PartnerBadge } from "./SalesforceCity";
 import SocialShare from "../../components/SocialShare";
 import { Database, FileSearch, ShieldCheck, Repeat } from "lucide-react";
 import {
@@ -32,8 +33,8 @@ import {
  *   - salesforce-delivery-evidence-2026-09-01.md — invoiced, paid work
  *     packages "QuickBase Migration" and "Kissflow Migration to SFDC".
  *   - deepak-fundmate-automation-2026-09-22.md — ongoing weekly Salesforce
- *     work for "a lending company" since April 2026: 14.6k-lead backfill,
- *     9,665 records moved, TCPA do-not-call scrub, 100k email pulls.
+ *     work for "a lending company" since April 2026 (Louis 2026-10-22: no specific
+ *     job details or figures on the site).
  *     ⛔ Never name the lender.
  * ⛔ No timelines, prices, record-count promises or success rates. Cost
  * questions go to /services/salesforce-implementation-cost.
@@ -58,7 +59,7 @@ const PROBLEMS = [
   {
     icon: ShieldCheck,
     title: "Data that carries a legal duty",
-    body: "Consent and do-not-call flags have to arrive intact. We have run a TCPA do-not-call scrub as part of lead data work for a lender, and we treat suppression fields as the first thing to test, not the last.",
+    body: "Consent and do-not-call flags have to arrive intact. We treat suppression fields as the first thing to test, not the last.",
   },
 ];
 
@@ -129,11 +130,12 @@ export default function SalesforceDataMigration() {
     ogDescription:
       "Moving records into Salesforce from no-code tools, other CRMs or another org, with sandbox trial loads and reconciled counts.",
     ogUrl: getCanonicalUrl("/services/salesforce-data-migration"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/media/salesforce/og-salesforce-data-migration.jpg",
+    ogImageSize: [1200, 630],
     twitterTitle: "Salesforce Data Migration — OneAlgorithm",
     twitterDescription:
       "Salesforce data migration from QuickBase, Kissflow, other CRMs or another org, by a listed Consulting Partner.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    twitterImage: "https://onealgorithm.com/media/salesforce/og-salesforce-data-migration.jpg",
   });
 
   return (
@@ -172,6 +174,10 @@ export default function SalesforceDataMigration() {
         siblings={false}
       />
 
+      <Section tone="paper" compact>
+        <PartnerBadge />
+      </Section>
+
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="Where the data is coming from"
@@ -207,10 +213,8 @@ export default function SalesforceDataMigration() {
             tables were live and which were history.
           </p>
           <p>
-            Inside live orgs we run the bulk jobs that keep data useful: a
-            14,600-lead backfill, a move of 9,665 records between objects, a
-            do-not-call scrub across a lead base, and email pulls of up to
-            100,000 records, all for a lending company we support every week. These
+            Inside live orgs we also run the bulk data jobs that keep data useful,
+            as part of the ongoing work we do for a lending company. These
             are the jobs where a trigger or flow firing on every record can do
             real damage, so automation is reviewed before the load, not after.
           </p>

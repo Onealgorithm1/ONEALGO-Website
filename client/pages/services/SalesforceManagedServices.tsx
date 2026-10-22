@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { PartnerBadge } from "./SalesforceCity";
 import SocialShare from "../../components/SocialShare";
 import { UserCog, Workflow, Database, KeyRound } from "lucide-react";
 import {
@@ -82,7 +83,7 @@ const FAQS = [
   },
   {
     q: "What does a Salesforce managed services team actually do each week?",
-    a: "In our own ongoing work for a lending company, a normal week mixes small and large: setting up new reps and resetting MFA, granting field access, building or fixing flows and triggers, moving settings into custom metadata, and running bulk data jobs such as lead backfills and do-not-call scrubs. The mix changes every week, which is the point of having people who already know the org.",
+    a: "A normal week mixes small and large: user setup and access, automation that needs building or fixing, configuration changes and data jobs. The mix changes every week, which is the point of having people who already know the org.",
   },
   {
     q: "What services does Salesforce provide?",
@@ -111,11 +112,12 @@ export default function SalesforceManagedServices() {
     ogDescription:
       "People who already know your org: user admin, flows and triggers, data jobs and tidy configuration, week after week.",
     ogUrl: getCanonicalUrl("/services/salesforce-managed-services"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/media/salesforce/og-salesforce-managed-services.jpg",
+    ogImageSize: [1200, 630],
     twitterTitle: "Salesforce Managed Services — OneAlgorithm",
     twitterDescription:
       "Ongoing Salesforce admin, development and data jobs from a listed Consulting Partner. Free one-week org review.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    twitterImage: "https://onealgorithm.com/media/salesforce/og-salesforce-managed-services.jpg",
   });
 
   return (
@@ -154,6 +156,10 @@ export default function SalesforceManagedServices() {
         siblings={false}
       />
 
+      <Section tone="paper" compact>
+        <PartnerBadge />
+      </Section>
+
       <Section tone="surface" bordered>
         <SectionHeading
           eyebrow="What is covered"
@@ -179,11 +185,7 @@ export default function SalesforceManagedServices() {
         <Prose className="mt-8">
           <p>
             Since April 2026 we have done weekly Salesforce development for a
-            lending company. Their org changes constantly: reps join and need
-            access the same day, lead rules change, and data has to move in
-            bulk without breaking the automation around it. Our work there
-            covers flows and triggers, permissions, custom metadata, bulk data
-            jobs and user admin, every week.
+            lending company.
           </p>
           <p>
             Before that, we provided Marketing Cloud support to another client

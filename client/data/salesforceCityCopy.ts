@@ -18,7 +18,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     angle: [
       "Of the 20 metro areas we checked, New York had the most open Salesforce roles and the largest base of companies with 500 or more employees. When that many firms are hiring for the same skill at once, the people who know how a particular org was built tend to leave mid-project.",
       "That is the gap we usually fill: a fixed piece of work — a migration, an integration, an org that has drifted — delivered by the people who scope it, with a written handover so the next hire can run it.",
-      "Finance and insurance is New York's third-largest employer group, and it is where we have current, weekly Salesforce experience: automation, permissions and compliance data work for a lending company.",
+      "Finance and insurance is New York's third-largest employer group, and it is where we have current Salesforce experience: ongoing development for a lending company.",
     ],
     faqs: [
       { q: "Can a firm outside New York run our Salesforce project?", a: "Yes. Salesforce work happens inside the org, not in a room, so most of it runs remotely from Malvern, Pennsylvania. Discovery calls, reviews and handover happen on video, and we will come in person for the meetings that genuinely need it." },
@@ -69,7 +69,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     angleTitle: "Health care, logistics and a deep Salesforce bench",
     angle: [
       "Atlanta's largest employer groups include health care, professional services, manufacturing and wholesale trade, and the metro has four Trailblazer Community Groups and a Salesforce office in Buckhead. Federal agencies also recorded 11 Salesforce-related contract awards with work performed in Atlanta over fiscal years 2022 to 2026.",
-      "Wholesale and logistics businesses tend to need Salesforce to handle volume: thousands of accounts, bulk data loads and clean de-duplication. We run bulk data jobs as routine work, including backfills of thousands of leads and moves of thousands of records.",
+      "Wholesale and logistics businesses tend to need Salesforce to handle volume: thousands of accounts, bulk data loads and clean de-duplication. We run bulk data jobs as routine work.",
       "Atlanta's Salesforce hiring is broad: the LinkedIn search we ran found open roles for administrators, developers, consultants and architects in the hundreds each.",
     ],
     faqs: [
@@ -152,7 +152,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     ],
     faqs: [
       { q: "Is remote Salesforce consulting as effective as on-site?", a: "For Salesforce, usually yes, because the work happens inside the org. What matters is clear scoping, regular reviews and a proper handover, all of which work well on video." },
-      { q: "Can you help with Salesforce for a finance or lending business?", a: "Yes. We currently run ongoing Salesforce development for a lending company, covering automation, permissions, bulk data jobs and compliance work such as do-not-call scrubbing." },
+      { q: "Can you help with Salesforce for a finance or lending business?", a: "Yes. We currently run ongoing Salesforce development for a lending company." },
       { q: "Can you work with a business that operates in Latin America as well?", a: "Our team delivered a LATAM Salesforce work package on a previous engagement, and the platform supports multiple currencies and languages. We scope the regional requirements before building." },
     ],
   },

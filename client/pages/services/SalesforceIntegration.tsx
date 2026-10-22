@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { PartnerBadge } from "./SalesforceCity";
 import SocialShare from "../../components/SocialShare";
 import { Factory, Calculator, AlertTriangle, ArrowLeftRight } from "lucide-react";
 import {
@@ -112,11 +113,12 @@ export default function SalesforceIntegration() {
     ogDescription:
       "Connecting Salesforce to SAP, ERP and finance systems, with ownership and failure rules agreed before anything is built.",
     ogUrl: getCanonicalUrl("/services/salesforce-integration"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
+    ogImage: "https://onealgorithm.com/media/salesforce/og-salesforce-integration.jpg",
+    ogImageSize: [1200, 630],
     twitterTitle: "Salesforce Integration: SAP & ERP — OneAlgorithm",
     twitterDescription:
       "Salesforce integration with SAP, ERP and finance systems, from a listed Consulting Partner that has built an SAP sync.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    twitterImage: "https://onealgorithm.com/media/salesforce/og-salesforce-integration.jpg",
   });
 
   return (
@@ -154,6 +156,10 @@ export default function SalesforceIntegration() {
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
+
+      <Section tone="paper" compact>
+        <PartnerBadge />
+      </Section>
 
       <Section tone="surface" bordered>
         <SectionHeading
