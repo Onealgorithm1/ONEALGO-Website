@@ -34,6 +34,7 @@ export type Post = {
   summary: string; // whole sentences, never cut mid-word — the index excerpt
   lede?: string; // the opening paragraph (HTML), promoted out of the body
   toc: { id: string; text: string }[]; // the body's h2s, for the "In this post" rail
+  sections: { id: string; title: string; html: string }[]; // body split at each h2 (open part first, id "")
   minutes: number;
 };
 
@@ -119,6 +120,18 @@ function promoteLede(html: string): { lede?: string; body: string } {
   return { lede: m[1], body: html.slice(m[0].length) };
 }
 
+// Split the body at every h2 so the post can fold each section behind its
+// label (Smart Brevity's own device: the lede stays open, "Go deeper" opens
+// the rest). The part before the first h2 has id "" and is always open.
+export function splitSections(html: string): Post["sections"] {
+  const parts = html.split(/(?=<h2\b)/i);
+  return parts.map((part) => {
+    const m = part.match(/^<h2\b([^>]*)>([\s\S]*?)<\/h2>/i);
+    if (!m) return { id: "", title: "", html: part };
+    return { id: m[1].match(/\bid="([^"]*)"/)?.[1] ?? "", title: m[2].replace(/<[^>]+>/g, "").trim(), html: part.slice(m[0].length) };
+  }).filter((sec) => sec.html.trim() || sec.title);
+}
+
 // Exported for client/lib/blogger.spec.ts only — the feed-parsing logic
 // (hero extraction, external-link handling) is worth testing directly rather
 // than only through the live network fetch in usePosts.
@@ -127,7 +140,7 @@ export function toPost(e: any): Post {
   const raw: string = e.content?.$t ?? "";
   // Block tags become a space; inline tags (strong, a, em) vanish, so a bold
   // number inside parentheses does not come out as "( +92% )".
-  const text = raw.replace(/<\/?(p|div|li|ul|ol|h[1-6]|br|tr|td|th|table|blockquote|figure)[^>]*>/gi, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  const text = raw.replace(/<\/?(p|div|li|ul|ol|h[1-6]|br|tr|td|th|table|blockquote|figure)b[^>]*>/gi, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const hero = splitHero(raw);
   const { html: withIds, toc } = withHeadingIds(externalizeLinks(hero.html));
   const { lede, body } = promoteLede(withIds);
@@ -135,6 +148,7 @@ export function toPost(e: any): Post {
     slug: KEEP_URL[href.split("/").pop()!.replace(/\.html$/, "")] ?? href.split("/").pop()!.replace(/\.html$/, ""),
     title: e.title.$t,
     html: body,
+    sections: splitSections(body),
     lede,
     heroImage: hero.heroImage,
     heroAlt: hero.heroAlt,

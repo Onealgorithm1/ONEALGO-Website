@@ -73,3 +73,14 @@ describe("lede promotion", () => {
     expect(post.html).toContain("Short.");
   });
 });
+
+describe("splitSections", () => {
+  it("keeps the opening open and folds each h2 section with its id", async () => {
+    const { splitSections } = await import("./blogger");
+    const secs = splitSections('<p>Lede.</p><p><strong>Why it matters:</strong> x</p><h2 id="by-the-numbers">By the numbers</h2><p>1</p><h2 id="whats-next">What\'s next</h2><ul><li>2</li></ul>');
+    expect(secs.map((s) => s.id)).toEqual(["", "by-the-numbers", "whats-next"]);
+    expect(secs[0].html).toContain("Why it matters");
+    expect(secs[1]).toMatchObject({ title: "By the numbers" });
+    expect(secs[2].html).toContain("<li>2</li>");
+  });
+});

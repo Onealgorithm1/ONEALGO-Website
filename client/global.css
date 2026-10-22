@@ -1012,7 +1012,9 @@
   }
   /* Jump links from the "In this post" rail land under the sticky header,
      not behind it. */
-  .oa-article h2, .oa-article h3 { scroll-margin-top: 6rem; }
+  .oa-article h2, .oa-article h3, .oa-article details { scroll-margin-top: 6rem; }
+  .oa-article summary h2 { margin-top: 0; }
+  @media print { .oa-article details { display: block; } .oa-article details > summary span { display: none; } .oa-article details > div { display: block; } }
 
   /* Reading progress: a 2px line that fills as the post scrolls. Driven by
      the browser's scroll timeline — no JS, no scroll listener. Browsers

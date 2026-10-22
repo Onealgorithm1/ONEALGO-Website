@@ -405,6 +405,7 @@ function Toc({ toc, className = "" }: { toc: Post["toc"]; className?: string }) 
         {toc.map((h) => (
           <li key={h.id}>
             <a href={`#${h.id}`} aria-current={active === h.id ? "location" : undefined}
+              onClick={() => { const d = document.getElementById(h.id); if (d instanceof HTMLDetailsElement) d.open = true; }}
               className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${active === h.id ? "border-oa-orange font-medium text-oa-ink" : "border-transparent text-oa-ink2 hover:border-oa-hairlineStrong hover:text-oa-ink"}`}>
               {h.text}
             </a>
@@ -491,8 +492,38 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
                 <Toc toc={p.toc} className="mt-3 [&>p]:hidden" />
               </details>
             )}
-            {/* Authored by our own Blogger account, not by visitors. */}
-            <article className="oa-article mt-8" dangerouslySetInnerHTML={{ __html: p.html }} />
+            {/* Authored by our own Blogger account, not by visitors.
+                Smart Brevity's fold, inside the post: the opening (lede, "Why it
+                matters") stays open; every labelled section after it collapses
+                to its label with "Go deeper" to open it. Native <details>, so
+                it costs no script, prints expanded, and find-in-page still
+                searches the hidden text in Chromium. Headings keep their ids
+                so the "In this post" rail still jumps to them. */}
+            {p.sections.length > 2 && (
+              <p className="mt-8 flex items-center justify-between">
+                <span className={META}>{p.sections.length - 1} sections</span>
+                <button type="button" className="min-h-11 text-sm font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700"
+                  onClick={(e) => { const all = [...document.querySelectorAll<HTMLDetailsElement>("article details")]; const open = all.some((d) => !d.open); all.forEach((d) => { d.open = open; }); (e.currentTarget).textContent = open ? "Collapse all" : "Expand all"; }}>
+                  Expand all
+                </button>
+              </p>
+            )}
+            <article className="oa-article mt-8">
+              {p.sections.map((sec, i) => sec.id === "" ? (
+                <div key={i} dangerouslySetInnerHTML={{ __html: sec.html }} />
+              ) : (
+                <details key={sec.id} id={sec.id} className="group/sec border-t border-oa-hairline pt-5 [&+details]:mt-5">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-baseline justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                    <h2 className="!mt-0">{sec.title}</h2>
+                    <span className="flex shrink-0 items-center gap-1 text-sm font-medium text-oa-blue">
+                      <span className="group-open/sec:hidden">Go deeper</span><span className="hidden group-open/sec:inline">Collapse</span>
+                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-open/sec:rotate-180 motion-reduce:transition-none"><path d="M6 9l6 6 6-6" /></svg>
+                    </span>
+                  </summary>
+                  <div className="pt-2" dangerouslySetInnerHTML={{ __html: sec.html }} />
+                </details>
+              ))}
+            </article>
             {service && (
               <aside className="mt-10 border border-oa-hairlineStrong bg-oa-surface p-5">
                 <p className={META}>Related service</p>
