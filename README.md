@@ -1,238 +1,85 @@
-# One Algorithm
+# OneAlgorithm website
 
-**Transform struggling businesses into thriving enterprises through intelligent technology solutions and expert consulting.**
+Source for **[onealgorithm.com](https://onealgorithm.com)** — OneAlgorithm LLC, 625 Swedesford Rd, Malvern, PA 19355 · (610) 890-9711 · listed Salesforce AppExchange Consulting Partner.
 
----
+This README is the handoff document: how to run it, how it ships, how the Salesforce SEO pages are built, and the rules that keep the site honest. Repo-specific design rules are in [`AGENTS.md`](AGENTS.md); design tokens in [`DESIGN.md`](DESIGN.md).
 
-## 🎯 About Us
-
-One Algorithm is a technology consulting firm specializing in business transformation, automation, and digital modernization. We help organizations across **Manufacturing**, **Construction**, and **E-Commerce** simplify operations, reduce costs, and accelerate growth through practical technology solutions.
-
-### Our Mission
-
-Help organizations modernize, automate, and grow. We deliver practical technology solutions that simplify operations, improve efficiency, and create lasting business value.
+_Last updated 2026-10-22 (Salesforce SEO wave live, commit `831b36d`)._
 
 ---
 
-## 🌟 Core Strengths
+## Stack
 
-- **Executive Leadership & Strategy** - Guide organizations through digital transformation and IT modernization
-- **Systems Integration** - Seamlessly connect your technology ecosystem (Salesforce, HubSpot, Oracle, and more)
-- **Cloud Solutions** - Design and implement scalable cloud architecture and CRM modernization
-- **Business Process Automation** - Eliminate manual workflows and improve operational efficiency
-- **Government Compliance** - FAR/DFARS compliance, NIST 800-171, and federal contracting expertise
-- **Enterprise Consulting** - IT program management, data integration, and strategic partnership development
+React 18 + TypeScript · Vite · Tailwind CSS · React Router 6 (SPA) · prerendered to static HTML by `scripts/prerender.mjs` (Puppeteer) · hosted on **Cloudflare Pages** · Cloudflare Pages Functions in `functions/` · package manager **pnpm** (`npm install` hangs — use `pnpm install`).
 
----
-
-## 🛠 Technology Expertise
-
-We are certified experts across leading platforms:
-
-**CRM & Business Systems:** Salesforce • HubSpot • Zoho • MS Dynamics • Oracle
-
-**Automation & Integration:** Zapier • MuleSoft • Monday.com • Zendesk
-
-**Communication & Productivity:** Twilio • Aircall • Hootsuite • DocuSign
-
-**Financial & Admin Tools:** QuickBooks • OneFlow • Metricool
-
----
-
-## 👥 Leadership Team
-
-### [Swapna Amirisetti](https://www.linkedin.com/in/swapna-amirisetti/)
-**President & CEO**
-
-Leads One Algorithm's strategy, operations, and growth. Oversees client delivery, technology solutions, and business operations across government and commercial sectors.
-
-*Expertise: Executive Leadership, Systems Integration, IT Program Management, Salesforce, Digital Transformation*
-
----
-
-### [Sreenivas Amirisetti, MBA](https://www.linkedin.com/in/samirisetti/)
-**Secretary & Director of Operations**
-
-Leads technology operations, project delivery, and business development. Oversees cloud solutions, CRM modernization, and technology initiatives that improve organizational efficiency.
-
-*Expertise: Salesforce Ecosystem, Enterprise Systems Integration, Cloud Strategy, CRM Modernization, Data Integration*
-
----
-
-### [Louis Rubino](https://www.linkedin.com/in/louiscrubino/)
-**Director**
-
-Leads compliance, operations, and government contracting initiatives. Oversees certifications, partnerships, and regulatory requirements supporting federal, state, and commercial opportunities.
-
-*Expertise: FAR/DFARS Compliance, Government Contracting, Proposal Coordination, NIST 800-171, Operations Management*
-
----
-
-### [Sahith Valluru](https://www.linkedin.com/in/sahith-valluru/)
-**Business Development Manager & Communications Expert**
-
-Leads business development and strategic partnerships. Builds relationships and connects clients with solutions that drive business success.
-
-*Expertise: Strategic Partnerships, Business Development, Executive Communications, Relationship Management, Salesforce CRM*
-
----
-
-## 🚀 Get Started
-
-Ready to transform your business?
-
-**[Start a Conversation](https://onealgorithm.com/contact)** with our team to discuss how we can help you modernize, automate, and accelerate growth.
-
----
-
-## 📋 Services
-
-One Algorithm offers comprehensive technology consulting and implementation services:
-
-- **Digital Transformation** - Modernize legacy systems and processes
-- **CRM Implementation & Customization** - Deploy and optimize Salesforce, HubSpot, and other platforms
-- **Business Process Automation** - Eliminate manual workflows with intelligent solutions
-- **Systems Integration** - Connect disparate systems into a unified ecosystem
-- **Cloud Migration** - Move workloads to cloud infrastructure securely and efficiently
-- **Government Contracting Support** - Navigate FAR/DFARS compliance and federal opportunities
-
----
-
-## 🏭 Industries We Serve
-
-- **Manufacturing** - Streamline production, supply chain, and operations
-- **Construction** - Optimize project management, resource allocation, and compliance
-- **E-Commerce** - Enhance customer experience, automate operations, and scale revenue
-
----
-
-## 💡 Our Approach
-
-**Think Bigger. Build Smarter. Move Faster.**
-
-We don't just implement technology—we partner with you to understand your business challenges and design solutions that deliver measurable results. Our approach combines:
-
-- Deep industry expertise
-- Proven implementation methodologies
-- Executive-level guidance
-- Ongoing optimization and support
-
----
-
-## 🔗 Connect With Us
-
-- **Website:** [onealgorithm.com](https://onealgorithm.com)
-- **Email:** [contact@onealgorithm.com](mailto:contact@onealgorithm.com)
-- **LinkedIn:** Follow our leadership team above
-
----
-
-## 📄 License
-
-This project is proprietary and confidential. All rights reserved © One Algorithm.
-
----
-
-**Ready to transform your business? [Start your transformation today.](https://onealgorithm.com/contact)**
-# OneAlgorithm Website
-
-Official website for [OneAlgorithm](https://onealgorithm.com) — a Philadelphia-based IT consulting, website development, operations technology, and digital marketing company.
-
-## Tech Stack
-
-- **Frontend:** React 18 + TypeScript, Vite, Tailwind CSS, Radix UI, Framer Motion
-- **Routing:** React Router v6 (SPA)
-- **Data fetching:** TanStack Query
-- **Backend:** Express.js (serverless via Netlify Functions / Cloudflare Workers)
-- **Deployment:** Cloudflare Pages + Workers
-- **Package manager:** pnpm
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm
-
-### Install dependencies
+## Run, check, build
 
 ```bash
 pnpm install
+npx vite --port 5191          # dev server
+npx tsc --noEmit              # type check (must be clean)
+npm run build:static          # production build + prerender → dist/spa/ ; must print "Prerendered N/N routes."
+npx http-server dist/spa -p 5192 -s -c-1   # serve the production build locally (-c-1 = no cache)
 ```
 
-### Run locally
+## How it ships
 
-```bash
-pnpm dev
-```
+- **Push to `main` = production.** Cloudflare Pages builds automatically (project `onealgorithm-website`).
+- **Push any other branch = preview** at `https://<branch>.onealgo-builderio.pages.dev`. Use this to review before merging.
+- Cloudflare build settings (must stay exactly this):
+  - Build command: `npx puppeteer browsers install chrome && npm run build:static`
+  - Output directory: `dist/spa`
+  - `build:static` (not `build`) — without the prerender every route ships as an empty shell and search visibility is lost. The `puppeteer browsers install chrome` prefix is needed because Cloudflare's build image has no browser.
+- `scripts/prerender.mjs` fails the build if content stays hidden by the scroll-reveal effect. Do not weaken that guard.
+- Process we follow: build on a branch → review the preview → independent fact-check/review → owner approval → fast-forward `main`.
 
-Opens at `http://localhost:5173`.
+## Adding a page (all five, or it 404s or is orphaned)
 
-### Build for production
+1. `client/pages/...` component built from the primitives in `client/components/site.tsx`
+2. Route in `client/App.tsx`
+3. Path in the `ROUTES` list in `scripts/prerender.mjs` (missing = 404 in production)
+4. `<url>` in `public/sitemap.xml`
+5. A link to it from somewhere (footer `client/components/Layout.tsx`, a hub page, or a sibling page) + a short breadcrumb label in `site.tsx` if the slug reads badly
 
-```bash
-pnpm build
-```
+## Salesforce SEO pages (2026-10-22)
 
-Output goes to `dist/spa/`.
+| Pages | Route(s) | Source |
+|---|---|---|
+| Hub | `/services/salesforce` | links every page below |
+| 4 service pages | `/services/salesforce-data-migration`, `-integration`, `-managed-services`, `-marketing-cloud-consulting` | `client/pages/services/Salesforce*.tsx` |
+| 12 city pages | `/services/salesforce-consultant-<city>` (new-york, washington-dc, dallas, denver, atlanta, boston, seattle, san-francisco, los-angeles, austin, miami, chicago) | one template: `client/pages/services/SalesforceCity.tsx` |
+| Philadelphia | `/services/salesforce-consultant-philadelphia` | own page + shared `CityFacts` / `CityNarrative` / `CityIndustries` blocks |
 
-## Project Structure
+**How the city pages work**
 
-```
-├── client/
-│   ├── pages/          # Route-level page components
-│   │   ├── services/   # Individual service pages
-│   │   └── industries/ # Individual industry pages
-│   ├── components/     # Shared UI components
-│   ├── hooks/          # Custom React hooks (SEO, etc.)
-│   └── App.tsx         # Router and root component
-├── server/             # Express API server
-├── public/             # Static assets (favicon, sitemap, robots.txt, etc.)
-├── netlify/functions/  # Netlify serverless functions
-└── index.html          # SPA shell
-```
+- **Numbers are generated, never typed.** `client/data/salesforceCities.ts` is generated by `build-city-data.mjs` in the OneAlgorithm workspace (`onealgo-icm-oa/areas/sales/runs/2026-10-21_sf-nationwide/facts/`) from Census County Business Patterns 2023/2018, ACS 2024/2019, BLS OEWS May 2025, LinkedIn public job search, USAspending FY2022–26 and trailblazercommunitygroups.com (all pulled 2026-10-21). To refresh: re-run the pulls there, then `node build-city-data.mjs`, then `node scripts/salesforce-images.mjs`, then rebuild.
+- **Hand-written copy per city** (angle, FAQs) lives in `client/data/salesforceCityCopy.ts`. No question may repeat across cities or with the Philadelphia / Chester County / Pennsylvania pages.
+- **Images:** `node scripts/salesforce-images.mjs` writes per-city SVG charts and 1200×630 JPEG share cards to `public/media/salesforce/` from the same data. The Salesforce Partner badge is `public/salesforce-partner-badge.png` (the genuine asset; it links to our AppExchange listing).
+- **Duplicate-content rule (ours, not Google's — Google publishes no percentage):** city pages may share at most ~40–60% of sentences with each other, measured with city names normalised. At launch: average 39%, worst pair 44%. Re-measure after any template change.
+- **Adding a city:** only with evidence of demand (autocomplete + Trends + Keyword Planner + jobs), a fact sheet, and its own copy entry. The decision log is `onealgo-icm-oa/areas/sales/runs/2026-10-21_sf-nationwide/decision-log.md`.
 
-## Deployment
+## Facts that must stay true
 
-The site deploys automatically to **Cloudflare Pages** on every push to `main`.
+- Office is **Malvern, PA** — never imply an office in any other city.
+- **No client is named** without written consent. Ongoing work is described only as "ongoing Salesforce development for a lending company since April 2026" — no job details or figures.
+- **No federal contract has been awarded.** Government copy states eligibility only (SBA EDWOSB/WOSB, SAM.gov registration, Virginia SWaM).
+- AppExchange facts: 16 Salesforce-certified people, 52 certifications (38 Platform).
+- No invented statistics, testimonials, prices, timelines or photos of work. No AI/stock images presented as our work.
+- The 17 organisations on `/capabilities` are prior employment of the team, not clients.
 
-Build settings (these must match the Cloudflare Pages project exactly):
-- Build command: `npx puppeteer browsers install chrome && npm run build:static`
-- Output directory: `dist/spa`
+## Analytics and privacy
 
-Both halves of that command matter:
+- GA4 (`G-RC48CMQ05T`) and Microsoft Clarity load on every visit **without a consent banner** (owner decision 2026-10-22, EU/UK ePrivacy risk accepted). Logic is in `index.html`.
+- Still honoured: the **"Turn off analytics on this site"** button on `/privacy` (stores `oa-consent=denied`) and the browser **Global Privacy Control** signal. `/privacy` wording matches this — keep them in step.
+- Analytics only runs on `onealgorithm.com` / `www.onealgorithm.com`; previews are silent.
 
-- `build:static`, not `build`. Plain `build` compiles the app but skips
-  `scripts/prerender.mjs`, so every route ships as an empty ~10KB shell instead of
-  real HTML. The site would still work for people, and quietly lose its search
-  visibility.
-- The `puppeteer browsers install chrome` prefix. Cloudflare's build container has
-  no browser, and the prerenderer drives a real one — without this the build fails
-  at the prerender step.
+## Search engines
 
-## Services
+- Sitemap: `public/sitemap.xml` (Google Search Console property `sc-domain:onealgorithm.com`; resubmitted 2026-10-22).
+- Bing: IndexNow key file `public/94d4ec93f9120ab082370aca8c233582.txt`; new URLs are pushed with IndexNow and the Bing Webmaster API (key in the hub's Railway env, `BING_API_KEY`).
+- After publishing new pages: submit the URLs to IndexNow + Bing and resubmit the sitemap in Search Console.
 
-- IT Consulting
-- Website Development
-- Operations Technology
-- Staff Augmentation
-- Digital Marketing
-- Google Ads
-- SEO Services
-- Oracle ERP
-- Salesforce
+## Known site-wide items (not yet fixed)
 
-## Industries Served
-
-- Construction
-- Manufacturing
-- E-Commerce
-- Government
-
-## Contact
-
-- Website: [onealgorithm.com](https://onealgorithm.com)
-- Email: service@onealgorithm.com
-- Phone: 1 (610) 890-9711
-- Address: 625 Swedesford Rd, Malvern, PA 19355
-- LinkedIn: [linkedin.com/company/onealgorithmllc](https://www.linkedin.com/company/onealgorithmllc)
+- Default share image `public/og-image.jpg` is 1200×500 (2.40:1) — gets cropped as a 1.91:1 card. Salesforce pages have their own correct 1200×630 cards.
+- Header logo orange (`#ffa634` on white) fails contrast — brand decision, flagged by Lighthouse on every page.

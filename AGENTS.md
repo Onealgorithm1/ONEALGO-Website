@@ -10,9 +10,10 @@ design knowledge base). This file holds only what is specific to this repo.
 
 ## Current state
 
-Branch `redesign/2026-refresh`. **All 27 pages rebuilt on one design system.**
-**Not deployed.** Verified: `npx tsc --noEmit` clean · `node scripts/contrast-check.mjs`
-20/20 · `npm test` 5/5 · `npm run build:client` clean.
+Live on `main` (Cloudflare Pages auto-deploys every push to `main`). As of 2026-10-22 the
+Salesforce SEO wave is live (4 service pages, 12 city pages, Philadelphia rebuild). README.md is
+the handoff document: run/build/deploy, page-registration checklist, how the city pages are
+generated, analytics, and search-engine submission.
 
 ## THE rule for this repo
 
@@ -43,10 +44,8 @@ These have been checked and are easy to get wrong:
 - **24/7 availability is real** and may be stated.
 - Invent no other claims, statistics, certifications or testimonials.
 
-## Before this branch merges
+## Prerender guard
 
-- **Delete `/legacy-home`.** The old homepage was kept temporarily for
-  comparison and must not ship.
 - ⚠️ **Scroll-reveal regression:** a scroll-reveal effect once hid content on 22
   of 27 prerendered pages — the prerendered HTML shipped with the content
   invisible to anything without JavaScript, search engines included. The guard
@@ -58,7 +57,7 @@ These have been checked and are easy to get wrong:
 ## Gotchas
 
 - **`npm install` hangs** — this is a pnpm workspace. Use `pnpm install`.
-- Dev server runs on **:8080**, not the Vite default.
+- Dev server: `npx vite --port 5191` (no port is pinned in vite.config.ts).
 
 ---
 
