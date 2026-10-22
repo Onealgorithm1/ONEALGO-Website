@@ -8,6 +8,14 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    // Blogger test: /api/blog -> the blog's public feed (functions/api/blog.js does this in production).
+    proxy: {
+      "/api/blog": {
+        target: process.env.BLOGGER_URL || "https://onealgorithm-blog-test.blogspot.com",
+        changeOrigin: true,
+        rewrite: () => "/feeds/posts/default?alt=json&max-results=50",
+      },
+    },
     fs: {
       // index.html lives at the repo root, so the root entry point has to be
       // readable too - without it `npm run dev` answers 403 Restricted before
