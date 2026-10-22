@@ -436,11 +436,11 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
       <Section compact allowSticky tone="paper">
         {/* One content width for the title, the hero and the body (the first
             version used three), with the "In this post" rail beside it. */}
-        <div className={hasToc ? "lg:grid lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)] lg:items-start lg:gap-16" : ""}>
-          <div className="min-w-0 max-w-[68ch]">
+        <div className={hasToc ? "lg:grid lg:grid-cols-[minmax(0,74ch)_minmax(0,1fr)] lg:items-start lg:gap-14" : ""}>
+          <div className="min-w-0 max-w-[74ch]">
             <header>
               {p.labels[0] && <Eyebrow>{p.labels[0]}</Eyebrow>}
-              <h1 className="mt-3 text-balance text-h1 font-semibold text-oa-ink">{p.title}</h1>
+              <h1 className="mt-3 text-balance text-[2.5rem] font-medium leading-[1.2] tracking-tight text-oa-ink md:text-[3rem]">{p.title}</h1>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
                 <AuthorLine size={36} />
                 <ShareBar p={p} />
@@ -454,8 +454,16 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
               </div>
             </header>
             {p.heroImage && (
-              <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} fetchPriority="high" decoding="async"
-                className="mt-8 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
+              <figure className="mt-8">
+                <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} fetchPriority="high" decoding="async"
+                  className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
+                {/* Axios credits every image under it. Ours carries the alt text
+                    as the caption when the author wrote one that is not just
+                    the title (set it on the image in Blogger). */}
+                {p.heroAlt && p.heroAlt.trim() !== p.title.trim() && (
+                  <figcaption className={`${META} mt-2 normal-case tracking-normal`}>{p.heroAlt}</figcaption>
+                )}
+              </figure>
             )}
             {/* The post's own opening sentences, set apart — the Smart Brevity
                 lede device (checked live on axios.com, 2026-10-22). Labelled

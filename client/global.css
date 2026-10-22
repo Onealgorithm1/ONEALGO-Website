@@ -981,7 +981,11 @@
      looser body type; bullets with room between them; bold axioms ("Why it
      matters:", "By the numbers") carry the structure, so section heads are
      quiet labels rather than a second set of headlines. */
-  .oa-article { @apply max-w-[66ch] text-[1.1875rem] leading-[1.7] text-oa-ink2; }
+  /* Measured on axios.com 2026-10-22 (headless Chromium, computed styles):
+     body 18px / 27px line, 24px between paragraphs, 787px column, h1 48px at
+     weight 400. Ours: 18px / 28px, 24px, ~740px, h1 at weight 500 (Plex Sans
+     at 400 reads thin at 48px; 500 is the nearest honest match). */
+  .oa-article { @apply max-w-[74ch] text-[1.125rem] leading-[1.55] text-oa-ink2; }
   .oa-article > * + * { @apply mt-6; }
   .oa-article h2 { @apply mt-12 text-[1.375rem] font-semibold tracking-tight text-oa-ink; }
   .oa-article h3 { @apply mt-9 text-lg font-semibold text-oa-ink; }
