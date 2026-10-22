@@ -98,10 +98,12 @@ export default function Careers() {
   const jobs = posts?.filter(isJob);
   const job = slug ? jobs?.find((p) => p.slug === slug) : undefined;
 
+  const careersUrl = getCanonicalUrl(slug ? `/careers/${slug}` : "/careers");
   useSEO({
     title: job ? `${job.title} — Careers at OneAlgorithm` : "Careers — OneAlgorithm",
     description: job?.summary || "Open roles at OneAlgorithm in Malvern, Pennsylvania.",
-    canonical: getCanonicalUrl(slug ? `/careers/${slug}` : "/careers"),
+    canonical: careersUrl,
+    ogUrl: careersUrl,
   });
 
   const status = (msg: React.ReactNode) => <Section><p className="text-oa-ink2">{msg}</p></Section>;

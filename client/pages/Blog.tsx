@@ -217,12 +217,19 @@ function Index({ posts }: { posts: Post[] }) {
 }
 
 function AuthorPage({ posts }: { posts: Post[] }) {
+  const authorUrl = getCanonicalUrl(`/blog/author/${AUTHOR.slug}`);
   useSEO({
     title: `${AUTHOR.name} — OneAlgorithm Blog`,
     description: AUTHOR.bio,
-    canonical: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`),
+    canonical: authorUrl,
+    ogUrl: authorUrl,
     ogTitle: `${AUTHOR.name} — OneAlgorithm Blog`,
     ogDescription: AUTHOR.bio,
+    ...(AUTHOR.photo && {
+      ogImage: new URL(AUTHOR.photo, "https://onealgorithm.com").href,
+      ogImageSize: [320, 320],
+      ogImageAlt: `${AUTHOR.name}`,
+    }),
   });
   return (
     <Layout>
@@ -632,15 +639,25 @@ export default function Blog() {
   const pageTitle = post ? `${post.title} — OneAlgorithm` : "Blog — OneAlgorithm";
   const pageDescription = post ? metaDescription(post) : "Case notes, measured results and straight answers from OneAlgorithm's Salesforce, website and SEO projects.";
   const share = post ? shareImage(post) : undefined;
+  const pageUrl = getCanonicalUrl(slug ? `/blog/${slug}` : "/blog");
   useSEO({
     title: pageTitle,
     description: pageDescription,
-    canonical: getCanonicalUrl(slug ? `/blog/${slug}` : "/blog"),
+    canonical: pageUrl,
+    // Without this every page fell back to index.html's site-wide default
+    // (the homepage URL) — confirmed live on the first deploy: every post's
+    // og:url pointed at "/" instead of itself, which is wrong for exactly the
+    // same reason a duplicate canonical would be: it tells Facebook/LinkedIn
+    // what's being shared is the homepage, not this post.
+    ogUrl: pageUrl,
     ogTitle: pageTitle,
     ogDescription: pageDescription,
     twitterTitle: pageTitle,
     twitterDescription: pageDescription,
-    ...(share && { ogImage: share.url, ogImageSize: share.size, twitterImage: share.url }),
+    ...(share && {
+      ogImage: share.url, ogImageSize: share.size, twitterImage: share.url,
+      ogImageAlt: post?.heroAlt || pageTitle,
+    }),
   });
 
   const status = (msg: React.ReactNode) => <Section><p className="text-oa-ink2">{msg}</p></Section>;

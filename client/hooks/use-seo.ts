@@ -16,6 +16,10 @@ interface SEOConfig {
   ogImage?: string;
   /** Real pixel size of ogImage; defaults to the site card (1200x500 in index.html). */
   ogImageSize?: [number, number];
+  /** og:image:alt. Describes the image, not the page — "a line chart of search
+      clicks", not the page title, which og:title already carries. Falls back
+      to the site default set in index.html if omitted. */
+  ogImageAlt?: string;
   ogUrl?: string;
   twitterTitle?: string;
   twitterDescription?: string;
@@ -50,6 +54,7 @@ export function useSEO(config: SEOConfig) {
     config.ogTitle,
     config.ogDescription,
     config.ogImage,
+    config.ogImageAlt,
     config.ogImageSize?.join("x"),
     config.ogUrl,
     config.twitterTitle,
@@ -68,6 +73,7 @@ function applySEO({
   ogTitle,
   ogDescription,
   ogImage,
+  ogImageAlt,
   ogImageSize,
   ogUrl,
   twitterTitle,
@@ -187,6 +193,11 @@ function applySEO({
       let m = document.querySelector(`meta[property="${prop}"]`);
       if (!m) { m = document.createElement("meta"); m.setAttribute("property", prop); document.head.appendChild(m); }
       m.setAttribute("content", String(val));
+    }
+    if (ogImageAlt) {
+      let m = document.querySelector('meta[property="og:image:alt"]');
+      if (!m) { m = document.createElement("meta"); m.setAttribute("property", "og:image:alt"); document.head.appendChild(m); }
+      m.setAttribute("content", ogImageAlt);
     }
   }
 
