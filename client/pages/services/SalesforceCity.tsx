@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
@@ -37,9 +38,14 @@ const SERVICES = [
   ["/services/salesforce-implementation-cost", "Salesforce implementation cost guide"],
 ] as const;
 
-type Fact = { label: string; value: string; note?: string; source: string; href: string };
+type Fact = { label: string; value: string; note?: ReactNode; source: string; href: string };
 
 const STATE: Record<string, string> = { NY: "New York State", DC: "the District of Columbia", TX: "Texas", CO: "Colorado", GA: "Georgia", MA: "Massachusetts", WA: "Washington State", CA: "California", FL: "Florida", IL: "Illinois", PA: "Pennsylvania" };
+/** ", Fort Worth" when a group's URL names a place other than the page's city, so same-named groups differ. */
+const groupPlace = (url: string, city: string) => {
+  const place = url.match(/group-([a-z-]+?)-united-states/)?.[1].split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
+  return place && !city.toLowerCase().startsWith(place.toLowerCase()) ? `, ${place}` : "";
+};
 const ord = (k: number) => k + (["th", "st", "nd", "rd"][((k % 100) - 20) % 10] || ["th", "st", "nd", "rd"][k % 100] || "th");
 const pct = (a?: number | null, b?: number | null) => (a && b ? Math.round(((a - b) / b) * 1000) / 10 : null);
 
@@ -61,16 +67,16 @@ export function CityNarrative({ slug }: { slug: string }) {
       <SectionHeading eyebrow="What the numbers say" title={`Reading the ${c.name} data`} />
       <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-oa-ink2">
         <p>
-          On {c.jobsPulled}, a LinkedIn search within 25 miles of {c.name} returned {n(role("Consultant"))} openings for Salesforce consultants, {n(role("Administrator"))} for administrators, {n(role("Architect"))} for architects and {n(role("Developer"))} for developers — {n(total)} in all, {ord(c.jobsRank.rank)} of the {c.jobsRank.of} metro areas we checked. Postings move week to week; we treat this as a snapshot of demand, not a forecast.
+          On {c.jobsPulled}, a LinkedIn search within 25 miles of {c.name} returned {n(role("Consultant"))} openings for Salesforce consultants, {n(role("Administrator"))} for administrators, {n(role("Architect"))} for architects and {n(role("Developer"))} for developers — {n(total)} in all, {ord(c.jobsRank.rank)} of the {c.jobsRank.of} metro areas we checked.
         </p>
         <p>
           The metro had {n(c.establishments?.value)} business establishments in 2023{estChange != null && <>, {estChange >= 0 ? "up" : "down"} {Math.abs(estChange)}% from {n(c.establishments2018?.value)} in 2018</>}. Establishments with 500 or more employees{bigChange != null ? <> went from {n(c.size500plus2018?.value)} to {n(c.size500plus?.value)} ({bigChange >= 0 ? "+" : ""}{bigChange}%)</> : <> numbered {n(c.size500plus?.value)}</>}{popChange != null && <>, while population changed {popChange >= 0 ? "+" : ""}{popChange}% between 2019 and 2024</>}.
           {top && <> The largest employer group in our pull is {top.label}, with {n(top.employees)} employees across {n(top.establishments)} establishments.</>}
-          {c.industries[1] && c.industries[2] && <> Next come {c.industries[1].label} ({n(c.industries[1].employees)} employees) and {c.industries[2].label} ({n(c.industries[2].employees)}){c.industries[3] ? <>, then {c.industries[3].label} ({n(c.industries[3].employees)})</> : null}. Those are the groups whose Salesforce needs we plan around when we scope work for a {c.name} company.</>}
+          {c.industries[1] && c.industries[2] && <> Next come {c.industries[1].label} ({n(c.industries[1].employees)} employees) and {c.industries[2].label} ({n(c.industries[2].employees)}){c.industries[3] ? <>, then {c.industries[3].label} ({n(c.industries[3].employees)})</> : null}. Those are the groups whose Salesforce needs we plan around when we scope work for {/^[AEIOU]/.test(c.name) ? "an" : "a"} {c.name} company.</>}
         </p>
         {fedState && (
           <p>
-            Across {STATE[fedState.place] ?? fedState.place}, federal agencies recorded {n(fedState.awards)} contract awards mentioning Salesforce in {fedState.period}{fedState.usd ? <>, worth ${n(fedState.usd)} in obligations</> : null}{fedState.agencies ? <>; the largest buyers were {String(fedState.agencies).split(";").slice(0, 2).map((a) => a.split(":")[0].trim()).join(" and ")}</> : null}.
+            Across {STATE[fedState.place] ?? fedState.place}, federal agencies recorded {n(fedState.awards)} contract award{fedState.awards === 1 ? "" : "s"} mentioning Salesforce in {fedState.period}{fedState.usd ? <>, worth ${n(fedState.usd)} in obligations</> : null}{fedState.agencies ? <>; the largest buyers were {String(fedState.agencies).split(";").slice(0, 2).map((a) => a.split(":")[0].trim()).join(" and ")}</> : null}.
           </p>
         )}
       </div>
@@ -123,8 +129,8 @@ export function CityFacts({ slug }: { slug: string }) {
     { label: "Establishments with 100–499 employees", value: n(c.size100to499?.value), source: "Census CBP 2023 (sum of two published size classes)", href: c.sources.cbp },
     ...c.industries.slice(0, 3).map((i) => ({ label: `Employees in ${i.label}`, value: n(i.employees), note: `${n(i.establishments)} establishments`, source: "Census CBP 2023", href: c.sources.cbp })),
     { label: "Software developers employed", value: n(c.softwareDevelopers?.value), note: c.softwareDeveloperMedianWage ? `median wage $${n(c.softwareDeveloperMedianWage.value)}` : undefined, source: "BLS Occupational Employment and Wage Statistics, May 2025", href: c.sources.oews ?? "https://www.bls.gov/oes/" },
-    { label: "Open Salesforce roles within 25 miles", value: n(jobsTotal), note: c.jobs.map((j) => `${j.role.replace("Salesforce ", "")} ${n(j.count)}`).join(" · "), source: `LinkedIn public job search, ${c.jobsPulled}`, href: c.sources.linkedin ?? "https://www.linkedin.com/jobs/" },
-    ...(c.federal ? [{ label: `Federal contract awards mentioning Salesforce (${c.federal.place})`, value: n(c.federal.awards), note: c.federal.usd ? `$${n(c.federal.usd)} obligated, ${c.federal.period}` : c.federal.period, source: "USAspending.gov", href: c.sources.usaspending }] : []),
+    { label: "Open Salesforce roles within 25 miles", value: n(jobsTotal), note: c.jobs.map((j, i) => <span key={j.role}>{i > 0 && " · "}<a href={j.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{j.role.replace("Salesforce ", "")} {n(j.count)}</a></span>), source: `LinkedIn job search: sum of four role-title searches, ${c.jobsPulled} (each count links to its own search; this link is the consultant search)`, href: c.jobs.find((j) => j.role.endsWith("Consultant"))?.url ?? "https://www.linkedin.com/jobs/" },
+    ...(c.federal ? [{ label: `Federal contract awards mentioning Salesforce (${c.federal.place === "Washington DC" ? "Washington, DC" : `city of ${c.federal.place}`})`, value: n(c.federal.awards), note: c.federal.usd ? `$${n(c.federal.usd)} obligated, ${c.federal.period}` : c.federal.period, source: "USAspending.gov", href: c.sources.usaspending }] : []),
   ];
 
   return (
@@ -165,7 +171,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
     ...(c.softwareDeveloperMedianWage
       ? [{
           q: `What does Salesforce talent cost in ${c.name}?`,
-          a: `Salesforce roles have no job code of their own in federal wage data, so the closest official figure is software developers: in the ${c.name} metro, ${n(c.softwareDevelopers?.value)} are employed at a median annual wage of $${n(c.softwareDeveloperMedianWage.value)} (BLS, May 2025). A full-time hire also carries benefits and recruiting time. For a migration, an integration or an org clean-up, a partner engagement is scoped and priced up front instead; our implementation cost guide shows published market ranges.`,
+          a: `Salesforce roles have no job code of their own in federal wage data, so the closest official figure is software developers: in the ${c.name} metro, ${n(c.softwareDevelopers?.value)} are employed at a median annual wage of $${n(c.softwareDeveloperMedianWage.value)} (BLS, May 2025). For a migration, an integration or an org clean-up, a partner engagement is scoped and priced up front instead; our implementation cost guide shows published market ranges.`,
         }]
       : []),
   ];
@@ -222,7 +228,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
           <li className="text-oa-ink2"><strong className="text-oa-ink">Data migration</strong> — QuickBase and Kissflow systems moved into Salesforce.</li>
           <li className="text-oa-ink2"><strong className="text-oa-ink">Integration</strong> — an SAP-to-Salesforce sync for a client.</li>
           <li className="text-oa-ink2"><strong className="text-oa-ink">Marketing Cloud</strong> — about 18 months of ongoing Marketing Cloud support.</li>
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Managed services</strong> — weekly Salesforce development and administration for a lending company since May 2026.</li>
+          <li className="text-oa-ink2"><strong className="text-oa-ink">Managed services</strong> — weekly Salesforce development and administration for a lending company since April 2026.</li>
         </ul>
         <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           {SERVICES.map(([to, label]) => (
@@ -236,9 +242,9 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         <div className="mt-8 max-w-3xl space-y-4 leading-relaxed text-oa-ink2">
           {c.groups.length > 0 ? (
             <p>
-              {c.groups.length} Salesforce Trailblazer Community Group{c.groups.length === 1 ? "" : "s"} list {c.name}:{" "}
+              {c.groups.length} Salesforce Trailblazer Community Group{c.groups.length === 1 ? "" : "s"} list the {c.name} area:{" "}
               {c.groups.map((g, i) => (
-                <span key={g.url}>{i > 0 && ", "}<a href={g.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{g.name}</a></span>
+                <span key={g.url}>{i > 0 && ", "}<a href={g.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{g.name}{groupPlace(g.url, c.name)}</a></span>
               ))}
               .
             </p>

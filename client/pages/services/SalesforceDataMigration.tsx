@@ -32,7 +32,7 @@ import {
  *   - salesforce-delivery-evidence-2026-09-01.md — invoiced, paid work
  *     packages "QuickBase Migration" and "Kissflow Migration to SFDC".
  *   - deepak-fundmate-automation-2026-09-22.md — ongoing weekly Salesforce
- *     work for "a lending company" since May 2026: 14.6k-lead backfill,
+ *     work for "a lending company" since April 2026: 14.6k-lead backfill,
  *     9,665 records moved, TCPA do-not-call scrub, 100k email pulls.
  *     ⛔ Never name the lender.
  * ⛔ No timelines, prices, record-count promises or success rates. Cost
@@ -104,7 +104,7 @@ const FAQS = [
   },
   {
     q: "Which tools are used for Salesforce data migration?",
-    a: "For small, simple loads Salesforce's Data Import Wizard is enough. For larger volumes or objects the wizard does not support, Data Loader, which runs on Salesforce's Bulk API. We pick by the size and shape of the data, not by a favourite tool, and the choice matters less than the mapping and testing around it.",
+    a: "For small, simple loads Salesforce's Data Import Wizard is enough. For larger volumes or objects the wizard does not support, Data Loader, which can use Salesforce's Bulk API for large volumes. We pick by the size and shape of the data, not by a favourite tool, and the choice matters less than the mapping and testing around it.",
   },
 ];
 
@@ -209,8 +209,8 @@ export default function SalesforceDataMigration() {
           <p>
             Inside live orgs we run the bulk jobs that keep data useful: a
             14,600-lead backfill, a move of 9,665 records between objects, a
-            do-not-call scrub across a lead base, and email pulls in the tens of
-            thousands, all for a lending company we support every week. These
+            do-not-call scrub across a lead base, and email pulls of up to
+            100,000 records, all for a lending company we support every week. These
             are the jobs where a trigger or flow firing on every record can do
             real damage, so automation is reviewed before the load, not after.
           </p>

@@ -29,8 +29,8 @@ import {
  * ⛔ PROOF: two recurring "Marketing Cloud Support" POs, invoiced ~18 months
  * Mar-2023 to Jul-2024 (salesforce-delivery-evidence-2026-09-01.md). Client
  * NOT named. Do not upgrade "support" into a claimed greenfield
- * implementation. Large email pulls (100k batches) for a lending company come
- * from deepak-fundmate-automation-2026-09-22.md — never name the lender.
+ * implementation. Lender bulk-email work is core-org work, not
+ * Marketing Cloud — keep it off this page (fact-check 2026-10-21 #17).
  * ⛔ No Marketing Cloud certification count is stated: the 52 figure is the
  * firm total from the AppExchange listing and is not broken out by cloud
  * here. Account Engagement (Pardot), Data Cloud, Personalization: no delivery
@@ -41,7 +41,7 @@ const WORK = [
   {
     icon: Wrench,
     title: "Support for a running account",
-    body: "Sends that need building, journeys that need changing, automations that stopped. This is the work we did month after month for about a year and a half.",
+    body: "We provided Marketing Cloud support month after month for about a year and a half.",
   },
   {
     icon: Link2,
@@ -182,9 +182,8 @@ export default function SalesforceMarketingCloud() {
             From 2023 into 2024 we provided Marketing Cloud support to one client
             on a recurring basis, invoiced month by month for about a year and a
             half, alongside migration and build work on the same client's core
-            Salesforce org. That pairing is the useful part: when a journey sent
-            the wrong people, we could see whether the cause was in Marketing
-            Cloud or in the CRM data behind it.
+            Salesforce org. Working on both meant we could trace a problem to
+            Marketing Cloud or to the CRM data behind it.
           </p>
           <p>
             Support also means saying when something should be switched off.
@@ -193,11 +192,6 @@ export default function SalesforceMarketingCloud() {
             Part of every review is a plain list of what is still running, what
             it sends, and whether anyone would miss it if it stopped. Fewer
             moving parts make every later change cheaper and safer.
-          </p>
-          <p>
-            We also run large email data pulls for a lending company we support
-            weekly, in batches of up to a hundred thousand, where the job is to
-            get complete, de-duplicated data out without hitting limits.
           </p>
           <p>
             On a running account, the requests are rarely dramatic. A new

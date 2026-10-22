@@ -40,7 +40,7 @@ const CASES = [
   {
     icon: Factory,
     title: "SAP to Salesforce",
-    body: "Sales sees customers and orders that live in SAP. We have built and invoiced an SAP-to-Salesforce sync, so the questions about which system owns which field, and how often it should move, are ones we have already argued through once.",
+    body: "Sales sees customers and orders that live in SAP. We have built and invoiced an SAP-to-Salesforce sync. We decide which system owns each field, and how often it should move, before building.",
   },
   {
     icon: Calculator,
@@ -183,11 +183,9 @@ export default function SalesforceIntegration() {
         <SectionHeading eyebrow="How we build it" title="The lightest route that holds up" />
         <Prose className="mt-8">
           <p>
-            Our own record includes an invoiced sync from SAP into Salesforce,
-            built for a business whose sales team needed ERP data in front of
-            them without a second login. The lesson from that work is the one
-            we bring to every integration: decide ownership field by field,
-            and design for the record that fails, because one always does.
+            Our own record includes an invoiced sync from SAP into Salesforce.
+            On every integration we decide ownership field by field, and
+            design for the record that fails, because one always does.
           </p>
           <p>
             Salesforce gives you several ways to connect a system, and they are

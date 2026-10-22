@@ -18,7 +18,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     angle: [
       "Of the 20 metro areas we checked, New York had the most open Salesforce roles and the largest base of companies with 500 or more employees. When that many firms are hiring for the same skill at once, the people who know how a particular org was built tend to leave mid-project.",
       "That is the gap we usually fill: a fixed piece of work — a migration, an integration, an org that has drifted — delivered by the people who scope it, with a written handover so the next hire can run it.",
-      "Finance and insurance is one of New York's four largest employer groups, and it is where we have current, weekly Salesforce experience: automation, permissions and compliance data work for a lending company.",
+      "Finance and insurance is New York's third-largest employer group, and it is where we have current, weekly Salesforce experience: automation, permissions and compliance data work for a lending company.",
     ],
     faqs: [
       { q: "Can a firm outside New York run our Salesforce project?", a: "Yes. Salesforce work happens inside the org, not in a room, so most of it runs remotely from Malvern, Pennsylvania. Discovery calls, reviews and handover happen on video, and we will come in person for the meetings that genuinely need it." },
@@ -36,7 +36,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     faqs: [
       { q: "Is OneAlgorithm able to subcontract on federal Salesforce work?", a: "We are registered in SAM.gov and hold SBA EDWOSB and WOSB certifications, which is what most primes check first when they need a small-business partner. We have not yet been awarded a federal contract, and we say so plainly." },
       { q: "Do you work with associations and nonprofits in the DC area?", a: "Yes. Nonprofit and membership organizations are one of the largest groups of employers in the DC metro, and much of their Salesforce work — member data, migrations off older databases, integrations — is the same work we deliver for companies." },
-      { q: "Can Salesforce track federal opportunities and teaming partners?", a: "Yes. Many contractors use it to track opportunities from SAM.gov, teaming partners, proposal stages and contract vehicles. We build the objects and reports around how your capture team already works." },
+      { q: "Can Salesforce track federal opportunities and teaming partners?", a: "Yes. Contractors can use it to track opportunities from SAM.gov, teaming partners, proposal stages and contract vehicles. We build the objects and reports around how your capture team already works." },
     ],
   },
   dallas: {
@@ -48,7 +48,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     ],
     faqs: [
       { q: "Can Salesforce sync with our ERP?", a: "Usually, yes. The real questions are which system owns each record, how often it syncs and what happens when the two disagree. We have built an SAP-to-Salesforce sync; the same approach applies to other ERPs, and we agree the rules with your finance and operations people before writing any code." },
-      { q: "Do you only work with large Dallas companies?", a: "No. Most of our work is with mid-size firms that have outgrown how their Salesforce was first set up. The free one-week org review works the same for a 20-person team as for a 500-person one." },
+      { q: "Do you only work with large Dallas companies?", a: "No. We work with mid-size firms as well as large ones. The free one-week org review works the same for a 20-person team as for a 500-person one." },
       { q: "How long does a Salesforce-to-ERP integration take?", a: "It depends on how many objects sync and how clean the data is, so we scope it before giving any timeline. The free one-week org review is often the first step, because it shows the state of the data the integration will depend on." },
     ],
   },
@@ -56,12 +56,12 @@ export const CITY_COPY: Record<string, CityCopy> = {
     angleTitle: "A Colorado market with federal and private demand",
     angle: [
       "Colorado recorded 57 federal contract awards mentioning Salesforce over fiscal years 2022 to 2026, led by Veterans Affairs, and Denver has six Trailblazer Community Groups and a Salesforce office downtown.",
-      "Denver searches for Salesforce services reached their highest level in five years in 2026 in our Google Trends pull. Growth like that usually means orgs set up quickly a few years ago are now due for a clean-up.",
       "Health care and professional services are Denver's two largest employer groups in our Census pull, followed by finance and information businesses.",
+      "Denver has the second-smallest business base of the 13 cities on our Salesforce pages, yet six Trailblazer Community Groups, and it hosts Mile High Dreamin', a community-run Salesforce conference scheduled for August 25–26, 2027.",
     ],
     faqs: [
       { q: "Our Salesforce org was set up fast and has grown messy. Where do we start?", a: "With a look at what is actually there: licences against real use, fields nobody fills, automation that overlaps, and integrations that fail quietly. That is exactly what our free one-week org review produces, as a ranked written list." },
-      { q: "Can you support our Salesforce org month to month?", a: "Yes. We run ongoing Salesforce administration and development for clients on a weekly basis: flows, permissions, data jobs and user support, with hours reported every week." },
+      { q: "Can you support our Salesforce org month to month?", a: "Yes. We run ongoing Salesforce administration and development for a client on a weekly basis: flows, permissions, data jobs and user support, with hours reported every week." },
       { q: "Do you work with Colorado government contractors?", a: "We are registered in SAM.gov and certified by the SBA as an EDWOSB and WOSB, which makes us eligible to team on set-aside work. We have not yet been awarded a federal contract and do not claim one." },
     ],
   },
@@ -121,7 +121,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     angleTitle: "A large, mixed business market",
     angle: [
       "Los Angeles has one of the largest business bases of the metros we checked, led by health care, professional services, manufacturing and wholesale trade. Salesforce's nearest office is in Irvine, and the metro has one Trailblazer Community Group.",
-      "With fewer local Salesforce meetups than its size would suggest, many LA teams run Salesforce with a small internal staff. That is where a partner adds the most: specialist work on demand without a full-time hire.",
+      "Where a team runs Salesforce with a small internal staff, a partner adds the most: specialist work on demand without a full-time hire.",
       "Los Angeles also has a large manufacturing and wholesale base in our Census pull. Those businesses often need Salesforce to agree with an ERP on orders, accounts and pricing.",
     ],
     faqs: [
@@ -133,14 +133,14 @@ export const CITY_COPY: Record<string, CityCopy> = {
   austin: {
     angleTitle: "A fast-growing technology market",
     angle: [
-      "Austin's largest employer groups are professional services, health care and information, and it has a Salesforce office on Congress Avenue and four Trailblazer Community Groups. In an SEC full-text search of annual reports mentioning Salesforce, Austin-based filers appeared more often than Dallas or Houston ones in the first 100 Texas results.",
+      "Austin's largest employer groups are professional services, health care and information, and it has a Salesforce office on Congress Avenue and four Trailblazer Community Groups. In an SEC full-text search of annual reports (10-Ks) mentioning Salesforce, Austin addresses appeared in 26 of the 78 Texas results, more than the city of Dallas (12) or Houston (10).",
       "Fast-growing companies often outgrow how their Salesforce was first set up within a year or two. The common fixes are a cleaner data model, automation that replaces manual steps, and integrations that keep sales and finance in step.",
-      "Austin had the smallest business base of the metros we checked, but more than 1,000 open Salesforce roles in our LinkedIn search.",
+      "Austin has the smallest business base of the 13 cities on our Salesforce pages, but more than 1,000 open Salesforce roles in our LinkedIn search.",
     ],
     faqs: [
       { q: "We set up Salesforce ourselves. When should we bring in help?", a: "When reports stop matching what people see, when manual steps keep growing, or before a big migration or integration. Our free one-week org review tells you which of those applies and what to fix first." },
       { q: "Can you automate steps our team does by hand in Salesforce?", a: "Usually, with Flow. We list the manual steps first, automate the ones that save real time, and leave the rest alone so the org stays easy to maintain." },
-      { q: "Can you support a small team that relies heavily on Salesforce?", a: "Yes. We run ongoing administration and development for clients on a weekly basis, which gives a small team specialist cover without a full-time hire." },
+      { q: "Can you support a small team that relies heavily on Salesforce?", a: "Yes. We run ongoing administration and development for a client on a weekly basis, which gives a small team specialist cover without a full-time hire." },
     ],
   },
   miami: {

@@ -27,7 +27,7 @@ import {
  * ($19-60) (areas/sales/runs/2026-10-21_sf-nationwide/demand/kp-findings.md).
  *
  * ⛔ PROOF: deepak-fundmate-automation-2026-09-22.md — weekly Salesforce
- * development for "a lending company" since May 2026: flows, triggers,
+ * development for "a lending company" since April 2026: flows, triggers,
  * permissions, custom metadata, bulk data jobs, creating reps, MFA resets,
  * field-access grants. ⛔ Never name the lender. Also the ~18-month recurring
  * "Marketing Cloud Support" POs in salesforce-delivery-evidence-2026-09-01.md
@@ -61,8 +61,7 @@ const SCOPE = [
 ];
 
 const HOW = [
-  "A named team that already knows your org, not a ticket queue",
-  "Changes built in a sandbox and deployed, never edited live in production",
+  "Named people who already know your org, not a ticket queue",
   "A written record of what changed and why",
   "Your own admin, if you have one, keeps the day-to-day and we take the rest",
 ];
@@ -83,7 +82,7 @@ const FAQS = [
   },
   {
     q: "What does a Salesforce managed services team actually do each week?",
-    a: "In our own ongoing work for a lending company, a normal week mixes small and large: setting up new reps and resetting MFA, granting field access, building or fixing flows and triggers, moving settings into custom metadata, and running bulk data jobs such as lead backfills and do-not-call scrubs. The mix changes every week, which is the point of having a team that already knows the org.",
+    a: "In our own ongoing work for a lending company, a normal week mixes small and large: setting up new reps and resetting MFA, granting field access, building or fixing flows and triggers, moving settings into custom metadata, and running bulk data jobs such as lead backfills and do-not-call scrubs. The mix changes every week, which is the point of having people who already know the org.",
   },
   {
     q: "What services does Salesforce provide?",
@@ -110,7 +109,7 @@ export default function SalesforceManagedServices() {
     canonical: getCanonicalUrl("/services/salesforce-managed-services"),
     ogTitle: "Salesforce Managed Services — OneAlgorithm",
     ogDescription:
-      "A team that already knows your org: user admin, flows and triggers, data jobs and tidy configuration, week after week.",
+      "People who already know your org: user admin, flows and triggers, data jobs and tidy configuration, week after week.",
     ogUrl: getCanonicalUrl("/services/salesforce-managed-services"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: "Salesforce Managed Services — OneAlgorithm",
@@ -179,7 +178,7 @@ export default function SalesforceManagedServices() {
         <SectionHeading eyebrow="What we do now" title="Managed services we are running today" />
         <Prose className="mt-8">
           <p>
-            Since May 2026 we have done weekly Salesforce development for a
+            Since April 2026 we have done weekly Salesforce development for a
             lending company. Their org changes constantly: reps join and need
             access the same day, lead rules change, and data has to move in
             bulk without breaking the automation around it. Our work there
