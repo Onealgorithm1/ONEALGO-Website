@@ -54,7 +54,7 @@ export function leadSentences(text: string, max = 240): string {
   return cut.length < text.length ? cut + "…" : cut;
 }
 
-const slugify = (s: string) => s.toLowerCase().replace(/<[^>]+>/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const slugify = (s: string) => s.toLowerCase().replace(/<[^>]+>/g, "").replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 // Give every h2 an id so the post can carry a table of contents that jumps to
 // it. Blogger writes plain <h2>; an author who typed an id by hand keeps it.
@@ -125,7 +125,9 @@ function promoteLede(html: string): { lede?: string; body: string } {
 export function toPost(e: any): Post {
   const href: string = e.link.find((l: any) => l.rel === "alternate").href;
   const raw: string = e.content?.$t ?? "";
-  const text = raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  // Block tags become a space; inline tags (strong, a, em) vanish, so a bold
+  // number inside parentheses does not come out as "( +92% )".
+  const text = raw.replace(/<\/?(p|div|li|ul|ol|h[1-6]|br|tr|td|th|table|blockquote|figure)[^>]*>/gi, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const hero = splitHero(raw);
   const { html: withIds, toc } = withHeadingIds(externalizeLinks(hero.html));
   const { lede, body } = promoteLede(withIds);

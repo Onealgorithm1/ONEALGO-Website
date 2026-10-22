@@ -37,3 +37,4 @@ build-artifacts/
 # page heights and viewport slices, and their output is megabytes of PNG.
 research/shots/
 verify*.md
+test-shots/

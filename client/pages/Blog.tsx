@@ -104,7 +104,7 @@ function Labels({ labels }: { labels: string[] }) {
 
 function AuthorLine({ size = 28 }: { size?: number }) {
   return (
-    <Link to={`/blog/author/${AUTHOR.slug}`} className="group/author inline-flex items-center gap-2">
+    <Link to={`/blog/author/${AUTHOR.slug}`} className="group/author inline-flex min-h-11 items-center gap-2">
       <Avatar size={size} />
       <span className="text-sm text-oa-ink2 group-hover/author:text-oa-blue">{AUTHOR.name}</span>
     </Link>
@@ -156,6 +156,7 @@ function ListItem({ n, p }: { n: number; p: Post }) {
 function Index({ posts }: { posts: Post[] }) {
   const [topic, setTopic] = useState("");
   const [q, setQ] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const topics = [...new Set(posts.flatMap((p) => p.labels))].sort();
   // Plain substring search over title, labels and the full body text. With
   // at most 50 posts in the feed this runs per keystroke without any index.
@@ -168,11 +169,12 @@ function Index({ posts }: { posts: Post[] }) {
       <PageHero eyebrow="Blog" siblings={false}
         title="Notes from the work"
         lede={<>Case notes, measured results and straight answers from the Salesforce, website and SEO projects we run.{" "}
-          <a href="#subscribe" className="text-oa-blue underline underline-offset-4 hover:text-oa-blue700">Get new posts by email.</a></>} />
+          <a href="#subscribe" className="tap text-oa-blue underline underline-offset-4 hover:text-oa-blue700">Get new posts by email.</a></>} />
       <Section compact tone="paper">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          <div className="flex w-full min-w-0 items-center gap-3 sm:w-auto">
           {topics.length > 1 && (
-          <div role="group" aria-label="Filter by topic" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0">
+          <div role="group" aria-label="Filter by topic" className="flex min-w-0 flex-1 gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:flex-wrap sm:pb-0">
             {["", ...topics].map((t) => (
               <button key={t || "all"} type="button" onClick={() => setTopic(t)} aria-pressed={topic === t}
                 className={`min-h-[44px] shrink-0 border px-4 font-mono text-[12px] uppercase tracking-wider transition-colors ${topic === t ? "border-oa-night bg-oa-night text-oa-nightInk" : "border-oa-hairlineStrong text-oa-ink2 hover:border-oa-ink"}`}>
@@ -181,13 +183,20 @@ function Index({ posts }: { posts: Post[] }) {
             ))}
           </div>
           )}
-          <div className="flex w-full items-center gap-4 sm:w-auto">
+          {/* Phone: the search box costs a full row before the first post, so
+              it opens from a magnifier button instead (desktop shows the box). */}
+          <button type="button" aria-label={searchOpen ? "Hide search" : "Search posts"} aria-expanded={searchOpen} onClick={() => setSearchOpen((o) => !o)}
+            className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-colors sm:hidden ${searchOpen || needle ? "border-oa-night bg-oa-night text-oa-nightInk" : "border-oa-hairlineStrong text-oa-ink2"}`}>
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+          </button>
+          </div>
+          <div className={`w-full items-center gap-4 sm:flex sm:w-auto ${searchOpen ? "flex" : "hidden"}`}>
             <label className="relative block w-full sm:w-60">
               <span className="sr-only">Search posts</span>
               <svg aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-oa-ink3" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
               </svg>
-              <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search posts" autoComplete="off"
+              <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search posts" autoComplete="off" autoFocus={searchOpen}
                 className="min-h-[44px] w-full border border-oa-hairlineStrong bg-oa-paper pl-9 pr-3 text-sm text-oa-ink placeholder:text-oa-ink3 focus:border-oa-ink" />
             </label>
             <p className={`${META} hidden shrink-0 sm:block`}>
@@ -235,7 +244,7 @@ function AuthorPage({ posts }: { posts: Post[] }) {
         </div>
         <p className="mt-4 max-w-[60ch] text-oa-ink2">{AUTHOR.bio}</p>
         <a href={AUTHOR.linkedin} target="_blank" rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700">
+          className="mt-2 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 9v10M6 5.5v.01M11 19V9m0 4c0-2.5 2-4 4-4s4 1.5 4 4v6" />
           </svg>
@@ -343,7 +352,7 @@ function Subscribe({ source }: { source: string }) {
           </div>
           <div ref={host} className="mt-4 min-h-[65px]" />
           {error && <p id="blog-subscribe-error" role="alert" className="mt-3 text-sm text-oa-ink2">{error}</p>}
-          <p className="mt-3 text-sm text-oa-ink2">By subscribing, you ask for new blog posts by email. <Link to="/privacy" className="text-oa-blue underline">Privacy policy</Link></p>
+          <p className="mt-3 text-sm text-oa-ink2">By subscribing, you ask for new blog posts by email. <Link to="/privacy" className="tap text-oa-blue underline">Privacy policy</Link></p>
         </form>
       )}
     </div>
@@ -455,7 +464,7 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
             </header>
             {p.heroImage && (
               <figure className="mt-8">
-                <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} fetchPriority="high" decoding="async"
+                <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} decoding="async" {...{ fetchpriority: "high" }}
                   className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
                 {/* Axios credits every image under it. Ours carries the alt text
                     as the caption when the author wrote one that is not just

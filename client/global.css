@@ -1004,6 +1004,12 @@
 
 /* Blog post extras. */
 @layer components {
+  /* A standalone link in running text is 18-20px tall; on a touch screen it
+     gets a 44px hit area without moving the layout (WCAG 2.5.8 wants 24px,
+     the house bar is 32px). Pointer: fine (mouse) is left alone. */
+  @media (pointer: coarse) {
+    .tap { display: inline-block; padding: 11px 0; margin: -11px 0; }
+  }
   /* Jump links from the "In this post" rail land under the sticky header,
      not behind it. */
   .oa-article h2, .oa-article h3 { scroll-margin-top: 6rem; }
