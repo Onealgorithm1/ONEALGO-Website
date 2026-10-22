@@ -117,12 +117,12 @@ function AuthorLine({ size = 28 }: { size?: number }) {
 // nothing until someone asks for it, which is the fold Louis asked for.
 function ListItem({ n, p }: { n: number; p: Post }) {
   return (
-    <li className="border-t border-oa-hairline py-10 first:pt-0">
-      <div className="grid gap-6 md:grid-cols-[1fr_20rem] md:items-start">
+    <li className="border-t border-oa-hairline py-12 first:pt-0">
+      <div className="grid gap-6 md:grid-cols-[1fr_18rem] md:items-start md:gap-10">
         <div>
           {p.labels[0] && <Eyebrow>{p.labels[0]}</Eyebrow>}
           <Link to={`/blog/${p.slug}`} className="group mt-2 block">
-            <h2 className="text-balance text-h2 font-semibold text-oa-ink group-hover:text-oa-blue">
+            <h2 className="text-balance text-[1.75rem] font-semibold leading-tight tracking-tight text-oa-ink group-hover:text-oa-blue md:text-[2rem]">
               {n}. {p.title}
             </h2>
           </Link>
@@ -143,7 +143,7 @@ function ListItem({ n, p }: { n: number; p: Post }) {
         {p.heroImage ? (
           <Link to={`/blog/${p.slug}`} tabIndex={-1} aria-hidden="true">
             <img src={p.heroImage} alt="" width={320} height={213} loading="lazy" decoding="async"
-              className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline object-cover" />
+              className="aspect-[3/2] w-full rounded-[16px] object-cover" />
           </Link>
         ) : (
           <div aria-hidden="true" className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline bg-oa-surface" />
