@@ -1,0 +1,24 @@
+/* One author today. A plain record, not a CMS, because there is exactly one
+ * fact to hold per author and Blogger carries no author data of its own.
+ * Add a new entry here the day a second person publishes under their own
+ * name; attribute an individual post to them in Blog.tsx's toPost mapping
+ * if posts ever need different authors (right now every post is Louis's). */
+export type Author = {
+  slug: string;
+  name: string;
+  role: string;
+  bio: string;
+  linkedin: string;
+  photo?: string; // set once a real headshot exists (client/public, see README note below)
+};
+
+export const AUTHOR: Author = {
+  slug: "louis-rubino",
+  name: "Louis Rubino",
+  role: "Director, Business Operations & Growth, OneAlgorithm", // matches his current LinkedIn title, checked 2026-10-22
+  bio: "Federal IT modernization and contract strategy, plus web development, Salesforce, and SEO.",
+  linkedin: "https://www.linkedin.com/in/louiscrubino/", // same URL already on /about's own schema
+  // Louis's own headshot, supplied 2026-10-22; cropped square, 160px with a
+  // 320px copy for high-density screens (public/blog-media/authors/).
+  photo: "/blog-media/authors/louis-rubino.jpg",
+};

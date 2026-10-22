@@ -418,7 +418,7 @@ function Layout({ children }: LayoutProps) {
                 Blog
               </a>
               <a
-                href="/blog/careers/"
+                href="/careers"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
               >
                 Careers
@@ -692,7 +692,7 @@ function Layout({ children }: LayoutProps) {
                 Blog
               </a>
               <a
-                href="/blog/careers/"
+                href="/careers"
                 className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -1088,8 +1088,8 @@ function Layout({ children }: LayoutProps) {
               >
                 Review us on Google
               </a>
-              {/* Careers page on the blog, not the blog homepage. */}
-              <a href="/blog/careers/" className={footerLink}>
+              {/* /careers is a real page again (jobs come from the Blogger feed, label "Careers"). */}
+              <a href="/careers" className={footerLink}>
                 Careers
               </a>
               <FooterLink to="/ai-info">AI Information</FooterLink>

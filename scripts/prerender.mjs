@@ -70,9 +70,14 @@ const TYPES = {
 };
 
 // Static server with SPA fallback so any route loads index.html.
-function serve() {
+function serve(feed) {
   return http.createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split("?")[0]);
+    if (urlPath === "/api/blog") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(feed);
+      return;
+    }
     let file = path.join(DIST, urlPath);
     if (fs.existsSync(file) && fs.statSync(file).isFile()) {
       res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] || "application/octet-stream" });
@@ -91,7 +96,25 @@ async function main() {
   if (!fs.existsSync(path.join(DIST, "index.html"))) {
     throw new Error("dist/spa/index.html not found — run `pnpm build` first.");
   }
-  const server = serve();
+  // Verification escape hatch: the sandbox has no network. Never read fixtures
+  // in the production Pages Function; normal builds still use the live feed.
+  const feed = process.env.BLOG_FEED_FIXTURE
+    ? fs.readFileSync(path.resolve(process.env.BLOG_FEED_FIXTURE), "utf8")
+    : await fetch(`${process.env.BLOGGER_URL || "https://onealgorithm-blog-test.blogspot.com"}/feeds/posts/default?alt=json&max-results=50`, {
+        signal: AbortSignal.timeout(15000),
+      }).then((response) => {
+        if (!response.ok) throw new Error(`Blogger feed returned ${response.status}`);
+        return response.text();
+      });
+  const parsedFeed = JSON.parse(feed);
+  if (!parsedFeed.feed || !Array.isArray(parsedFeed.feed.entry ?? [])) {
+    throw new Error("Blogger response is not a posts feed");
+  }
+  // /blog/author/<slug> is a fixed route (client/lib/authors.ts), not
+  // discovered from the feed — seed it so it prerenders and so the discovery
+  // regex below recognises it as known, not a leak.
+  ROUTES.push("/blog", "/careers", "/blog/author/louis-rubino");
+  const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
 
@@ -113,6 +136,7 @@ async function main() {
      why each one still names its route. */
   const CONCURRENCY = Math.max(1, Number(process.env.PRERENDER_CONCURRENCY) || 5);
   const queue = [...ROUTES];
+  const contentRoutes = new Set(["/blog", "/careers", "/blog/author/louis-rubino"]);
 
   const worker = async () => {
     let route;
@@ -137,6 +161,25 @@ async function main() {
         waitUntil: "networkidle0",
         timeout: 30000,
       });
+      if (contentRoutes.has(route)) {
+        const isIndexLike = route === "/blog" || route === "/careers" || route === "/blog/author/louis-rubino";
+        await page.waitForSelector(isIndexLike ? "main h1" : "main article.oa-article", { timeout: 10000 });
+        // Discover URLs from the rendered indexes, so KEEP_URL in blogger.ts
+        // stays the single authority for migrated Ghost slugs.
+        if (route === "/blog" || route === "/careers") {
+          const links = await page.$$eval(`main a[href^="${route}/"]`, (anchors) =>
+            [...new Set(anchors.map((a) => a.getAttribute("href")))],
+          );
+          for (const link of links) {
+            if (!/^\/(blog|careers)\/[a-z0-9-]+$/.test(link) && !contentRoutes.has(link)) throw new Error(`Unsafe content URL: ${link}`);
+            if (!contentRoutes.has(link)) {
+              contentRoutes.add(link);
+              ROUTES.push(link);
+              queue.push(link);
+            }
+          }
+        }
+      }
       await sleep(300); // let the useSEO setTimeout(0) apply title/meta
       // sanity: #root should have real content
       const rootLen = await page.evaluate(() => document.getElementById("root")?.innerHTML.length || 0);
@@ -301,8 +344,69 @@ Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
 
   await browser.close();
   server.close();
+  if (contentRoutes.size !== (parsedFeed.feed.entry ?? []).length + 3) {
+    throw new Error(`Discovered ${contentRoutes.size - 2} post/job URLs for ${(parsedFeed.feed.entry ?? []).length} feed entries`);
+  }
   console.log(`\nPrerendered ${ok}/${ROUTES.length} routes.` + (failed.length ? ` Failed: ${failed.join(", ")}` : ""));
   if (failed.length) process.exit(1);
+
+  // Dates, title and description for a content route come from the page we
+  // just rendered (its JSON-LD and <meta>), so the sitemap and the feed can
+  // never disagree with the page itself.
+  const pageMeta = (route) => {
+    const file = path.join(DIST, `${route}.html`);
+    if (!fs.existsSync(file)) return {};
+    const html = fs.readFileSync(file, "utf8");
+    const g = (re) => (html.match(re) || [])[1];
+    return {
+      modified: g(/"dateModified":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
+      published: g(/"datePublished":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
+      title: (g(/<title>([^<]*)<\/title>/) || route).replace(/ — OneAlgorithm.*$/, ""),
+      description: g(/<meta name="description" content="([^"]*)"/) || "",
+    };
+  };
+  const today = new Date().toISOString().slice(0, 10);
+
+  // public/sitemap.xml is the existing hand-maintained sitemap. Extend its
+  // built copy using the same <url>/<loc> pattern, without freezing feed URLs.
+  const sitemapFile = path.join(DIST, "sitemap.xml");
+  let sitemap = fs.readFileSync(path.join(__dirname, "..", "public", "sitemap.xml"), "utf8");
+  const additions = [...contentRoutes].filter((route) => !sitemap.includes(`<loc>https://onealgorithm.com${route}</loc>`));
+  sitemap = sitemap.replace("</urlset>", additions.map((route) =>
+    `  <url>\n    <loc>https://onealgorithm.com${route}</loc>\n    <lastmod>${(pageMeta(route).modified || today).slice(0, 10)}</lastmod>\n  </url>\n`,
+  ).join("") + "</urlset>");
+  fs.writeFileSync(sitemapFile, sitemap);
+  console.log(`Sitemap: added ${additions.length} blog/careers URLs.`);
+
+  // Atom feed of the posts (not jobs) at /blog/feed.xml — advertised from
+  // index.html's <link rel="alternate">. Feed readers, LinkedIn/Zapier
+  // auto-posting and Google all pick it up; the Blogger feed stays private.
+  const posts = [...contentRoutes]
+    .filter((r) => /^\/blog\/[^/]+$/.test(r))
+    .map((r) => ({ route: r, ...pageMeta(r) }))
+    .sort((a, b) => (b.published || "").localeCompare(a.published || ""));
+  const atom = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>OneAlgorithm Blog</title>
+  <subtitle>Case notes, measured results and straight answers from the Salesforce, website and SEO projects we run.</subtitle>
+  <link href="https://onealgorithm.com/blog/feed.xml" rel="self"/>
+  <link href="https://onealgorithm.com/blog"/>
+  <id>https://onealgorithm.com/blog</id>
+  <updated>${posts[0]?.modified || new Date().toISOString()}</updated>
+${posts.map((p) => `  <entry>
+    <title>${p.title}</title>
+    <link href="https://onealgorithm.com${p.route}"/>
+    <id>https://onealgorithm.com${p.route}</id>
+    <published>${p.published || ""}</published>
+    <updated>${p.modified || p.published || ""}</updated>
+    <author><name>Louis Rubino</name></author>
+    <summary>${p.description}</summary>
+  </entry>`).join("\n")}
+</feed>
+`;
+  fs.mkdirSync(path.join(DIST, "blog"), { recursive: true });
+  fs.writeFileSync(path.join(DIST, "blog", "feed.xml"), atom);
+  console.log(`Feed: ${posts.length} posts -> blog/feed.xml`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

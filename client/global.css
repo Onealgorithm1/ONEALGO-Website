@@ -972,3 +972,74 @@
   .rd-body{padding-top:0;padding-bottom:44px}
   .rd-pin{width:34px;height:34px;font-size:.85rem}
 }
+
+/* Blog and careers body copy, written in Blogger and rendered as HTML.
+   No typography plugin on this site, so the article gets its own small scale
+   on the existing tokens: 68ch measure, Plex, blue links, hairline rules. */
+@layer components {
+  /* Smart Brevity reading surface (axios.com, checked live 2026-10-22): larger,
+     looser body type; bullets with room between them; bold axioms ("Why it
+     matters:", "By the numbers") carry the structure, so section heads are
+     quiet labels rather than a second set of headlines. */
+  /* Measured on axios.com 2026-10-22 (headless Chromium, computed styles):
+     body 18px / 27px line, 24px between paragraphs, 787px column, h1 48px at
+     weight 400. Ours: 18px / 28px, 24px, ~740px, h1 at weight 500 (Plex Sans
+     at 400 reads thin at 48px; 500 is the nearest honest match). */
+  .oa-article { @apply max-w-[74ch] text-[1.125rem] leading-[1.55] text-oa-ink2; }
+  .oa-article > * + * { @apply mt-6; }
+  .oa-article h2 { @apply mt-12 text-[1.375rem] font-semibold tracking-tight text-oa-ink; }
+  .oa-article h3 { @apply mt-9 text-lg font-semibold text-oa-ink; }
+  .oa-article a { @apply text-oa-blue underline underline-offset-4 hover:text-oa-blue700; }
+  .oa-article ul { @apply list-disc space-y-4 pl-6 marker:text-oa-orange; }
+  .oa-article ol { @apply list-decimal space-y-4 pl-6 marker:text-oa-ink3; }
+  .oa-article li { @apply pl-1; }
+  .oa-article strong { @apply font-semibold text-oa-ink; }
+  .oa-article img { @apply my-8 h-auto w-full rounded-[16px] border border-oa-hairline; }
+  .oa-article figure figcaption { @apply mt-2 text-sm text-oa-ink3; }
+  .oa-article blockquote { @apply border-l-2 border-oa-orange pl-5 text-oa-ink; }
+  .oa-article hr { @apply my-10 border-oa-hairline; }
+  .oa-article table { @apply w-full border-collapse text-sm; }
+  .oa-article th, .oa-article td { @apply border-b border-oa-hairline py-2 pr-4 text-left align-top; }
+}
+
+/* Blog post extras. */
+@layer components {
+  /* A standalone link in running text is 18-20px tall; on a touch screen it
+     gets a 44px hit area without moving the layout (WCAG 2.5.8 wants 24px,
+     the house bar is 32px). Pointer: fine (mouse) is left alone. */
+  @media (pointer: coarse) {
+    .tap { display: inline-block; padding: 11px 0; margin: -11px 0; }
+  }
+  /* Jump links from the "In this post" rail land under the sticky header,
+     not behind it. */
+  .oa-article h2, .oa-article h3, .oa-article details { scroll-margin-top: 6rem; }
+  .oa-article summary h2 { margin-top: 0; }
+  @media print { .oa-article details { display: block; } .oa-article details > summary span { display: none; } .oa-article details > div { display: block; } }
+
+  /* Reading progress: a 2px line that fills as the post scrolls. Driven by
+     the browser's scroll timeline — no JS, no scroll listener. Browsers
+     without scroll timelines get nothing (scaleX(0)), never a stuck full bar. */
+  .oa-progress {
+    position: fixed; inset: 0 0 auto 0; z-index: 60; height: 2px;
+    transform-origin: left; transform: scaleX(0);
+    background: theme("colors.oa.orange");
+  }
+  @supports (animation-timeline: scroll()) {
+    .oa-progress { animation: oa-progress linear both; animation-timeline: scroll(); }
+  }
+  @keyframes oa-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* Wide data tables scroll sideways on a phone instead of pushing the whole
+   page wide (the SEO case study's 5-column table measured 396px at 390). */
+@media (max-width: 640px) {
+  .oa-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .oa-article th, .oa-article td { white-space: nowrap; } /* scroll sideways, do not squeeze into tall cells */
+}
+
+/* A case study gets printed or saved as a PDF by the people who buy this
+   work. Print the article, not the chrome around it. */
+@media print {
+  .oa-progress, [aria-label="In this post"], [aria-label="Share"], #subscribe, [aria-label="More posts"] { display: none !important; }
+  .oa-article a::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #5a6b7d; }
+}
