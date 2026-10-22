@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { PageHero, Section, CTABand } from "../components/site";
+import { PageHero, Section, CTABand, Eyebrow, HeroRail } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import { usePosts, isJob, longDate, type Post } from "../lib/blogger";
@@ -30,7 +30,8 @@ const META = "font-mono text-[12px] uppercase tracking-wider text-oa-ink3";
 function Avatar({ size = 40 }: { size?: number }) {
   if (AUTHOR.photo) {
     return (
-      <img src={AUTHOR.photo} alt="" width={size} height={size}
+      <img src={AUTHOR.photo} srcSet={`${AUTHOR.photo} 1x, ${AUTHOR.photo.replace(/\.jpg$/, "@2x.jpg")} 2x`}
+        alt="" width={size} height={size} loading="lazy"
         style={{ width: size, height: size }} className="shrink-0 rounded-full border border-oa-hairline object-cover" />
     );
   }
@@ -60,7 +61,7 @@ function ShareBar({ p }: { p: Post }) {
     { key: "facebook", label: "Share on Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
     { key: "email", label: "Share by email", href: `mailto:?subject=${encodeURIComponent(p.title)}&body=${encodeURIComponent(url)}` },
   ];
-  const iconBtn = "flex h-9 w-9 items-center justify-center rounded-full border border-oa-hairlineStrong text-oa-ink2 transition-colors hover:border-oa-ink hover:text-oa-ink";
+  const iconBtn = "flex h-11 w-11 items-center justify-center rounded-full border border-oa-hairlineStrong text-oa-ink2 transition-colors hover:border-oa-ink hover:text-oa-ink";
   return (
     <div className="flex items-center gap-2">
       {links.map((l) => (
@@ -119,20 +120,24 @@ function ListItem({ n, p }: { n: number; p: Post }) {
     <li className="border-t border-oa-hairline py-10 first:pt-0">
       <div className="grid gap-6 md:grid-cols-[1fr_20rem] md:items-start">
         <div>
-          <Link to={`/blog/${p.slug}`} className="group">
-            <h2 className="text-h2 font-semibold text-oa-ink group-hover:text-oa-blue">
-              <span className="text-oa-ink3">{n}.</span> {p.title}
+          {p.labels[0] && <Eyebrow>{p.labels[0]}</Eyebrow>}
+          <Link to={`/blog/${p.slug}`} className="group mt-2 block">
+            <h2 className="text-balance text-h2 font-semibold text-oa-ink group-hover:text-oa-blue">
+              {n}. {p.title}
             </h2>
           </Link>
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
             <AuthorLine />
             <Meta p={p} />
           </div>
-          <details className="mt-4 max-w-[60ch]">
-            <summary className="cursor-pointer text-sm font-medium text-oa-blue [&::-webkit-details-marker]:hidden marker:content-none">
-              Read the breakdown
+          <details className="group/fold mt-3 max-w-[60ch]">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-sm font-medium text-oa-blue hover:text-oa-blue700 [&::-webkit-details-marker]:hidden">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className="transition-transform group-open/fold:rotate-180 motion-reduce:transition-none"><path d="M6 9l6 6 6-6" /></svg>
+              <span className="group-open/fold:hidden">Read the breakdown</span>
+              <span className="hidden group-open/fold:inline">Hide the breakdown</span>
             </summary>
-            <p className="mt-3 text-oa-ink2">{p.summary}…</p>
+            <p className="pb-2 text-oa-ink2">{p.summary}</p>
           </details>
         </div>
         {p.heroImage ? (
@@ -150,25 +155,50 @@ function ListItem({ n, p }: { n: number; p: Post }) {
 
 function Index({ posts }: { posts: Post[] }) {
   const [topic, setTopic] = useState("");
+  const [q, setQ] = useState("");
   const topics = [...new Set(posts.flatMap((p) => p.labels))].sort();
-  const shown = topic ? posts.filter((p) => p.labels.includes(topic)) : posts;
+  // Plain substring search over title, labels and the full body text. With
+  // at most 50 posts in the feed this runs per keystroke without any index.
+  const needle = q.trim().toLowerCase();
+  const matches = (p: Post) =>
+    !needle || [p.title, p.labels.join(" "), p.lede ?? "", p.html.replace(/<[^>]+>/g, " ")].join(" ").toLowerCase().includes(needle);
+  const shown = posts.filter((p) => (!topic || p.labels.includes(topic)) && matches(p));
   return (
     <>
       <PageHero eyebrow="Blog" siblings={false}
         title="Notes from the work"
-        lede="Case notes, measured results and straight answers from the Salesforce, website and SEO projects we run." />
-      <Section>
-        {topics.length > 1 && (
-          <div role="group" aria-label="Filter by topic" className="mb-10 flex flex-wrap gap-2">
+        lede={<>Case notes, measured results and straight answers from the Salesforce, website and SEO projects we run.{" "}
+          <a href="#subscribe" className="text-oa-blue underline underline-offset-4 hover:text-oa-blue700">Get new posts by email.</a></>} />
+      <Section compact tone="paper">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          {topics.length > 1 && (
+          <div role="group" aria-label="Filter by topic" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 sm:pb-0">
             {["", ...topics].map((t) => (
               <button key={t || "all"} type="button" onClick={() => setTopic(t)} aria-pressed={topic === t}
-                className={`min-h-[44px] border px-4 font-mono text-[12px] uppercase tracking-wider transition-colors ${topic === t ? "border-oa-night bg-oa-night text-oa-nightInk" : "border-oa-hairlineStrong text-oa-ink2 hover:border-oa-ink"}`}>
+                className={`min-h-[44px] shrink-0 border px-4 font-mono text-[12px] uppercase tracking-wider transition-colors ${topic === t ? "border-oa-night bg-oa-night text-oa-nightInk" : "border-oa-hairlineStrong text-oa-ink2 hover:border-oa-ink"}`}>
                 {t || "All"}
               </button>
             ))}
           </div>
-        )}
-        {shown.length ? <ul>{shown.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul> : <p className="text-oa-ink2">No posts yet.</p>}
+          )}
+          <div className="flex w-full items-center gap-4 sm:w-auto">
+            <label className="relative block w-full sm:w-60">
+              <span className="sr-only">Search posts</span>
+              <svg aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-oa-ink3" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+              </svg>
+              <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search posts" autoComplete="off"
+                className="min-h-[44px] w-full border border-oa-hairlineStrong bg-oa-paper pl-9 pr-3 text-sm text-oa-ink placeholder:text-oa-ink3 focus:border-oa-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-oa-blue/40" />
+            </label>
+            <p className={`${META} hidden shrink-0 sm:block`}>
+              {needle ? `${shown.length} ${shown.length === 1 ? "match" : "matches"}` : `Newest first · ${shown.length} ${shown.length === 1 ? "post" : "posts"}`}
+            </p>
+          </div>
+        </div>
+        {shown.length
+          ? <ul>{shown.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul>
+          : <p className="text-oa-ink2">{needle ? <>Nothing matches “{q}”. Try a shorter word, or clear the search.</> : "No posts yet."}</p>}
+        <Subscribe source="" />
       </Section>
       <CTABand />
     </>
@@ -183,13 +213,13 @@ function AuthorPage({ posts }: { posts: Post[] }) {
   });
   return (
     <Layout>
-      <Section>
-        <nav aria-label="Breadcrumb" className={META}><Link to="/blog" className="hover:text-oa-blue">← Blog</Link></nav>
-        <div className="mt-8 flex items-center gap-4">
+      <HeroRail dark={false} crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: AUTHOR.name }]} />
+      <Section compact tone="paper">
+        <div className="flex items-center gap-4">
           <Avatar size={64} />
           <div>
             <h1 className="text-h2 font-semibold text-oa-ink">{AUTHOR.name}</h1>
-            <p className={META}>{AUTHOR.role}</p>
+            <p className="mt-1 text-oa-ink2">{AUTHOR.role}</p>
           </div>
         </div>
         <p className="mt-4 max-w-[60ch] text-oa-ink2">{AUTHOR.bio}</p>
@@ -200,14 +230,15 @@ function AuthorPage({ posts }: { posts: Post[] }) {
           </svg>
           LinkedIn
         </a>
-        <ul className="mt-10">{posts.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul>
+        <p className={`${META} mt-10`}>Newest first · {posts.length} {posts.length === 1 ? "post" : "posts"} by {AUTHOR.name}</p>
+        <ul className="mt-2">{posts.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul>
       </Section>
       <CTABand />
     </Layout>
   );
 }
 
-function Subscribe({ post }: { post: Post }) {
+function Subscribe({ source }: { source: string }) {
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
@@ -215,6 +246,12 @@ function Subscribe({ post }: { post: Post }) {
   const [sent, setSent] = useState(false);
   const host = useRef<HTMLDivElement>(null);
   const widget = useRef<string | null>(null);
+  // Load failures are remembered, not shown. The prerender runs on a host the
+  // widget refuses, so a message set on failure was being baked into the
+  // static HTML of every post ("The anti-spam check failed" before React even
+  // ran). Now the reader only hears about it when they actually press
+  // Subscribe without a passed check.
+  const loadFailed = useRef(false);
 
   useEffect(() => {
     if (sent) return;
@@ -227,12 +264,12 @@ function Subscribe({ post }: { post: Post }) {
         "expired-callback": () => setToken(""),
         "error-callback": () => {
           setToken("");
-          setError("The anti-spam check failed. Please reload and try again.");
+          loadFailed.current = true;
         },
         theme: "light",
       });
     }).catch(() => {
-      if (!cancelled) setError("The anti-spam check could not load. Please reload and try again.");
+      if (!cancelled) loadFailed.current = true;
     });
     return () => {
       cancelled = true;
@@ -246,12 +283,14 @@ function Subscribe({ post }: { post: Post }) {
     if (sending) return;
     setError("");
     if (!token) {
-      setError("Please complete the anti-spam check, then subscribe again.");
+      setError(loadFailed.current
+        ? "The anti-spam check could not load. Please reload the page and try again."
+        : "Please complete the anti-spam check, then subscribe again.");
       return;
     }
     setSending(true);
     try {
-      await submitBlogSubscription(email, post.slug, token);
+      await submitBlogSubscription(email, source, token);
       setSent(true);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "We could not save your request. Please try again.");
@@ -263,7 +302,7 @@ function Subscribe({ post }: { post: Post }) {
   };
 
   return (
-    <div className="mt-12 max-w-[68ch] border-t border-oa-hairlineStrong pt-8">
+    <div id="subscribe" className="mt-12 max-w-[68ch] scroll-mt-24 border-t border-oa-hairlineStrong pt-8">
       <h2 className="text-h3 font-semibold text-oa-ink">Get new posts by email</h2>
       {sent ? <p role="status" className="mt-4 text-oa-ink2">Your subscription request has been received.</p> : (
         <form onSubmit={submit} className="mt-4" aria-label="Blog subscription">
@@ -299,10 +338,52 @@ function RelatedItem({ p }: { p: Post }) {
   );
 }
 
-function Article({ p, related }: { p: Post; related: Post[] }) {
+// Which section is on screen. The lowest heading that has crossed the upper
+// third of the viewport wins, so the rail tracks reading position, not just
+// "something is visible".
+function useActiveHeading(ids: string[]) {
+  const [active, setActive] = useState(ids[0] ?? "");
+  useEffect(() => {
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (!els.length) return;
+    const update = () => {
+      const line = window.innerHeight * 0.33;
+      let current = els[0].id;
+      for (const el of els) if (el.getBoundingClientRect().top <= line) current = el.id;
+      setActive(current);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [ids.join("|")]);
+  return active;
+}
+
+function Toc({ toc, className = "" }: { toc: Post["toc"]; className?: string }) {
+  const active = useActiveHeading(toc.map((h) => h.id));
+  return (
+    <nav aria-label="In this post" className={className}>
+      <p className={META}>In this post</p>
+      <ol className="mt-3 space-y-1 border-l border-oa-hairline">
+        {toc.map((h) => (
+          <li key={h.id}>
+            <a href={`#${h.id}`} aria-current={active === h.id ? "location" : undefined}
+              className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${active === h.id ? "border-oa-orange font-medium text-oa-ink" : "border-transparent text-oa-ink2 hover:border-oa-hairlineStrong hover:text-oa-ink"}`}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+function Article({ p, related, older, newer }: { p: Post; related: Post[]; older?: Post; newer?: Post }) {
   const url = getCanonicalUrl(`/blog/${p.slug}`);
+  const hasToc = p.toc.length >= 3;
   return (
     <>
+      <div aria-hidden="true" className="oa-progress" />
       <JSONLDScript data={{
         "@context": "https://schema.org", "@type": "BlogPosting",
         headline: p.title, datePublished: p.published, dateModified: p.updated,
@@ -311,52 +392,74 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
         mainEntityOfPage: url, ...(p.heroImage && { image: new URL(p.heroImage, "https://onealgorithm.com").href }),
         keywords: p.labels.join(", "),
       }} />
-      <JSONLDScript data={{
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://onealgorithm.com/" },
-          { "@type": "ListItem", position: 2, name: "Blog", item: "https://onealgorithm.com/blog" },
-          { "@type": "ListItem", position: 3, name: p.title, item: url },
-        ],
-      }} />
-      <Section>
-        <nav aria-label="Breadcrumb" className={META}>
-          <Link to="/blog" className="hover:text-oa-blue">← Blog</Link>
-        </nav>
-        <header className="mt-8 max-w-[68ch]">
-          <h1 className="text-h1 font-semibold text-oa-ink">{p.title}</h1>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-            <AuthorLine size={36} />
-            <ShareBar p={p} />
-          </div>
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-y border-oa-hairline py-4">
-            <Meta p={p} />
-            {p.updated.slice(0, 10) > p.published.slice(0, 10) && (
-              <p className={META}>Updated <time dateTime={p.updated}>{longDate(p.updated)}</time></p>
+      {/* The same breadcrumb rail every other page has (it carries the
+          BreadcrumbList schema too), with the post latched on the end. */}
+      <HeroRail dark={false} crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: p.title }]} />
+      <Section compact allowSticky tone="paper">
+        {/* One content width for the title, the hero and the body (the first
+            version used three), with the "In this post" rail beside it. */}
+        <div className={hasToc ? "lg:grid lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)] lg:items-start lg:gap-16" : ""}>
+          <div className="min-w-0 max-w-[68ch]">
+            <header>
+              {p.labels[0] && <Eyebrow>{p.labels[0]}</Eyebrow>}
+              <h1 className="mt-3 text-balance text-h1 font-semibold text-oa-ink">{p.title}</h1>
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
+                <AuthorLine size={36} />
+                <ShareBar p={p} />
+              </div>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-y border-oa-hairline py-4">
+                <Meta p={p} />
+                {p.updated.slice(0, 10) > p.published.slice(0, 10) && (
+                  <p className={META}>Updated <time dateTime={p.updated}>{longDate(p.updated)}</time></p>
+                )}
+                {p.labels.length > 1 && <Labels labels={p.labels.slice(1)} />}
+              </div>
+            </header>
+            {p.heroImage && (
+              <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630}
+                className="mt-8 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
             )}
-            <Labels labels={p.labels} />
+            {/* The post's own opening sentences, set apart — the Smart Brevity
+                lede device (checked live on axios.com, 2026-10-22). Labelled
+                "The gist" rather than Axios' "Why it matters": same idea, our
+                own words, and it is the post's real text, not a line invented
+                to fill the box. */}
+            <p className="mt-8 border-l-2 border-oa-orange pl-5 text-lede text-oa-ink [&_a]:text-oa-blue [&_a]:underline [&_a]:underline-offset-4">
+              <span className="font-semibold">The gist:</span>{" "}
+              {p.lede ? <span dangerouslySetInnerHTML={{ __html: p.lede }} /> : p.summary}
+            </p>
+            {hasToc && (
+              <details className="mt-8 border border-oa-hairline p-4 lg:hidden">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center text-sm font-medium text-oa-ink [&::-webkit-details-marker]:hidden">In this post ({p.toc.length} sections)</summary>
+                <Toc toc={p.toc} className="mt-3 [&>p]:hidden" />
+              </details>
+            )}
+            {/* Authored by our own Blogger account, not by visitors. */}
+            <article className="oa-article mt-8" dangerouslySetInnerHTML={{ __html: p.html }} />
+            <div className="mt-10 border-t border-oa-hairline pt-6"><ShareBar p={p} /></div>
+            {(older || newer) && (
+              <nav aria-label="More posts" className="mt-10 grid gap-4 border-t border-oa-hairline pt-6 sm:grid-cols-2">
+                {older ? (
+                  <Link to={`/blog/${older.slug}`} className="group">
+                    <span className={META}>← Older</span>
+                    <span className="mt-1 block font-semibold text-oa-ink group-hover:text-oa-blue">{older.title}</span>
+                  </Link>
+                ) : <span />}
+                {newer && (
+                  <Link to={`/blog/${newer.slug}`} className="group sm:text-right">
+                    <span className={META}>Newer →</span>
+                    <span className="mt-1 block font-semibold text-oa-ink group-hover:text-oa-blue">{newer.title}</span>
+                  </Link>
+                )}
+              </nav>
+            )}
+            <Subscribe key={p.slug} source={p.slug} />
           </div>
-        </header>
-        {p.heroImage && (
-          <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630}
-            className="mt-10 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
-        )}
-        {/* The post's own opening words, bolded and set apart — the Smart
-            Brevity lede device (checked live on axios.com, 2026-10-22: a bold
-            sentence stating the point before any narrative). Labelled "The
-            gist" rather than Axios' own "Why it matters" — same layout idea,
-            our own words for it, and this is the post's real text, not a
-            line invented to fill the box. */}
-        <p className="mt-10 max-w-[68ch] border-l-2 border-oa-orange pl-5 text-lede text-oa-ink">
-          <span className="font-semibold">The gist:</span> {p.summary}…
-        </p>
-        {/* Authored by our own Blogger account, not by visitors. */}
-        <article className="oa-article mt-8" dangerouslySetInnerHTML={{ __html: p.html }} />
-        <div className="mt-10 max-w-[68ch] border-t border-oa-hairline pt-6"><ShareBar p={p} /></div>
-        <Subscribe key={p.slug} post={p} />
+          {hasToc && <Toc toc={p.toc} className="hidden lg:sticky lg:top-24 lg:block lg:pt-2" />}
+        </div>
       </Section>
       {related.length > 0 && (
-        <Section tone="surface">
+        <Section tone="surface" compact>
           <h2 className="text-h3 font-semibold text-oa-ink">Keep reading</h2>
           <ul className="mt-2">{related.map((r) => <RelatedItem key={r.slug} p={r} />)}</ul>
         </Section>
@@ -398,7 +501,8 @@ export default function Blog() {
         : !articles ? status("Loading…")
         : !slug ? <Index posts={articles} />
         : !post ? status(<>Post not found. <Link className="text-oa-blue underline" to="/blog">All posts</Link></>)
-        : <Article p={post} related={articles.filter((r) => r !== post && r.labels.some((l) => post.labels.includes(l))).slice(0, 2)} />}
+        : <Article p={post} older={articles[articles.indexOf(post) + 1]} newer={articles[articles.indexOf(post) - 1]}
+            related={articles.filter((r) => r !== post && r.labels.some((l) => post.labels.includes(l))).slice(0, 2)} />}
     </Layout>
   );
 }

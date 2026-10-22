@@ -18,4 +18,7 @@ export const AUTHOR: Author = {
   role: "Director of Operations and Program Manager, OneAlgorithm",
   bio: "Writes the case notes and SEO reports from the Salesforce, website and automation projects OneAlgorithm runs.",
   linkedin: "https://www.linkedin.com/in/louiscrubino/", // same URL already on /about's own schema
+  // Louis's own headshot, supplied 2026-10-22; cropped square, 160px with a
+  // 320px copy for high-density screens (public/blog-media/authors/).
+  photo: "/blog-media/authors/louis-rubino.jpg",
 };

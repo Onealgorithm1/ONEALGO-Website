@@ -589,7 +589,7 @@ function crumbsFor(path: string): Crumb[] {
  * reader as well as to the eye — the signature "mono identifier strip as
  * structure, not trim".
  */
-function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
+export function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
   /* The same crumbs, for machines.
      BreadcrumbList is one of the few structured-data types still earning a rich
      result in Google's current gallery -- FAQPage and HowTo both stopped
@@ -670,7 +670,9 @@ function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
               ) : (
                 <span
                   aria-current="page"
-                  className={`inline-flex min-h-11 items-center uppercase tracking-wider ${
+                  /* A blog post's title can be a whole sentence: on a phone it
+                     truncates instead of wrapping into a second rail row. */
+                  className={`inline-flex min-h-11 max-w-[38vw] items-center truncate uppercase tracking-wider sm:max-w-none ${
                     dark ? "text-oa-orange" : "text-oa-blue"
                   }`}
                 >

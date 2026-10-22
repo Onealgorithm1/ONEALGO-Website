@@ -40,3 +40,36 @@ describe("toPost", () => {
     expect(post.html).not.toContain("target=");
   });
 });
+
+describe("leadSentences and headings", () => {
+  it("ends the summary at a sentence, never mid-word with an ellipsis", async () => {
+    const { toPost } = await import("./blogger");
+    const long = "First sentence here. Second one follows it. " + "Third goes on and on about the matter at hand. ".repeat(6);
+    const post = toPost(entry(`<p>${long}</p>`));
+    expect(post.summary).toMatch(/[.!?]$/);
+    expect(post.summary).not.toContain("…");
+    expect(post.summary.length).toBeLessThanOrEqual(240);
+  });
+
+  it("gives every h2 an id and lists them for the table of contents", () => {
+    const post = toPost(entry("<p>Intro.</p><h2>The client</h2><p>x</p><h2>What we changed</h2>"));
+    expect(post.toc).toEqual([{ id: "the-client", text: "The client" }, { id: "what-we-changed", text: "What we changed" }]);
+    expect(post.html).toContain('<h2 id="the-client">');
+  });
+});
+
+describe("lede promotion", () => {
+  it("moves a real opening paragraph into the lede and out of the body", () => {
+    const opener = "In the 68 days after we took over search, Google sent the site 2,130 clicks, up from 1,112 a year earlier.";
+    const post = toPost(entry(`<p>${opener}</p><p>Second paragraph.</p>`));
+    expect(post.lede).toBe(opener);
+    expect(post.html).not.toContain(opener);
+    expect(post.html).toContain("Second paragraph.");
+  });
+
+  it("leaves a one-line opener in the body rather than promoting it", () => {
+    const post = toPost(entry("<p>Short.</p><p>Real text follows here.</p>"));
+    expect(post.lede).toBeUndefined();
+    expect(post.html).toContain("Short.");
+  });
+});

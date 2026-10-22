@@ -31,9 +31,45 @@ export type Post = {
   published: string;
   updated: string;
   labels: string[];
-  summary: string;
+  summary: string; // whole sentences, never cut mid-word — the index excerpt
+  lede?: string; // the opening paragraph (HTML), promoted out of the body
+  toc: { id: string; text: string }[]; // the body's h2s, for the "In this post" rail
   minutes: number;
 };
+
+// A lede that stops mid-sentence with "…" reads as a mistake, so the summary
+// is the first whole sentence(s) up to ~240 chars. Only when a single sentence
+// runs past that (a long-winded opener) is it cut at a word, and then the
+// ellipsis is part of the string, so no caller ever appends one.
+export function leadSentences(text: string, max = 240): string {
+  const sentences = text.match(/[^.!?]+[.!?]+(?=\s|$)/g) ?? [];
+  let out = "";
+  for (const s of sentences) {
+    if (out && (out + s).length > max) break;
+    out = (out + s).trim();
+    if (out.length >= 140) break;
+  }
+  if (out && out.length <= max) return out;
+  const cut = text.slice(0, max).replace(/\s\S*$/, "");
+  return cut.length < text.length ? cut + "…" : cut;
+}
+
+const slugify = (s: string) => s.toLowerCase().replace(/<[^>]+>/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// Give every h2 an id so the post can carry a table of contents that jumps to
+// it. Blogger writes plain <h2>; an author who typed an id by hand keeps it.
+function withHeadingIds(html: string): { html: string; toc: Post["toc"] } {
+  const toc: Post["toc"] = [];
+  const out = html.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (whole, attrs, inner) => {
+    const text = inner.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    if (!text) return whole;
+    const existing = attrs.match(/\bid="([^"]*)"/)?.[1];
+    const id = existing || slugify(text) || `section-${toc.length + 1}`;
+    toc.push({ id, text });
+    return existing ? whole : `<h2 id="${id}"${attrs}>${inner}</h2>`;
+  });
+  return { html: out, toc };
+}
 
 // A post's first element, if it is a single <img>, is its hero/thumbnail —
 // that's exactly how migrate.mjs wrote every migrated Ghost post (feature
@@ -71,6 +107,18 @@ function externalizeLinks(html: string): string {
   });
 }
 
+// The opening paragraph is shown once, styled as the lede ("The gist") — not
+// styled at the top and then repeated as the first body paragraph a line
+// later, which is what showing the summary above an unchanged body did.
+// A one-liner or a wall of text is left in place; only a real opener moves.
+function promoteLede(html: string): { lede?: string; body: string } {
+  const m = html.match(/^\s*<p\b[^>]*>([\s\S]*?)<\/p>/i);
+  if (!m) return { body: html };
+  const text = m[1].replace(/<[^>]+>/g, "").trim();
+  if (text.length < 40 || text.length > 420) return { body: html };
+  return { lede: m[1], body: html.slice(m[0].length) };
+}
+
 // Exported for client/lib/blogger.spec.ts only — the feed-parsing logic
 // (hero extraction, external-link handling) is worth testing directly rather
 // than only through the live network fetch in usePosts.
@@ -78,17 +126,21 @@ export function toPost(e: any): Post {
   const href: string = e.link.find((l: any) => l.rel === "alternate").href;
   const raw: string = e.content?.$t ?? "";
   const text = raw.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-  const { html, heroImage, heroAlt } = splitHero(raw);
+  const hero = splitHero(raw);
+  const { html: withIds, toc } = withHeadingIds(externalizeLinks(hero.html));
+  const { lede, body } = promoteLede(withIds);
   return {
     slug: KEEP_URL[href.split("/").pop()!.replace(/\.html$/, "")] ?? href.split("/").pop()!.replace(/\.html$/, ""),
     title: e.title.$t,
-    html: externalizeLinks(html),
-    heroImage,
-    heroAlt,
+    html: body,
+    lede,
+    heroImage: hero.heroImage,
+    heroAlt: hero.heroAlt,
     published: e.published.$t,
     updated: e.updated.$t,
     labels: (e.category ?? []).map((c: any) => c.term),
-    summary: text.slice(0, 200).replace(/\s\S*$/, ""),
+    summary: leadSentences(text),
+    toc,
     minutes: Math.max(1, Math.round(text.split(" ").length / 230)),
   };
 }
