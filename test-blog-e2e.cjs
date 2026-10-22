@@ -149,6 +149,9 @@ async function pageChecks(p, label) {
   ok("desktop: every focused control shows a visible focus ring", noRing.length === 0, noRing.slice(0, 6).join(", "));
   await d.goto(BASE + "/blog/seo-case-study-phantom-arcades", { waitUntil: "domcontentloaded" });
   await d.waitForSelector(".oa-article");
+  // sections are folded by default; the rail tracks reading position, so open them first
+  await d.locator("button", { hasText: "Expand all" }).click();
+  await d.waitForTimeout(200);
   await d.evaluate(() => document.getElementById("ai-search").scrollIntoView());
   await d.waitForFunction(() => Math.abs(document.getElementById("ai-search").getBoundingClientRect().top - 96) < 4, null, { timeout: 5000 }).catch(() => {});
   await d.waitForTimeout(250);
