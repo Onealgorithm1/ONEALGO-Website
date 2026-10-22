@@ -5,6 +5,7 @@ import { PageHero, Section, CTABand } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import { usePosts, isJob, longDate, type Post } from "../lib/blogger";
+import { AUTHOR } from "../lib/authors";
 import { loadTurnstile, TURNSTILE_SITE_KEY, submitBlogSubscription } from "../lib/lead";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -12,13 +13,73 @@ import { Input } from "../components/ui/input";
 /* /blog and /blog/:slug — articles written in Blogger (see lib/blogger.ts).
  * Job listings share the feed but live on /careers, never here.
  *
- * Layout: newest post as a wide lead, the rest as hairline "specimen rows"
- * (the site's own row motif: 2px lift, top rule lights orange on hover).
- * Meta — date, read time, labels — is set in JetBrains Mono, like every
- * measured value elsewhere on the site.
+ * Index layout (Smart Brevity, Axios' own pattern, checked live 2026-10-22):
+ * a numbered, scannable list — bold headline, a small circular avatar + name
+ * directly under it, a landscape thumbnail (not a cropped square), and the
+ * excerpt folded behind a native <details> instead of sitting open and
+ * taking permanent space. Meta — date, read time — set in JetBrains Mono,
+ * like every measured value elsewhere on the site.
  */
 
 const META = "font-mono text-[12px] uppercase tracking-wider text-oa-ink3";
+
+// No headshot confirmed yet — AUTHOR.photo is unset until Louis points at a
+// real file (3 candidates found in Drive, filenames too generic to confirm
+// without asking). An honest initials circle beats guessing which one, or
+// inventing one. Set AUTHOR.photo in lib/authors.ts and this swaps itself.
+function Avatar({ size = 40 }: { size?: number }) {
+  if (AUTHOR.photo) {
+    return (
+      <img src={AUTHOR.photo} alt="" width={size} height={size}
+        style={{ width: size, height: size }} className="shrink-0 rounded-full border border-oa-hairline object-cover" />
+    );
+  }
+  return (
+    <span aria-hidden="true" style={{ width: size, height: size }}
+      className="inline-flex shrink-0 items-center justify-center rounded-full bg-oa-blue font-mono text-[13px] font-semibold text-white">
+      LR
+    </span>
+  );
+}
+
+// Plain monoline marks, not the platforms' trademarked logos — this is a
+// share link, not a brand placement, so a generic glyph is the honest choice.
+const SHARE_ICONS = {
+  x: <path d="M4 4l16 16M20 4L4 20" />,
+  linkedin: <path d="M6 9v10M6 5.5v.01M11 19V9m0 4c0-2.5 2-4 4-4s4 1.5 4 4v6" />,
+  facebook: <path d="M14 20v-7h2.5l.5-3H14V8.3c0-.9.3-1.5 1.7-1.5H17V4.1C16.7 4 15.7 4 14.6 4 12.3 4 10.7 5.4 10.7 8v2H8v3h2.7v7" />,
+  email: <path d="M4 6h16v12H4zM4 7l8 6 8-6" />,
+};
+
+function ShareBar({ p }: { p: Post }) {
+  const [copied, setCopied] = useState(false);
+  const url = getCanonicalUrl(`/blog/${p.slug}`);
+  const links: { key: keyof typeof SHARE_ICONS; label: string; href: string }[] = [
+    { key: "x", label: "Share on X", href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(p.title)}` },
+    { key: "linkedin", label: "Share on LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}` },
+    { key: "facebook", label: "Share on Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+    { key: "email", label: "Share by email", href: `mailto:?subject=${encodeURIComponent(p.title)}&body=${encodeURIComponent(url)}` },
+  ];
+  const iconBtn = "flex h-9 w-9 items-center justify-center rounded-full border border-oa-hairlineStrong text-oa-ink2 transition-colors hover:border-oa-ink hover:text-oa-ink";
+  return (
+    <div className="flex items-center gap-2">
+      {links.map((l) => (
+        <a key={l.key} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={l.label} className={iconBtn}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            {SHARE_ICONS[l.key]}
+          </svg>
+        </a>
+      ))}
+      <button type="button" aria-label="Copy link" className={iconBtn}
+        onClick={() => { navigator.clipboard.writeText(url).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1600); }); }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5" />
+        </svg>
+      </button>
+      <span role="status" className={`${META} transition-opacity ${copied ? "opacity-100" : "opacity-0"}`}>Link copied</span>
+    </div>
+  );
+}
 
 function Meta({ p }: { p: Post }) {
   return (
@@ -40,39 +101,49 @@ function Labels({ labels }: { labels: string[] }) {
   );
 }
 
-function Lead({ p }: { p: Post }) {
+function AuthorLine({ size = 28 }: { size?: number }) {
   return (
-    <Link to={`/blog/${p.slug}`} className="group grid gap-8 border-t border-oa-hairlineStrong pt-8 md:grid-cols-[1.15fr_1fr] md:items-center">
-      {p.heroImage && (
-        <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} loading="eager"
-          className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
-      )}
-      <div>
-        <p className="font-mono text-[12px] uppercase tracking-wider text-oa-orangeText">Latest</p>
-        <h2 className="mt-3 text-h2 font-semibold text-oa-ink group-hover:text-oa-blue">{p.title}</h2>
-        <p className="mt-4 text-lede text-oa-ink2">{p.summary}…</p>
-        <div className="mt-5"><Meta p={p} /></div>
-      </div>
+    <Link to={`/blog/author/${AUTHOR.slug}`} className="group/author inline-flex items-center gap-2">
+      <Avatar size={size} />
+      <span className="text-sm text-oa-ink2 group-hover/author:text-oa-blue">{AUTHOR.name}</span>
     </Link>
   );
 }
 
-function Row({ p }: { p: Post }) {
+// The numbered, scannable list Axios actually uses (checked live, 2026-10-22):
+// bold headline, byline directly under it, long text folded behind a native
+// <details> instead of sitting open by default — "Read the breakdown" costs
+// nothing until someone asks for it, which is the fold Louis asked for.
+function ListItem({ n, p }: { n: number; p: Post }) {
   return (
-    <li>
-      <Link to={`/blog/${p.slug}`}
-        className="group grid grid-cols-[5rem_1fr] gap-4 border-t border-oa-hairline py-7 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-oa-orange motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[6rem_12rem_1fr] md:gap-8">
-        {p.heroImage
-          ? <img src={p.heroImage} alt="" width={96} height={96} loading="lazy"
-              className="aspect-square w-20 rounded-[8px] border border-oa-hairline object-cover md:w-24" />
-          : <div aria-hidden="true" className="aspect-square w-20 rounded-[8px] border border-oa-hairline bg-oa-surface md:w-24" />}
-        <div className="hidden md:block"><Meta p={p} /></div>
+    <li className="border-t border-oa-hairline py-10 first:pt-0">
+      <div className="grid gap-6 md:grid-cols-[1fr_20rem] md:items-start">
         <div>
-          <p className={`${META} md:hidden`}><time dateTime={p.published}>{longDate(p.published)}</time></p>
-          <h3 className="mt-1 text-h3 font-semibold text-oa-ink group-hover:text-oa-blue md:mt-0">{p.title}</h3>
-          <p className="mt-2 text-oa-ink2">{p.summary}…</p>
+          <Link to={`/blog/${p.slug}`} className="group">
+            <h2 className="text-h2 font-semibold text-oa-ink group-hover:text-oa-blue">
+              <span className="text-oa-ink3">{n}.</span> {p.title}
+            </h2>
+          </Link>
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <AuthorLine />
+            <Meta p={p} />
+          </div>
+          <details className="mt-4 max-w-[60ch]">
+            <summary className="cursor-pointer text-sm font-medium text-oa-blue [&::-webkit-details-marker]:hidden marker:content-none">
+              Read the breakdown
+            </summary>
+            <p className="mt-3 text-oa-ink2">{p.summary}…</p>
+          </details>
         </div>
-      </Link>
+        {p.heroImage ? (
+          <Link to={`/blog/${p.slug}`} tabIndex={-1} aria-hidden="true">
+            <img src={p.heroImage} alt="" width={320} height={213} loading="lazy"
+              className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline object-cover" />
+          </Link>
+        ) : (
+          <div aria-hidden="true" className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline bg-oa-surface" />
+        )}
+      </div>
     </li>
   );
 }
@@ -81,7 +152,6 @@ function Index({ posts }: { posts: Post[] }) {
   const [topic, setTopic] = useState("");
   const topics = [...new Set(posts.flatMap((p) => p.labels))].sort();
   const shown = topic ? posts.filter((p) => p.labels.includes(topic)) : posts;
-  const [lead, ...rest] = shown;
   return (
     <>
       <PageHero eyebrow="Blog" siblings={false}
@@ -98,11 +168,42 @@ function Index({ posts }: { posts: Post[] }) {
             ))}
           </div>
         )}
-        {lead ? <Lead p={lead} /> : <p className="text-oa-ink2">No posts yet.</p>}
-        {rest.length > 0 && <ul className="mt-12">{rest.map((p) => <Row key={p.slug} p={p} />)}</ul>}
+        {shown.length ? <ul>{shown.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul> : <p className="text-oa-ink2">No posts yet.</p>}
       </Section>
       <CTABand />
     </>
+  );
+}
+
+function AuthorPage({ posts }: { posts: Post[] }) {
+  useSEO({
+    title: `${AUTHOR.name} — OneAlgorithm Blog`,
+    description: AUTHOR.bio,
+    canonical: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`),
+  });
+  return (
+    <Layout>
+      <Section>
+        <nav aria-label="Breadcrumb" className={META}><Link to="/blog" className="hover:text-oa-blue">← Blog</Link></nav>
+        <div className="mt-8 flex items-center gap-4">
+          <Avatar size={64} />
+          <div>
+            <h1 className="text-h2 font-semibold text-oa-ink">{AUTHOR.name}</h1>
+            <p className={META}>{AUTHOR.role}</p>
+          </div>
+        </div>
+        <p className="mt-4 max-w-[60ch] text-oa-ink2">{AUTHOR.bio}</p>
+        <a href={AUTHOR.linkedin} target="_blank" rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 9v10M6 5.5v.01M11 19V9m0 4c0-2.5 2-4 4-4s4 1.5 4 4v6" />
+          </svg>
+          LinkedIn
+        </a>
+        <ul className="mt-10">{posts.map((p, i) => <ListItem key={p.slug} n={i + 1} p={p} />)}</ul>
+      </Section>
+      <CTABand />
+    </Layout>
   );
 }
 
@@ -184,11 +285,17 @@ function Subscribe({ post }: { post: Post }) {
   );
 }
 
-function Byline() {
+// A plain, short, title-only link — the right weight for "you might also
+// like" at the foot of an article; the full numbered/fold treatment belongs
+// to the index and author page, not a recirculation footer.
+function RelatedItem({ p }: { p: Post }) {
   return (
-    <p className="mt-3 text-oa-ink2">
-      By <Link to="/about" className="text-oa-blue underline underline-offset-4 hover:text-oa-blue700">Louis Rubino</Link>, OneAlgorithm
-    </p>
+    <li className="border-t border-oa-hairline py-5">
+      <Link to={`/blog/${p.slug}`} className="group flex items-baseline justify-between gap-4">
+        <span className="font-semibold text-oa-ink group-hover:text-oa-blue">{p.title}</span>
+        <span className={`${META} shrink-0`}>{longDate(p.published)}</span>
+      </Link>
+    </li>
   );
 }
 
@@ -199,7 +306,7 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
       <JSONLDScript data={{
         "@context": "https://schema.org", "@type": "BlogPosting",
         headline: p.title, datePublished: p.published, dateModified: p.updated,
-        author: { "@type": "Person", name: "Louis Rubino", url: "https://onealgorithm.com/about" },
+        author: { "@type": "Person", name: AUTHOR.name, url: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`) },
         publisher: { "@type": "Organization", name: "OneAlgorithm" },
         mainEntityOfPage: url, ...(p.heroImage && { image: new URL(p.heroImage, "https://onealgorithm.com").href }),
         keywords: p.labels.join(", "),
@@ -218,7 +325,10 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
         </nav>
         <header className="mt-8 max-w-[68ch]">
           <h1 className="text-h1 font-semibold text-oa-ink">{p.title}</h1>
-          <Byline />
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+            <AuthorLine size={36} />
+            <ShareBar p={p} />
+          </div>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-y border-oa-hairline py-4">
             <Meta p={p} />
             {p.updated.slice(0, 10) > p.published.slice(0, 10) && (
@@ -231,19 +341,41 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
           <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630}
             className="mt-10 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
         )}
+        {/* The post's own opening words, bolded and set apart — the Smart
+            Brevity lede device (checked live on axios.com, 2026-10-22: a bold
+            sentence stating the point before any narrative). Labelled "The
+            gist" rather than Axios' own "Why it matters" — same layout idea,
+            our own words for it, and this is the post's real text, not a
+            line invented to fill the box. */}
+        <p className="mt-10 max-w-[68ch] border-l-2 border-oa-orange pl-5 text-lede text-oa-ink">
+          <span className="font-semibold">The gist:</span> {p.summary}…
+        </p>
         {/* Authored by our own Blogger account, not by visitors. */}
-        <article className="oa-article mt-10" dangerouslySetInnerHTML={{ __html: p.html }} />
+        <article className="oa-article mt-8" dangerouslySetInnerHTML={{ __html: p.html }} />
+        <div className="mt-10 max-w-[68ch] border-t border-oa-hairline pt-6"><ShareBar p={p} /></div>
         <Subscribe key={p.slug} post={p} />
       </Section>
       {related.length > 0 && (
         <Section tone="surface">
           <h2 className="text-h3 font-semibold text-oa-ink">Keep reading</h2>
-          <ul className="mt-4">{related.map((r) => <Row key={r.slug} p={r} />)}</ul>
+          <ul className="mt-2">{related.map((r) => <RelatedItem key={r.slug} p={r} />)}</ul>
         </Section>
       )}
       <CTABand />
     </>
   );
+}
+
+// /blog/author/louis-rubino — a separate named export (not a param on the
+// post route) so it never collides with a post whose slug happens to be
+// "author"; registered as its own route in App.tsx, which react-router
+// matches ahead of the single-segment /blog/:slug regardless of order.
+export function BlogAuthor() {
+  const { posts, error } = usePosts();
+  const articles = posts?.filter((p) => !isJob(p));
+  if (error) return <Layout><Section><p className="text-oa-ink2">The blog could not be loaded ({error}).</p></Section></Layout>;
+  if (!articles) return <Layout><Section><p className="text-oa-ink2">Loading…</p></Section></Layout>;
+  return <AuthorPage posts={articles} />;
 }
 
 export default function Blog() {

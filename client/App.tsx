@@ -59,6 +59,7 @@ const Industries = lazy(() => import("./pages/Industries"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Blog = lazy(() => import("./pages/Blog"));
+const BlogAuthor = lazy(() => import("./pages/Blog").then((m) => ({ default: m.BlogAuthor })));
 const Careers = lazy(() => import("./pages/Careers"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Construction = lazy(() => import("./pages/industries/Construction"));
@@ -318,6 +319,7 @@ const App = () => (
                   the request never reaches this router. Adding a Route for it would
                   make in-app navigation render a 404 over a page that works. */}
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/author/:slug" element={<BlogAuthor />} />
               <Route path="/blog/:slug" element={<Blog />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/careers/:slug" element={<Careers />} />

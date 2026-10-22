@@ -110,7 +110,10 @@ async function main() {
   if (!parsedFeed.feed || !Array.isArray(parsedFeed.feed.entry ?? [])) {
     throw new Error("Blogger response is not a posts feed");
   }
-  ROUTES.push("/blog", "/careers");
+  // /blog/author/<slug> is a fixed route (client/lib/authors.ts), not
+  // discovered from the feed — seed it so it prerenders and so the discovery
+  // regex below recognises it as known, not a leak.
+  ROUTES.push("/blog", "/careers", "/blog/author/louis-rubino");
   const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
@@ -133,7 +136,7 @@ async function main() {
      why each one still names its route. */
   const CONCURRENCY = Math.max(1, Number(process.env.PRERENDER_CONCURRENCY) || 5);
   const queue = [...ROUTES];
-  const contentRoutes = new Set(["/blog", "/careers"]);
+  const contentRoutes = new Set(["/blog", "/careers", "/blog/author/louis-rubino"]);
 
   const worker = async () => {
     let route;
@@ -159,7 +162,8 @@ async function main() {
         timeout: 30000,
       });
       if (contentRoutes.has(route)) {
-        await page.waitForSelector(route === "/blog" || route === "/careers" ? "main h1" : "main article.oa-article", { timeout: 10000 });
+        const isIndexLike = route === "/blog" || route === "/careers" || route === "/blog/author/louis-rubino";
+        await page.waitForSelector(isIndexLike ? "main h1" : "main article.oa-article", { timeout: 10000 });
         // Discover URLs from the rendered indexes, so KEEP_URL in blogger.ts
         // stays the single authority for migrated Ghost slugs.
         if (route === "/blog" || route === "/careers") {
@@ -167,7 +171,7 @@ async function main() {
             [...new Set(anchors.map((a) => a.getAttribute("href")))],
           );
           for (const link of links) {
-            if (!/^\/(blog|careers)\/[a-z0-9-]+$/.test(link)) throw new Error(`Unsafe content URL: ${link}`);
+            if (!/^\/(blog|careers)\/[a-z0-9-]+$/.test(link) && !contentRoutes.has(link)) throw new Error(`Unsafe content URL: ${link}`);
             if (!contentRoutes.has(link)) {
               contentRoutes.add(link);
               ROUTES.push(link);
@@ -340,7 +344,7 @@ Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
 
   await browser.close();
   server.close();
-  if (contentRoutes.size !== (parsedFeed.feed.entry ?? []).length + 2) {
+  if (contentRoutes.size !== (parsedFeed.feed.entry ?? []).length + 3) {
     throw new Error(`Discovered ${contentRoutes.size - 2} post/job URLs for ${(parsedFeed.feed.entry ?? []).length} feed entries`);
   }
   console.log(`\nPrerendered ${ok}/${ROUTES.length} routes.` + (failed.length ? ` Failed: ${failed.join(", ")}` : ""));
