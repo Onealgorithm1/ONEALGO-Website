@@ -124,13 +124,13 @@ export function CityFacts({ slug }: { slug: string }) {
   const c = SALESFORCE_CITIES.find((x) => x.slug === slug)!;
   const jobsTotal = c.jobs.reduce((s, j) => s + j.count, 0);
   const facts: Fact[] = [
-    { label: "Business establishments in the metro", value: n(c.establishments?.value), note: c.establishments2018 ? `${n(c.establishments2018.value)} in 2018` : undefined, source: "US Census Bureau, County Business Patterns 2023", href: c.sources.cbp },
-    { label: "Establishments with 500 or more employees", value: n(c.size500plus?.value), note: c.size500plus2018 ? `${n(c.size500plus2018.value)} in 2018` : undefined, source: "Census CBP 2023 (sum of two published size classes)", href: c.sources.cbp },
-    { label: "Establishments with 100–499 employees", value: n(c.size100to499?.value), source: "Census CBP 2023 (sum of two published size classes)", href: c.sources.cbp },
-    ...c.industries.slice(0, 3).map((i) => ({ label: `Employees in ${i.label}`, value: n(i.employees), note: `${n(i.establishments)} establishments`, source: "Census CBP 2023", href: c.sources.cbp })),
-    { label: "Software developers employed", value: n(c.softwareDevelopers?.value), note: c.softwareDeveloperMedianWage ? `median wage $${n(c.softwareDeveloperMedianWage.value)}` : undefined, source: "BLS Occupational Employment and Wage Statistics, May 2025", href: c.sources.oews ?? "https://www.bls.gov/oes/" },
-    { label: "Open Salesforce roles within 25 miles", value: n(jobsTotal), note: c.jobs.map((j, i) => <span key={j.role}>{i > 0 && " · "}<a href={j.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{j.role.replace("Salesforce ", "")} {n(j.count)}</a></span>), source: `LinkedIn job search: sum of four role-title searches, ${c.jobsPulled} (each count links to its own search; this link is the consultant search)`, href: c.jobs.find((j) => j.role.endsWith("Consultant"))?.url ?? "https://www.linkedin.com/jobs/" },
-    ...(c.federal ? [{ label: `Federal contract awards mentioning Salesforce (${c.federal.place === "Washington DC" ? "Washington, DC" : `city of ${c.federal.place}`})`, value: n(c.federal.awards), note: c.federal.usd ? `$${n(c.federal.usd)} obligated, ${c.federal.period}` : c.federal.period, source: "USAspending.gov", href: c.sources.usaspending }] : []),
+    { label: `${n(c.establishments?.value)} business establishments in the ${c.name} metro`, value: n(c.establishments?.value), note: c.establishments2018 ? `${n(c.establishments2018.value)} in 2018` : undefined, source: "US Census Bureau, County Business Patterns 2023", href: c.sources.cbp },
+    { label: `${n(c.size500plus?.value)} establishments with 500 or more employees`, value: n(c.size500plus?.value), note: c.size500plus2018 ? `${n(c.size500plus2018.value)} in 2018` : undefined, source: "Census CBP 2023 (sum of two published size classes)", href: c.sources.cbp },
+    { label: `${n(c.size100to499?.value)} establishments with 100–499 employees`, value: n(c.size100to499?.value), source: "Census CBP 2023 (sum of two published size classes)", href: c.sources.cbp },
+    ...c.industries.slice(0, 3).map((i) => ({ label: `${n(i.employees)} employees in ${i.label}`, value: n(i.employees), note: `${n(i.establishments)} establishments`, source: "Census CBP 2023", href: c.sources.cbp })),
+    { label: `${n(c.softwareDevelopers?.value)} software developers employed in the metro`, value: n(c.softwareDevelopers?.value), note: c.softwareDeveloperMedianWage ? `median wage $${n(c.softwareDeveloperMedianWage.value)}` : undefined, source: "BLS Occupational Employment and Wage Statistics, May 2025", href: c.sources.oews ?? "https://www.bls.gov/oes/" },
+    { label: `${n(jobsTotal)} open Salesforce roles within 25 miles of ${c.name}`, value: n(jobsTotal), note: c.jobs.map((j, i) => <span key={j.role}>{i > 0 && " · "}<a href={j.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{j.role.replace("Salesforce ", "")} {n(j.count)}</a></span>), source: `LinkedIn job search: sum of four role-title searches, ${c.jobsPulled} (each count links to its own search; this link is the consultant search)`, href: c.jobs.find((j) => j.role.endsWith("Consultant"))?.url ?? "https://www.linkedin.com/jobs/" },
+    ...(c.federal ? [{ label: `${n(c.federal.awards)} federal contract award${c.federal.awards === 1 ? "" : "s"} mentioning Salesforce (${c.federal.place === "Washington DC" ? "Washington, DC" : `city of ${c.federal.place}`})`, value: n(c.federal.awards), note: c.federal.usd ? `$${n(c.federal.usd)} obligated, ${c.federal.period}` : c.federal.period, source: "USAspending.gov", href: c.sources.usaspending }] : []),
   ];
 
   return (
@@ -139,11 +139,8 @@ export function CityFacts({ slug }: { slug: string }) {
         <dl className="mt-10 divide-y divide-oa-hairlineStrong border-y border-oa-hairlineStrong">
           {facts.map((f) => (
             <div key={f.label} className="grid gap-1 py-4 md:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)] md:gap-6">
-              <dt className="text-oa-ink2">{f.label}</dt>
-              <dd className="text-lg font-semibold text-oa-ink">
-                {f.value}
-                {f.note && <span className="block text-sm font-normal text-oa-ink2">{f.note}</span>}
-              </dd>
+              <dt className="text-lg font-semibold text-oa-ink">{f.label}</dt>
+              <dd className="text-sm text-oa-ink2">{f.note ?? ""}</dd>
               <dd className="text-sm text-oa-ink2">
                 <a href={f.href} target="_blank" rel="noopener noreferrer" className="underline decoration-oa-hairlineStrong underline-offset-4 hover:text-oa-ink">{f.source}</a>
               </dd>
@@ -167,6 +164,12 @@ export default function SalesforceCity({ slug }: { slug: string }) {
     {
       q: `How much demand is there for Salesforce skills in ${c.name}?`,
       a: `On ${c.jobsPulled}, a LinkedIn search within 25 miles of ${c.name} showed ${n(jobsTotal)} open Salesforce roles: ${n(role("Consultant"))} consultant, ${n(role("Administrator"))} administrator, ${n(role("Architect"))} architect and ${n(role("Developer"))} developer openings. That ranked ${c.name} ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked. When that many employers compete for the same people, a partner can cover a defined project without a new hire.`,
+    },
+    {
+      q: `Is there a Salesforce user community in ${c.name}?`,
+      a: c.groups.length > 0
+        ? `Yes. ${c.groups.length} Salesforce Trailblazer Community Group${c.groups.length === 1 ? " lists" : "s list"} the ${c.name} area: ${c.groups.map((g) => { const pl = groupPlace(g.url, c.name).replace(/^,\s*/, ""); return pl ? `${g.name} (${pl})` : g.name; }).join(", ")}. ${c.salesforceOffice ? `Salesforce also lists an office at ${c.salesforceOffice}.` : `Salesforce lists no office in ${c.name}${c.nearestOffice ? `; the nearest is at ${c.nearestOffice}` : ""}.`}${c.events.length ? ` Upcoming regional events include ${c.events.map((e) => `${e.name} (${e.date})`).join(" and ")}.` : ""}`
+        : `We found no Trailblazer Community Group listed for ${c.name}. ${c.salesforceOffice ? `Salesforce lists an office at ${c.salesforceOffice}.` : `Salesforce lists no office in ${c.name}${c.nearestOffice ? `; the nearest is at ${c.nearestOffice}` : ""}.`}${c.events.length ? ` The nearest community events we found are ${c.events.map((e) => `${e.name} (${e.date})`).join(" and ")}.` : ""}`,
     },
     ...(c.softwareDeveloperMedianWage
       ? [{
@@ -223,13 +226,9 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       </Section>
 
       <Section tone="surface" bordered>
-        <SectionHeading eyebrow="What we deliver" title="Salesforce work we have done for clients" lede="We describe work by what it was, not who it was for: we name no client without written consent." />
-        <ul className="mt-10 grid gap-x-10 gap-y-4 md:grid-cols-2">
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Data migration</strong> — QuickBase and Kissflow systems moved into Salesforce.</li>
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Integration</strong> — an SAP-to-Salesforce sync for a client.</li>
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Marketing Cloud</strong> — about 18 months of ongoing Marketing Cloud support.</li>
-          <li className="text-oa-ink2"><strong className="text-oa-ink">Managed services</strong> — weekly Salesforce development and administration for a lending company since April 2026.</li>
-        </ul>
+        {/* The proof list lives once, on /services/salesforce and each service page — not repeated
+            on 12 city pages (dedupe pass 2026-10-22). */}
+        <SectionHeading eyebrow="What we deliver" title="Our Salesforce services" />
         <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           {SERVICES.map(([to, label]) => (
             <li key={to}><Link to={to} className="inline-flex min-h-11 items-center font-medium text-oa-ink underline decoration-oa-orange underline-offset-4">{label}</Link></li>
@@ -237,24 +236,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         </ul>
       </Section>
 
-      <Section tone="paper">
-        <SectionHeading eyebrow="Community" title={`The Salesforce community in ${c.name}`} />
-        <div className="mt-8 max-w-3xl space-y-4 leading-relaxed text-oa-ink2">
-          {c.groups.length > 0 ? (
-            <p>
-              {c.groups.length} Salesforce Trailblazer Community Group{c.groups.length === 1 ? "" : "s"} list the {c.name} area:{" "}
-              {c.groups.map((g, i) => (
-                <span key={g.url}>{i > 0 && ", "}<a href={g.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{g.name}{groupPlace(g.url, c.name)}</a></span>
-              ))}
-              .
-            </p>
-          ) : (
-            <p>We found no Trailblazer Community Group listed for {c.name} on <a href={c.sources.trailblazer} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">trailblazercommunitygroups.com</a>.</p>
-          )}
-          <p>{c.salesforceOffice ? <>Salesforce lists an office at {c.salesforceOffice}.</> : <>Salesforce lists no office in {c.name}{c.nearestOffice ? <>; the nearest is at {c.nearestOffice}</> : null}.</>}</p>
-          {c.events.length > 0 && <p>Upcoming community events in the region: {c.events.map((e) => `${e.name} (${e.date})`).join("; ")}.</p>}
-        </div>
-      </Section>
+      {/* Community facts now live in the generated FAQ ("Is there a Salesforce user community…"). */}
 
       <Section tone="surface" bordered>
         <SectionHeading eyebrow="Questions" title={`What ${c.name} callers ask first`} />
