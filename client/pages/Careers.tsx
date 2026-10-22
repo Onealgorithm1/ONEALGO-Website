@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import { PageHero, Section, PrimaryCTA } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
-import { usePosts, isJob, longDate, CAREERS, type Post } from "../lib/blogger";
+import { usePosts, isJob, longDate, shareImage, CAREERS, type Post } from "../lib/blogger";
 
 /* /careers and /careers/:slug — job listings are Blogger posts labelled
  * "Careers" (lib/blogger.ts). Open a role: publish a post with that label.
@@ -28,7 +28,15 @@ function Job({ p }: { p: Post }) {
   return (
     <li>
       <Link to={`/careers/${p.slug}`}
-        className="group grid gap-3 border-t border-oa-hairline py-7 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-oa-orange motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[1fr_auto] md:items-center">
+        className="group grid gap-6 border-t border-oa-hairline py-7 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-oa-orange motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[9rem_1fr_auto] md:items-center">
+        {/* Same 1200x630 hero every blog post gets — a role post is a Blogger
+            post like any other, so it gets the same treatment, never cropped. */}
+        {p.heroImage ? (
+          <img src={p.heroImage} alt="" width={1200} height={630} loading="lazy" decoding="async"
+            className="aspect-[1200/630] w-full rounded-[16px] bg-oa-night object-contain md:w-36" />
+        ) : (
+          <div aria-hidden="true" className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline bg-oa-surface md:w-36" />
+        )}
         <div>
           <h2 className="text-h3 font-semibold text-oa-ink group-hover:text-oa-blue">{p.title}</h2>
           <p className={`${META} mt-2`}>{[placeOf(p), ...tagsOf(p)].filter(Boolean).join(" · ")}</p>
@@ -65,6 +73,7 @@ function Listing({ p }: { p: Post }) {
         title: p.title.replace(/\s+[–-]\s+.*$/, ""), description: p.html, datePosted: p.published,
         hiringOrganization: { "@type": "Organization", name: "One Algorithm LLC", sameAs: "https://onealgorithm.com" },
         ...(place && { jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: city, addressRegion: region, addressCountry: "US" } } }),
+        ...(shareImage(p) && { image: shareImage(p)!.url }),
         directApply: false,
       }} />
       <Section>
@@ -74,6 +83,15 @@ function Listing({ p }: { p: Post }) {
         <div className="mt-8 grid gap-12 lg:grid-cols-[1fr_20rem]">
           <div>
             <h1 className="text-h1 font-semibold text-oa-ink">{p.title}</h1>
+            {p.heroImage && (
+              <figure className="mt-8">
+                <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} decoding="async" {...{ fetchpriority: "high" }}
+                  className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
+                {p.heroAlt && p.heroAlt.trim() !== p.title.trim() && (
+                  <figcaption className={`${META} mt-2 normal-case tracking-normal`}>{p.heroAlt}</figcaption>
+                )}
+              </figure>
+            )}
             <article className="oa-article mt-10" dangerouslySetInnerHTML={{ __html: p.html }} />
           </div>
           {/* The facts panel: radius 0 like every measured element on the site. */}
@@ -99,11 +117,19 @@ export default function Careers() {
   const job = slug ? jobs?.find((p) => p.slug === slug) : undefined;
 
   const careersUrl = getCanonicalUrl(slug ? `/careers/${slug}` : "/careers");
+  const share = job ? shareImage(job) : undefined;
+  const pageTitle = job ? `${job.title} — Careers at OneAlgorithm` : "Careers — OneAlgorithm";
+  const pageDescription = job?.summary || "Open roles at OneAlgorithm in Malvern, Pennsylvania.";
   useSEO({
-    title: job ? `${job.title} — Careers at OneAlgorithm` : "Careers — OneAlgorithm",
-    description: job?.summary || "Open roles at OneAlgorithm in Malvern, Pennsylvania.",
+    title: pageTitle,
+    description: pageDescription,
     canonical: careersUrl,
     ogUrl: careersUrl,
+    ogTitle: pageTitle,
+    ogDescription: pageDescription,
+    twitterTitle: pageTitle,
+    twitterDescription: pageDescription,
+    ...(share && { ogImage: share.url, ogImageSize: share.size, twitterImage: share.url, ogImageAlt: job?.heroAlt || job?.title }),
   });
 
   const status = (msg: React.ReactNode) => <Section><p className="text-oa-ink2">{msg}</p></Section>;
