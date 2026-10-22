@@ -43,8 +43,8 @@ function Labels({ labels }: { labels: string[] }) {
 function Lead({ p }: { p: Post }) {
   return (
     <Link to={`/blog/${p.slug}`} className="group grid gap-8 border-t border-oa-hairlineStrong pt-8 md:grid-cols-[1.15fr_1fr] md:items-center">
-      {p.image && (
-        <img src={p.image} alt="" width={1200} height={630} loading="eager"
+      {p.heroImage && (
+        <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} loading="eager"
           className="aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
       )}
       <div>
@@ -61,10 +61,15 @@ function Row({ p }: { p: Post }) {
   return (
     <li>
       <Link to={`/blog/${p.slug}`}
-        className="group grid gap-2 border-t border-oa-hairline py-7 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-oa-orange motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[12rem_1fr] md:gap-8">
-        <Meta p={p} />
+        className="group grid grid-cols-[5rem_1fr] gap-4 border-t border-oa-hairline py-7 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-oa-orange motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:grid-cols-[6rem_12rem_1fr] md:gap-8">
+        {p.heroImage
+          ? <img src={p.heroImage} alt="" width={96} height={96} loading="lazy"
+              className="aspect-square w-20 rounded-[8px] border border-oa-hairline object-cover md:w-24" />
+          : <div aria-hidden="true" className="aspect-square w-20 rounded-[8px] border border-oa-hairline bg-oa-surface md:w-24" />}
+        <div className="hidden md:block"><Meta p={p} /></div>
         <div>
-          <h3 className="text-h3 font-semibold text-oa-ink group-hover:text-oa-blue">{p.title}</h3>
+          <p className={`${META} md:hidden`}><time dateTime={p.published}>{longDate(p.published)}</time></p>
+          <h3 className="mt-1 text-h3 font-semibold text-oa-ink group-hover:text-oa-blue md:mt-0">{p.title}</h3>
           <p className="mt-2 text-oa-ink2">{p.summary}…</p>
         </div>
       </Link>
@@ -179,6 +184,14 @@ function Subscribe({ post }: { post: Post }) {
   );
 }
 
+function Byline() {
+  return (
+    <p className="mt-3 text-oa-ink2">
+      By <Link to="/about" className="text-oa-blue underline underline-offset-4 hover:text-oa-blue700">Louis Rubino</Link>, OneAlgorithm
+    </p>
+  );
+}
+
 function Article({ p, related }: { p: Post; related: Post[] }) {
   const url = getCanonicalUrl(`/blog/${p.slug}`);
   return (
@@ -186,9 +199,9 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
       <JSONLDScript data={{
         "@context": "https://schema.org", "@type": "BlogPosting",
         headline: p.title, datePublished: p.published, dateModified: p.updated,
-        author: { "@type": "Organization", name: "OneAlgorithm", url: "https://onealgorithm.com" },
+        author: { "@type": "Person", name: "Louis Rubino", url: "https://onealgorithm.com/about" },
         publisher: { "@type": "Organization", name: "OneAlgorithm" },
-        mainEntityOfPage: url, ...(p.image && { image: new URL(p.image, "https://onealgorithm.com").href }),
+        mainEntityOfPage: url, ...(p.heroImage && { image: new URL(p.heroImage, "https://onealgorithm.com").href }),
         keywords: p.labels.join(", "),
       }} />
       <JSONLDScript data={{
@@ -205,6 +218,7 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
         </nav>
         <header className="mt-8 max-w-[68ch]">
           <h1 className="text-h1 font-semibold text-oa-ink">{p.title}</h1>
+          <Byline />
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-y border-oa-hairline py-4">
             <Meta p={p} />
             {p.updated.slice(0, 10) > p.published.slice(0, 10) && (
@@ -213,6 +227,10 @@ function Article({ p, related }: { p: Post; related: Post[] }) {
             <Labels labels={p.labels} />
           </div>
         </header>
+        {p.heroImage && (
+          <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630}
+            className="mt-10 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
+        )}
         {/* Authored by our own Blogger account, not by visitors. */}
         <article className="oa-article mt-10" dangerouslySetInnerHTML={{ __html: p.html }} />
         <Subscribe key={p.slug} post={p} />
@@ -238,7 +256,7 @@ export default function Blog() {
     title: post ? `${post.title} — OneAlgorithm` : "Blog — OneAlgorithm",
     description: post?.summary || "Case notes, measured results and straight answers from OneAlgorithm's Salesforce, website and SEO projects.",
     canonical: getCanonicalUrl(slug ? `/blog/${slug}` : "/blog"),
-    ...(post?.image && { ogImage: new URL(post.image, "https://onealgorithm.com").href }),
+    ...(post?.heroImage && { ogImage: new URL(post.heroImage, "https://onealgorithm.com").href }),
   });
 
   const status = (msg: React.ReactNode) => <Section><p className="text-oa-ink2">{msg}</p></Section>;
