@@ -350,16 +350,63 @@ Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
   console.log(`\nPrerendered ${ok}/${ROUTES.length} routes.` + (failed.length ? ` Failed: ${failed.join(", ")}` : ""));
   if (failed.length) process.exit(1);
 
+  // Dates, title and description for a content route come from the page we
+  // just rendered (its JSON-LD and <meta>), so the sitemap and the feed can
+  // never disagree with the page itself.
+  const pageMeta = (route) => {
+    const file = path.join(DIST, `${route}.html`);
+    if (!fs.existsSync(file)) return {};
+    const html = fs.readFileSync(file, "utf8");
+    const g = (re) => (html.match(re) || [])[1];
+    return {
+      modified: g(/"dateModified":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
+      published: g(/"datePublished":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
+      title: (g(/<title>([^<]*)<\/title>/) || route).replace(/ — OneAlgorithm.*$/, ""),
+      description: g(/<meta name="description" content="([^"]*)"/) || "",
+    };
+  };
+  const today = new Date().toISOString().slice(0, 10);
+
   // public/sitemap.xml is the existing hand-maintained sitemap. Extend its
   // built copy using the same <url>/<loc> pattern, without freezing feed URLs.
   const sitemapFile = path.join(DIST, "sitemap.xml");
   let sitemap = fs.readFileSync(path.join(__dirname, "..", "public", "sitemap.xml"), "utf8");
   const additions = [...contentRoutes].filter((route) => !sitemap.includes(`<loc>https://onealgorithm.com${route}</loc>`));
   sitemap = sitemap.replace("</urlset>", additions.map((route) =>
-    `  <url>\n    <loc>https://onealgorithm.com${route}</loc>\n  </url>\n`,
+    `  <url>\n    <loc>https://onealgorithm.com${route}</loc>\n    <lastmod>${(pageMeta(route).modified || today).slice(0, 10)}</lastmod>\n  </url>\n`,
   ).join("") + "</urlset>");
   fs.writeFileSync(sitemapFile, sitemap);
   console.log(`Sitemap: added ${additions.length} blog/careers URLs.`);
+
+  // Atom feed of the posts (not jobs) at /blog/feed.xml — advertised from
+  // index.html's <link rel="alternate">. Feed readers, LinkedIn/Zapier
+  // auto-posting and Google all pick it up; the Blogger feed stays private.
+  const posts = [...contentRoutes]
+    .filter((r) => /^\/blog\/[^/]+$/.test(r))
+    .map((r) => ({ route: r, ...pageMeta(r) }))
+    .sort((a, b) => (b.published || "").localeCompare(a.published || ""));
+  const atom = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>OneAlgorithm Blog</title>
+  <subtitle>Case notes, measured results and straight answers from the Salesforce, website and SEO projects we run.</subtitle>
+  <link href="https://onealgorithm.com/blog/feed.xml" rel="self"/>
+  <link href="https://onealgorithm.com/blog"/>
+  <id>https://onealgorithm.com/blog</id>
+  <updated>${posts[0]?.modified || new Date().toISOString()}</updated>
+${posts.map((p) => `  <entry>
+    <title>${p.title}</title>
+    <link href="https://onealgorithm.com${p.route}"/>
+    <id>https://onealgorithm.com${p.route}</id>
+    <published>${p.published || ""}</published>
+    <updated>${p.modified || p.published || ""}</updated>
+    <author><name>Louis Rubino</name></author>
+    <summary>${p.description}</summary>
+  </entry>`).join("\n")}
+</feed>
+`;
+  fs.mkdirSync(path.join(DIST, "blog"), { recursive: true });
+  fs.writeFileSync(path.join(DIST, "blog", "feed.xml"), atom);
+  console.log(`Feed: ${posts.length} posts -> blog/feed.xml`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

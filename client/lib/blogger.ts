@@ -164,5 +164,35 @@ export function usePosts() {
 
 export const isJob = (p: Post) => p.labels.includes(CAREERS);
 
+const SITE = "https://onealgorithm.com";
+
+// The share image is always a 1200x630 JPEG (Google's Article guidance wants
+// 16:9 at >=50k pixels; Facebook/LinkedIn want 1.91:1 JPEG, no alpha):
+//  - migrated heroes live under /blog-media/ and have a pre-cut copy in
+//    /blog-media/og/<name>.jpg (scratchpad og-images.cjs made them);
+//  - a Blogger-hosted image takes a size directive in its URL, so it is asked
+//    for a 1200x630 centre crop directly (=w1200-h630-p).
+export function shareImage(p: Post): { url: string; size: [number, number] } | undefined {
+  const src = p.heroImage;
+  if (!src) return undefined;
+  if (src.startsWith("/blog-media/")) {
+    const name = src.split("/").pop()!.replace(/\.[a-z0-9]+$/i, "");
+    return { url: `${SITE}/blog-media/og/${name}.jpg`, size: [1200, 630] };
+  }
+  if (/\.(googleusercontent|blogspot)\.com\//.test(src)) {
+    const sized = src.replace(/\/(s|w)\d+(-h\d+)?(-[a-z-]+)?\//, "/w1200-h630-p/").replace(/=w\d+(-h\d+)?(-[a-z-]+)?$/, "=w1200-h630-p");
+    return { url: sized, size: [1200, 630] };
+  }
+  return { url: new URL(src, SITE).href, size: [1200, 630] };
+}
+
+// Meta description: the post's own lede, cut at a word, ~155 chars, so the
+// snippet is specific to the post (Google: unique per page, human-readable).
+export function metaDescription(p: Post, max = 155): string {
+  const text = (p.lede ?? p.summary).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  if (text.length <= max) return text;
+  return text.slice(0, max).replace(/\s\S*$/, "").replace(/[,;:]$/, "") + "…";
+}
+
 export const longDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });

@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import { PageHero, Section, CTABand, Eyebrow, HeroRail } from "../components/site";
 import { JSONLDScript } from "../components/JSONLDScript";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
-import { usePosts, isJob, longDate, type Post } from "../lib/blogger";
+import { usePosts, isJob, longDate, shareImage, metaDescription, type Post } from "../lib/blogger";
 import { AUTHOR } from "../lib/authors";
 import { loadTurnstile, TURNSTILE_SITE_KEY, submitBlogSubscription } from "../lib/lead";
 import { Button } from "../components/ui/button";
@@ -142,7 +142,7 @@ function ListItem({ n, p }: { n: number; p: Post }) {
         </div>
         {p.heroImage ? (
           <Link to={`/blog/${p.slug}`} tabIndex={-1} aria-hidden="true">
-            <img src={p.heroImage} alt="" width={320} height={213} loading="lazy"
+            <img src={p.heroImage} alt="" width={320} height={213} loading="lazy" decoding="async"
               className="aspect-[3/2] w-full rounded-[16px] border border-oa-hairline object-cover" />
           </Link>
         ) : (
@@ -188,7 +188,7 @@ function Index({ posts }: { posts: Post[] }) {
                 <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
               </svg>
               <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search posts" autoComplete="off"
-                className="min-h-[44px] w-full border border-oa-hairlineStrong bg-oa-paper pl-9 pr-3 text-sm text-oa-ink placeholder:text-oa-ink3 focus:border-oa-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-oa-blue/40" />
+                className="min-h-[44px] w-full border border-oa-hairlineStrong bg-oa-paper pl-9 pr-3 text-sm text-oa-ink placeholder:text-oa-ink3 focus:border-oa-ink" />
             </label>
             <p className={`${META} hidden shrink-0 sm:block`}>
               {needle ? `${shown.length} ${shown.length === 1 ? "match" : "matches"}` : `Newest first · ${shown.length} ${shown.length === 1 ? "post" : "posts"}`}
@@ -210,9 +210,20 @@ function AuthorPage({ posts }: { posts: Post[] }) {
     title: `${AUTHOR.name} — OneAlgorithm Blog`,
     description: AUTHOR.bio,
     canonical: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`),
+    ogTitle: `${AUTHOR.name} — OneAlgorithm Blog`,
+    ogDescription: AUTHOR.bio,
   });
   return (
     <Layout>
+      <JSONLDScript data={{
+        "@context": "https://schema.org", "@type": "ProfilePage",
+        dateModified: posts[0]?.updated,
+        mainEntity: {
+          "@type": "Person", name: AUTHOR.name, jobTitle: AUTHOR.role, description: AUTHOR.bio,
+          url: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`), sameAs: [AUTHOR.linkedin],
+          ...(AUTHOR.photo && { image: new URL(AUTHOR.photo, "https://onealgorithm.com").href }),
+        },
+      }} />
       <HeroRail dark={false} crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: AUTHOR.name }]} />
       <Section compact tone="paper">
         <div className="flex items-center gap-4">
@@ -256,7 +267,15 @@ function Subscribe({ source }: { source: string }) {
   useEffect(() => {
     if (sent) return;
     let cancelled = false;
-    loadTurnstile().then(() => {
+    let started = false;
+    // The anti-spam widget is ~800KB of third-party script (measured: 591 +
+    // 112 + 90 KB on one post page) and the form sits at the foot of the
+    // article. Fetch it when the form comes within 600px of the viewport,
+    // not on page load — nothing above it pays for it.
+    const start = () => {
+      if (started || cancelled) return;
+      started = true;
+      loadTurnstile().then(() => {
       if (cancelled || !host.current || !window.turnstile) return;
       widget.current = window.turnstile.render(host.current, {
         sitekey: TURNSTILE_SITE_KEY,
@@ -268,11 +287,18 @@ function Subscribe({ source }: { source: string }) {
         },
         theme: "light",
       });
-    }).catch(() => {
-      if (!cancelled) loadFailed.current = true;
-    });
+      }).catch(() => {
+        if (!cancelled) loadFailed.current = true;
+      });
+    };
+    const el = host.current;
+    const io = el && "IntersectionObserver" in window
+      ? new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) { start(); io?.disconnect(); } }, { rootMargin: "600px" })
+      : null;
+    if (io && el) io.observe(el); else start();
     return () => {
       cancelled = true;
+      io?.disconnect();
       if (widget.current !== null) window.turnstile?.remove(widget.current);
       widget.current = null;
     };
@@ -378,18 +404,30 @@ function Toc({ toc, className = "" }: { toc: Post["toc"]; className?: string }) 
   );
 }
 
+// Topic label -> the service page it feeds. The one internal link that
+// matters most for a post on a low-authority domain (blog-engine §4).
+const SERVICE_FOR_LABEL: Record<string, [string, string]> = {
+  SEO: ["/services/seo", "SEO services"],
+  Websites: ["/services/website-development", "Website development"],
+  Salesforce: ["/services/salesforce", "Salesforce consulting"],
+};
+
 function Article({ p, related, older, newer }: { p: Post; related: Post[]; older?: Post; newer?: Post }) {
   const url = getCanonicalUrl(`/blog/${p.slug}`);
   const hasToc = p.toc.length >= 3;
+  const service = p.labels.map((l) => SERVICE_FOR_LABEL[l]).find(Boolean);
   return (
     <>
       <div aria-hidden="true" className="oa-progress" />
       <JSONLDScript data={{
         "@context": "https://schema.org", "@type": "BlogPosting",
         headline: p.title, datePublished: p.published, dateModified: p.updated,
-        author: { "@type": "Person", name: AUTHOR.name, url: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`) },
-        publisher: { "@type": "Organization", name: "OneAlgorithm" },
-        mainEntityOfPage: url, ...(p.heroImage && { image: new URL(p.heroImage, "https://onealgorithm.com").href }),
+        author: {
+          "@type": "Person", name: AUTHOR.name, url: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`),
+          ...(AUTHOR.photo && { image: new URL(AUTHOR.photo, "https://onealgorithm.com").href }), sameAs: [AUTHOR.linkedin],
+        },
+        publisher: { "@type": "Organization", name: "OneAlgorithm", url: "https://onealgorithm.com" },
+        mainEntityOfPage: url, ...(shareImage(p) && { image: shareImage(p)!.url }),
         keywords: p.labels.join(", "),
       }} />
       {/* The same breadcrumb rail every other page has (it carries the
@@ -416,7 +454,7 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
               </div>
             </header>
             {p.heroImage && (
-              <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630}
+              <img src={p.heroImage} alt={p.heroAlt || ""} width={1200} height={630} fetchPriority="high" decoding="async"
                 className="mt-8 aspect-[1200/630] w-full rounded-[16px] border border-oa-hairline object-cover" />
             )}
             {/* The post's own opening sentences, set apart — the Smart Brevity
@@ -436,6 +474,15 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
             )}
             {/* Authored by our own Blogger account, not by visitors. */}
             <article className="oa-article mt-8" dangerouslySetInnerHTML={{ __html: p.html }} />
+            {service && (
+              <aside className="mt-10 border border-oa-hairlineStrong bg-oa-surface p-5">
+                <p className={META}>Related service</p>
+                <p className="mt-2 text-oa-ink2">
+                  This is the kind of work we do under{" "}
+                  <Link to={service[0]} className="font-medium text-oa-blue underline underline-offset-4 hover:text-oa-blue700">{service[1]} →</Link>
+                </p>
+              </aside>
+            )}
             <div className="mt-10 border-t border-oa-hairline pt-6"><ShareBar p={p} /></div>
             {(older || newer) && (
               <nav aria-label="More posts" className="mt-10 grid gap-4 border-t border-oa-hairline pt-6 sm:grid-cols-2">
@@ -487,11 +534,18 @@ export default function Blog() {
   const articles = posts?.filter((p) => !isJob(p));
   const post = slug ? articles?.find((p) => p.slug === slug) : undefined;
 
+  const pageTitle = post ? `${post.title} — OneAlgorithm` : "Blog — OneAlgorithm";
+  const pageDescription = post ? metaDescription(post) : "Case notes, measured results and straight answers from OneAlgorithm's Salesforce, website and SEO projects.";
+  const share = post ? shareImage(post) : undefined;
   useSEO({
-    title: post ? `${post.title} — OneAlgorithm` : "Blog — OneAlgorithm",
-    description: post?.summary || "Case notes, measured results and straight answers from OneAlgorithm's Salesforce, website and SEO projects.",
+    title: pageTitle,
+    description: pageDescription,
     canonical: getCanonicalUrl(slug ? `/blog/${slug}` : "/blog"),
-    ...(post?.heroImage && { ogImage: new URL(post.heroImage, "https://onealgorithm.com").href }),
+    ogTitle: pageTitle,
+    ogDescription: pageDescription,
+    twitterTitle: pageTitle,
+    twitterDescription: pageDescription,
+    ...(share && { ogImage: share.url, ogImageSize: share.size, twitterImage: share.url }),
   });
 
   const status = (msg: React.ReactNode) => <Section><p className="text-oa-ink2">{msg}</p></Section>;

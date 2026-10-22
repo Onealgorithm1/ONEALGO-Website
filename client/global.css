@@ -1018,3 +1018,10 @@
 @media (max-width: 640px) {
   .oa-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
+
+/* A case study gets printed or saved as a PDF by the people who buy this
+   work. Print the article, not the chrome around it. */
+@media print {
+  .oa-progress, [aria-label="In this post"], [aria-label="Share"], #subscribe, [aria-label="More posts"] { display: none !important; }
+  .oa-article a::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #5a6b7d; }
+}
