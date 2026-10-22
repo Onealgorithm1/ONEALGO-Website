@@ -1059,6 +1059,26 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
             </FooterSection>
 
+            {/* Salesforce services + city pages, 2026-10-22: every page links them, so none is orphaned. */}
+            <FooterSection title="Salesforce">
+              <FooterLink to="/services/salesforce-data-migration">Salesforce Data Migration</FooterLink>
+              <FooterLink to="/services/salesforce-integration">Salesforce Integration</FooterLink>
+              <FooterLink to="/services/salesforce-managed-services">Salesforce Managed Services</FooterLink>
+              <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-new-york">Salesforce Consultant New York</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-washington-dc">Salesforce Consultant Washington, DC</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-dallas">Salesforce Consultant Dallas</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-denver">Salesforce Consultant Denver</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-atlanta">Salesforce Consultant Atlanta</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-boston">Salesforce Consultant Boston</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-seattle">Salesforce Consultant Seattle</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-san-francisco">Salesforce Consultant San Francisco</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-los-angeles">Salesforce Consultant Los Angeles</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-austin">Salesforce Consultant Austin</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-miami">Salesforce Consultant Miami</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-chicago">Salesforce Consultant Chicago</FooterLink>
+            </FooterSection>
+
             <FooterSection title="Company">
               <FooterLink to="/">Home</FooterLink>
               <FooterLink to="/about">About</FooterLink>

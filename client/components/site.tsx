@@ -502,6 +502,23 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-consultant-chester-county": "Chester County",
   "/services/salesforce-consulting-partner-pennsylvania": "Pennsylvania",
   "/services/salesforce-implementation-cost": "Cost guide",
+  /* Salesforce services + wave-2 city pages, 2026-10-22. Same short-label rule as above. */
+  "/services/salesforce-data-migration": "Data migration",
+  "/services/salesforce-integration": "Integration",
+  "/services/salesforce-managed-services": "Managed services",
+  "/services/salesforce-marketing-cloud-consulting": "Marketing Cloud",
+  "/services/salesforce-consultant-new-york": "New York",
+  "/services/salesforce-consultant-washington-dc": "Washington, DC",
+  "/services/salesforce-consultant-dallas": "Dallas",
+  "/services/salesforce-consultant-denver": "Denver",
+  "/services/salesforce-consultant-atlanta": "Atlanta",
+  "/services/salesforce-consultant-boston": "Boston",
+  "/services/salesforce-consultant-seattle": "Seattle",
+  "/services/salesforce-consultant-san-francisco": "San Francisco",
+  "/services/salesforce-consultant-los-angeles": "Los Angeles",
+  "/services/salesforce-consultant-austin": "Austin",
+  "/services/salesforce-consultant-miami": "Miami",
+  "/services/salesforce-consultant-chicago": "Chicago",
   "/services/operational-transformation-consulting": "Transformation",
   /* ponytail: slug label read "Seo Chester County" -- Semrush flagged the exact
      phrase as overused on the page (2026-10-12). Place is the new info. */

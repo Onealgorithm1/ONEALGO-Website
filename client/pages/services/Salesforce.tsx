@@ -799,6 +799,25 @@ export default function Salesforce() {
           of place names is the shape Google's keyword-stuffing policy names by
           name, and one was already removed from WebDesignChesterCounty.tsx for
           measuring 3.57% place density. Do not turn this into one. */}
+      {/* 2026-10-22: the four service pages with delivery proof + ~500/mo search demand each
+          (onealgo-icm-oa run 2026-10-21_sf-nationwide/decision-log.md #4). */}
+      <Section tone="paper" bordered compact>
+        <SectionHeading eyebrow="Services" title="Salesforce work we deliver" />
+        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2">
+          {[
+            { to: "/services/salesforce-data-migration", label: "Salesforce data migration", body: "QuickBase, Kissflow, another CRM or another org, reconciled before go-live." },
+            { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
+            { to: "/services/salesforce-managed-services", label: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
+            { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
+          ].map((l) => (
+            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
+              <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
+              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">{l.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       <Section tone="surface" bordered compact>
         <SectionHeading
           eyebrow="Near you"

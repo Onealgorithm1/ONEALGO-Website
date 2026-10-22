@@ -94,6 +94,11 @@ const GoogleAdsPhiladelphia = lazy(
    public/sitemap.xml, or Cloudflare has no file to serve and it 404s live.
    /services/application-development shipped routed-but-unlisted and did
    exactly that on 2026-08-29. */
+const SalesforceCity = lazy(() => import("./pages/services/SalesforceCity"));
+const SalesforceDataMigration = lazy(() => import("./pages/services/SalesforceDataMigration"));
+const SalesforceIntegration = lazy(() => import("./pages/services/SalesforceIntegration"));
+const SalesforceManagedServices = lazy(() => import("./pages/services/SalesforceManagedServices"));
+const SalesforceMarketingCloud = lazy(() => import("./pages/services/SalesforceMarketingCloud"));
 const SalesforceConsultantPhiladelphia = lazy(
   () => import("./pages/services/SalesforceConsultantPhiladelphia"),
 );
@@ -200,6 +205,60 @@ const App = () => (
               <Route
                 path="/services/salesforce-consultant-philadelphia"
                 element={<SalesforceConsultantPhiladelphia />}
+              />
+              {/* Salesforce service pages, 2026-10-22 */}
+              <Route path="/services/salesforce-data-migration" element={<SalesforceDataMigration />} />
+              <Route path="/services/salesforce-integration" element={<SalesforceIntegration />} />
+              <Route path="/services/salesforce-managed-services" element={<SalesforceManagedServices />} />
+              <Route path="/services/salesforce-marketing-cloud-consulting" element={<SalesforceMarketingCloud />} />
+              {/* Wave-2 Salesforce city pages, 2026-10-22 — data in client/data/salesforceCities.ts */}
+              <Route
+                path="/services/salesforce-consultant-new-york"
+                element={<SalesforceCity slug="new-york" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-washington-dc"
+                element={<SalesforceCity slug="washington-dc" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-dallas"
+                element={<SalesforceCity slug="dallas" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-denver"
+                element={<SalesforceCity slug="denver" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-atlanta"
+                element={<SalesforceCity slug="atlanta" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-boston"
+                element={<SalesforceCity slug="boston" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-seattle"
+                element={<SalesforceCity slug="seattle" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-san-francisco"
+                element={<SalesforceCity slug="san-francisco" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-los-angeles"
+                element={<SalesforceCity slug="los-angeles" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-austin"
+                element={<SalesforceCity slug="austin" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-miami"
+                element={<SalesforceCity slug="miami" />}
+              />
+              <Route
+                path="/services/salesforce-consultant-chicago"
+                element={<SalesforceCity slug="chicago" />}
               />
               <Route
                 path="/services/salesforce-implementation-cost"

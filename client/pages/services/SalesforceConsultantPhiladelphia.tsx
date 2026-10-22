@@ -20,6 +20,7 @@ import {
   createLocalBusinessSchema,
   createFAQSchema,
 } from "../../components/StructuredData";
+import { CityFacts, CityNarrative, CityIndustries } from "./SalesforceCity";
 
 /* Salesforce consulting — Philadelphia. Added 2026-09-01. First of three
  * Salesforce local pages (Philadelphia / Chester County / Pennsylvania).
@@ -119,7 +120,7 @@ export default function SalesforceConsultantPhiladelphia() {
        convention the 13 pages retitled on 2026-08-31 follow. 59 characters. */
     title: "Salesforce Consultant Philadelphia | OneAlgorithm",
     description:
-      "Salesforce consulting for Philadelphia companies from a listed AppExchange Consulting Partner in Malvern. Fix an org that is not earning its keep, free one-week review.",
+      "Salesforce consulting for Philadelphia companies from a listed Consulting Partner in Malvern. Free one-week org review.",
     canonical: getCanonicalUrl("/services/salesforce-consultant-philadelphia"),
     ogTitle: "Salesforce Consultant Philadelphia — OneAlgorithm",
     ogDescription:
@@ -173,6 +174,12 @@ export default function SalesforceConsultantPhiladelphia() {
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
+
+      {/* 2026-10-22: sourced local data (Census, BLS, LinkedIn, USAspending). Same table as the
+          wave-2 city pages; numbers are generated, not typed. */}
+      <CityFacts slug="philadelphia" />
+      <CityNarrative slug="philadelphia" />
+      <CityIndustries slug="philadelphia" />
 
       <Section tone="surface" bordered>
         <SectionHeading
