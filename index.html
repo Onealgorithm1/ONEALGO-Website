@@ -215,6 +215,22 @@
       crossorigin
     />
 
+    <!-- Same reasoning as the Plex preload above, added for the mono face.
+         The 26 original pages used JetBrains Mono sparingly and mostly below
+         the fold, so its swap was never visible enough to chase. The blog
+         (added 2026-10-22) sets the breadcrumb rail, eyebrow and every
+         byline/date line in it, all above the fold on every post — measured
+         live: CLS swung between 0 and 0.697 run to run with no single element
+         Lighthouse could name, the signature of a whole-page font-swap
+         reflow, not a local bug. -->
+    <link
+      rel="preload"
+      href="/fonts/jetbrains-mono-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <link rel="canonical" href="https://onealgorithm.com/" />
 
     <!-- Sitemap for Search Engines and AI Crawlers -->
