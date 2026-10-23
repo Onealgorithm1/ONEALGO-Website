@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 624" width="640" height="624" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Largest employer groups, Miami metro (employees)</title>
+  <rect width="640" height="624" fill="#ffffff"/>
+  <text x="32" y="50" font-size="28" font-weight="600" fill="#0d1b2a">Largest employer groups, Miami</text>
+  <text x="32" y="86" font-size="28" font-weight="600" fill="#0d1b2a">metro (employees)</text>
+  <text x="32" y="176" font-size="26" fill="#35485c">Health care and social assistance</text>
+  <rect x="32" y="190" width="475" height="34" rx="2" fill="#005eaa"/>
+  <text x="519" y="217" font-size="26" font-weight="600" fill="#0d1b2a">380,934</text>
+  <text x="32" y="272" font-size="26" fill="#35485c">Professional services</text>
+  <rect x="32" y="286" width="250" height="34" rx="2" fill="#4f86b8"/>
+  <text x="294" y="313" font-size="26" font-weight="600" fill="#0d1b2a">200,585</text>
+  <text x="32" y="368" font-size="26" fill="#35485c">Wholesale trade</text>
+  <rect x="32" y="382" width="173" height="34" rx="2" fill="#4f86b8"/>
+  <text x="217" y="409" font-size="26" font-weight="600" fill="#0d1b2a">139,081</text>
+  <text x="32" y="464" font-size="26" fill="#35485c">Finance and insurance</text>
+  <rect x="32" y="478" width="145" height="34" rx="2" fill="#4f86b8"/>
+  <text x="189" y="505" font-size="26" font-weight="600" fill="#0d1b2a">116,609</text>
+  <text x="32" y="590" font-size="20" fill="#5a6b7d">Source: US Census Bureau, County Business Patterns 2023.</text>
+</svg>

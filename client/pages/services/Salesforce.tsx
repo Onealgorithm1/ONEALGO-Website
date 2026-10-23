@@ -492,16 +492,8 @@ export default function Salesforce() {
             </li>
           ))}
         </ul>
-        {/* Required by Salesforce's Trademark & Copyright Usage Guidelines:
-            "[insert Salesforce trademark] is a trademark of Salesforce, Inc."
-            Named here because the page uses Salesforce, Agentforce, Sales Cloud
-            and Service Cloud as marks. */}
-        <p className="mt-12 text-xs leading-relaxed text-oa-nightInk3">
-          Salesforce, Agentforce, Sales Cloud and Service Cloud are trademarks of
-          Salesforce, Inc. One Algorithm LLC is an independent consulting partner
-          and is not affiliated with or endorsed by Salesforce beyond its listed
-          partnership.
-        </p>
+        {/* Trademark attribution moved to the footer's legal row on every
+            Salesforce page (Layout.tsx, spec 2.16, 2026-10-23). */}
       </Section>
 
       {/* THE OFFER. With nothing published, the honest conversion is a diagnostic

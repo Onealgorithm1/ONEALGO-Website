@@ -69,6 +69,14 @@ const CASES = [
   ["blue link on night", T.nightBlue, T.night, 4.5],
   ["BRAND orange accent on night", T.orange, T.night, 4.5],
   ["BRAND orange accent on night-2", T.orange, T.night2, 4.5],
+  // Salesforce plate system (2026-10-23, spec section 8).
+  ["plate base wire #7d8da0 on white (graphic)", "#7d8da0", T.surface, 3.0],
+  ["plate stamp ink-3 on paper", T.ink3, T.paper, 4.5],
+  ["night stamp / node #9fb3c8 on night", T.nightInk3, T.night, 4.5],
+  ["form error #b42318 on white", "#b42318", T.surface, 4.5],
+  ["form error #b42318 on error-summary tint", "#b42318", "#fdf3f2", 4.5],
+  ["blue link on row highlight #eaf2f9", T.blue, T.blueTint, 4.5],
+  ["body ink-2 on row highlight #eaf2f9", T.ink2, T.blueTint, 4.5],
 ];
 
 // Pairings that must NEVER ship. Guards against a well-meaning edit

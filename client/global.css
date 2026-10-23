@@ -1043,3 +1043,135 @@
   .oa-progress, [aria-label="In this post"], [aria-label="Share"], #subscribe, [aria-label="More posts"] { display: none !important; }
   .oa-article a::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #5a6b7d; }
 }
+
+/* ===========================================================================
+   SALESFORCE PLATE SYSTEM (2026-10-23)
+   Build spec: onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/design-spec.md
+   sections 2.2, 2.3, 2.14 and 4. Components: client/components/salesforce.tsx.
+
+   Every scroll-driven rule below is gated THREE ways, and the default (no
+   support, reduced motion, no JS, or a plate outside a <Section clip>) is
+   always the final state: drawn traces, an uncut image, a full rail.
+     1. @supports (animation-timeline: view()) and (overflow: clip)
+     2. @media (prefers-reduced-motion: no-preference). The global 0.01ms rule
+        does NOT stop a scroll timeline, so this gate is load-bearing.
+     3. An .oa-fx ancestor (Section clip). Inside an overflow:hidden section a
+        view() timeline tracks a box that never scrolls and would freeze the
+        effect part-way. .oa-fx sections clip with overflow:clip instead.
+   Only transform, clip-path and stroke-dashoffset animate. Hand-written
+   hovers live in @media (hover:hover); focus styles are always on.
+   =========================================================================== */
+
+/* 2.2 Plate frame, corner ticks, trace overlay */
+.plate{--line:#e3e8ef;--tick:#5a6b7d;--signal:#005eaa}
+.plate[data-tone="night"]{--line:rgba(255,255,255,.14);--tick:#9fb3c8;--signal:#ffa634}
+.plate-frame{position:relative;border:1px solid var(--line);background:#fff}
+.plate[data-tone="night"] .plate-frame{background:#04182b}
+.plate-frame::before{content:"";position:absolute;inset:-5px;pointer-events:none;z-index:4;background:
+ linear-gradient(var(--tick),var(--tick)) left top/9px 1px no-repeat,linear-gradient(var(--tick),var(--tick)) left top/1px 9px no-repeat,
+ linear-gradient(var(--tick),var(--tick)) right top/9px 1px no-repeat,linear-gradient(var(--tick),var(--tick)) right top/1px 9px no-repeat,
+ linear-gradient(var(--tick),var(--tick)) left bottom/9px 1px no-repeat,linear-gradient(var(--tick),var(--tick)) left bottom/1px 9px no-repeat,
+ linear-gradient(var(--tick),var(--tick)) right bottom/9px 1px no-repeat,linear-gradient(var(--tick),var(--tick)) right bottom/1px 9px no-repeat}
+.trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+/* butt, not square: a square cap leaves a dot at a zero-length dash. No
+   vector-effect:non-scaling-stroke, it breaks pathLength dashes. */
+/* impeccable-disable layout-transition: stroke-width is a paint property, not layout (spec 4.2) */
+.trace path{fill:none;stroke:var(--signal);stroke-width:2.2;stroke-linecap:butt;
+  transition:stroke-width .15s cubic-bezier(.22,1,.36,1),opacity .15s cubic-bezier(.22,1,.36,1)}
+.trace[data-any="true"] path:not([data-on="true"]){opacity:.35}
+.trace path[data-on="true"]{stroke-width:3.5}
+.trace rect{fill:none;stroke:var(--signal);stroke-width:2;opacity:0;transition:opacity .15s cubic-bezier(.22,1,.36,1)}
+.trace rect[data-on="true"]{opacity:1}
+.legend .sw{background:var(--signal);outline:2px solid transparent;outline-offset:2px;transition:outline-color .15s}
+.legend [data-on="true"] .sw{outline-color:var(--signal)}
+.legend button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+/* 2.3 Specimen pins */
+.pin{position:absolute;translate:-50% -50%;width:32px;height:32px;display:grid;place-items:center;background:none;border:0;padding:0;cursor:pointer;transition:opacity .15s cubic-bezier(.22,1,.36,1)}
+@media (max-width:639px){.pin{width:24px;height:24px}}
+.pin-mark,.pin-key{width:20px;height:20px;flex-shrink:0;display:grid;place-items:center;background:#0d1b2a;color:#fff;font:600 11px/1 "JetBrains Mono",monospace}
+.pin-mark{border:2px solid #fff;outline:2px solid transparent;outline-offset:3px;transition:outline-color .15s cubic-bezier(.22,1,.36,1)}
+.pin[data-on="true"] .pin-mark,.pin:focus-visible .pin-mark{outline-color:#005eaa}
+.pin:focus-visible{outline:none}
+.pin[data-dim="true"]{opacity:.55}
+.plate[data-tone="night"] .pin-mark{background:#ffa634;color:#0d1b2a;border-color:#04182b}
+.plate[data-tone="night"] .pin[data-on="true"] .pin-mark,.plate[data-tone="night"] .pin:focus-visible .pin-mark{outline-color:#ffa634}
+
+/* 4.2 Cross-highlight rows */
+.plate-row{transition:background-color .15s cubic-bezier(.22,1,.36,1)}
+.plate-row[data-on="true"],.plate-row:focus-within{background:#eaf2f9}
+.plate-row[data-on="true"]>th{background:#eaf2f9}
+@media (hover:hover){.plate-row:hover{background:#eaf2f9}}
+.bg-oa-night .plate-row[data-on="true"],.bg-oa-night .plate-row:focus-within{background:rgba(255,255,255,.04)}
+@media (hover:hover){.bg-oa-night .plate-row:hover{background:rgba(255,255,255,.04)}}
+
+/* 4.3 Wire sweep (specimens always; non-first plates below 1024px) */
+.sweep{overflow:clip;container-type:inline-size;--wire:#005eaa}
+.bg-oa-night .sweep,.plate[data-tone="night"] .sweep{--wire:#ffa634}
+
+/* 4.9 Ledger rows */
+.ledger-row{position:relative;transition:background-color .15s cubic-bezier(.22,1,.36,1)}
+.ledger-row.is-link::before{content:"";position:absolute;inset-inline:0;top:-1px;height:1px;background:#005eaa;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+@media (hover:hover){.ledger-row.is-link:hover{background:#eaf2f9}.ledger-row.is-link:hover::before{transform:scaleX(1)}}
+.ledger-row.is-link:focus-within{background:#eaf2f9;outline:2px solid #005eaa;outline-offset:4px}
+.ledger-row.is-link:focus-within::before{transform:scaleX(1)}
+.bg-oa-night .ledger-row.is-link::before{background:#ffa634}
+.bg-oa-night .ledger-row.is-link:focus-within{background:rgba(255,255,255,.04);outline-color:#ffa634}
+@media (hover:hover){.bg-oa-night .ledger-row.is-link:hover{background:rgba(255,255,255,.04)}}
+
+/* 4.9 Prose links: static underline at rest, a 2px rule sweeps in on hover
+   (passes axe link-in-text-block). Only used on Salesforce pages. */
+.oa-link{color:#005eaa;text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:.24em;text-decoration-color:#9fb3c8;
+  background:linear-gradient(#005eaa,#005eaa) 0 100%/0% 2px no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  transition:background-size .28s cubic-bezier(.22,1,.36,1),text-decoration-color .2s cubic-bezier(.22,1,.36,1)}
+@media (hover:hover){.oa-link:hover{background-size:100% 2px;text-decoration-color:transparent}}
+.oa-link:focus-visible{background-size:100% 2px;text-decoration-color:transparent;outline:2px solid #005eaa;outline-offset:2px}
+.bg-oa-night .oa-link{color:#7fb4e6;text-decoration-color:rgba(255,255,255,.3);background-image:linear-gradient(#ffa634,#ffa634)}
+.bg-oa-night .oa-link:focus-visible{outline-color:#ffa634}
+/* The Desk form card is white inside a night band: its links are light-ground links. */
+.bg-oa-night .desk-card .oa-link{color:#005eaa;text-decoration-color:#9fb3c8;background-image:linear-gradient(#005eaa,#005eaa)}
+.bg-oa-night .desk-card .oa-link:focus-visible{outline-color:#005eaa}
+
+/* 4.9 Big phone numbers (Desk, PhoneBand) */
+.phone-xl{text-decoration:underline 2px transparent;text-underline-offset:6px;transition:text-decoration-color .15s cubic-bezier(.22,1,.36,1)}
+@media (hover:hover){.phone-xl:hover{text-decoration-color:#ffa634}}
+.phone-xl:focus-visible{text-decoration-color:#ffa634;outline:2px solid #ffa634;outline-offset:4px}
+
+/* 2.14 Desk arrival: the orange rule sits on the NIGHT ground above the white
+   card (AGENTS: no orange on light) and redraws when #start is the target. */
+.desk-card{position:relative}
+.desk-card::before{content:"";position:absolute;left:16px;right:16px;top:-3px;height:3px;background:#ffa634;transform-origin:left}
+@media (prefers-reduced-motion: no-preference){ #start:target .desk-card::before{animation:oa-grow .6s cubic-bezier(.22,1,.36,1) both} }
+
+/* 4.5 Header progress hairline (Salesforce pages only; blue, the header is light).
+   Reuses @keyframes oa-progress from the blog block above. */
+.oa-progress-sf{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#005eaa;transform-origin:left;transform:scaleX(0);pointer-events:none}
+@supports (animation-timeline: scroll()){ @media (prefers-reduced-motion: no-preference){
+  .oa-progress-sf{animation:oa-progress linear both;animation-timeline:scroll(root block)} }}
+@media (prefers-reduced-motion: reduce){.oa-progress-sf{display:none}}
+
+/* 2.8 Process rail */
+.rail{transform-origin:left}
+
+/* 4.1 / 4.3 / 4.4 Scroll-driven effects. animation-timeline must come after
+   the animation shorthand (the shorthand resets it). animation-range for the
+   trace paths and step nodes is inline, from JSX. */
+@supports (animation-timeline: view()) and (overflow: clip){ @media (prefers-reduced-motion: no-preference){
+  .oa-fx .plate[data-draw]{view-timeline:--plate block}
+  .oa-fx .plate[data-draw] .trace path{stroke-dasharray:1;stroke-dashoffset:1;animation:oa-draw linear both;animation-timeline:--plate}
+
+  .oa-fx .sweep[data-sweep="always"]>picture,.oa-fx .sweep[data-sweep="always"]>.pins{animation:oa-cut linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+  .oa-fx .sweep[data-sweep="always"]::after{content:"";position:absolute;inset-block:0;left:0;width:2px;background:var(--wire);pointer-events:none;z-index:3;animation:oa-wire linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+  @media (max-width:1023px){
+    .oa-fx .sweep[data-sweep="mobile"]>picture{animation:oa-cut linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+    .oa-fx .sweep[data-sweep="mobile"]::after{content:"";position:absolute;inset-block:0;left:0;width:2px;background:var(--wire);pointer-events:none;z-index:3;animation:oa-wire linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
+  }
+
+  .oa-fx .rail{animation:oa-grow linear both;animation-timeline:view();animation-range:entry 20% cover 40%}
+  .oa-fx .step-node{animation:oa-node linear both;animation-timeline:view()}
+}}
+@keyframes oa-draw{to{stroke-dashoffset:0}}
+@keyframes oa-cut{0%{clip-path:inset(0 100% 0 0)}92%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes oa-wire{0%{transform:translateX(0);opacity:1}92%{transform:translateX(calc(100cqw - 2px));opacity:1}100%{transform:translateX(calc(100cqw - 2px));opacity:0}}
+@keyframes oa-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes oa-node{from{transform:scale(0)}to{transform:scale(1)}}

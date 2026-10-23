@@ -12,7 +12,9 @@
   },
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/plates-check.mjs",
     "build": "npm run build:client",
+    "plates": "node scripts/plates.mjs",
     "build:static": "npm run build && npm run prerender",
     "prerender": "node scripts/prerender.mjs",
     "check:analytics": "node scripts/analytics-hosts-check.mjs",

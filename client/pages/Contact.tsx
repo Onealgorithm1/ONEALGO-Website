@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { loadTurnstile, TURNSTILE_SITE_KEY } from "../lib/lead";
+import { loadTurnstile, submitLead, TURNSTILE_SITE_KEY } from "../lib/lead";
 import Layout from "../components/Layout";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -29,8 +29,8 @@ import {
 // TypeScript declarations for Google Analytics tracking
 declare global {
   interface Window {
-    trackFormSubmission?: () => void;
-    trackContactClick?: (method: string) => void;
+    trackFormSubmission?: (formId?: string, extra?: Record<string, unknown>) => void;
+    trackContactClick?: (method: string, placement?: string) => void;
   }
 }
 
@@ -234,10 +234,11 @@ export default function Contact() {
       // webto.salesforce.com and watched a hidden iframe for a load event to
       // guess whether it worked. That guess is gone: the endpoint answers with
       // a status and a message, so "sent" now means sent.
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
+      // submitLead (lib/lead.ts) is the shared lead path: same body as before,
+      // first-touch record included; it rejects only on a network failure,
+      // which the catch below still handles with this page's own wording.
+      const res = await submitLead(
+        {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
@@ -245,21 +246,13 @@ export default function Contact() {
           whatYouNeed: formData.whatYouNeed,
           message: formData.message,
           turnstileToken,
-          // Landing page + referring site captured on first load (index.html).
-          firstTouch: (() => {
-            try { return JSON.parse(sessionStorage.getItem("oa_first_touch") || "null"); } catch { return null; }
-          })(),
-        }),
-      });
-
-      const payload = await res.json().catch(() => ({}) as { error?: string });
+        },
+        "We couldn't send that. Please call 1 (610) 890-9711 or email service@onealgorithm.com.",
+      );
 
       if (!res.ok) {
         setIsSubmitting(false);
-        setSubmitError(
-          payload.error ??
-            "We couldn't send that. Please call 1 (610) 890-9711 or email service@onealgorithm.com.",
-        );
+        setSubmitError(res.error);
         // Turnstile tokens are single use. Without this reset the next attempt
         // sends a spent token and fails again, which reads as the form being
         // broken rather than as one bad submit.

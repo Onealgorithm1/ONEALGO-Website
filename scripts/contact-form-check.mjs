@@ -95,9 +95,13 @@ ok('Contact.tsx still calls the hook', () =>
 // so the browser never sees it. The check follows the id to where it lives now.
 const leadFn = fs.readFileSync(new URL('../functions/api/lead.js', import.meta.url), 'utf8');
 
+// 2026-10-23: the POST moved into submitLead (client/lib/lead.ts), the one lead
+// path shared with the Salesforce pages' Desk form. Follow it there.
+const leadLib = fs.readFileSync(new URL('../client/lib/lead.ts', import.meta.url), 'utf8');
 ok('the page posts to the lead function, not straight to Salesforce', () =>
-    assert.ok(/fetch\("\/api\/lead"/.test(contact) && !contact.includes('00Dbn00000plgUf'),
-        'Contact.tsx should call /api/lead and carry no org id of its own'));
+    assert.ok(/\bsubmitLead\(/.test(contact) && /export async function submitLead[\s\S]{0,400}fetch\("\/api\/lead"/.test(leadLib)
+        && !contact.includes('00Dbn00000plgUf') && !leadLib.includes('00Dbn00000plgUf'),
+        'Contact.tsx should post through submitLead -> /api/lead and carry no org id of its own'));
 
 ok('the lead function takes the org id from the Pages environment', () =>
     assert.ok(/lead\.set\("oid",\s*env\.SALESFORCE_OID\)/.test(leadFn),

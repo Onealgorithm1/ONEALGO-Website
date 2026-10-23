@@ -43,6 +43,11 @@ const LIMITS = {
   company: 255,
   whatYouNeed: 255,
   message: 30000,
+  // Salesforce lead path (2026-10-23): optional phone, the form's topic key and
+  // the page it was sent from. Phone is the Lead's own 40-char field.
+  phone: 40,
+  topic: 60,
+  page: 200,
 };
 
 /** Where the lead came from, as plain lines for the Lead description: the page
@@ -156,9 +161,18 @@ export async function onRequest({ request, env }) {
   lead.set("last_name", lastName);
   lead.set("email", email);
   lead.set("company", field("company"));
+  if (field("phone")) lead.set("phone", field("phone"));
   lead.set(
     "description",
-    [need && `Service: ${need}`, message, source(body.firstTouch)].filter(Boolean).join("\n\n"),
+    [
+      need && `Service: ${need}`,
+      field("topic") && `Topic: ${field("topic")}`,
+      field("page") && `Submitted on: ${field("page")}`,
+      message,
+      source(body.firstTouch),
+    ]
+      .filter(Boolean)
+      .join("\n\n"),
   );
   lead.set("lead_source", "Web");
 
@@ -173,7 +187,7 @@ export async function onRequest({ request, env }) {
   if (!sent || sent.status >= 400) {
     return json(502, {
       error:
-        "We could not deliver that. Please email service@onealgorithm.com and we will pick it up.",
+        "We could not deliver that. Please call (610) 890-9711 or email service@onealgorithm.com and we will take it from there.",
     });
   }
 

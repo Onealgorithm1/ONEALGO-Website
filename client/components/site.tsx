@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { siteConfig } from "../../shared/companyProfile";
+import { SF_PHONE } from "../data/salesforceProof";
 
 /* ---------------------------------------------------------------------------
    Shared page primitives for the 2026 refresh.
@@ -186,6 +187,7 @@ export function Section({
   grid = false,
   compact = false,
   allowSticky = false,
+  clip = false,
   id,
 }: {
   tone?: Tone;
@@ -218,6 +220,17 @@ export function Section({
    * clip — the grain layer and the band rules both rely on the clipping.
    */
   allowSticky?: boolean;
+  /**
+   * Opt-in (Salesforce plate system, 2026-10-23). Clips with `overflow: clip`
+   * where supported instead of `overflow: hidden`. Same visual clipping, but
+   * `clip` does not make the section a scroll container, so (a) a sticky child
+   * pins and (b) a CSS `view()` scroll timeline inside it tracks the page
+   * instead of a box that never scrolls. Also adds `oa-fx`, the class every
+   * scroll-driven rule in global.css is scoped under: a plate in a section
+   * WITHOUT `clip` simply renders fully drawn, it never sticks half-drawn.
+   * Off by default so no existing page changes.
+   */
+  clip?: boolean;
   /** Anchor target, for in-page links. */
   id?: string;
 }) {
@@ -244,7 +257,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative ${allowSticky ? "" : "overflow-hidden"} ${TONE_BG[tone]} ${rules} ${className}`}
+      className={`relative ${allowSticky ? "" : clip ? "oa-fx overflow-hidden supports-[overflow:clip]:overflow-clip" : "overflow-hidden"} ${TONE_BG[tone]} ${rules} ${className}`}
     >
       {grid && dark && (
         <div
@@ -319,77 +332,108 @@ export function SectionHeading({
   );
 }
 
-/** Primary call to action. Orange fill, ink label. */
+/** Opens in a new tab only when leaving the page for a real document or site.
+ *  Site-wide bug fix 2026-10-23: every `tel:`, `mailto:` and `#` CTA used to
+ *  carry target=_blank, so "Call" opened an empty tab before dialling and an
+ *  in-page jump opened a second copy of the page. Relative documents (the
+ *  capability-statement PDF on /industries/government) keep opening in a new
+ *  tab, as they always did. */
+function newTabProps(href?: string) {
+  return href && !/^(tel:|mailto:|#)/.test(href)
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
+}
+
+/** Primary call to action. Orange fill, ink label.
+ *
+ *  `cta` (opt-in, Salesforce pages) tags the link with `data-cta` for GA4
+ *  placement tracking, and switches on the plate-system treatment: a visible
+ *  focus outline in the ground's colour (`tone`) and the nudging arrow on
+ *  in-page links. Without `cta` the button renders exactly as before. */
 export function PrimaryCTA({
   to,
   href,
   children,
   download,
   className = "",
-}: {
-  to?: string;
-  href?: string;
-  children: React.ReactNode;
-  download?: string;
-  className?: string;
-}) {
-  /* py-3 rather than the button's default zero vertical padding. `size="lg"`
-     is `h-11 px-8` -- a fixed 44px box with no vertical inset at all, so a
-     long label sat flush against the top and bottom of its own fill. 12px + a
-     20px line box is exactly 44px, so nothing moves; the padding is simply
-     declared instead of implied by the fixed height. */
-  const classes = `bg-oa-orange text-oa-ink hover:bg-[#ffb757] font-semibold px-7 py-3 ${className}`;
-  return (
-    <Button asChild size="lg" className={classes}>
-      {to ? (
-        <Link to={to}>
-          {children}
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </Link>
-      ) : (
-        <a
-          href={href}
-          download={download}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </a>
-      )}
-    </Button>
-  );
-}
-
-/** Secondary call to action. Ghost on dark, hairline outline on light. */
-export function SecondaryCTA({
-  to,
-  href,
-  children,
-  download,
+  cta,
   tone = "dark",
 }: {
   to?: string;
   href?: string;
   children: React.ReactNode;
   download?: string;
+  className?: string;
+  /** GA4 placement: hero, header, bar, mid, rail, table, desk, band, record. */
+  cta?: string;
+  /** The ground the button sits on; picks the focus-outline colour. */
   tone?: "light" | "dark";
 }) {
+  /* py-3 rather than the button's default zero vertical padding. `size="lg"`
+     is `h-11 px-8` -- a fixed 44px box with no vertical inset at all, so a
+     long label sat flush against the top and bottom of its own fill. 12px + a
+     20px line box is exactly 44px, so nothing moves; the padding is simply
+     declared instead of implied by the fixed height. */
+  const fx = cta
+    ? ` group transition-colors duration-200 ease-[cubic-bezier(.22,1,.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
+        tone === "dark" ? "focus-visible:outline-oa-orange" : "focus-visible:outline-oa-orangeText"
+      }`
+    : "";
+  const classes = `bg-oa-orange text-oa-ink hover:bg-[#ffb757] font-semibold px-7 py-3${fx} ${className}`;
+  const arrow = cta
+    ? "ml-1 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+    : "ml-1 h-4 w-4";
+  const hrefArrow = cta && href && !/^(tel:|mailto:|https?:)/.test(href);
+  return (
+    <Button asChild size="lg" className={classes}>
+      {to ? (
+        <Link to={to} data-cta={cta}>
+          {children}
+          <ArrowRight className={arrow} aria-hidden="true" />
+        </Link>
+      ) : (
+        <a href={href} download={download} data-cta={cta} {...newTabProps(href)}>
+          {children}
+          {hrefArrow && <ArrowRight className={arrow} aria-hidden="true" />}
+        </a>
+      )}
+    </Button>
+  );
+}
+
+/** Secondary call to action. Ghost on dark, hairline outline on light.
+ *  `cta` is opt-in exactly as on PrimaryCTA (data-cta + focus outline). */
+export function SecondaryCTA({
+  to,
+  href,
+  children,
+  download,
+  tone = "dark",
+  cta,
+}: {
+  to?: string;
+  href?: string;
+  children: React.ReactNode;
+  download?: string;
+  tone?: "light" | "dark";
+  cta?: string;
+}) {
   // py-3 for the same reason as PrimaryCTA above.
-  const classes =
+  const base =
     tone === "dark"
       ? "border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7 py-3"
       : "border-oa-hairlineStrong bg-oa-surface text-oa-ink hover:bg-oa-blueTint hover:text-oa-ink px-7 py-3";
+  const fx = cta
+    ? ` focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
+        tone === "dark" ? "focus-visible:outline-oa-nightBlue" : "focus-visible:outline-oa-blue"
+      }`
+    : "";
   return (
-    <Button asChild size="lg" variant="outline" className={classes}>
+    <Button asChild size="lg" variant="outline" className={base + fx}>
       {to ? (
-        <Link to={to}>{children}</Link>
+        <Link to={to} data-cta={cta}>{children}</Link>
       ) : (
-        <a
-          href={href}
-          download={download}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={href} download={download} data-cta={cta} {...newTabProps(href)}>
           {children}
         </a>
       )}
@@ -529,7 +573,7 @@ const SECTION_LABEL: Record<string, string> = {
 const COMPANY_PATHS = ["/about", "/capabilities", "/contact"];
 
 /** Trailing slash and case are not meaningful here; a route is a route. */
-function normalisePath(pathname: string): string {
+export function normalisePath(pathname: string): string {
   const p = pathname.toLowerCase().replace(/\/+$/, "");
   return p === "" ? "/" : p;
 }
@@ -572,6 +616,15 @@ function crumbsFor(path: string): Crumb[] {
     const parent = path.startsWith("/services") ? "/services" : "/industries";
     crumbs.push({ label: SECTION_LABEL[parent], to: parent });
     crumbs.push({ label: known[1] });
+    return crumbs;
+  }
+
+  /* Salesforce children hang off the hub (spec 2.17, 2026-10-23): Home /
+     Services / Salesforce / <page>. Only these 22 routes change. */
+  if (path.startsWith("/services/salesforce-") && SECTION_LABEL[path]) {
+    crumbs.push({ label: "Services", to: "/services" });
+    crumbs.push({ label: "Salesforce", to: "/services/salesforce" });
+    crumbs.push({ label: SECTION_LABEL[path] });
     return crumbs;
   }
 
@@ -1067,8 +1120,10 @@ export function PageHero({
      */
     slot?: React.ReactNode;
   };
-  primary?: { label: string; to?: string; href?: string; download?: string };
-  secondary?: { label: string; to?: string; href?: string; download?: string };
+  /** `cta` is opt-in: set it (e.g. "hero") to tag the link for GA4 and get
+   *  the plate-system focus treatment. Omitted = unchanged. */
+  primary?: { label: string; to?: string; href?: string; download?: string; cta?: string };
+  secondary?: { label: string; to?: string; href?: string; download?: string; cta?: string };
   /** Dates and revisions — the things that tell a reader how stale this is. */
   meta?: { label: string; value: string }[];
   children?: React.ReactNode;
@@ -1143,6 +1198,8 @@ export function PageHero({
               to={primary.to}
               href={primary.href}
               download={primary.download}
+              cta={primary.cta}
+              tone={dark ? "dark" : "light"}
             >
               {primary.label}
             </PrimaryCTA>
@@ -1153,6 +1210,7 @@ export function PageHero({
               href={secondary.href}
               download={secondary.download}
               tone={dark ? "dark" : "light"}
+              cta={secondary.cta}
             >
               {secondary.label}
             </SecondaryCTA>
@@ -1336,6 +1394,7 @@ export function Card({
   to,
   tone = "light",
   className = "",
+  wire = false,
   children,
 }: {
   icon?: LucideIcon;
@@ -1345,6 +1404,12 @@ export function Card({
   to?: string;
   tone?: "light" | "dark";
   className?: string;
+  /**
+   * Opt-in (Salesforce plate system, spec 4.9). A linked card gets a visible
+   * focus outline and a top hairline that draws across on hover/focus instead
+   * of the border tint. Ignored without `to`. Off = unchanged.
+   */
+  wire?: boolean;
   children?: React.ReactNode;
 }) {
   const dark = tone === "dark";
@@ -1356,7 +1421,11 @@ export function Card({
   const base = dark
     ? "h-full rounded-xl border border-white/12 bg-white/[0.03] p-5 sm:p-7"
     : "h-full rounded-xl border border-oa-hairline bg-oa-surface p-5 sm:p-7";
-  const interactive = to
+  const interactive = to && wire
+    ? ` relative transition-[transform,border-color] duration-200 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+        dark ? "focus-visible:outline-oa-orange" : "focus-visible:outline-oa-blue"
+      }`
+    : to
     ? dark
       ? " transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25"
       : " transition-all duration-200 hover:-translate-y-0.5 hover:border-oa-blue/40"
@@ -1364,6 +1433,14 @@ export function Card({
 
   const inner = (
     <>
+      {to && wire && (
+        <span
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-5 -top-px h-px origin-left scale-x-0 transition-transform duration-[450ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none ${
+            dark ? "bg-oa-orange" : "bg-oa-blue"
+          }`}
+        />
+      )}
       {Icon && (
         <Icon
           className={`h-6 w-6 ${dark ? "text-oa-orange" : "text-oa-blue"}`}
@@ -1431,16 +1508,99 @@ export function CardGrid({
   );
 }
 
-/** Numbered process steps, rule-topped rather than boxed. */
+/** Numbered process steps, rule-topped rather than boxed.
+ *
+ *  `rail` and `terminal` are opt-in (Salesforce plate system, spec 2.8):
+ *    <Section clip tone="surface" id="process" className="scroll-mt-24">
+ *      <ProcessSteps rail terminal={{ label: "Book the free week" }} steps={[
+ *        { title: "Call or send the form", body: "...", to: "/services/salesforce-health-check" }, ...]} />
+ *    </Section>
+ *  With `rail`, a 2px wire draws across the steps as they scroll in (lg only,
+ *  CSS scroll timeline, only inside a `<Section clip>`), each step gets a
+ *  square node, and nothing is framer-animated so text and wire never
+ *  double-move. `terminal` ends the rail in the Desk CTA (#start) plus the
+ *  phone number. Without either prop the component renders exactly as before. */
 export function ProcessSteps({
   steps,
   tone = "light",
+  rail = false,
+  terminal,
 }: {
-  steps: { title: string; body: string }[];
+  steps: { title: string; body: string; to?: string }[];
   tone?: "light" | "dark";
+  rail?: boolean;
+  terminal?: { label: string };
 }) {
   const dark = tone === "dark";
   const reduced = useReducedMotion();
+
+  const index = (i: number) => (
+    <span className={`font-mono text-sm ${dark ? "text-oa-orange" : "text-oa-orangeText"}`}>
+      {String(i + 1).padStart(2, "0")}
+    </span>
+  );
+  const heading = (s: { title: string; to?: string }) => (
+    <h3 className={`mt-3 text-lg font-semibold ${dark ? "text-oa-nightInk" : "text-oa-ink"}`}>
+      {s.to ? (
+        <Link to={s.to} className="oa-link">
+          {s.title}
+        </Link>
+      ) : (
+        s.title
+      )}
+    </h3>
+  );
+  const body = (s: { body: string }) => (
+    <p className={`mt-2.5 text-sm leading-relaxed ${dark ? "text-oa-nightInk2" : "text-oa-ink2"}`}>
+      {s.body}
+    </p>
+  );
+
+  if (rail || terminal) {
+    const node = (i: number) => (
+      <span
+        aria-hidden="true"
+        className={`step-node absolute -top-[4px] left-0 hidden h-[7px] w-[7px] lg:block ${dark ? "bg-oa-orange" : "bg-oa-blue"}`}
+        style={{ animationRange: `entry ${22 + i * 3}% cover ${30 + i * 3}%` } as React.CSSProperties}
+      />
+    );
+    const rule = dark ? "border-white/15" : "border-oa-hairlineStrong";
+    return (
+      <div className={`relative ${terminal ? "lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-x-8" : ""}`}>
+        {rail && (
+          <span
+            aria-hidden="true"
+            className={`rail pointer-events-none absolute inset-x-0 -top-px hidden h-0.5 lg:block ${dark ? "bg-oa-orange" : "bg-oa-blue"}`}
+          />
+        )}
+        <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <li key={s.title} className={`relative border-t pt-6 ${rule}`}>
+              {rail && node(i)}
+              {index(i)}
+              {heading(s)}
+              {body(s)}
+            </li>
+          ))}
+        </ol>
+        {terminal && (
+          <div className={`relative mt-10 border-t pt-6 lg:mt-0 ${rule}`}>
+            {rail && node(steps.length)}
+            <PrimaryCTA href="#start" tone={dark ? "dark" : "light"} cta="rail">
+              {terminal.label}
+            </PrimaryCTA>
+            <a
+              href={SF_PHONE.href}
+              data-cta="rail"
+              className="oa-link mt-4 flex min-h-11 w-fit items-center font-mono text-sm"
+            >
+              Call {SF_PHONE.display}
+            </a>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   // motion.li rather than wrapping each item in a div - an <ol> whose children
   // are divs is no longer a list to a screen reader.
@@ -1471,23 +1631,9 @@ export function ProcessSteps({
           }
           className={`border-t pt-6 ${dark ? "border-white/15" : "border-oa-hairlineStrong"}`}
         >
-          <span
-            className={`font-mono text-sm ${dark ? "text-oa-orange" : "text-oa-orangeText"}`}
-          >
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <h3
-            className={`mt-3 text-lg font-semibold ${dark ? "text-oa-nightInk" : "text-oa-ink"}`}
-          >
-            {s.title}
-          </h3>
-          <p
-            className={`mt-2.5 text-sm leading-relaxed ${
-              dark ? "text-oa-nightInk2" : "text-oa-ink2"
-            }`}
-          >
-            {s.body}
-          </p>
+          {index(i)}
+          {heading(s)}
+          {body(s)}
         </motion.li>
       ))}
     </motion.ol>

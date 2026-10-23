@@ -145,13 +145,16 @@
       // generate_lead is GA4's recommended event name for exactly this. It has
       // to be marked as a key event in GA4 before it counts as a conversion;
       // sending it is necessary but not sufficient.
-      window.trackFormSubmission = function () {
+      // 2026-10-23: optional formId + extra params, so the Salesforce Desk form
+      // reports as form_id "sf-desk" with its topic. /contact still calls it
+      // with no arguments and still reports form_id "contact".
+      window.trackFormSubmission = function (formId, extra) {
         if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
-        gtag("event", "generate_lead", {
+        gtag("event", "generate_lead", Object.assign({
           method: "form",
-          form_id: "contact",
+          form_id: formId || "contact",
           page_location: location.href
-        });
+        }, extra || {}));
       };
 
       // Phone and email clicks, added 2026-08-12.
@@ -175,10 +178,14 @@
       //
       // No preventDefault and no delay. A tel: link must dial instantly; the
       // beacon transport survives the navigation on its own.
-      window.trackContactClick = function (method) {
+      // `placement` is the link's data-cta (hero, header, bar, mid, rail, table,
+      // desk, desk-form, desk-sent, band, record) so phone taps can be split by
+      // where on the page they happened. "unset" for links without one.
+      window.trackContactClick = function (method, placement) {
         if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
         gtag("event", "generate_lead", {
           method: method,
+          cta_placement: placement || "unset",
           page_location: location.href,
           transport_type: "beacon"
         });
@@ -190,7 +197,7 @@
       // never reached GA4. page_location in the event says which page it was.
       document.addEventListener("click", function (e) {
         var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
-        if (a) window.trackContactClick(a.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "email");
+        if (a) window.trackContactClick(a.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "email", a.getAttribute("data-cta"));
       }, true);
 
       // First touch, kept for the session: the page a visitor landed on and the

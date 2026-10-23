@@ -55,6 +55,53 @@ export function loadTurnstile(): Promise<void> {
   return turnstileLoading;
 }
 
+/** Everything the Salesforce lead path sends. `topic` and `page` become the
+ *  "Topic:" and "Submitted on:" lines of the Lead description (functions/api/lead.js). */
+export type LeadPayload = {
+  firstName?: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  whatYouNeed?: string;
+  message?: string;
+  topic?: string;
+  page?: string;
+  turnstileToken: string;
+};
+
+export const LEAD_ERROR = "We could not send that. Call (610) 890-9711, or try again.";
+
+/**
+ * The one way a form posts a lead. Adds the first-touch record captured in
+ * index.html (landing page, referrer, UTM campaign), exactly as Contact.tsx
+ * always did. Resolves `{ ok: true }` or `{ ok: false, error }` (the
+ * server's own message); REJECTS only when the request never left the browser
+ * (offline, blocked), so each caller keeps its own wording for that case.
+ */
+export async function submitLead(
+  payload: LeadPayload,
+  fallbackError: string = LEAD_ERROR,
+): Promise<{ ok: boolean; error: string }> {
+  const res = await fetch("/api/lead", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      ...payload,
+      firstTouch: (() => {
+        try {
+          return JSON.parse(sessionStorage.getItem("oa_first_touch") || "null");
+        } catch {
+          return null;
+        }
+      })(),
+    }),
+  });
+  if (res.ok) return { ok: true, error: "" };
+  const body = (await res.json().catch(() => ({}))) as { error?: string };
+  return { ok: false, error: body.error ?? fallbackError };
+}
+
 export async function submitBlogSubscription(email: string, slug: string, turnstileToken: string) {
   const response = await fetch("/api/lead", {
     method: "POST",

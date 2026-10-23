@@ -59,6 +59,31 @@ describe("POST /api/lead", () => {
     expect(new URLSearchParams(calls[1].init.body).get("description")).not.toContain("Landing page");
   });
 
+  it("forwards the optional phone, and prepends the topic and page lines", async () => {
+    const calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, phone: " (610) 555-0100 ", topic: "hc", page: "/services/salesforce-health-check" }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect(sent.get("phone")).toBe("(610) 555-0100");
+    const description = sent.get("description");
+    expect(description).toContain("Topic: hc");
+    expect(description).toContain("Submitted on: /services/salesforce-health-check");
+    // Order: service, topic, page, then the visitor's message.
+    expect(description.indexOf("Topic: hc")).toBeLessThan(description.indexOf("Submitted on:"));
+    expect(description.indexOf("Submitted on:")).toBeLessThan(description.indexOf(GOOD.message));
+  });
+
+  it("sends no phone, topic or page lines when they are not given", async () => {
+    const calls = stubFetch();
+    await onRequest({ request: post(GOOD), env: ENV });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect(sent.has("phone")).toBe(false);
+    expect(sent.get("description")).not.toContain("Topic:");
+    expect(sent.get("description")).not.toContain("Submitted on:");
+  });
+
   it("forwards to Salesforce only after the token verifies", async () => {
     const calls = stubFetch();
     const res = await onRequest({ request: post(GOOD), env: ENV });
@@ -123,7 +148,9 @@ describe("POST /api/lead", () => {
     const res = await onRequest({ request: post(GOOD), env: ENV });
 
     expect(res.status).toBe(502);
-    expect((await res.json()).error).toContain("service@onealgorithm.com");
+    const { error } = await res.json();
+    expect(error).toContain("service@onealgorithm.com");
+    expect(error).toContain("(610) 890-9711");
   });
 
   it("keeps a single-box name instead of dropping it", async () => {

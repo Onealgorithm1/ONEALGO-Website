@@ -2,7 +2,10 @@
 //   public/media/salesforce/salesforce-jobs-<slug>.svg            open roles by role, LinkedIn 2026-10-21
 //   public/media/salesforce/<slug>-largest-industries.svg          top employer groups, Census CBP 2023
 //   public/media/salesforce/og-<slug>.jpg                          1200x630 share card (JPEG, no alpha)
+//   public/media/salesforce/<chart>-m.svg                         640-wide phone variant of each chart (2026-10-23)
 // Run: node scripts/salesforce-images.mjs   (re-run whenever the city data is regenerated)
+//      node scripts/salesforce-images.mjs --charts   charts only, share cards untouched
+// New diagrams/plates do NOT go here: see scripts/plates.mjs (one spec file per page).
 import fs from 'node:fs'
 import path from 'node:path'
 import puppeteer from 'puppeteer'
@@ -42,13 +45,52 @@ function bars({ title, rows, source }) {
 `
 }
 
+/** Phone variant (spec 2.18): 640 wide, label ABOVE each bar so the bar gets
+ *  the full width, 26u labels. Shown below 1024px through <picture>. */
+function barsM({ title, rows, source }) {
+  const W = 640, left = 32, rowH = 96, top = 150
+  // Leave room for the widest value label (26u bold digits are ~15u each).
+  const barMax = W - left - 12 - Math.max(...rows.map((r) => n(r.value).length)) * 15 - 16
+  const H = top + rows.length * rowH + 90
+  const max = Math.max(...rows.map((r) => r.value))
+  const titleLines = []
+  for (const word of title.split(' ')) {
+    const last = titleLines[titleLines.length - 1]
+    if (last && (last + ' ' + word).length <= 34) titleLines[titleLines.length - 1] = last + ' ' + word
+    else titleLines.push(word)
+  }
+  const body = rows.map((r, i) => {
+    const y = top + i * rowH, w = Math.max(6, Math.round((r.value / max) * barMax))
+    return `<text x="${left}" y="${y + 26}" font-size="26" fill="${T.ink2}">${esc(r.label)}</text>
+  <rect x="${left}" y="${y + 40}" width="${w}" height="34" rx="2" fill="${i === 0 ? T.blue : '#4f86b8'}"/>
+  <text x="${left + w + 12}" y="${y + 67}" font-size="26" font-weight="600" fill="${T.ink}">${n(r.value)}</text>`
+  }).join('\n  ')
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>${esc(title)}</title>
+  <rect width="${W}" height="${H}" fill="${T.paper}"/>
+  ${titleLines.slice(0, 3).map((l, i) => `<text x="32" y="${50 + i * 36}" font-size="28" font-weight="600" fill="${T.ink}">${esc(l)}</text>`).join('\n  ')}
+  ${body}
+  <text x="32" y="${H - 34}" font-size="20" fill="${T.ink3}">${esc(source.replace(/ OneAlgorithm\.$/, ''))}</text>
+</svg>
+`
+}
+
 const made = []
 for (const c of CITIES) {
   const jobs = c.jobs.map((j) => ({ label: j.role, value: j.count })).sort((a, b) => b.value - a.value)
-  fs.writeFileSync(path.join(out, `salesforce-jobs-${c.slug}.svg`), bars({ title: `Open Salesforce roles within 25 miles of ${c.name}`, rows: jobs, source: `Source: LinkedIn public job search, ${c.jobsPulled}. OneAlgorithm.` }))
+  const jobChart = { title: `Open Salesforce roles within 25 miles of ${c.name}`, rows: jobs, source: `Source: LinkedIn public job search, ${c.jobsPulled}. OneAlgorithm.` }
+  fs.writeFileSync(path.join(out, `salesforce-jobs-${c.slug}.svg`), bars(jobChart))
+  fs.writeFileSync(path.join(out, `salesforce-jobs-${c.slug}-m.svg`), barsM(jobChart))
   const ind = c.industries.map((i) => ({ label: cap(i.label).replace('Professional, scientific and technical services', 'Professional services').replace('Nonprofit, civic and professional organizations', 'Nonprofit & civic orgs'), value: i.employees }))
-  fs.writeFileSync(path.join(out, `${c.slug}-largest-industries.svg`), bars({ title: `Largest employer groups, ${c.name} metro (employees)`, rows: ind, source: 'Source: US Census Bureau, County Business Patterns 2023. OneAlgorithm.' }))
+  const indChart = { title: `Largest employer groups, ${c.name} metro (employees)`, rows: ind, source: 'Source: US Census Bureau, County Business Patterns 2023. OneAlgorithm.' }
+  fs.writeFileSync(path.join(out, `${c.slug}-largest-industries.svg`), bars(indChart))
+  fs.writeFileSync(path.join(out, `${c.slug}-largest-industries-m.svg`), barsM(indChart))
   made.push(c.slug)
+}
+
+if (process.argv.includes('--charts')) {
+  console.log(`charts: ${made.length * 4} svg (desktop + -m) → public/media/salesforce/ (share cards skipped)`)
+  process.exit(0)
 }
 
 // Share cards: 1200x630 JPEG, rendered from HTML so the brand font and the real partner badge are used.

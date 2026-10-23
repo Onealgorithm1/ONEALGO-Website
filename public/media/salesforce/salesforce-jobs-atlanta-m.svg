@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 624" width="640" height="624" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Open Salesforce roles within 25 miles of Atlanta</title>
+  <rect width="640" height="624" fill="#ffffff"/>
+  <text x="32" y="50" font-size="28" font-weight="600" fill="#0d1b2a">Open Salesforce roles within 25</text>
+  <text x="32" y="86" font-size="28" font-weight="600" fill="#0d1b2a">miles of Atlanta</text>
+  <text x="32" y="176" font-size="26" fill="#35485c">Salesforce Consultant</text>
+  <rect x="32" y="190" width="535" height="34" rx="2" fill="#005eaa"/>
+  <text x="579" y="217" font-size="26" font-weight="600" fill="#0d1b2a">508</text>
+  <text x="32" y="272" font-size="26" fill="#35485c">Salesforce Administrator</text>
+  <rect x="32" y="286" width="371" height="34" rx="2" fill="#4f86b8"/>
+  <text x="415" y="313" font-size="26" font-weight="600" fill="#0d1b2a">352</text>
+  <text x="32" y="368" font-size="26" fill="#35485c">Salesforce Architect</text>
+  <rect x="32" y="382" width="362" height="34" rx="2" fill="#4f86b8"/>
+  <text x="406" y="409" font-size="26" font-weight="600" fill="#0d1b2a">344</text>
+  <text x="32" y="464" font-size="26" fill="#35485c">Salesforce Developer</text>
+  <rect x="32" y="478" width="232" height="34" rx="2" fill="#4f86b8"/>
+  <text x="276" y="505" font-size="26" font-weight="600" fill="#0d1b2a">220</text>
+  <text x="32" y="590" font-size="20" fill="#5a6b7d">Source: LinkedIn public job search, 2026-10-21.</text>
+</svg>

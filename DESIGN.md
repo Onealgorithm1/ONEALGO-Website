@@ -1,6 +1,6 @@
 ---
 name: OneAlgorithm
-description: Design tokens for onealgorithm.com. Brand-locked palette; the instrument layer on /services/website-development is the one place with its own motif.
+description: Design tokens for onealgorithm.com. Brand-locked palette; two places carry their own motif - the instrument layer on /services/website-development and the Salesforce plate system on the 22 Salesforce routes.
 colors:
   night:        "#04182b"   # primary dark ground
   nightInk:     "#ffffff"   # text on night
@@ -13,9 +13,11 @@ colors:
   blue:         "#005eaa"   # brand blue. 6.60:1 on paper, 6.19:1 on surface - safe as text on light.
   orange:       "#ffa634"   # brand accent. Backgrounds and dark-ground text ONLY.
   orangeText:   "#9a4f00"   # the ONLY orange permitted as text on a light ground (6.01:1)
-  paper:        "#ffffff"
-  surface:      "#f5f8fb"
-  hairline:     "#e3e9f0"
+  paper:        "#f7f8fa"   # page ground (tailwind oa.paper - what ships)
+  surface:      "#ffffff"   # cards raised off the paper (oa.surface)
+  sunk:         "#eef1f5"   # recessed wells, inputs (oa.sunk)
+  blueTint:     "#eaf2f9"   # row highlight, own-offer table column
+  hairline:     "#e3e8ef"
   hairlineStrong: "#d3dae4"
 typography:
   display:
@@ -25,7 +27,7 @@ typography:
   mono:
     fontFamily: "JetBrains Mono"
 rounded:
-  none:   "0px"    # every instrument element
+  none:   "0px"    # every instrument element; Salesforce plates, pins, form fields, chips
   button: "8px"    # buttons only
   card:   "16px"
 spacing:
@@ -87,3 +89,51 @@ radius.
 sequence: `BUILD` is an ordered list of four things and `PROCESS` is four
 stages that happen in order. The measure-rule indices are not decorative
 eyebrows — each carries a real measurement alongside.
+
+## Token source of truth
+
+`tailwind.config.ts` (`theme.extend.colors.oa`) is what ships. The front-matter
+above was corrected to match it on 2026-10-23: it used to say paper `#ffffff`,
+surface `#f5f8fb` and hairline `#e3e9f0`, which no class on the site produces.
+Use the `oa-*` Tailwind tokens; change a colour there first, then here.
+
+## The Salesforce plate system - the 22 Salesforce routes
+
+The second place with its own motif (pending owner sign-off, spec section 7.11).
+Spec: `onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/design-spec.md`.
+Components: `client/components/salesforce.tsx` (Salesforce-only, so the main
+chunk does not carry them) plus opt-in props in `site.tsx` (`Section clip`,
+`PrimaryCTA`/`SecondaryCTA` `cta`+`tone`, `Card wire`, `ProcessSteps rail`/`terminal`).
+
+### Signature elements
+
+1. **Provenance-stamped plates.** Every diagram, chart, map or demo-org
+   screenshot sits in a radius-0 hairline frame with 9px corner registration
+   ticks and a two-cell mono stamp on its bottom edge saying what it is and
+   where it came from (`FIG. 2 · DIAGRAM · TYPICAL SAP-TO-SALESFORCE PATTERN, NOT A CLIENT BUILD` | `ONEALGORITHM`).
+2. **Signal wires.** Diagram connectors ship hairline grey (`#7d8da0`). At
+   1024px+ they draw in brand blue (orange on night) as the plate scrolls
+   through; on phones the `-m` file has them already drawn. Table rows, legend
+   rows and step blocks are wired to their line: hover, focus or tap thickens
+   it and dims the rest. No packet animation.
+3. **Registry readouts.** Every figure in JetBrains Mono tabular numerals with
+   its source and read date (`16 · 53 · 38 Platform · listing a0N3A00000EV7SwUAL · read 23 October 2026`).
+   Figures are static in the HTML; the AppExchange record is HTML, never a screenshot.
+
+### Rules
+
+- Radius **0** on plates, pins, form fields and chips. Buttons keep 8px.
+- **Stamp wording rule:** the stamp says what the image is and whose it is. A
+  diagram of a typical pattern says `NOT A CLIENT BUILD`; a screenshot says
+  `SALESFORCE SOFTWARE · ONEALGORITHM DEMO ORG · SAMPLE DATA`. No image may pass
+  for client work. No Salesforce logos inside or next to diagrams, no
+  AppExchange screenshots, no text copied from Salesforce (paraphrase + link).
+- **Motion budget per page** (spec 4.12): at most one trace-drawing plate in
+  view at a time; at most 3 sweeping elements (the first image never sweeps);
+  at most 2 specimens; one rail-mode ProcessSteps (two on the health check);
+  nothing above the fold animates; only `transform`, `clip-path` and
+  `stroke-dashoffset` change; cross-highlight changes `stroke-width`,
+  `opacity` and `background-color` only. Every scroll effect is gated by
+  `@supports`, `prefers-reduced-motion: no-preference` and a `Section clip`
+  ancestor; the default is always the final, fully drawn state.
+- Hand-written hovers live in `@media (hover:hover)`; focus styles always on.

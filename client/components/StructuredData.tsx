@@ -44,21 +44,52 @@ interface ServiceSchema {
   type: "Service";
   name: string;
   description: string;
-  provider: {
-    "@type": "Organization";
-    name: string;
-    url: string;
-  };
-  areaServed: string;
+  provider:
+    | {
+        "@type": "Organization";
+        name: string;
+        url: string;
+      }
+    | { "@id": string };
+  areaServed: unknown;
   serviceType: string;
   url: string;
+  image?: string;
+  offers?: unknown;
+  hasOfferCatalog?: unknown;
 }
+
+/** The free health check as a schema.org Offer (spec 2.17). Goes on the hub,
+ *  HC, MS, the city pages and Philadelphia; MC only once the owner confirms. */
+export const SF_HEALTH_CHECK_OFFER = {
+  "@type": "Offer",
+  name: "Free one-week Salesforce health check",
+  price: "0",
+  priceCurrency: "USD",
+  url: "https://onealgorithm.com/services/salesforce-health-check",
+} as const;
+
+/** Opt-in extras for createServiceSchema (Salesforce pages, 2026-10-23).
+ *  Passing ANY opts switches `provider` to an @id reference
+ *  (`#org` by default; city, Philadelphia and Chester pass `#localbusiness`).
+ *  ⛔ Never add AggregateRating or Review. */
+export type ServiceSchemaOpts = {
+  providerId?: string;
+  image?: string;
+  offers?: unknown;
+  areaServed?: unknown;
+  /** Hub: the child service URLs as an OfferCatalog. */
+  catalog?: { name: string; urls: string[] };
+};
 
 interface WebPageSchema {
   type: "WebPage";
   name: string;
   description: string;
   url: string;
+  dateModified?: string;
+  primaryImageOfPage?: unknown;
+  reviewedBy?: unknown;
   mainEntity?: any;
   breadcrumb?: any;
   publisher: {
@@ -74,15 +105,17 @@ interface ArticleSchema {
   url: string;
   datePublished: string;
   dateModified: string;
-  author: {
-    name: string;
-    url: string;
-  };
+  author:
+    | {
+        name: string;
+        url: string;
+      }
+    | Record<string, unknown>;
   publisher: {
     name: string;
     url: string;
   };
-  image?: string;
+  image?: unknown;
 }
 
 interface ContactPageSchema {
@@ -265,8 +298,9 @@ export function createServiceSchema(
   description: string,
   serviceType: string,
   url: string,
+  opts?: ServiceSchemaOpts,
 ): ServiceSchema {
-  return {
+  const base: ServiceSchema = {
     type: "Service",
     name: serviceName,
     description: description,
@@ -279,6 +313,27 @@ export function createServiceSchema(
     serviceType: serviceType,
     url: url,
   };
+  // No opts = byte-for-byte the schema every existing page already emits.
+  if (!opts) return base;
+  return {
+    ...base,
+    provider: { "@id": opts.providerId ?? "https://onealgorithm.com/#org" },
+    ...(opts.areaServed ? { areaServed: opts.areaServed } : {}),
+    ...(opts.image ? { image: opts.image } : {}),
+    ...(opts.offers ? { offers: opts.offers } : {}),
+    ...(opts.catalog
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: opts.catalog.name,
+            itemListElement: opts.catalog.urls.map((u) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", url: u },
+            })),
+          },
+        }
+      : {}),
+  };
 }
 
 // Helper function to create webpage schema
@@ -286,6 +341,13 @@ export function createWebPageSchema(
   name: string,
   description: string,
   url: string,
+  /** Opt-in (Salesforce pages): the last real content edit, the 1600x900
+   *  preferred image, and (owner-gated) the reviewing Person's @id. */
+  opts?: {
+    dateModified?: string;
+    primaryImage?: { url: string; width: number; height: number };
+    reviewedBy?: string;
+  },
 ): WebPageSchema {
   return {
     type: "WebPage",
@@ -296,6 +358,11 @@ export function createWebPageSchema(
       name: "OneAlgorithm",
       url: "https://onealgorithm.com",
     },
+    ...(opts?.dateModified ? { dateModified: opts.dateModified } : {}),
+    ...(opts?.primaryImage
+      ? { primaryImageOfPage: { "@type": "ImageObject", ...opts.primaryImage } }
+      : {}),
+    ...(opts?.reviewedBy ? { reviewedBy: { "@id": opts.reviewedBy } } : {}),
   };
 }
 
@@ -306,8 +373,10 @@ export function createArticleSchema(
   url: string,
   datePublished: string,
   dateModified: string,
-  author: string,
-  image?: string,
+  /** A name (legacy shape), or a full schema.org node, e.g. the cost guide's
+   *  `{ "@type": "Organization", name: "OneAlgorithm" }` until a byline is confirmed. */
+  author: string | Record<string, unknown>,
+  image?: string | { "@type": "ImageObject"; url: string; width: number; height: number },
 ): ArticleSchema {
   return {
     type: "Article",
@@ -316,10 +385,13 @@ export function createArticleSchema(
     url: url,
     datePublished: datePublished,
     dateModified: dateModified,
-    author: {
-      name: author,
-      url: "https://onealgorithm.com",
-    },
+    author:
+      typeof author === "string"
+        ? {
+            name: author,
+            url: "https://onealgorithm.com",
+          }
+        : author,
     publisher: {
       name: "OneAlgorithm",
       url: "https://onealgorithm.com",

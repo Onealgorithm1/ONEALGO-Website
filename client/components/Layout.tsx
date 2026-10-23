@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
 import { PrimaryCTA } from "./site";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import * as React from "react";
 
 /*
@@ -161,6 +161,76 @@ function Layout({ children }: LayoutProps) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, [isSalesforce]);
+
+  /* Salesforce plate system (spec 2.16, 2026-10-23). Every page gets one Desk
+     (`#start`, the page's form). Until a page has been rebuilt with one, the
+     header CTA and the call bar keep pointing at /contact?need=salesforce, so
+     no link ever lands on a missing anchor. The Desk mounts with the lazy route
+     chunk, so it is looked for for ~1s rather than once. */
+  const [hasDesk, setHasDesk] = React.useState(false);
+  const [deskInView, setDeskInView] = React.useState(false);
+  const [fieldFocused, setFieldFocused] = React.useState(false);
+  React.useEffect(() => {
+    setHasDesk(false);
+    setDeskInView(false);
+    if (!isSalesforce) return;
+    let raf = 0;
+    let tries = 0;
+    let io: IntersectionObserver | null = null;
+    const seek = () => {
+      const desk = document.getElementById("start");
+      if (desk) {
+        setHasDesk(true);
+        io = new IntersectionObserver(([e]) => setDeskInView(e.isIntersecting), {
+          rootMargin: "0px 0px -10% 0px",
+        });
+        io.observe(desk);
+      } else if (tries++ < 60) {
+        raf = window.requestAnimationFrame(seek);
+      }
+    };
+    seek();
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+      io?.disconnect();
+    };
+  }, [isSalesforce, location.pathname]);
+  React.useEffect(() => {
+    if (!isSalesforce) return;
+    const isField = (t: EventTarget | null) =>
+      t instanceof Element && !!t.closest("input,textarea,select");
+    const onIn = (e: FocusEvent) => setFieldFocused(isField(e.target));
+    const onOut = (e: FocusEvent) => {
+      if (!isField(e.relatedTarget)) setFieldFocused(false);
+    };
+    document.addEventListener("focusin", onIn);
+    document.addEventListener("focusout", onOut);
+    return () => {
+      document.removeEventListener("focusin", onIn);
+      document.removeEventListener("focusout", onOut);
+      setFieldFocused(false);
+    };
+  }, [isSalesforce]);
+  // The bar stays mounted and slides; hidden = aria-hidden AND inert, so a
+  // keyboard user can never tab into a bar that is off screen.
+  const sfBarVisible = isSalesforce && showSfBar && !deskInView && !fieldFocused && !mobileMenuOpen;
+  // Same cast as backgroundInert below: React 18 has no typed `inert` prop.
+  // As an attribute (not a ref effect) so the prerendered HTML carries it too.
+  const sfBarInert = (sfBarVisible ? {} : { inert: "" }) as React.HTMLAttributes<HTMLElement>;
+
+  /* Salesforce pages: `html` scroll-padding so an anchor jump, and the browser
+     scrolling a focused field into view, both clear the 64px sticky header
+     and the ~72px call bar. Removed again on every other page. */
+  React.useEffect(() => {
+    if (!isSalesforce) return;
+    const html = document.documentElement.style;
+    html.scrollPaddingTop = "6rem";
+    html.scrollPaddingBottom = "6rem";
+    return () => {
+      html.scrollPaddingTop = "";
+      html.scrollPaddingBottom = "";
+    };
   }, [isSalesforce]);
 
   // Close all dropdowns when mobile menu closes
@@ -333,6 +403,16 @@ function Layout({ children }: LayoutProps) {
           // Instant, not smooth: a verification link should arrive, and a
           // smooth scroll across a long page reads as the link having failed.
           target.scrollIntoView({ behavior: "auto", block: "start" });
+          // Salesforce pages (spec 2.16): focus follows the jump, to the form
+          // heading for #start (never straight into an input), else the target.
+          if (isSalesforce) {
+            const focusEl = id === "start" ? document.getElementById("start-title") ?? target : target;
+            if (!focusEl.hasAttribute("tabindex")) focusEl.setAttribute("tabindex", "-1");
+            // Next frame, not now: on an in-page <a href="#…"> click this runs
+            // inside popstate, and Chrome's own fragment navigation then blurs
+            // the active element to <body> (measured 2026-10-23).
+            raf = window.requestAnimationFrame(() => focusEl.focus({ preventScroll: true }));
+          }
         } else if (frame++ < deadline) {
           raf = window.requestAnimationFrame(seek);
         } else {
@@ -350,7 +430,8 @@ function Layout({ children }: LayoutProps) {
     // directly does not yank focus out of the address bar.
     if (firstRender.current) {
       firstRender.current = false;
-    } else {
+    } else if (!(isSalesforce && location.hash)) {
+      // On Salesforce pages a hash arrival focuses its own target (above).
       mainRef.current?.focus();
     }
 
@@ -394,6 +475,7 @@ function Layout({ children }: LayoutProps) {
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
+        {isSalesforce && <div aria-hidden="true" className="oa-progress-sf" />}
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -586,9 +668,38 @@ function Layout({ children }: LayoutProps) {
                 down to h-10 to sit inside the 64px bar; #ffa634 is a fill under
                 dark ink here, never a text or border colour.
               */}
-              <PrimaryCTA to="/contact" className="h-10 px-5">
-                Talk to an Expert
-              </PrimaryCTA>
+              {isSalesforce ? (
+                <>
+                  {/* Salesforce pages (spec 2.16): the office number in the
+                      bar. Full number at 1280+; a 44px icon at 1024-1279. */}
+                  <a
+                    href="tel:+16108909711"
+                    data-cta="header"
+                    className="group hidden min-h-11 min-w-11 items-center justify-center gap-2 font-mono text-[15px] tabular-nums text-oa-ink transition-colors duration-150 hover:text-oa-blue lg:inline-flex"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="hidden h-[7px] w-[7px] border border-oa-blue transition-colors duration-150 group-hover:bg-oa-blue xl:inline-block"
+                    />
+                    <span className="hidden xl:inline">(610) 890-9711</span>
+                    <Phone className="h-5 w-5 xl:hidden" aria-hidden="true" />
+                    <span className="sr-only xl:hidden">Call (610) 890-9711</span>
+                  </a>
+                  {hasDesk ? (
+                    <PrimaryCTA href="#start" cta="header" tone="light" className="h-10 px-5">
+                      Free health check
+                    </PrimaryCTA>
+                  ) : (
+                    <PrimaryCTA to="/contact?need=salesforce" cta="header" tone="light" className="h-10 px-5">
+                      Free health check
+                    </PrimaryCTA>
+                  )}
+                </>
+              ) : (
+                <PrimaryCTA to="/contact" className="h-10 px-5">
+                  Talk to an Expert
+                </PrimaryCTA>
+              )}
             </div>
 
             {/* Mobile menu button */}
@@ -867,7 +978,7 @@ function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer
-        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 md:pb-0" : ""}`}
+        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 lg:pb-0" : ""}`}
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
@@ -876,7 +987,9 @@ function Layout({ children }: LayoutProps) {
             and the top padding is trimmed - two stacked sections of the same
             colour were reading as one long empty band. */}
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-10 pb-8">
-          <TrustedPartnerships />
+          {/* Not on Salesforce pages (spec 2.16, INT-17): a strip of other
+              vendors' logos under a Salesforce page reads as claimed partners. */}
+          {!isSalesforce && <TrustedPartnerships />}
 
           {/* Footer reorganised 2026-10-09 (Louis: "our footer is unorganized
               looking"). One 21-link Services column became three groups;
@@ -1152,6 +1265,19 @@ function Layout({ children }: LayoutProps) {
             </div>
           </div>
 
+          {/* Salesforce Trademark & Copyright Usage Guidelines: the attribution
+              belongs in the credit/end section, so on the 22 Salesforce pages it
+              lives here (moved from the hub body 2026-10-23), naming every mark
+              those pages use. Inside the footer, never below it. */}
+          {isSalesforce && (
+            <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3">
+              Salesforce, AppExchange, Sales Cloud, Service Cloud, Marketing
+              Cloud, MuleSoft, Trailhead and Agentforce are trademarks of
+              Salesforce, Inc. One Algorithm LLC is an independent consulting
+              partner and is not affiliated with or endorsed by Salesforce
+              beyond its listed partnership.
+            </p>
+          )}
           <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3/70">
             All product names, logos, and brands are property of their
             respective owners. Use of these names, logos, and brands does not
@@ -1161,23 +1287,40 @@ function Layout({ children }: LayoutProps) {
       </footer>
       {/* Fixed, so it overlays rather than renders below the footer; the
           footer's own pb-20 on these pages keeps its last line clear of it. */}
-      {isSalesforce && showSfBar && !mobileMenuOpen && (
+      {isSalesforce && (
         <div
-          className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur md:hidden"
+          data-sf-bar=""
+          aria-hidden={!sfBarVisible}
+          {...sfBarInert}
+          className={`fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur transition-transform duration-200 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none lg:hidden ${
+            sfBarVisible ? "translate-y-0" : "translate-y-full"
+          }`}
           style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
         >
           <a
             href="tel:+16108909711"
+            data-cta="bar"
             className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk"
           >
             Call (610) 890-9711
           </a>
-          <Link
-            to="/contact?need=salesforce"
-            className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
-          >
-            Free health check
-          </Link>
+          {hasDesk ? (
+            <a
+              href="#start"
+              data-cta="bar"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
+            >
+              Free health check
+            </a>
+          ) : (
+            <Link
+              to="/contact?need=salesforce"
+              data-cta="bar"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
+            >
+              Free health check
+            </Link>
+          )}
         </div>
       )}
     </div>

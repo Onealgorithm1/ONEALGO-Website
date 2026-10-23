@@ -58,6 +58,14 @@ npx http-server dist/spa -p 5192 -s -c-1   # serve the production build locally 
 - **Duplicate-content rule (ours, not Google's — Google publishes no percentage):** city pages may share at most ~40–60% of sentences with each other, measured with city names normalised. At launch: average 39%, worst pair 44%. Re-measure after any template change.
 - **Adding a city:** only with evidence of demand (autocomplete + Trends + Keyword Planner + jobs), a fact sheet, and its own copy entry. The decision log is `onealgo-icm-oa/areas/sales/runs/2026-10-21_sf-nationwide/decision-log.md`.
 
+## Salesforce plate system (2026-10-23, branch `redesign/salesforce-offer-2026-10-23`)
+
+- **Components:** `client/components/salesforce.tsx` (Plate, Specimen, AnswerBand, JumpList, DeliveredLedger, DataTable, DocNote, Objections, FAQList, RouteBoard, LeadForm, Desk, CTAProof, HcLink, MidStrip, PhoneBand, PeopleStrip) and the record variants in `SalesforceRecordCard.tsx` (RecordLine, RecordBand). Each has a usage example in its doc comment. Opt-in props in `site.tsx`: `Section clip`, `PrimaryCTA`/`SecondaryCTA` `cta` + `tone`, `Card wire`, `ProcessSteps rail`/`terminal`.
+- **Data:** `client/data/salesforceProof.ts` (SF_VERIFIED_ON, SF_PHONE, SF_DELIVERED, SF_PAGES; SF_PEOPLE and SF_REPLY_PROMISE stay empty until the owner supplies them).
+- **Plates (diagrams):** one spec per page in `scripts/plates/<page>.mjs` → `node scripts/plates.mjs [page] [--og]` writes `public/media/salesforce/<id>.svg` + `-m.svg` and `client/data/plates/<page>.ts` (import it from that page only). Convention at the top of `scripts/plates.mjs`.
+- **Check:** `node scripts/plates-check.mjs` (also runs as `prebuild`): plate files present and in sync with their spec, `<desc>` = alt, size budgets, share-image sizes, every Salesforce route in `public/llms.txt`.
+- **Lead path:** every form posts through `submitLead` in `client/lib/lead.ts` → `functions/api/lead.js`, which now also forwards phone and prepends `Topic:` / `Submitted on:` lines.
+
 ## Facts that must stay true
 
 - Office is **Malvern, PA** — never imply an office in any other city.

@@ -273,6 +273,17 @@ async function main() {
         document
           .querySelectorAll("video > source")
           .forEach((n) => n.remove());
+
+        /* Salesforce call bar (2026-10-23). It stays mounted and slides, and
+           the sweep above scrolls the page, so it was being serialised in its
+           SHOWN state. Hydration does not patch attribute mismatches, so that
+           copy stayed on screen, focusable and not inert at the top of the
+           page. Write it in the state the client's first render expects. */
+        document.querySelectorAll("[data-sf-bar]").forEach((b) => {
+          b.classList.replace("translate-y-0", "translate-y-full");
+          b.setAttribute("aria-hidden", "true");
+          b.setAttribute("inert", "");
+        });
       });
 
       const html = "<!doctype html>\n" + (await page.content());
@@ -303,9 +314,13 @@ async function main() {
 
       const hiddenOpacity = (html.match(/opacity:\s*0(?![.\d])/g) || []).length;
       const hiddenShift = (html.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
-      if (hiddenOpacity || hiddenShift) {
+      // 2026-10-23, Salesforce plate system: rails and nodes grow from
+      // scale(0). They are CSS-only (no inline style), so this must stay 0; an
+      // inline scale(0) in the static HTML means something was captured mid-grow.
+      const hiddenScale = (html.match(/transform:\s*scale[XY]?\(\s*0\s*\)/g) || []).length;
+      if (hiddenOpacity || hiddenShift || hiddenScale) {
         throw new Error(
-          `ships content hidden without JS (opacity:0 ×${hiddenOpacity}, translateY ×${hiddenShift}) — ` +
+          `ships content hidden without JS (opacity:0 ×${hiddenOpacity}, translateY ×${hiddenShift}, scale(0) ×${hiddenScale}) — ` +
             `a scroll reveal was captured mid-animation`,
         );
       }

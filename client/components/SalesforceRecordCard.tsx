@@ -1,4 +1,6 @@
-import { SF_CERTIFIED_PEOPLE, SF_CERTIFICATIONS, SF_PLATFORM_CERTS, SF_LISTING_ID, SF_APPEXCHANGE_URL } from "../data/salesforceProof";
+import type React from "react";
+import { SF_CERTIFIED_PEOPLE, SF_CERTIFICATIONS, SF_PLATFORM_CERTS, SF_LISTING_ID, SF_APPEXCHANGE_URL, SF_VERIFIED_LABEL } from "../data/salesforceProof";
+import { PrimaryCTA } from "./site";
 
 /* The hero verification card from /services/salesforce, shared 2026-10-23 so
    the health check page shows the same checkable record. Figures come from
@@ -50,7 +52,10 @@ export function SalesforceRecordCard() {
             AppExchange listing
           </p>
           <p className="mt-1.5 font-mono text-sm text-oa-nightInk">
-            a0N3A00000EV7SwUAL
+            {SF_LISTING_ID}
+          </p>
+          <p className="mt-2 font-mono text-[11px] text-oa-nightInk3">
+            Read from the listing's stat box on {SF_VERIFIED_LABEL}
           </p>
         </div>
         <a
@@ -63,5 +68,74 @@ export function SalesforceRecordCard() {
           <span aria-hidden="true">→</span>
         </a>
       </div>
+  );
+}
+
+/**
+ * Light, compact registry strip (spec 2.4). Static figures, never animated.
+ *   <RecordLine />
+ *   <RecordLine extra={<Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a Salesforce partner</Link>} />
+ */
+export function RecordLine({ extra }: { extra?: React.ReactNode }) {
+  const Dot = () => <span aria-hidden="true">·</span>;
+  return (
+    <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-y border-oa-hairline py-3 font-mono text-[13px] text-oa-ink2">
+      <span>Salesforce Consulting Partner</span>
+      <Dot />
+      <span>
+        <b className="font-medium tabular-nums text-oa-ink">{SF_CERTIFIED_PEOPLE}</b> certified people
+      </span>
+      <Dot />
+      <span>
+        <b className="font-medium tabular-nums text-oa-ink">{SF_CERTIFICATIONS}</b> certifications,{" "}
+        <b className="font-medium tabular-nums text-oa-ink">{SF_PLATFORM_CERTS}</b> Platform
+      </span>
+      <Dot />
+      <span>listing {SF_LISTING_ID}</span>
+      <Dot />
+      <span>read {SF_VERIFIED_LABEL}</span>
+      <a className="oa-link -my-2.5 inline-block py-2.5" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
+        Verify on AppExchange ↗
+      </a>
+      {extra}
+    </p>
+  );
+}
+
+/**
+ * Night registry band for PA's "What you will find when you check us" (spec 2.4).
+ * `facts` = the page's EXISTING honest facts, verbatim: no tier badge, no
+ * competency badges, no customer ratings. Place inside `<Section tone="night">`.
+ *   <RecordBand facts={["Listed as a Consulting Partner on AppExchange", …]} />
+ */
+export function RecordBand({ facts }: { facts: string[] }) {
+  return (
+    <div>
+      <dl className="grid grid-cols-3 gap-x-6">
+        {RECORD.map((r) => (
+          <div key={r.label} className="flex flex-col">
+            <dt className="order-2 mt-2 text-sm text-oa-nightInk3">{r.label}</dt>
+            <dd className="order-1 font-mono text-5xl leading-none tabular-nums text-oa-orange">{r.figure}</dd>
+          </div>
+        ))}
+      </dl>
+      {facts.length > 0 && (
+        <ul className="mt-10 border-t border-white/10">
+          {facts.map((f) => (
+            <li key={f} className="border-b border-white/10 py-3 text-oa-nightInk2">
+              {f}
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className="mt-6 font-mono text-[11px] text-oa-nightInk3">
+        Listing {SF_LISTING_ID} · read from the listing's stat box on {SF_VERIFIED_LABEL}
+      </p>
+      <div className="mt-8">
+        <PrimaryCTA href={SF_APPEXCHANGE_URL} cta="record">
+          Open our AppExchange listing
+        </PrimaryCTA>
+      </div>
+    </div>
   );
 }
