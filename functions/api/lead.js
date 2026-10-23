@@ -45,6 +45,26 @@ const LIMITS = {
   message: 30000,
 };
 
+/** Where the lead came from, as plain lines for the Lead description: the page
+ *  the visitor first landed on, the site that sent them and any UTM campaign.
+ *  Untrusted browser input: strings only, control characters stripped, lengths
+ *  capped, and nothing is added unless the landing page is a site path. */
+export const source = (t) => {
+  if (!t || typeof t !== "object") return "";
+  const s = (v, n) =>
+    typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, n) : "";
+  const landing = s(t.landing, 200);
+  if (!landing.startsWith("/")) return "";
+  const campaign = s(t.campaign, 200);
+  return [
+    `Landing page: ${landing}`,
+    `Came from: ${s(t.ref, 120) || "direct or unknown"}`,
+    campaign && `Campaign: ${campaign}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+};
+
 const json = (status, body) =>
   new Response(JSON.stringify(body), {
     status,
@@ -138,7 +158,7 @@ export async function onRequest({ request, env }) {
   lead.set("company", field("company"));
   lead.set(
     "description",
-    [need && `Service: ${need}`, message].filter(Boolean).join("\n\n"),
+    [need && `Service: ${need}`, message, source(body.firstTouch)].filter(Boolean).join("\n\n"),
   );
   lead.set("lead_source", "Web");
 

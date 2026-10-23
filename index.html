@@ -184,6 +184,30 @@
         });
       };
 
+      // 2026-10-23: ONE listener for every phone and email link on the site.
+      // Until now only /contact called trackContactClick, so a tap on the
+      // number on a Salesforce page (the pages built to make the phone ring)
+      // never reached GA4. page_location in the event says which page it was.
+      document.addEventListener("click", function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+        if (a) window.trackContactClick(a.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "email");
+      }, true);
+
+      // First touch, kept for the session: the page a visitor landed on and the
+      // site that sent them. The contact form forwards it so every web lead in
+      // Salesforce says which page produced it. Nothing is sent unless they submit.
+      try {
+        if (!sessionStorage.getItem("oa_first_touch")) {
+          var u = new URL(location.href), ref = "";
+          try { ref = document.referrer ? new URL(document.referrer).hostname : ""; } catch (x) {}
+          sessionStorage.setItem("oa_first_touch", JSON.stringify({
+            landing: u.pathname,
+            ref: ref === location.hostname ? "" : ref,
+            campaign: ["utm_source", "utm_medium", "utm_campaign"].map(function (k) { return u.searchParams.get(k); }).filter(Boolean).join(" / ")
+          }));
+        }
+      } catch (x) {}
+
     </script>
     <title>OneAlgorithm — Websites, SEO and Google Ads for Small Business</title>
     <meta

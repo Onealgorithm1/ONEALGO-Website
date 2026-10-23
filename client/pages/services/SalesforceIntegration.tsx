@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { SF_PROOF_LINE } from "../../data/salesforceProof";
 import { PartnerBadge } from "./SalesforceCity";
 import SocialShare from "../../components/SocialShare";
 import { Factory, Calculator, AlertTriangle, ArrowLeftRight } from "lucide-react";
@@ -147,7 +148,7 @@ export default function SalesforceIntegration() {
           title: "Salesforce's record of us",
           items: [
             "16 Salesforce-certified people",
-            "52 certifications, 38 on Platform",
+            SF_PROOF_LINE,
             "Listed AppExchange Consulting Partner",
             "Free one-week review of your org",
           ],

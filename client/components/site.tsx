@@ -506,6 +506,7 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-data-migration": "Data migration",
   "/services/salesforce-integration": "Integration",
   "/services/salesforce-managed-services": "Managed services",
+  "/services/salesforce-health-check": "Health check",
   "/services/salesforce-marketing-cloud-consulting": "Marketing Cloud",
   "/services/salesforce-consultant-new-york": "New York",
   "/services/salesforce-consultant-washington-dc": "Washington, DC",

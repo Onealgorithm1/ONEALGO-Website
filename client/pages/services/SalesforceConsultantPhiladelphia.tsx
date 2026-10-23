@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { SF_PROOF_LINE } from "../../data/salesforceProof";
 import SocialShare from "../../components/SocialShare";
 import { Users, ClipboardCheck, Workflow, Plug, MapPin, Phone } from "lucide-react";
 import {
@@ -166,7 +167,7 @@ export default function SalesforceConsultantPhiladelphia() {
           title: "Salesforce's record of us",
           items: [
             "16 Salesforce-certified people",
-            "52 certifications, 38 on Platform",
+            SF_PROOF_LINE,
             "Listed AppExchange Consulting Partner",
             "Free one-week review of your org",
           ],

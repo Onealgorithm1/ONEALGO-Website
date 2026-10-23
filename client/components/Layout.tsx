@@ -149,6 +149,9 @@ function Layout({ children }: LayoutProps) {
   const mainRef = React.useRef<HTMLElement>(null);
   const firstRender = React.useRef(true);
   const location = useLocation();
+  // Salesforce pages exist to make the office phone ring or the contact form
+  // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
+  const isSalesforce = location.pathname.startsWith("/services/salesforce");
 
   // Close all dropdowns when mobile menu closes
   React.useEffect(() => {
@@ -854,7 +857,7 @@ function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer
-        className="bg-oa-night text-oa-nightInk"
+        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 md:pb-0" : ""}`}
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
@@ -1065,6 +1068,7 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/salesforce-data-migration">Salesforce Data Migration</FooterLink>
               <FooterLink to="/services/salesforce-integration">Salesforce Integration</FooterLink>
               <FooterLink to="/services/salesforce-managed-services">Salesforce Managed Services</FooterLink>
+              <FooterLink to="/services/salesforce-health-check">Salesforce Health Check</FooterLink>
               <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
             </FooterSection>
 
@@ -1145,6 +1149,27 @@ function Layout({ children }: LayoutProps) {
           </p>
         </div>
       </footer>
+      {/* Fixed, so it overlays rather than renders below the footer; the
+          footer's own pb-20 on these pages keeps its last line clear of it. */}
+      {isSalesforce && !mobileMenuOpen && (
+        <div
+          className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur md:hidden"
+          style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
+        >
+          <a
+            href="tel:+16108909711"
+            className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk"
+          >
+            Call (610) 890-9711
+          </a>
+          <Link
+            to="/contact?need=salesforce"
+            className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
+          >
+            Free org review
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

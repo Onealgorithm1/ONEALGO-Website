@@ -42,6 +42,23 @@ const stubFetch = ({ verified = true, sfStatus = 200 } = {}) => {
 afterEach(() => vi.unstubAllGlobals());
 
 describe("POST /api/lead", () => {
+  it("records the landing page and referring site, and ignores a non-path landing", async () => {
+    let calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, firstTouch: { landing: "/services/salesforce-consultant-dallas", ref: "www.google.com", campaign: "" } }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body).get("description");
+    expect(sent).toContain("Landing page: /services/salesforce-consultant-dallas");
+    expect(sent).toContain("Came from: www.google.com");
+    expect(sent).not.toContain("Campaign:");
+
+    vi.restoreAllMocks();
+    calls = stubFetch();
+    await onRequest({ request: post({ ...GOOD, firstTouch: { landing: "https://evil.example/x", ref: "x" } }), env: ENV });
+    expect(new URLSearchParams(calls[1].init.body).get("description")).not.toContain("Landing page");
+  });
+
   it("forwards to Salesforce only after the token verifies", async () => {
     const calls = stubFetch();
     const res = await onRequest({ request: post(GOOD), env: ENV });

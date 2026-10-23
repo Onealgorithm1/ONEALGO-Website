@@ -245,6 +245,10 @@ export default function Contact() {
           whatYouNeed: formData.whatYouNeed,
           message: formData.message,
           turnstileToken,
+          // Landing page + referring site captured on first load (index.html).
+          firstTouch: (() => {
+            try { return JSON.parse(sessionStorage.getItem("oa_first_touch") || "null"); } catch { return null; }
+          })(),
         }),
       });
 
@@ -633,7 +637,6 @@ export default function Contact() {
                     <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
                       <a
                         href="tel:16108909711"
-                        onClick={() => window.trackContactClick?.("phone")}
                         className="inline-flex items-center justify-center gap-1.5 font-medium text-oa-blue hover:text-oa-blue600"
                       >
                         <Phone className="h-4 w-4" aria-hidden="true" />
@@ -642,7 +645,6 @@ export default function Contact() {
                       <span className="hidden text-oa-ink3 sm:inline">|</span>
                       <a
                         href="mailto:service@onealgorithm.com"
-                        onClick={() => window.trackContactClick?.("email")}
                         className="inline-flex items-center justify-center gap-1.5 font-medium text-oa-blue hover:text-oa-blue600"
                       >
                         <Mail className="h-4 w-4" aria-hidden="true" />
@@ -688,7 +690,6 @@ export default function Contact() {
                     <h3 className="font-semibold text-oa-ink">Email</h3>
                     <a
                       href="mailto:service@onealgorithm.com"
-                        onClick={() => window.trackContactClick?.("email")}
                       className="text-oa-blue hover:text-oa-blue600"
                     >
                       service@onealgorithm.com
@@ -702,7 +703,6 @@ export default function Contact() {
                     <h3 className="font-semibold text-oa-ink">Phone</h3>
                     <a
                       href="tel:16108909711"
-                        onClick={() => window.trackContactClick?.("phone")}
                       className="text-oa-blue hover:text-oa-blue600"
                     >
                       1 (610) 890-9711

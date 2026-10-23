@@ -58,6 +58,7 @@ const cards = [
   { file: 'og-salesforce-data-migration.jpg', eyebrow: 'Salesforce services', title: 'Salesforce data migration' },
   { file: 'og-salesforce-integration.jpg', eyebrow: 'Salesforce services', title: 'Salesforce integration with SAP and ERP' },
   { file: 'og-salesforce-managed-services.jpg', eyebrow: 'Salesforce services', title: 'Salesforce managed services' },
+  { file: 'og-salesforce-health-check.jpg', eyebrow: 'Salesforce services', title: 'Salesforce health check' },
   { file: 'og-salesforce-marketing-cloud-consulting.jpg', eyebrow: 'Salesforce services', title: 'Salesforce Marketing Cloud consulting' },
 ]
 const browser = await puppeteer.launch({ headless: true })

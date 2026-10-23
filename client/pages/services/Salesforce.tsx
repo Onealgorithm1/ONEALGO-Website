@@ -591,6 +591,12 @@ export default function Salesforce() {
                     Call (610) 890-9711
                   </SecondaryCTA>
                 </div>
+                <Link
+                  to="/services/salesforce-health-check"
+                  className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-oa-blue underline underline-offset-4"
+                >
+                  What the week covers, in full
+                </Link>
               </Reveal>
             </div>
           </div>
@@ -605,6 +611,32 @@ export default function Salesforce() {
         </div>
       </Section>
 
+      {/* 2026-10-22: the four service pages with delivery proof + ~500/mo search demand each
+          (onealgo-icm-oa run 2026-10-21_sf-nationwide/decision-log.md #4).
+          2026-10-23: moved up from the foot of the page to sit under the offer. Search
+          Console shows people reaching this hub with a specific service in mind
+          ("salesforce optimization services", "hire salesforce implementation services",
+          "salesforce staff augmentation company") and they had to scroll past the FAQ to
+          find it. Health check and cost added: both are pages buyers search for. */}
+      <Section tone="paper" bordered compact>
+        <SectionHeading eyebrow="Services" title="Salesforce work we deliver" />
+        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2">
+          {[
+            { to: "/services/salesforce-health-check", label: "Salesforce health check", body: "A free week in your org, then a written list ranked by what to fix first." },
+            { to: "/services/salesforce-implementation-cost", label: "What Salesforce implementation costs", body: "Licences, partner fees and the costs nobody quotes, with ranges." },
+            { to: "/services/salesforce-data-migration", label: "Salesforce data migration", body: "QuickBase, Kissflow, another CRM or another org, reconciled before go-live." },
+            { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
+            { to: "/services/salesforce-managed-services", label: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
+            { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
+            { to: "/services/staff-augmentation", label: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
+          ].map((l) => (
+            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
+              <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
+              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">{l.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
       {/* The four pillars are a SEQUENCE — the lede says so. They were a 2x2 grid
           of identical boxed cards, which is the one layout that hides a sequence.
           Numbered spine: hairline rule, mono stage number, deliverables in their
@@ -800,25 +832,6 @@ export default function Salesforce() {
           of place names is the shape Google's keyword-stuffing policy names by
           name, and one was already removed from WebDesignChesterCounty.tsx for
           measuring 3.57% place density. Do not turn this into one. */}
-      {/* 2026-10-22: the four service pages with delivery proof + ~500/mo search demand each
-          (onealgo-icm-oa run 2026-10-21_sf-nationwide/decision-log.md #4). */}
-      <Section tone="paper" bordered compact>
-        <SectionHeading eyebrow="Services" title="Salesforce work we deliver" />
-        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2">
-          {[
-            { to: "/services/salesforce-data-migration", label: "Salesforce data migration", body: "QuickBase, Kissflow, another CRM or another org, reconciled before go-live." },
-            { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
-            { to: "/services/salesforce-managed-services", label: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
-            { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
-            { to: "/services/staff-augmentation", label: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
-          ].map((l) => (
-            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
-              <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
-              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">{l.body}</p>
-            </li>
-          ))}
-        </ul>
-      </Section>
 
       {/* 2026-10-22: the wave-2 city pages hang off this hub (moved out of the site footer after the
           blind review). Each link goes to a page with its own sourced data, not a name-swapped body. */}

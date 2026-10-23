@@ -101,6 +101,7 @@ const SalesforceCity = lazy(() => import("./pages/services/SalesforceCity"));
 const SalesforceDataMigration = lazy(() => import("./pages/services/SalesforceDataMigration"));
 const SalesforceIntegration = lazy(() => import("./pages/services/SalesforceIntegration"));
 const SalesforceManagedServices = lazy(() => import("./pages/services/SalesforceManagedServices"));
+const SalesforceHealthCheck = lazy(() => import("./pages/services/SalesforceHealthCheck"));
 const SalesforceMarketingCloud = lazy(() => import("./pages/services/SalesforceMarketingCloud"));
 const SalesforceConsultantPhiladelphia = lazy(
   () => import("./pages/services/SalesforceConsultantPhiladelphia"),
@@ -213,6 +214,7 @@ const App = () => (
               <Route path="/services/salesforce-data-migration" element={<SalesforceDataMigration />} />
               <Route path="/services/salesforce-integration" element={<SalesforceIntegration />} />
               <Route path="/services/salesforce-managed-services" element={<SalesforceManagedServices />} />
+              <Route path="/services/salesforce-health-check" element={<SalesforceHealthCheck />} />
               <Route path="/services/salesforce-marketing-cloud-consulting" element={<SalesforceMarketingCloud />} />
               {/* Wave-2 Salesforce city pages, 2026-10-22 — data in client/data/salesforceCities.ts */}
               <Route

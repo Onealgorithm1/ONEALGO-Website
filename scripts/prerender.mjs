@@ -42,6 +42,7 @@ const ROUTES = [
   "/services/salesforce-data-migration",
   "/services/salesforce-integration",
   "/services/salesforce-managed-services",
+  "/services/salesforce-health-check",
   "/services/salesforce-marketing-cloud-consulting",
   "/services/salesforce-consultant-new-york",
   "/services/salesforce-consultant-washington-dc",

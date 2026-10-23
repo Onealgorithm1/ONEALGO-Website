@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { SF_PROOF_LINE, SF_CERTIFIED_PEOPLE, SF_CERTIFICATIONS } from "../../data/salesforceProof";
 import SocialShare from "../../components/SocialShare";
 import { Search, BadgeCheck, ListChecks, Globe2 } from "lucide-react";
 import {
@@ -43,7 +44,7 @@ import {
  * wrong. Partner tiers are Provisional / Select / Summit — NOT the old
  * Base/Ridge/Crest/Summit. Only Summit partners display a tier badge. An
  * Accredited competency needs 2+ Salesforce-verified projects, CSAT >= 4.0 AND
- * 4+ certifications in that competency, which is why 52 certifications alone
+ * 4+ certifications in that competency, which is why 53 certifications alone
  * earn none. Salesforce certifies INDIVIDUALS, never companies — "certified
  * partner" as a company status does not exist. Do not soften any of this.
  *
@@ -77,7 +78,7 @@ const HOW_TO_CHECK = [
 /* ⛔ True of our own listing, stated plainly. This list is what stops the
    section above reading as marketing. Do not trim it. */
 const OUR_RECORD = [
-  "16 certified people and 52 certifications, published by Salesforce",
+  `${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications, published by Salesforce`,
   "38 of those certifications are on the Platform competency",
   "No tier badge — we are not a Summit partner and do not claim to be",
   "No competency badges earned yet; certifications alone do not earn one",
@@ -148,7 +149,7 @@ export default function SalesforcePartnerPennsylvania() {
           title: "Our AppExchange record",
           items: [
             "16 Salesforce-certified people",
-            "52 certifications, 38 on Platform",
+            SF_PROOF_LINE,
             "Listing a0N3A00000EV7SwUAL",
             "Office in Malvern, Chester County",
           ],
