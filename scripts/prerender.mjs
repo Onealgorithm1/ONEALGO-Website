@@ -56,6 +56,7 @@ const ROUTES = [
   "/services/salesforce-consultant-austin",
   "/services/salesforce-consultant-miami",
   "/services/salesforce-consultant-chicago",
+  "/services/salesforce-consultant-houston",
   "/services/operational-transformation-consulting",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", "/industries/website-development", "/industries/government",

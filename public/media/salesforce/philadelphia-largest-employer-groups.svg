@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 366" width="640" height="366" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest employer groups, Philadelphia metro, by employees (Census CBP 2023)</title>
+<desc>Bar chart of the largest employer groups in the Philadelphia metro by employees: health care and social assistance 589,442; professional, scientific and technical services 244,547; finance and insurance 190,997; manufacturing 171,124. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="640" height="366" fill="#ffffff"/>
+<rect x="290" y="47.5" width="238" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="290" y="130.5" width="98.7" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="290" y="213.5" width="77.1" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="290" y="296.5" width="69.1" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="24" y="24" width="250" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="107" width="250" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="190" width="250" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="273" width="250" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="538" y="64" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">589,442</text>
+<text x="398.7" y="147" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">244,547</text>
+<text x="377.1" y="230" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">190,997</text>
+<text x="369.1" y="313" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">171,124</text>
+<text x="36" y="52" font-size="16" fill="#0d1b2a">Health care and social</text>
+<text x="36" y="74.4" font-size="16" fill="#0d1b2a">assistance</text>
+<text x="36" y="135" font-size="16" fill="#0d1b2a">Professional, scientific</text>
+<text x="36" y="157.4" font-size="16" fill="#0d1b2a">and technical services</text>
+<text x="36" y="229" font-size="16" fill="#0d1b2a">Finance and insurance</text>
+<text x="36" y="312" font-size="16" fill="#0d1b2a">Manufacturing</text>
+</svg>

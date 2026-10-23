@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 354" width="720" height="354" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Austin metro business establishments, 2018 and 2023</title>
+<desc>Slope chart, Austin metro: business establishments went from 54,446 in 2018 to 66,280 in 2023, and establishments with 500 or more employees went from 148 to 208. Source: US Census Bureau, County Business Patterns.</desc>
+<rect width="720" height="354" fill="#ffffff"/>
+<path d="M95 37.400000000000006 L95 337.4 M625 37.400000000000006 L625 337.4" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="90.75" y="165.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="620.75" y="77.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="90.75" y="315.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="620.75" y="227.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M95 170 L625 82" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M95 320 L625 232" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="95" y="27.200000000000006" font-size="17" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2018</text>
+<text x="625" y="27.200000000000006" font-size="17" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2023</text>
+<text x="360" y="61.2" font-size="15" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">All establishments · +21.7%</text>
+<text x="84.8" y="175.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">54,446</text>
+<text x="635.2" y="87.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">66,280</text>
+<text x="360" y="211.2" font-size="15" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">500+ employees · +40.5%</text>
+<text x="84.8" y="325.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">148</text>
+<text x="635.2" y="237.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">208</text>
+</svg>

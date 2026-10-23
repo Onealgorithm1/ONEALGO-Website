@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 583" width="640" height="583" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Denver metro business establishments, 2018 and 2023</title>
+<desc>Slope chart, Denver metro: business establishments went from 86,343 in 2018 to 91,522 in 2023, and establishments with 500 or more employees went from 205 to 223. Source: US Census Bureau, County Business Patterns.</desc>
+<rect width="640" height="583" fill="#ffffff"/>
+<path d="M133 57.2 L133 557.2 M507 57.2 L507 557.2" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="126.5" y="274.5" width="13" height="13" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="500.5" y="118.5" width="13" height="13" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="126.5" y="524.5" width="13" height="13" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="500.5" y="368.5" width="13" height="13" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M133 281 L507 125" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M133 531 L507 375" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<text x="133" y="41.6" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2018</text>
+<text x="507" y="41.6" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2023</text>
+<text x="320" y="93.6" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">All establishments · +6.0%</text>
+<text x="117.4" y="290.1" font-size="26" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">86,343</text>
+<text x="522.6" y="134.1" font-size="26" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">91,522</text>
+<text x="320" y="343.59999999999997" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">500+ employees · +8.8%</text>
+<text x="117.4" y="540.1" font-size="26" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">205</text>
+<text x="522.6" y="384.1" font-size="26" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">223</text>
+</svg>

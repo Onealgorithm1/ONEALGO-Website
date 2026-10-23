@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 516" width="560" height="516" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Salesforce’s three releases a year</title>
+<desc>Diagram of Salesforce’s three releases a year, Spring, Summer and Winter, typically in February, June and October, each read against your org and tested in a sandbox before it reaches production.</desc>
+<rect width="560" height="516" fill="#ffffff"/>
+<path d="M383.9 125.8 L395.2 133.4 L406 141.9 L416.2 151 L425.7 160.9 L434.5 171.3 L442.5 182.4 L449.7 194 L456.2 206.1 L461.7 218.6 L466.4 231.4 L470.2 244.6 L473 258 L474.9 271.5 L475.9 285.2 L475.9 298.8 L474.9 312.5 L473 326" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M479.7 318.6 L473 326 L469.3 316.8" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M406 442.1 L395.2 450.6 L383.9 458.2 L372 465.1 L359.7 471.1 L347 476.2 L334 480.4 L320.8 483.7 L307.3 486.1 L293.7 487.5 L280 488 L266.3 487.5 L252.7 486.1 L239.2 483.7 L226 480.4 L213 476.2 L200.3 471.1 L188 465.1 L176.1 458.2 L164.8 450.6 L154 442.1" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M157.1 451.7 L154 442.1 L163.9 443.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M87 326 L85.1 312.5 L84.1 298.8 L84.1 285.2 L85.1 271.5 L87 258 L89.8 244.6 L93.6 231.4 L98.3 218.6 L103.8 206.1 L110.3 194 L117.5 182.4 L125.5 171.3 L134.3 160.9 L143.8 151 L154 141.9 L164.8 133.4 L176.1 125.8" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M166.1 125.8 L176.1 125.8 L171.8 134.8" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="192" y="58.5" width="176" height="75" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="361.7" y="352.5" width="176" height="75" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="22.3" y="352.5" width="176" height="75" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="280" y="186" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">EACH RELEASE</text>
+<text x="280" y="226" font-size="16" text-anchor="middle" fill="#35485c">1. Release notes read</text>
+<text x="280" y="246" font-size="16" text-anchor="middle" fill="#35485c">against your org</text>
+<text x="280" y="278" font-size="16" text-anchor="middle" fill="#35485c">2. Tested in a sandbox</text>
+<text x="280" y="298" font-size="16" text-anchor="middle" fill="#35485c">preview</text>
+<text x="280" y="330" font-size="16" text-anchor="middle" fill="#35485c">3. Reaches production</text>
+<text x="206" y="89.5" font-size="17" font-weight="600" fill="#0d1b2a">Spring</text>
+<text x="206" y="114.3" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY FEBRUARY</text>
+<text x="375.7" y="383.5" font-size="17" font-weight="600" fill="#0d1b2a">Summer</text>
+<text x="375.7" y="408.3" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY JUNE</text>
+<text x="36.3" y="383.5" font-size="17" font-weight="600" fill="#0d1b2a">Winter</text>
+<text x="36.3" y="408.3" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY OCTOBER</text>
+</svg>

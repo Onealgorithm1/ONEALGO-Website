@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 639" width="640" height="639" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Salesforce retirements: Workflow Rules, Process Builder and Optimizer</title>
+<desc>Timeline: Salesforce ended support for Workflow Rules and Process Builder on December 31, 2025, and retired Optimizer for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26.</desc>
+<rect width="640" height="639" fill="#04182b"/>
+<rect x="41" y="59" width="14" height="14" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="41" y="264" width="14" height="14" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="41" y="469" width="14" height="14" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<path d="M48 66 L48 476" fill="none" stroke="#ffa634" stroke-width="3" stroke-linecap="square"/>
+<path d="M48 66 L96 66" fill="none" stroke="#ffa634" stroke-width="3" stroke-linecap="square"/>
+<path d="M48 271 L96 271" fill="none" stroke="#ffa634" stroke-width="3" stroke-linecap="square"/>
+<path d="M48 476 L96 476" fill="none" stroke="#ffa634" stroke-width="3" stroke-linecap="square"/>
+<rect x="96" y="32" width="512" height="165" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<rect x="96" y="237" width="512" height="165" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<rect x="96" y="442" width="512" height="165" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<text x="120" y="76" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">WINTER '26 RELEASE</text>
+<text x="120" y="122" font-size="28" font-weight="600" fill="#ffffff">Optimizer retired for</text>
+<text x="120" y="161.2" font-size="28" font-weight="600" fill="#ffffff">Hyperforce orgs</text>
+<text x="120" y="281" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">31 DEC 2025</text>
+<text x="120" y="327" font-size="28" font-weight="600" fill="#ffffff">Workflow Rules and Process</text>
+<text x="120" y="366.2" font-size="28" font-weight="600" fill="#ffffff">Builder: end of support</text>
+<text x="120" y="486" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">SUMMER '26 RELEASE</text>
+<text x="120" y="532" font-size="28" font-weight="600" fill="#ffffff">Optimizer retired for all other</text>
+<text x="120" y="571.2" font-size="28" font-weight="600" fill="#ffffff">orgs</text>
+</svg>

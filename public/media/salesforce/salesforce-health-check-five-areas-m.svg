@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 956.4" width="640" height="956.4" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>What the free Salesforce health check covers</title>
+<desc>Diagram: the five areas the free health check covers (licences and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.</desc>
+<rect width="640" height="956.4" fill="#ffffff"/>
+<rect x="32" y="568" width="576" height="356.4" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="56" y="688.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="329" y="688.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="56" y="764.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="329" y="764.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="56" y="840.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="329" y="840.4" width="255" height="60" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<path d="M112 72 L44 72 L44 568" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 172 L58 172 L58 568" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 272 L72 272 L72 568" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 372 L86 372 L86 568" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 472 L100 472 L100 568" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<rect x="112" y="32" width="496" height="80" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="112" y="132" width="496" height="80" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="112" y="232" width="496" height="80" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="112" y="332" width="496" height="80" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="112" y="432" width="496" height="80" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="74" y="725.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">1</text>
+<text x="108" y="725.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">AUTOMATION</text>
+<text x="347" y="725.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">2</text>
+<text x="381" y="725.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">DATA</text>
+<text x="74" y="801.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">3</text>
+<text x="108" y="801.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">PERMISSIONS</text>
+<text x="347" y="801.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">4</text>
+<text x="381" y="801.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">LICENCES</text>
+<text x="74" y="877.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">5</text>
+<text x="108" y="877.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">INTEGRATIONS</text>
+<text x="347" y="877.4" font-size="20" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">6</text>
+<text x="381" y="877.4" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">DATA</text>
+<text x="56" y="620" font-size="28" font-weight="600" fill="#0d1b2a">A written list, ranked by what to</text>
+<text x="56" y="659.2" font-size="28" font-weight="600" fill="#0d1b2a">fix first</text>
+<text x="132" y="80" font-size="28" font-weight="600" fill="#0d1b2a">Licences and edition</text>
+<text x="132" y="180" font-size="28" font-weight="600" fill="#0d1b2a">Data</text>
+<text x="132" y="280" font-size="28" font-weight="600" fill="#0d1b2a">Automation</text>
+<text x="132" y="380" font-size="28" font-weight="600" fill="#0d1b2a">Permissions</text>
+<text x="132" y="480" font-size="28" font-weight="600" fill="#0d1b2a">Integrations</text>
+</svg>

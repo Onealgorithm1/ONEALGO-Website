@@ -178,6 +178,30 @@ export function Eyebrow({
   );
 }
 
+/* ---- Content frame -------------------------------------------------------
+   "default" is the site's 1200px container. "wide" is the Salesforce frame
+   (design-spec-addendum-wide-layout.md, Louis 2026-10-23: "we aren't utilizing
+   the full desktop browser window"): 1440px with wider gutters, so at 1440 the
+   side margin is 40px instead of 152px. The measure does NOT widen -- Prose and
+   ledes keep their ch caps; the extra width is for side-by-side layout.
+
+   Layout provides "wide" on /services/salesforce* so the header, breadcrumbs,
+   every Section and the footer share one left edge without each page having to
+   opt in (one forgotten prop = one section out of line). An explicit `width`
+   prop wins over the context. Every other route gets "default", the same
+   classes it had before.
+   ⛔ Static strings: Tailwind cannot see a computed class name. */
+export type Frame = "default" | "wide";
+export const FRAME: Record<Frame, string> = {
+  default: "max-w-[1200px] px-4 sm:px-6 lg:px-8",
+  wide: "max-w-[1440px] px-4 sm:px-6 lg:px-10 2xl:px-12",
+};
+export const FrameContext = React.createContext<Frame>("default");
+function useFrame(width?: Frame): string {
+  const ctx = React.useContext(FrameContext);
+  return FRAME[width ?? ctx];
+}
+
 /** Standard page section. Handles ground colour, rhythm and the container. */
 export function Section({
   tone = "paper",
@@ -188,6 +212,7 @@ export function Section({
   compact = false,
   allowSticky = false,
   clip = false,
+  width,
   id,
 }: {
   tone?: Tone;
@@ -231,10 +256,13 @@ export function Section({
    * Off by default so no existing page changes.
    */
   clip?: boolean;
+  /** Container frame. Omitted = whatever Layout provides (see FRAME). */
+  width?: Frame;
   /** Anchor target, for in-page links. */
   id?: string;
 }) {
   const dark = tone === "night";
+  const frame = useFrame(width);
 
   /* The band rules are 1px pseudo-elements, not a CSS border on the <section>.
      Rendered result is identical to the `border-y` this replaces.
@@ -267,7 +295,7 @@ export function Section({
         />
       )}
       <div
-        className={`relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 ${
+        className={`relative z-10 mx-auto ${frame} ${
           compact ? "py-14 md:py-16" : "py-20 md:py-28"
         }`}
       >
@@ -364,7 +392,7 @@ export function PrimaryCTA({
   children: React.ReactNode;
   download?: string;
   className?: string;
-  /** GA4 placement: hero, header, bar, mid, rail, table, desk, band, record. */
+  /** GA4 placement: hero, header, bar, mid, rail, table, desk, band, record, answer, faq. */
   cta?: string;
   /** The ground the button sits on; picks the focus-outline colour. */
   tone?: "light" | "dark";
@@ -374,8 +402,10 @@ export function PrimaryCTA({
      long label sat flush against the top and bottom of its own fill. 12px + a
      20px line box is exactly 44px, so nothing moves; the padding is simply
      declared instead of implied by the fixed height. */
+  /* With `cta` the label may wrap (h-auto, min 44px): a long Salesforce label
+     ran past a 390px screen and past the ProcessSteps end column. */
   const fx = cta
-    ? ` group transition-colors duration-200 ease-[cubic-bezier(.22,1,.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
+    ? ` group h-auto min-h-11 whitespace-normal text-center transition-colors duration-200 ease-[cubic-bezier(.22,1,.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
         tone === "dark" ? "focus-visible:outline-oa-orange" : "focus-visible:outline-oa-orangeText"
       }`
     : "";
@@ -424,7 +454,7 @@ export function SecondaryCTA({
       ? "border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7 py-3"
       : "border-oa-hairlineStrong bg-oa-surface text-oa-ink hover:bg-oa-blueTint hover:text-oa-ink px-7 py-3";
   const fx = cta
-    ? ` focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
+    ? ` h-auto min-h-11 whitespace-normal text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
         tone === "dark" ? "focus-visible:outline-oa-nightBlue" : "focus-visible:outline-oa-blue"
       }`
     : "";
@@ -564,6 +594,7 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-consultant-austin": "Austin",
   "/services/salesforce-consultant-miami": "Miami",
   "/services/salesforce-consultant-chicago": "Chicago",
+  "/services/salesforce-consultant-houston": "Houston",
   "/services/operational-transformation-consulting": "Transformation",
   /* ponytail: slug label read "Seo Chester County" -- Semrush flagged the exact
      phrase as overused on the page (2026-10-12). Place is the new info. */
@@ -643,7 +674,8 @@ function crumbsFor(path: string): Crumb[] {
  * reader as well as to the eye — the signature "mono identifier strip as
  * structure, not trim".
  */
-export function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
+export function HeroRail({ crumbs, dark, width }: { crumbs: Crumb[]; dark: boolean; width?: Frame }) {
+  const frame = useFrame(width);
   /* The same crumbs, for machines.
      BreadcrumbList is one of the few structured-data types still earning a rich
      result in Google's current gallery -- FAQPage and HowTo both stopped
@@ -680,7 +712,7 @@ export function HeroRail({ crumbs, dark }: { crumbs: Crumb[]; dark: boolean }) {
         // with what is rendered below it -- both read the same array.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <ol className="mx-auto flex max-w-[1200px] flex-wrap items-center px-4 sm:px-6 lg:px-8 font-mono text-xs">
+      <ol className={`mx-auto flex ${frame} flex-wrap items-center font-mono text-xs`}>
         {crumbs.map((c, i) => {
           const current = i === crumbs.length - 1;
           return (
@@ -749,17 +781,19 @@ function SiblingWire({
   label,
   pages,
   currentPath,
+  frame,
 }: {
   label: string;
   pages: ReadonlyArray<readonly [string, string]>;
   currentPath: string;
+  frame: string;
 }) {
   const others = pages.filter(([to]) => to !== currentPath);
   if (others.length === 0) return null;
 
   return (
     <div className="relative z-10 border-t border-white/10 bg-oa-night">
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-1.5 sm:py-3">
+      <div className={`mx-auto ${frame} py-1.5 sm:py-3`}>
         <div className="sm:flex sm:items-baseline sm:gap-8">
           <p className="shrink-0 pt-3 font-mono text-xs uppercase tracking-wider text-oa-nightInk3 sm:pt-0">
             {label}
@@ -789,10 +823,12 @@ function ScopeStrip({
   title,
   items,
   footer,
+  frame,
 }: {
   title: string;
   items: string[];
   footer?: string[];
+  frame: string;
 }) {
   /* Column count follows the item count so the last row is never a single
      orphan cell sitting under four empty ones - six items read as 3x2, not
@@ -809,7 +845,7 @@ function ScopeStrip({
 
   return (
     <div className="relative z-10 border-t border-white/10 bg-oa-night">
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+      <div className={`mx-auto ${frame} py-8 md:py-10`}>
         <p className="font-mono text-xs uppercase tracking-wider text-oa-nightInk3">
           {title}
         </p>
@@ -880,7 +916,9 @@ export const CERTIFICATIONS: Credential[] = [
  *  2026-08-30: "doesn't belong" beside the diversity certifications).
  *
  *  Every value is read from shared/companyProfile; nothing here is typed in. */
-function IdentifierRail() {
+function IdentifierRail({ frame }: { frame?: string }) {
+  const ctxFrame = useFrame();
+  frame ??= ctxFrame;
   const facts: [string, string][] = [
     ["UEI", siteConfig.identifiers.uei],
     ["CAGE", siteConfig.identifiers.cage],
@@ -896,7 +934,7 @@ function IdentifierRail() {
   );
   return (
     <div className="relative z-10 border-t border-white/10 bg-oa-night">
-      <div className="mx-auto max-w-[1200px] px-4 py-4 sm:px-6 lg:px-8">
+      <div className={`mx-auto ${frame} py-4`}>
         {/* text-xs at every width, deliberately: 12px is this element's
             documented floor (the values get transcribed by hand), and at 14px
             the full stream measures ~1,190px against the 1,136px measure --
@@ -1079,6 +1117,7 @@ export function PageHero({
   secondary,
   meta,
   siblings = true,
+  width,
   children,
 }: {
   eyebrow?: string;
@@ -1126,8 +1165,11 @@ export function PageHero({
   secondary?: { label: string; to?: string; href?: string; download?: string; cta?: string };
   /** Dates and revisions — the things that tell a reader how stale this is. */
   meta?: { label: string; value: string }[];
+  /** Container frame for the rail, body and strips. Omitted = Layout's. */
+  width?: Frame;
   children?: React.ReactNode;
 }) {
+  const frame = useFrame(width);
   const path = normalisePath(useLocation().pathname);
   const kind = classifyPath(path);
   const dark = kind !== "utility";
@@ -1228,8 +1270,8 @@ export function PageHero({
   if (!dark) {
     return (
       <section className="relative border-b border-oa-hairline bg-oa-surface">
-        <HeroRail crumbs={crumbs} dark={false} />
-        <div className="mx-auto max-w-[1200px] px-4 py-9 sm:px-6 md:py-11 lg:px-8">
+        <HeroRail crumbs={crumbs} dark={false} width={width} />
+        <div className={`mx-auto ${frame} py-9 md:py-11`}>
           {heading}
           {ledeEl && <div className="mt-4">{ledeEl}</div>}
           {rest}
@@ -1255,12 +1297,12 @@ export function PageHero({
         aria-hidden="true"
       />
 
-      <HeroRail crumbs={crumbs} dark />
+      <HeroRail crumbs={crumbs} dark width={width} />
 
       {/* Tighter than the old pt-20/24/28 pb-16/20: the rail above and the
           terminal strip below now carry height that the padding used to fake. */}
       <div
-        className={`relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 ${
+        className={`relative z-10 mx-auto ${frame} pt-12 md:pt-16 ${
           kind === "industry" ? "pb-10 md:pb-12" : "pb-12 md:pb-16"
         }`}
       >
@@ -1371,6 +1413,7 @@ export function PageHero({
           label="Also in Services"
           pages={SERVICE_PAGES}
           currentPath={path}
+          frame={frame}
         />
       )}
       {kind === "industry" && panel && (
@@ -1378,9 +1421,10 @@ export function PageHero({
           title={panel.title}
           items={panel.items}
           footer={panel.footer}
+          frame={frame}
         />
       )}
-      {kind === "company" && <IdentifierRail />}
+      {kind === "company" && <IdentifierRail frame={frame} />}
     </section>
   );
 }
@@ -1566,7 +1610,7 @@ export function ProcessSteps({
     );
     const rule = dark ? "border-white/15" : "border-oa-hairlineStrong";
     return (
-      <div className={`relative ${terminal ? "lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-x-8" : ""}`}>
+      <div className={`relative ${terminal ? "lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-x-8" : ""}`}>
         {rail && (
           <span
             aria-hidden="true"

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 830" width="640" height="830" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Los Angeles</title>
+<desc>Diagram of the Salesforce community around Los Angeles: 1 Trailblazer Community Group within 50 km (Salesforce Nonprofit User Group, Los Angeles). No Salesforce office in Los Angeles; nearest: 200 Spectrum Center Drive, Suite 1500, Irvine, CA 92618. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="640" height="830" fill="#ffffff"/>
+<path d="M63 141 L63 238.5 L128 238.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 442 L128 442" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 442 L63 659.2" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="24" y="24" width="416" height="117" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="169" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="336" width="488" height="212" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="659.2" width="592" height="147" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="89" y="607.2" font-size="21" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="43.5" y="63.5" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="43.5" y="109.5" font-size="28" font-weight="600" fill="#0d1b2a">Los Angeles</text>
+<text x="143.6" y="204.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · LOS ANGELES, CA</text>
+<text x="143.6" y="245.26666666666665" font-size="26" fill="#0d1b2a">Salesforce Nonprofit User Group,</text>
+<text x="143.6" y="281.66666666666663" font-size="26" fill="#0d1b2a">Los Angeles</text>
+<text x="143.6" y="371.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="143.6" y="412.2666666666667" font-size="26" fill="#0d1b2a">No Salesforce office in Los</text>
+<text x="143.6" y="448.6666666666667" font-size="26" fill="#0d1b2a">Angeles; nearest: 200 Spectrum</text>
+<text x="143.6" y="485.06666666666666" font-size="26" fill="#0d1b2a">Center Drive, Suite 1500, Irvine,</text>
+<text x="143.6" y="521.4666666666667" font-size="26" fill="#0d1b2a">CA 92618</text>
+<text x="43.5" y="698.7" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="43.5" y="739.3666666666667" font-size="26" fill="#0d1b2a">Runs the work remotely, inside your</text>
+<text x="43.5" y="775.7666666666667" font-size="26" fill="#0d1b2a">Salesforce org</text>
+</svg>

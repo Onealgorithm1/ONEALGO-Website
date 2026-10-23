@@ -179,7 +179,7 @@
       // No preventDefault and no delay. A tel: link must dial instantly; the
       // beacon transport survives the navigation on its own.
       // `placement` is the link's data-cta (hero, header, bar, mid, rail, table,
-      // desk, desk-form, desk-sent, band, record) so phone taps can be split by
+      // desk, desk-form, desk-sent, band, record, answer, faq) so phone taps can be split by
       // where on the page they happened. "unset" for links without one.
       window.trackContactClick = function (method, placement) {
         if (!ANALYTICS_HOSTS.includes(location.hostname)) return;

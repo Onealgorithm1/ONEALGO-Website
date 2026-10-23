@@ -266,6 +266,10 @@ const App = () => (
                 element={<SalesforceCity slug="chicago" />}
               />
               <Route
+                path="/services/salesforce-consultant-houston"
+                element={<SalesforceCity slug="houston" />}
+              />
+              <Route
                 path="/services/salesforce-implementation-cost"
                 element={<SalesforceImplementationCost />}
               />

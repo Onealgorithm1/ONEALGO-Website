@@ -1,19 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
-  <title>Open Salesforce roles within 25 miles of Austin</title>
-  <rect width="800" height="380" fill="#ffffff"/>
-  <text x="32" y="48" font-size="22" font-weight="600" fill="#0d1b2a">Open Salesforce roles within 25 miles of Austin</text>
-  <line x1="32" y1="68" x2="768" y2="68" stroke="#e3e9f0"/>
-  <text x="284" y="118" text-anchor="end" font-size="17" fill="#35485c">Salesforce Consultant</text>
-  <rect x="300" y="100" width="400" height="28" rx="2" fill="#005eaa"/>
-  <text x="710" y="120" font-size="17" font-weight="600" fill="#0d1b2a">352</text>
-  <text x="284" y="174" text-anchor="end" font-size="17" fill="#35485c">Salesforce Administrator</text>
-  <rect x="300" y="156" width="315" height="28" rx="2" fill="#4f86b8"/>
-  <text x="625" y="176" font-size="17" font-weight="600" fill="#0d1b2a">277</text>
-  <text x="284" y="230" text-anchor="end" font-size="17" fill="#35485c">Salesforce Architect</text>
-  <rect x="300" y="212" width="257" height="28" rx="2" fill="#4f86b8"/>
-  <text x="567" y="232" font-size="17" font-weight="600" fill="#0d1b2a">226</text>
-  <text x="284" y="286" text-anchor="end" font-size="17" fill="#35485c">Salesforce Developer</text>
-  <rect x="300" y="268" width="201" height="28" rx="2" fill="#4f86b8"/>
-  <text x="511" y="288" font-size="17" font-weight="600" fill="#0d1b2a">177</text>
-  <text x="32" y="356" font-size="14" fill="#5a6b7d">Source: LinkedIn public job search, 2026-10-21. OneAlgorithm.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 334" width="720" height="334" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Open Salesforce job listings near Austin</title>
+<desc>Bar chart of open Salesforce job listings within 25 miles of Austin on 2026-10-21, one LinkedIn search per role: Consultant 352, Administrator 277, Architect 226, Developer 177. Source: LinkedIn public job search.</desc>
+<rect width="720" height="334" fill="#ffffff"/>
+<rect x="32" y="61.5" width="605.6" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="56" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="633.6" y="58" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="135.5" width="605.6" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="130" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="504.56590909090914" y="132" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="209.5" width="605.6" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="204" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="416.8227272727273" y="206" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="283.5" width="605.6" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="278" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="332.5204545454545" y="280" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M32 62 L637.6 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 136 L508.6 136" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 210 L420.8 210" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 284 L336.5 284" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="32" y="46" font-size="18" fill="#35485c">Consultant</text>
+<text x="651.1" y="68.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">352</text>
+<text x="32" y="120" font-size="18" fill="#35485c">Administrator</text>
+<text x="522.0659090909091" y="142.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">277</text>
+<text x="32" y="194" font-size="18" fill="#35485c">Architect</text>
+<text x="434.3227272727273" y="216.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">226</text>
+<text x="32" y="268" font-size="18" fill="#35485c">Developer</text>
+<text x="350.0204545454545" y="290.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">177</text>
 </svg>

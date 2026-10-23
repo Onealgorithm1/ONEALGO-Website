@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 603" width="1136" height="603" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>A typical SAP-to-Salesforce sync</title>
+<desc>Diagram: a typical SAP-to-Salesforce sync, with customer, product and price records moving from SAP into Salesforce on a schedule, sales orders created in SAP from won deals with status sent back, invoice status shown read-only, and failed records written to a log a named person reviews.</desc>
+<rect width="1136" height="603" fill="#ffffff"/>
+<path d="M304 100 L448 100" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M688 100 L832 100" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M823 93.7 L832 100 L823 106.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M304 176 L448 176" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M688 176 L832 176" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M823 169.7 L832 176 L823 182.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M304 252 L448 252" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M688 252 L832 252" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M823 245.7 L832 252 L823 258.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M304 328 L448 328" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M688 328 L832 328" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M823 321.7 L832 328 L823 334.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M313 321.7 L304 328 L313 334.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M304 404 L448 404" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M688 404 L832 404" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M823 397.7 L832 404 L823 410.3" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M568 432 L568 480" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="6 5"/>
+<rect x="448" y="72" width="240" height="360" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="72" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="832" y="72" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="148" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="832" y="148" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="224" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="832" y="224" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="300" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="832" y="300" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="376" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="832" y="376" width="272" height="56" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="408" y="480" width="320" height="83" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="32" y="44" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SAP</text>
+<text x="568" y="44" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">API JOBS OR MIDDLEWARE</text>
+<text x="832" y="44" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE</text>
+<text x="568" y="104" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">SCHEDULED</text>
+<text x="568" y="180" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">SCHEDULED</text>
+<text x="568" y="256" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">SCHEDULED</text>
+<text x="568" y="332" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">ON CHANGE · BOTH WAYS</text>
+<text x="568" y="408" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">READ-ONLY · LIVE OR NIGHTLY</text>
+<text x="48" y="105" font-size="17" font-weight="600" fill="#0d1b2a">Business Partner</text>
+<text x="848" y="105" font-size="17" font-weight="600" fill="#0d1b2a">Account and Contact</text>
+<text x="48" y="181" font-size="17" font-weight="600" fill="#0d1b2a">Material</text>
+<text x="848" y="181" font-size="17" font-weight="600" fill="#0d1b2a">Product</text>
+<text x="48" y="257" font-size="17" font-weight="600" fill="#0d1b2a">Pricing conditions</text>
+<text x="848" y="257" font-size="17" font-weight="600" fill="#0d1b2a">Price Book</text>
+<text x="48" y="333" font-size="17" font-weight="600" fill="#0d1b2a">Sales Order</text>
+<text x="848" y="333" font-size="17" font-weight="600" fill="#0d1b2a">Won Opportunity or Quote</text>
+<text x="48" y="409" font-size="17" font-weight="600" fill="#0d1b2a">Invoice and credit status</text>
+<text x="848" y="409" font-size="17" font-weight="600" fill="#0d1b2a">Status on the Account</text>
+<text x="424" y="513" font-size="17" font-weight="600" fill="#0d1b2a">Failure log</text>
+<text x="424" y="539.8" font-size="16" fill="#35485c">Read by a named person</text>
+</svg>

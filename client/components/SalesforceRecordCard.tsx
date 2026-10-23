@@ -104,8 +104,9 @@ export function RecordLine({ extra }: { extra?: React.ReactNode }) {
 
 /**
  * Night registry band for PA's "What you will find when you check us" (spec 2.4).
- * `facts` = the page's EXISTING honest facts, verbatim: no tier badge, no
- * competency badges, no customer ratings. Place inside `<Section tone="night">`.
+ * `facts` = true, checkable statements about the listing, stated positively.
+ * ⛔ Never list what the listing lacks (voice addendum rule 4) and never claim a
+ * tier, badge or rating it does not show. Place inside `<Section tone="night">`.
  *   <RecordBand facts={["Listed as a Consulting Partner on AppExchange", …]} />
  */
 export function RecordBand({ facts }: { facts: string[] }) {

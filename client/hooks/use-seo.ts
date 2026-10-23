@@ -198,6 +198,9 @@ function applySEO({
       let m = document.querySelector('meta[property="og:image:alt"]');
       if (!m) { m = document.createElement("meta"); m.setAttribute("property", "og:image:alt"); document.head.appendChild(m); }
       m.setAttribute("content", ogImageAlt);
+      // index.html ships a site-default twitter:image:alt; keep it in step with the page image.
+      const t = document.querySelector('meta[name="twitter:image:alt"]');
+      if (t) t.setAttribute("content", ogImageAlt);
     }
   }
 

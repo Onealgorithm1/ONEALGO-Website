@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1532" width="640" height="1532" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The order of a Salesforce data migration</title>
+<desc>Diagram of a Salesforce data migration: records are inventoried, mapped to Salesforce objects with external IDs, loaded into a sandbox and reconciled count by count, then loaded into production and reconciled again, with the source kept read-only.</desc>
+<rect width="640" height="1532" fill="#ffffff"/>
+<path d="M56 242 L56 286" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 460 L56 504" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 714 L56 758" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 968 L56 1012" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 1222 L56 1266" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M552 1353 L604 1353 L604 1480" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="32" y="32" width="520" height="210" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="286" width="520" height="174" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="504" width="520" height="210" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="758" width="520" height="210" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="1012" width="520" height="210" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="1266" width="520" height="174" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="604" y="1516" font-size="26" text-anchor="end" fill="#35485c">Source set read-only, kept for checks</text>
+<text x="54" y="74" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">01</text>
+<text x="54" y="120" font-size="28" font-weight="600" fill="#0d1b2a">Inventory</text>
+<text x="54" y="172.79999999999998" font-size="26" fill="#35485c">Every table, field and file, with</text>
+<text x="54" y="209.2" font-size="26" fill="#35485c">row counts</text>
+<text x="54" y="328" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">02</text>
+<text x="54" y="374" font-size="28" font-weight="600" fill="#0d1b2a">Map</text>
+<text x="54" y="426.8" font-size="26" fill="#35485c">Objects, owners and external IDs</text>
+<text x="54" y="546" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">03</text>
+<text x="54" y="592" font-size="28" font-weight="600" fill="#0d1b2a">Sandbox trial load</text>
+<text x="54" y="644.8000000000001" font-size="26" fill="#35485c">A full run, sampled by the people</text>
+<text x="54" y="681.2" font-size="26" fill="#35485c">who know the data</text>
+<text x="54" y="800" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">CHECK</text>
+<text x="54" y="846" font-size="28" font-weight="600" fill="#0d1b2a">Tally</text>
+<text x="54" y="898.8000000000001" font-size="26" fill="#35485c">Source = Salesforce, object by</text>
+<text x="54" y="935.2" font-size="26" fill="#35485c">object</text>
+<text x="54" y="1054" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">04</text>
+<text x="54" y="1100" font-size="28" font-weight="600" fill="#0d1b2a">Production cutover</text>
+<text x="54" y="1152.8" font-size="26" fill="#35485c">A planned window, automation</text>
+<text x="54" y="1189.2" font-size="26" fill="#35485c">paused</text>
+<text x="54" y="1308" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">CHECK</text>
+<text x="54" y="1354" font-size="28" font-weight="600" fill="#0d1b2a">Tally again</text>
+<text x="54" y="1406.8" font-size="26" fill="#35485c">Counts reconciled after the load</text>
+</svg>

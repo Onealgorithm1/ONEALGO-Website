@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 689" width="1136" height="689" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Published Salesforce implementation cost ranges, by company size</title>
+<desc>Range chart of published Salesforce implementation costs before licences, from four guides checked 23 October 2026. Small business: $10,000 to $50,000 (Cynoteck), $15,000 to $50,000 (BrainSpate, Groviya and American Chase). Mid-market: $75,000 to $250,000 (Cynoteck), $50,000 to $150,000 (BrainSpate and American Chase), $50,000 to $250,000 (Groviya). Enterprise: $150,000 to $500,000 or more (Cynoteck, BrainSpate and American Chase), $250,000 to $1,000,000 or more (Groviya). These are market figures, not OneAlgorithm prices.</desc>
+<rect width="1136" height="689" fill="#ffffff"/>
+<rect x="335.7" y="107" width="614.7" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="332.7" y="108" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="108" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="412.5" y="139" width="537.8" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="409.5" y="140" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="140" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="412.5" y="171" width="537.8" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="409.5" y="172" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="172" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="412.5" y="203" width="537.8" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="409.5" y="204" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="204" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M182 227 L1104 227" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M182 95 L182 227" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M489.3 95 L489.3 227" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M796.7 95 L796.7 227" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M1104 95 L1104 227" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="412.5" y="318" width="537.8" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="409.5" y="319" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="319" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="335.7" y="350" width="307.3" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="332.7" y="351" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="640" y="351" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="335.7" y="382" width="614.7" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="332.7" y="383" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="947.3" y="383" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="335.7" y="414" width="307.3" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="332.7" y="415" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="640" y="415" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M182 438 L1104 438" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M182 306 L182 438" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M489.3 306 L489.3 438" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M796.7 306 L796.7 438" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M1104 306 L1104 438" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="292.6" y="529" width="258.2" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="289.6" y="530" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="292.6" y="561" width="258.2" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="289.6" y="562" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="366.4" y="593" width="553.2" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="363.4" y="594" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="292.6" y="625" width="258.2" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="289.6" y="626" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M182 649 L1104 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M182 517 L182 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M366.4 517 L366.4 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M550.8 517 L550.8 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M735.2 517 L735.2 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M919.6 517 L919.6 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M1104 517 L1104 649" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M335.7 111 L950.3 111" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M412.5 143 L950.3 143" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M412.5 175 L950.3 175" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M412.5 207 L950.3 207" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M412.5 322 L950.3 322" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M335.7 354 L643 354" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M335.7 386 L950.3 386" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M335.7 418 L643 418" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M292.6 533 L550.8 533" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M543.8 526 L550.8 533 L543.8 540" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M292.6 565 L550.8 565" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M543.8 558 L550.8 565 L543.8 572" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M366.4 597 L919.6 597" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M912.6 590 L919.6 597 L912.6 604" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M292.6 629 L550.8 629" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M543.8 622 L550.8 629 L543.8 636" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="32" y="36" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">MARKET RANGES BEFORE LICENCES · FOUR PUBLISHED GUIDES · NOT ONEALGORITHM PRICES</text>
+<text x="32" y="81" font-size="17" font-weight="600" fill="#0d1b2a">Small business</text>
+<text x="166" y="116.6" font-size="16" text-anchor="end" fill="#35485c">Cynoteck</text>
+<text x="964.3" y="115.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$10,000–$50,000</text>
+<text x="166" y="148.6" font-size="16" text-anchor="end" fill="#35485c">BrainSpate</text>
+<text x="964.3" y="147.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$15,000–$50,000</text>
+<text x="166" y="180.6" font-size="16" text-anchor="end" fill="#35485c">Groviya</text>
+<text x="964.3" y="179.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$15,000–$50,000</text>
+<text x="166" y="212.6" font-size="16" text-anchor="end" fill="#35485c">American Chase</text>
+<text x="964.3" y="211.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$15,000–$50,000</text>
+<text x="182" y="245" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">$0</text>
+<text x="489.3" y="245" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$20K</text>
+<text x="796.7" y="245" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$40K</text>
+<text x="1104" y="245" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">$60K</text>
+<text x="32" y="292" font-size="17" font-weight="600" fill="#0d1b2a">Mid-market</text>
+<text x="166" y="327.6" font-size="16" text-anchor="end" fill="#35485c">Cynoteck</text>
+<text x="964.3" y="326.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$75,000–$250,000</text>
+<text x="166" y="359.6" font-size="16" text-anchor="end" fill="#35485c">BrainSpate</text>
+<text x="657" y="358.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$50,000–$150,000</text>
+<text x="166" y="391.6" font-size="16" text-anchor="end" fill="#35485c">Groviya</text>
+<text x="964.3" y="390.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$50,000–$250,000</text>
+<text x="166" y="423.6" font-size="16" text-anchor="end" fill="#35485c">American Chase</text>
+<text x="657" y="422.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$50,000–$150,000</text>
+<text x="182" y="456" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">$0</text>
+<text x="489.3" y="456" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$100K</text>
+<text x="796.7" y="456" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$200K</text>
+<text x="1104" y="456" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">$300K</text>
+<text x="32" y="503" font-size="17" font-weight="600" fill="#0d1b2a">Enterprise</text>
+<text x="166" y="538.6" font-size="16" text-anchor="end" fill="#35485c">Cynoteck</text>
+<text x="564.8" y="537.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$150,000–$500,000+</text>
+<text x="166" y="570.6" font-size="16" text-anchor="end" fill="#35485c">BrainSpate</text>
+<text x="564.8" y="569.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$150,000–$500,000+</text>
+<text x="166" y="602.6" font-size="16" text-anchor="end" fill="#35485c">Groviya</text>
+<text x="933.6" y="601.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$250,000–$1,000,000+</text>
+<text x="166" y="634.6" font-size="16" text-anchor="end" fill="#35485c">American Chase</text>
+<text x="564.8" y="633.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$150,000–$500,000+</text>
+<text x="182" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">$0</text>
+<text x="366.4" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$250K</text>
+<text x="550.8" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$500K</text>
+<text x="735.2" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$750K</text>
+<text x="919.6" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$1M</text>
+<text x="1104" y="667" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">$1.25M</text>
+</svg>

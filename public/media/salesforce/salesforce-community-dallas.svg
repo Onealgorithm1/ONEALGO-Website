@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 918" width="560" height="918" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Dallas</title>
+<desc>Diagram of the Salesforce community around Dallas: 10 Trailblazer Community Groups within 50 km (Salesforce Admin Group, Dallas; Salesforce Architect Group, Dallas; Salesforce Nonprofit User Group, Dallas; Salesforce User Group, Dallas; Salesforce Developer Group, Dallas; Salesforce Women in Tech Group, Dallas; Salesforce Women in Tech Group, Frisco; Salesforce Admin Group, Frisco, TX; Salesforce Architect Group, Frisco; Salesforce Architect Group, Fort Worth). Salesforce office: 2300 N. Field Street, Dallas, TX 75201. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="560" height="918" fill="#ffffff"/>
+<path d="M49.5 101 L49.5 143.5 L92 143.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 198.5 L92 198.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 253.5 L92 253.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 308.5 L92 308.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 363.5 L92 363.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 418.5 L92 418.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 473.5 L92 473.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 528.5 L92 528.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 583.5 L92 583.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 638.5 L92 638.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 714.5 L92 714.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 714.5 L49.5 822.4" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="6 5"/>
+<rect x="24" y="24" width="272" height="77" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="121" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="176" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="231" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="286" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="341" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="396" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="451" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="506" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="561" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="616" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="681" width="444" height="67" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="822.4" width="512" height="72" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="525.8" y="148.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="203.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="258.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="313.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="368.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">2 KM</text>
+<text x="525.8" y="423.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">29 KM</text>
+<text x="525.8" y="478.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">38 KM</text>
+<text x="525.8" y="533.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">42 KM</text>
+<text x="525.8" y="588.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">42 KM</text>
+<text x="525.8" y="643.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">50 KM</text>
+<text x="66.5" y="788.4" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="36.75" y="49.75" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="36.75" y="80.45" font-size="19" font-weight="600" fill="#0d1b2a">Dallas</text>
+<text x="102.2" y="148.2" font-size="17" fill="#0d1b2a">Salesforce Admin Group, Dallas</text>
+<text x="102.2" y="203.2" font-size="17" fill="#0d1b2a">Salesforce Architect Group, Dallas</text>
+<text x="102.2" y="258.2" font-size="17" fill="#0d1b2a">Salesforce Nonprofit User Group, Dallas</text>
+<text x="102.2" y="313.2" font-size="17" fill="#0d1b2a">Salesforce User Group, Dallas</text>
+<text x="102.2" y="368.2" font-size="17" fill="#0d1b2a">Salesforce Developer Group, Dallas</text>
+<text x="102.2" y="423.2" font-size="17" fill="#0d1b2a">Salesforce Women in Tech Group, Dallas</text>
+<text x="102.2" y="478.2" font-size="17" fill="#0d1b2a">Salesforce Women in Tech Group, Frisco</text>
+<text x="102.2" y="533.2" font-size="17" fill="#0d1b2a">Salesforce Admin Group, Frisco, TX</text>
+<text x="102.2" y="588.2" font-size="17" fill="#0d1b2a">Salesforce Architect Group, Frisco</text>
+<text x="102.2" y="643.2" font-size="17" fill="#0d1b2a">Salesforce Architect Group, Fort Worth</text>
+<text x="102.2" y="704.2" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="102.2" y="730.7333333333335" font-size="17" fill="#0d1b2a">2300 N. Field Street, Dallas, TX 75201</text>
+<text x="36.75" y="848.15" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="36.75" y="874.6833333333334" font-size="17" fill="#0d1b2a">Runs the work remotely, inside your Salesforce org</text>
+</svg>

@@ -68,8 +68,26 @@ describe("Salesforce primitives", () => {
     expect(later).toContain('aria-pressed="false"');
   });
 
-  it("owner-gated blocks render nothing", () => {
-    expect(at("/services/salesforce", <PeopleStrip />)).toBe("");
+  it("PeopleStrip renders the approved lead line, verify link and Person schema, never a photo", () => {
+    const html = at("/services/salesforce", <PeopleStrip />);
+    expect(html).toContain("Sreenivas Amirisetti leads our Salesforce practice. He holds Salesforce certifications from Administrator to Application Architect and earned his first in 2014.");
+    expect(html).toContain("Verify on his Trailblazer profile");
+    expect(html).not.toContain("<img");
+    const ld = JSON.parse(html.split('<script type="application/ld+json">')[1].split("</script>")[0]);
+    expect(ld[0]).toMatchObject({
+      "@type": "Person",
+      name: "Sreenivas Amirisetti",
+      jobTitle: "Salesforce practice lead",
+      worksFor: { "@id": "https://onealgorithm.com/#org" },
+      sameAs: ["https://www.salesforce.com/trailblazer/samirisetti", "https://www.linkedin.com/in/samirisetti/"],
+    });
+  });
+
+  it("DeliveredLedger carries no deficit line and RouteBoard can leave a card out", () => {
+    expect(at("/services/salesforce", <DeliveredLedger title="t" />)).not.toMatch(/invent|do not name/i);
+    const board = at("/services/salesforce-health-check", <RouteBoard groups={["services"]} exclude={["mc"]} />);
+    expect(board).not.toContain("marketing-cloud");
+    expect(board).toContain("xl:grid-cols-3"); // 5 cards: 3 + 2, never a lone card
   });
 
   it("JumpList needs six items", () => {

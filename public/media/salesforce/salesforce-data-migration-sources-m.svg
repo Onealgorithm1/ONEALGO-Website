@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1551" width="640" height="1551" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Where Salesforce data migrations come from</title>
+<desc>Diagram of systems moved into Salesforce: QuickBase and Kissflow, marked as migrations OneAlgorithm has delivered; another CRM such as HubSpot, Zoho or Dynamics 365, marked field map first; spreadsheets, marked dedupe first; and another Salesforce org, marked external IDs. All of them run through one field map into Salesforce accounts, contacts, opportunities, custom objects and files, and are reconciled object by object before go-live.</desc>
+<rect width="640" height="1551" fill="#ffffff"/>
+<path d="M72 121 L36 121 L36 957 L72 957" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M72 327 L36 327 L36 957 L72 957" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M72 533 L36 533 L36 957 L72 957" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M72 757.5 L36 757.5 L36 957 L72 957" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 1084 L112 1140" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M112 1296 L112 1352" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<rect x="72" y="32" width="544" height="178" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="94" y="54" width="122" height="34" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="238" width="544" height="178" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="94" y="260" width="194" height="34" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="444" width="544" height="178" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="94" y="466" width="158" height="34" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="650" width="544" height="215" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="94" y="672" width="158" height="34" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="917" width="544" height="167" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="1140" width="544" height="156" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="72" y="1352" width="544" height="167" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="94" y="130" font-size="28" font-weight="600" fill="#0d1b2a">No-code platforms</text>
+<text x="94" y="177.6" font-size="26" fill="#35485c">QuickBase and Kissflow</text>
+<text x="99" y="79" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">DELIVERED</text>
+<text x="94" y="336" font-size="28" font-weight="600" fill="#0d1b2a">Another CRM</text>
+<text x="94" y="383.59999999999997" font-size="26" fill="#35485c">HubSpot, Zoho, Dynamics 365</text>
+<text x="99" y="285" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">FIELD MAP FIRST</text>
+<text x="94" y="542" font-size="28" font-weight="600" fill="#0d1b2a">Spreadsheets</text>
+<text x="94" y="589.6" font-size="26" fill="#35485c">One sheet, several objects</text>
+<text x="99" y="491" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">DEDUPE FIRST</text>
+<text x="94" y="748" font-size="28" font-weight="600" fill="#0d1b2a">Another Salesforce org</text>
+<text x="94" y="795.6" font-size="26" fill="#35485c">After a merger, or a second business</text>
+<text x="94" y="832" font-size="26" fill="#35485c">unit</text>
+<text x="99" y="697" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">EXTERNAL IDS</text>
+<text x="94" y="967" font-size="28" font-weight="600" fill="#0d1b2a">Field map</text>
+<text x="94" y="1014.6" font-size="26" fill="#35485c">Objects, owners, picklist values and</text>
+<text x="94" y="1051" font-size="26" fill="#35485c">external IDs, agreed before any load</text>
+<text x="94" y="1182" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">INTO SALESFORCE</text>
+<text x="94" y="1226.4" font-size="26" font-weight="600" fill="#0d1b2a">Accounts, contacts, opportunities,</text>
+<text x="94" y="1262.8000000000002" font-size="26" font-weight="600" fill="#0d1b2a">custom objects and files</text>
+<text x="94" y="1402" font-size="28" font-weight="600" fill="#0d1b2a">Reconciled object by object</text>
+<text x="94" y="1449.6000000000001" font-size="26" fill="#35485c">Source count = Salesforce count,</text>
+<text x="94" y="1486.0000000000002" font-size="26" fill="#35485c">before go-live</text>
+</svg>

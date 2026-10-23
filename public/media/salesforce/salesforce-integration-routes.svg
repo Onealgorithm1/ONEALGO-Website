@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 616" width="1136" height="616" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Four ways to connect a system to Salesforce</title>
+<desc>Diagram of four ways to connect a system to Salesforce: Salesforce Connect shows external data without copying it, Platform Events and Change Data Capture announce changes for another system to pick up, the Bulk API runs large scheduled loads, and middleware such as MuleSoft or SAP Integration Suite adds a separately licensed runtime. Each route is drawn with the moving parts it adds.</desc>
+<rect width="1136" height="616" fill="#ffffff"/>
+<path d="M660 113.5 L964 113.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M660 244.5 L964 244.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M660 375.5 L964 375.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M660 518.5 L964 518.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="32" y="60" width="440" height="107" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="520" y="89.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="964" y="89.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="805" y="106.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="191" width="440" height="107" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="520" y="220.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="964" y="220.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="754.3333333333334" y="237.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="855.6666666666666" y="237.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="322" width="440" height="107" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="520" y="351.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="964" y="351.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="754.3333333333334" y="368.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="855.6666666666666" y="368.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="453" width="440" height="131" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="520" y="494.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="964" y="494.5" width="140" height="48" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="729" y="511.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="805" y="511.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="881" y="511.5" width="14" height="14" fill="#5a6b7d" stroke="#5a6b7d" stroke-width="1"/>
+<text x="32" y="40" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ROUTE</text>
+<text x="520" y="40" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">WHAT SITS BETWEEN SALESFORCE AND THE OTHER SYSTEM</text>
+<text x="812" y="143.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">ADAPTER</text>
+<text x="761.3333333333334" y="274.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">EVENT CHANNEL</text>
+<text x="862.6666666666666" y="274.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">SUBSCRIBER</text>
+<text x="761.3333333333334" y="405.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">SCHEDULER</text>
+<text x="862.6666666666666" y="405.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">BULK JOB</text>
+<text x="736" y="548.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">RUNTIME</text>
+<text x="812" y="548.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">MAPPINGS</text>
+<text x="888" y="548.5" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">LICENCE</text>
+<text x="48" y="93" font-size="17" font-weight="600" fill="#0d1b2a">Salesforce Connect</text>
+<text x="48" y="121.8" font-size="16" fill="#35485c">Shows the other system's data inside Salesforce</text>
+<text x="48" y="144.2" font-size="16" fill="#35485c">without copying it.</text>
+<text x="532" y="117.5" font-size="16" fill="#0d1b2a">Salesforce</text>
+<text x="976" y="117.5" font-size="16" fill="#0d1b2a">Other system</text>
+<text x="48" y="224" font-size="17" font-weight="600" fill="#0d1b2a">Platform Events and Change Data Capture</text>
+<text x="48" y="252.8" font-size="16" fill="#35485c">Salesforce announces a change; the other system</text>
+<text x="48" y="275.2" font-size="16" fill="#35485c">picks it up.</text>
+<text x="532" y="248.5" font-size="16" fill="#0d1b2a">Salesforce</text>
+<text x="976" y="248.5" font-size="16" fill="#0d1b2a">Other system</text>
+<text x="48" y="355" font-size="17" font-weight="600" fill="#0d1b2a">Bulk API</text>
+<text x="48" y="383.8" font-size="16" fill="#35485c">Large loads on a schedule: simple, cheap and</text>
+<text x="48" y="406.2" font-size="16" fill="#35485c">easy to rerun.</text>
+<text x="532" y="379.5" font-size="16" fill="#0d1b2a">Salesforce</text>
+<text x="976" y="379.5" font-size="16" fill="#0d1b2a">Other system</text>
+<text x="48" y="486" font-size="17" font-weight="600" fill="#0d1b2a">Middleware such as MuleSoft or SAP</text>
+<text x="48" y="509.8" font-size="17" font-weight="600" fill="#0d1b2a">Integration Suite</text>
+<text x="48" y="538.6" font-size="16" fill="#35485c">A separately licensed runtime for many systems</text>
+<text x="48" y="561" font-size="16" fill="#35485c">or heavy transformation.</text>
+<text x="532" y="522.5" font-size="16" fill="#0d1b2a">Salesforce</text>
+<text x="976" y="522.5" font-size="16" fill="#0d1b2a">Other system</text>
+</svg>

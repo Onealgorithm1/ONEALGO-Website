@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
-import { PrimaryCTA } from "./site";
+import { FRAME, FrameContext, PrimaryCTA } from "./site";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import * as React from "react";
 
@@ -152,6 +152,10 @@ function Layout({ children }: LayoutProps) {
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
+  // and every Section/PageHero inside <main> read this one value, so their
+  // left edges cannot drift apart. Every other route keeps the 1200px frame.
+  const frame = isSalesforce ? "wide" : "default";
   // Shown once the hero's own buttons have scrolled away, so a phone's first
   // screen never carries the same two buttons twice.
   const [showSfBar, setShowSfBar] = React.useState(false);
@@ -476,7 +480,7 @@ function Layout({ children }: LayoutProps) {
         {...backgroundInert}
       >
         {isSalesforce && <div aria-hidden="true" className="oa-progress-sf" />}
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`mx-auto ${FRAME[frame]}`}>
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link
@@ -973,7 +977,7 @@ function Layout({ children }: LayoutProps) {
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
-        {children}
+        <FrameContext.Provider value={frame}>{children}</FrameContext.Provider>
       </main>
 
       {/* Footer */}
@@ -986,7 +990,7 @@ function Layout({ children }: LayoutProps) {
             it, so the boundary needs a hairline rather than a colour change,
             and the top padding is trimmed - two stacked sections of the same
             colour were reading as one long empty band. */}
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10 pt-10 pb-8">
+        <div className={`mx-auto ${FRAME[frame]} border-t border-white/10 pt-10 pb-8`}>
           {/* Not on Salesforce pages (spec 2.16, INT-17): a strip of other
               vendors' logos under a Salesforce page reads as claimed partners. */}
           {!isSalesforce && <TrustedPartnerships />}

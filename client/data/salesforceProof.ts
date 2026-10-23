@@ -66,22 +66,39 @@ export const SF_PAGES = {
     { to: "/services/salesforce-consultant-austin", label: "Austin" },
     { to: "/services/salesforce-consultant-miami", label: "Miami" },
     { to: "/services/salesforce-consultant-chicago", label: "Chicago" },
+    { to: "/services/salesforce-consultant-houston", label: "Houston" },
   ],
 } as const;
 
 export type SfPerson = {
   name: string;
+  /** Schema.org jobTitle and the visible title line. */
   title: string;
-  /** Certifications this person holds; linked to `trailhead` (their verification profile). */
-  certs: string[];
-  /** Path under /media/people/ without size or extension, e.g. "/media/people/jane-doe". */
-  photo: string;
+  /** The approved sentence about this person, verbatim. ⛔ No certification count, no prior employer. */
+  statement: string;
+  /** Their public Salesforce verification profile (Trailblazer). */
+  trailhead: string;
+  /** Link text for `trailhead`, e.g. "Verify on his Trailblazer profile". */
+  verifyLabel: string;
   linkedin?: string;
-  trailhead?: string;
-  /** ISO date of the person's written consent. */
-  consentOn: string;
+  /** ISO date the owner approved naming this person on the site. */
+  approvedOn: string;
 };
-/** ⛔ Owner-gated (spec §7.4). Empty array = PeopleStrip renders nothing. Never team-1..4.webp. */
-export const SF_PEOPLE: SfPerson[] = [];
+/** ⛔ Owner-gated (spec §7.4). Louis named Sreenivas as the Salesforce lead on 2026-10-23
+ *  (owner-decisions.md, answers 3/4). Wording and link are the approved proof, verbatim;
+ *  his active certifications were read from the Trailblazer profile on 2026-10-23. No photo
+ *  exists, so PeopleStrip renders text only. Empty array = PeopleStrip renders nothing. */
+export const SF_PEOPLE: SfPerson[] = [
+  {
+    name: "Sreenivas Amirisetti",
+    title: "Salesforce practice lead",
+    statement:
+      "Sreenivas Amirisetti leads our Salesforce practice. He holds Salesforce certifications from Administrator to Application Architect and earned his first in 2014.",
+    trailhead: "https://www.salesforce.com/trailblazer/samirisetti",
+    verifyLabel: "Verify on his Trailblazer profile",
+    linkedin: "https://www.linkedin.com/in/samirisetti/",
+    approvedOn: "2026-10-23",
+  },
+];
 /** ⛔ Owner-gated (spec §7.6). Empty string = no promise is shown. */
 export const SF_REPLY_PROMISE: string = "";

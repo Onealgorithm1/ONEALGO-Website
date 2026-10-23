@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1567" width="640" height="1567" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Boston</title>
+<desc>Diagram of the Salesforce community around Boston: 7 Trailblazer Community Groups within 50 km (Salesforce Admin Group, Boston; Salesforce Architect Group, Boston; Salesforce Developer Group, Boston; Salesforce Marketer Group, Boston; Salesforce Nonprofit User Group, Boston; Salesforce Higher Ed User Group, Northeast; Salesforce Admin Group, Lowell). Salesforce office: 500 Boylston Street 19th Fl, Boston, MA 02116. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="640" height="1567" fill="#ffffff"/>
+<path d="M63 141 L63 220.5 L128 220.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 355.5 L128 355.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 508.5 L128 508.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 643.5 L128 643.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 778.5 L128 778.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 931.5 L128 931.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 1066.5 L128 1066.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 1215.5 L128 1215.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 1215.5 L63 1396.2" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="24" y="24" width="416" height="117" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="169" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="286" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="439" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="592" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="709" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="862" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="1015" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="1146" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="1396.2" width="592" height="147" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="89" y="1344.2" font-size="21" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="43.5" y="63.5" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="43.5" y="109.5" font-size="28" font-weight="600" fill="#0d1b2a">Boston</text>
+<text x="143.6" y="204.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · BOSTON, MA</text>
+<text x="143.6" y="245.26666666666665" font-size="26" fill="#0d1b2a">Salesforce Admin Group, Boston</text>
+<text x="143.6" y="321.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · BOSTON, MA</text>
+<text x="143.6" y="362.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Architect Group,</text>
+<text x="143.6" y="398.6666666666667" font-size="26" fill="#0d1b2a">Boston</text>
+<text x="143.6" y="474.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · BOSTON, MA</text>
+<text x="143.6" y="515.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Developer Group,</text>
+<text x="143.6" y="551.6666666666666" font-size="26" fill="#0d1b2a">Boston</text>
+<text x="143.6" y="627.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · BOSTON, MA</text>
+<text x="143.6" y="668.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Marketer Group, Boston</text>
+<text x="143.6" y="744.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · BOSTON, MA</text>
+<text x="143.6" y="785.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Nonprofit User Group,</text>
+<text x="143.6" y="821.6666666666666" font-size="26" fill="#0d1b2a">Boston</text>
+<text x="143.6" y="897.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">1 KM · BOSTON, MA</text>
+<text x="143.6" y="938.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Higher Ed User Group,</text>
+<text x="143.6" y="974.6666666666666" font-size="26" fill="#0d1b2a">Northeast</text>
+<text x="143.6" y="1050.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">37 KM · LOWELL, MA</text>
+<text x="143.6" y="1091.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Admin Group, Lowell</text>
+<text x="143.6" y="1181.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="143.6" y="1222.2666666666667" font-size="26" fill="#0d1b2a">500 Boylston Street 19th Fl,</text>
+<text x="143.6" y="1258.6666666666667" font-size="26" fill="#0d1b2a">Boston, MA 02116</text>
+<text x="43.5" y="1435.7" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="43.5" y="1476.3666666666668" font-size="26" fill="#0d1b2a">Runs the work remotely, inside your</text>
+<text x="43.5" y="1512.7666666666669" font-size="26" fill="#0d1b2a">Salesforce org</text>
+</svg>

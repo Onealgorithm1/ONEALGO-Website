@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 463.8" width="640" height="463.8" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest employer groups, Philadelphia metro, by employees (Census CBP 2023)</title>
+<desc>Bar chart of the largest employer groups in the Philadelphia metro by employees: health care and social assistance 589,442; professional, scientific and technical services 244,547; finance and insurance 190,997; manufacturing 171,124. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="640" height="463.8" fill="#ffffff"/>
+<rect x="24" y="64" width="442" height="30" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="24" y="201.8" width="183.4" height="30" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="24" y="305.8" width="143.2" height="30" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="24" y="409.8" width="128.3" height="30" fill="#005eaa" stroke="none" stroke-width="1"/>
+<text x="24" y="50" font-size="26" fill="#35485c">Health care and social assistance</text>
+<text x="480" y="88.4" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">589,442</text>
+<text x="24" y="154" font-size="26" fill="#35485c">Professional, scientific and technical</text>
+<text x="24" y="187.8" font-size="26" fill="#35485c">services</text>
+<text x="221.4" y="226.2" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">244,547</text>
+<text x="24" y="291.8" font-size="26" fill="#35485c">Finance and insurance</text>
+<text x="181.2" y="330.2" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">190,997</text>
+<text x="24" y="395.8" font-size="26" fill="#35485c">Manufacturing</text>
+<text x="166.3" y="434.2" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">171,124</text>
+</svg>

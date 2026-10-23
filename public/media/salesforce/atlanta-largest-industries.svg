@@ -1,19 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
-  <title>Largest employer groups, Atlanta metro (employees)</title>
-  <rect width="800" height="380" fill="#ffffff"/>
-  <text x="32" y="48" font-size="22" font-weight="600" fill="#0d1b2a">Largest employer groups, Atlanta metro (employees)</text>
-  <line x1="32" y1="68" x2="768" y2="68" stroke="#e3e9f0"/>
-  <text x="284" y="118" text-anchor="end" font-size="17" fill="#35485c">Health care and social assistance</text>
-  <rect x="300" y="100" width="400" height="28" rx="2" fill="#005eaa"/>
-  <text x="710" y="120" font-size="17" font-weight="600" fill="#0d1b2a">335,426</text>
-  <text x="284" y="174" text-anchor="end" font-size="17" fill="#35485c">Professional services</text>
-  <rect x="300" y="156" width="304" height="28" rx="2" fill="#4f86b8"/>
-  <text x="614" y="176" font-size="17" font-weight="600" fill="#0d1b2a">255,343</text>
-  <text x="284" y="230" text-anchor="end" font-size="17" fill="#35485c">Manufacturing</text>
-  <rect x="300" y="212" width="195" height="28" rx="2" fill="#4f86b8"/>
-  <text x="505" y="232" font-size="17" font-weight="600" fill="#0d1b2a">163,443</text>
-  <text x="284" y="286" text-anchor="end" font-size="17" fill="#35485c">Wholesale trade</text>
-  <rect x="300" y="268" width="179" height="28" rx="2" fill="#4f86b8"/>
-  <text x="489" y="288" font-size="17" font-weight="600" fill="#0d1b2a">150,040</text>
-  <text x="32" y="356" font-size="14" fill="#5a6b7d">Source: US Census Bureau, County Business Patterns 2023. OneAlgorithm.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 334" width="720" height="334" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest employer groups, Atlanta metro</title>
+<desc>Bar chart of the largest employer groups in the Atlanta metro by employees: health care and social assistance 335,426, professional, scientific and technical services 255,343, manufacturing 163,443, wholesale trade 150,040. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="720" height="334" fill="#ffffff"/>
+<rect x="32" y="61.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="56" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="590.4" y="58" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="135.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="130" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="456.1269287413617" y="132" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="209.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="204" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="302.0406026962728" y="206" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="283.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="278" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="279.56814319700914" y="280" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M32 62 L594.4 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 136 L460.1 136" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 210 L306 210" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 284 L283.6 284" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="32" y="46" font-size="18" fill="#35485c">Health care and social assistance</text>
+<text x="607.9" y="68.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">335,426</text>
+<text x="32" y="120" font-size="18" fill="#35485c">Professional, scientific and technical</text>
+<text x="473.6269287413617" y="142.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">255,343</text>
+<text x="32" y="194" font-size="18" fill="#35485c">Manufacturing</text>
+<text x="319.5406026962728" y="216.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">163,443</text>
+<text x="32" y="268" font-size="18" fill="#35485c">Wholesale trade</text>
+<text x="297.06814319700914" y="290.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">150,040</text>
 </svg>

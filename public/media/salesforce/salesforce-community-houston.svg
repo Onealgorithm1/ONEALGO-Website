@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 612" width="560" height="612" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Houston</title>
+<desc>Diagram of the Salesforce community around Houston: 4 Trailblazer Community Groups within 50 km (Salesforce Nonprofit User Group, Houston; Salesforce User Group, Houston; Salesforce Women in Tech Group, Houston; Salesforce Developer Group, Houston). No Salesforce office listed in Houston. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="560" height="612" fill="#ffffff"/>
+<path d="M49.5 101 L49.5 155.5 L92 155.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 222.5 L92 222.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 277.5 L92 277.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 332.5 L92 332.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 408.5 L92 408.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 408.5 L49.5 516.4" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="6 5"/>
+<rect x="24" y="24" width="272" height="77" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="121" width="444" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="200" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="255" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="310" width="444" height="45" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="375" width="444" height="67" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="516.4" width="512" height="72" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="525.8" y="160.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="227.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="282.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">0 KM</text>
+<text x="525.8" y="337.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">22 KM</text>
+<text x="66.5" y="482.4" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="36.75" y="49.75" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="36.75" y="80.45" font-size="19" font-weight="600" fill="#0d1b2a">Houston</text>
+<text x="102.2" y="148.2" font-size="17" fill="#0d1b2a">Salesforce Nonprofit User Group,</text>
+<text x="102.2" y="172" font-size="17" fill="#0d1b2a">Houston</text>
+<text x="102.2" y="227.2" font-size="17" fill="#0d1b2a">Salesforce User Group, Houston</text>
+<text x="102.2" y="282.2" font-size="17" fill="#0d1b2a">Salesforce Women in Tech Group, Houston</text>
+<text x="102.2" y="337.2" font-size="17" fill="#0d1b2a">Salesforce Developer Group, Houston</text>
+<text x="102.2" y="398.2" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="102.2" y="424.7333333333333" font-size="17" fill="#0d1b2a">No Salesforce office listed in Houston</text>
+<text x="36.75" y="542.15" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="36.75" y="568.6833333333334" font-size="17" fill="#0d1b2a">Runs the work remotely, inside your Salesforce org</text>
+</svg>

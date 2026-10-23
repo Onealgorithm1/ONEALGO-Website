@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 382" width="1136" height="382" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>A typical Marketing Cloud Connect set-up</title>
+<desc>Diagram of a typical Marketing Cloud Connect set-up: contacts, leads and campaign data sync from Salesforce into Marketing Cloud data extensions on a schedule and feed journeys and automations, while unsubscribes and opt-outs flow back so both systems agree on who must not be contacted.</desc>
+<rect width="1136" height="382" fill="#ffffff"/>
+<path d="M124 246 L124 298 L1012 298 L1012 246" fill="none" stroke="#7d8da0" stroke-width="4"/>
+<path d="M346 246 L346 298" fill="none" stroke="#7d8da0" stroke-width="4"/>
+<path d="M216 62 L254 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M247 56 L253 62 L247 68" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M438 62 L476 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M469 56 L475 62 L469 68" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M660 62 L698 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M691 56 L697 62 L691 68" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M882 62 L920 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M913 56 L919 62 L913 68" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M124 246 L124 298 L1012 298 L1012 246" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M346 246 L346 298" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M117 254 L124 247 L131 254" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M1005 254 L1012 247 L1019 254" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="32" y="32" width="184" height="214" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="254" y="32" width="184" height="214" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="476" y="32" width="184" height="214" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="698" y="32" width="184" height="214" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="920" y="32" width="184" height="214" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="124" y="328" font-size="16" fill="#35485c">Unsubscribes and Email Opt Out, both ways</text>
+<text x="124" y="350" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">TESTED IN BOTH DIRECTIONS</text>
+<text x="46" y="58" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALES OR SERVICE</text>
+<text x="46" y="74.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CLOUD</text>
+<text x="46" y="102.6" font-size="17" font-weight="600" fill="#0d1b2a">Your CRM records</text>
+<text x="46" y="135" font-size="16" fill="#35485c">Contacts, Leads</text>
+<text x="46" y="157.4" font-size="16" fill="#35485c">and Campaign</text>
+<text x="46" y="179.8" font-size="16" fill="#35485c">Members, with the</text>
+<text x="46" y="202.20000000000002" font-size="16" fill="#35485c">Email Opt Out</text>
+<text x="46" y="224.60000000000002" font-size="16" fill="#35485c">field</text>
+<text x="268" y="58" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CONNECTOR</text>
+<text x="268" y="85.8" font-size="17" font-weight="600" fill="#0d1b2a">Marketing Cloud</text>
+<text x="268" y="109.6" font-size="17" font-weight="600" fill="#0d1b2a">Connect</text>
+<text x="268" y="142" font-size="16" fill="#35485c">Syncs the objects</text>
+<text x="268" y="164.4" font-size="16" fill="#35485c">and fields you</text>
+<text x="268" y="186.8" font-size="16" fill="#35485c">choose, on a</text>
+<text x="268" y="209.20000000000002" font-size="16" fill="#35485c">schedule</text>
+<text x="490" y="58" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CONTACT BUILDER</text>
+<text x="490" y="85.8" font-size="17" font-weight="600" fill="#0d1b2a">Synchronized data</text>
+<text x="490" y="109.6" font-size="17" font-weight="600" fill="#0d1b2a">extensions</text>
+<text x="490" y="142" font-size="16" fill="#35485c">Your CRM data as</text>
+<text x="490" y="164.4" font-size="16" fill="#35485c">Marketing Cloud</text>
+<text x="490" y="186.8" font-size="16" fill="#35485c">sees it</text>
+<text x="712" y="58" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">JOURNEY BUILDER ·</text>
+<text x="712" y="74.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">AUTOMATION STUDIO</text>
+<text x="712" y="102.6" font-size="17" font-weight="600" fill="#0d1b2a">Audiences and</text>
+<text x="712" y="126.39999999999999" font-size="17" font-weight="600" fill="#0d1b2a">timing</text>
+<text x="712" y="158.79999999999998" font-size="16" fill="#35485c">Who gets which</text>
+<text x="712" y="181.2" font-size="16" fill="#35485c">message, and when</text>
+<text x="934" y="58" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SENDS</text>
+<text x="934" y="85.8" font-size="17" font-weight="600" fill="#0d1b2a">Email and SMS</text>
+<text x="934" y="118.19999999999999" font-size="16" fill="#35485c">Sent to the</text>
+<text x="934" y="140.6" font-size="16" fill="#35485c">audience, minus</text>
+<text x="934" y="163" font-size="16" fill="#35485c">anyone</text>
+<text x="934" y="185.4" font-size="16" fill="#35485c">unsubscribed</text>
+</svg>

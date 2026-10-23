@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 761" width="640" height="761" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Salesforce implementation cost by part of the work, from Girikon's guide</title>
+<desc>Range chart of Salesforce implementation cost by part of the work, from Girikon's guide (published 21 January 2026, updated 25 June 2026): discovery and planning $5,000 to $15,000; system configuration and setup $15,000 to $50,000; customization and development $10,000 to $60,000 or more; data migration $8,000 to $30,000; integrations $10,000 to $40,000; user training and change management $5,000 to $20,000; testing, deployment and support $10,000 to $35,000. Not a OneAlgorithm price.</desc>
+<rect width="640" height="761" fill="#ffffff"/>
+<rect x="73.1" y="146" width="82.3" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="68.1" y="147" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="150.4" y="147" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="155.4" y="228" width="288" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="150.4" y="229" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="438.4" y="229" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="114.3" y="310" width="411.4" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="109.3" y="311" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="97.8" y="392" width="181" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="92.8" y="393" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="273.9" y="393" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="114.3" y="474" width="246.9" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="109.3" y="475" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="356.1" y="475" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="73.1" y="588.5" width="123.4" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="68.1" y="589.5" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="191.6" y="589.5" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="114.3" y="670.5" width="205.7" height="12" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
+<rect x="109.3" y="671.5" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="315" y="671.5" width="10" height="10" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M32 697.5 L608 697.5" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M32 688.5 L32 697.5" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M320 688.5 L320 697.5" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M608 688.5 L608 697.5" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M73.1 152 L155.4 152" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M155.4 234 L443.4 234" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M114.3 316 L525.7 316" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M515.7 306 L525.7 316 L515.7 326" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M97.8 398 L278.9 398" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M114.3 480 L361.1 480" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M73.1 594.5 L196.6 594.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M114.3 676.5 L320 676.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<text x="32" y="44" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">GIRIKON'S PUBLISHED RANGES</text>
+<text x="32" y="74" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">NOT ONEALGORITHM PRICES</text>
+<text x="32" y="130" font-size="26" fill="#35485c">Discovery &amp; Planning</text>
+<text x="608" y="130" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$5K–$15K</text>
+<text x="32" y="212" font-size="26" fill="#35485c">System Configuration &amp; Setup</text>
+<text x="608" y="212" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$15K–$50K</text>
+<text x="32" y="294" font-size="26" fill="#35485c">Customization &amp; Development</text>
+<text x="608" y="294" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$10K–$60K+</text>
+<text x="32" y="376" font-size="26" fill="#35485c">Data Migration</text>
+<text x="608" y="376" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$8K–$30K</text>
+<text x="32" y="458" font-size="26" fill="#35485c">Integrations</text>
+<text x="608" y="458" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$10K–$40K</text>
+<text x="32" y="540" font-size="26" fill="#35485c">User Training &amp; Change</text>
+<text x="608" y="540" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$5K–$20K</text>
+<text x="32" y="572.5" font-size="26" fill="#35485c">Management</text>
+<text x="32" y="654.5" font-size="26" fill="#35485c">Testing, Deployment &amp; Support</text>
+<text x="608" y="654.5" font-size="24" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">$10K–$35K</text>
+<text x="32" y="721.5" font-size="18" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">$0</text>
+<text x="320" y="721.5" font-size="18" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$35K</text>
+<text x="608" y="721.5" font-size="18" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">$70K</text>
+</svg>

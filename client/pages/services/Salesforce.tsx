@@ -1,158 +1,121 @@
 import React from "react";
-import { SalesforceRecordCard } from "../../components/SalesforceRecordCard";
-import { SALESFORCE_CITIES } from "../../data/salesforceCities";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import SocialShare from "../../components/SocialShare";
+import { SalesforceRecordCard, RecordLine } from "../../components/SalesforceRecordCard";
+import { PageHero, Section, SectionHeading, Reveal, CheckList, PrimaryCTA } from "../../components/site";
 import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Reveal,
-  CheckList,
-  PrimaryCTA,
-  SecondaryCTA,
-  CTABand,
-} from "../../components/site";
+  AnswerBand,
+  DeliveredLedger,
+  Desk,
+  FAQList,
+  HcLink,
+  Objections,
+  PeopleStrip,
+  PhoneBand,
+  Plate,
+  PlateScope,
+  RouteBoard,
+  SF_OBJECTIONS,
+  WiredRow,
+  type SfFaq,
+} from "../../components/salesforce";
+import {
+  SF_APPEXCHANGE_URL,
+  SF_CERTIFICATIONS,
+  SF_CERTIFIED_PEOPLE,
+  SF_LISTING_ID,
+  SF_PAGES,
+  SF_PHONE,
+  SF_PLATFORM_CERTS,
+  SF_VERIFIED_LABEL,
+} from "../../data/salesforceProof";
+import { PLATES } from "../../data/plates/hub";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
   createFAQSchema,
+  createWebPageSchema,
+  SF_HEALTH_CHECK_OFFER,
 } from "../../components/StructuredData";
 
-/* Salesforce — rebuilt 2026-08-24. Fleet-reviewed, then checked against primary
- * sources, then three decisions from Louis. History and reasoning:
+/* /services/salesforce, the Salesforce hub. Rebuilt 2026-10-23 on the plate
+ * system (design-spec.md §3 HUB, §5 HUB, plus the wide-layout and voice
+ * addenda). Earlier history (2026-08-24 rebuild, 2026-09-01 decisions) is in
+ * git; the decisions that still bind are kept here.
  *
- * 1. THE PAGE WAS APOLOGISING FOR PROOF IT ACTUALLY HAS.
- * It carried a card headed "No case studies to show you". Still true — no client
- * work is published and none is invented here. But nobody had read our own
- * AppExchange listing, where Salesforce publishes:
+ * SEARCH (page-map.json, priority 1): title and H1 now lead with "Salesforce
+ * consulting services" (2,900/mo, KD 24) and carry "implementation partner"
+ * (2,400/mo, KD 22); "implementation services" stays in the lede, the
+ * AnswerBand and the schema. The meta description keeps the free one-week
+ * health check and the phone number.
  *
- *     Certified People: 16      Certifications: 53
+ * PROOF, and only this proof (allowed-proof list, 2026-10-23):
+ * - Salesforce's AppExchange record: 16 certified people, 53 certifications,
+ *   38 Platform (data/salesforceProof.ts, read date SF_VERIFIED_ON).
+ * - Four delivered patterns, clients unnamed (SF_DELIVERED, via DeliveredLedger).
+ * - The named lead sentence for Sreenivas Amirisetti + his Trailblazer link.
+ *   His certifications were verified on that profile 2026-10-23. ⛔ Never state
+ *   a certification COUNT for him, never name a prior employer, no photo.
+ *   Person schema comes from PeopleStrip (SF_PEOPLE), rendered in that block.
  *
- * verified 2026-08-24, re-verified 2026-09-02 at
- * appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL
- * (NOT appxConsultingListingDetail — that 404s). 2026-09-02: certifications
- * rose 52→53, the new one an Agentforce cert (6→7); certified PEOPLE unchanged
- * at 16 — that count already includes the Hyderabad (India) team, so there is
- * no larger verifiable people figure to publish. Competencies now: Platform 38,
- * Agentforce 7, Agentforce Marketing 3, Agentforce Service 2, Agentforce
- * Sales 1, Data 360 1, Energy & Utilities 1 (38+7+3+2+1+1+1 = 53).
- * No ratings — nobody has reviewed us. That is third-party proof held in someone
- * else's system, and it leads the page.
- *
- * 2. THE PAGE IS SPLIT (Louis, 2026-08-24). There is no Sales Cloud or Service
- * Cloud competency on the listing at all — the mass is Platform — and the
- * listing positions on "secure workflow automation and CRM modernization for
- * government and regulated industries". But commercial Sales/Service Cloud work
- * is real revenue. So the page runs BOTH and lets the reader self-select, rather
- * than averaging the two into something addressed to nobody.
- *
- * 3. THE ORG REVIEW IS THE OFFER (Louis, 2026-08-24). With no published case
- * studies, the strongest available conversion is a diagnostic: the proof becomes
- * the buyer's own org instead of our past clients, and a small firm can actually
- * turn one around in a week where a large one has to route it through a bench.
- * PRICE: FREE. Louis decided 2026-08-24. It is free because that is the whole
- * mechanism — a free diagnostic converts on the buyer's own org and therefore
- * needs no case studies, which is exactly the hole this firm has. If anyone
- * later wants to charge for it, the offer stops doing the job it is here to do.
- *
- * WHAT IS DELIBERATELY NOT HERE
- * - No case study, no named client, no adoption or ROI figure. None exist.
- * - No government past performance. No contract has been awarded. Every
- *   government line is ELIGIBILITY and REGISTRATION only. Do not change this.
- * - No NIST 800-171 / SOC 2 / ISO 27001 / WCAG 2.1 claim. Our AppExchange
- *   listing asserts all four; Louis confirmed 2026-08-24 we hold NONE of them at
- *   present. The listing needs correcting; the website must not repeat it.
- * - No "Proven Track Record" card. Deleted in an earlier pass for having nothing
- *   behind it. It must not come back.
- *
- * SEO 2026-09-14: title, H1, description and first sentence now lead with
- * "salesforce implementation services" — Semrush US: 1,600/mo at keyword
- * difficulty 14, the lowest-difficulty Salesforce term with real volume (the
- * bare "salesforce implementation" is 2,900 at 32 and "implementation partner"
- * 2,400 at 34). Semrush's On Page SEO Checker also asked for aggregateRating
- * markup: ⛔ NOT added — self-serving review markup breaks Google's policy, and a
- * fabricated 4.8 rating was already removed from this site once.
- *
- * SEO (earlier): title and description carry the location. A four-person firm cannot take
- * "salesforce implementation" off Accenture and Slalom, but it can win Malvern /
- * Chester County / Philadelphia and set-aside searches. The body said "Malvern"
- * zero times before this pass. The FAQ is real questions with real answers and
- * feeds FAQPage schema from the same array.
+ * DELIBERATELY NOT HERE (code comments only; the voice addendum bars
+ * announcing absences in visible copy):
+ * - No case study, named client, review, rating, ROI figure, tier or award.
+ *   ⛔ Never add AggregateRating/Review markup (a fabricated 4.8 was removed
+ *   from this site once).
+ * - The competency breakdown rows (Agentforce 7, Agentforce Marketing 3,
+ *   Agentforce Service 2, Agentforce Sales 1, Data 360 1, Energy & Utilities 1)
+ *   came off 2026-10-23: Salesforce's figures, but not on the allowed-proof
+ *   list (spec §7.3, owner to confirm). Restore only on the owner's yes.
+ * - "Agentforce, where an agent genuinely beats a form" came off stage 02 for
+ *   the same reason: no delivered Agentforce work on record (page-map-final-plan).
+ * - Stage 04 lost "Hypercare, typically 30-90 days" and "monthly retainer":
+ *   both need the owner's yes (spec §7.8). The managed-services line now uses
+ *   that page's own approved one-liner. 24/7 stays: AGENTS.md says it is real.
+ * - UAT / go-live cutover lines (gap HUB-6) wait for the delivery lead (§7.8).
+ * - No ownership status (WBENC/NMSDC/WOSB) and no government block on this
+ *   commercial page (Louis 2026-09-01 and 2026-08-25). They live on
+ *   /capabilities and /industries/government.
+ * - MuleSoft: the 2026-09-01 wording stays exactly as written (stage 03 line
+ *   and the FAQ answer). Add no certification, competency, headcount or years.
+ * - FAQs owned by sibling pages are not repeated here (one page per question):
+ *   "How long does a Salesforce implementation take?" and consultant hourly
+ *   rates (cost guide), "Do I need Sales Cloud or Service Cloud?" (Chester
+ *   County), "We already have an admin…" (Philadelphia), location (PA page).
  */
 
-const APPEXCHANGE_URL =
-  "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL";
-const SBA_VERIFY_URL =
-  "https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18?page=1";
+const PAGE_PATH = "/services/salesforce";
+const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
+const PAGE_UPDATED = "2026-10-23";
+const TITLE = "Salesforce Consulting Services & Implementation Partner";
+const DESCRIPTION =
+  "Salesforce consulting and implementation from a listed Consulting Partner in Malvern, PA. Start with a free one-week health check: (610) 890-9711.";
+const LEAD_TRAILBLAZER = "https://www.salesforce.com/trailblazer/samirisetti";
+const COST = "/services/salesforce-implementation-cost";
+const HC = "/services/salesforce-health-check";
 
-/* Every figure is Salesforce's own, published on the listing above. Verified
-   2026-08-24, re-verified 2026-09-02. If it changes there, change it here — do not round it, do not
-   project it forward, and never add a number that is not on that page. */
-/* Every one of these is a real certificate or registry entry with a number
-   behind it, verified 2026-08-24, re-verified 2026-09-02. Anything that cannot be looked up by a
-   stranger does not belong in this list. */
-const CREDENTIALS = [
-  {
-    name: "Salesforce Consulting Partner",
-    detail: "AppExchange listing a0N3A00000EV7SwUAL",
-    href: APPEXCHANGE_URL,
-  },
-  /* ⛔ NMSDC MBE, WBENC WBE and Virginia SWaM came off this list 2026-09-01.
-     Louis: "on all our commercial pages, we don't need to state woman owned.
-     It's not a selling point." All three are diversity certifications — SWaM
-     is literally Small, Women-owned and Minority-owned — so all three go, and
-     all three remain on /capabilities and /industries/government where a
-     buyer is looking for exactly that. (Earlier the same day the SBA
-     WOSB/EDWOSB and SAM.gov cards had already moved there.)
+const PLATE = PLATES["salesforce-implementation-stages"];
+const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og-salesforce.jpg";
+const PRIMARY_IMAGE = {
+  url: "https://onealgorithm.com/media/salesforce/salesforce-implementation-stages-1600x900.jpg",
+  width: 1600,
+  height: 900,
+};
 
-     WHAT REPLACED THEM, and why it is stronger here: Salesforce's own
-     published COMPETENCY breakdown. It is third-party, it is specific to this
-     page's subject, and a commercial buyer evaluating whether we can do the
-     work cares about it far more than about who owns the company. The PAA
-     harvest run the same day is blunt on this — the woman-owned angle appears
-     in none of the real questions buyers ask about Salesforce consulting.
-
-     ⛔ EVERY NUMBER BELOW IS SALESFORCE'S, read off listing a0N3A00000EV7SwUAL.
-     Do not round them, do not sum the four Agentforce rows into one (that
-     total is our arithmetic, not their published figure), and do not add a
-     competency that shows "–" on the listing. Re-read the listing when it
-     changes; a third-party aggregator was circulating "19 certified experts"
-     on 2026-09-01 while the listing itself said 16. */
-  { name: "Platform", detail: "38 certifications" },
-  { name: "Agentforce", detail: "7 certifications" },
-  { name: "Agentforce Marketing", detail: "3 certifications" },
-  { name: "Agentforce Service", detail: "2 certifications" },
-  { name: "Agentforce Sales", detail: "1 certification" },
-  { name: "Data 360", detail: "1 certification" },
-  { name: "Energy & Utilities", detail: "1 certification" },
-  /* Zendesk and Microsoft AI Cloud Partner Program are both real and both stay
-     on /about and /capabilities. They came off THIS page 2026-08-24: on a
-     Salesforce page a Zendesk agreement and a Microsoft program membership are
-     not evidence of Salesforce capability, and a reviewer read the eight-item
-     strip as compensating for the absence of client proof. Six relevant beats
-     eight padded. */
-];
-
-/* What the one-week review actually looks at. Each line is work this team already
-   describes doing elsewhere on the page — nothing here invents a tool, a script
-   or a scoring system we do not have. */
-const REVIEW_CHECKS = [
-  "Licences and edition: what you are paying for against what is actually in use",
-  "Data: duplicates, required fields nobody fills, and the reports people quietly do not trust",
-  "Automation: which steps are still done by hand, and which of them Flow should be doing",
-  "Permissions: who can see what, and where profiles are doing a permission set's job",
-  "Integrations: what syncs, what fails silently, and whether anyone is told when it does",
-];
-
+/* The four stages. Keys s1-s4 wire each block to its station on FIG. 1.
+   ⛔ Plate lines are VERBATIM from these lists (scripts/plates/hub.mjs):
+   change a line here and it must change there too, then re-run
+   `node scripts/plates.mjs hub --og`. The two invoice-backed migration/sync
+   lines describe the PATTERN, never the client, sector or dates. */
 const PILLARS = [
   {
+    k: "s1",
     title: "Before you buy licenses",
     description:
-      "How your sales and support teams work now, which edition you actually need, and whether Salesforce is the right answer at all. Sometimes it isn't, and that's a cheaper thing to find out at this stage.",
+      "How your sales and support teams work now, which edition you actually need, and whether Salesforce is the right answer at all. Sometimes it isn't, and that is a cheaper thing to find out at this stage.",
     details: [
       "What the current process is, including the workarounds",
       "Which clouds and edition you need — and which you don't",
@@ -162,36 +125,24 @@ const PILLARS = [
     ],
   },
   {
+    k: "s2",
     title: "Configuration and build",
     description:
-      "Org setup, Sales Cloud and Service Cloud, and automation for the steps your team currently does by hand. Custom objects only where the standard model genuinely doesn't fit.",
+      "Org setup, Sales Cloud and Service Cloud, and automation for the steps your team does by hand today. Custom objects where the standard model doesn't fit.",
     details: [
       "Org setup: profiles, permission sets, page layouts",
       "Sales Cloud and Service Cloud configuration",
-      /* Marketing Cloud is INVOICE-BACKED — a recurring, named support work
-         package across consecutive monthly invoices, verified 2026-09-01 in
-         02_Finance. It had never appeared anywhere on this page, while the
-         page led on two clouds that carry no AppExchange competency at all.
-         ⛔ Support and build, which is what the record shows. Do not upgrade
-         this to "campaign strategy" or anything audience-facing. */
       "Marketing Cloud build and ongoing support",
       "Custom objects and fields where standard ones don't fit",
       "Flow automation for the manual steps",
-      "Apex only where clicks genuinely can't do the job",
-      "Agentforce, where an agent genuinely beats a form",
+      "Apex where clicks can't do the job",
     ],
   },
   {
+    k: "s3",
     title: "Data migration and integration",
     description:
-      "Records out of your old system, cleaned, loaded, and reconciled until the totals match. Then the API work that keeps Salesforce in step with everything else — the ERP most of all, where the argument over which number is right usually starts.",
-    /* ⛔ THE THREE MIGRATION/SYNC LINES BELOW ARE INVOICE-BACKED, and they are
-       the only delivery evidence on this page that is not a certification
-       count. Verified 2026-09-01 against the paid invoice registers in
-       02_Finance (PO-level work packages: "DOG Synch from SAP to SFDC",
-       "QuickBase Migration", "Kissflow Migration to SFDC"). They describe the
-       PATTERN, never the client — the engagement carries no consent-to-name
-       record, so ⛔ do not add the customer, the sector or the dates. */
+      "Records out of your old system, cleaned, loaded and reconciled until the totals match. Then the API work that keeps Salesforce in step with everything else, the ERP most of all, where the argument over which number is right usually starts.",
     details: [
       "Extract and profile the legacy data before moving any of it",
       "Dedupe and map fields; agree in writing what gets dropped",
@@ -204,456 +155,395 @@ const PILLARS = [
     ],
   },
   {
+    k: "s4",
     title: "After go-live",
     description:
-      "Hypercare for the first 30-90 days, while the people who have to use it every day find the things nobody thought of. Then managed services — ongoing Salesforce administration on a retainer, at whatever level you need.",
+      "We stay on while the people who use it every day find the things nobody thought of. Then managed services keep the org earning its keep: weekly administration and development, with hours reported every week.",
     details: [
-      "Hypercare, typically 30-90 days",
       "User training for admins and for the people using it daily, so adoption does not stall",
       "Reports and dashboards changed as the questions change",
-      "Managed services: ongoing administration on a monthly retainer",
       "Release-window testing before every Salesforce upgrade",
+      "Managed services: weekly administration and development, with hours reported every week",
       "24/7 technical support across the time zones you operate in",
     ],
   },
+] as const;
+
+/* Products: name | what we do | the record behind it. Each proof line is on
+   the allowed list. ⛔ No MuleSoft row and no Agentforce claim here (spec §5
+   HUB 8); Sales/Service Cloud rests on capability + the lead's certifications,
+   not on a delivery claim (owner decision 7 is still open). */
+const PRODUCTS: { name: string; body: string; proof: React.ReactNode; to: string; label: string }[] = [
+  {
+    name: "Sales Cloud and Service Cloud",
+    body: "Sales Cloud runs the work of winning business: leads, opportunities and pipeline. Service Cloud runs support after the sale: cases, queues and escalation. We configure both around how your team actually works.",
+    proof: (
+      <>
+        Our practice lead holds Salesforce's Sales Cloud and Service Cloud consultant certifications (now named Agentforce
+        Sales and Agentforce Service Consultant).{" "}
+        <a className="oa-link" href={LEAD_TRAILBLAZER} target="_blank" rel="noopener noreferrer">
+          Trailblazer profile ↗
+        </a>
+      </>
+    ),
+    to: HC,
+    label: "Check the org you have, free",
+  },
+  {
+    name: "Platform: Flow and Apex",
+    body: "The manual steps your team repeats every week, handed to Flow. Apex where clicks can't do the job. Permissions rebuilt so the right people see the right records, and integrations that tell someone when they fail.",
+    proof: (
+      <>
+        {SF_PLATFORM_CERTS} of our {SF_CERTIFICATIONS} certifications are on the Platform competency · Salesforce's
+        AppExchange record, read {SF_VERIFIED_LABEL}
+      </>
+    ),
+    to: "/services/salesforce-managed-services",
+    label: "Weekly Salesforce development",
+  },
+  {
+    name: "Marketing Cloud",
+    body: "Build and ongoing support for Marketing Cloud accounts that are already running.",
+    proof: <>About 18 months of Marketing Cloud support · delivered, client unnamed</>,
+    to: "/services/salesforce-marketing-cloud-consulting",
+    label: "Marketing Cloud consulting",
+  },
 ];
 
-/* Real questions, answered truthfully. This array is the ONLY source — it renders
-   on the page and generates the FAQPage schema. If an answer cannot be made true,
-   the question does not go in. See the note above createFAQSchema. */
-const FAQS = [
+/* Real questions, answered truthfully. This array is the ONLY source: it
+   renders on the page and generates FAQPage schema. Ordered by buyer signal
+   (questions/questions-by-page.md, Hub). ⛔ No question here may appear on
+   another Salesforce page. */
+const FAQS: SfFaq[] = [
   {
-    q: "Is OneAlgorithm really a Salesforce partner?",
-    a: "Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing a0N3A00000EV7SwUAL. Salesforce publishes the detail itself: 16 certified people holding 53 certifications, 38 of them on the Platform competency. You can open the listing and check it before you call us.",
+    q: "What are the steps in a Salesforce implementation?",
+    a: "Four, usually in this order: work out what you need before you buy licenses, configure and build, migrate and integrate the data, then support the team after go-live. Each stage can be taken on its own, so a company with an admin already in place can bring us in for the migration alone.",
+    link: { to: `#fig-${PLATE.id}`, label: "See Figure 1: how an implementation runs" },
   },
   {
-    q: "What is the one-week org review?",
-    a: "A free, fixed, one-week look at the Salesforce org you already have: licenses against actual use, data quality, what is still being done by hand, who can see what, and which integrations fail quietly. You get a written, ranked list of what we found and what we would fix first, and there is no obligation attached. You can act on it with us, with your own admin, or with nobody.",
+    q: "How do I choose the best Salesforce implementation partner?",
+    a: `Check the record before you call. Open the partner's AppExchange listing and read what Salesforce publishes there: certified people, certifications and the competencies they sit under. Ask who will actually do your work and look those people up on their Trailblazer profiles. Then ask for a written scope before any price. Ours is listing ${SF_LISTING_ID}: ${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications.`,
+    link: { to: "/services/salesforce-consulting-partner-pennsylvania", label: "How to check any Salesforce partner" },
   },
   {
-    q: "Can I see case studies or client references?",
-    a: "We have not published Salesforce case studies, and we will not invent any. What you can check instead is Salesforce's own registry entry for us — 16 certified people, 53 certifications, the competency breakdown — and our SBA certification record. Then take the free one-week review and judge the work on your own org rather than on a story about someone else's.",
+    q: "What do Salesforce consulting services include?",
+    a: "Advice and hands-on work across the life of a Salesforce org: deciding what to buy, configuring it, automating with Flow, migrating data, connecting other systems, and running it afterwards. Ours are the free one-week health check, implementation, data migration, integration with SAP and other ERPs, managed services, Marketing Cloud support and staff augmentation.",
+    link: { to: HC, label: "Start with the free health check" },
   },
   {
-    q: "Where are you located, and do you work outside Pennsylvania?",
-    a: "Our office is at 625 Swedesford Road, Unit B, Malvern, Pennsylvania. We work with clients across the United States, and support across the time zones our clients operate in.",
+    q: "Why do Salesforce implementations fail, and how do we avoid it?",
+    a: "The usual causes are adoption and data, not configuration: the org is set up around a template instead of how the team works, old data arrives unreconciled so nobody trusts the reports, and nobody owns the org after go-live. We start from your current process, workarounds included; we reconcile record counts and totals before go-live; and we agree who owns the org before the build starts.",
+  },
+  {
+    q: "Salesforce or HubSpot: which should we choose?",
+    a: "Choose on fit. HubSpot is often the quicker start for a team with a straightforward pipeline and marketing-led sales. Salesforce earns its cost when you need custom data models, detailed access rules, multi-step approvals or a sync with an ERP such as SAP. We tell you which side of that line you are on before you buy, including when the answer is not Salesforce.",
+    link: { to: COST, label: "What Salesforce costs, edition by edition" },
+  },
+  {
+    q: "Should we implement Salesforce ourselves or hire a partner?",
+    a: "Do it in-house if someone on your team has implemented Salesforce before and has the time. Bring in a partner when the build has to land alongside everyone's day job, or when it involves data migration, an ERP integration or automation nobody on staff has built. Many companies do both: we build, your admin owns the org after go-live, and the handover is planned before the build starts.",
+  },
+  {
+    q: "What happens after go-live, and who supports Salesforce then?",
+    a: "We stay on while your team learns it: training for admins and everyday users, reports and dashboards changed as the questions change, and testing before every Salesforce release. After that, managed services keep the org running: weekly administration and development, with hours reported every week.",
+    link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" },
   },
   {
     q: "What does a Salesforce implementation cost?",
-    a: "It depends on the edition, the license count and how much of your data has to move, so we will not quote our own figure on a web page. The ranges other firms publish, with their sources, are in our Salesforce implementation cost guide. What we will do before you sign anything is give you a license count and a rough cost, and tell you if a smaller edition does the job.",
+    a: "It depends on the edition, the license count and how much of your data has to move. The ranges other firms publish, with their sources and typical timelines, are in our Salesforce implementation cost guide. Before you sign anything, we give you a license count and a rough cost, and tell you if a smaller edition does the job.",
+    link: { to: COST, label: "Salesforce implementation cost guide" },
   },
   {
-    q: "Do I need Sales Cloud or Service Cloud?",
-    a: "Sales Cloud tracks the work of winning business — leads, opportunities and pipeline. Service Cloud tracks the work of supporting customers after they buy — cases, queues and escalation. Plenty of companies need both, and some need far less than they were sold. That is the first thing we look at.",
+    q: "Can I see examples of your Salesforce work?",
+    a: "Yes. The delivered-work section on this page lists it: ongoing Salesforce development for a lending company since April 2026, an SAP-to-Salesforce sync, QuickBase and Kissflow migrations into Salesforce, and about 18 months of Marketing Cloud support. We describe the work and keep client names private. Then judge us on your own org: the free one-week health check ends with a written list you keep.",
+    link: { to: "#delivered", label: "Salesforce work we have delivered" },
   },
   {
-    /* ⛔ READ BEFORE EDITING THIS ANSWER. Louis, 2026-09-01: "We also do
-       MuleSoft." What the record actually supports, checked across SharePoint
-       and the invoice registers on 2026-09-01: a SIGNED CloudHub 2.0
-       integration SOW (both signatures, June 2025), and separately a paid
-       history of SAP-to-Salesforce and low-code migration work. What does NOT
-       exist: any MuleSoft certification held by anyone here, a MuleSoft
-       competency on the AppExchange listing, or a single delivery artefact
-       from that SOW. One person on a 66-strong bench list names MuleSoft.
-       So the answer below says we do the work and does NOT say we are a
-       MuleSoft practice. ⛔ Never add a MuleSoft certification, a competency,
-       a headcount or a years figure here — none of them can be evidenced, and
-       the integration claim stands perfectly well without them. */
+    q: "Do you work with small businesses?",
+    a: "Yes. A small team gets the same people and the same free one-week health check. For a small company the first question is usually the edition: Starter Suite and Pro Suite exist for smaller teams, and we tell you whether one of them does the job before you buy more.",
+    link: { to: "/services/salesforce-consultant-chester-county", label: "What Salesforce costs a small company" },
+  },
+  {
+    q: "Is OneAlgorithm really a Salesforce partner?",
+    a: `Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing ${SF_LISTING_ID}. Salesforce publishes the detail itself: ${SF_CERTIFIED_PEOPLE} certified people holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them on the Platform competency. You can open the listing and check it before you call us.`,
+  },
+  {
+    /* ⛔ 2026-09-01 wording, kept exactly (owner, 2026-10-23: "don't assume").
+       The record: a signed CloudHub 2.0 SOW (June 2025); no MuleSoft
+       certification, competency or delivery artefact. Add nothing. */
     q: "Do you work with MuleSoft?",
     a: "Yes, for the integration jobs that need it — MuleSoft is Salesforce's own integration platform, and we scope and build on CloudHub where a managed runtime, scheduling and retry handling are worth paying for. Plenty of integrations do not need it, and a REST job or a cheaper middleware will do. We will tell you which one you are looking at rather than route you to the more expensive answer.",
   },
-  {
-    q: "We already have an admin. Can you do just the data migration?",
-    a: "Yes. The four stages of the work are separable. If you only need the records moved off your current system, cleaned, loaded and reconciled against the totals, take that stage on its own.",
-  },
+];
+
+const JUMP = [
+  { id: "check", label: "Check our record" },
+  { id: "start", label: "Free health check" },
+  { id: "services", label: "Services" },
+  { id: "delivered", label: "Delivered work" },
+  { id: "work", label: "How it runs" },
+  { id: "products", label: "Products" },
+  { id: "faq", label: "Questions" },
 ];
 
 export default function Salesforce() {
   useSEO({
-    /* Brand last. 62 characters.
-       ⛔ Was "Salesforce Consulting Partner | OneAlgorithm" — a bare head term
-       against Salesforce's own directory, Accenture and Slalom, offering the
-       searcher no reason to click. Bing has NEVER served this URL for anything
-       (measured 2026-09-01: every impression the domain holds is branded), so
-       there is no ranking here to protect by leaving it alone. The free org
-       review is the one thing on this page no large partner will match, so it
-       goes in the title where it can win the click. */
-    title: "Salesforce Implementation Services | Free Org Review | OneAlgorithm",
-    // 155 characters. The previous one was 203 and lost its last third to SERP
-    // truncation.
-    description:
-      "Salesforce implementation services from a listed Consulting Partner with 16 certified people: Sales and Service Cloud, data migration, and a free org review.",
-    canonical: getCanonicalUrl("/services/salesforce"),
-    ogTitle: "Salesforce Consulting Partner — OneAlgorithm",
-    ogDescription:
-      "16 Salesforce-certified people and 53 certifications, published by Salesforce. Commercial and government CRM work, and a free one-week review of the org you already have.",
-    ogUrl: getCanonicalUrl("/services/salesforce"),
-    ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Salesforce Consulting Partner — OneAlgorithm",
-    twitterDescription:
-      "16 Salesforce-certified people, 53 certifications, published on the AppExchange. Commercial and government CRM work, and a free one-week org review.",
-    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PAGE_PATH),
+    ogTitle: "Salesforce consulting and implementation partner | OneAlgorithm",
+    ogDescription: `${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications on Salesforce's AppExchange record. Start with a free one-week Salesforce health check.`,
+    ogUrl: getCanonicalUrl(PAGE_PATH),
+    ogImage: OG_IMAGE,
+    ogImageSize: [1200, 630],
+    ogImageAlt: PLATE.alt,
+    twitterTitle: "Salesforce consulting and implementation partner | OneAlgorithm",
+    twitterDescription: `${SF_CERTIFIED_PEOPLE} Salesforce-certified people, ${SF_CERTIFICATIONS} certifications on the AppExchange. Start with a free one-week Salesforce health check.`,
+    twitterImage: OG_IMAGE,
   });
 
   return (
     <Layout>
       <StructuredData
         data={createServiceSchema(
-          "Salesforce Implementation & Consulting Services",
-          "Salesforce implementation and consulting from a listed AppExchange Consulting Partner working with companies across the United States: Sales Cloud and Service Cloud configuration, Flow automation, data migration and reconciliation, API integrations, Hypercare after go-live, and a free one-week review of an existing org.",
+          "Salesforce Consulting and Implementation Services",
+          "Salesforce consulting and implementation from a listed AppExchange Consulting Partner in Malvern, Pennsylvania, working with companies across the United States: Sales Cloud and Service Cloud configuration, Flow automation, data migration and reconciliation, SAP and ERP integration, support after go-live, and a free one-week health check of an existing org.",
           "CRM & Salesforce Implementation",
-          "https://onealgorithm.com/services/salesforce",
+          PAGE_URL,
+          {
+            image: PRIMARY_IMAGE.url,
+            offers: SF_HEALTH_CHECK_OFFER,
+            catalog: {
+              name: "Salesforce consulting services",
+              urls: SF_PAGES.services.map((s) => `https://onealgorithm.com${s.to}`),
+            },
+          },
         )}
       />
-      {/* The service page carried no locality signal at all. This helper already
-          existed and holds the full NAP and geo. */}
+      <StructuredData
+        data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, {
+          dateModified: PAGE_UPDATED,
+          primaryImage: PRIMARY_IMAGE,
+        })}
+      />
       <StructuredData data={createLocalBusinessSchema()} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
+      {/* 1 HERO. Text-led: the H1 and lede are the LCP element; the only image
+          is the record card's cloud mark. Nothing here animates. */}
       <PageHero
         title={
           <>
-            <span className="text-oa-orange">Salesforce</span> implementation
-            services and consulting
+            <span className="text-oa-orange">Salesforce</span> consulting and implementation services
           </>
         }
-        lede="Salesforce implementation services for commercial teams across the U.S.: we set up Sales and Service Cloud, automate the manual steps behind them, move your old data in clean, and stay on while your team learns it."
-        /* The hero's right column is the VERIFICATION CARD, not a bullet list.
-           Reasoning: this page's whole argument is that our proof is a record in
-           someone else's registry rather than an adjective in ours — so show the
-           record. Every figure is Salesforce's own and already appears further
-           down the page, which satisfies the panel's own content rule. It is
-           also type and rules, not a photograph: no LCP cost, and it cannot be
-           mistaken for the stock imagery the panel exists to avoid. */
+        lede="We set up Sales Cloud and Service Cloud for teams across the U.S., automate the manual steps behind them, move your old data in clean, and stay on while your team learns it."
         panel={{
           title: "Salesforce's record of us",
           items: [],
           slot: <SalesforceRecordCard />,
-          /* ⛔ "WBENC and NMSDC certified" came off this line 2026-09-01 — see
-             the note on the section heading below. The certificates are still
-             on the page, once, in the credentials list. */
           footer: ["Salesforce Consulting Partner"],
         }}
-        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
-        secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
-        /* Ten links to unrelated services used to sit here, above every piece of
-           proof on the page. Kept on the other service pages, off on this one. */
+        primary={{ label: "Book a free health check", href: "#start", cta: "hero" }}
+        secondary={{ label: `Call ${SF_PHONE.display}`, href: SF_PHONE.href, cta: "hero" }}
         siblings={false}
+      >
+        <HcLink />
+      </PageHero>
+
+      {/* 2 ANSWER BAND. 51-word self-contained answer for answer engines. */}
+      <AnswerBand
+        question="What are Salesforce implementation services?"
+        answer="Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day: choosing the edition and license count, configuring Sales Cloud and Service Cloud, automating manual steps with Flow, migrating and reconciling data, connecting other systems such as an ERP, and supporting the team after go-live."
+        leads={[
+          {
+            label: "Why it matters",
+            body: "The expensive mistakes happen before anything is configured: the wrong edition, seats for people who will never log in, and old data loaded without being reconciled.",
+          },
+          {
+            label: "What we do",
+            body: (
+              <>
+                All four stages, or any one on its own, with the person who scopes your org staying on it through delivery.{" "}
+                <a className="oa-link" href="#work">
+                  How an implementation runs
+                </a>
+              </>
+            ),
+          },
+          {
+            label: "What it costs",
+            body: (
+              <>
+                The first week is free: a{" "}
+                <Link className="oa-link" to={HC}>
+                  Salesforce health check
+                </Link>{" "}
+                of the org you have. Build work is scoped in writing before you sign, and the market's published ranges are in
+                our{" "}
+                <Link className="oa-link" to={COST}>
+                  implementation cost guide
+                </Link>
+                .
+              </>
+            ),
+          },
+        ]}
+        toc={JUMP}
       />
 
-      {/* CREDENTIALS STRIP. This slot — directly under the hero — is where every
-          partner site in the category puts its proof, and it is the highest-value
-          real estate on the page. It briefly held a band headed "What we cannot
-          show you". That was a mistake: leading with the absence draws the eye to
-          the one thing we lack, in the exact position competitors use to establish
-          they are real. The no-case-studies fact is true and stays on the page —
-          it lives in the FAQ, where it answers a question somebody actually asked,
-          instead of being announced. Corrected 2026-08-24 on Louis's call.
-          ⛔ Nothing goes in this list that a stranger cannot look up. */}
-      <Section tone="night" grid bordered compact>
-        <SectionHeading
-          tone="dark"
-          /* ⛔ OWNERSHIP STATUS IS OFF THIS PAGE ON PURPOSE. Louis, 2026-09-01:
-             "We don't need to plaster it anywhere but the government pages. On
-             all our commercial pages, we don't need to state woman owned. It's
-             not a selling point."
-
-             The count backed him: this COMMERCIAL page carried SIX mentions of
-             woman-owned / WBENC / NMSDC — MORE than /industries/government (6)
-             and twice /capabilities (3). It was the heaviest page on the site
-             for a status that helps least here. Now zero in rendered copy.
-
-             I argued once for keeping the two certificates on the grounds that
-             large commercial supplier-diversity programmes search for them.
-             Louis overruled it, and the same day's PAA harvest supports him:
-             the woman-owned angle appears in NONE of the questions buyers
-             actually ask about Salesforce consulting. Recording the trade so
-             nobody re-litigates it from scratch — the certifications are live
-             on /capabilities and /industries/government, so a supplier-
-             diversity team can still find them.
-
-             ⛔ Do not re-add ownership status here — not this H2, not the hero
-             panel, not the opening sentence, not the credentials list. */
-          title="A Salesforce partner you can check before you call"
-          lede="Every figure below is Salesforce's, not ours. Open the listing and read it yourself."
-        />
-        {/* One flat, self-contained sentence that answers the query in the shape an
-            answer engine can lift: "X is a Y in Z, with N." AI answers quote a
-            direct claim near a matching heading; the rest of this page is written
-            as argument, which reads well and extracts badly. Added 2026-08-24
-            after the crawler block was lifted and citation became possible. */}
-        {/* Paragraph and badge are ONE object on wide screens. Apart, the badge
-            floated alone in the middle of the band with the whole right-hand
-            half of the section empty beside the text — two faults with one
-            cause. Together, the mark sits next to the sentence it backs, which
-            is the only place a trust mark does any work. */}
-        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[minmax(0,7fr)_auto] lg:gap-16">
-        <Reveal>
-          <p className="max-w-3xl text-lede text-oa-nightInk2 leading-relaxed">
-            {/* ⛔ ONE SENTENCE. KEEP IT ONE SENTENCE. Louis, 2026-09-01, on the
-                paragraph that used to run on from here: "It's descriptions like
-                this. I don't like it. It's OK to leave the certifications up,
-                but we don't need large bodies of text."
-
-                What was cut and why nothing was lost: the 16/53 figures are
-                already in the hero card, and the 38-on-Platform figure is now
-                its own card in the competency list directly below. The prose
-                was restating both, plus a supplier-diversity clause that had
-                no business on a commercial page.
-
-                What survives is the flat, self-contained claim an answer
-                engine can lift — "X is a Y in Z" — which is the one job this
-                line does that no other element on the page does. ⛔ Do not
-                append explanation to it, and do not re-add ownership status. */}
-            <strong className="font-semibold text-oa-nightInk">
-              One Algorithm is a Salesforce Consulting Partner working with
-              companies across the United States.
-            </strong>
-          </p>
-        </Reveal>
-        {/* Louis, 2026-09-01, looking at it on his phone: "I don't like this
-            logo I'd rather you just use the Cloud and put the text partner
-            after it."
-
-            WHY THE ISSUED BADGE CAME OFF. The FY27 Partner Program pack
-            (`~/Downloads/Partner Program Badges.zip`) was re-checked today and
-            ⛔ THERE IS NO DARK OR REVERSED VARIANT OF ANY BADGE IN IT — all 70
-            assets carry the same pale-blue gradient plate, and inverting or
-            recolouring one is prohibited outright. On this night section that
-            plate reads as a washed-out sticker, which is exactly what Louis
-            saw. There was no version of "keep the badge" that looked right.
-
-            WHAT REPLACED IT, and why this is the safer of the two options: the
-            product mark used referentially, plus a FACTUAL TEXT STATEMENT in
-            our own typography, linked to the registry entry that proves it.
-            That is a page saying a true thing — not a re-drawn credential.
-            ⛔ Do NOT turn this back into a badge lookalike: no pale plate
-            behind it, no lockup with the OneAlgorithm logo, and never the
-            words Summit, Expert or Accredited — those are tiers and
-            competencies we do not hold (every competency row on our listing
-            reads "–"). The link is load-bearing: it is what makes the claim
-            checkable rather than decorative. */}
-        <Reveal className="lg:justify-self-end">
-          <a
-            href={APPEXCHANGE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-5 rounded-xl border border-white/15 bg-white/[0.04] px-7 py-6 transition-colors hover:border-white/30 hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oa-orange"
-          >
-            {/* alt="" — the visible text beside it already names the thing, so
-                a screen reader announcing "Salesforce" first is duplication. */}
-            <img
-              src="/media/platforms/salesforce.svg"
-              alt=""
-              width={273}
-              height={191}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-[76px] shrink-0"
-            />
-            <span>
-              <span className="block text-2xl font-semibold leading-none text-oa-nightInk">
-                Partner
-              </span>
-              <span className="mt-2.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-oa-nightInk3 underline decoration-white/25 underline-offset-4 transition-colors group-hover:text-oa-nightInk2 group-hover:decoration-oa-orange">
-                Verify on AppExchange
-              </span>
-            </span>
-          </a>
-        </Reveal>
-        </div>
-        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
-          {/* ⛔ The <li> must be the DIRECT child of the <ul>. Reveal renders a
-              div, so wrapping the li in it put a div between the two and axe
-              failed both `list` and `listitem` (4 nodes) — the same fault that
-              took the FAQ off a <dl>, noted further down this file. Reveal goes
-              INSIDE the li. */}
-          {CREDENTIALS.map((c) => (
-            <li key={c.name} className="border-t border-white/20 pt-5">
-              <Reveal>
-                <p className="text-sm font-semibold text-oa-nightInk">
-                  {c.href ? (
-                    <a
-                      className="underline decoration-white/30 underline-offset-4 hover:decoration-oa-orange"
-                      href={c.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {c.name}
-                    </a>
-                  ) : (
-                    c.name
-                  )}
-                </p>
-                <p className="mt-2 font-mono text-xs leading-relaxed text-oa-nightInk3">
-                  {c.detail}
-                </p>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-        {/* Trademark attribution moved to the footer's legal row on every
-            Salesforce page (Layout.tsx, spec 2.16, 2026-10-23). */}
-      </Section>
-
-      {/* THE OFFER. With nothing published, the honest conversion is a diagnostic
-          on the buyer's own org rather than a story about someone else's. Note
-          the price is deliberately unstated — see the TKTK at the top. */}
-      <Section tone="paper">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:gap-20">
+      {/* 3 CHECK BEFORE YOU CALL. Two checkable records side by side: the
+          company's (AppExchange) and the lead's (Trailblazer). The trademark
+          line moved to the footer's legal row (Layout.tsx, spec 2.16). */}
+      <Section tone="surface" id="check">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
             <SectionHeading
-              title="Start with a free one-week Salesforce health check"
-              lede="You already own Salesforce and suspect it isn't earning its keep. So instead of asking you to take our word for it, we spend a week in your org — free — and tell you what's actually wrong."
+              title="A Salesforce implementation partner you can check before you call"
+              lede="Every figure here is Salesforce's own, read from our AppExchange listing. Open it and check it yourself."
             />
-            <div className="mt-9">
-              <Reveal>
-                <p className="text-oa-ink2 leading-relaxed">
-                  You get a written, ranked list of what we found and what we'd
-                  fix first.{" "}
-                  <strong className="font-semibold text-oa-ink">
-                    It's yours — act on it with us, your own admin, or nobody.
-                  </strong>{" "}
-                  If your org is basically fine, we'll say so, and you won't
-                  hear from us again unless you ask.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <PrimaryCTA to="/contact?need=salesforce">
-                    Book a free health check
-                  </PrimaryCTA>
-                  <SecondaryCTA href="tel:+16108909711">
-                    Call (610) 890-9711
-                  </SecondaryCTA>
-                </div>
-                <Link
-                  to="/services/salesforce-health-check"
-                  className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-oa-blue underline underline-offset-4"
-                >
-                  What the week covers, in full
-                </Link>
-              </Reveal>
+            {/* The flat "X is a Y in Z" sentence answer engines lift. ⛔ Keep it
+                one sentence; no ownership status (Louis, 2026-09-01). */}
+            <p className="mt-6 max-w-[68ch] text-lg font-semibold text-oa-ink">
+              OneAlgorithm is a listed Salesforce Consulting Partner working with companies across the United States, from
+              Malvern, Pennsylvania.
+            </p>
+            <div className="mt-8">
+              <RecordLine />
             </div>
           </div>
-          <Reveal className="border-t border-oa-hairlineStrong pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-2">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-oa-ink3">
-              What the week looks at
+          <aside
+            aria-labelledby="lead-title"
+            className="border-t border-oa-hairlineStrong pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1"
+          >
+            <h3 id="lead-title" className="text-h3 font-semibold text-oa-ink">
+              Who leads the work
             </h3>
-            <div className="mt-6">
-              <CheckList items={REVIEW_CHECKS} />
-            </div>
-          </Reveal>
+            {/* Approved wording, verbatim (2026-10-23). ⛔ No count, no prior
+                employer, no photo. */}
+            <PeopleStrip className="mt-4 max-w-[60ch] text-lede text-oa-ink2" />
+          </aside>
         </div>
       </Section>
 
-      {/* 2026-10-22: the four service pages with delivery proof + ~500/mo search demand each
-          (onealgo-icm-oa run 2026-10-21_sf-nationwide/decision-log.md #4).
-          2026-10-23: moved up from the foot of the page to sit under the offer. Search
-          Console shows people reaching this hub with a specific service in mind
-          ("salesforce optimization services", "hire salesforce implementation services",
-          "salesforce staff augmentation company") and they had to scroll past the FAQ to
-          find it. Health check and cost added: both are pages buyers search for. */}
-      <Section tone="paper" bordered compact>
-        <SectionHeading eyebrow="Services" title="Salesforce work we deliver" />
-        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-2">
-          {[
-            { to: "/services/salesforce-health-check", label: "Salesforce health check", body: "A free week in your org, then a written list ranked by what to fix first." },
-            { to: "/services/salesforce-implementation-cost", label: "What Salesforce implementation costs", body: "Licences, partner fees and the costs nobody quotes, with ranges." },
-            { to: "/services/salesforce-data-migration", label: "Salesforce data migration", body: "QuickBase, Kissflow, another CRM or another org, reconciled before go-live." },
-            { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
-            { to: "/services/salesforce-managed-services", label: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
-            { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
-            { to: "/services/staff-augmentation", label: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
-          ].map((l) => (
-            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
-              <Link to={l.to} className="text-lg font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
-              <p className="mt-2 leading-relaxed text-oa-ink2">{l.body}</p>
+      {/* 4 DESK: the page's one form (#start), mid-page where the offer is
+          described. The page closes on the PhoneBand instead. */}
+      <Desk
+        heading="Start with a free one-week Salesforce health check"
+        body="You already own Salesforce and suspect it isn't earning its keep. We spend a week in your org, free, on licenses, data, automation, permissions and integrations. You get a written list ranked by what to fix first, and it's yours: act on it with us, with your own admin, or with nobody."
+        form={{
+          topic: "hub",
+          topicLabel: "Salesforce implementation",
+          heading: "Book a free health check",
+          prompt: "What is your Salesforce doing wrong?",
+          submitLabel: "Book a free health check",
+        }}
+      />
+
+      {/* 5 SERVICES. The seven child pages, health check first. */}
+      <Section tone="paper" id="services">
+        <SectionHeading
+          title="Salesforce consulting services we deliver"
+          lede="Seven ways to start, from a free week inside your org to Salesforce people working as part of your team."
+        />
+        <RouteBoard groups={["services"]} />
+      </Section>
+
+      {/* 6 DELIVERED. The four approved patterns, clients unnamed. */}
+      <Section tone="surface" id="delivered">
+        <DeliveredLedger title="Salesforce work we have delivered (clients unnamed)" />
+      </Section>
+
+      {/* 7 THE WORK. FIG. 1 is the page's first <figure>: eager and static.
+          Each stage block below is wired to its station (s1-s4). */}
+      <Section tone="paper" clip id="work">
+        <SectionHeading
+          title="What the work actually is"
+          lede="Four stages, usually in this order. Already have an admin? Take stage 03, the data work, on its own."
+        />
+        <PlateScope>
+          <div className="mt-12">
+            <Plate
+              spec={PLATE}
+              fig={1}
+              first
+              stamp={["DIAGRAM · HOW AN IMPLEMENTATION RUNS", "ONEALGORITHM"]}
+              caption="The four stages of a Salesforce implementation, in the order they usually run. The branch under stage 03: any one of them can be taken on its own. Each stage is set out in full below."
+            />
+          </div>
+          <ol className="mt-12 grid gap-x-6 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
+            {PILLARS.map((p, i) => (
+              <WiredRow key={p.k} k={p.k} as="li" className="border-t border-oa-hairlineStrong px-4 pb-8 pt-6">
+                {/* aria-hidden: the <ol> already gives the order. */}
+                <span aria-hidden="true" className="font-mono text-sm text-oa-orangeText">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-xl font-semibold text-oa-ink">{p.title}</h3>
+                <p className="mt-3 text-oa-ink2">{p.description}</p>
+                <div className="mt-6">
+                  <CheckList items={[...p.details]} />
+                </div>
+              </WiredRow>
+            ))}
+          </ol>
+        </PlateScope>
+      </Section>
+
+      {/* 8 PRODUCTS. Registry rows: product | the work | the record behind it. */}
+      <Section tone="surface" id="products">
+        <SectionHeading
+          title="Salesforce products we work with"
+          lede="What we do in each, and the record behind it."
+        />
+        <ul className="mt-10 border-b border-oa-hairlineStrong">
+          {PRODUCTS.map((p) => (
+            <li
+              key={p.name}
+              className="grid gap-3 border-t border-oa-hairlineStrong py-7 lg:grid-cols-[minmax(0,3fr)_minmax(0,5fr)_minmax(0,4fr)] lg:gap-10"
+            >
+              <h3 className="text-xl font-semibold text-oa-ink">{p.name}</h3>
+              <p className="max-w-[62ch] text-oa-ink2">{p.body}</p>
+              <div>
+                <p className="font-mono text-xs leading-5 text-oa-ink3">{p.proof}</p>
+                <Link className="oa-link mt-2 inline-flex min-h-11 items-center text-sm" to={p.to}>
+                  {p.label} →
+                </Link>
+              </div>
             </li>
           ))}
         </ul>
-      </Section>
-      {/* The four pillars are a SEQUENCE — the lede says so. They were a 2x2 grid
-          of identical boxed cards, which is the one layout that hides a sequence.
-          Numbered spine: hairline rule, mono stage number, deliverables in their
-          own column. */}
-      <Section tone="surface" bordered>
-        <SectionHeading
-          title="What the work actually is"
-          lede="Four stages, usually in this order. If you already have an admin and only need stage 03, take that one on its own."
-        />
-        {/* ⛔ ONE STAIRCASE, NOT FOUR SLABS. Each stage used to carry its own
-            full-width `border-t`, which gave the four of them the identical
-            silhouette every other band on this page already has — heading
-            left, checklist right, rule on top — and the section read as
-            repetition rather than as the sequence the lede promises. The rule
-            is now a single CONTINUOUS vertical spine with the stage numbers
-            sitting on it, so the eye follows 01 → 04 as one process. The
-            horizontal rule survives below `md`, where the spine is off and the
-            stages would otherwise run together. Structure encoding real
-            information: these genuinely ARE ordered, which is why a numbered
-            spine is honest here and would not be on the FAQ. */}
-        <ol className="mt-14 space-y-14 md:space-y-16 md:border-l md:border-oa-hairlineStrong md:pl-12 lg:pl-16">
-          {PILLARS.map((p, i) => (
-            <li key={p.title} className="relative">
-              <Reveal>
-                <div className="grid gap-8 border-t border-oa-hairlineStrong pt-8 md:grid-cols-[minmax(0,7fr)_minmax(0,6fr)] md:gap-14 md:border-t-0 md:pt-0">
-                  <div>
-                    <div className="flex items-baseline gap-4">
-                      {/* On md+ the number leaves the text flow and sits ON the
-                          spine. `aria-hidden` because the <ol> already conveys
-                          the order to a screen reader — reading "01" aloud
-                          before every heading is noise. */}
-                      <span
-                        aria-hidden="true"
-                        className="font-mono text-sm text-oa-orangeText md:absolute md:left-0 md:top-1 md:-translate-x-[calc(100%+1.5rem)] lg:-translate-x-[calc(100%+2rem)]"
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-h3 font-semibold text-oa-ink">
-                        {p.title}
-                      </h3>
-                    </div>
-                    <p className="mt-4 max-w-xl text-oa-ink2 leading-relaxed">
-                      {p.description}
-                    </p>
-                  </div>
-                  <div className="md:pt-1">
-                    <CheckList items={p.details} />
-                  </div>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+        <p className="mt-8 max-w-[68ch] text-oa-ink2">
+          <strong className="font-semibold text-oa-ink">Editions:</strong> Starter Suite, Pro Suite, Core, Advanced and
+          Max (Salesforce&apos;s current names, read 23 October 2026). We tell you which one does the job before you buy; list prices per user are in the{" "}
+          <Link className="oa-link" to={COST}>
+            Salesforce implementation cost guide
+          </Link>
+          .
+        </p>
       </Section>
 
-      {/* THE SPLIT (Louis, 2026-08-24). Two buyers arrive here wanting different
-          things and reassured by different evidence. Averaging them produces a
-          page addressed to nobody, so they get one block each and choose.
-          ⛔ The right-hand block is ELIGIBILITY AND REGISTRATION ONLY. No federal
-          contract has been awarded. Never write past performance here. */}
+      {/* 9 THE SPLIT (Louis, 2026-08-24): two buyers, one block each. The one
+          mid-page night band. ⛔ Never re-add a government block here. */}
       <Section tone="night" grid>
         <SectionHeading
           tone="dark"
           title="Two ways people arrive at this page"
-          lede="Some already own Salesforce and it isn't earning its keep. Others haven't bought yet and don't know what they need. Different problems, different first moves — take whichever half is yours."
+          lede="Some already own Salesforce and it isn't earning its keep. Others haven't bought yet and want to know what they need. Different problems, different first moves: take whichever half is yours."
         />
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="border-t border-white/20 pt-8">
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">
-              Commercial
-            </p>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">Already on Salesforce</p>
             <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
-              You run a sales or support team and Salesforce is not pulling its
-              weight
+              You run a sales or support team and Salesforce is not pulling its weight
             </h3>
-            <p className="mt-4 text-oa-nightInk2 leading-relaxed">
-              That usually means people still doing by hand what the platform
-              was bought to automate. Automation is the deep end of our bench —{" "}
-              <strong className="font-semibold text-oa-nightInk">38 of our 53
-              certifications are on the Platform competency</strong> — the Flow,
-              permissions and integration work that takes those steps off your
-              team. Sales and Service Cloud get configured around how your people
-              actually work, not the reverse.
+            <p className="mt-4 max-w-[62ch] leading-relaxed text-oa-nightInk2">
+              That usually means people still doing by hand what the platform was bought to automate. Automation is the deep
+              end of our bench:{" "}
+              <strong className="font-semibold text-oa-nightInk">
+                {SF_PLATFORM_CERTS} of our {SF_CERTIFICATIONS} certifications are on the Platform competency
+              </strong>
+              , the Flow, permissions and integration work that takes those steps off your team. Sales and Service Cloud get
+              configured around how your people actually work, not the reverse.
             </p>
             <div className="mt-7">
               <CheckList
@@ -666,49 +556,17 @@ export default function Salesforce() {
                 ]}
               />
             </div>
-            {/* Was "there is no bench to be handed down to". That cannot be true
-                at the same time as 16 certified people across the US and India,
-                and a buyer who reads both notices. The defensible claim is
-                continuity of the person who scoped it, not the absence of a team. */}
-            <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
-              You deal with the people who do the work. The practice director who
-              scopes your org stays on it through delivery — no handoff to a
-              stranger after the sales call.
-            </p>
           </Reveal>
-
-          {/* ⛔ A "Government and regulated" block stood here — set-aside,
-              SAM.gov, UEI, CAGE, "answer to an auditor" — on a COMMERCIAL
-              service page. Removed 2026-08-25 (Louis: federal is a small
-              section and a bonus). Its content, including the statement that
-              the firm holds no federal Salesforce contract, is on
-              /industries/government and /capabilities.
-
-              ⛔ Its removal left this `lg:grid-cols-2` holding ONE child, so
-              half the section was empty dark space on every screen ≥1024px
-              while the heading promised "two ways". Refilled 2026-09-01 with
-              the OTHER commercial arrival — the pre-purchase buyer — which is
-              a door the page already opens twice (stage 01 of the work, and
-              the "Do I need Sales Cloud or Service Cloud?" FAQ) and had no
-              entry point of its own. ⛔ No new claim is made here: every line
-              restates work described elsewhere on this page. Do not add a
-              client, a number or a timeframe to it. */}
           <Reveal className="border-t border-white/20 pt-8">
-            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">
-              Not bought yet
-            </p>
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">Not bought yet</p>
             <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
-              You are being sold Salesforce and cannot tell what you actually
-              need
+              You are being sold Salesforce and want to know what you actually need
             </h3>
-            <p className="mt-4 text-oa-nightInk2 leading-relaxed">
-              The expensive mistakes get made here, before anything is
-              configured — the wrong edition, seats for people who will never
-              log in, and clouds bought together because they were quoted
-              together.{" "}
+            <p className="mt-4 max-w-[62ch] leading-relaxed text-oa-nightInk2">
+              The expensive mistakes get made here, before anything is configured: the wrong edition, seats for people who will
+              never log in, and clouds bought together because they were quoted together.{" "}
               <strong className="font-semibold text-oa-nightInk">
-                We will tell you if a smaller edition does the job, and we will
-                tell you if Salesforce is the wrong answer altogether.
+                We tell you if a smaller edition does the job, and we tell you if Salesforce is the wrong answer altogether.
               </strong>{" "}
               That is a cheaper thing to find out now than in month four.
             </p>
@@ -723,108 +581,105 @@ export default function Salesforce() {
                 ]}
               />
             </div>
-            <p className="mt-7 text-sm text-oa-nightInk3 leading-relaxed">
-              Nothing here commits you to buying — from us, or at all. If your
-              spreadsheet is still doing the job, that's the answer you'll get.
-            </p>
           </Reveal>
         </div>
       </Section>
 
-      {/* Real questions with real answers, feeding FAQPage schema off the same
-          array. Also where the geographic and set-aside language earns its place
-          for AI assistants, which quote question-and-answer blocks. */}
-      <Section tone="paper">
-        <SectionHeading
-          title="Questions we get asked before the first call"
-          lede="If an answer is not here, it is because we could not make it true for every engagement. Ask us and we will tell you what it depends on."
-        />
-        {/* Not a <dl>. Wrapping each pair in Reveal put two divs between the list
-            and its dt/dd, which axe flags as dlitem/definition-list. Real h3s are
-            better anyway — the questions join the heading outline, and the
-            FAQPage schema carries the pairing regardless. */}
-        <div className="mt-12 space-y-10">
-          {FAQS.map((f) => (
-            <Reveal key={f.q}>
-              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
-                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
-                <p className="mt-3 text-oa-ink2 leading-relaxed md:mt-0">
-                  {f.a}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+
+      {/* 11 OBJECTIONS. Not in FAQPage; none repeats a FAQ question. The
+          "no reviews" objection is left off on purpose (voice addendum rule 4). */}
+      <Section tone="surface" id="objections">
+        {/* Objections beside the next step (wide-layout addendum: proof and
+            answers beside the CTA), which also keeps each answer to a
+            readable measure on the 1440 frame. */}
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16">
+          <div>
+            <Objections
+              items={[
+                {
+                  q: "Will we get senior people, or whoever is free?",
+                  a: "The person who scopes your org stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice.",
+                  checked: { label: "his Trailblazer profile", href: LEAD_TRAILBLAZER },
+                },
+                SF_OBJECTIONS.pitch,
+                SF_OBJECTIONS.cost,
+                SF_OBJECTIONS.city,
+              ]}
+            />
+          </div>
+          <aside
+            aria-labelledby="own-org-title"
+            className="self-end border-t border-oa-hairlineStrong pt-8 lg:border-l lg:border-t-0 lg:pb-6 lg:pl-12 lg:pt-0"
+          >
+            <h3 id="own-org-title" className="text-h3 font-semibold text-oa-ink">
+              Judge us on your own org
+            </h3>
+            <p className="mt-4 max-w-[46ch] text-oa-ink2">
+              The free one-week health check ends with a written list ranked by what to fix first. It's yours either way.
+            </p>
+            <div className="mt-6 flex flex-col items-start gap-3">
+              <PrimaryCTA href="#start" tone="light" cta="mid">
+                Book a free health check
+              </PrimaryCTA>
+              <a
+                href={SF_PHONE.href}
+                data-cta="mid"
+                className="oa-link inline-flex min-h-11 items-center font-mono text-sm"
+              >
+                Call {SF_PHONE.display}
+              </a>
+            </div>
+          </aside>
         </div>
       </Section>
 
-      {/* ⭐ THE LOCAL TRIO, linked from the hub page 2026-09-01. This is the
-          authority direction that matters: PageRank decays with every click of
-          distance, so the page with the most standing links down to the three
-          that need to rank. Each link's anchor text carries its target phrase,
-          because the anchor teaches Google more than the destination does.
-          ⛔ This is three links with a sentence each, NOT a town list — a block
-          of place names is the shape Google's keyword-stuffing policy names by
-          name, and one was already removed from WebDesignChesterCounty.tsx for
-          measuring 3.57% place density. Do not turn this into one. */}
-
-      {/* 2026-10-22: the wave-2 city pages hang off this hub (moved out of the site footer after the
-          blind review). Each link goes to a page with its own sourced data, not a name-swapped body. */}
-      <Section tone="paper" bordered compact>
-        <SectionHeading eyebrow="By city" title="Salesforce consulting in other cities" lede="Each page carries that city's own business, hiring and Salesforce community data." />
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-          {SALESFORCE_CITIES.filter((c) => c.slug !== "philadelphia").map((c) => (
-            <li key={c.slug}>
-              <Link to={c.path} className="inline-flex min-h-11 items-center text-sm font-medium text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{c.name}</Link>
-            </li>
-          ))}
-        </ul>
+      {/* 12 FAQ. Heading left, questions right, so answers keep a ~60-70
+          character measure on the wide frame. */}
+      <Section tone="paper" clip id="faq">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
+          {/* Sticky at lg (Section clip = overflow:clip, so sticky pins) so
+              the long right column never leaves an empty left one. */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
+          <SectionHeading
+            title="Questions buyers ask before the first call"
+            lede={
+              <>
+                Not here? Call the office and ask:{" "}
+                <a className="oa-link whitespace-nowrap font-mono" href={SF_PHONE.href} data-cta="faq">
+                  {SF_PHONE.display}
+                </a>
+              </>
+            }
+          />
+          </div>
+          <div className="lg:-mt-10">
+            <FAQList
+              faqs={FAQS}
+              sources={{
+                checked: "October 2026",
+                links: [
+                  { label: `Salesforce AppExchange listing ${SF_LISTING_ID}`, href: SF_APPEXCHANGE_URL },
+                  { label: "Sreenivas Amirisetti on Trailblazer", href: LEAD_TRAILBLAZER },
+                ],
+              }}
+            />
+          </div>
+        </div>
       </Section>
 
-      <Section tone="surface" bordered compact>
+      {/* 13 LOCAL + CITIES. Hub-to-spoke links: the page with the most
+          standing links down to the pages that need to rank. ⛔ Links, not a
+          town list (keyword-stuffing policy). */}
+      <Section tone="surface" compact id="local">
         <SectionHeading
-          eyebrow="Near you"
-          title="Working locally"
-          lede="Three pages for the questions that change depending on where you are and what you have already bought."
+          title="Salesforce consulting near you"
+          lede="Three pages for the questions that change with where you are, and a page per city with that market's own business, hiring and Salesforce community data."
         />
-        <ul className="mt-10 grid gap-x-12 gap-y-7 sm:grid-cols-3">
-          {[
-            {
-              to: "/services/salesforce-consultant-philadelphia",
-              label: "Salesforce consultant in Philadelphia",
-              body: "You already own it and it is not earning its keep.",
-            },
-            {
-              to: "/services/salesforce-consultant-chester-county",
-              label: "Salesforce consultant in Chester County",
-              body: "Still choosing, and unsure which edition you need.",
-            },
-            {
-              to: "/services/salesforce-consulting-partner-pennsylvania",
-              label: "Salesforce Consulting Partner in Pennsylvania",
-              body: "How to check any partner's record before you hire.",
-            },
-          ].map((l) => (
-            <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
-              <Link
-                to={l.to}
-                className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange"
-              >
-                {l.label}
-              </Link>
-              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">
-                {l.body}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <RouteBoard groups={["local", "cities"]} />
       </Section>
 
-      <CTABand
-        title="Tell us what your Salesforce is doing wrong"
-        body="An org nobody trusts the data in, a migration that stalled, or a renewal you're not sure you should sign. Describe the symptom and we'll tell you what we'd look at first — or call (610) 890-9711 and ask."
-        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
-        secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
-      />
+      {/* 14 PHONE BAND (hub and HC only: their Desk is mid-page). */}
+      <PhoneBand />
 
       <Section tone="paper" compact>
         <SocialShare className="justify-center" />

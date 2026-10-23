@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 991" width="640" height="991" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Seattle</title>
+<desc>Diagram of the Salesforce community around Seattle: 3 Trailblazer Community Groups within 50 km (Salesforce Admin Group, Seattle; Salesforce Women in Tech Group, Seattle; Salesforce Admin Group, Bellevue). Salesforce office: 744 N. 34th Street, Seattle, WA 98103. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="640" height="991" fill="#ffffff"/>
+<path d="M63 141 L63 220.5 L128 220.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 355.5 L128 355.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 490.5 L128 490.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 639.5 L128 639.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 639.5 L63 820.2" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="24" y="24" width="416" height="117" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="169" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="286" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="439" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="570" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="820.2" width="592" height="147" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="89" y="768.2" font-size="21" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="43.5" y="63.5" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="43.5" y="109.5" font-size="28" font-weight="600" fill="#0d1b2a">Seattle</text>
+<text x="143.6" y="204.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · SEATTLE, WA</text>
+<text x="143.6" y="245.26666666666665" font-size="26" fill="#0d1b2a">Salesforce Admin Group, Seattle</text>
+<text x="143.6" y="321.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · SEATTLE, WA</text>
+<text x="143.6" y="362.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Women in Tech Group,</text>
+<text x="143.6" y="398.6666666666667" font-size="26" fill="#0d1b2a">Seattle</text>
+<text x="143.6" y="474.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">10 KM · BELLEVUE, WA</text>
+<text x="143.6" y="515.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Admin Group, Bellevue</text>
+<text x="143.6" y="605.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="143.6" y="646.2666666666667" font-size="26" fill="#0d1b2a">744 N. 34th Street, Seattle, WA</text>
+<text x="143.6" y="682.6666666666666" font-size="26" fill="#0d1b2a">98103</text>
+<text x="43.5" y="859.7" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="43.5" y="900.3666666666667" font-size="26" fill="#0d1b2a">Runs the work remotely, inside your</text>
+<text x="43.5" y="936.7666666666667" font-size="26" fill="#0d1b2a">Salesforce org</text>
+</svg>

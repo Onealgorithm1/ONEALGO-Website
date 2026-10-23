@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 598" width="720" height="598" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Where Salesforce data migrations come from</title>
+<desc>Diagram of systems moved into Salesforce: QuickBase and Kissflow, marked as migrations OneAlgorithm has delivered; another CRM such as HubSpot, Zoho or Dynamics 365, marked field map first; spreadsheets, marked dedupe first; and another Salesforce org, marked external IDs. All of them run through one field map into Salesforce accounts, contacts, opportunities, custom objects and files, and are reconciled object by object before go-live.</desc>
+<rect width="720" height="598" fill="#ffffff"/>
+<path d="M102 211 L102 255" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M274 211 L274 255" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M446 211 L446 255" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M618 211 L618 255" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M85 336 L85 380" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M223 336 L223 380" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M360 336 L360 380" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M498 336 L498 380" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M635 336 L635 380" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M85 449 L85 493" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M223 449 L223 493" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M360 449 L360 493" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M498 449 L498 493" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M635 449 L635 493" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="24" y="24" width="156" height="187" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="38" y="38" width="79" height="25" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="196" y="24" width="156" height="187" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="210" y="38" width="122" height="25" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="368" y="24" width="156" height="187" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="382" y="38" width="101" height="25" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="540" y="24" width="156" height="187" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="554" y="38" width="101" height="25" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="255" width="672" height="81" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="380" width="122" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="162" y="380" width="122" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="299" y="380" width="122" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="437" y="380" width="122" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="574" y="380" width="122" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="493" width="672" height="81" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="38" y="92" font-size="17" font-weight="600" fill="#0d1b2a">No-code</text>
+<text x="38" y="115.8" font-size="17" font-weight="600" fill="#0d1b2a">platforms</text>
+<text x="38" y="145" font-size="16" fill="#35485c">QuickBase and</text>
+<text x="38" y="167.4" font-size="16" fill="#35485c">Kissflow</text>
+<text x="43" y="55" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">DELIVERED</text>
+<text x="210" y="92" font-size="17" font-weight="600" fill="#0d1b2a">Another CRM</text>
+<text x="210" y="121.2" font-size="16" fill="#35485c">HubSpot, Zoho,</text>
+<text x="210" y="143.6" font-size="16" fill="#35485c">Dynamics 365</text>
+<text x="215" y="55" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">FIELD MAP FIRST</text>
+<text x="382" y="92" font-size="17" font-weight="600" fill="#0d1b2a">Spreadsheets</text>
+<text x="382" y="121.2" font-size="16" fill="#35485c">One sheet,</text>
+<text x="382" y="143.6" font-size="16" fill="#35485c">several objects</text>
+<text x="387" y="55" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">DEDUPE FIRST</text>
+<text x="554" y="92" font-size="17" font-weight="600" fill="#0d1b2a">Another</text>
+<text x="554" y="115.8" font-size="17" font-weight="600" fill="#0d1b2a">Salesforce org</text>
+<text x="554" y="145" font-size="16" fill="#35485c">After a merger,</text>
+<text x="554" y="167.4" font-size="16" fill="#35485c">or a second</text>
+<text x="554" y="189.8" font-size="16" fill="#35485c">business unit</text>
+<text x="559" y="55" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">EXTERNAL IDS</text>
+<text x="38" y="286" font-size="17" font-weight="600" fill="#0d1b2a">Field map</text>
+<text x="38" y="315.2" font-size="16" fill="#35485c">Objects, owners, picklist values and external IDs, agreed before any load</text>
+<text x="36" y="408" font-size="16" font-weight="600" fill="#0d1b2a">Accounts</text>
+<text x="174" y="408" font-size="16" font-weight="600" fill="#0d1b2a">Contacts</text>
+<text x="311" y="408" font-size="16" font-weight="600" fill="#0d1b2a">Opportunities</text>
+<text x="449" y="408" font-size="16" font-weight="600" fill="#0d1b2a">Custom</text>
+<text x="449" y="430.4" font-size="16" font-weight="600" fill="#0d1b2a">objects</text>
+<text x="586" y="408" font-size="16" font-weight="600" fill="#0d1b2a">Files</text>
+<text x="38" y="524" font-size="17" font-weight="600" fill="#0d1b2a">Reconciled object by object</text>
+<text x="38" y="553.1999999999999" font-size="16" fill="#35485c">Source count = Salesforce count, before go-live</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1401" width="640" height="1401" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>How a change moves under Salesforce managed services</title>
+<desc>Diagram of how a change is handled under Salesforce managed services: your admin keeps day-to-day user requests, and each change we take is built in a sandbox, tested, deployed and written down with what changed and why, with a release check before each of Salesforce’s three yearly releases.</desc>
+<rect width="640" height="1401" fill="#ffffff"/>
+<path d="M40 212 L600 212 M40 1112 L600 1112" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<path d="M300 184 L300 268" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M300 396 L300 440" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M300 568 L300 612" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M300 740 L300 784" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M300 912 L300 956" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M560 1020 L624 1020 L624 332 L560 332" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<path d="M40 1268.5 L16 1268.5 L16 676 L40 676" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="40" y="56" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="268" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="440" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="612" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="784" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="956" width="520" height="128" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="1168" width="520" height="201" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="40" y="40" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">YOUR ADMIN</text>
+<text x="40" y="246" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM</text>
+<text x="40" y="1146" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE</text>
+<text x="614" y="256" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">next request</text>
+<text x="62" y="106" font-size="28" font-weight="600" fill="#0d1b2a">Your admin</text>
+<text x="62" y="151.2" font-size="26" fill="#35485c">Keeps the day-to-day user requests</text>
+<text x="62" y="318" font-size="28" font-weight="600" fill="#0d1b2a">01 Request</text>
+<text x="62" y="363.2" font-size="26" fill="#35485c">A change your admin hands over</text>
+<text x="62" y="490" font-size="28" font-weight="600" fill="#0d1b2a">02 Built in a sandbox</text>
+<text x="62" y="535.2" font-size="26" fill="#35485c">Not in production</text>
+<text x="62" y="662" font-size="28" font-weight="600" fill="#0d1b2a">03 Tested</text>
+<text x="62" y="707.2" font-size="26" fill="#35485c">Before anything moves</text>
+<text x="62" y="834" font-size="28" font-weight="600" fill="#0d1b2a">04 Deployed</text>
+<text x="62" y="879.2" font-size="26" fill="#35485c">To production</text>
+<text x="62" y="1006" font-size="28" font-weight="600" fill="#0d1b2a">05 Written down</text>
+<text x="62" y="1051.2" font-size="26" fill="#35485c">What changed and why</text>
+<text x="62" y="1210" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SPRING · SUMMER · WINTER</text>
+<text x="62" y="1254" font-size="28" font-weight="600" fill="#0d1b2a">Salesforce releases</text>
+<text x="62" y="1299.2" font-size="26" fill="#35485c">Release check before each of</text>
+<text x="62" y="1335.6000000000001" font-size="26" fill="#35485c">Salesforce’s three releases</text>
+</svg>

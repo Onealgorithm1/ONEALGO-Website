@@ -61,6 +61,7 @@ one-week Salesforce health check. No client is named on any of them.
 - Salesforce consultant for Austin companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-austin
 - Salesforce consultant for Miami companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-miami
 - Salesforce consultant for Chicago companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-chicago
+- Salesforce consultant for Houston companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-houston
 
 ## Local (Philadelphia metro)
 

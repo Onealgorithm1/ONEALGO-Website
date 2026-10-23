@@ -420,22 +420,32 @@ export function AnswerBand({
   toc?: { id: string; label: string }[];
   children?: React.ReactNode;
 }) {
+  /* Wide-layout addendum: the answer keeps its 68ch measure, and at xl the
+     record line and jump list move into a right-hand column instead of
+     stacking under it (one change here fixes every page's empty right half). */
+  const side = Boolean(children || toc);
   return (
-    <Section tone="paper" compact id="answer">
-      <div className="max-w-[68ch]">
-        <h2 className="text-h2 font-semibold text-oa-ink">{question}</h2>
-        <p className="mt-5 text-lede font-medium text-oa-ink">{answer}</p>
-        <dl className="mt-6 space-y-3 text-oa-ink2">
-          {leads.map((l) => (
-            <div key={l.label}>
-              <dt className="inline font-semibold text-oa-ink">{l.label}: </dt>
-              <dd className="inline">{l.body}</dd>
-            </div>
-          ))}
-        </dl>
+    <Section tone="paper" compact id="answer" width="wide">
+      <div className={side ? "xl:grid xl:grid-cols-[minmax(0,68ch)_minmax(0,1fr)] xl:gap-16" : ""}>
+        <div className="max-w-[68ch]">
+          <h2 className="text-h2 font-semibold text-oa-ink">{question}</h2>
+          <p className="mt-5 text-lede font-medium text-oa-ink">{answer}</p>
+          <dl className="mt-6 space-y-3 text-oa-ink2">
+            {leads.map((l) => (
+              <div key={l.label}>
+                <dt className="inline font-semibold text-oa-ink">{l.label}: </dt>
+                <dd className="inline">{l.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        {side && (
+          <div className="xl:border-l xl:border-oa-hairline xl:pl-12 xl:[&>nav:first-child]:mt-0">
+            {children && <div className="mt-8 xl:mt-1">{children}</div>}
+            {toc && <JumpList items={toc} />}
+          </div>
+        )}
       </div>
-      {children && <div className="mt-8">{children}</div>}
-      {toc && <JumpList items={toc} />}
     </Section>
   );
 }
@@ -448,12 +458,16 @@ export function AnswerBand({
  *   <DeliveredLedger title="Salesforce work we have delivered (clients unnamed)" lead="lowcode" />
  * Wrap in a Section yourself (it is content, not a band).
  */
-export function DeliveredLedger({ title, lead }: { title: string; lead?: SfDeliveredId }) {
+export function DeliveredLedger({ title, lead, lede }: { title: string; lead?: SfDeliveredId; lede?: React.ReactNode }) {
   const path = normalisePath(useLocation().pathname);
   const rows = [...SF_DELIVERED].sort((a, b) => (a.id === lead ? -1 : b.id === lead ? 1 : 0));
+  /* No default lede: the old fixed line ("We do not name clients, and we will
+     not invent case studies") announced an absence, which the voice addendum
+     (rule 4) bans. Honesty is kept by the rows themselves: approved wording
+     only, every client unnamed (the tags say so). */
   return (
     <>
-      <SectionHeading title={title} lede="We do not name clients, and we will not invent case studies." />
+      <SectionHeading title={title} lede={lede} />
       <ul className="mt-10 border-b border-oa-hairlineStrong">
         {rows.map((r) => {
           const self = r.to === path;
@@ -530,7 +544,8 @@ export function DataTable({
         tabIndex={0}
         className="-mx-4 overflow-x-auto px-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-oa-blue sm:mx-0 sm:px-0"
       >
-        <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+        {/* Two columns fit a phone; only wider tables need the scroll floor. */}
+        <table className={`w-full ${head.length > 2 ? "min-w-[34rem]" : ""} border-collapse text-left text-sm`}>
           <caption className="sr-only">{label}</caption>
           <thead>
             <tr>
@@ -642,13 +657,11 @@ export function DocNote({
 /* ============================ OBJECTIONS ================================ */
 
 /** Approved objection answers (spec 2.10), existing site wording only. Pages
- *  pick 3–4; none may repeat a FAQ question on the same page. */
+ *  pick 3–4; none may repeat a FAQ question on the same page.
+ *  2026-10-23: the old "reviews" answer ("True. Our AppExchange listing shows no
+ *  customer ratings yet.") was removed: it announced an absence (voice addendum
+ *  rule 4). Never re-add it; never claim reviews either. */
 export const SF_OBJECTIONS = {
-  reviews: {
-    q: "You have no reviews.",
-    a: `True. Our AppExchange listing shows no customer ratings yet. What you can check is the listing itself: ${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications.`,
-    checked: { label: `AppExchange listing ${SF_LISTING_ID}`, href: SF_APPEXCHANGE_URL },
-  },
   pitch: {
     q: "Will the free week turn into a sales pitch?",
     a: "The list is yours. If the org is basically fine, we say so.",
@@ -672,7 +685,7 @@ export const SF_OBJECTIONS = {
 
 /**
  * Objections block, placed before the FAQ and the Desk. Not in FAQPage schema.
- *   <Section tone="surface" id="objections"><Objections items={[SF_OBJECTIONS.reviews, SF_OBJECTIONS.pitch, SF_OBJECTIONS.cost]} /></Section>
+ *   <Section tone="surface" id="objections"><Objections items={[SF_OBJECTIONS.pitch, SF_OBJECTIONS.city, SF_OBJECTIONS.cost]} /></Section>
  */
 export function Objections({
   items,
@@ -689,7 +702,7 @@ export function Objections({
             className="grid gap-3 border-t border-oa-hairlineStrong py-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12"
           >
             <dt className="text-lg font-semibold text-oa-ink">{o.q}</dt>
-            <dd className="text-oa-ink2">
+            <dd className="max-w-[68ch] text-oa-ink2">
               {o.a}
               {o.checked && (
                 <span className="mt-2 block font-mono text-xs text-oa-ink3">
@@ -738,7 +751,7 @@ export function FAQList({
           >
             <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
             <div>
-              <p className="text-oa-ink2">{f.a}</p>
+              <p className="max-w-[68ch] text-oa-ink2">{f.a}</p>
               {f.link && (
                 <Link className="oa-link mt-2 inline-block" to={f.link.to}>
                   {f.link.label}
@@ -786,15 +799,19 @@ const SF_ICONS: Record<SfPageKey, LucideIcon> = {
  *   <RouteBoard groups={["services", "cities"]} />          // HC first
  *   <RouteBoard groups={["services", "local"]} first="dm" />
  *   <RouteBoard groups={["services"]} bodies={{ dm: "…one allowed-fact sentence…" }} />
+ *   <RouteBoard groups={["services"]} first="ms" exclude={["mc"]} />
  */
 export function RouteBoard({
   groups,
   first = "hc",
+  exclude = [],
   bodies,
   citiesLabel = "Salesforce consulting by city",
 }: {
   groups: ("services" | "local" | "cities")[];
   first?: SfPageKey;
+  /** Cards to leave off on this page (e.g. the health check hides Marketing Cloud). */
+  exclude?: SfPageKey[];
   /** Per-page body override (e.g. a city page's one allowed-fact sentence). */
   bodies?: Partial<Record<SfPageKey, string>>;
   citiesLabel?: string;
@@ -804,13 +821,17 @@ export function RouteBoard({
     ...(groups.includes("services") ? SF_PAGES.services : []),
     ...(groups.includes("local") ? SF_PAGES.local : []),
   ]
-    .filter((p) => p.to !== path)
+    .filter((p) => p.to !== path && !exclude.includes(p.key))
     .sort((a, b) => (a.key === first ? -1 : b.key === first ? 1 : 0));
+  /* xl columns follow the card count so the last row is never one orphan:
+     7 cards read 4 + 3, 8 read 4 + 4, 6 read 3 + 3. ⛔ Static strings for Tailwind. */
+  const n = cards.length;
+  const xl = n % 4 === 0 || (n % 3 === 1 && n % 4 !== 1) ? "xl:grid-cols-4" : "xl:grid-cols-3";
   const cities = groups.includes("cities") ? SF_PAGES.cities.filter((c) => c.to !== path) : [];
   return (
     <>
       {cards.length > 0 && (
-        <CardGrid columns={2} className="mt-10">
+        <CardGrid columns={2} className={`mt-10 ${xl}`}>
           {cards.map((p) => (
             <Card key={p.key} wire to={p.to} icon={SF_ICONS[p.key]} title={p.title} body={bodies?.[p.key] ?? p.body} />
           ))}
@@ -1218,7 +1239,7 @@ export function Desk({
   next?: string[];
 }) {
   return (
-    <Section tone="night" grid id="start">
+    <Section tone="night" grid id="start" width="wide">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14">
         <div className="lg:col-start-1 lg:row-start-1">
           <h2 className="text-h2 font-semibold text-oa-nightInk">{heading}</h2>
@@ -1261,7 +1282,7 @@ export function Desk({
  *  `<MidStrip line="A real figure starts with your org, not a guide." label="Book a free health check" />` */
 export function MidStrip({ line, label }: { line: string; label: string }) {
   return (
-    <Section tone="paper" compact bordered>
+    <Section tone="paper" compact bordered width="wide">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <p className="max-w-[46ch] text-lede text-oa-ink">{line}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -1280,7 +1301,7 @@ export function MidStrip({ line, label }: { line: string; label: string }) {
 /** Hub and HC only (their Desk is mid-page): the closing phone band.  `<PhoneBand />` */
 export function PhoneBand() {
   return (
-    <Section tone="night" compact>
+    <Section tone="night" compact width="wide">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <p className="text-h3 font-semibold text-oa-nightInk">
           Prefer to talk it through?{" "}
@@ -1301,17 +1322,33 @@ export function PhoneBand() {
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 /**
- * ⛔ Owner-gated (spec §7.4). Renders NOTHING while SF_PEOPLE is empty: no
- * silhouette, no placeholder. Photos must be genuine originals at
- * /media/people/<first-last>-{320,640}.{avif,webp}; never team-1..4.webp.
- *   <PeopleStrip title="Who runs your week" providerId="https://onealgorithm.com/#localbusiness" />
+ * The named Salesforce lead(s) from SF_PEOPLE: the approved sentence, the
+ * Trailblazer verify link and LinkedIn, plus the Person schema node. It drops
+ * into the page's own "Who leads the work" block (beside the ledger or the
+ * CTA, per the wide-layout addendum); the page keeps its own heading.
+ *   <h3 className="text-lg font-semibold text-oa-ink">Who leads the work</h3>
+ *   <PeopleStrip />
+ *   <PeopleStrip tone="night" className="mt-3 text-oa-nightInk2" />
+ *   <PeopleStrip lead="You work directly with the people doing the work. " />
+ * ⛔ Owner-gated (spec §7.4): renders NOTHING while SF_PEOPLE is empty. No
+ * photo exists, so there is no photo slot, silhouette or placeholder; never
+ * team-1..4.webp. One per page (it emits the Person node).
  */
 export function PeopleStrip({
-  title = "Who does the work",
   providerId = "https://onealgorithm.com/#org",
+  tone = "light",
+  className,
+  lead,
+  extra,
 }: {
-  title?: string;
   providerId?: string;
+  tone?: "light" | "night";
+  /** Classes for the statement paragraph (spacing, size, colour). */
+  className?: string;
+  /** Page text placed before the approved sentence. */
+  lead?: React.ReactNode;
+  /** Page text placed after it (only verified facts, e.g. a named certification). */
+  extra?: React.ReactNode;
 }) {
   if (!SF_PEOPLE.length) return null;
   const graph = SF_PEOPLE.map((p) => ({
@@ -1321,64 +1358,50 @@ export function PeopleStrip({
     name: p.name,
     jobTitle: p.title,
     worksFor: { "@id": providerId },
-    ...(p.linkedin ? { sameAs: [p.linkedin] } : {}),
+    sameAs: [p.trailhead, ...(p.linkedin ? [p.linkedin] : [])],
   }));
+  const ink = tone === "night" ? "text-oa-nightInk2" : "text-oa-ink2";
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
-      <SectionHeading title={title} />
-      <ul className="mt-10 space-y-10">
-        {SF_PEOPLE.map((p) => (
-          <li key={p.name} className="grid gap-6 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-10">
-            <figure className="plate w-[160px]" data-tone="light">
-              <div className="plate-frame">
-                <picture>
-                  <source type="image/avif" srcSet={`${p.photo}-320.avif 320w, ${p.photo}-640.avif 640w`} sizes="160px" />
-                  <img
-                    src={`${p.photo}-320.webp`}
-                    srcSet={`${p.photo}-320.webp 320w, ${p.photo}-640.webp 640w`}
-                    sizes="160px"
-                    width={160}
-                    height={160}
-                    alt={`${p.name}, ${p.title} at OneAlgorithm`}
-                    loading="lazy"
-                    decoding="async"
-                    className="block h-40 w-40 object-cover"
-                  />
-                </picture>
-                <div className="border-t border-[var(--line)] px-2 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-oa-ink3">
-                  PHOTO · {p.name}
-                </div>
-              </div>
-            </figure>
-            <div>
-              <p className="text-h3 font-semibold text-oa-ink">{p.name}</p>
-              <p className="mt-1 text-oa-ink2">{p.title}</p>
-              {p.certs.length > 0 && (
-                <p className="mt-3 text-sm text-oa-ink2">
-                  {p.trailhead ? (
-                    <a className="oa-link" href={p.trailhead} target="_blank" rel="noopener noreferrer">
-                      {p.certs.join(" · ")} ↗
-                    </a>
-                  ) : (
-                    p.certs.join(" · ")
-                  )}
-                </p>
-              )}
-              <p className="mt-3 flex flex-wrap gap-x-5 text-sm">
-                {p.linkedin && (
-                  <a className="oa-link inline-flex min-h-11 items-center" href={p.linkedin} target="_blank" rel="noopener noreferrer">
-                    LinkedIn ↗
-                  </a>
-                )}
-                <Link className="oa-link inline-flex min-h-11 items-center" to="/about">
-                  About the team
-                </Link>
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {SF_PEOPLE.map((p) => (
+        <React.Fragment key={p.name}>
+          <p className={className ?? `mt-3 max-w-[60ch] leading-relaxed ${ink}`}>
+            {lead}
+            {p.statement}
+            {extra}
+          </p>
+          <p className="mt-2 flex flex-wrap gap-x-6 text-sm">
+            <a className="oa-link inline-flex min-h-11 items-center" href={p.trailhead} target="_blank" rel="noopener noreferrer">
+              {p.verifyLabel} ↗
+            </a>
+            {p.linkedin && (
+              <a className="oa-link inline-flex min-h-11 items-center" href={p.linkedin} target="_blank" rel="noopener noreferrer">
+                {p.name} on LinkedIn ↗
+              </a>
+            )}
+          </p>
+        </React.Fragment>
+      ))}
     </>
+  );
+}
+
+/* ============================ PARTNER BADGE ============================= */
+
+/** The genuine Salesforce Partner badge, linked to our AppExchange listing.
+ *  Lives here (not in SalesforceCity.tsx) so importing it never pulls the
+ *  generated city dataset into a page's chunk.  `<PartnerBadge />` */
+export function PartnerBadge({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={SF_APPEXCHANGE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex min-h-11 items-center gap-4 text-sm text-oa-ink2 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-oa-blue ${className}`}
+    >
+      <img src="/salesforce-partner-badge.png" alt="Salesforce Partner badge" width={120} height={69} loading="lazy" decoding="async" />
+      <span>OneAlgorithm on Salesforce AppExchange ↗</span>
+    </a>
   );
 }

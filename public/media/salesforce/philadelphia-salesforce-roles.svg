@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 278" width="640" height="278" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Open Salesforce roles within 25 miles of Philadelphia, 21 October 2026</title>
+<desc>Bar chart of open Salesforce roles within 25 miles of Philadelphia on 21 October 2026: Consultant 247, Administrator 211, Architect 185, Developer 132. Source: LinkedIn public job search, one search per role title; the searches overlap, so the counts are not added together.</desc>
+<rect width="640" height="278" fill="#ffffff"/>
+<rect x="230" y="36.5" width="298" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="230" y="97.5" width="254.6" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="230" y="158.5" width="223.2" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="230" y="219.5" width="159.3" height="22" fill="#005eaa" stroke="none" stroke-width="1"/>
+<rect x="24" y="24" width="190" height="47" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="85" width="190" height="47" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="146" width="190" height="47" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="207" width="190" height="47" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="538" y="53" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">247</text>
+<text x="494.6" y="114" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">211</text>
+<text x="463.2" y="175" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">185</text>
+<text x="399.3" y="236" font-size="16" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">132</text>
+<text x="36" y="52" font-size="16" fill="#0d1b2a">Consultant</text>
+<text x="36" y="113" font-size="16" fill="#0d1b2a">Administrator</text>
+<text x="36" y="174" font-size="16" fill="#0d1b2a">Architect</text>
+<text x="36" y="235" font-size="16" fill="#0d1b2a">Developer</text>
+</svg>

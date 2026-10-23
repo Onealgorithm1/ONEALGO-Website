@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 874" width="640" height="874" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Washington, DC</title>
+<desc>Diagram of the Salesforce community around Washington, DC: 2 Trailblazer Community Groups within 50 km (Salesforce Admin Group, Washington, D.C.; Salesforce Nonprofit User Group, Washington, D.C.). Salesforce office: 1801 K St., Washington, DC 20006. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="640" height="874" fill="#ffffff"/>
+<path d="M63 141 L63 238.5 L128 238.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 391.5 L128 391.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 540.5 L128 540.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 540.5 L63 703.2" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="24" y="24" width="416" height="117" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="169" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="322" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="489" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="703.2" width="592" height="147" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="89" y="651.2" font-size="21" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="43.5" y="63.5" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="43.5" y="109.5" font-size="28" font-weight="600" fill="#0d1b2a">Washington, DC</text>
+<text x="143.6" y="204.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · WASHINGTON, DC</text>
+<text x="143.6" y="245.26666666666665" font-size="26" fill="#0d1b2a">Salesforce Admin Group,</text>
+<text x="143.6" y="281.66666666666663" font-size="26" fill="#0d1b2a">Washington, D.C.</text>
+<text x="143.6" y="357.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">1 KM · WASHINGTON, DC</text>
+<text x="143.6" y="398.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Nonprofit User Group,</text>
+<text x="143.6" y="434.6666666666667" font-size="26" fill="#0d1b2a">Washington, D.C.</text>
+<text x="143.6" y="524.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="143.6" y="565.2666666666667" font-size="26" fill="#0d1b2a">1801 K St., Washington, DC 20006</text>
+<text x="43.5" y="742.7" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="43.5" y="783.3666666666667" font-size="26" fill="#0d1b2a">Runs the work remotely, inside your</text>
+<text x="43.5" y="819.7666666666667" font-size="26" fill="#0d1b2a">Salesforce org</text>
+</svg>

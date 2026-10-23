@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1333" width="640" height="1333" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Denver</title>
+<desc>Diagram of the Salesforce community around Denver: 5 Trailblazer Community Groups within 50 km (Salesforce Admin Group, Denver; Salesforce Architect Group, Denver; Salesforce Nonprofit User Group, Denver; Salesforce Women in Tech Group, Denver; Salesforce Developer Group, Denver). Salesforce office: 1225 17th St Suite 500, Denver, CO 80202. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="640" height="1333" fill="#ffffff"/>
+<path d="M63 141 L63 220.5 L128 220.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 355.5 L128 355.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 508.5 L128 508.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 661.5 L128 661.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 814.5 L128 814.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 141 L63 981.5 L128 981.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M63 981.5 L63 1162.2" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="24" y="24" width="416" height="117" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="169" width="488" height="103" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="286" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="439" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="592" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="745" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="128" y="912" width="488" height="139" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="1162.2" width="592" height="147" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="89" y="1110.2" font-size="21" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="43.5" y="63.5" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="43.5" y="109.5" font-size="28" font-weight="600" fill="#0d1b2a">Denver</text>
+<text x="143.6" y="204.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · DENVER, CO</text>
+<text x="143.6" y="245.26666666666665" font-size="26" fill="#0d1b2a">Salesforce Admin Group, Denver</text>
+<text x="143.6" y="321.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · DENVER, CO</text>
+<text x="143.6" y="362.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Architect Group,</text>
+<text x="143.6" y="398.6666666666667" font-size="26" fill="#0d1b2a">Denver</text>
+<text x="143.6" y="474.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · DENVER, CO</text>
+<text x="143.6" y="515.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Nonprofit User Group,</text>
+<text x="143.6" y="551.6666666666666" font-size="26" fill="#0d1b2a">Denver</text>
+<text x="143.6" y="627.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">0 KM · DENVER, CO</text>
+<text x="143.6" y="668.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Women in Tech Group,</text>
+<text x="143.6" y="704.6666666666666" font-size="26" fill="#0d1b2a">Denver</text>
+<text x="143.6" y="780.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">2 KM · DENVER, CO</text>
+<text x="143.6" y="821.2666666666667" font-size="26" fill="#0d1b2a">Salesforce Developer Group,</text>
+<text x="143.6" y="857.6666666666666" font-size="26" fill="#0d1b2a">Denver</text>
+<text x="143.6" y="947.6" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="143.6" y="988.2666666666667" font-size="26" fill="#0d1b2a">1225 17th St Suite 500, Denver,</text>
+<text x="143.6" y="1024.6666666666665" font-size="26" fill="#0d1b2a">CO 80202</text>
+<text x="43.5" y="1201.7" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="43.5" y="1242.3666666666668" font-size="26" fill="#0d1b2a">Runs the work remotely, inside your</text>
+<text x="43.5" y="1278.7666666666669" font-size="26" fill="#0d1b2a">Salesforce org</text>
+</svg>

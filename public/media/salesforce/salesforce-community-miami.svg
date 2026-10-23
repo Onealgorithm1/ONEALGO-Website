@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 447" width="560" height="447" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The Salesforce community around Miami</title>
+<desc>Diagram of the Salesforce community around Miami: 1 Trailblazer Community Group within 50 km (Salesforce User Group, Southeast Florida). No Salesforce office listed in Miami. OneAlgorithm is in Malvern, Pennsylvania, and runs the work remotely, inside your Salesforce org.</desc>
+<rect width="560" height="447" fill="#ffffff"/>
+<path d="M49.5 101 L49.5 155.5 L92 155.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 101 L49.5 243.5 L92 243.5" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M49.5 243.5 L49.5 351.4" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="6 5"/>
+<rect x="24" y="24" width="272" height="77" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="121" width="444" height="69" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="92" y="210" width="444" height="67" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="24" y="351.4" width="512" height="72" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="525.8" y="160.05" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">40 KM</text>
+<text x="66.5" y="317.4" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">remote, in person when a meeting needs it</text>
+<text x="36.75" y="49.75" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">METRO CENTRE · 0 KM</text>
+<text x="36.75" y="80.45" font-size="19" font-weight="600" fill="#0d1b2a">Miami</text>
+<text x="102.2" y="148.2" font-size="17" fill="#0d1b2a">Salesforce User Group, Southeast</text>
+<text x="102.2" y="172" font-size="17" fill="#0d1b2a">Florida</text>
+<text x="102.2" y="233.2" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE OFFICE</text>
+<text x="102.2" y="259.73333333333335" font-size="17" fill="#0d1b2a">No Salesforce office listed in Miami</text>
+<text x="36.75" y="377.15" font-size="13" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">ONEALGORITHM · MALVERN, PA (REMOTE)</text>
+<text x="36.75" y="403.6833333333333" font-size="17" fill="#0d1b2a">Runs the work remotely, inside your Salesforce org</text>
+</svg>

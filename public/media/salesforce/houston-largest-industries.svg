@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 334" width="720" height="334" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest employer groups, Houston metro</title>
+<desc>Bar chart of the largest employer groups in the Houston metro by employees: health care and social assistance 401,276, professional, scientific and technical services 242,722, manufacturing 207,412, wholesale trade 155,666. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="720" height="334" fill="#ffffff"/>
+<rect x="32" y="61.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="56" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="590.4" y="58" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="135.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="130" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="368.1819515744774" y="132" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="209.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="204" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="318.6939582731088" y="206" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="283.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="278" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="246.1704323208963" y="280" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M32 62 L594.4 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 136 L372.2 136" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 210 L322.7 210" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 284 L250.2 284" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="32" y="46" font-size="18" fill="#35485c">Health care and social assistance</text>
+<text x="607.9" y="68.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">401,276</text>
+<text x="32" y="120" font-size="18" fill="#35485c">Professional, scientific and technical</text>
+<text x="385.6819515744774" y="142.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">242,722</text>
+<text x="32" y="194" font-size="18" fill="#35485c">Manufacturing</text>
+<text x="336.1939582731088" y="216.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">207,412</text>
+<text x="32" y="268" font-size="18" fill="#35485c">Wholesale trade</text>
+<text x="263.67043232089634" y="290.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">155,666</text>
+</svg>

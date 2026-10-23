@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1117" width="640" height="1117" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Keeping relationships with external IDs and upsert</title>
+<desc>Diagram: a parent record is loaded with its old system ID in an external ID field, child records find their parent through that field, and rerunning the load with upsert updates existing records instead of creating duplicates. Values are illustrative.</desc>
+<rect width="640" height="1117" fill="#ffffff"/>
+<path d="M56 240 L56 288" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 623 L56 671" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M552 347.5 L604 347.5 L604 751.5 L552 751.5" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M32 982.5 L16 982.5 L16 312 L32 312" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square" stroke-dasharray="10 8"/>
+<rect x="32" y="72" width="520" height="168" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="288" width="520" height="119" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="455" width="520" height="168" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="671" width="520" height="161" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="880" width="520" height="205" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="608" y="44" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#5a6b7d">ILLUSTRATIVE VALUES</text>
+<text x="54" y="114" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">OLD SYSTEM</text>
+<text x="54" y="160" font-size="28" font-weight="600" fill="#0d1b2a">Customer QB-1042</text>
+<text x="54" y="207.6" font-size="26" fill="#35485c">Customer table</text>
+<text x="54" y="330" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE ACCOUNT</text>
+<text x="54" y="374" font-size="26" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">Legacy_ID__c = QB-1042</text>
+<text x="54" y="497" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">OLD SYSTEM</text>
+<text x="54" y="543" font-size="28" font-weight="600" fill="#0d1b2a">Contact row</text>
+<text x="54" y="590.6" font-size="26" fill="#35485c">customer = QB-1042</text>
+<text x="54" y="713" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">SALESFORCE CONTACT</text>
+<text x="54" y="759" font-size="28" font-weight="600" fill="#0d1b2a">Parent found through</text>
+<text x="54" y="798.2" font-size="28" font-weight="600" fill="#0d1b2a">Legacy_ID__c</text>
+<text x="54" y="922" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">RERUN THE LOAD</text>
+<text x="54" y="968" font-size="28" font-weight="600" fill="#0d1b2a">Upsert on Legacy_ID__c</text>
+<text x="54" y="1015.6" font-size="26" fill="#35485c">Updates the existing record, never</text>
+<text x="54" y="1052" font-size="26" fill="#35485c">creates a duplicate</text>
+</svg>

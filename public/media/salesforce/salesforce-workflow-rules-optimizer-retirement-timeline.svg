@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 235" width="1136" height="235" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Salesforce retirements: Workflow Rules, Process Builder and Optimizer</title>
+<desc>Timeline: Salesforce ended support for Workflow Rules and Process Builder on December 31, 2025, and retired Optimizer for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26.</desc>
+<rect width="1136" height="235" fill="#04182b"/>
+<rect x="75.2" y="179" width="8" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="303.3" y="179" width="8" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="770.6" y="179" width="8" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="47.5" y="189" width="1" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="309.6" y="189" width="1" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="566.1" y="189" width="1" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="825.4" y="189" width="1" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<rect x="1087.5" y="189" width="1" height="8" fill="#9fb3c8" stroke="none" stroke-width="1"/>
+<path d="M48 183 L1088 183" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M79.2 135 L79.2 183" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M442 135 L442 157 L307.3 157 L307.3 183" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M774.6 135 L774.6 183" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="48" y="32" width="300" height="103" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<rect x="418" y="32" width="300" height="103" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<rect x="760" y="32" width="300" height="103" fill="#04182b" stroke="#9fb3c8" stroke-width="1"/>
+<text x="48" y="215" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">OCT 2025</text>
+<text x="310.1" y="215" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#9fb3c8">JAN 2026</text>
+<text x="566.6" y="215" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#9fb3c8">APR 2026</text>
+<text x="825.9" y="215" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#9fb3c8">JUL 2026</text>
+<text x="1088" y="215" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#9fb3c8">OCT 2026</text>
+<text x="64" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">WINTER '26 RELEASE</text>
+<text x="64" y="87.8" font-size="17" font-weight="600" fill="#ffffff">Optimizer retired for</text>
+<text x="64" y="111.6" font-size="17" font-weight="600" fill="#ffffff">Hyperforce orgs</text>
+<text x="434" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">31 DEC 2025</text>
+<text x="434" y="87.8" font-size="17" font-weight="600" fill="#ffffff">Workflow Rules and Process</text>
+<text x="434" y="111.6" font-size="17" font-weight="600" fill="#ffffff">Builder: end of support</text>
+<text x="776" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#9fb3c8">SUMMER '26 RELEASE</text>
+<text x="776" y="87.8" font-size="17" font-weight="600" fill="#ffffff">Optimizer retired for all</text>
+<text x="776" y="111.6" font-size="17" font-weight="600" fill="#ffffff">other orgs</text>
+</svg>

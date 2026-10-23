@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 354" width="720" height="354" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>New York metro business establishments, 2018 and 2023</title>
+<desc>Slope chart, New York metro: business establishments went from 582,021 in 2018 to 562,802 in 2023, and establishments with 500 or more employees went from 1,545 to 1,686. Source: US Census Bureau, County Business Patterns.</desc>
+<rect width="720" height="354" fill="#ffffff"/>
+<path d="M106 37.400000000000006 L106 337.4 M614 37.400000000000006 L614 337.4" fill="none" stroke="#e3e8ef" stroke-width="1"/>
+<rect x="101.75" y="77.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="609.75" y="165.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="101.75" y="315.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="609.75" y="227.75" width="8.5" height="8.5" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M106 82 L614 170" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M106 320 L614 232" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="106" y="27.200000000000006" font-size="17" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2018</text>
+<text x="614" y="27.200000000000006" font-size="17" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">2023</text>
+<text x="360" y="61.2" font-size="15" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">All establishments · -3.3%</text>
+<text x="95.8" y="87.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">582,021</text>
+<text x="624.2" y="175.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">562,802</text>
+<text x="360" y="211.2" font-size="15" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#35485c">500+ employees · +9.1%</text>
+<text x="95.8" y="325.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="end" fill="#0d1b2a">1,545</text>
+<text x="624.2" y="237.95" font-size="17" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">1,686</text>
+</svg>

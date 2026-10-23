@@ -244,7 +244,8 @@ export function createFAQSchema(faqs: readonly { q: string; a: string }[]) {
 export function createLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    // ProfessionalService is a LocalBusiness subtype (PHL-11): more specific, same rich-result eligibility.
+    "@type": "ProfessionalService",
     "@id": "https://onealgorithm.com/#localbusiness",
     parentOrganization: { "@id": "https://onealgorithm.com/#org" },
     name: NAP.name,

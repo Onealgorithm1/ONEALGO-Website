@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 337" width="1136" height="337" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>The order of a Salesforce data migration</title>
+<desc>Diagram of a Salesforce data migration: records are inventoried, mapped to Salesforce objects with external IDs, loaded into a sandbox and reconciled count by count, then loaded into production and reconciled again, with the source kept read-only.</desc>
+<rect width="1136" height="337" fill="#ffffff"/>
+<path d="M182 54 L216 54" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M366 54 L401 54" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M551 54 L585 54" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M735 54 L770 54" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M920 54 L954 54" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M1029 257 L1029 301 L1001 301" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="6 5"/>
+<rect x="32" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="216" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="401" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="585" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="770" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="954" y="32" width="150" height="225" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="989" y="306.5" font-size="16" text-anchor="end" fill="#35485c">Source set read-only, kept for checks</text>
+<text x="48" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">01</text>
+<text x="48" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Inventory</text>
+<text x="48" y="120.19999999999999" font-size="16" fill="#35485c">Every table,</text>
+<text x="48" y="142.6" font-size="16" fill="#35485c">field and</text>
+<text x="48" y="165" font-size="16" fill="#35485c">file, with</text>
+<text x="48" y="187.4" font-size="16" fill="#35485c">row counts</text>
+<text x="232" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">02</text>
+<text x="232" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Map</text>
+<text x="232" y="120.19999999999999" font-size="16" fill="#35485c">Objects,</text>
+<text x="232" y="142.6" font-size="16" fill="#35485c">owners and</text>
+<text x="232" y="165" font-size="16" fill="#35485c">external IDs</text>
+<text x="417" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">03</text>
+<text x="417" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Sandbox trial</text>
+<text x="417" y="111.6" font-size="17" font-weight="600" fill="#0d1b2a">load</text>
+<text x="417" y="144" font-size="16" fill="#35485c">A full run,</text>
+<text x="417" y="166.4" font-size="16" fill="#35485c">sampled by</text>
+<text x="417" y="188.8" font-size="16" fill="#35485c">the people</text>
+<text x="417" y="211.20000000000002" font-size="16" fill="#35485c">who know the</text>
+<text x="417" y="233.60000000000002" font-size="16" fill="#35485c">data</text>
+<text x="601" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">CHECK</text>
+<text x="601" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Tally</text>
+<text x="601" y="120.19999999999999" font-size="16" fill="#35485c">Source =</text>
+<text x="601" y="142.6" font-size="16" fill="#35485c">Salesforce,</text>
+<text x="601" y="165" font-size="16" fill="#35485c">object by</text>
+<text x="601" y="187.4" font-size="16" fill="#35485c">object</text>
+<text x="786" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">04</text>
+<text x="786" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Production</text>
+<text x="786" y="111.6" font-size="17" font-weight="600" fill="#0d1b2a">cutover</text>
+<text x="786" y="144" font-size="16" fill="#35485c">A planned</text>
+<text x="786" y="166.4" font-size="16" fill="#35485c">window,</text>
+<text x="786" y="188.8" font-size="16" fill="#35485c">automation</text>
+<text x="786" y="211.20000000000002" font-size="16" fill="#35485c">paused</text>
+<text x="970" y="60" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#005eaa">CHECK</text>
+<text x="970" y="87.8" font-size="17" font-weight="600" fill="#0d1b2a">Tally again</text>
+<text x="970" y="120.19999999999999" font-size="16" fill="#35485c">Counts</text>
+<text x="970" y="142.6" font-size="16" fill="#35485c">reconciled</text>
+<text x="970" y="165" font-size="16" fill="#35485c">after the</text>
+<text x="970" y="187.4" font-size="16" fill="#35485c">load</text>
+</svg>

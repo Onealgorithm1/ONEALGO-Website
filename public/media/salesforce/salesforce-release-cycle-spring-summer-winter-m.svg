@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 716" width="640" height="716" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Salesforce’s three releases a year</title>
+<desc>Diagram of Salesforce’s three releases a year, Spring, Summer and Winter, typically in February, June and October, each read against your org and tested in a sandbox before it reaches production.</desc>
+<rect width="640" height="716" fill="#ffffff"/>
+<path d="M68 348 L68 396" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M68 516 L68 564" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M520 624 L600 624 L600 288 L520 288" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M532 278 L520 288 L532 298" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<rect x="40" y="228" width="480" height="120" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="396" width="480" height="120" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="40" y="564" width="480" height="120" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="40" y="40" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">EACH RELEASE</text>
+<text x="40" y="92" font-size="26" fill="#35485c">1. Release notes read against your org</text>
+<text x="40" y="138" font-size="26" fill="#35485c">2. Tested in a sandbox preview</text>
+<text x="40" y="184" font-size="26" fill="#35485c">3. Reaches production</text>
+<text x="62" y="278" font-size="28" font-weight="600" fill="#0d1b2a">Spring</text>
+<text x="62" y="317.2" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY FEBRUARY</text>
+<text x="62" y="446" font-size="28" font-weight="600" fill="#0d1b2a">Summer</text>
+<text x="62" y="485.2" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY JUNE</text>
+<text x="62" y="614" font-size="28" font-weight="600" fill="#0d1b2a">Winter</text>
+<text x="62" y="653.2" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">TYPICALLY OCTOBER</text>
+</svg>

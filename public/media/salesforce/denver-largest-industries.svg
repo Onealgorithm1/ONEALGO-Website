@@ -1,19 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
-  <title>Largest employer groups, Denver metro (employees)</title>
-  <rect width="800" height="380" fill="#ffffff"/>
-  <text x="32" y="48" font-size="22" font-weight="600" fill="#0d1b2a">Largest employer groups, Denver metro (employees)</text>
-  <line x1="32" y1="68" x2="768" y2="68" stroke="#e3e9f0"/>
-  <text x="284" y="118" text-anchor="end" font-size="17" fill="#35485c">Health care and social assistance</text>
-  <rect x="300" y="100" width="400" height="28" rx="2" fill="#005eaa"/>
-  <text x="710" y="120" font-size="17" font-weight="600" fill="#0d1b2a">192,464</text>
-  <text x="284" y="174" text-anchor="end" font-size="17" fill="#35485c">Professional services</text>
-  <rect x="300" y="156" width="303" height="28" rx="2" fill="#4f86b8"/>
-  <text x="613" y="176" font-size="17" font-weight="600" fill="#0d1b2a">145,828</text>
-  <text x="284" y="230" text-anchor="end" font-size="17" fill="#35485c">Finance and insurance</text>
-  <rect x="300" y="212" width="167" height="28" rx="2" fill="#4f86b8"/>
-  <text x="477" y="232" font-size="17" font-weight="600" fill="#0d1b2a">80,270</text>
-  <text x="284" y="286" text-anchor="end" font-size="17" fill="#35485c">Information</text>
-  <rect x="300" y="268" width="137" height="28" rx="2" fill="#4f86b8"/>
-  <text x="447" y="288" font-size="17" font-weight="600" fill="#0d1b2a">66,048</text>
-  <text x="32" y="356" font-size="14" fill="#5a6b7d">Source: US Census Bureau, County Business Patterns 2023. OneAlgorithm.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 334" width="720" height="334" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest employer groups, Denver metro</title>
+<desc>Bar chart of the largest employer groups in the Denver metro by employees: health care and social assistance 192,464, professional, scientific and technical services 145,828, finance and insurance 80,270, information 66,048. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="720" height="334" fill="#ffffff"/>
+<rect x="32" y="61.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="56" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="590.4" y="58" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="135.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="130" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="454.12471527142736" y="132" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="209.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="204" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="262.55736137667304" y="206" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="32" y="283.5" width="562.4" height="1" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="31" y="278" width="2" height="12" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="220.99918530218636" y="280" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M32 62 L594.4 62" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 136 L458.1 136" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 210 L266.6 210" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M32 284 L225 284" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<text x="32" y="46" font-size="18" fill="#35485c">Health care and social assistance</text>
+<text x="607.9" y="68.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">192,464</text>
+<text x="32" y="120" font-size="18" fill="#35485c">Professional, scientific and technical</text>
+<text x="471.62471527142736" y="142.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">145,828</text>
+<text x="32" y="194" font-size="18" fill="#35485c">Finance and insurance</text>
+<text x="280.05736137667304" y="216.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">80,270</text>
+<text x="32" y="268" font-size="18" fill="#35485c">Information</text>
+<text x="238.49918530218636" y="290.3" font-size="18" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">66,048</text>
 </svg>
