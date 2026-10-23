@@ -287,7 +287,40 @@ async function main() {
         });
       });
 
-      const html = "<!doctype html>\n" + (await page.content());
+      /* Hydration markers, Salesforce routes only (fix round PERF-1; the client
+         side is in client/App.tsx). Two things React's own server renderer
+         writes and a serialised live DOM does not:
+         - <!-- --> between adjacent text nodes. React renders "read on " and
+           "23 October 2026" as two text nodes; serialised, they parse back as
+           one, and hydration would call that a text mismatch.
+         - <!--$--> ... <!--/$--> around #root's content: the App-level
+           <Suspense> boundary. Hydration expects it, and it is what keeps the
+           static page on screen (no spinner) while the route chunk loads.
+         ⛔ Keep the strip step above to things React did NOT render, or
+         hydration sees a missing node and re-renders the page client-side. */
+      if (route.startsWith("/services/salesforce")) {
+        await page.evaluate(() => {
+          const root = document.getElementById("root");
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+          const texts = [];
+          for (let n = walker.nextNode(); n; n = walker.nextNode()) texts.push(n);
+          for (const t of texts) if (t.nextSibling?.nodeType === Node.TEXT_NODE) t.after(document.createComment(" "));
+          root.prepend(document.createComment("$"));
+          root.append(document.createComment("/$"));
+        });
+      }
+
+      let html = "<!doctype html>\n" + (await page.content());
+      /* Fix round PERF-3, hydrated (Salesforce) routes only: their first paint is
+         the static HTML, so the app JS is not needed for it. At High priority the
+         module entry and the modulepreloads shared bandwidth with the CSS and the
+         fonts; low priority lets the page paint first. Routes that still
+         createRoot() keep High: their content waits on the JS. */
+      if (route.startsWith("/services/salesforce")) {
+        html = html
+          .replace(/<script type="module" /g, '<script type="module" fetchpriority="low" ')
+          .replace(/<link rel="modulepreload" /g, '<link rel="modulepreload" fetchpriority="low" ');
+      }
 
       // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves
       // the former at /about directly, while the latter 308-redirects to /about/ and

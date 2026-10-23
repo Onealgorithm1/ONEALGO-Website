@@ -3,9 +3,9 @@
 > OneAlgorithm is a woman-owned technology and marketing company based in
 > Malvern, Pennsylvania (Chester County, Philadelphia metro), working with
 > clients across the United States. We build and market websites for small
-> businesses — web development, SEO, Google Ads, marketing and CRM — and still
-> deliver Salesforce, Oracle ERP, systems integration and staff augmentation
-> for larger teams nationally.
+> businesses — web development, SEO, Google Ads, marketing and CRM. As a listed
+> Salesforce Consulting Partner we also deliver Salesforce, Oracle ERP, systems
+> integration and staff augmentation nationally.
 
 ## About
 
@@ -24,7 +24,7 @@
 - SEO: https://onealgorithm.com/services/seo
 - Google Ads management: https://onealgorithm.com/services/google-ads
 - Marketing & social media: https://onealgorithm.com/services/marketing
-- Salesforce consulting: https://onealgorithm.com/services/salesforce
+- Salesforce consulting: see the Salesforce section below
 - Oracle ERP implementation: https://onealgorithm.com/services/oracle-erp
 - Zendesk implementation: https://onealgorithm.com/services/zendesk
 - MarTech integration: https://onealgorithm.com/services/martech
@@ -37,7 +37,7 @@
 OneAlgorithm is a listed Salesforce Consulting Partner on AppExchange (listing
 a0N3A00000EV7SwUAL: 16 Salesforce-certified people, 53 certifications, 38 of
 them Platform), working from Malvern, PA. Every page below offers the free
-one-week Salesforce health check. No client is named on any of them.
+one-week Salesforce health check.
 
 - Salesforce implementation services (hub): https://onealgorithm.com/services/salesforce
 - Free one-week Salesforce health check: licences, data, automation, permissions and integrations, in a written list ranked by what to fix first: https://onealgorithm.com/services/salesforce-health-check

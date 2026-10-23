@@ -59,7 +59,7 @@ export function SalesforceRecordCard() {
           </p>
         </div>
         <a
-          className="mt-3 inline-flex items-center gap-2 py-2 text-sm font-medium text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
+          className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
           href={SF_APPEXCHANGE_URL}
           target="_blank"
           rel="noopener noreferrer"
@@ -94,7 +94,7 @@ export function RecordLine({ extra }: { extra?: React.ReactNode }) {
       <span>listing {SF_LISTING_ID}</span>
       <Dot />
       <span>read {SF_VERIFIED_LABEL}</span>
-      <a className="oa-link -my-2.5 inline-block py-2.5" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
+      <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
         Verify on AppExchange ↗
       </a>
       {extra}

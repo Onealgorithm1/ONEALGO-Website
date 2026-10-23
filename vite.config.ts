@@ -35,25 +35,23 @@ export default defineConfig(({ mode }) => ({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Separate vendor libraries for better caching
-          vendor: ["react", "react-dom", "react-router-dom"],
-          ui: [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-alert-dialog",
-            "@radix-ui/react-avatar",
-            "@radix-ui/react-checkbox",
-            "@radix-ui/react-dialog",
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-label",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-select",
-            "@radix-ui/react-collapsible",
-            "@radix-ui/react-slot",
-          ],
-          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
-          icons: ["lucide-react"],
-          animation: ["framer-motion"],
+        /* Same groups as before, matched by package path (fix round PERF-2). The
+           object form listed modules by name, and the CommonJS proxy for
+           react/jsx-runtime ("\0…?commonjs-es-import") is not that name, so it
+           landed in the Radix `ui` chunk; with Radix Slot also in `ui` (site.tsx's
+           Button uses it), every page loaded the 70 KB Radix chunk at High
+           priority for the JSX runtime and one tiny component. Matching by path
+           puts the proxy with React, and Slot (+ compose-refs) in `vendor`, so
+           `ui` loads only on pages that use the other Radix primitives. */
+        manualChunks(id: string) {
+          const m = id.match(/node_modules[\\/]((?:@[^\\/]+[\\/])?[^\\/]+)[\\/](?!.*node_modules)/);
+          if (!m) return;
+          const pkg = m[1].replace(/\\/g, "/");
+          if (/^(react|react-dom|react-router|react-router-dom|scheduler|@remix-run\/router|@radix-ui\/react-slot|@radix-ui\/react-compose-refs)$/.test(pkg)) return "vendor";
+          if (pkg.startsWith("@radix-ui/")) return "ui";
+          if (/^(clsx|tailwind-merge|class-variance-authority)$/.test(pkg)) return "utils";
+          if (pkg === "lucide-react") return "icons";
+          if (/^(framer-motion|motion-dom|motion-utils)$/.test(pkg)) return "animation";
         },
         // Optimize file names for better caching
         entryFileNames: "assets/[name].[hash].js",

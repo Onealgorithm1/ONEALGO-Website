@@ -3,6 +3,7 @@ import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
 import { FRAME, FrameContext, PrimaryCTA } from "./site";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { SF_CITY_LINKS } from "../data/salesforceShared";
 import * as React from "react";
 
 /*
@@ -475,7 +476,9 @@ function Layout({ children }: LayoutProps) {
           order and in the accessibility tree - the same bug <main> and <footer>
           were already fixed for. */}
       <nav
-        className="sticky top-0 z-50 border-b border-oa-hairline bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70"
+        className={`sticky top-0 z-50 border-b border-oa-hairline backdrop-blur-xl ${
+          isSalesforce ? "bg-white/95" : "bg-white/90 supports-[backdrop-filter]:bg-white/70"
+        }`}
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
@@ -485,10 +488,10 @@ function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <Link
               to="/"
-              className="flex-shrink-0"
+              className="flex min-h-11 flex-shrink-0 items-center"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <OneAlgorithmText size="md" />
+              <OneAlgorithmText size="md" oneTone={isSalesforce ? "contrast" : "brand"} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -511,7 +514,7 @@ function Layout({ children }: LayoutProps) {
                   <a>: these are not routes in this SPA, so <Link> would hand them
                   to the router and render a 404 instead of loading the blog. */}
               <a
-                href="/blog/"
+                href="/blog"
                 className="text-gray-900 hover:text-onealgo-blue-950 transition-colors"
               >
                 Blog
@@ -767,7 +770,7 @@ function Layout({ children }: LayoutProps) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              <OneAlgorithmText size="md" />
+              <OneAlgorithmText size="md" oneTone={isSalesforce ? "contrast" : "brand"} />
             </Link>
             <button
               ref={closeButtonRef}
@@ -813,7 +816,7 @@ function Layout({ children }: LayoutProps) {
               {/* The blog was reachable from the desktop bar but missing here
                       entirely, so on a phone there was no way to find it. */}
               <a
-                href="/blog/"
+                href="/blog"
                 className="block rounded-lg px-3 py-3.5 text-base font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-onealgo-blue-950"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -1183,20 +1186,23 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/web-design-chester-county">Web Design Chester County</FooterLink>
               <FooterLink to="/services/seo-chester-county">Chester County SEO</FooterLink>
               <FooterLink to="/services/google-ads-philadelphia">Google Ads Philadelphia</FooterLink>
-              <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
-              <FooterLink to="/services/salesforce-consultant-chester-county">Salesforce Consultant Chester County</FooterLink>
-              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner Pennsylvania</FooterLink>
-              <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
             </FooterSection>
 
-            {/* Salesforce services, 2026-10-22. City pages are linked from /services/salesforce and each other
-                (not here: 12 "Salesforce Consultant <City>" links on every page reads as stuffing — blind review 2026-10-22). */}
+            {/* Every Salesforce page in one column (fix round L5): hub first, then services, the cost
+                guide and the local pages. The 13 city pages are NOT here on every page (a blind review
+                on 2026-10-22 read 13 city links site-wide as stuffing); on Salesforce pages they get
+                their own row below (SEO-14). */}
             <FooterSection title="Salesforce">
+              <FooterLink to="/services/salesforce">Salesforce Consulting</FooterLink>
+              <FooterLink to="/services/salesforce-health-check">Salesforce Health Check</FooterLink>
               <FooterLink to="/services/salesforce-data-migration">Salesforce Data Migration</FooterLink>
               <FooterLink to="/services/salesforce-integration">Salesforce Integration</FooterLink>
               <FooterLink to="/services/salesforce-managed-services">Salesforce Managed Services</FooterLink>
-              <FooterLink to="/services/salesforce-health-check">Salesforce Health Check</FooterLink>
               <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
+              <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
+              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner Pennsylvania</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
+              <FooterLink to="/services/salesforce-consultant-chester-county">Salesforce Consultant Chester County</FooterLink>
             </FooterSection>
 
             <FooterSection title="Company">
@@ -1205,7 +1211,7 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/capabilities">Capabilities</FooterLink>
               <FooterLink to="/industries">Industries We Serve</FooterLink>
               {/* Ghost at /blog - not an SPA route, so a plain <a>. */}
-              <a href="/blog/" className={footerLink}>
+              <a href="/blog" className={footerLink}>
                 Blog
               </a>
               <FooterLink to="/contact">Contact</FooterLink>
@@ -1254,14 +1260,14 @@ function Layout({ children }: LayoutProps) {
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link
                 to="/privacy"
-                className="text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
+                className="inline-flex min-h-11 items-center text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
+                className="inline-flex min-h-11 items-center text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Terms &amp; Conditions
@@ -1274,15 +1280,32 @@ function Layout({ children }: LayoutProps) {
               lives here (moved from the hub body 2026-10-23), naming every mark
               those pages use. Inside the footer, never below it. */}
           {isSalesforce && (
-            <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3">
+            <nav aria-label="Salesforce consultants by city" className="mt-6 border-t border-white/10 pt-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3">Salesforce consultants by city</p>
+              <ul className="mt-1 flex flex-wrap gap-x-5">
+                {SF_CITY_LINKS.map((c) => (
+                  <li key={c.to}>
+                    <Link to={c.to} className="inline-flex min-h-11 min-w-11 items-center text-sm text-oa-nightInk2 transition-colors hover:text-oa-nightInk">
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+          {isSalesforce && (
+            <p className="mt-4 max-w-[75ch] text-[11px] leading-relaxed text-oa-nightInk3">
               Salesforce, AppExchange, Sales Cloud, Service Cloud, Marketing
-              Cloud, MuleSoft, Trailhead and Agentforce are trademarks of
-              Salesforce, Inc. One Algorithm LLC is an independent consulting
+              Cloud, Experience Cloud, Commerce Cloud, Field Service, Account
+              Engagement, Pardot, CRM Analytics, Data 360, Hyperforce,
+              Salesforce Connect, MuleSoft, Trailhead, Trailblazer and Agentforce
+              are trademarks of Salesforce, Inc., as are other Salesforce marks
+              named on this page. One Algorithm LLC is an independent consulting
               partner and is not affiliated with or endorsed by Salesforce
               beyond its listed partnership.
             </p>
           )}
-          <p className="mt-4 text-[11px] leading-relaxed text-oa-nightInk3/70">
+          <p className="mt-4 max-w-[75ch] text-[11px] leading-relaxed text-oa-nightInk3/70">
             All product names, logos, and brands are property of their
             respective owners. Use of these names, logos, and brands does not
             imply endorsement.
@@ -1296,7 +1319,7 @@ function Layout({ children }: LayoutProps) {
           data-sf-bar=""
           aria-hidden={!sfBarVisible}
           {...sfBarInert}
-          className={`fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur transition-transform duration-200 ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none lg:hidden ${
+          className={`fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur transition-transform duration-200 [transition-timing-function:cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none lg:hidden ${
             sfBarVisible ? "translate-y-0" : "translate-y-full"
           }`}
           style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}

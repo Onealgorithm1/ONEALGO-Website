@@ -10,9 +10,9 @@
 //   SAME generated city data the city pipeline uses (client/data/salesforceCities.ts,
 //   read here, never typed), so they carry <desc> = alt and keyed rows that
 //   cross-highlight the HTML rows beside them. Ids are page-specific on purpose:
-//   scripts/salesforce-images.mjs still writes the legacy
-//   salesforce-jobs-philadelphia.svg / philadelphia-largest-industries.svg, and
-//   two generators must never write the same file.
+//   the legacy salesforce-jobs-philadelphia.svg / philadelphia-largest-industries.svg
+//   came from scripts/salesforce-images.mjs (retired 2026-10-23, README.md), and two
+//   generators must never write the same file.
 //
 // Map source: US Census Bureau cartographic boundary file cb_2023_us_county_500k
 // (public domain), filtered to the nine GEOIDs below and simplified ONE-OFF with

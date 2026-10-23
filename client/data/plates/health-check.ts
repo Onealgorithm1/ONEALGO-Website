@@ -64,34 +64,34 @@ export const PLATES = {
     "alt": "Diagram: the five areas the free health check covers (licences and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.",
     "src": "/media/salesforce/salesforce-health-check-five-areas.svg",
     "w": 580,
-    "h": 463.6,
+    "h": 407.6,
     "mSrc": "/media/salesforce/salesforce-health-check-five-areas-m.svg",
     "mw": 640,
     "mh": 956.4,
     "traces": [
       {
         "k": "lic",
-        "d": "M240 64 L296 64 L296 175.8 L320 175.8",
+        "d": "M240 64 L296 64 L296 147.8 L320 147.8",
         "i": 0
       },
       {
         "k": "data",
-        "d": "M240 147.9 L280 147.9 L280 203.8 L320 203.8",
+        "d": "M240 133.9 L280 133.9 L280 175.8 L320 175.8",
         "i": 1
       },
       {
         "k": "auto",
-        "d": "M240 231.8 L320 231.8",
+        "d": "M240 203.8 L320 203.8",
         "i": 2
       },
       {
         "k": "perm",
-        "d": "M240 315.7 L280 315.7 L280 259.8 L320 259.8",
+        "d": "M240 273.7 L280 273.7 L280 231.8 L320 231.8",
         "i": 3
       },
       {
         "k": "int",
-        "d": "M240 399.6 L296 399.6 L296 287.8 L320 287.8",
+        "d": "M240 343.6 L296 343.6 L296 259.8 L320 259.8",
         "i": 4
       }
     ],
@@ -106,28 +106,28 @@ export const PLATES = {
       {
         "k": "data",
         "x": 24,
-        "y": 119.9,
+        "y": 105.9,
         "w": 216,
         "h": 56
       },
       {
         "k": "auto",
         "x": 24,
-        "y": 203.8,
+        "y": 175.8,
         "w": 216,
         "h": 56
       },
       {
         "k": "perm",
         "x": 24,
-        "y": 287.7,
+        "y": 245.7,
         "w": 216,
         "h": 56
       },
       {
         "k": "int",
         "x": 24,
-        "y": 371.6,
+        "y": 315.6,
         "w": 216,
         "h": 56
       }

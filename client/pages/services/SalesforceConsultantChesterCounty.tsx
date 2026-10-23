@@ -312,7 +312,7 @@ function LicenceCalculator() {
   const first = rows[0];
   const last = rows[rows.length - 1];
   return (
-    <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-14">
+    <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-14">
       <div>
         <label htmlFor="che-seats" className="block text-sm font-medium text-oa-nightInk">
           People who would log in
@@ -402,19 +402,20 @@ export default function SalesforceConsultantChesterCounty() {
         )}
       />
       <StructuredData
-        data={createWebPageSchema("Salesforce consultant for Chester County businesses", DESCRIPTION, PAGE_URL, {
+        data={createWebPageSchema("The Salesforce consultant Chester County businesses can meet in Malvern", DESCRIPTION, PAGE_URL, {
           dateModified: PAGE_UPDATED,
           primaryImage: { url: IMAGE_1600, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       <PageHero
         eyebrow="Chester County"
         title={
           <>
-            Salesforce consultant for <span className="text-oa-orange">Chester County businesses</span>
+            {/* SEO-06: the exact phrase "Salesforce consultant Chester County" (OPSC). */}
+            The Salesforce consultant <span className="text-oa-orange">Chester County</span> businesses can meet in Malvern
           </>
         }
         lede="Being quoted Salesforce and unsure which edition you need? We count the seats, match the edition to how your team works, and put the licence cost in writing before you sign. Our office is on Swedesford Road in Malvern, inside the county."
@@ -441,7 +442,7 @@ export default function SalesforceConsultantChesterCounty() {
 
       {/* CHE-1: partner proof directly under the hero. */}
       <Section tone="paper" compact id="record">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12">
           <div>
             <RecordLine
               extra={
@@ -472,12 +473,12 @@ export default function SalesforceConsultantChesterCounty() {
 
       <Section clip tone="paper" id="editions">
         <PlateScope>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-14">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-14">
             <SectionHeading
               title="Which Salesforce edition does a Chester County business need?"
               lede={`Most small teams start on Starter Suite at ${money(priceOf("starter"))} a user a month or Pro Suite at ${money(priceOf("pro"))}. Core, at ${money(priceOf("core"))}, is the first edition with API access included, which an ERP or SAP sync needs.`}
             />
-            <p className="max-w-[60ch] text-oa-ink2">
+            <p className="max-w-[30em] text-oa-ink2">
               Ten people on Starter Suite is {money(priceOf("starter") * 10)} a month. The same ten on Core is{" "}
               {money(priceOf("core") * 10)}. That gap is why the edition is settled before anything is configured, and
               why the licence count comes first.
@@ -535,13 +536,13 @@ export default function SalesforceConsultantChesterCounty() {
       {/* CHE-7: county data, CHE-F2. Text left, plate right (xl). */}
       <Section clip tone="surface" id="county">
         <PlateScope>
-          <div className="grid gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
+          <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
             <div>
               <SectionHeading
                 title="Chester County businesses, by the numbers"
                 lede="US Census Bureau, County Business Patterns 2023. These are the companies around our office, and the Salesforce work each group usually needs."
               />
-              <div className="mt-8 max-w-[68ch] border-b border-oa-hairlineStrong">
+              <div className="mt-8 max-w-[34em] border-b border-oa-hairlineStrong">
                 {INDUSTRY_ROWS.map((r) => (
                   <WiredRow key={r.k} k={r.k} className="border-t border-oa-hairlineStrong px-2 py-4 text-oa-ink2">
                     <p>
@@ -566,7 +567,7 @@ export default function SalesforceConsultantChesterCounty() {
 
       {/* CHE-4, CHE-10: delivered work, with the lead and a CTA beside it. */}
       <Section tone="paper" id="delivered">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-14">
           <div>
             <DeliveredLedger title="Salesforce work we have delivered" lead="lending" />
           </div>
@@ -601,7 +602,7 @@ export default function SalesforceConsultantChesterCounty() {
       {/* CHE-11, CHE-13: in person. Plate left, text right (xl). The named lead sits beside the ledger above. */}
       <Section clip tone="paper" id="in-person">
         <PlateScope>
-          <div className="grid gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
+          <div className="grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
             <div className="max-w-[560px] xl:order-1">
               <Plate
                 spec={F3}
@@ -615,7 +616,7 @@ export default function SalesforceConsultantChesterCounty() {
                 title="Close enough to sit down with"
                 lede="Our office is on Swedesford Road in Malvern, inside Chester County. The work runs inside your Salesforce org, remotely, and the first conversation can happen across a table."
               />
-              <ul className="mt-8 max-w-[68ch] border-b border-oa-hairlineStrong">
+              <ul className="mt-8 max-w-[34em] border-b border-oa-hairlineStrong">
                 {TOWNS.map((t) => (
                   <WiredRow key={t.k} k={t.k} as="li" className="border-t border-oa-hairlineStrong px-2 py-3.5 font-mono text-sm text-oa-ink">
                     {t.label} from our office
@@ -623,7 +624,7 @@ export default function SalesforceConsultantChesterCounty() {
                 ))}
               </ul>
               <p className="mt-3 font-mono text-xs text-oa-ink3">Straight-line distance, from Census Gazetteer coordinates.</p>
-              <p className="mt-8 max-w-[68ch] text-oa-ink2">
+              <p className="mt-8 max-w-[34em] text-oa-ink2">
                 We also work across Delaware, Montgomery and Bucks counties, New Castle County in Delaware, and{" "}
                 <Link className="oa-link" to="/services/salesforce-consultant-philadelphia">
                   Philadelphia
@@ -635,7 +636,7 @@ export default function SalesforceConsultantChesterCounty() {
                   2026-10-23; distances measured from the Malvern office). Names and
                   links only: ⛔ never claim membership, sponsorship or attendance,
                   and no event dates (they go stale). */}
-              <p className="mt-4 max-w-[68ch] text-oa-ink2">
+              <p className="mt-4 max-w-[34em] text-oa-ink2">
                 Chester County&apos;s own Salesforce user group meets in West Chester:{" "}
                 <a
                   className="oa-link"

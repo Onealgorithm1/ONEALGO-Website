@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
 import { SalesforceRecordCard, RecordLine } from "../../components/SalesforceRecordCard";
 import { PageHero, Section, SectionHeading, Reveal, CheckList, PrimaryCTA } from "../../components/site";
 import {
@@ -90,7 +89,9 @@ import {
 const PAGE_PATH = "/services/salesforce";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Salesforce Consulting Services & Implementation Partner";
+/* FV-15: "Implementation Partner" is not a Salesforce designation, so it stays out of the
+   title (house trademark rule); the phrase lives in the body H2 instead. */
+const TITLE = "Salesforce Consulting & Implementation Services | OneAlgorithm";
 const DESCRIPTION =
   "Salesforce consulting and implementation from a listed Consulting Partner in Malvern, PA. Start with a free one-week health check: (610) 890-9711.";
 const LEAD_TRAILBLAZER = "https://www.salesforce.com/trailblazer/samirisetti";
@@ -132,7 +133,7 @@ const PILLARS = [
     details: [
       "Org setup: profiles, permission sets, page layouts",
       "Sales Cloud and Service Cloud configuration",
-      "Marketing Cloud build and ongoing support",
+      "Marketing Cloud support for accounts already running",
       "Custom objects and fields where standard ones don't fit",
       "Flow automation for the manual steps",
       "Apex where clicks can't do the job",
@@ -171,7 +172,7 @@ const PILLARS = [
 
 /* Products: name | what we do | the record behind it. Each proof line is on
    the allowed list. ⛔ No MuleSoft row and no Agentforce claim here (spec §5
-   HUB 8); Sales/Service Cloud rests on capability + the lead's certifications,
+   HUB 8); Sales/Service Cloud rests on capability + the company record (FV-04),
    not on a delivery claim (owner decision 7 is still open). */
 const PRODUCTS: { name: string; body: string; proof: React.ReactNode; to: string; label: string }[] = [
   {
@@ -179,11 +180,8 @@ const PRODUCTS: { name: string; body: string; proof: React.ReactNode; to: string
     body: "Sales Cloud runs the work of winning business: leads, opportunities and pipeline. Service Cloud runs support after the sale: cases, queues and escalation. We configure both around how your team actually works.",
     proof: (
       <>
-        Our practice lead holds Salesforce's Sales Cloud and Service Cloud consultant certifications (now named Agentforce
-        Sales and Agentforce Service Consultant).{" "}
-        <a className="oa-link" href={LEAD_TRAILBLAZER} target="_blank" rel="noopener noreferrer">
-          Trailblazer profile ↗
-        </a>
+        {SF_CERTIFIED_PEOPLE} Salesforce-certified people, {SF_CERTIFICATIONS} certifications · Salesforce's AppExchange
+        record, read {SF_VERIFIED_LABEL}
       </>
     ),
     to: HC,
@@ -203,8 +201,8 @@ const PRODUCTS: { name: string; body: string; proof: React.ReactNode; to: string
   },
   {
     name: "Marketing Cloud",
-    body: "Build and ongoing support for Marketing Cloud accounts that are already running.",
-    proof: <>About 18 months of Marketing Cloud support · delivered, client unnamed</>,
+    body: "Marketing Cloud support for accounts already running.",
+    proof: <>About 18 months of Marketing Cloud support · delivered</>,
     to: "/services/salesforce-marketing-cloud-consulting",
     label: "Marketing Cloud consulting",
   },
@@ -291,13 +289,13 @@ export default function Salesforce() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PAGE_PATH),
-    ogTitle: "Salesforce consulting and implementation partner | OneAlgorithm",
+    ogTitle: "Salesforce consulting and implementation services | OneAlgorithm",
     ogDescription: `${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications on Salesforce's AppExchange record. Start with a free one-week Salesforce health check.`,
     ogUrl: getCanonicalUrl(PAGE_PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: PLATE.alt,
-    twitterTitle: "Salesforce consulting and implementation partner | OneAlgorithm",
+    twitterTitle: "Salesforce consulting and implementation services | OneAlgorithm",
     twitterDescription: `${SF_CERTIFIED_PEOPLE} Salesforce-certified people, ${SF_CERTIFICATIONS} certifications on the AppExchange. Start with a free one-week Salesforce health check.`,
     twitterImage: OG_IMAGE,
   });
@@ -326,7 +324,7 @@ export default function Salesforce() {
           primaryImage: PRIMARY_IMAGE,
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       {/* 1 HERO. Text-led: the H1 and lede are the LCP element; the only image
@@ -337,7 +335,7 @@ export default function Salesforce() {
             <span className="text-oa-orange">Salesforce</span> consulting and implementation services
           </>
         }
-        lede="We set up Sales Cloud and Service Cloud for teams across the U.S., automate the manual steps behind them, move your old data in clean, and stay on while your team learns it."
+        lede="We configure Sales Cloud and Service Cloud around how your team works, automate the manual steps behind them, move your old data in clean, and stay on while your team learns it."
         panel={{
           title: "Salesforce's record of us",
           items: [],
@@ -396,7 +394,7 @@ export default function Salesforce() {
           company's (AppExchange) and the lead's (Trailblazer). The trademark
           line moved to the footer's legal row (Layout.tsx, spec 2.16). */}
       <Section tone="surface" id="check">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
             <SectionHeading
               title="A Salesforce implementation partner you can check before you call"
@@ -404,7 +402,7 @@ export default function Salesforce() {
             />
             {/* The flat "X is a Y in Z" sentence answer engines lift. ⛔ Keep it
                 one sentence; no ownership status (Louis, 2026-09-01). */}
-            <p className="mt-6 max-w-[68ch] text-lg font-semibold text-oa-ink">
+            <p className="mt-6 max-w-[34em] text-lg font-semibold text-oa-ink">
               OneAlgorithm is a listed Salesforce Consulting Partner working with companies across the United States, from
               Malvern, Pennsylvania.
             </p>
@@ -421,7 +419,7 @@ export default function Salesforce() {
             </h3>
             {/* Approved wording, verbatim (2026-10-23). ⛔ No count, no prior
                 employer, no photo. */}
-            <PeopleStrip className="mt-4 max-w-[60ch] text-lede text-oa-ink2" />
+            <PeopleStrip className="mt-4 max-w-[30em] text-lede text-oa-ink2" />
           </aside>
         </div>
       </Section>
@@ -451,7 +449,7 @@ export default function Salesforce() {
 
       {/* 6 DELIVERED. The four approved patterns, clients unnamed. */}
       <Section tone="surface" id="delivered">
-        <DeliveredLedger title="Salesforce work we have delivered (clients unnamed)" />
+        <DeliveredLedger title="Salesforce work we have delivered" />
       </Section>
 
       {/* 7 THE WORK. FIG. 1 is the page's first <figure>: eager and static.
@@ -471,7 +469,7 @@ export default function Salesforce() {
               caption="The four stages of a Salesforce implementation, in the order they usually run. The branch under stage 03: any one of them can be taken on its own. Each stage is set out in full below."
             />
           </div>
-          <ol className="mt-12 grid gap-x-6 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
+          <ol className="mt-12 grid grid-cols-1 gap-x-6 gap-y-4 md:grid-cols-2 xl:grid-cols-4">
             {PILLARS.map((p, i) => (
               <WiredRow key={p.k} k={p.k} as="li" className="border-t border-oa-hairlineStrong px-4 pb-8 pt-6">
                 {/* aria-hidden: the <ol> already gives the order. */}
@@ -499,10 +497,10 @@ export default function Salesforce() {
           {PRODUCTS.map((p) => (
             <li
               key={p.name}
-              className="grid gap-3 border-t border-oa-hairlineStrong py-7 lg:grid-cols-[minmax(0,3fr)_minmax(0,5fr)_minmax(0,4fr)] lg:gap-10"
+              className="grid grid-cols-1 gap-3 border-t border-oa-hairlineStrong py-7 lg:grid-cols-[minmax(0,3fr)_minmax(0,5fr)_minmax(0,4fr)] lg:gap-10"
             >
               <h3 className="text-xl font-semibold text-oa-ink">{p.name}</h3>
-              <p className="max-w-[62ch] text-oa-ink2">{p.body}</p>
+              <p className="max-w-[31em] text-oa-ink2">{p.body}</p>
               <div>
                 <p className="font-mono text-xs leading-5 text-oa-ink3">{p.proof}</p>
                 <Link className="oa-link mt-2 inline-flex min-h-11 items-center text-sm" to={p.to}>
@@ -512,7 +510,7 @@ export default function Salesforce() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 max-w-[68ch] text-oa-ink2">
+        <p className="mt-8 max-w-[34em] text-oa-ink2">
           <strong className="font-semibold text-oa-ink">Editions:</strong> Starter Suite, Pro Suite, Core, Advanced and
           Max (Salesforce&apos;s current names, read 23 October 2026). We tell you which one does the job before you buy; list prices per user are in the{" "}
           <Link className="oa-link" to={COST}>
@@ -530,13 +528,13 @@ export default function Salesforce() {
           title="Two ways people arrive at this page"
           lede="Some already own Salesforce and it isn't earning its keep. Others haven't bought yet and want to know what they need. Different problems, different first moves: take whichever half is yours."
         />
-        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="border-t border-white/20 pt-8">
             <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-nightInk3">Already on Salesforce</p>
             <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
               You run a sales or support team and Salesforce is not pulling its weight
             </h3>
-            <p className="mt-4 max-w-[62ch] leading-relaxed text-oa-nightInk2">
+            <p className="mt-4 max-w-[31em] leading-relaxed text-oa-nightInk2">
               That usually means people still doing by hand what the platform was bought to automate. Automation is the deep
               end of our bench:{" "}
               <strong className="font-semibold text-oa-nightInk">
@@ -562,7 +560,7 @@ export default function Salesforce() {
             <h3 className="mt-4 text-h3 font-semibold text-oa-nightInk">
               You are being sold Salesforce and want to know what you actually need
             </h3>
-            <p className="mt-4 max-w-[62ch] leading-relaxed text-oa-nightInk2">
+            <p className="mt-4 max-w-[31em] leading-relaxed text-oa-nightInk2">
               The expensive mistakes get made here, before anything is configured: the wrong edition, seats for people who will
               never log in, and clouds bought together because they were quoted together.{" "}
               <strong className="font-semibold text-oa-nightInk">
@@ -592,7 +590,7 @@ export default function Salesforce() {
         {/* Objections beside the next step (wide-layout addendum: proof and
             answers beside the CTA), which also keeps each answer to a
             readable measure on the 1440 frame. */}
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16">
           <div>
             <Objections
               items={[
@@ -636,7 +634,7 @@ export default function Salesforce() {
       {/* 12 FAQ. Heading left, questions right, so answers keep a ~60-70
           character measure on the wide frame. */}
       <Section tone="paper" clip id="faq">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
           {/* Sticky at lg (Section clip = overflow:clip, so sticky pins) so
               the long right column never leaves an empty left one. */}
           <div className="lg:sticky lg:top-28 lg:self-start">
@@ -680,10 +678,6 @@ export default function Salesforce() {
 
       {/* 14 PHONE BAND (hub and HC only: their Desk is mid-page). */}
       <PhoneBand />
-
-      <Section tone="paper" compact>
-        <SocialShare className="justify-center" />
-      </Section>
     </Layout>
   );
 }

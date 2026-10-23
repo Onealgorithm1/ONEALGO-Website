@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { siteConfig } from "../../shared/companyProfile";
-import { SF_PHONE } from "../data/salesforceProof";
+import { SF_PHONE } from "../data/salesforceShared";
 
 /* ---------------------------------------------------------------------------
    Shared page primitives for the 2026 refresh.
@@ -88,7 +88,11 @@ export const GRAIN: React.CSSProperties = {
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
-/** Reveals its children on scroll. No-ops entirely under reduced motion. */
+/** Reveals its children on scroll. No-ops entirely under reduced motion.
+ *  ⛔ Same elements in both modes (fix round, with PERF-1): the Salesforce pages
+ *  HYDRATE HTML that was prerendered with motion on, so a plain <div> branch
+ *  here (and in Stagger) made every reduced-motion visit fail hydration
+ *  (React #418/#425/#422) and fall back to a full client re-render. */
 export function Reveal({
   children,
   delay = 0,
@@ -99,13 +103,11 @@ export function Reveal({
   className?: string;
 }) {
   const reduced = useReducedMotion();
-  if (reduced) return <div className={className}>{children}</div>;
-
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduced ? false : { opacity: 0, y: 16 }}
+      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
       transition={{ duration: 0.35, ease: EASE_OUT, delay }}
     >
@@ -126,13 +128,12 @@ function Stagger({
   const reduced = useReducedMotion();
   const items = React.Children.toArray(children);
 
-  if (reduced) return <div className={className}>{children}</div>;
-
+  // Same elements under reduced motion, just no animation (see Reveal).
   return (
     <motion.div
       className={className}
-      initial="hidden"
-      whileInView="visible"
+      initial={reduced ? false : "hidden"}
+      whileInView={reduced ? undefined : "visible"}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       variants={{
         visible: { transition: { staggerChildren: 0.06, delayChildren: 0.04 } },
@@ -142,14 +143,18 @@ function Stagger({
         <motion.div
           key={i}
           className="h-full"
-          variants={{
-            hidden: { opacity: 0, y: 16 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.35, ease: EASE_OUT },
-            },
-          }}
+          variants={
+            reduced
+              ? undefined
+              : {
+                  hidden: { opacity: 0, y: 16 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.35, ease: EASE_OUT },
+                  },
+                }
+          }
         >
           {child}
         </motion.div>
@@ -185,6 +190,11 @@ export function Eyebrow({
    side margin is 40px instead of 152px. The measure does NOT widen -- Prose and
    ledes keep their ch caps; the extra width is for side-by-side layout.
 
+   From 2xl (1536px) the wide frame grows to 1680px (fix round M4): at 1920 the
+   gutters were 288px a side (15% of the viewport); now 168px (under 10%).
+   Prose keeps its measure (34em on the wide frame, see Prose), so lines do not
+   grow with it.
+
    Layout provides "wide" on /services/salesforce* so the header, breadcrumbs,
    every Section and the footer share one left edge without each page having to
    opt in (one forgotten prop = one section out of line). An explicit `width`
@@ -194,7 +204,7 @@ export function Eyebrow({
 export type Frame = "default" | "wide";
 export const FRAME: Record<Frame, string> = {
   default: "max-w-[1200px] px-4 sm:px-6 lg:px-8",
-  wide: "max-w-[1440px] px-4 sm:px-6 lg:px-10 2xl:px-12",
+  wide: "max-w-[1440px] px-4 sm:px-6 lg:px-10 2xl:max-w-[1680px] 2xl:px-12",
 };
 export const FrameContext = React.createContext<Frame>("default");
 function useFrame(width?: Frame): string {
@@ -322,6 +332,8 @@ export function SectionHeading({
   className?: string;
 }) {
   const dark = tone === "dark";
+  // Wide (Salesforce) frame: the lede keeps a ~72-character measure (fix round M2).
+  const wide = React.useContext(FrameContext) === "wide";
   return (
     <Reveal className={`max-w-3xl ${className}`}>
       {/* The eyebrow is deliberately NOT rendered. Measured 2026-08-12: the
@@ -349,7 +361,7 @@ export function SectionHeading({
       </h2>
       {lede && (
         <p
-          className={`mt-5 text-lede ${
+          className={`mt-5 text-lede ${wide ? "max-w-[34em]" : ""} ${
             dark ? "text-oa-nightInk2" : "text-oa-ink2"
           }`}
         >
@@ -405,7 +417,7 @@ export function PrimaryCTA({
   /* With `cta` the label may wrap (h-auto, min 44px): a long Salesforce label
      ran past a 390px screen and past the ProcessSteps end column. */
   const fx = cta
-    ? ` group h-auto min-h-11 whitespace-normal text-center transition-colors duration-200 ease-[cubic-bezier(.22,1,.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
+    ? ` group h-auto min-h-11 whitespace-normal text-center transition-colors duration-200 [transition-timing-function:cubic-bezier(.22,1,.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:ring-0 ${
         tone === "dark" ? "focus-visible:outline-oa-orange" : "focus-visible:outline-oa-orangeText"
       }`
     : "";
@@ -745,7 +757,7 @@ export function HeroRail({ crumbs, dark, width }: { crumbs: Crumb[]; dark: boole
                   to={c.to}
                   /* min-h-11 = 44px. These are the smallest links on the page
                      and they sit at the very top of it, where a thumb lands. */
-                  className={`inline-flex min-h-11 items-center uppercase tracking-wider transition-colors ${
+                  className={`inline-flex min-h-11 min-w-11 items-center uppercase tracking-wider transition-colors ${
                     dark
                       ? "text-oa-nightInk3 hover:text-oa-nightInk"
                       : "text-oa-ink3 hover:text-oa-blue"
@@ -1466,7 +1478,7 @@ export function Card({
     ? "h-full rounded-xl border border-white/12 bg-white/[0.03] p-5 sm:p-7"
     : "h-full rounded-xl border border-oa-hairline bg-oa-surface p-5 sm:p-7";
   const interactive = to && wire
-    ? ` relative transition-[transform,border-color] duration-200 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+    ? ` relative transition-[transform,border-color] duration-200 [transition-timing-function:cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
         dark ? "focus-visible:outline-oa-orange" : "focus-visible:outline-oa-blue"
       }`
     : to
@@ -1480,7 +1492,7 @@ export function Card({
       {to && wire && (
         <span
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-x-5 -top-px h-px origin-left scale-x-0 transition-transform duration-[450ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none ${
+          className={`pointer-events-none absolute inset-x-5 -top-px h-px origin-left scale-x-0 transition-transform [transition-duration:450ms] [transition-timing-function:cubic-bezier(.22,1,.36,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none ${
             dark ? "bg-oa-orange" : "bg-oa-blue"
           }`}
         />
@@ -1773,7 +1785,11 @@ export function Split({
 }
 
 /** Prose block for the long-form copy several pages carry. Constrains the
- *  measure - full-width body text was one of the clearest template tells. */
+ *  measure - full-width body text was one of the clearest template tells.
+ *  On the wide (Salesforce) frame the cap is 34em, about 72 characters of IBM
+ *  Plex Sans at any font size; 68ch measured 85-90 characters a line there,
+ *  because a "ch" (the width of "0") is wider than Plex's average letter (fix
+ *  round M2). Other pages keep 68ch until they are reviewed. */
 export function Prose({
   children,
   className = "",
@@ -1781,9 +1797,10 @@ export function Prose({
   children: React.ReactNode;
   className?: string;
 }) {
+  const wide = React.useContext(FrameContext) === "wide";
   return (
     <div
-      className={`max-w-[68ch] space-y-4 leading-relaxed text-oa-ink2 ${className}`}
+      className={`${wide ? "max-w-[34em]" : "max-w-[68ch]"} space-y-4 leading-relaxed text-oa-ink2 ${className}`}
     >
       {children}
     </div>

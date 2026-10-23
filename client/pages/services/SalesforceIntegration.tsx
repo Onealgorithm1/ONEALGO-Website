@@ -25,6 +25,7 @@ import { SF_VERIFIED_LABEL } from "../../data/salesforceProof";
 import { PLATES } from "../../data/plates/integration";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
+  SF_HEALTH_CHECK_OFFER,
   StructuredData,
   createServiceSchema,
   createWebPageSchema,
@@ -40,7 +41,7 @@ import {
  * (salesforce-delivery-evidence-2026-09-01.md). Client is NOT named, ever, and
  * its SAP version, objects, direction and middleware are NOT released (owner
  * decision #11). So the diagram and the mapping table are a TYPICAL pattern,
- * stamped "NOT A CLIENT BUILD", and never tied to the delivered sync.
+ * stamped "ILLUSTRATIVE" (was "NOT A CLIENT BUILD" until the L4 voice fix), and never tied to the delivered sync.
  * ⛔ MULESOFT (owner, 2026-10-23): keep the 2026-09-01 CloudHub sentence
  * verbatim, add no new MuleSoft claim. MuleSoft is otherwise named only as a
  * product Salesforce sells separately (market fact, not a capability claim).
@@ -65,7 +66,7 @@ const OG = "https://onealgorithm.com/media/salesforce/og-salesforce-integration.
 
 const TITLE = "Salesforce Integration Services: SAP & ERP | OneAlgorithm";
 const DESCRIPTION =
-  "Salesforce integration with SAP, ERP and finance systems. Start with a free one-week health check of your integrations. Call (610) 890-9711.";
+  "Salesforce integration services for SAP, ERP and finance systems. Start with a free one-week health check of your integrations. Call (610) 890-9711.";
 
 const ARCH = "https://architect.salesforce.com/docs/architect/fundamentals/guide/integration-patterns.html";
 const SRC = {
@@ -106,7 +107,7 @@ const PROBLEMS = [
     icon: Factory,
     title: "SAP to Salesforce",
     to: "#sap",
-    body: "Sales cannot see the customers, prices and orders that live in SAP. We keep SAP and Salesforce in sync, with each field's owner and timing agreed before we build. We have built an SAP-to-Salesforce sync.",
+    body: "Sales cannot see the customers, prices and orders that live in SAP. We keep SAP and Salesforce in sync, with each field's owner and timing agreed before we build.",
   },
   {
     icon: Calculator,
@@ -282,7 +283,7 @@ const FAQS: SfFaq[] = [
   },
   {
     q: "What is a Salesforce Integration user licence?",
-    a: "A Salesforce licence for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce Help says Enterprise, Unlimited and Performance orgs include five of these licences. We run each integration as its own user.",
+    a: "A Salesforce licence for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce includes a limited number of these licences with supported editions; Setup > Company Information shows how many your org has. We run each integration as its own user.",
   },
   {
     q: "Can you fix an integration that already exists?",
@@ -292,6 +293,11 @@ const FAQS: SfFaq[] = [
   {
     q: "Is Salesforce a CRM or an ERP?",
     a: "A CRM and application platform. Salesforce runs sales, service and marketing; finance, inventory and production usually stay in an ERP such as SAP. That split is why integration matters: customers and deals live in Salesforce, orders and invoices in the ERP, and each record needs one agreed owner.",
+  },
+  {
+    q: "Can you connect Salesforce to a marketing automation tool?",
+    a: "Yes. Marketing Cloud links to Salesforce through Marketing Cloud Connect, Salesforce's own connector, and we support Marketing Cloud accounts that are already running, the Connect sync included. Other marketing tools connect through their own Salesforce connector or the APIs, under the same rules: which system owns each field, how often it syncs, and who reads the failures.",
+    link: { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting" },
   },
   {
     q: "How much does a Salesforce integration cost?",
@@ -340,17 +346,13 @@ function HeroRecord() {
   return (
     <dl className="space-y-6">
       <div>
-        <dt className={`${mono} text-oa-nightInk3`}>Delivered · no client named</dt>
+        <dt className={`${mono} text-oa-nightInk3`}>Delivered</dt>
         <dd className="mt-1.5 text-lg font-semibold text-oa-nightInk">An SAP-to-Salesforce sync</dd>
       </div>
       <div className="border-t border-white/10 pt-5">
         <dt className={`${mono} text-oa-nightInk3`}>Who leads the work</dt>
         <dd>
-          <PeopleStrip
-            tone="night"
-            className="mt-1.5 text-sm leading-relaxed text-oa-nightInk2"
-            extra=" Integration Architect and Data Architect are among them."
-          />
+          <PeopleStrip tone="night" className="mt-1.5 text-sm leading-relaxed text-oa-nightInk2" />
         </dd>
       </div>
     </dl>
@@ -382,7 +384,7 @@ export default function SalesforceIntegration() {
           "Integration of Salesforce with SAP, ERP and finance systems: record ownership agreed field by field, scheduled and event-driven syncs, viewing external data with Salesforce Connect, least-access integration users, and failure logs a named person reads. Delivered by a listed AppExchange Consulting Partner based in Malvern, Pennsylvania.",
           "Salesforce integration",
           URL_,
-          { image: IMG_16x9 },
+          { image: IMG_16x9, offers: SF_HEALTH_CHECK_OFFER },
         )}
       />
       <StructuredData
@@ -391,7 +393,7 @@ export default function SalesforceIntegration() {
           primaryImage: { url: IMG_16x9, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       <PageHero
@@ -463,7 +465,7 @@ export default function SalesforceIntegration() {
             title="Which SAP you run changes the route"
             lede="We keep SAP and Salesforce in sync. In the usual pattern, customers, products and prices move into Salesforce on a schedule, won deals become sales orders in SAP, and every failed record lands in a log a named person reads."
           />
-          <div className="mt-12 grid gap-x-10 border-b border-oa-hairlineStrong sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-x-10 border-b border-oa-hairlineStrong sm:grid-cols-2 xl:grid-cols-4">
             {SAP_VERSIONS.map((v) => (
               <div key={v.name} className="border-t border-oa-hairlineStrong py-6">
                 <h3 className="text-lg font-semibold text-oa-ink">{v.name}</h3>
@@ -473,9 +475,9 @@ export default function SalesforceIntegration() {
           </div>
           <div className="mt-8 flex flex-col gap-2 lg:flex-row lg:items-baseline lg:gap-8">
             <p className="text-lg font-semibold text-oa-ink">We have built an SAP-to-Salesforce sync.</p>
-            <p className={`${mono} text-oa-ink3`}>Delivered · no client named</p>
+            <p className={`${mono} text-oa-ink3`}>Delivered</p>
           </div>
-          <p className="mt-3 max-w-[68ch] text-oa-ink2">
+          <p className="mt-3 max-w-[34em] text-oa-ink2">
             Tell us your SAP version and what reps need to see, and we will tell you which route we would look at first.
           </p>
 
@@ -484,8 +486,8 @@ export default function SalesforceIntegration() {
               spec={FLOW}
               fig={1}
               first
-              stamp={["DIAGRAM · TYPICAL SAP-TO-SALESFORCE PATTERN, NOT A CLIENT BUILD", "ONEALGORITHM"]}
-              caption="A typical SAP-to-Salesforce sync. Hover or tap a row in the table below to trace its lane."
+              stamp={["DIAGRAM · TYPICAL SAP-TO-SALESFORCE PATTERN, ILLUSTRATIVE", "ONEALGORITHM"]}
+              caption="A typical SAP and Salesforce data flow. Hover or tap a row in the table below to trace its lane."
             />
           </div>
           <h3 className="mt-14 text-h3 font-semibold text-oa-ink">What usually moves between SAP and Salesforce (typical pattern)</h3>
@@ -505,21 +507,21 @@ export default function SalesforceIntegration() {
           title="Five decisions we make with you first"
           lede="Most failed integrations were built correctly against a decision nobody actually made. We write these five down with you before anyone builds."
         />
-        <div className="mt-12 grid gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+        <div className="mt-12 grid grid-cols-1 gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <ol className="border-b border-oa-hairlineStrong">
             {DECISIONS.map((d, i) => (
               <li key={d.t} className="grid grid-cols-[2.5rem_minmax(0,1fr)] border-t border-oa-hairlineStrong py-5">
                 <span className="font-mono text-sm tabular-nums text-oa-orangeText">{String(i + 1).padStart(2, "0")}</span>
                 <div>
                   <h3 className="text-lg font-semibold text-oa-ink">{d.t}</h3>
-                  <p className="mt-1.5 max-w-[68ch] text-oa-ink2">{d.b}</p>
+                  <p className="mt-1.5 max-w-[34em] text-oa-ink2">{d.b}</p>
                 </div>
               </li>
             ))}
           </ol>
           <div className="lg:self-end">
             <DocNote
-              said="Salesforce sells an Integration user licence for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Enterprise, Unlimited and Performance orgs include five."
+              said="Salesforce sells an Integration user licence for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Supported editions include a limited number of these licences."
               title={SRC.user.label}
               url={SRC.user.href}
               readOn={SF_VERIFIED_LABEL}
@@ -540,7 +542,7 @@ export default function SalesforceIntegration() {
             title="The lightest route that holds up"
             lede="Salesforce gives you several ways to connect a system, and they are not interchangeable. We pick the one with the fewest moving parts that still meets the timing you need."
           />
-          <div className="mt-10 grid gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          <div className="mt-10 grid grid-cols-1 gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
             <Prose>
               <p>
                 {ext(SRC.connect.href, "Salesforce Connect")} shows external data inside Salesforce without copying it,
@@ -564,7 +566,7 @@ export default function SalesforceIntegration() {
             </Prose>
             <div className="lg:self-end">
               <DocNote
-                said="Salesforce counts API requests across the whole org over a rolling 24 hours. The allowance comes from your edition and licences, and requests over it are refused until usage falls back."
+                said="Salesforce counts API requests across the whole org over a rolling 24 hours. The allowance comes from your edition and licences. Salesforce lets an org run somewhat over its allocation, then a hard cap blocks further calls; regular overage is not something to rely on."
                 title={SRC.limits.label}
                 url={SRC.limits.href}
                 readOn={SF_VERIFIED_LABEL}
@@ -604,7 +606,7 @@ export default function SalesforceIntegration() {
       </Section>
 
       <Section tone="paper" id="delivered">
-        <DeliveredLedger title="Salesforce work we have delivered (clients unnamed)" lead="sap" />
+        <DeliveredLedger title="Salesforce work we have delivered" lead="sap" />
       </Section>
 
       <Section tone="surface" bordered id="objections">

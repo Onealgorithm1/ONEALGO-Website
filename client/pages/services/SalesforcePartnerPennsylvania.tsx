@@ -17,11 +17,12 @@ import {
   WiredRow,
   type SfFaq,
 } from "../../components/salesforce";
-import { RecordBand, SalesforceRecordCard } from "../../components/SalesforceRecordCard";
+import { RecordBand, RecordLine, SalesforceRecordCard } from "../../components/SalesforceRecordCard";
 import { PLATES } from "../../data/plates/pennsylvania";
-import { SF_PHONE, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
+import { SF_PAGES, SF_PHONE, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
+  SF_HEALTH_CHECK_OFFER,
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
@@ -82,12 +83,12 @@ const TIERS_SOURCE = "https://www.salesforceben.com/salesforce-massively-overhau
 const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 
 const DESCRIPTION =
-  "Listed Salesforce Consulting Partner in Malvern, PA. Check any partner's record, then book a free one-week Salesforce health check. Call (610) 890-9711.";
+  "Salesforce Consulting Partner in Pennsylvania, listed on AppExchange, office in Malvern. Check any partner, then book a free health check: (610) 890-9711.";
 
 /* Answered in the AnswerBand and included in FAQPage (it is visible there). */
 const ANSWER: SfFaq = {
   q: "What is a Salesforce Consulting Partner?",
-  a: "A Salesforce Consulting Partner is an independent firm that Salesforce lists in AppExchange Partner Finder, its public register of consultants. Salesforce, not the firm, publishes the record: how many certified people work there, how many certifications they hold by competency, and customer ratings. That makes a partner's claims checkable before you hire.",
+  a: "A Salesforce Consulting Partner is an independent firm that Salesforce lists in AppExchange Partner Finder, its public register of consultants. Salesforce, not the firm, publishes the record: how many certified people work there and how many certifications they hold, by competency. That makes a partner's claims checkable before you hire.",
 };
 
 /* Keyed c1-c4 to the PA-F1 checkpoints (scripts/plates/pennsylvania.mjs). */
@@ -108,12 +109,11 @@ const HOW_TO_CHECK = [
   },
   {
     k: "c2",
-    title: "Read the tier",
+    title: "Count certified people and certifications",
     body: (
       <>
-        Salesforce's current partner program has two tiers, Select and Summit. Its 2026 overhaul retired the Base,
-        Ridge and Crest names, so a firm still quoting them is describing a program that no longer exists. Ask which
-        tier the firm holds today.
+        Salesforce certifies people, not companies. The listing shows how many certified people the firm employs and
+        how many certifications they hold, and Salesforce keeps those counts, not the firm.
       </>
     ),
   },
@@ -122,20 +122,18 @@ const HOW_TO_CHECK = [
     title: "Read the competency row for what you are buying",
     body: (
       <>
-        Salesforce groups expertise into competencies, each earned at Accredited or Expert level from
-        certifications, completed projects and customer satisfaction. Read the row for the product you are buying,
-        for example Agentforce or Marketing Cloud, rather than the firm's overall total.
+        Salesforce groups certifications into competencies. Read the row for the product you are buying, for example
+        Platform or Marketing Cloud, rather than the firm's overall total.
       </>
     ),
   },
   {
     k: "c4",
-    title: "Count people, certifications and ratings",
+    title: "Check who will do the work",
     body: (
       <>
-        Salesforce certifies people, not companies. The listing shows how many certified people the firm employs,
-        how many certifications they hold and any customer ratings. Then ask who on that list will work on your org,
-        and what they hold.
+        Ask who on that list will work on your org, then look them up: every certified person has a public
+        Trailblazer profile that shows which certifications are active today.
       </>
     ),
   },
@@ -187,7 +185,7 @@ const COMPARE = [
     cells: [
       "What you can check first",
       "The customer stories Salesforce publishes",
-      "The firm's listing: certified people, certifications by competency, competency badges and customer ratings",
+      "The firm's listing: certified people, certifications by competency and, where shown, badges and ratings",
     ],
   },
 ];
@@ -196,7 +194,7 @@ const COMPARE = [
 const FAQS: SfFaq[] = [
   {
     q: "Who are the top Salesforce partners in Pennsylvania?",
-    a: "Salesforce does not publish a ranking of partners by state. AppExchange Partner Finder lists every consulting partner on the same record: certified people, certifications by competency, competency badges and customer ratings. Build your shortlist on those figures. 'Top 10' lists on directory sites are compiled by the directory, not by Salesforce.",
+    a: "Salesforce does not publish a ranking of partners by state. AppExchange Partner Finder lists every consulting partner on the same record: certified people, certifications by competency and, where shown, competency badges and customer ratings. Build your shortlist on those figures. 'Top 10' lists on directory sites are compiled by the directory, not by Salesforce.",
   },
   {
     q: "What is the difference between Salesforce Professional Services and a Consulting Partner?",
@@ -263,6 +261,11 @@ export default function SalesforcePartnerPennsylvania() {
               { "@type": "Country", name: "United States" },
             ],
             image: IMAGE_1600,
+            offers: SF_HEALTH_CHECK_OFFER,
+            catalog: {
+              name: "Salesforce consulting services",
+              urls: SF_PAGES.services.map((s) => `https://onealgorithm.com${s.to}`),
+            },
           },
         )}
       />
@@ -272,14 +275,14 @@ export default function SalesforcePartnerPennsylvania() {
           primaryImage: { url: IMAGE_1600, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema([ANSWER, ...FAQS])} />
 
       <PageHero
         eyebrow="Pennsylvania"
         title={
           <>
-            A Salesforce Consulting Partner <span className="text-oa-orange">based in Pennsylvania</span>
+            A Salesforce Consulting Partner <span className="text-oa-orange">in Pennsylvania</span>, based in Malvern
           </>
         }
         lede="We configure, migrate, integrate and support Salesforce for companies across Pennsylvania from our office in Malvern. Salesforce lists us as a Consulting Partner, and this page shows how to check that record, for us and for any firm you are weighing."
@@ -305,7 +308,7 @@ export default function SalesforcePartnerPennsylvania() {
           },
           {
             label: "What we do",
-            body: "We are a listed Consulting Partner in Malvern, PA, configuring, migrating, integrating and supporting Salesforce for companies across Pennsylvania and the United States.",
+            body: "We are a listed Salesforce Consulting Partner in Pennsylvania, based in Malvern, configuring, migrating, integrating and supporting Salesforce for companies across the state and the United States.",
           },
           {
             label: "What it costs",
@@ -320,7 +323,9 @@ export default function SalesforcePartnerPennsylvania() {
             ),
           },
         ]}
-      />
+      >
+        <RecordLine />
+      </AnswerBand>
 
       <Section clip tone="surface" id="check">
         <PlateScope>
@@ -337,14 +342,14 @@ export default function SalesforcePartnerPennsylvania() {
               caption="The four checks, in the order a buyer runs them. Each one is explained below."
             />
           </div>
-          <ol className="mt-12 grid gap-x-6 gap-y-2 sm:grid-cols-2 xl:grid-cols-4">
+          <ol className="mt-12 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 xl:grid-cols-4">
             {HOW_TO_CHECK.map((c, i) => (
               <WiredRow key={c.k} k={c.k} as="li" className="border-t-2 border-oa-hairlineStrong px-4 pb-6 pt-5">
                 <p className="font-mono text-xs uppercase tracking-[0.14em] text-oa-ink3">
                   Check {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-2 text-lg font-semibold text-oa-ink">{c.title}</h3>
-                <p className="mt-2.5 max-w-[68ch] text-sm leading-relaxed text-oa-ink2">{c.body}</p>
+                <p className="mt-2.5 max-w-[34em] text-sm leading-relaxed text-oa-ink2">{c.body}</p>
               </WiredRow>
             ))}
           </ol>
@@ -362,14 +367,14 @@ export default function SalesforcePartnerPennsylvania() {
       </Section>
 
       <Section tone="night" grid id="record">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div>
             <SectionHeading
               tone="dark"
               title="What you will find when you check us"
               lede="Every figure here is Salesforce's, read from our listing's stat box. Open the listing and compare it line by line."
             />
-            <div className="mt-10 max-w-[60ch] border-t border-white/10 pt-6">
+            <div className="mt-10 max-w-[30em] border-t border-white/10 pt-6">
               <h3 className="text-lg font-semibold text-oa-nightInk">Who leads the work</h3>
               <PeopleStrip tone="night" />
             </div>
@@ -397,8 +402,9 @@ export default function SalesforcePartnerPennsylvania() {
           title="Salesforce work we deliver"
           lede={
             <>
-              Sales Cloud and Service Cloud configuration, Flow automation, migration, integration and support after
-              go-live. The cards carry work we have delivered; clients stay unnamed. The full picture is on{" "}
+              We configure Sales Cloud and Service Cloud and automate the manual steps with Flow. For migration,
+              integration, weekly support and Marketing Cloud, each card carries the work we have delivered. The full
+              picture is on{" "}
               <Link className="oa-link" to="/services/salesforce">
                 our Salesforce page
               </Link>
@@ -457,7 +463,7 @@ export default function SalesforcePartnerPennsylvania() {
       </Section>
 
       <Section tone="surface" compact id="pennsylvania">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-16">
           <SectionHeading
             title="Salesforce work anywhere in Pennsylvania"
             lede="From Malvern we take on Salesforce work across the state: Philadelphia, the Lehigh Valley, Harrisburg and Pittsburgh. The work happens inside your org, so distance changes little, and we meet in person when a meeting needs it."

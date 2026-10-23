@@ -31,7 +31,6 @@ const NAP = {
   geo: { latitude: siteConfig.geo.latitude, longitude: siteConfig.geo.longitude },
   sameAs: [
     siteConfig.social.linkedin,
-    siteConfig.social.x,
     siteConfig.social.facebook,
     siteConfig.social.instagram,
     siteConfig.social.youtube,
@@ -241,11 +240,12 @@ export function createFAQSchema(faqs: readonly { q: string; a: string }[]) {
 }
 
 // LocalBusiness schema
-export function createLocalBusinessSchema() {
+// ProfessionalService is a LocalBusiness subtype (PHL-11): more specific, same rich-result
+// eligibility. Salesforce pages pass it; every other page keeps the "LocalBusiness" it had.
+export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalService" = "LocalBusiness") {
   return {
     "@context": "https://schema.org",
-    // ProfessionalService is a LocalBusiness subtype (PHL-11): more specific, same rich-result eligibility.
-    "@type": "ProfessionalService",
+    "@type": type,
     "@id": "https://onealgorithm.com/#localbusiness",
     parentOrganization: { "@id": "https://onealgorithm.com/#org" },
     name: NAP.name,

@@ -138,7 +138,9 @@ export default function About() {
           "@context": "https://schema.org",
           "@graph": [
             { name: "Swapna Amirisetti", jobTitle: "President & CEO", sameAs: "https://www.linkedin.com/in/swapna-amirisetti/" },
-            { name: "Sreenivas Amirisetti", jobTitle: "Chief Technology Officer", sameAs: "https://www.linkedin.com/in/samirisetti/" },
+            /* Same @id as the Salesforce pages' Person node (SF_PEOPLE), so the two are one entity.
+               His title still differs there ("Salesforce practice lead"); one title waits on his OK. */
+            { "@id": "https://onealgorithm.com/#person-sreenivas-amirisetti", name: "Sreenivas Amirisetti", jobTitle: "Chief Technology Officer", sameAs: "https://www.linkedin.com/in/samirisetti/" },
             { name: "Louis Rubino", jobTitle: "Director of Operations and Program Manager", sameAs: "https://www.linkedin.com/in/louiscrubino/" },
             { name: "Sahith Valluru", jobTitle: "Business Development Manager", sameAs: "https://www.linkedin.com/in/sahith-valluru/" },
           ].map((person) => ({

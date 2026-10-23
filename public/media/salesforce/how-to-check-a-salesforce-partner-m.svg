@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1463" width="640" height="1463" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1351" width="640" height="1351" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
 <title>How to check any Salesforce partner</title>
-<desc>Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, read its tier, read the competency row for the product you are buying, and count its certified people, certifications and customer ratings.</desc>
-<rect width="640" height="1463" fill="#ffffff"/>
+<desc>Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, count its certified people and certifications, read the competency row for the product you are buying, and check who will do the work on their Trailblazer profiles.</desc>
+<rect width="640" height="1351" fill="#ffffff"/>
 <path d="M56 336 L56 384" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
 <path d="M56 688 L56 736" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
-<path d="M56 1040 L56 1088" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
+<path d="M56 967 L56 1015" fill="none" stroke="#005eaa" stroke-width="3" stroke-linecap="square"/>
 <rect x="32" y="32" width="576" height="304" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
 <rect x="32" y="384" width="576" height="304" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
-<rect x="32" y="736" width="576" height="304" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
-<rect x="32" y="1088" width="576" height="343" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="736" width="576" height="231" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<rect x="32" y="1015" width="576" height="304" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
 <text x="56" y="76" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CHECK 01</text>
 <text x="56" y="122" font-size="28" font-weight="600" fill="#0d1b2a">Find the firm in Partner Finder</text>
 <text x="56" y="178.7" font-size="26" fill="#35485c">AppExchange Partner Finder, the</text>
@@ -16,22 +16,19 @@
 <text x="56" y="264.5" font-size="26" fill="#35485c">Search the firm’s name and open its</text>
 <text x="56" y="300.9" font-size="26" fill="#35485c">listing</text>
 <text x="56" y="428" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CHECK 02</text>
-<text x="56" y="474" font-size="28" font-weight="600" fill="#0d1b2a">Read the tier</text>
-<text x="56" y="530.7" font-size="26" fill="#35485c">Select or Summit, the two tiers in</text>
-<text x="56" y="567.1" font-size="26" fill="#35485c">Salesforce’s current partner program</text>
-<text x="56" y="616.5" font-size="26" fill="#35485c">Base, Ridge and Crest are retired</text>
-<text x="56" y="652.9" font-size="26" fill="#35485c">names</text>
+<text x="56" y="474" font-size="28" font-weight="600" fill="#0d1b2a">Count people and certifications</text>
+<text x="56" y="530.7" font-size="26" fill="#35485c">Salesforce certifies people, not</text>
+<text x="56" y="567.1" font-size="26" fill="#35485c">companies</text>
+<text x="56" y="616.5" font-size="26" fill="#35485c">Salesforce keeps the counts, not the</text>
+<text x="56" y="652.9" font-size="26" fill="#35485c">firm</text>
 <text x="56" y="780" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CHECK 03</text>
 <text x="56" y="826" font-size="28" font-weight="600" fill="#0d1b2a">Read the competency row</text>
 <text x="56" y="882.7" font-size="26" fill="#35485c">The row for the product you are buying</text>
-<text x="56" y="932.1" font-size="26" fill="#35485c">Accredited or Expert, earned with</text>
-<text x="56" y="968.5" font-size="26" fill="#35485c">certifications, projects and customer</text>
-<text x="56" y="1004.9" font-size="26" fill="#35485c">satisfaction</text>
-<text x="56" y="1132" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CHECK 04</text>
-<text x="56" y="1178" font-size="28" font-weight="600" fill="#0d1b2a">Count people, certifications,</text>
-<text x="56" y="1217.2" font-size="28" font-weight="600" fill="#0d1b2a">ratings</text>
-<text x="56" y="1273.9" font-size="26" fill="#35485c">Salesforce certifies people, not</text>
-<text x="56" y="1310.3000000000002" font-size="26" fill="#35485c">companies</text>
-<text x="56" y="1359.7000000000003" font-size="26" fill="#35485c">Ask who on the listing will work on</text>
-<text x="56" y="1396.1000000000004" font-size="26" fill="#35485c">your org</text>
+<text x="56" y="932.1" font-size="26" fill="#35485c">Not the firm’s overall total</text>
+<text x="56" y="1059" font-size="20" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">CHECK 04</text>
+<text x="56" y="1105" font-size="28" font-weight="600" fill="#0d1b2a">Check who will do the work</text>
+<text x="56" y="1161.7" font-size="26" fill="#35485c">Ask who on the listing will work on</text>
+<text x="56" y="1198.1000000000001" font-size="26" fill="#35485c">your org</text>
+<text x="56" y="1247.5000000000002" font-size="26" fill="#35485c">Their Trailblazer profile shows active</text>
+<text x="56" y="1283.9000000000003" font-size="26" fill="#35485c">certifications</text>
 </svg>

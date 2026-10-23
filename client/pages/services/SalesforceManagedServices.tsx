@@ -52,9 +52,11 @@ import {
  * every week" (the lending engagement's weekly hours report, workspace note
  * deepak-fundmate-automation-2026-09-22.md; the hub already states it), and
  * Sreenivas Amirisetti's lead line with his Trailblazer link. ⛔ Never name the
- * lender. The development scope (Flow, Apex triggers, SOQL, custom metadata,
- * permission sets, data jobs) is stated as what we do, NOT attributed to the
- * lending client: whether the page may say so is owner question #5.
+ * lender. The development scope is stated generically as what we do, NOT
+ * attributed to the lending client: whether the page may describe that work's
+ * scope is owner question #5 (page-map §7 decision 5). Until it is answered the
+ * list stays generic: no SOQL / custom metadata line that mirrors the lending
+ * job scope word for word (fix round FV-12).
  *
  * ⛔ No SLA, response time, price, term, notice period or onboarding fee of
  * ours is stated: none is set (owner decision #9). Competitor prices are their
@@ -85,8 +87,8 @@ const SRC = {
   trust: "https://status.salesforce.com/",
   releaseUpdates: "https://help.salesforce.com/s/articleView?id=sf.release_updates.htm&type=5",
   auditTrail: "https://help.salesforce.com/s/articleView?id=sf.admin_monitorsetup.htm&type=5",
-  blsAnalysts: "https://www.bls.gov/oes/2025/may/oes151211.htm",
-  blsDevelopers: "https://www.bls.gov/oes/2025/may/oes151252.htm",
+  blsAnalysts: "https://data.bls.gov/oesprofile/?year=2025&major_group=150000&occupation=151211&measure=01&areas=INDUSTRY,STATE,MSA",
+  blsDevelopers: "https://data.bls.gov/oesprofile/?year=2025&major_group=150000&occupation=151252&measure=01&areas=INDUSTRY,STATE,MSA",
   trailblazer: "https://www.salesforce.com/trailblazer/samirisetti",
   vantage: "https://vantagepoint.io/blog/sf/salesforce-managed-services-pricing",
   keynode: "https://www.keynodesolutions.com/services/salesforce-managed-services-and-support/",
@@ -146,9 +148,8 @@ const SCOPE = [
 
 const DEV = [
   "Flow automation built, fixed and retired when a newer flow replaces it",
-  "Apex triggers, including the fix when one hits a governor limit",
-  "SOQL behind reports, scheduled jobs and integrations",
-  "Custom metadata in place of hard-coded values",
+  "Apex where Flow cannot do the job",
+  "Validation rules that stop bad data at the point of entry",
   "Permission sets in place of one-off profile edits",
   "Bulk data jobs, with the automation they would fire reviewed first",
 ];
@@ -307,7 +308,7 @@ const FAQS: SfFaq[] = [
   },
   {
     q: "Can a managed services plan include Salesforce development?",
-    a: "Yes. Ours does: Flow, Apex triggers, SOQL, custom metadata, permission sets and data jobs, each built in a sandbox, tested, deployed and written down alongside the admin work. If you would rather have a Salesforce developer inside your own team, that is staff augmentation.",
+    a: "Yes. Ours does: Flow, Apex, validation rules, permission sets and data jobs, each built in a sandbox, tested, deployed and written down alongside the admin work. If you would rather have a Salesforce developer inside your own team, that is staff augmentation.",
     link: { to: "/services/staff-augmentation", label: "Salesforce staff augmentation" },
   },
   {
@@ -365,7 +366,7 @@ export default function SalesforceManagedServices() {
   useSEO({
     title: "Salesforce Managed Services & Admin Support | OneAlgorithm",
     description:
-      "Weekly Salesforce admin, development and release testing from a listed Consulting Partner. Free one-week Salesforce health check: (610) 890-9711.",
+      "Salesforce managed services: weekly admin, development and release testing from a listed Consulting Partner. Free one-week health check: (610) 890-9711.",
     canonical: getCanonicalUrl("/services/salesforce-managed-services"),
     ogTitle: "Salesforce Managed Services | OneAlgorithm",
     ogDescription:
@@ -385,7 +386,7 @@ export default function SalesforceManagedServices() {
       <StructuredData
         data={createServiceSchema(
           "Salesforce Managed Services",
-          "Ongoing Salesforce administration and development: user and access management, Flow and Apex trigger work, permission sets and custom metadata, data jobs, integrations kept in sync and release checks before each of Salesforce's three releases a year, from a listed AppExchange Consulting Partner in Malvern, Pennsylvania.",
+          "Ongoing Salesforce administration and development: user and access management, Flow and Apex work, validation rules and permission sets, data jobs, integrations kept in sync and release checks before each of Salesforce's three releases a year, from a listed AppExchange Consulting Partner in Malvern, Pennsylvania.",
           "Salesforce managed services",
           PAGE_URL,
           { image: IMG_1600, offers: SF_HEALTH_CHECK_OFFER },
@@ -399,7 +400,7 @@ export default function SalesforceManagedServices() {
           { dateModified: "2026-10-23", primaryImage: { url: IMG_1600, width: 1600, height: 900 } },
         )}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       {/* 1. HERO: the lede's first sentence defines the term (MS-16). */}
@@ -445,7 +446,7 @@ export default function SalesforceManagedServices() {
 
       {/* 5. DEVELOPMENT (page-map: replaces the killed development page). */}
       <Section tone="surface" id="development">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <SectionHeading title="Salesforce development services in a support plan" />
             <Prose className="mt-6">
@@ -480,9 +481,9 @@ export default function SalesforceManagedServices() {
           plate: eager, static. The rail is the page's one rail. */}
       <Section tone="paper" clip id="how">
         <PlateScope>
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-16">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-16">
             <SectionHeading className="lg:col-span-7" title="How an engagement runs, week to week" />
-            <p className="max-w-[60ch] text-oa-ink2 lg:col-span-5">
+            <p className="max-w-[30em] text-oa-ink2 lg:col-span-5">
               It starts with a free week inside your org and settles into a weekly rhythm: requests in,
               changes built and tested in a sandbox, everything written down, hours reported every week.
             </p>
@@ -513,23 +514,32 @@ export default function SalesforceManagedServices() {
           specimen) is owner-gated; the DocNote carries the point meanwhile. */}
       <Section tone="surface" id="what-changes">
         <SectionHeading title="What changes when a Salesforce managed services provider looks after your org" />
-        <div className="mt-12 grid gap-x-16 gap-y-12 lg:grid-cols-2">
-          <div className="max-w-[62ch]">
+        <div className="mt-12 grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
+          <div className="max-w-[31em]">
             <h3 className="text-xl font-semibold text-oa-ink">The org gets easier to change</h3>
             <p className="mt-3 text-oa-ink2">
-              Each request is a chance to replace a hard-coded value with custom metadata, fold a one-off
-              profile edit into a permission set, or retire a flow that a newer one made redundant. Done every
-              week, that is the difference between an org that takes a day to change and one that takes a month.
+              Technical debt gets paid down as part of the work. Each request is a chance to replace a
+              hard-coded value with a setting an admin can change, fold a one-off profile edit into a permission
+              set, or retire a flow that a newer one made redundant. Done every week, that is the difference
+              between an org that takes a day to change and one that takes a month.
             </p>
           </div>
-          <div className="max-w-[62ch]">
+          <div className="max-w-[31em]">
+            <h3 className="text-xl font-semibold text-oa-ink">A roadmap you can see, and a cost you can see coming</h3>
+            <p className="mt-3 text-oa-ink2">
+              The health check's ranked list becomes the first roadmap: we agree the order with you, then work
+              down it week by week alongside new requests. Hours are reported every week against that list, so
+              the month's cost never arrives as a surprise.
+            </p>
+          </div>
+          <div className="max-w-[31em]">
             <h3 className="text-xl font-semibold text-oa-ink">Works with the admin you have</h3>
             <p className="mt-3 text-oa-ink2">
               If you employ an admin, they keep the requests from users and we take the development, the data
               jobs and the releases. If you have nobody, we cover all of it.
             </p>
           </div>
-          <div className="max-w-[62ch]">
+          <div className="max-w-[31em]">
             <h3 className="text-xl font-semibold text-oa-ink">Every change is written down</h3>
             <p className="mt-3 text-oa-ink2">
               What changed and why, recorded as we go, so nobody has to remember why something was built. When
@@ -544,7 +554,7 @@ export default function SalesforceManagedServices() {
             />
           </div>
           {/* The named lead, approved wording from SF_PEOPLE, with the Person schema. */}
-          <div className="max-w-[62ch]">
+          <div className="max-w-[31em]">
             <h3 className="text-xl font-semibold text-oa-ink">Named people, not a ticket queue</h3>
             <PeopleStrip className="mt-3 text-oa-ink2" lead="You work directly with the people doing the work. " />
           </div>
@@ -555,7 +565,7 @@ export default function SalesforceManagedServices() {
           MS-F4 (Release Updates specimen) is owner-gated; DocNote instead. */}
       <Section tone="paper" clip id="releases">
         <PlateScope>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <SectionHeading title="Before each Salesforce release" />
               <Prose className="mt-6">
@@ -607,7 +617,7 @@ export default function SalesforceManagedServices() {
           proxy (no SOC code for Salesforce admins), medians, never set against
           a price of ours. */}
       <Section tone="surface" id="vs-in-house">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
           <div className="lg:col-span-7">
             <SectionHeading
               title="Managed services vs an in-house Salesforce admin"
@@ -646,7 +656,7 @@ export default function SalesforceManagedServices() {
       {/* 11. WHAT TO GET IN WRITING (MS-7). Our own response times wait on
           owner decision #9. */}
       <Section tone="paper" id="in-writing">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               title="What to get in writing from any managed services provider"
@@ -676,7 +686,7 @@ export default function SalesforceManagedServices() {
             source={`Each firm's own wording, re-read ${READ_ON}. Prices change; check the source before you compare.`}
           />
         </div>
-        <p className="mt-10 max-w-[68ch] text-lede text-oa-ink">
+        <p className="mt-10 max-w-[34em] text-lede text-oa-ink">
           Across these firms, price follows the same things: the clouds and editions you run, your users, how much
           customisation, and how many hours of work a month. We set our fee the same way, from your org: the free
           one-week health check ends with a written list ranked by what to fix first, and every fix is scoped in

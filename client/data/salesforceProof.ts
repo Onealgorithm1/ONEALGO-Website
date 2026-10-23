@@ -18,15 +18,19 @@ export const SF_VERIFIED_LABEL = new Date(`${SF_VERIFIED_ON}T12:00:00Z`).toLocal
   year: "numeric",
   timeZone: "UTC",
 }); // "23 October 2026"
-export const SF_PHONE = { display: "(610) 890-9711", href: "tel:+16108909711" } as const;
+// SF_PHONE and the city list live in salesforceShared.ts (the main chunk imports them, CR-6).
+import { SF_CITY_LINKS } from "./salesforceShared";
+export { SF_PHONE } from "./salesforceShared";
 
 /** Verbatim approved wording. No sector, date (except lending), logo or metric. ⛔ Never add a row
- *  that is not on the allowed-proof list in the 2026-10-23 design spec. */
+ *  that is not on the allowed-proof list in the 2026-10-23 design spec.
+ *  Tags (2026-10-23 fix round, L4): "· NO CLIENT NAMED" dropped. It announced an absence on every
+ *  page (voice addendum rule 4); the rows still name no client, which is where the honesty lives. */
 export const SF_DELIVERED = [
-  { id: "lending", text: "Ongoing Salesforce development for a lending company since April 2026", to: "/services/salesforce-managed-services", tag: "ONGOING SINCE APR 2026 · NO CLIENT NAMED" },
-  { id: "sap", text: "An SAP-to-Salesforce sync", to: "/services/salesforce-integration", tag: "DELIVERED · NO CLIENT NAMED" },
-  { id: "lowcode", text: "QuickBase and Kissflow systems migrated into Salesforce", to: "/services/salesforce-data-migration", tag: "DELIVERED · NO CLIENT NAMED" },
-  { id: "mc", text: "About 18 months of Marketing Cloud support", to: "/services/salesforce-marketing-cloud-consulting", tag: "SUPPORT · NO CLIENT NAMED" },
+  { id: "lending", text: "Ongoing Salesforce development for a lending company since April 2026", to: "/services/salesforce-managed-services", tag: "ONGOING SINCE APR 2026" },
+  { id: "sap", text: "An SAP-to-Salesforce sync", to: "/services/salesforce-integration", tag: "DELIVERED" },
+  { id: "lowcode", text: "QuickBase and Kissflow systems migrated into Salesforce", to: "/services/salesforce-data-migration", tag: "DELIVERED" },
+  { id: "mc", text: "About 18 months of Marketing Cloud support", to: "/services/salesforce-marketing-cloud-consulting", tag: "SUPPORT" },
 ] as const;
 export type SfDeliveredId = (typeof SF_DELIVERED)[number]["id"];
 
@@ -53,21 +57,7 @@ export const SF_PAGES = {
     { key: "che", to: "/services/salesforce-consultant-chester-county", title: "Salesforce consultant for Chester County businesses", body: "Which edition you actually need, what it costs, and a licence count before you sign." },
     { key: "pa", to: "/services/salesforce-consulting-partner-pennsylvania", title: "Salesforce Consulting Partner in Pennsylvania", body: "How to check any partner's record on the AppExchange before you hire one." },
   ],
-  cities: [
-    { to: "/services/salesforce-consultant-new-york", label: "New York" },
-    { to: "/services/salesforce-consultant-washington-dc", label: "Washington, DC" },
-    { to: "/services/salesforce-consultant-dallas", label: "Dallas" },
-    { to: "/services/salesforce-consultant-denver", label: "Denver" },
-    { to: "/services/salesforce-consultant-atlanta", label: "Atlanta" },
-    { to: "/services/salesforce-consultant-boston", label: "Boston" },
-    { to: "/services/salesforce-consultant-seattle", label: "Seattle" },
-    { to: "/services/salesforce-consultant-san-francisco", label: "San Francisco" },
-    { to: "/services/salesforce-consultant-los-angeles", label: "Los Angeles" },
-    { to: "/services/salesforce-consultant-austin", label: "Austin" },
-    { to: "/services/salesforce-consultant-miami", label: "Miami" },
-    { to: "/services/salesforce-consultant-chicago", label: "Chicago" },
-    { to: "/services/salesforce-consultant-houston", label: "Houston" },
-  ],
+  cities: SF_CITY_LINKS,
 } as const;
 
 export type SfPerson = {
@@ -85,9 +75,13 @@ export type SfPerson = {
   approvedOn: string;
 };
 /** ⛔ Owner-gated (spec §7.4). Louis named Sreenivas as the Salesforce lead on 2026-10-23
- *  (owner-decisions.md, answers 3/4). Wording and link are the approved proof, verbatim;
- *  his active certifications were read from the Trailblazer profile on 2026-10-23. No photo
- *  exists, so PeopleStrip renders text only. Empty array = PeopleStrip renders nothing. */
+ *  (owner-decisions.md, answers 3/4); `approvedOn` is that date. Wording and link are the approved
+ *  proof, verbatim; his active certifications were read from the Trailblazer profile on 2026-10-23.
+ *  No photo exists, so PeopleStrip renders text only. Empty array = PeopleStrip renders nothing.
+ *  ⛔ OPEN (fix round FV-05, FV-18): Sreenivas's own written OK on this sentence and on his title
+ *  is not on record yet (people-salesforce-evidence.md:178, page-map §7 decision 2). When it
+ *  arrives, record the date beside approvedOn. /about still calls him "Chief Technology Officer".
+ *  ⛔ This is the ONLY sentence about him on any page: no extra certification names (FV-04). */
 export const SF_PEOPLE: SfPerson[] = [
   {
     name: "Sreenivas Amirisetti",
@@ -100,5 +94,10 @@ export const SF_PEOPLE: SfPerson[] = [
     approvedOn: "2026-10-23",
   },
 ];
+/** "Holds … to Application Architect" depends on 7 certifications whose maintenance is due
+ *  2026-12-04 (people-salesforce-evidence.md). scripts/plates-check.mjs fails the build from this
+ *  date until someone re-reads his Trailblazer profile and moves it to the next due date. */
+export const SF_PEOPLE_RECHECK_BY = "2026-12-04";
+
 /** ⛔ Owner-gated (spec §7.6). Empty string = no promise is shown. */
 export const SF_REPLY_PROMISE: string = "";

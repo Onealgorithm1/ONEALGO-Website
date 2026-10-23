@@ -137,13 +137,13 @@ const AREAS: { k: AreaKey; title: string; tag: string; body: string; link?: { to
     k: "auto",
     title: "Automation",
     tag: "AUTOMATION",
-    body: "Steps still done by hand that Flow should be doing, and every Workflow Rule and Process Builder process still active, with what moving each one to Flow involves.",
+    body: "Steps still done by hand that Flow should be doing, and every Workflow Rule and Process Builder process still active, each one listed for its move to Flow.",
   },
   {
     k: "perm",
     title: "Permissions",
     tag: "PERMISSIONS",
-    body: "Who can see and export what: organisation-wide defaults, sharing rules, the role hierarchy, field-level security, and profiles doing a permission set's job. We start from Salesforce's Health Check score, which covers settings such as password and session policies, and go well beyond it.",
+    body: "Who can see and export what: organisation-wide defaults, sharing rules, the role hierarchy, field-level security, and profiles doing a permission set's job.",
   },
   {
     k: "int",
@@ -166,7 +166,7 @@ const STEPS = [
   },
   {
     title: "A written, ranked list",
-    body: "What we found, why it matters and what fixing it involves, ordered by what to do first. We walk you through it on a call.",
+    body: "What we found and why it matters, ordered by what to fix first. We walk you through it on a call.",
   },
   {
     title: "You decide what happens next",
@@ -209,7 +209,7 @@ const FAQS: SfFaq[] = [
   },
   {
     q: "What does a Salesforce org health assessment include?",
-    a: "Ours covers five areas: licences and edition, data, automation, permissions and integrations. You get a written list of what we found, why it matters and what fixing it involves, ranked by what to do first.",
+    a: "Ours covers five areas: licences and edition, data, automation, permissions and integrations. You get a written list of what we found and why it matters, ranked by what to fix first.",
   },
   {
     q: "How long does a Salesforce org health check take?",
@@ -287,7 +287,7 @@ function AreaRow({ a }: { a: (typeof AREAS)[number] }) {
         <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-oa-ink3">{a.tag}</span>
         <span className="mt-1 block text-lg font-semibold text-oa-ink">{a.title}</span>
       </dt>
-      <dd className="mt-2 max-w-[68ch] leading-relaxed text-oa-ink2 md:mt-0">
+      <dd className="mt-2 max-w-[34em] leading-relaxed text-oa-ink2 md:mt-0">
         {a.body}
         {a.link && (
           <>
@@ -336,7 +336,7 @@ export default function SalesforceHealthCheck() {
           primaryImage: { url: PREFERRED_IMAGE, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       {/* 1. Hero. Text-led (the LCP is the h1/lede); the panel is the
@@ -396,7 +396,7 @@ export default function SalesforceHealthCheck() {
           title="Two Salesforce changes worth checking your org for"
           lede="Both landed between October 2025 and June 2026, and neither one raises an error in your org."
         />
-        <div className="grid gap-x-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-16 lg:grid-cols-2">
           <DocNote
             tone="dark"
             said="Salesforce stopped supporting Workflow Rules and Process Builder on December 31, 2025."
@@ -405,7 +405,7 @@ export default function SalesforceHealthCheck() {
             readOn="October 2026"
             meaning="Automation built with them still runs, but Salesforce no longer fixes it or helps when it breaks. The week lists every one still active in your org, with what moving it to Flow involves."
           />
-          <div className="max-w-[64ch] lg:my-10">
+          <div className="max-w-[32em] lg:my-10">
             <h3 className="text-lg font-semibold text-oa-nightInk">Optimizer is retired</h3>
             <p className="mt-3 leading-relaxed text-oa-nightInk2">
               Salesforce retired Optimizer, the free app that scanned how an org was built, for Hyperforce
@@ -442,7 +442,7 @@ export default function SalesforceHealthCheck() {
           title="Signs your Salesforce org needs a health check"
           lede="Each one points to an area the week checks. Follow the tag to see what we look at."
         />
-        <ul className="mt-10 grid border-b border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-10 xl:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 border-b border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-10 xl:grid-cols-3">
           {SIGNS.map((s) => (
             <li key={s.text} className="flex flex-col justify-between gap-3 border-t border-oa-hairlineStrong py-5">
               <p className="max-w-[46ch] text-lg text-oa-ink">{s.text}</p>
@@ -465,7 +465,7 @@ export default function SalesforceHealthCheck() {
           lede="The same five areas every time, checked against how your team actually works, so nothing depends on what we happen to notice."
         />
         <PlateScope>
-          <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-24">
                 <Plate
@@ -530,14 +530,14 @@ export default function SalesforceHealthCheck() {
       {/* 10. Delivery behind the review (HC-10), with the practice lead
           beside it (HC-11, allowed wording only). */}
       <Section tone="paper" id="delivered">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-8">
             <DeliveredLedger title="Salesforce work behind the review" lead="lending" />
           </div>
           <aside className="border-t border-oa-hairlineStrong pt-6 lg:col-span-4 lg:mt-2 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
             <h3 className="text-lg font-semibold text-oa-ink">Who leads the work</h3>
             <PeopleStrip />
-            <p className="mt-4 max-w-[60ch] leading-relaxed text-oa-ink2">
+            <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
               You work directly with the certified people doing the review.
             </p>
           </aside>

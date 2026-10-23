@@ -46,7 +46,7 @@ import "./global.css";
   } catch (e) {}
 })();
 
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 // import { NotificationProvider } from "@/components/SimpleNotifications";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
@@ -349,9 +349,29 @@ const container = document.getElementById("root")!;
 // Check if root already exists on the container
 let root = (container as any)._reactRoot;
 
-if (!root) {
-  root = createRoot(container);
-  (container as any)._reactRoot = root;
-}
+/* PERF-1 / UX-1 (2026-10-23 fix round): a page that scripts/prerender.mjs wrote
+   with React's hydration markers (today: the /services/salesforce* routes; the
+   first child of #root is the <!--$--> that opens the <Suspense> boundary below)
+   is HYDRATED: React adopts the static DOM instead of replacing it. createRoot
+   threw the painted page away, showed the PageLoader spinner while the route's
+   lazy chunk loaded, then built the page again, so the LCP element was always
+   the React-made copy (mobile LCP 3.5-3.6s) and the page blinked white for
+   ~200ms. With the marker, React treats the Suspense boundary as already
+   rendered: while the chunk loads the static page stays on screen, and if
+   anything on the page does not match, React re-renders that boundary itself,
+   which is the old behaviour minus the spinner. Every other route still
+   createRoot()s its shell, unchanged. */
+const prerendered =
+  container.firstChild?.nodeType === Node.COMMENT_NODE && (container.firstChild as Comment).data === "$";
 
-root.render(<App />);
+if (!root) {
+  if (prerendered) {
+    root = hydrateRoot(container, <App />);
+  } else {
+    root = createRoot(container);
+    root.render(<App />);
+  }
+  (container as any)._reactRoot = root;
+} else {
+  root.render(<App />);
+}

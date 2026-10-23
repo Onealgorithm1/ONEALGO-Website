@@ -18,6 +18,7 @@ import {
   PlateScope,
   RouteBoard,
   SF_OBJECTIONS,
+  StickyToc,
   type SfFaq,
 } from "../../components/salesforce";
 import { SalesforceRecordCard } from "../../components/SalesforceRecordCard";
@@ -226,8 +227,8 @@ const SCENARIOS = [
 });
 
 const BLS = {
-  analysts: { median: 105850, url: "https://www.bls.gov/oes/2025/may/oes151211.htm" },
-  developers: { median: 135980, url: "https://www.bls.gov/oes/2025/may/oes151252.htm" },
+  analysts: { median: 105850, url: "https://data.bls.gov/oesprofile/?year=2025&major_group=150000&occupation=151211&measure=01&areas=INDUSTRY,STATE,MSA" },
+  developers: { median: 135980, url: "https://data.bls.gov/oesprofile/?year=2025&major_group=150000&occupation=151252&measure=01&areas=INDUSTRY,STATE,MSA" },
 };
 
 const FAQS: SfFaq[] = [
@@ -301,6 +302,9 @@ const TOC = [
   { id: "faq", label: "Questions" },
   { id: "start", label: "Your number" },
 ];
+/** The sticky bar's items: the Desk ("start") sits after the bar's sections. Module-level, so the
+ *  bar's observer is not rebuilt on every render. */
+const TOC_BAR = TOC.filter((t) => t.id !== "start");
 
 const DESCRIPTION =
   "Salesforce implementation cost in 2026: published ranges by company size, list prices and consultant rates. Free health check: (610) 890-9711.";
@@ -362,7 +366,7 @@ export default function SalesforceImplementationCost() {
           primaryImage: { url: IMAGE_1600, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       <PageHero
@@ -426,17 +430,19 @@ export default function SalesforceImplementationCost() {
         toc={TOC}
       />
 
+      {/* Fix round M9: the sticky "On this page" bar runs from the ranges to the end of the guide. */}
+      <StickyToc items={TOC_BAR}>
       {/* FIG. 1 + the four-source table. The first <figure> on the page:
           eager, static, no draw (spec §3). Not in the first section after the
           hero (AnswerBand is). */}
       <Section tone="surface" clip bordered id="ranges">
         <PlateScope>
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
             <SectionHeading
               title="Four published guides, side by side"
               lede="Implementation firms publish these ranges on their own sites. They differ at the edges because each guide prices a different project, so read the notes under each figure."
             />
-            <div className="max-w-[68ch] text-oa-ink2 lg:pt-2">
+            <div className="max-w-[34em] text-oa-ink2 lg:pt-2">
               <h3 className="text-lg font-semibold text-oa-ink">Where they agree</h3>
               <p className="mt-3">
                 All four top the small-business band at $50,000, and three start it at $15,000. For mid-market, two say
@@ -565,7 +571,7 @@ export default function SalesforceImplementationCost() {
               </>
             }
           />
-          <div className="mt-12 grid gap-12 xl:grid-cols-2 xl:items-start xl:gap-14">
+          <div className="mt-12 grid grid-cols-1 gap-12 xl:grid-cols-2 xl:items-start xl:gap-14">
             <div>
               <DataTable
                 label="Salesforce implementation cost by part of the work, Girikon"
@@ -577,7 +583,7 @@ export default function SalesforceImplementationCost() {
                 }))}
                 source={`Girikon, ${GIRIKON.when}; read ${MARKET_CHECKED}. Not a OneAlgorithm price.`}
               />
-              <p className="mt-8 max-w-[68ch] text-oa-ink2">
+              <p className="mt-8 max-w-[34em] text-oa-ink2">
                 <a href={FOLIO3.url} {...ext} className="oa-link">
                   Folio3
                 </a>{" "}
@@ -600,7 +606,7 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="paper" id="clouds">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
           <SectionHeading
             title="Cost by Salesforce cloud"
             lede={
@@ -612,7 +618,7 @@ export default function SalesforceImplementationCost() {
               </>
             }
           />
-          <p className="max-w-[68ch] text-oa-ink2 lg:pt-2">
+          <p className="max-w-[34em] text-oa-ink2 lg:pt-2">
             Each cloud is its own build: Service Cloud brings channels and case rules, Field Service brings scheduling
             and a mobile app, Commerce brings a storefront. Two clouds cost more than one, which is why the first step
             is deciding which ones you need.
@@ -631,7 +637,7 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="surface" id="licences">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading
               title="Salesforce's own prices, per user per month"
@@ -662,7 +668,7 @@ export default function SalesforceImplementationCost() {
 
         <div className="mt-16">
           <h3 className="text-h3 font-semibold text-oa-ink">A worked first year</h3>
-          <p className="mt-3 max-w-[68ch] text-oa-ink2">
+          <p className="mt-3 max-w-[34em] text-oa-ink2">
             Licences from the table above, plus the published implementation band for a company that size. Every input
             is already on this page.
           </p>
@@ -692,9 +698,9 @@ export default function SalesforceImplementationCost() {
               source="Small business: three of four guides (Cynoteck starts at $10,000). Mid-market: BrainSpate and American Chase. Before storage, AppExchange apps and anything Salesforce lists as available for purchase."
             />
           </div>
-          <p className="mt-8 max-w-[68ch] text-oa-ink2">
+          <p className="mt-8 max-w-[34em] text-oa-ink2">
             Want this worked out for your own org?{" "}
-            <a href={SF_PHONE.href} data-cta="table" className="oa-link font-mono">
+            <a href={SF_PHONE.href} data-cta="table" className="oa-link -my-2.5 inline-flex min-h-11 items-center font-mono">
               Call {SF_PHONE.display}
             </a>{" "}
             or{" "}
@@ -707,10 +713,10 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="paper" id="beyond-licences">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading title="Costs on a Salesforce bill that are not licences" />
-            <div className="mt-8 max-w-[68ch]">
+            <div className="mt-8 max-w-[34em]">
               <CheckList
                 items={[
                   "Premier Success Plan: included with Core, Advanced and Max, and available for purchase on Pro Suite. Standard Success comes with every licence; Signature is priced by your Salesforce account executive.",
@@ -737,7 +743,7 @@ export default function SalesforceImplementationCost() {
             />
             <div className="border-t border-oa-hairlineStrong pt-6">
               <h3 className="text-lg font-semibold text-oa-ink">Check what you already pay for</h3>
-              <p className="mt-3 max-w-[68ch] text-oa-ink2">
+              <p className="mt-3 max-w-[34em] text-oa-ink2">
                 In Setup, the Company Information page lists each user licence type with the total you pay for, how many
                 are assigned and how many remain. Set the assigned seats against the people who actually log in: seats
                 nobody uses are the first saving.
@@ -751,7 +757,7 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="surface" id="over-budget">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
               title="Why Salesforce projects go over budget, and how to keep the cost down"
@@ -828,9 +834,9 @@ export default function SalesforceImplementationCost() {
                 d: "Girikon's guide adds 10 to 20 percent of core and hidden costs as contingency. A line in the budget beats a change order mid-build.",
               },
             ].map((l) => (
-              <div key={l.t} className="grid gap-2 border-t border-oa-hairlineStrong py-6 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] sm:gap-8">
+              <div key={l.t} className="grid grid-cols-1 gap-2 border-t border-oa-hairlineStrong py-6 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] sm:gap-8">
                 <dt className="text-lg font-semibold text-oa-ink">{l.t}</dt>
-                <dd className="max-w-[68ch] text-oa-ink2">{l.d}</dd>
+                <dd className="max-w-[34em] text-oa-ink2">{l.d}</dd>
               </div>
             ))}
           </dl>
@@ -838,12 +844,12 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="paper" id="rates">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
           <SectionHeading
             title="What Salesforce consultants charge, and how you pay"
             lede="The rate depends on who does the work. These are published figures from two guides and the US Bureau of Labor Statistics, not OneAlgorithm rates."
           />
-          <p className="max-w-[68ch] text-oa-ink2 lg:pt-2">
+          <p className="max-w-[34em] text-oa-ink2 lg:pt-2">
             Compare written scopes, not hourly rates: the scope decides the hours.{" "}
             <Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">
               How to tell a Salesforce partner from a freelancer
@@ -912,7 +918,7 @@ export default function SalesforceImplementationCost() {
           />
         </div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <h3 className="text-h3 font-semibold text-oa-ink">How Salesforce projects are priced</h3>
             <dl className="mt-6">
@@ -930,7 +936,7 @@ export default function SalesforceImplementationCost() {
                   d: "A monthly fee for a set number of hours, common for maintenance work. Ascendix notes it can bring a lower hourly rate than a fixed project.",
                 },
               ].map((m) => (
-                <div key={m.t} className="grid gap-2 border-t border-oa-hairlineStrong py-5 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] sm:gap-8">
+                <div key={m.t} className="grid grid-cols-1 gap-2 border-t border-oa-hairlineStrong py-5 sm:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] sm:gap-8">
                   <dt className="font-semibold text-oa-ink">{m.t}</dt>
                   <dd className="text-oa-ink2">{m.d}</dd>
                 </div>
@@ -942,14 +948,14 @@ export default function SalesforceImplementationCost() {
             <dl className="mt-6">
               <div className="border-t border-oa-hairlineStrong py-5">
                 <dt className="font-semibold text-oa-ink">Project work</dt>
-                <dd className="mt-2 max-w-[68ch] text-oa-ink2">
+                <dd className="mt-2 max-w-[34em] text-oa-ink2">
                   A written scope first, then the work, then a handover. Fixes are scoped in writing before anything
                   starts.
                 </dd>
               </div>
               <div className="border-t border-oa-hairlineStrong py-5">
                 <dt className="font-semibold text-oa-ink">Ongoing work</dt>
-                <dd className="mt-2 max-w-[68ch] text-oa-ink2">
+                <dd className="mt-2 max-w-[34em] text-oa-ink2">
                   Weekly administration and development, with hours reported every week.{" "}
                   <Link className="oa-link" to={MS}>
                     Salesforce managed services
@@ -958,7 +964,7 @@ export default function SalesforceImplementationCost() {
               </div>
               <div className="border-t border-oa-hairlineStrong py-5">
                 <dt className="font-semibold text-oa-ink">Where to start</dt>
-                <dd className="mt-2 max-w-[68ch] text-oa-ink2">
+                <dd className="mt-2 max-w-[34em] text-oa-ink2">
                   The free one-week Salesforce health check: a licence count and a rough cost before anyone signs.{" "}
                   <Link className="oa-link" to={HC}>
                     What it covers
@@ -971,9 +977,9 @@ export default function SalesforceImplementationCost() {
       </Section>
 
       <Section tone="surface" compact id="industry">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-16">
           <h2 className="text-h3 font-semibold text-oa-ink">Regulated industries cost more to implement</h2>
-          <p className="max-w-[68ch] text-oa-ink2">
+          <p className="max-w-[34em] text-oa-ink2">
             <a href={FOLIO3.url} {...ext} className="oa-link">
               Folio3's guide
             </a>{" "}
@@ -989,20 +995,20 @@ export default function SalesforceImplementationCost() {
       {/* The one mid-page night band (spec §5 COST 12): the registry record
           beside the offer. Not adjacent to the hero or the Desk. */}
       <Section tone="night" grid id="real-figure">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
             <h2 className="text-h2 font-semibold text-oa-nightInk">How we get you a real figure</h2>
-            <p className="mt-6 max-w-[68ch] text-lede text-oa-nightInk2">
+            <p className="mt-6 max-w-[34em] text-lede text-oa-nightInk2">
               If you already own Salesforce, the free one-week health check reads your licences against real use, your
               data quality, what is still done by hand, who can see what, and which integrations fail quietly. You get a
               written list, ranked by what to fix first.
             </p>
-            <p className="mt-5 max-w-[68ch] text-oa-nightInk2">
+            <p className="mt-5 max-w-[34em] text-oa-nightInk2">
               If you are choosing Salesforce, we give you a licence count and a rough cost before you sign, and tell you
               when a smaller edition does the job.
             </p>
             {/* Allowed proof, verbatim from SF_PEOPLE (2026-10-23), with the Person schema. */}
-            <PeopleStrip tone="night" className="mt-8 max-w-[68ch] border-t border-white/10 pt-6 text-oa-nightInk2" />
+            <PeopleStrip tone="night" className="mt-8 max-w-[34em] border-t border-white/10 pt-6 text-oa-nightInk2" />
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <PrimaryCTA href="#start" cta="mid">
                 Book a free health check
@@ -1057,13 +1063,14 @@ export default function SalesforceImplementationCost() {
           }
         />
         <RouteBoard groups={["services"]} />
-        <p className="mt-10 max-w-[68ch] text-oa-ink2">
+        <p className="mt-10 max-w-[34em] text-oa-ink2">
           Buying for a Chester County business?{" "}
           <Link className="oa-link" to="/services/salesforce-consultant-chester-county">
             Which edition you need, and a licence count before you sign
           </Link>
         </p>
       </Section>
+      </StickyToc>
 
       <Desk
         heading="Get your number, not the market's"

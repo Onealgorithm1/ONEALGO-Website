@@ -331,7 +331,7 @@ export default function SalesforceConsultantPhiladelphia() {
           primaryImage: { url: IMAGE_1600, width: 1600, height: 900 },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema([ANSWER, ...FAQS])} />
 
       {/* 1. Hero (PHL-12: H1 carries "consultants"). The record card is the
@@ -413,14 +413,14 @@ export default function SalesforceConsultantPhiladelphia() {
           wording from SF_PEOPLE via PeopleStrip, with its Person schema
           (PHL-4: no photo exists). */}
       <Section tone="paper" id="delivered">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-8">
             <DeliveredLedger title="Salesforce work we have delivered" lead="lending" />
           </div>
           <aside className="border-t border-oa-hairlineStrong pt-6 lg:col-span-4 lg:mt-2 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
             <h3 className="text-lg font-semibold text-oa-ink">Who leads the work</h3>
             <PeopleStrip providerId="https://onealgorithm.com/#localbusiness" />
-            <p className="mt-4 max-w-[60ch] leading-relaxed text-oa-ink2">
+            <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
               You work directly with the certified people doing the work, from the first call to the last fix.
             </p>
             <div className="mt-7 flex flex-col items-start gap-3">
@@ -439,14 +439,14 @@ export default function SalesforceConsultantPhiladelphia() {
           page's first <figure>: eager and static. Rows are wired to the map. */}
       <Section tone="night" grid clip id="office">
         <PlateScope>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
             <div className="lg:col-span-5">
               <SectionHeading
                 tone="dark"
                 title="Our office is in Malvern, 25 miles west of Center City"
                 lede="Salesforce work happens inside your org, so it runs remotely from the first day of the health check, with the people doing the work."
               />
-              <p className="mt-6 max-w-[60ch] leading-relaxed text-oa-nightInk2">
+              <p className="mt-6 max-w-[30em] leading-relaxed text-oa-nightInk2">
                 We work with companies across Philadelphia, Montgomery, Delaware, Bucks and Chester counties,
                 northern Delaware and South Jersey.
               </p>
@@ -483,7 +483,7 @@ export default function SalesforceConsultantPhiladelphia() {
             lede="Figures from LinkedIn, the US Census Bureau and the Bureau of Labor Statistics, each linked to its source and dated."
           />
 
-          <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
+          <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
             <div className="lg:col-span-7">
               <Plate
                 spec={PLATES["philadelphia-salesforce-roles"]}
@@ -494,7 +494,7 @@ export default function SalesforceConsultantPhiladelphia() {
             </div>
             <div className="lg:col-span-5">
               <h3 className="text-h3 font-semibold text-oa-ink">Every employer here is hiring the same people</h3>
-              <p className="mt-4 max-w-[60ch] leading-relaxed text-oa-ink2">
+              <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
                 On {PULLED}, LinkedIn showed {n(roleCount("Consultant"))} Salesforce consultant openings within 25 miles of
                 Philadelphia, {n(roleCount("Administrator"))} for administrators, {n(roleCount("Architect"))} for architects and{" "}
                 {n(roleCount("Developer"))} for developers. For a migration, an integration or an org clean-up, a partner covers
@@ -503,7 +503,7 @@ export default function SalesforceConsultantPhiladelphia() {
               <ul className="mt-6 border-b border-oa-hairline">
                 {ROLES.map((j) => (
                   <WiredRow key={j.role} k={roleKey(j.role)} as="li" className="flex items-baseline justify-between gap-4 border-t border-oa-hairline px-2 py-2.5">
-                    <a className="oa-link inline-flex min-h-8 items-center text-sm" href={j.url} target="_blank" rel="noopener noreferrer">
+                    <a className="oa-link inline-flex min-h-11 items-center text-sm" href={j.url} target="_blank" rel="noopener noreferrer">
                       {j.role} search ↗
                     </a>
                     <span className="font-mono text-sm tabular-nums text-oa-ink">{n(j.count)}</span>
@@ -513,10 +513,10 @@ export default function SalesforceConsultantPhiladelphia() {
             </div>
           </div>
 
-          <div className="mt-20 grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
+          <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
             <div className="lg:col-span-5">
               <h3 className="text-h3 font-semibold text-oa-ink">Where Salesforce fits Philadelphia's largest employers</h3>
-              <p className="mt-4 max-w-[60ch] leading-relaxed text-oa-ink2">
+              <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
                 The metro's four largest employer groups by employees, and the Salesforce work each one usually needs.
               </p>
               <ul className="mt-6 border-b border-oa-hairline">
@@ -526,7 +526,7 @@ export default function SalesforceConsultantPhiladelphia() {
                     <p className="mt-1 font-mono text-xs tabular-nums text-oa-ink3">
                       {n(i.employees)} employees · {n(i.establishments)} establishments
                     </p>
-                    {FIT[i.code] && <p className="mt-2 max-w-[60ch] text-sm leading-relaxed text-oa-ink2">{FIT[i.code]}</p>}
+                    {FIT[i.code] && <p className="mt-2 max-w-[30em] text-sm leading-relaxed text-oa-ink2">{FIT[i.code]}</p>}
                   </WiredRow>
                 ))}
               </ul>

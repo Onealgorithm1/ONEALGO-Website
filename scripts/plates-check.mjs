@@ -107,6 +107,14 @@ for (const f of ['client/components/site.tsx', 'client/components/Layout.tsx', '
   if (/^import[^\n]*from\s*["'][^"']*data\/plates\/(?!types["'])/m.test(src)) fail(`${f} imports generated plate data; import it from the page instead`)
 }
 
+// 7. The named lead's certification claim does not go stale silently (fix round FV-05).
+const proof = fs.readFileSync(path.join(root, 'client/data/salesforceProof.ts'), 'utf8')
+const recheck = proof.match(/SF_PEOPLE_RECHECK_BY = "(\d{4}-\d{2}-\d{2})"/)?.[1]
+const today = new Date().toISOString().slice(0, 10)
+if (!recheck) fail('client/data/salesforceProof.ts: SF_PEOPLE_RECHECK_BY not found')
+else if (today >= recheck)
+  fail(`SF_PEOPLE_RECHECK_BY ${recheck} has passed: re-read https://www.salesforce.com/trailblazer/samirisetti; if the certifications are still active, set the next maintenance due date, otherwise fix SF_PEOPLE's sentence`)
+
 if (fails.length) {
   console.error(`plates-check: ${fails.length} failure(s)\n  ` + fails.join('\n  '))
   process.exit(1)

@@ -8,7 +8,6 @@ export interface CompanyConfig {
   logo: string;
   description: string;
   certifications?: string[];
-  qualityStandards?: string;
   address: {
     street: string;
     streetUnit: string;
@@ -20,8 +19,6 @@ export interface CompanyConfig {
   contact: {
     phonePrimary: string;
     emailPrimary: string;
-    phoneAlt?: string;
-    emailAlt?: string;
   };
   identifiers: {
     cage: string;
@@ -50,7 +47,6 @@ export interface CompanyConfig {
   social: {
     linkedin: string;
     facebook: string;
-    x: string;
     instagram: string;
     youtube: string;
     tiktok: string;
@@ -64,12 +60,13 @@ export const siteConfig: CompanyConfig = {
   name: "OneAlgorithm",
   gbpName: "OneAlgorithm Consulting",
   legalName: "ONE ALGORITHM LLC",
-  url: "https://www.onealgorithm.com",
+  url: "https://onealgorithm.com",
   logo: "https://onealgorithm.com/media/oa-logo.webp",
+  /* Same wording as the Organization description in index.html (2026-10-23 fix round: the old
+   * federal-flavoured text carried claims the site no longer makes). */
   description:
-    "Founded in 2020, One Algorithm LLC is a woman- and minority-owned small business providing secure cloud modernization, Salesforce platform engineering, AI-driven automation, cybersecurity compliance, and accessibility solutions for commercial clients, and is certified and registered to serve federal, state and local government buyers. Headquartered in Malvern, Pennsylvania, One Algorithm delivers agile, compliant, and cost-effective IT services.",
+    "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and a listed Salesforce Consulting Partner delivering Salesforce, Oracle ERP, integration and staff augmentation nationally.",
   certifications: [],
-  qualityStandards: "ISO 9001–Compliant Quality Management System",
   address: {
     street: "625 Swedesford Rd",
     streetUnit: "Unit B",
@@ -81,8 +78,6 @@ export const siteConfig: CompanyConfig = {
   contact: {
     phonePrimary: "1 (610) 890-9711",
     emailPrimary: "service@onealgorithm.com",
-    phoneAlt: "(832) 434-9891",
-    emailAlt: "samirisetti@onealgorithm.com",
   },
   identifiers: {
     cage: "14G18",
@@ -200,7 +195,7 @@ export const siteConfig: CompanyConfig = {
   social: {
     linkedin: "https://www.linkedin.com/company/onealgorithmllc",
     facebook: "https://www.facebook.com/people/One-Algorithm/61578073689046/",
-    x: "https://x.com/onealgorithm",
+    /* No X account: x.com/onealgorithm belongs to someone else (read live 2026-10-23). */
     instagram: "https://www.instagram.com/onealgorithm",
     youtube: "https://youtube.com/@onealgorithm",
     tiktok: "https://www.tiktok.com/@one.algorithm",

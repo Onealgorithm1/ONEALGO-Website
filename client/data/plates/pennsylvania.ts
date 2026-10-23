@@ -6,13 +6,13 @@ import type { PlateSpec, ShotSpec } from "./types";
 export const PLATES = {
   "how-to-check-a-salesforce-partner": {
     "id": "how-to-check-a-salesforce-partner",
-    "alt": "Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, read its tier, read the competency row for the product you are buying, and count its certified people, certifications and customer ratings.",
+    "alt": "Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, count its certified people and certifications, read the competency row for the product you are buying, and check who will do the work on their Trailblazer profiles.",
     "src": "/media/salesforce/how-to-check-a-salesforce-partner.svg",
     "w": 1136,
     "h": 315,
     "mSrc": "/media/salesforce/how-to-check-a-salesforce-partner-m.svg",
     "mw": 640,
-    "mh": 1463,
+    "mh": 1351,
     "traces": [
       {
         "k": "c2",

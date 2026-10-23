@@ -10,6 +10,7 @@ import {
   Section,
   SectionHeading,
   normalisePath,
+  FRAME,
 } from "./site";
 import {
   SF_APPEXCHANGE_URL,
@@ -143,18 +144,20 @@ export function WiredRow({
   );
 }
 
-/** The two-cell mono provenance stamp on the frame's bottom edge. */
+/** The two-cell mono provenance stamp on the frame's bottom edge. Below sm the
+ *  halves stack: a long right label (Philadelphia's map credit) squeezed the
+ *  left one to a word per line and overlapped it at 390px (fix round M1). */
 function Stamp({ fig, stamp, night }: { fig: number; stamp: [string, string]; night: boolean }) {
   return (
     <div
-      className={`grid grid-cols-[minmax(0,1fr)_auto] border-t border-[var(--line)] font-mono text-[11px] uppercase leading-4 tracking-[0.14em] ${
+      className={`grid grid-cols-1 border-t border-[var(--line)] font-mono text-[11px] uppercase leading-4 tracking-[0.14em] sm:grid-cols-[minmax(0,1fr)_auto] ${
         night ? "text-oa-nightInk3" : "text-oa-ink3"
       }`}
     >
       <span className="px-3 py-2">
         FIG. {fig} · {stamp[0]}
       </span>
-      <span className="border-l border-[var(--line)] px-3 py-2">{stamp[1]}</span>
+      <span className="border-t border-[var(--line)] px-3 py-2 sm:border-l sm:border-t-0">{stamp[1]}</span>
     </div>
   );
 }
@@ -171,7 +174,7 @@ function Stamp({ fig, stamp, night }: { fig: number; stamp: [string, string]; ni
  * `first` = the first <figure> on the page: eager, static, no draw, no sweep.
  * Below 1024px the `-m` file (wires baked in the signal colour) is shown and
  * there is no overlay. The stamp is the honesty mechanism: say what the image
- * is and where it came from, e.g. "TYPICAL … PATTERN, NOT A CLIENT BUILD".
+ * is and where it came from, e.g. "TYPICAL … PATTERN, ILLUSTRATIVE" (say what it is, not what it is not).
  */
 export function Plate({
   spec,
@@ -194,7 +197,14 @@ export function Plate({
   const keys = [...spec.traces.map((t) => t.k), ...spec.nodes.map((n) => n.k)];
   const night = tone === "night";
   return (
-    <figure id={`fig-${spec.id}`} className="plate" data-tone={tone} {...(first ? {} : { "data-draw": "" })}>
+    /* sm-lg: the phone drawing (640 wide, 26px labels) is capped at 560px. At 768-1023 it
+       stretched to ~720px and its labels rendered larger than the H2s (fix round M6). */
+    <figure
+      id={`fig-${spec.id}`}
+      className="plate sm:mx-auto sm:max-w-[560px] lg:mx-0 lg:max-w-none"
+      data-tone={tone}
+      {...(first ? {} : { "data-draw": "" })}
+    >
       <div className="plate-frame">
         <div className="sweep relative" {...(first ? {} : { "data-sweep": "mobile" })}>
           <picture>
@@ -258,7 +268,7 @@ export function Plate({
           ))}
         </ul>
       )}
-      <figcaption className={`mt-3 text-sm ${night ? "text-oa-nightInk2" : "text-oa-ink2"}`}>{caption}</figcaption>
+      <figcaption className={`mt-3 max-w-[40rem] text-sm ${night ? "text-oa-nightInk2" : "text-oa-ink2"}`}>{caption}</figcaption>
     </figure>
   );
 }
@@ -395,6 +405,52 @@ export function JumpList({ items }: { items: { id: string; label: string }[] }) 
 }
 
 /**
+ * Sticky "On this page" bar for the long cost guide only (wide-layout addendum
+ * rule 2, fix round M9). xl and up, pinned under the site header while the
+ * wrapped sections are on screen; the section in view is marked. Below xl the
+ * AnswerBand's JumpList is the only TOC.
+ *   <StickyToc items={TOC}>…the sections it covers…</StickyToc>
+ * ponytail: a horizontal bar rather than a side rail, because every Section is
+ * a full-bleed band with its own frame; a rail would mean re-framing all ten.
+ */
+export function StickyToc({ items, children }: { items: { id: string; label: string }[]; children: React.ReactNode }) {
+  const [current, setCurrent] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    const els = items.map((t) => document.getElementById(t.id)).filter((el): el is HTMLElement => Boolean(el));
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setCurrent(e.target.id);
+      },
+      { rootMargin: "-130px 0px -65% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [items]);
+  return (
+    <div>
+      <nav aria-label="On this page" className="sticky top-16 z-40 hidden border-b border-oa-hairline bg-white/95 backdrop-blur xl:block">
+        <div className={`mx-auto ${FRAME.wide}`}>
+          <ol className="flex gap-x-5 overflow-x-auto whitespace-nowrap font-mono text-xs">
+            {items.map((t) => (
+              <li key={t.id}>
+                <a
+                  href={`#${t.id}`}
+                  aria-current={current === t.id ? "location" : undefined}
+                  className="inline-flex min-h-11 items-center border-b-2 border-transparent text-oa-ink2 transition-colors hover:text-oa-ink aria-[current=location]:border-oa-blue aria-[current=location]:text-oa-ink"
+                >
+                  {t.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </nav>
+      {children}
+    </div>
+  );
+}
+
+/**
  * The 40–60-word answer that sits right under the hero (no motion).
  *
  *   <AnswerBand question="What is a Salesforce health check?"
@@ -420,17 +476,20 @@ export function AnswerBand({
   toc?: { id: string; label: string }[];
   children?: React.ReactNode;
 }) {
-  /* Wide-layout addendum: the answer keeps its 68ch measure, and at xl the
-     record line and jump list move into a right-hand column instead of
-     stacking under it (one change here fixes every page's empty right half). */
-  const side = Boolean(children || toc);
+  /* Wide-layout addendum + fix round M3: at xl the question and answer hold
+     the left half at a ~72-character measure, and the three leads, the record
+     line and the jump list fill the right half. With only the jump list on the
+     right, 59-81% of it sat empty under every hero (and the PA page, with no
+     toc, had no right column at all). Phone order is unchanged. */
   return (
     <Section tone="paper" compact id="answer" width="wide">
-      <div className={side ? "xl:grid xl:grid-cols-[minmax(0,68ch)_minmax(0,1fr)] xl:gap-16" : ""}>
-        <div className="max-w-[68ch]">
-          <h2 className="text-h2 font-semibold text-oa-ink">{question}</h2>
-          <p className="mt-5 text-lede font-medium text-oa-ink">{answer}</p>
-          <dl className="mt-6 space-y-3 text-oa-ink2">
+      <div className="xl:grid xl:grid-cols-2 xl:gap-16">
+        <div>
+          <h2 className="max-w-[34em] text-h2 font-semibold text-oa-ink">{question}</h2>
+          <p className="mt-5 max-w-[34em] text-lede font-medium text-oa-ink">{answer}</p>
+        </div>
+        <div className="xl:border-l xl:border-oa-hairline xl:pl-12 xl:[&>nav:first-child]:mt-0">
+          <dl className="mt-6 max-w-[34em] space-y-3 text-oa-ink2 xl:mt-1">
             {leads.map((l) => (
               <div key={l.label}>
                 <dt className="inline font-semibold text-oa-ink">{l.label}: </dt>
@@ -438,13 +497,9 @@ export function AnswerBand({
               </div>
             ))}
           </dl>
+          {children && <div className="mt-8">{children}</div>}
+          {toc && <JumpList items={toc} />}
         </div>
-        {side && (
-          <div className="xl:border-l xl:border-oa-hairline xl:pl-12 xl:[&>nav:first-child]:mt-0">
-            {children && <div className="mt-8 xl:mt-1">{children}</div>}
-            {toc && <JumpList items={toc} />}
-          </div>
-        )}
       </div>
     </Section>
   );
@@ -455,7 +510,7 @@ export function AnswerBand({
 /**
  * The four approved delivery facts, as ruled rows. The row for the current
  * page is plain text; the rest link to their service page.
- *   <DeliveredLedger title="Salesforce work we have delivered (clients unnamed)" lead="lowcode" />
+ *   <DeliveredLedger title="Salesforce work we have delivered" lead="lowcode" />
  * Wrap in a Section yourself (it is content, not a band).
  */
 export function DeliveredLedger({ title, lead, lede }: { title: string; lead?: SfDeliveredId; lede?: React.ReactNode }) {
@@ -464,7 +519,7 @@ export function DeliveredLedger({ title, lead, lede }: { title: string; lead?: S
   /* No default lede: the old fixed line ("We do not name clients, and we will
      not invent case studies") announced an absence, which the voice addendum
      (rule 4) bans. Honesty is kept by the rows themselves: approved wording
-     only, every client unnamed (the tags say so). */
+     only, no client named anywhere. */
   return (
     <>
       <SectionHeading title={title} lede={lede} />
@@ -542,7 +597,7 @@ export function DataTable({
         role="region"
         aria-label={label}
         tabIndex={0}
-        className="-mx-4 overflow-x-auto px-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-oa-blue sm:mx-0 sm:px-0"
+        className="-mx-4 min-w-0 overflow-x-auto px-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-oa-blue sm:mx-0 sm:px-0"
       >
         {/* Two columns fit a phone; only wider tables need the scroll floor. */}
         <table className={`w-full ${head.length > 2 ? "min-w-[34rem]" : ""} border-collapse text-left text-sm`}>
@@ -604,7 +659,7 @@ export function DataTable({
           </tbody>
         </table>
       </div>
-      <p className="mt-3 font-mono text-xs text-oa-ink3">{source}</p>
+      <p className="mt-3 max-w-[90ch] font-mono text-xs text-oa-ink3">{source}</p>
     </>
   );
 }
@@ -636,13 +691,13 @@ export function DocNote({
 }) {
   const d = tone === "dark";
   return (
-    <div className={`my-10 max-w-[64ch] border-l-2 pl-5 ${d ? "border-oa-orange" : "border-oa-blue"}`}>
+    <div className={`my-10 max-w-[32em] border-l-2 pl-5 ${d ? "border-oa-orange" : "border-oa-blue"}`}>
       <p className={`font-mono text-[11px] uppercase tracking-[0.14em] ${d ? "text-oa-nightInk3" : "text-oa-ink3"}`}>
         From Salesforce's documentation
       </p>
       <p className={`mt-2 text-lg ${d ? "text-oa-nightInk" : "text-oa-ink"}`}>{said}</p>
       <p className={`mt-2 font-mono text-xs ${d ? "text-oa-nightInk3" : "text-oa-ink3"}`}>
-        <a className="oa-link" href={url} target="_blank" rel="noopener noreferrer">
+        <a className="oa-link inline-flex min-h-11 items-center" href={url} target="_blank" rel="noopener noreferrer">
           {title} ↗
         </a>{" "}
         · read {readOn}
@@ -699,10 +754,10 @@ export function Objections({
         {items.map((o) => (
           <div
             key={o.q}
-            className="grid gap-3 border-t border-oa-hairlineStrong py-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12"
+            className="grid grid-cols-1 gap-3 border-t border-oa-hairlineStrong py-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12"
           >
             <dt className="text-lg font-semibold text-oa-ink">{o.q}</dt>
-            <dd className="max-w-[68ch] text-oa-ink2">
+            <dd className="max-w-[34em] text-oa-ink2">
               {o.a}
               {o.checked && (
                 <span className="mt-2 block font-mono text-xs text-oa-ink3">
@@ -741,24 +796,42 @@ export function FAQList({
   faqs: readonly SfFaq[];
   sources?: { checked: string; links: { label: string; href: string }[] };
 }) {
+  /* Fix round M7: on a phone each answer is a native <details> drop-down (the
+     pages ran to 23-29k px at 390). From md up every row is opened by script,
+     the pattern Layout's FooterSection uses, so desktop reads as before. The
+     answer text is in the DOM either way, so FAQPage and crawlers see it all. */
+  const box = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => box.current?.querySelectorAll("details").forEach((d) => (d.open = mq.matches));
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
   return (
     <>
-      <div className="mt-10 space-y-7">
+      <div ref={box} className="mt-10 space-y-5 md:space-y-7">
         {faqs.map((f) => (
-          <div
+          <details
             key={f.q}
-            className="grid gap-3 border-t border-oa-hairlineStrong pt-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
+            className="group border-t border-oa-hairlineStrong pt-5 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-3 md:pt-7"
           >
-            <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
-            <div>
-              <p className="max-w-[68ch] text-oa-ink2">{f.a}</p>
+            <summary className="flex min-h-11 cursor-pointer list-none items-start justify-between gap-4 md:pointer-events-none md:cursor-auto [&::-webkit-details-marker]:hidden">
+              <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
+              <span aria-hidden="true" className="mt-0.5 font-mono text-lg leading-none text-oa-ink3 md:hidden">
+                <span className="group-open:hidden">+</span>
+                <span className="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <div className="pb-2 pt-3 md:pb-0 md:pt-0">
+              <p className="max-w-[34em] text-oa-ink2">{f.a}</p>
               {f.link && (
-                <Link className="oa-link mt-2 inline-block" to={f.link.to}>
+                <Link className="oa-link mt-1 inline-flex min-h-11 items-center" to={f.link.to}>
                   {f.link.label}
                 </Link>
               )}
             </div>
-          </div>
+          </details>
         ))}
       </div>
       {sources && sources.links.length > 0 && (
@@ -767,7 +840,7 @@ export function FAQList({
           <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
             {sources.links.map((l) => (
               <li key={l.href}>
-                <a className="oa-link inline-flex min-h-8 items-center" href={l.href} target="_blank" rel="noopener noreferrer">
+                <a className="oa-link inline-flex min-h-11 items-center" href={l.href} target="_blank" rel="noopener noreferrer">
                   {l.label} ↗
                 </a>
               </li>
@@ -1046,7 +1119,7 @@ export function LeadForm({
           </p>
           <p className="mt-4 text-sm text-oa-ink2">
             Prefer to talk?{" "}
-            <a data-cta="desk-sent" className="oa-link font-mono" href={SF_PHONE.href}>
+            <a data-cta="desk-sent" className="oa-link -my-2.5 inline-flex min-h-11 items-center font-mono" href={SF_PHONE.href}>
               {SF_PHONE.display}
             </a>
           </p>
@@ -1089,11 +1162,11 @@ export function LeadForm({
                 </ul>
               </div>
             )}
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <TextField id={fid("firstName")} label="First name" autoComplete="given-name" value={v.firstName} onChange={change("firstName")} error={errors.firstName} required />
               <TextField id={fid("lastName")} label="Last name" autoComplete="family-name" value={v.lastName} onChange={change("lastName")} error={errors.lastName} required />
             </div>
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
               <TextField id={fid("email")} label="Work email" type="email" autoComplete="email" value={v.email} onChange={change("email")} error={errors.email} required />
               <TextField id={fid("phone")} label="Phone (optional, we will call rather than email)" type="tel" autoComplete="tel" value={v.phone} onChange={change("phone")} />
             </div>
@@ -1128,7 +1201,7 @@ export function LeadForm({
             </button>
             <p className="mt-4 text-sm text-oa-ink2">
               Prefer to talk?{" "}
-              <a data-cta="desk-form" className="oa-link font-mono" href={SF_PHONE.href}>
+              <a data-cta="desk-form" className="oa-link -my-2.5 inline-flex min-h-11 items-center font-mono" href={SF_PHONE.href}>
                 {SF_PHONE.display}
               </a>
             </p>
@@ -1193,7 +1266,7 @@ export function CTAProof({ tone = "dark", className = "" }: { tone?: "light" | "
     >
       Listed Salesforce Consulting Partner · {SF_CERTIFIED_PEOPLE} certified people · {SF_CERTIFICATIONS} certifications (
       {SF_PLATFORM_CERTS} Platform) · read {SF_VERIFIED_LABEL} ·{" "}
-      <a className="oa-link -my-2.5 inline-block py-2.5" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
+      <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
         Verify listing {SF_LISTING_ID} ↗
       </a>
     </p>
@@ -1240,7 +1313,7 @@ export function Desk({
 }) {
   return (
     <Section tone="night" grid id="start" width="wide">
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14">
         <div className="lg:col-start-1 lg:row-start-1">
           <h2 className="text-h2 font-semibold text-oa-nightInk">{heading}</h2>
           <p className="mt-5 text-lede text-oa-nightInk2">{body}</p>
@@ -1248,7 +1321,7 @@ export function Desk({
           <a
             href={SF_PHONE.href}
             data-cta="desk"
-            className="phone-xl mt-1 inline-block font-mono text-[clamp(28px,4vw,40px)] leading-tight tabular-nums text-oa-nightInk"
+            className="phone-xl mt-1 inline-flex min-h-11 items-center font-mono text-[clamp(28px,4vw,40px)] leading-tight tabular-nums text-oa-nightInk"
           >
             {SF_PHONE.display}
           </a>
@@ -1339,16 +1412,14 @@ export function PeopleStrip({
   tone = "light",
   className,
   lead,
-  extra,
 }: {
   providerId?: string;
   tone?: "light" | "night";
   /** Classes for the statement paragraph (spacing, size, colour). */
   className?: string;
-  /** Page text placed before the approved sentence. */
+  /** Page text placed before the approved sentence. Nothing goes after it: the sentence is the
+   *  only thing said about the person (fix round FV-04; the `extra` prop was removed). */
   lead?: React.ReactNode;
-  /** Page text placed after it (only verified facts, e.g. a named certification). */
-  extra?: React.ReactNode;
 }) {
   if (!SF_PEOPLE.length) return null;
   const graph = SF_PEOPLE.map((p) => ({
@@ -1366,10 +1437,9 @@ export function PeopleStrip({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
       {SF_PEOPLE.map((p) => (
         <React.Fragment key={p.name}>
-          <p className={className ?? `mt-3 max-w-[60ch] leading-relaxed ${ink}`}>
+          <p className={className ?? `mt-3 max-w-[30em] leading-relaxed ${ink}`}>
             {lead}
             {p.statement}
-            {extra}
           </p>
           <p className="mt-2 flex flex-wrap gap-x-6 text-sm">
             <a className="oa-link inline-flex min-h-11 items-center" href={p.trailhead} target="_blank" rel="noopener noreferrer">

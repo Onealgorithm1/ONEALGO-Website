@@ -94,8 +94,8 @@ export const CITY_COPY: Record<string, CityCopy> = {
     related: ["houston", "austin"],
   },
   denver: {
-    title: "Salesforce Consulting Denver, CO | Implementation Partner",
-    description: `Salesforce implementation partner for Denver companies: setup, migration, integration, support. Free one-week health check. ${PHONE}.`,
+    title: "Salesforce Consulting & Implementation Denver | OneAlgorithm",
+    description: `Salesforce implementation and consulting for Denver companies: setup, migration, integration, support. Free one-week health check. ${PHONE}.`,
     h1: { lead: "Salesforce consultants for ", place: "Denver, CO", tail: " companies" },
     angleTitle: "A Colorado market with federal and private demand",
     angle: [
@@ -167,7 +167,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     h1: { lead: "Salesforce consultants for ", place: "San Francisco, CA", tail: " companies" },
     angleTitle: "Salesforce's home market",
     angle: [
-      "Salesforce is headquartered at 50 Fremont Street, and the Bay Area has more Salesforce offices than any other metro we checked. Health care, professional services and information businesses are among its largest employer groups.",
+      "Salesforce is headquartered at Salesforce Tower, 415 Mission Street, and the Bay Area has more Salesforce offices than any other metro we checked. Health care, professional services and information businesses are among its largest employer groups.",
       "In a market this close to the platform, buyers know what Salesforce can do. What they need is a partner who delivers a defined piece of work and leaves behind an org their own team can run, anywhere from San Francisco and Oakland to Fremont.",
       "The Bay Area also has one of the larger pools of Salesforce job listings we measured, which makes experienced Salesforce people expensive to hire and hard to keep.",
     ],
@@ -248,13 +248,16 @@ export const CITY_COPY: Record<string, CityCopy> = {
     related: ["denver"],
   },
   houston: {
-    title: "Salesforce Consulting Company in Houston, TX | OneAlgorithm",
-    description: `Salesforce consulting for Houston companies: ERP and SAP integration, migration, support. Free one-week health check. ${PHONE}.`,
+    /* page-map-final-plan.md §3 (Houston): title exactly as planned, never "Company in Houston"
+     * (implies an office); no ERP/SAP lead (Dallas's angle); Census mix as context only, with no
+     * industry tied to our work. */
+    title: "Salesforce Consultant Houston, TX | OneAlgorithm",
+    description: `Salesforce consulting for Houston companies: data migration, org merges and weekly support. Free one-week health check. ${PHONE}.`,
     h1: { lead: "Salesforce consultants for ", place: "Houston, TX", tail: " companies" },
-    angleTitle: "Plants, pipelines and the systems behind them",
+    angleTitle: "A large, mixed economy, served remotely",
     angle: [
-      "Houston's economy runs on plants, pipelines and the suppliers around them. Manufacturing and wholesale trade are two of its four largest employer groups, and the Census counts 1,258 oil and gas extraction establishments in the metro (County Business Patterns 2023).",
-      "Companies like these run an ERP for orders, inventory and pricing, and Salesforce for customers and the sales pipeline. Keeping the two in agreement is integration work we deliver, including an [SAP-to-Salesforce sync](/services/salesforce-integration).",
+      "Health care, professional services, manufacturing and wholesale trade are Houston's four largest employer groups in the Census count, and Salesforce hiring there spans all four roles we searched: consultants, administrators, architects and developers.",
+      "Companies that grow by acquisition often end up with two Salesforce orgs, or with customer records still sitting in an older system. We [migrate and merge that data](/services/salesforce-data-migration) with record counts reconciled before go-live, then keep the org running with [weekly administration and development](/services/salesforce-managed-services).",
       "Salesforce lists no Houston office (the nearest are in Austin and Dallas), and the local community meets in Houston's Trailblazer groups. We run Houston work remotely from Malvern, Pennsylvania, one time zone east.",
     ],
     faqs: [

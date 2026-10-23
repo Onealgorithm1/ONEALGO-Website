@@ -10,7 +10,7 @@
 //   October"). The phone file drops the month ticks and keeps the order, so
 //   no position there implies a date; each box carries its own date tag.
 // HC-F2 (light): the five areas the week covers feed one written list.
-//   ⛔ The six bars carry an area tag only: no finding, figure or severity is
+//   ⛔ The five bars carry an area tag only: no finding, figure or severity is
 //   invented. Equal bar widths on purpose (a width would read as a measurement).
 import { box, wire, text, shape, column, round, TYPE } from './_lib.mjs'
 
@@ -81,8 +81,9 @@ const AREAS = [
   { k: 'int', t: 'Integrations' },
 ]
 const LIST_TITLE = 'A written list, ranked by what to fix first'
-// Area tags only (see the ⛔ at the top). Six rows, five areas: one repeats.
-const BARS = ['AUTOMATION', 'DATA', 'PERMISSIONS', 'LICENCES', 'INTEGRATIONS', 'DATA']
+// Area tags only (see the ⛔ at the top). One row per area: the old sixth row repeated DATA under a
+// "five areas" caption and read as an error (fix round M5).
+const BARS = ['AUTOMATION', 'DATA', 'PERMISSIONS', 'LICENCES', 'INTEGRATIONS']
 
 /** The document: frame, wrapped title, numbered bars. Shapes, not a box(),
  *  because node rects are drawn after shapes and would paint over the bars. */

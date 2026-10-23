@@ -15,9 +15,10 @@ import { box, wire, column, TYPE } from './_lib.mjs'
 
 const CHECKS = [
   { k: 'c1', n: 'CHECK 01', title: 'Find the firm in Partner Finder', lines: ['AppExchange Partner Finder, the Consultants section of AppExchange', 'Search the firm’s name and open its listing'] },
-  { k: 'c2', n: 'CHECK 02', title: 'Read the tier', lines: ['Select or Summit, the two tiers in Salesforce’s current partner program', 'Base, Ridge and Crest are retired names'] },
-  { k: 'c3', n: 'CHECK 03', title: 'Read the competency row', lines: ['The row for the product you are buying', 'Accredited or Expert, earned with certifications, projects and customer satisfaction'] },
-  { k: 'c4', n: 'CHECK 04', title: 'Count people, certifications, ratings', lines: ['Salesforce certifies people, not companies', 'Ask who on the listing will work on your org'] },
+  // 2026-10-23 fix round (FV-13): the checks follow what every listing shows; no tier or ratings prompt.
+  { k: 'c2', n: 'CHECK 02', title: 'Count people and certifications', lines: ['Salesforce certifies people, not companies', 'Salesforce keeps the counts, not the firm'] },
+  { k: 'c3', n: 'CHECK 03', title: 'Read the competency row', lines: ['The row for the product you are buying', 'Not the firm’s overall total'] },
+  { k: 'c4', n: 'CHECK 04', title: 'Check who will do the work', lines: ['Ask who on the listing will work on your org', 'Their Trailblazer profile shows active certifications'] },
 ]
 
 const linesFor = (c, t) => [
@@ -48,7 +49,7 @@ export default [
   {
     id: 'how-to-check-a-salesforce-partner',
     title: 'How to check any Salesforce partner',
-    alt: 'Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, read its tier, read the competency row for the product you are buying, and count its certified people, certifications and customer ratings.',
+    alt: 'Diagram of four checks for any Salesforce partner: find the firm in AppExchange Partner Finder, count its certified people and certifications, read the competency row for the product you are buying, and check who will do the work on their Trailblazer profiles.',
     tone: 'light',
     og: 'og-salesforce-partner-pennsylvania',
     desktop: desktop(),

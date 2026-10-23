@@ -7,7 +7,11 @@
  * (BLS OEWS May 2025: 15-1211 computer systems analysts, 15-1252 software developers; a PROXY,
  * Salesforce roles have no SOC code) and `community` (Trailblazer Community Groups within 50 km
  * with an event since 2025-10-23; supersedes `groups` on the city template).
- * ⛔ Do not hand-edit numbers — re-run the generator. `api` = exact source query for audit. */
+ * ⛔ Do not hand-edit numbers — re-run the generator. `api` = exact source query for audit.
+ * 2026-10-23 fix round (FV-09): `wages.page` re-pointed from www.bls.gov/oes/2025/may/oes_<MSA>.htm
+ * (redirects to the OEWS home page) to data.bls.gov/oes/#/area/00<MSA>/2025 by a URL-only replace;
+ * free-data/bls-oews/pull.mjs now emits the same URL. The generator writes to the live repo, so it
+ * was not re-run from this branch. */
 export const SALESFORCE_CITIES = [
  {
   "slug": "new-york",
@@ -186,7 +190,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_35620.htm",
+   "page": "https://data.bls.gov/oes/#/area/0035620/2025",
    "analysts": {
     "median": 128340,
     "employment": 26540,
@@ -395,7 +399,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_47900.htm",
+   "page": "https://data.bls.gov/oes/#/area/0047900/2025",
    "analysts": {
     "median": 127040,
     "employment": 18620,
@@ -602,7 +606,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_19100.htm",
+   "page": "https://data.bls.gov/oes/#/area/0019100/2025",
    "analysts": {
     "median": 122520,
     "employment": 20000,
@@ -867,7 +871,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_19740.htm",
+   "page": "https://data.bls.gov/oes/#/area/0019740/2025",
    "analysts": {
     "median": 127880,
     "employment": 4190,
@@ -1089,7 +1093,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_12060.htm",
+   "page": "https://data.bls.gov/oes/#/area/0012060/2025",
    "analysts": {
     "median": 119090,
     "employment": 8300,
@@ -1306,7 +1310,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_14460.htm",
+   "page": "https://data.bls.gov/oes/#/area/0014460/2025",
    "analysts": {
     "median": 129180,
     "employment": 17470,
@@ -1522,7 +1526,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_42660.htm",
+   "page": "https://data.bls.gov/oes/#/area/0042660/2025",
    "analysts": {
     "median": 133690,
     "employment": 19050,
@@ -1720,7 +1724,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_41860.htm",
+   "page": "https://data.bls.gov/oes/#/area/0041860/2025",
    "analysts": {
     "median": 134460,
     "employment": 11180,
@@ -1924,7 +1928,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_31080.htm",
+   "page": "https://data.bls.gov/oes/#/area/0031080/2025",
    "analysts": {
     "median": 121560,
     "employment": 16900,
@@ -2112,7 +2116,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_12420.htm",
+   "page": "https://data.bls.gov/oes/#/area/0012420/2025",
    "analysts": {
     "median": 104590,
     "employment": 6930,
@@ -2288,7 +2292,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_33100.htm",
+   "page": "https://data.bls.gov/oes/#/area/0033100/2025",
    "analysts": {
     "median": 103650,
     "employment": 9000,
@@ -2480,7 +2484,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_16980.htm",
+   "page": "https://data.bls.gov/oes/#/area/0016980/2025",
    "analysts": {
     "median": 103490,
     "employment": 14660,
@@ -2717,7 +2721,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_26420.htm",
+   "page": "https://data.bls.gov/oes/#/area/0026420/2025",
    "analysts": {
     "median": 113440,
     "employment": 8510,
@@ -2935,7 +2939,7 @@ export const SALESFORCE_CITIES = [
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://www.bls.gov/oes/2025/may/oes_37980.htm",
+   "page": "https://data.bls.gov/oes/#/area/0037980/2025",
    "analysts": {
     "median": 105050,
     "employment": 8520,

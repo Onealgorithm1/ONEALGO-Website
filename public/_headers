@@ -14,6 +14,13 @@
 /assets/*.woff2
   Cache-Control: max-age=31536000, immutable
 
+# The two self-hosted fonts index.html preloads live in /fonts, not /assets, so
+# the rule above missed them (4-hour must-revalidate in production; fix round
+# PERF-5). Their names carry no hash: ⛔ give a font file a NEW NAME whenever it
+# changes, or returning visitors keep the old one for a year.
+/fonts/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
 # CSS is fingerprinted too (vite.config.ts assetFileNames), so it can be
 # immutable like the JS. It was a stable name with max-age=0 until 2026-08-25,
 # when Cloudflare's zone Browser Cache TTL (4h) silently raised that max-age and

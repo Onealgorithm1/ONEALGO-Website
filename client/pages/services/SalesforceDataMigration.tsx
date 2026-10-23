@@ -37,6 +37,7 @@ import {
   createServiceSchema,
   createWebPageSchema,
   createFAQSchema,
+  createLocalBusinessSchema,
 } from "../../components/StructuredData";
 
 /* Salesforce data migration — rebuilt 2026-10-23 on the Salesforce plate
@@ -114,7 +115,7 @@ const KINDS = [
   {
     icon: Blocks,
     title: "Off a no-code platform",
-    body: "QuickBase and Kissflow apps that grew one form at a time. We have moved both into Salesforce.",
+    body: "QuickBase and Kissflow apps that grew one form at a time, with years of records in whatever shape each form took.",
     to: "#source-lowcode",
   },
   {
@@ -251,11 +252,11 @@ const BREAKS = [
 const FAQS: SfFaq[] = [
   {
     q: "What do Salesforce data migration services include?",
-    a: "An inventory of the source, a field map to Salesforce objects and owners agreed in writing, cleanup and duplicate merging, a full trial load in a sandbox, the production cutover, and a reconciliation of record counts after each load. The source system is set read-only at the end, not deleted.",
+    a: "An inventory of the source, a field map to Salesforce objects and owners agreed in writing, data cleansing and duplicate merging, a full trial load in a sandbox, the production cutover, and a reconciliation of record counts after each load. The source system is set read-only at the end, not deleted, so no data is lost.",
   },
   {
     q: "How do you handle data migration into Salesforce?",
-    a: "In four steps: inventory the source, map it to the Salesforce data model with external IDs, run a full trial load in a sandbox, then cut over to production and reconcile again. Nothing touches production until the sandbox counts match.",
+    a: "In four steps: inventory the source, map it to the Salesforce data model with external IDs, run a full trial load in a sandbox, then cut over to production and reconcile again. Nothing touches production until the sandbox counts match, which is how a migration avoids data loss.",
     link: { to: "#process", label: "The order we do it in" },
   },
   {
@@ -338,7 +339,7 @@ export default function SalesforceDataMigration() {
   useSEO({
     title: "Salesforce Data Migration Services and Consultants",
     description:
-      "Salesforce data migration from QuickBase, Kissflow, HubSpot or another org, reconciled before go-live. Free one-week health check: (610) 890-9711.",
+      "Salesforce data migration services from QuickBase, Kissflow, HubSpot or another org, reconciled before go-live. Free one-week health check: (610) 890-9711.",
     canonical: getCanonicalUrl(PAGE),
     ogTitle: "Salesforce data migration services, reconciled row by row",
     ogDescription:
@@ -372,6 +373,7 @@ export default function SalesforceDataMigration() {
           { dateModified: "2026-10-23", primaryImage: PRIMARY_IMAGE },
         )}
       />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       <PageHero
@@ -480,7 +482,7 @@ export default function SalesforceDataMigration() {
                   <h3 id={s.id} className="mt-3 text-lg font-semibold text-oa-ink">
                     {s.title}
                   </h3>
-                  <p className="mt-2.5 max-w-[68ch] leading-relaxed text-oa-ink2">{s.body}</p>
+                  <p className="mt-2.5 max-w-[34em] leading-relaxed text-oa-ink2">{s.body}</p>
                   </div>
                 </WiredRow>
               ))}
@@ -488,7 +490,7 @@ export default function SalesforceDataMigration() {
                 <h3 id="source-sap" className="text-lg font-semibold text-oa-ink">
                   SAP: a one-off move or a sync
                 </h3>
-                <p className="mt-2.5 max-w-[68ch] leading-relaxed text-oa-ink2">
+                <p className="mt-2.5 max-w-[34em] leading-relaxed text-oa-ink2">
                   If SAP keeps running after go-live, the job is an integration, not a migration. We have delivered an
                   SAP-to-Salesforce sync, and it starts by agreeing which system owns each record. If SAP is being
                   retired, the move runs like any other source on this page.{" "}
@@ -552,7 +554,7 @@ export default function SalesforceDataMigration() {
                 <Plate
                   spec={F3}
                   fig={3}
-                  stamp={["DIAGRAM · ILLUSTRATIVE VALUES, NOT A CLIENT'S DATA", "ONEALGORITHM"]}
+                  stamp={["DIAGRAM · ILLUSTRATIVE VALUES, SAMPLE DATA", "ONEALGORITHM"]}
                   caption="The old system's ID travels with every record, so children find their parents and a rerun updates instead of duplicating."
                 />
               </div>
@@ -563,13 +565,13 @@ export default function SalesforceDataMigration() {
                 {HISTORY.map((h) =>
                   h.k ? (
                     <WiredRow key={h.title} k={h.k} className="-mx-3 px-3">
-                      <p className="max-w-[68ch] border-t border-oa-hairlineStrong py-5 text-oa-ink2">
+                      <p className="max-w-[34em] border-t border-oa-hairlineStrong py-5 text-oa-ink2">
                         <strong className="font-semibold text-oa-ink">{h.title}</strong> {h.body}
                       </p>
                     </WiredRow>
                   ) : (
                     <div key={h.title} className="border-t border-oa-hairlineStrong py-5">
-                      <p className="max-w-[68ch] text-oa-ink2">
+                      <p className="max-w-[34em] text-oa-ink2">
                         <strong className="font-semibold text-oa-ink">{h.title}</strong> {h.body}
                       </p>
                     </div>
@@ -653,7 +655,7 @@ export default function SalesforceDataMigration() {
             }
           />
         </div>
-        <p className="mt-10 max-w-[60ch] text-lede text-oa-ink">
+        <p className="mt-10 max-w-[30em] text-lede text-oa-ink">
           Above 150 million records, Salesforce's own guidance is to work with a Salesforce partner. We are a listed
           Consulting Partner on AppExchange.
         </p>
@@ -666,8 +668,8 @@ export default function SalesforceDataMigration() {
           </div>
           <aside className="border-t-2 border-oa-blue pt-6 xl:mt-2 xl:self-start">
             <h3 className="text-h3 font-semibold text-oa-ink">Who leads the work</h3>
-            <PeopleStrip className="mt-4 max-w-[60ch] text-oa-ink2" />
-            <p className="mt-5 max-w-[60ch] text-oa-ink2">
+            <PeopleStrip className="mt-4 max-w-[30em] text-oa-ink2" />
+            <p className="mt-5 max-w-[30em] text-oa-ink2">
               You work directly with the certified people doing the migration, from the first inventory to the last
               count.
             </p>
@@ -677,14 +679,14 @@ export default function SalesforceDataMigration() {
 
       <Section tone="surface" id="objections">
         {/* Measure cap for the shared answer column (~110 chars at 1440 otherwise). */}
-        <div className="[&_dd]:max-w-[68ch]">
+        <div className="[&_dd]:max-w-[34em]">
           <Objections items={OBJECTIONS} />
         </div>
       </Section>
 
       <Section tone="paper" id="questions">
         <SectionHeading title="What people ask about moving data into Salesforce" />
-        <div className="[&_h3+div]:max-w-[68ch]">
+        <div className="[&_h3+div]:max-w-[34em]">
           <FAQList
             faqs={FAQS}
             sources={{

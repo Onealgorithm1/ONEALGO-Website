@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Link2, ListChecks, ShieldCheck, Wrench } from "lucide-react";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
 import {
   Card,
   CardGrid,
@@ -72,7 +71,7 @@ const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og-salesforce-market
 const PLATE = PLATES["marketing-cloud-connect-data-flow"];
 const READ_ON = "23 October 2026";
 const DESCRIPTION =
-  "Marketing Cloud consultants for running accounts: Connect sync, journeys, opt-outs. Free Salesforce health check, listed partner. Call (610) 890-9711.";
+  "Salesforce Marketing Cloud consulting for running accounts: Connect sync, journeys, opt-outs. Free health check from a listed partner. Call (610) 890-9711.";
 
 /* Salesforce documentation, each found and read 2026-10-23. Paraphrased on the page,
    never quoted (Salesforce trademark guidelines bar reusing their text). */
@@ -98,7 +97,7 @@ const WORK = [
   {
     icon: Wrench,
     title: "Support for a running account",
-    body: "Month-by-month support for an account that is already sending. We supported a client's live account this way for about 18 months.",
+    body: "Month-by-month support for an account that is already sending: changes, fixes and the checks that keep the data clean.",
   },
   {
     icon: Link2,
@@ -251,7 +250,7 @@ const FAQS: SfFaq[] = [
   },
   {
     q: "How long have you supported Salesforce Marketing Cloud?",
-    a: "About 18 months of month-by-month support on a client's live Marketing Cloud account. The client stays unnamed. Supporting accounts that are already running is the work this page offers.",
+    a: "About 18 months of month-by-month support on a client's live Marketing Cloud account. Supporting accounts that are already running is the work this page offers.",
   },
   {
     q: "Is Salesforce Marketing Cloud a CRM?",
@@ -323,7 +322,7 @@ export default function SalesforceMarketingCloud() {
           },
         })}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
       <StructuredData data={createFAQSchema(FAQS)} />
 
       <PageHero
@@ -439,7 +438,7 @@ export default function SalesforceMarketingCloud() {
                 /* The tool name IS the documentation link, so it stays visible on a
                    phone instead of sitting in a fourth column off-screen. */
                 <a
-                  className="oa-link -my-2.5 inline-block py-2.5"
+                  className="oa-link -my-2.5 inline-flex min-h-11 items-center"
                   href={t.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -454,7 +453,7 @@ export default function SalesforceMarketingCloud() {
             source={<>Our description of each tool. Each tool name links to Salesforce's own documentation, checked {READ_ON}.</>}
           />
         </div>
-        <p className="mt-8 max-w-[68ch] text-oa-ink2">
+        <p className="mt-8 max-w-[34em] text-oa-ink2">
           Running Marketing Cloud Account Engagement, the product once called Pardot? It is a separate product;{" "}
           <a className="oa-link" href="#faq">
             the questions below
@@ -493,11 +492,11 @@ export default function SalesforceMarketingCloud() {
               spec={PLATE}
               fig={1}
               first
-              stamp={["DIAGRAM · TYPICAL MARKETING CLOUD CONNECT SET-UP, NOT A CLIENT ACCOUNT", "ONEALGORITHM"]}
+              stamp={["DIAGRAM · TYPICAL MARKETING CLOUD CONNECT SET-UP, ILLUSTRATIVE", "ONEALGORITHM"]}
               caption="A typical Marketing Cloud Connect set-up, drawn by OneAlgorithm. The heavy line is the opt-out path, the one we test in both directions."
             />
           </div>
-          <ol className="mt-10 grid gap-x-8 sm:grid-cols-2 xl:grid-cols-3">
+          <ol className="mt-10 grid grid-cols-1 gap-x-8 sm:grid-cols-2 xl:grid-cols-3">
             {FLOW.map((f, i) => (
               <WiredRow key={f.k} k={f.k} as="li" className="border-t border-oa-hairlineStrong px-1 py-5">
                 <p className="flex items-baseline gap-3 font-semibold text-oa-ink">
@@ -579,7 +578,7 @@ export default function SalesforceMarketingCloud() {
             {/* The approved lead line from SF_PEOPLE, with the Person schema. */}
             <div className="mt-10">
               <p className={MONO}>Who leads the work</p>
-              <PeopleStrip className="mt-3 max-w-[60ch] text-oa-ink2" />
+              <PeopleStrip className="mt-3 max-w-[30em] text-oa-ink2" />
             </div>
           </div>
         </div>
@@ -610,10 +609,6 @@ export default function SalesforceMarketingCloud() {
       <Section tone="surface" bordered id="related">
         <SectionHeading title="Other Salesforce work we deliver" />
         <RouteBoard groups={["services"]} />
-      </Section>
-
-      <Section tone="paper" compact bordered>
-        <SocialShare />
       </Section>
 
       <Desk

@@ -14,10 +14,9 @@
 //   export default [jobsPlate(cityBySlug('philadelphia')), industriesPlate(cityBySlug('philadelphia'))]
 // (spec §3 PHL-F2/F3 "from the city pipeline"). Never list a plate id in two spec files.
 //
-// ⛔ scripts/salesforce-images.mjs still writes salesforce-jobs-<slug>.svg, <slug>-largest-
-// industries.svg (+ -m) and og-<slug>.jpg for every city. Those ids are now owned here; if that
-// script runs again it overwrites these plates and plates-check reports them stale. Run
-// `node scripts/plates.mjs city --og` afterwards (or retire the city loop there).
+// The old scripts/salesforce-images.mjs, which also wrote salesforce-jobs-<slug>.svg,
+// <slug>-largest-industries.svg (+ -m) and og-<slug>.jpg, is retired (deleted 2026-10-23,
+// README.md). These ids are owned here alone; `node scripts/plates.mjs city --og` renders them.
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'

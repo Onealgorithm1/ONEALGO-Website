@@ -136,13 +136,14 @@ export default {
         // the JetBrains Mono already used for the identifier strip.
         sans: [
           "IBM Plex Sans",
+          "IBM Plex Sans Fallback", // metric-matched Arial, see client/global.css
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
           "Segoe UI",
           "sans-serif",
         ],
-        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+        mono: ["JetBrains Mono", "JetBrains Mono Fallback", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {
         // Fluid scale. Negative tracking scales with size - it is a display

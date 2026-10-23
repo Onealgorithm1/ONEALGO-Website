@@ -105,7 +105,7 @@ describe("Salesforce primitives", () => {
 
   it("DeliveredLedger marks this page's row instead of linking it", () => {
     const html = at("/services/salesforce-integration", <DeliveredLedger title="t" lead="sap" />);
-    expect(html).toContain("THIS PAGE · DELIVERED · NO CLIENT NAMED");
+    expect(html).toContain("THIS PAGE · DELIVERED");
     expect(html).not.toContain('href="/services/salesforce-integration"');
     expect(html.indexOf("An SAP-to-Salesforce sync")).toBeLessThan(html.indexOf("lending company"));
   });

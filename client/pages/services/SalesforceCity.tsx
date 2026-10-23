@@ -82,6 +82,13 @@ const jobsTotal = (c: City) => c.jobs.reduce((s, j) => s + j.count, 0);
 const msaName = (c: City) => c.msa.name.replace(/ Metro Area$/, " metro area");
 const industryKey = (code: string) => `i${code}`;
 const roleName = (r: string) => r.replace(/^Salesforce /, "");
+/** The four role searches, most listings first: the order Fig. 1 draws them in (L6). */
+const jobsByCount = (c: City) => [...c.jobs].sort((a, b) => b.count - a.count);
+/** "202 listings for Salesforce consultants, 172 for administrators, … and 100 for developers". */
+const roleCounts = (c: City) => {
+  const rows = jobsByCount(c).map((j, i) => `${n(j.count)} ${i === 0 ? "listings for Salesforce " : "for "}${roleName(j.role).toLowerCase()}s`);
+  return `${rows.slice(0, -1).join(", ")} and ${rows[rows.length - 1]}`;
+};
 /** Upcoming community events only: they go stale, so past ones are dropped at render time. */
 const upcomingEvents = (c: City) =>
   (c.events as readonly { name: string; date: string; url: string }[]).filter((e) => e.date.slice(0, 10) >= today());
@@ -147,7 +154,7 @@ const INDUSTRY_FIT: Record<string, string> = {
   "62": "Salesforce work there usually turns on access, who can see which records, enforced with permission sets and sharing rules rather than a pile of profiles",
   "52": "that is where we run ongoing Salesforce development for a lending company, every week since April 2026",
   "54": "firms like these tend to use Salesforce to track clients, projects and proposals, and need reporting that agrees across all three",
-  "31-33": "manufacturers usually need Salesforce to agree with an ERP on accounts, orders and pricing, and we have built an SAP-to-Salesforce sync",
+  "31-33": "manufacturers usually need Salesforce to agree with an ERP on accounts, orders and pricing, which is integration work we deliver",
   "42": "distribution runs on volume, so bulk loads and de-duplication decide whether reports can be trusted; we load in tested batches with duplicate rules switched on",
   "813": "associations and nonprofits often move member and donor data off older databases, and we have migrated QuickBase and Kissflow systems into Salesforce",
   "51": "these businesses usually need Salesforce connected to billing and product systems, which is integration work we deliver",
@@ -164,7 +171,7 @@ const INDUSTRY_FIT: Record<string, string> = {
 const HC_STEPS = [
   { title: "Tell us the symptom", body: "Reports nobody trusts, a renewal you are unsure about, automation nobody dares touch." },
   { title: "A week in your org", body: "You create a user that can read your setup and records.", to: "/services/salesforce-health-check" },
-  { title: "A written, ranked list", body: "What we found, why it matters, and what fixing it involves, ordered by what to do first." },
+  { title: "A written, ranked list", body: "What we found and why it matters, ordered by what to fix first." },
   { title: "You decide what happens next", body: "Act on it with us, with your own admin, or not at all." },
 ];
 
@@ -187,7 +194,11 @@ const SERVICE_BODIES = {
   mc: "About 18 months of Marketing Cloud support, for accounts already running.",
 };
 
-function buildFaqs(c: City): SfFaq[] {
+/** `schema: false` = shown on the page but left out of FAQPage: these answers are the same on
+ *  all 13 city pages (SEO-08), so only the city-specific Q&As go into each page's schema. */
+type CityFaqRow = SfFaq & { schema?: false };
+
+function buildFaqs(c: City): CityFaqRow[] {
   const copy = CITY_COPY[c.slug];
   const total = jobsTotal(c);
   const g = c.community.groups;
@@ -198,32 +209,36 @@ function buildFaqs(c: City): SfFaq[] {
   return [
     {
       q: `How do I find a good Salesforce consultant in ${c.name}?`,
-      a: `Start with Salesforce's own directory: the Consultants section of AppExchange lists every Salesforce partner with its certified people, certifications and customer ratings, and filters by location and product. Shortlist the firms whose record fits your project, then ask each for a written scope before you compare prices; ours is AppExchange listing ${SF_LISTING_ID}.`,
+      a: `Start with Salesforce's own directory: the Consultants section of AppExchange lists every Salesforce partner with its certified people and certifications, and filters by location and product. Shortlist the firms whose record fits your project, check who would do the work on their Trailblazer profiles, then ask each for a written scope before you compare prices; ours is AppExchange listing ${SF_LISTING_ID}.`,
       link: { to: "/services/salesforce-consulting-partner-pennsylvania", label: "How to check a Salesforce partner" },
+      schema: false,
     },
     ...copy.faqs,
     {
       q: `Can you move a ${c.name} company off an older database into Salesforce?`,
       a: "Yes. We have migrated QuickBase and Kissflow systems into Salesforce with record counts and totals reconciled before go-live, and the free one-week Salesforce health check shows the state of your data first, so the plan starts from facts.",
       link: { to: "/services/salesforce-data-migration", label: "Salesforce data migration" },
+      schema: false,
     },
     {
       q: `What should a ${c.name} company budget for Salesforce consulting, and how long does it take?`,
-      a: `Published guides from implementation firms put a small-business project at $15,000 to $50,000 (4 to 8 weeks, per Cynoteck) and a mid-market one at $50,000 to $150,000 or more (3 to 6 months, per Groviya). Those are other firms' published ranges, not our quote: for a ${c.name} company we scope and price the work in writing after the free one-week Salesforce health check. For comparison, one in-house software developer in the ${msaName(c)} earns a median ${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
+      a: `Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase); Cynoteck puts a small project at 4 to 8 weeks and Groviya a mid-sized rollout at 3 to 6 months. Those are other firms' published ranges, not our quote: for a ${c.name} company we scope and price the work in writing after the free one-week Salesforce health check. For comparison, one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
       link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
     },
     {
       q: `After go-live, who looks after Salesforce for a ${short(c)} team?`,
       a: "We can: our managed services run weekly administration and development with hours reported every week, which is how we have run Salesforce development for a lending company since April 2026, and if your own admin takes over instead, the handover is written down.",
       link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" },
+      schema: false,
     },
     {
       q: `Is a Pennsylvania Salesforce partner certified to work in a ${c.name} company's org?`,
       a: `Yes. Salesforce certifies people, not offices, so the certification travels with the person, and OneAlgorithm is a Salesforce Consulting Partner listed on AppExchange (listing ${SF_LISTING_ID}), and Salesforce's record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them Platform.`,
+      schema: false,
     },
     {
       q: `How much demand is there for Salesforce skills in ${c.name}?`,
-      a: `On ${fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of ${c.name} showed ${n(roleCount(c, "Consultant"))} consultant, ${n(roleCount(c, "Administrator"))} administrator, ${n(roleCount(c, "Architect"))} architect and ${n(roleCount(c, "Developer"))} developer listings, ${n(total)} across the four searches. That ranked ${c.name} ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked, and when that many employers compete for the same people, a partner covers a defined project without a new hire.`,
+      a: `On ${fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of ${c.name} showed ${roleCounts(c)}, ${n(total)} across the four searches. That ranked ${c.name} ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked, and when that many employers compete for the same people, a partner covers a defined project without a new hire.`,
     },
     {
       q: `Is there a Salesforce user community in ${c.name}?`,
@@ -257,12 +272,13 @@ export default function SalesforceCity({ slug }: { slug: string }) {
     .map((s) => SF_PAGES.cities.find((x) => x.to === `/services/salesforce-consultant-${s}`))
     .filter((x): x is (typeof SF_PAGES.cities)[number] => Boolean(x));
   const wage = c.wages;
-  const byCount = [...c.jobs].sort((a, b) => b.count - a.count);
+  const byCount = jobsByCount(c);
   const topRole = byCount[0];
   const lowRole = byCount[byCount.length - 1];
 
-  if (import.meta.env.DEV && (copy.title.length < 50 || copy.title.length > 60 || copy.description.length > 155))
-    console.warn(`[SalesforceCity:${slug}] title ${copy.title.length} chars (50-60), description ${copy.description.length} (<=155)`);
+  // 45, not 50: Houston's planned title (page-map-final-plan.md §3) is 48 characters.
+  if (import.meta.env.DEV && (copy.title.length < 45 || copy.title.length > 60 || copy.description.length > 155))
+    console.warn(`[SalesforceCity:${slug}] title ${copy.title.length} chars (45-60), description ${copy.description.length} (<=155)`);
 
   useSEO({
     title: copy.title,
@@ -274,10 +290,12 @@ export default function SalesforceCity({ slug }: { slug: string }) {
     ogImage: shareImage,
     ogImageSize: [1200, 630],
     ogImageAlt: jobs.alt,
+    twitterTitle: `Salesforce consultants for ${where(c)} companies | OneAlgorithm`,
+    twitterDescription: copy.description,
     twitterImage: shareImage,
   });
 
-  const localBusiness: Record<string, unknown> = { ...createLocalBusinessSchema() };
+  const localBusiness: Record<string, unknown> = { ...createLocalBusinessSchema("ProfessionalService") };
   // CITY-11: the Malvern entity stays the provider, but its PA/DE county service area is not
   // this page's area. areaServed for the page is on the Service node below.
   delete localBusiness.areaServed;
@@ -299,7 +317,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         )}
       />
       <StructuredData data={localBusiness} />
-      <StructuredData data={createFAQSchema(faqs)} />
+      <StructuredData data={createFAQSchema(faqs.filter((f) => f.schema !== false))} />
       <StructuredData
         data={createWebPageSchema(copy.title, copy.description, url, {
           dateModified: "2026-10-23",
@@ -369,7 +387,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       >
         <RecordLine
           extra={
-            <a className="oa-link -my-2.5 inline-block py-2.5" href={SF_PHONE.href} data-cta="answer">
+            <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={SF_PHONE.href} data-cta="answer">
               Call {SF_PHONE.display}
             </a>
           }
@@ -378,12 +396,12 @@ export default function SalesforceCity({ slug }: { slug: string }) {
 
       {/* 3. Reading the data (CITY-9): F1 is the page's first figure (eager, static). */}
       <Section clip tone="surface" bordered id="data">
-        <div className="grid gap-10 xl:grid-cols-12 xl:gap-14">
+        <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-14">
           <div className="xl:col-span-5">
             <SectionHeading title={`Reading the ${short(c)} data`} />
             <Prose className="mt-6 text-lg">
               <p>
-                On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {n(roleCount(c, "Consultant"))} listings for Salesforce consultants, {n(roleCount(c, "Administrator"))} for administrators, {n(roleCount(c, "Architect"))} for architects and {n(roleCount(c, "Developer"))} for developers: {n(total)} across the four searches, {ord(c.jobsRank.rank)} of the {c.jobsRank.of} metro areas we checked.
+                On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {roleCounts(c)}: {n(total)} across the four searches, {ord(c.jobsRank.rank)} of the {c.jobsRank.of} metro areas we checked.
               </p>
               <p>A listing can match more than one search, so read the {n(total)} as demand rather than a head count.</p>
             </Prose>
@@ -400,7 +418,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         </div>
 
         <PlateScope>
-          <div className="mt-16 grid gap-10 xl:mt-20 xl:grid-cols-12 xl:gap-14">
+          <div className="mt-16 grid grid-cols-1 gap-10 xl:mt-20 xl:grid-cols-12 xl:gap-14">
             <div className="xl:col-span-7 xl:row-start-1">
               <Plate
                 spec={growth}
@@ -463,8 +481,8 @@ export default function SalesforceCity({ slug }: { slug: string }) {
           title={`Hire, contract or bring in a partner? What ${short(c)}'s ${n(total)} Salesforce job listings mean`}
           lede={`${roleName(topRole.role)} listings lead in ${c.name} with ${n(topRole.count)}; ${roleName(lowRole.role).toLowerCase()} listings are the fewest at ${n(lowRole.count)}.`}
         />
-        <dl className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
-          {ROLES.map((r) => {
+        <dl className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
+          {[...ROLES].sort((a, b) => (roleCount(c, b.key) ?? 0) - (roleCount(c, a.key) ?? 0)).map((r) => {
             const j = c.jobs.find((x) => x.role.endsWith(r.key));
             return (
               <div key={r.key} className="border-t border-oa-hairlineStrong pt-5">
@@ -473,7 +491,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
                 <dd className="mt-1.5 font-mono text-xs text-oa-ink3">
                   listings within 25 miles ·{" "}
                   {j && (
-                    <a className="oa-link -my-2.5 inline-block py-2.5" href={j.url} {...ext}>
+                    <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={j.url} {...ext}>
                       LinkedIn search ↗
                     </a>
                   )}
@@ -536,7 +554,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             }
           />
         </div>
-        <p className="mt-10 max-w-[68ch] text-lg text-oa-ink2">
+        <p className="mt-10 max-w-[34em] text-lg text-oa-ink2">
           Before you sign with any partner, read its public AppExchange record:{" "}
           <Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">
             how to check a Salesforce partner
@@ -553,7 +571,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       <Section clip tone="surface" bordered id="industries">
         <PlateScope>
           {/* DOM order = phone order (heading, chart, rows); xl puts the chart beside both. */}
-          <div className="grid gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
+          <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
             <div className="xl:col-span-6 xl:row-start-1">
               <SectionHeading
                 title={`Where Salesforce fits ${short(c)}'s largest industries`}
@@ -576,7 +594,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
                     <p className="mt-1 font-mono text-sm tabular-nums text-oa-ink2">
                       {n(i.employees)} employees · {n(i.establishments)} establishments
                     </p>
-                    {INDUSTRY_FIT[i.code] && <p className="mt-2 max-w-[68ch] text-oa-ink2">{cap(INDUSTRY_FIT[i.code])}.</p>}
+                    {INDUSTRY_FIT[i.code] && <p className="mt-2 max-w-[34em] text-oa-ink2">{cap(INDUSTRY_FIT[i.code])}.</p>}
                   </WiredRow>
                 ))}
               </ul>
@@ -634,18 +652,20 @@ export default function SalesforceCity({ slug }: { slug: string }) {
                   </span>,
                   <span>
                     LinkedIn, {fmtDate(c.jobsPulled)}:{" "}
-                    {c.jobs.map((j, i) => (
+                    {byCount.map((j, i) => (
                       <span key={j.role}>
                         {i > 0 && " · "}
-                        <a className="oa-link" href={j.url} {...ext}>
-                          {j.role.replace("Salesforce ", "")} {n(j.count)}
+                        <a className="oa-link inline-flex min-h-11 items-center" href={j.url} {...ext}>
+                          {roleName(j.role)}
                         </a>
                       </span>
                     ))}
                   </span>,
                 ],
               },
-              ...(c.federal
+              /* FV-16: a handful of tiny awards (New York: 1 award, $500) reads as a data error;
+                 the row shows only from 3 awards up (DC, Atlanta, San Francisco, Denver). */
+              ...(c.federal && c.federal.awards >= 3
                 ? [
                     {
                       cells: [
@@ -669,7 +689,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       <Section clip tone="surface" bordered id="community">
         <PlateScope>
           {/* DOM order = phone order (heading and angle, diagram, the list); xl puts the diagram beside both. */}
-          <div className="grid gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
+          <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
             <div className="xl:col-span-7 xl:row-start-1">
               <SectionHeading title={copy.angleTitle} />
               <Prose className="mt-6 text-lg">
@@ -690,7 +710,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             </div>
             <div className="xl:col-span-7 xl:row-start-2">
               <h3 className="text-lg xl:mt-12 font-semibold text-oa-ink">Where {short(c)}'s Salesforce community meets</h3>
-              <ul className="mt-4 max-w-[68ch] border-b border-oa-hairlineStrong">
+              <ul className="mt-4 max-w-[34em] border-b border-oa-hairlineStrong">
                 {c.community.groups.map((g, i) => (
                   <WiredRow key={g.url} k={`g${i + 1}`} as="li" className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 border-t border-oa-hairline px-2 py-3">
                     <a className="oa-link" href={g.url} {...ext}>
@@ -707,7 +727,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
                 </WiredRow>
               </ul>
               {upcoming.length > 0 && (
-                <p className="mt-4 max-w-[68ch] text-oa-ink2">
+                <p className="mt-4 max-w-[34em] text-oa-ink2">
                   Upcoming regional events:{" "}
                   {upcoming.map((e, i) => (
                     <span key={e.url}>
@@ -763,7 +783,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
               a: (
                 <PeopleStrip
                   providerId="https://onealgorithm.com/#localbusiness"
-                  className="max-w-[68ch]"
+                  className="max-w-[34em]"
                   lead="The certified people you talk to, with no hand-off to a bench you never meet. "
                 />
               ),
@@ -782,6 +802,8 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             links: [
               { label: `AppExchange listing ${SF_LISTING_ID}`, href: SF_APPEXCHANGE_URL },
               { label: "Sreenivas Amirisetti on Trailblazer", href: LEAD.verify },
+              { label: "BrainSpate cost guide", href: "https://brainspate.com/blog/salesforce-implementation-cost-guide/" },
+              { label: "American Chase cost guide", href: "https://americanchase.com/salesforce-implementation-costs/" },
               { label: "Cynoteck cost guide", href: "https://www.cynoteck.com/blog-post/salesforce-implementation-cost" },
               { label: "Groviya cost guide", href: "https://www.groviya.com/blog/salesforce-implementation-cost-guide" },
               { label: "LinkedIn job search", href: c.sources.linkedin },
@@ -794,7 +816,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       {/* 12. Cities list (CITY-13). Sibling links render only once the route exists in SF_PAGES. */}
       <Section tone="paper" compact id="cities">
         {siblings.length > 0 && (
-          <p className="max-w-[68ch] text-lg text-oa-ink2">
+          <p className="max-w-[34em] text-lg text-oa-ink2">
             Nearest to {c.name} on our Salesforce pages:{" "}
             {siblings.map((s, i) => (
               <span key={s.to}>
