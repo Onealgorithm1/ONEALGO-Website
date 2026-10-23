@@ -152,6 +152,16 @@ function Layout({ children }: LayoutProps) {
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  // Shown once the hero's own buttons have scrolled away, so a phone's first
+  // screen never carries the same two buttons twice.
+  const [showSfBar, setShowSfBar] = React.useState(false);
+  React.useEffect(() => {
+    if (!isSalesforce) return;
+    const onScroll = () => setShowSfBar(window.scrollY > 520);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isSalesforce]);
 
   // Close all dropdowns when mobile menu closes
   React.useEffect(() => {
@@ -1151,7 +1161,7 @@ function Layout({ children }: LayoutProps) {
       </footer>
       {/* Fixed, so it overlays rather than renders below the footer; the
           footer's own pb-20 on these pages keeps its last line clear of it. */}
-      {isSalesforce && !mobileMenuOpen && (
+      {isSalesforce && showSfBar && !mobileMenuOpen && (
         <div
           className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur md:hidden"
           style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
@@ -1166,7 +1176,7 @@ function Layout({ children }: LayoutProps) {
             to="/contact?need=salesforce"
             className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
           >
-            Free org review
+            Free health check
           </Link>
         </div>
       )}

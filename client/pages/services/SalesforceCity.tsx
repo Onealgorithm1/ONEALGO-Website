@@ -231,7 +231,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             `${n(jobsTotal)} open Salesforce roles nearby`,
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -289,7 +289,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
       <CTABand
         title={`Tell us what your Salesforce is doing wrong`}
         body="An org nobody trusts, a migration that stalled, or an integration that fails quietly. Describe it and we will tell you what we would look at first."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

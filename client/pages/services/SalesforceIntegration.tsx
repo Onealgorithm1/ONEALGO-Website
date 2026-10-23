@@ -153,7 +153,7 @@ export default function SalesforceIntegration() {
             "Free one-week review of your org",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -270,7 +270,7 @@ export default function SalesforceIntegration() {
       <CTABand
         title="Tell us which two systems need to talk"
         body="Name them, say which direction the data should go, and tell us what breaks today. We will tell you which route we would look at first."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

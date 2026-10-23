@@ -7,3 +7,5 @@ export const SF_CERTIFIED_PEOPLE = 16;
 export const SF_CERTIFICATIONS = 53;
 export const SF_PLATFORM_CERTS = 38;
 export const SF_PROOF_LINE = `${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} on Platform`;
+export const SF_LISTING_ID = "a0N3A00000EV7SwUAL";
+export const SF_APPEXCHANGE_URL = `https://appexchange.salesforce.com/appxListingDetail?listingId=${SF_LISTING_ID}`;

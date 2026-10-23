@@ -1,4 +1,5 @@
 import React from "react";
+import { SalesforceRecordCard } from "../../components/SalesforceRecordCard";
 import { SALESFORCE_CITIES } from "../../data/salesforceCities";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
@@ -134,12 +135,6 @@ const CREDENTIALS = [
      not evidence of Salesforce capability, and a reviewer read the eight-item
      strip as compensating for the absence of client proof. Six relevant beats
      eight padded. */
-];
-
-const REGISTRY = [
-  { figure: "16", label: "Salesforce-certified people", short: "certified people" },
-  { figure: "53", label: "Salesforce certifications held", short: "certifications" },
-  { figure: "38", label: "of them on the Platform competency", short: "on Platform" },
 ];
 
 /* What the one-week review actually looks at. Each line is work this team already
@@ -333,66 +328,13 @@ export default function Salesforce() {
         panel={{
           title: "Salesforce's record of us",
           items: [],
-          slot: (
-            <div>
-              {/* Louis, 2026-09-01: "I don't like that Logo I like the Cloud."
-                  So the cloud leads the card. This is Salesforce's CORPORATE
-                  mark used REFERENTIALLY — it labels Salesforce's own registry
-                  record, which is what the card contains, and it links to that
-                  record. That is the permitted use.
-                  ⛔ It is NOT a partnership credential and must never stand in
-                  for one: the "Salesforce Partner" badge lower down is the only
-                  mark that says we are a partner. ⛔ Never pair this with the
-                  OneAlgorithm logo as a lockup, never recolour or crop it, and
-                  never let it become the page's own hero graphic.
-                  ⛔ Use the repo SVG, not the 4000x2250 JPG from the Salesforce
-                  media pack — same official mark, but the JPG has a baked WHITE
-                  ground that would sit as a white box on this night panel, and
-                  it is vector here for a fraction of the bytes. */}
-              <img
-                src="/media/platforms/salesforce.svg"
-                alt="Salesforce"
-                width={273}
-                height={191}
-                className="mb-7 h-auto w-[124px]"
-              />
-              <dl className="grid grid-cols-3 gap-x-4">
-                {REGISTRY.map((r) => (
-                  <div key={r.label} className="flex flex-col">
-                    <dt className="order-2 mt-1.5 text-xs leading-tight text-oa-nightInk3">
-                      {r.short}
-                    </dt>
-                    <dd className="order-1 font-mono text-3xl leading-none text-oa-orange">
-                      {r.figure}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-6 border-t border-white/10 pt-4">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-oa-nightInk3">
-                  AppExchange listing
-                </p>
-                <p className="mt-1.5 font-mono text-sm text-oa-nightInk">
-                  a0N3A00000EV7SwUAL
-                </p>
-              </div>
-              <a
-                className="mt-3 inline-flex items-center gap-2 py-2 text-sm font-medium text-oa-nightBlue underline underline-offset-4 hover:text-oa-nightInk"
-                href={APPEXCHANGE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Verify on AppExchange
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          ),
+          slot: <SalesforceRecordCard />,
           /* ⛔ "WBENC and NMSDC certified" came off this line 2026-09-01 — see
              the note on the section heading below. The certificates are still
              on the page, once, in the credentials list. */
           footer: ["Salesforce Consulting Partner"],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         /* Ten links to unrelated services used to sit here, above every piece of
            proof on the page. Kept on the other service pages, off on this one. */
@@ -585,7 +527,7 @@ export default function Salesforce() {
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <PrimaryCTA to="/contact?need=salesforce">
-                    Get a free org review
+                    Book a free health check
                   </PrimaryCTA>
                   <SecondaryCTA href="tel:+16108909711">
                     Call (610) 890-9711
@@ -631,8 +573,8 @@ export default function Salesforce() {
             { to: "/services/staff-augmentation", label: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
           ].map((l) => (
             <li key={l.to} className="border-t border-oa-hairlineStrong pt-5">
-              <Link to={l.to} className="text-sm font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
-              <p className="mt-2 text-sm leading-relaxed text-oa-ink3">{l.body}</p>
+              <Link to={l.to} className="text-lg font-semibold text-oa-ink underline decoration-oa-hairlineStrong underline-offset-4 hover:decoration-oa-orange">{l.label}</Link>
+              <p className="mt-2 leading-relaxed text-oa-ink2">{l.body}</p>
             </li>
           ))}
         </ul>
@@ -888,7 +830,7 @@ export default function Salesforce() {
       <CTABand
         title="Tell us what your Salesforce is doing wrong"
         body="An org nobody trusts the data in, a migration that stalled, or a renewal you're not sure you should sign. Describe the symptom and we'll tell you what we'd look at first — or call (610) 890-9711 and ask."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 

@@ -247,7 +247,7 @@ export default function SalesforceImplementationCost() {
             "A free org review gives a licence count and a rough cost",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -490,7 +490,7 @@ export default function SalesforceImplementationCost() {
                 tells you where you sit in them.
               </p>
               <div className="mt-7">
-                <PrimaryCTA to="/contact?need=salesforce">Get a free org review</PrimaryCTA>
+                <PrimaryCTA to="/contact?need=salesforce">Book a free health check</PrimaryCTA>
               </div>
             </Card>
           }
@@ -518,7 +518,7 @@ export default function SalesforceImplementationCost() {
       <CTABand
         title="Want your number, not the market's?"
         body="Tell us what you have or what you are choosing between. We will give you a licence count and a rough cost before you sign anything."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

@@ -152,7 +152,7 @@ export default function SalesforceManagedServices() {
             "Free one-week review of your org",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -259,7 +259,7 @@ export default function SalesforceManagedServices() {
       <CTABand
         title="Tell us what keeps waiting in your Salesforce queue"
         body="Access requests, a flow nobody dares touch, a data job that never gets scheduled. Describe it and we will tell you how we would take it on."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

@@ -172,7 +172,7 @@ export default function SalesforceConsultantPhiladelphia() {
             "Free one-week review of your org",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -231,7 +231,7 @@ export default function SalesforceConsultantPhiladelphia() {
                 written, ranked list and no obligation attached to it.
               </p>
               <div className="mt-7">
-                <PrimaryCTA to="/contact?need=salesforce">Get a free org review</PrimaryCTA>
+                <PrimaryCTA to="/contact?need=salesforce">Book a free health check</PrimaryCTA>
               </div>
             </Card>
           }
@@ -268,7 +268,7 @@ export default function SalesforceConsultantPhiladelphia() {
       <CTABand
         title="Tell us what your Salesforce is doing wrong"
         body="An org nobody trusts the data in, a migration that stalled, or a renewal you are not sure you should sign. Describe the symptom and we will tell you what we would look at first."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

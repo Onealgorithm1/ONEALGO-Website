@@ -150,7 +150,7 @@ export default function SalesforceMarketingCloud() {
             "Free one-week review of your org",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -261,7 +261,7 @@ export default function SalesforceMarketingCloud() {
       <CTABand
         title="Tell us what your Marketing Cloud is getting wrong"
         body="Wrong audience, a journey that stopped, opt-outs you do not trust. Describe the symptom and we will tell you where we would look first."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>

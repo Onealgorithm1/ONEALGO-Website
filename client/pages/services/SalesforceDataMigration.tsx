@@ -170,7 +170,7 @@ export default function SalesforceDataMigration() {
             "Free one-week review of your org",
           ],
         }}
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
         siblings={false}
       />
@@ -277,7 +277,7 @@ export default function SalesforceDataMigration() {
       <CTABand
         title="Tell us what you are moving"
         body="Name the source system and roughly how much is in it. We will tell you what we would check first, and the one-week org review is free if the data is already in Salesforce."
-        primary={{ label: "Get a free org review", to: "/contact?need=salesforce" }}
+        primary={{ label: "Book a free health check", to: "/contact?need=salesforce" }}
         secondary={{ label: "How the work runs", to: "/services/salesforce" }}
       />
     </Layout>
