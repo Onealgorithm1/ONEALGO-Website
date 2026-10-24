@@ -92,6 +92,9 @@ export default function Contact() {
     if (q.get("need") === "salesforce") {
       setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Salesforce / CRM" }));
     }
+    if (q.get("need") === "website") {
+      setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Website Development" }));
+    }
     setTopic((q.get("topic") || "").slice(0, 60));
     const f = q.get("from") || "";
     setFrom(/^\/[^\s]*$/.test(f) ? f.slice(0, 200) : "");

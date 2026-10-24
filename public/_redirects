@@ -38,6 +38,9 @@
 # it was returning a 404 to anyone who clicked that result. A 301 keeps the
 # accrued signal and, more importantly, stops sending a real visitor to a dead
 # end from a search result the company did not choose to have.
+# Sector page retired 2026-10-24 (structure-spec §9): its one topic is now a unit of the service page.
+/industries/website-development   /services/website-development#industries   301
+/industries/website-development/  /services/website-development#industries   301
 /about-us     /about    301
 /about-us/*   /about    301
 

@@ -601,6 +601,7 @@ export default function SalesforceConsultantChesterCounty() {
               <li><Link className="sf-link" to={PHL}>Salesforce consultants for Philadelphia companies</Link></li>
               <li><Link className="sf-link" to={PA}>Salesforce Consulting Partner in Pennsylvania</Link></li>
               <li><Link className="sf-link" to={HUB}>All Salesforce consulting services</Link></li>
+              <li><Link className="sf-link" to="/services/web-design-chester-county">Website design for Chester County businesses</Link></li>
             </ul>
           </nav>
         </SmartSection>

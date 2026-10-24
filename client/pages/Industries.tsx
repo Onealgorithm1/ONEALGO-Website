@@ -83,9 +83,9 @@ const INDUSTRIES = [
   },
   {
     icon: Code,
-    title: "Website Development",
-    body: "Also not an industry. What genuinely changes between sectors in a web project, which is less than most agencies imply.",
-    to: "/industries/website-development",
+    title: "Website development by industry",
+    body: "What changes in a website build for construction, manufacturing, e-commerce and government work, on the service page.",
+    to: "/services/website-development#industries",
   },
 ];
 

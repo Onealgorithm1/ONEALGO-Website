@@ -66,9 +66,6 @@ const Construction = lazy(() => import("./pages/industries/Construction"));
 const Manufacturing = lazy(() => import("./pages/industries/Manufacturing"));
 const ECommerce = lazy(() => import("./pages/industries/ECommerce"));
 const IndustryMarketing = lazy(() => import("./pages/industries/Marketing"));
-const IndustryWebsiteDevelopment = lazy(
-  () => import("./pages/industries/WebsiteDevelopment"),
-);
 const Government = lazy(() => import("./pages/industries/Government"));
 const WebsiteDevelopment = lazy(
   () => import("./pages/services/WebsiteDevelopment"),
@@ -313,10 +310,6 @@ const App = () => (
               <Route
                 path="/industries/marketing"
                 element={<IndustryMarketing />}
-              />
-              <Route
-                path="/industries/website-development"
-                element={<IndustryWebsiteDevelopment />}
               />
               <Route path="/industries/government" element={<Government />} />
               <Route path="/contact" element={<Contact />} />

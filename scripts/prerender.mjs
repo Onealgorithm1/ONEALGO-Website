@@ -14,7 +14,8 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST = path.join(__dirname, "..", "dist", "spa");
+// OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
+const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
 // 0 lets the OS hand out a free port, and the real one is read back from the
 // listening server below. A fixed 5055 meant a stale process from an earlier run,
 // or a second build on the same machine, failed the whole thing with EADDRINUSE.
@@ -59,7 +60,7 @@ const ROUTES = [
   "/services/salesforce-consultant-houston",
   "/services/operational-transformation-consulting",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
-  "/industries/marketing", "/industries/website-development", "/industries/government",
+  "/industries/marketing", /* /industries/website-development: 301 in _redirects (2026-10-24) */ "/industries/government",
 ];
 
 const TYPES = {
@@ -164,7 +165,7 @@ async function main() {
          render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
          caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
          state (rules drawn, figures final, numbers real); the client replays from it. */
-      if (route.startsWith("/services/salesforce") || route === "/contact") { // /contact is on the v2 kit too (2026-10-23)
+      if (route.startsWith("/services/salesforce") || route === "/contact" || route === "/services/website-development" || route.startsWith("/services/web-design-")) { // /contact is on the v2 kit too (2026-10-23)
         await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
       }
 

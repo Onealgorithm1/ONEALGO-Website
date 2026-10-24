@@ -20,7 +20,7 @@
 
 ## Services
 
-- Website development: https://onealgorithm.com/services/website-development
+- [Custom website design and development](https://onealgorithm.com/services/website-development): custom websites designed and built from our Malvern, PA office, with six live client sites shown on the page.
 - SEO: https://onealgorithm.com/services/seo
 - Google Ads management: https://onealgorithm.com/services/google-ads
 - Marketing & social media: https://onealgorithm.com/services/marketing
@@ -64,8 +64,8 @@ one-week Salesforce health check.
 
 ## Local (Philadelphia metro)
 
-- Web design, Philadelphia: https://onealgorithm.com/services/web-design-philadelphia
-- Web design, Chester County: https://onealgorithm.com/services/web-design-chester-county
+- [Web design for Philadelphia businesses](https://onealgorithm.com/services/web-design-philadelphia): custom websites for Philadelphia companies, from our Malvern office 25 miles west of Center City.
+- [Chester County web design](https://onealgorithm.com/services/web-design-chester-county): custom-built websites for Chester County businesses, from our office on Swedesford Road, Malvern.
 - SEO, Chester County: https://onealgorithm.com/services/seo-chester-county
 - Google Ads, Philadelphia: https://onealgorithm.com/services/google-ads-philadelphia
 

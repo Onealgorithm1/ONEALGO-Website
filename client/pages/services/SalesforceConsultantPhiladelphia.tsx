@@ -588,6 +588,7 @@ export default function SalesforceConsultantPhiladelphia() {
               <li><Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link></li>
               <li><Link className="sf-link" to={CHE}>Choosing an edition: Salesforce for Chester County businesses</Link></li>
               <li><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></li>
+              <li><Link className="sf-link" to="/services/web-design-philadelphia">Web design for Philadelphia companies</Link></li>
             </ul>
             <p className="sf-kicker" style={{ marginTop: 24 }}>Salesforce consulting in other cities</p>
             <ul className="sf-links" style={{ marginTop: 8 }}>

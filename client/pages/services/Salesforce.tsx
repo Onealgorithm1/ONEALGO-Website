@@ -307,6 +307,12 @@ export default function Salesforce() {
           }}
         >
           <ServiceCards items={HUB_SERVICE_CARDS} />
+          <nav aria-label="Related services" style={{ marginTop: 32 }}>
+            <p className="sf-kicker">Related services</p>
+            <ul className="sf-links" style={{ marginTop: 8 }}>
+              <li><Link className="sf-link" to="/services/website-development">Custom website design and development</Link></li>
+            </ul>
+          </nav>
         </SmartSection>
 
         {/* 7 THE RECORD: readouts (count up once, below the fold), who leads the work, delivered work. Spec §4 rows 3-4. */}

@@ -114,12 +114,12 @@ export default function Marketing() {
         <Prose className="mt-10">
           <p>
             We have published no marketing case studies and hold no client
-            testimonials, so there are none to show you. What we can show you is{" "}
+            testimonials, so there are none to show you. What we can show you is our{" "}
             <Link
               className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
               to="/services/website-development"
             >
-              this site&rsquo;s own measured scores
+              custom website design and development
             </Link>
             , and the four people who would do the work, on our{" "}
             <Link

@@ -37,7 +37,8 @@ import "./local.css";
  */
 
 const SITE = "https://onealgorithm.com";
-const OG = { url: `${SITE}/og-image.jpg`, width: 1200, height: 500 }; // ponytail: site-wide card until the per-route og images exist (SS §10.3)
+/* Per-route og:image (SS §10.3): public/og/{last path segment}.jpg, 1200x630, made by build-wave0/og-local.mjs. */
+const ogFor = (path: string) => ({ url: `${SITE}/og/${path.split("/").pop()}.jpg`, width: 1200, height: 630 });
 
 const fmtDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
@@ -226,6 +227,7 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
 
 export function LocalPage({ place }: { place: LocalPlace }) {
   const url = `${SITE}${place.path}`;
+  const OG = ogFor(place.path);
   const [open, setOpen] = React.useState<{ item: WorkItem; opener: HTMLElement } | null>(null);
   const onPreview = React.useCallback((item: WorkItem, opener: HTMLElement) => setOpen({ item, opener }), []);
   const close = React.useCallback(() => setOpen(null), []);
