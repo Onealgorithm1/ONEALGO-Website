@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-tampa",
  "kind": "metro",
  "photo": "tampa",
+ "parent": {
+  "label": "Florida",
+  "to": "/services/web-design-florida"
+ },
  "seo": {
   "title": "Web Design Tampa, FL: Custom Websites | OneAlgorithm",
   "description": "Web design for Tampa businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web development tampa"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 12,
+  "rank": 13,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 12 of the 134 places we measured, at 2,270 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 13 of the 134 places we measured, at 2,270 searches a month.",
      "The development phrasing draws 590 a month and the developer phrasing 210, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 590 searches a month at about $10.88 a click, the buyer already looking for a firm.",
      "Advertisers paid about $10.37 a click for “web design tampa”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 19th of 45 places by businesses",
-   "lede": "The metro ranks 19th of the 45 places we build pages for by business establishments, and 17th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 34th of 64 places by businesses",
+   "lede": "The metro ranks 34th of the 64 places we build pages for by business establishments, and 22nd for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 12th of 45, and the share of establishments under 20 staff ranks 4th.",
+   "lead": "population growth since 2019 ranks 15th of 64, and the share of establishments under 20 staff ranks 7th.",
    "table": {
-    "caption": "The Tampa metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Tampa metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "97.1",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+14.3%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+7.2%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "87.7%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 91,335 establishments here against the 45 places' own counts, 9th for their change since 2018.",
-     "Programming firms run 97.1 per 10,000 businesses here against a median of 86.9. The under-20 share is 87.7% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 2,270, 12th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 91,335 establishments here against the 64 places' own counts, 10th for their change since 2018.",
+     "Programming firms run 97.1 per 10,000 businesses here against a median of 85.2. The under-20 share is 87.7% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,270, 13th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-florida",
+     "title": "Florida web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-orlando",
      "title": "Orlando web design",
      "tag": "Nearby metro"
@@ -809,17 +818,20 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "4": "derived: rank of u20 among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
-  "9": "derived: rank of estabChg among the 45 place pages",
-  "12": "derived: rank of popChg among the 45 place pages",
+  "4": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "7": "derived: rank of u20 among the 64 place pages",
+  "10": "derived: rank of estabChg among the 64 place pages",
+  "12": "derived: change in paid employees 2018-2023, percent",
   "13": "derived: retail trade share of paid employees, 2023",
+  "15": "derived: rank of popChg among the 64 place pages",
   "16": "derived: NAICS 541511 paid employees per establishment, 2023",
-  "17": "derived: rank of per511 among the 45 place pages",
-  "19": "derived: rank of estab among the 45 place pages",
+  "17": "Semrush keyword difficulty, \"web design tampa\"",
   "20": "derived: accommodation and food services employees per establishment, 2023",
   "21": "derived: change in NAICS 541511 establishments 2018-2023, percent",
+  "22": "derived: rank of per511 among the 64 place pages",
   "24": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
+  "34": "derived: rank of estab among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "92": "derived: wholesale trade establishments 2023 minus 2018",
   "112": "derived: manufacturing establishments 2023 minus 2018",
   "125": "derived: finance and insurance establishments 2023 minus 2018",
@@ -914,7 +926,7 @@ export const PLACE: LocalPlace = {
   "2,269": "Census County Business Patterns 2023, establishments, naics 31-33 manufacturing, 2023",
   "2,157": "Census County Business Patterns 2018, establishments, naics 31-33 manufacturing, 2018",
   "30.5": "derived: manufacturing employees per establishment, 2023",
-  "5.2": "derived: manufacturing establishments change 2018-2023, percent",
+  "5.2": "derived: median estabChg of the 64 place pages",
   "166,905": "Census County Business Patterns 2023, paid employees, naics 44-45 retail trade, 2023",
   "10,673": "Census County Business Patterns 2023, establishments, naics 44-45 retail trade, 2023",
   "10,295": "Census County Business Patterns 2018, establishments, naics 44-45 retail trade, 2018",
@@ -936,9 +948,9 @@ export const PLACE: LocalPlace = {
   "39.8": "derived: top-3 sectors' share of paid employees, 2023",
   "634,404": "derived: top-4 sectors' paid employees, 2023",
   "49.2": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

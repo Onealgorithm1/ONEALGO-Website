@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-new-york",
  "kind": "metro",
  "photo": "new-york",
+ "parent": {
+  "label": "New York State",
+  "to": "/services/web-design-new-york-state"
+ },
  "seo": {
   "title": "Web Design New York, NY: Custom Websites | OneAlgorithm",
   "description": "Web design for New York businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 1st of 45 places by businesses",
-   "lede": "The metro ranks 1st of the 45 places we build pages for by business establishments, and 19th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 4th of 64 places by businesses",
+   "lede": "The metro ranks 4th of the 64 places we build pages for by business establishments, and 25th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 29th of 45, and the share of establishments under 20 staff ranks 2nd.",
+   "lead": "population growth since 2019 ranks 36th of 64, and the share of establishments under 20 staff ranks 4th.",
    "table": {
-    "caption": "The New York metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The New York metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "91",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "−3.3%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+3.8%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "88.2%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 562,802 establishments here against the 45 places' own counts, 43rd for their change since 2018.",
-     "Programming firms run 91 per 10,000 businesses here against a median of 86.9. The under-20 share is 88.2% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 3,480, 3rd of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 562,802 establishments here against the 64 places' own counts, 62nd for their change since 2018.",
+     "Programming firms run 91 per 10,000 businesses here against a median of 85.2. The under-20 share is 88.2% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 3,480, 3rd of the 134 places we measured nationwide."
     ]
    }
   },
@@ -785,6 +789,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-new-york-state",
+     "title": "New York State web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-baltimore",
      "title": "Baltimore web design",
      "tag": "Nearby metro"
@@ -814,16 +823,16 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "derived: rank of estab among the 45 place pages",
-  "2": "derived: rank of u20 among the 45 place pages",
+  "1": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "3": "page-map-webdev.json national_ranking rank",
-  "6": "derived: median estabChg of the 45 place pages",
+  "4": "derived: rank of u20 among the 64 place pages",
   "14": "derived: accommodation and food services employees per establishment, 2023",
-  "19": "derived: rank of per511 among the 45 place pages",
   "23": "derived: finance and insurance employees per establishment, 2023",
-  "29": "derived: rank of popChg among the 45 place pages",
-  "43": "derived: rank of estabChg among the 45 place pages",
+  "25": "derived: rank of per511 among the 64 place pages",
+  "36": "derived: rank of popChg among the 64 place pages",
   "46": "Semrush keyword difficulty, \"web design new york\"",
+  "62": "derived: rank of estabChg among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "91": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "113": "derived: educational services establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
@@ -944,9 +953,10 @@ export const PLACE: LocalPlace = {
   "40.3": "derived: top-3 sectors' share of paid employees, 2023",
   "4,205,878": "derived: top-4 sectors' paid employees, 2023",
   "49.1": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

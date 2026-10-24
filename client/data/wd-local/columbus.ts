@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-columbus",
  "kind": "metro",
  "photo": "columbus",
+ "parent": {
+  "label": "Ohio",
+  "to": "/services/web-design-ohio"
+ },
  "seo": {
   "title": "Web Design Columbus, OH: Custom Websites | OneAlgorithm",
   "description": "Web design for Columbus businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design company columbus ohio"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 38,
+  "rank": 44,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 38 of the 134 places we measured, at 1,020 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 44 of the 134 places we measured, at 1,020 searches a month.",
      "The development phrasing draws 70 a month and the developer phrasing 20, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 210 searches a month, the buyer already looking for a firm.",
      "Advertisers paid about $12.84 a click for “web design columbus”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 35th of 45 places by businesses",
-   "lede": "The metro ranks 35th of the 45 places we build pages for by business establishments, and 14th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 52nd of 64 places by businesses",
+   "lede": "The metro ranks 52nd of the 64 places we build pages for by business establishments, and 17th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 21st of 45, and the share of establishments under 20 staff ranks 44th.",
+   "lead": "population growth since 2019 ranks 26th of 64, and the share of establishments under 20 staff ranks 63rd.",
    "table": {
-    "caption": "The Columbus metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Columbus metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "109.9",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+7.6%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+4.9%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "81.2%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 46,419 establishments here against the 45 places' own counts, 20th for their change since 2018.",
-     "Programming firms run 109.9 per 10,000 businesses here against a median of 86.9. The under-20 share is 81.2% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,020, 38th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 46,419 establishments here against the 64 places' own counts, 27th for their change since 2018.",
+     "Programming firms run 109.9 per 10,000 businesses here against a median of 85.2. The under-20 share is 81.2% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,020, 44th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -784,6 +788,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-ohio",
+     "title": "Ohio web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-cincinnati",
      "title": "Cincinnati web design",
      "tag": "Nearby metro"
@@ -813,17 +822,19 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: median estabChg of the 45 place pages",
-  "14": "derived: rank of per511 among the 45 place pages",
-  "20": "derived: rank of estabChg among the 45 place pages",
-  "21": "derived: rank of popChg among the 45 place pages",
+  "17": "derived: rank of per511 among the 64 place pages",
+  "20": "Semrush US exact volume, \"web developer columbus\", pulled 2026-10-24 13:05-13:15 ET",
+  "21": "derived: information establishments 2023 minus 2018",
   "22": "derived: manufacturing establishments 2023 minus 2018",
+  "26": "derived: rank of popChg among the 64 place pages",
+  "27": "derived: rank of estabChg among the 64 place pages",
   "31": "Semrush keyword difficulty, \"web design columbus\"",
-  "35": "derived: rank of estab among the 45 place pages",
-  "38": "page-map-webdev.json national_ranking rank",
-  "44": "derived: rank of u20 among the 45 place pages",
+  "44": "page-map-webdev.json national_ranking rank",
   "45": "derived: educational services establishments 2023 minus 2018",
+  "52": "derived: rank of estab among the 64 place pages",
   "61": "derived: retail trade establishments 2023 minus 2018",
+  "63": "derived: rank of u20 among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush US exact volume, \"website development columbus\", pulled 2026-10-24 13:05-13:15 ET",
   "110": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "112": "derived: wholesale trade establishments 2023 minus 2018",
@@ -938,9 +949,10 @@ export const PLACE: LocalPlace = {
   "38.4": "derived: top-3 sectors' share of paid employees, 2023",
   "451,786": "derived: top-4 sectors' paid employees, 2023",
   "45.9": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

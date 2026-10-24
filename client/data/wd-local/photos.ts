@@ -861,5 +861,347 @@ export const PLACE_PHOTOS: Record<string, PlacePhoto> = {
       "x": 50,
       "y": 50
     }
+  },
+  "new-york-state": {
+    "avif2400": "/places/new-york-state-2400.avif",
+    "webp2400": "/places/new-york-state-2400.webp",
+    "avif1600": "/places/new-york-state-1600.avif",
+    "webp1600": "/places/new-york-state-1600.webp",
+    "og": "/places/new-york-state-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Hudson River valley in New York State, seen from Shaupeneak Ridge above Esopus.",
+    "credit": "Daniel Case / Wikimedia Commons / CC BY-SA 3.0 (cropped, resized)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hudson_River_and_valley_from_Shaupeneak_Ridge,_Esopus,_NY.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "utah": {
+    "avif2400": "/places/utah-2400.avif",
+    "webp2400": "/places/utah-2400.webp",
+    "avif1600": "/places/utah-1600.avif",
+    "webp1600": "/places/utah-1600.webp",
+    "og": "/places/utah-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Wind-shaped sand dunes under a blue sky in the West Desert of Utah.",
+    "credit": "Photo: Bureau of Land Management - Utah/Bob Wick / Wikimedia Commons, public domain (no credit required)",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "source": "https://commons.wikimedia.org/wiki/File:Utah_Dunes_Landscape_-_West_Desert_District.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "florida": {
+    "avif2400": "/places/florida-2400.avif",
+    "webp2400": "/places/florida-2400.webp",
+    "avif1600": "/places/florida-1600.avif",
+    "webp1600": "/places/florida-1600.webp",
+    "og": "/places/florida-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "A still pond on the Anhinga Trail in Everglades National Park, Florida.",
+    "credit": "Daniel Kraft / Wikimedia Commons / CC BY-SA 3.0 (cropped, resized)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Everglades_Anhinga_Trail_Pond.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "texas": {
+    "avif2400": "/places/texas-2400.avif",
+    "webp2400": "/places/texas-2400.webp",
+    "avif1600": "/places/texas-1600.avif",
+    "webp1600": "/places/texas-1600.webp",
+    "og": "/places/texas-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Texas State Capitol in Austin, Texas, under a blue sky.",
+    "credit": "LoneStarMike / Wikimedia Commons / CC BY 3.0 (cropped, resized)",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:TexasStateCapitol-2010-01.JPG",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "michigan": {
+    "avif2400": "/places/michigan-2400.avif",
+    "webp2400": "/places/michigan-2400.webp",
+    "avif1600": "/places/michigan-1600.avif",
+    "webp1600": "/places/michigan-1600.webp",
+    "og": "/places/michigan-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "St. Ignace, Michigan, on the Straits of Mackinac.",
+    "credit": "Photo: WMrapids / Wikimedia Commons, CC0 (no credit required)",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:St._Ignace,_Michigan,_2026.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "ohio": {
+    "avif2400": "/places/ohio-2400.avif",
+    "webp2400": "/places/ohio-2400.webp",
+    "avif1600": "/places/ohio-1600.avif",
+    "webp1600": "/places/ohio-1600.webp",
+    "og": "/places/ohio-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Cuyahoga Valley National Park in northeast Ohio.",
+    "credit": "Erik Drost / Wikimedia Commons / CC BY 2.0 (cropped, resized)",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cuyahoga_Valley_National_Park_(14968792293).jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "maryland": {
+    "avif2400": "/places/maryland-2400.avif",
+    "webp2400": "/places/maryland-2400.webp",
+    "avif1600": "/places/maryland-1600.avif",
+    "webp1600": "/places/maryland-1600.webp",
+    "og": "/places/maryland-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Chesapeake Bay Bridge in Maryland, seen from Sandy Point.",
+    "credit": "Acroterion / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chesapeake_Bay_Bridge_at_Sandy_Point_MD1.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "indiana": {
+    "avif2400": "/places/indiana-2400.avif",
+    "webp2400": "/places/indiana-2400.webp",
+    "avif1600": "/places/indiana-1600.avif",
+    "webp1600": "/places/indiana-1600.webp",
+    "og": "/places/indiana-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Dunes and the Lake Michigan shore at Indiana Dunes, near Michigan City, Indiana.",
+    "credit": "Diego Delso / Wikimedia Commons / CC BY-SA 3.0 (cropped, resized)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indiana_Dunes_National_Lakeshore,_Michigan_City,_Indiana,_Estados_Unidos,_2012-10-20,_DD_02.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "arizona": {
+    "avif2400": "/places/arizona-2400.avif",
+    "webp2400": "/places/arizona-2400.webp",
+    "avif1600": "/places/arizona-1600.avif",
+    "webp1600": "/places/arizona-1600.webp",
+    "og": "/places/arizona-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Grand Canyon in northern Arizona under a clear sky.",
+    "credit": "In order to comply with the use and licensing terms of this image, the following text must must be included with the image when published in any medium, failure to do so constitutes a violation of the licensing terms and copyright infringement: © Tomas Castelazo, www.tomascastelazo.com / Wikimedia Commons / Wikimedia Commons / CC BY-SA 3.0 (cropped, resized)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Grand_canyon_march_2013.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "california": {
+    "avif2400": "/places/california-2400.avif",
+    "webp2400": "/places/california-2400.webp",
+    "avif1600": "/places/california-1600.avif",
+    "webp1600": "/places/california-1600.webp",
+    "og": "/places/california-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Bixby Creek Bridge on the Big Sur coast of California.",
+    "credit": "Diliff / Wikimedia Commons / CC BY-SA 3.0 (cropped, resized)",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bixby_Creek_Bridge,_California,_USA_-_May_2013.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "connecticut": {
+    "avif2400": "/places/connecticut-2400.avif",
+    "webp2400": "/places/connecticut-2400.webp",
+    "avif1600": "/places/connecticut-1600.avif",
+    "webp1600": "/places/connecticut-1600.webp",
+    "og": "/places/connecticut-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Sunrise over the Connecticut River and downtown Hartford, Connecticut.",
+    "credit": "Paul Danese / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20191016_hartford_sunrise_from_goodwin_dock_9UV2622.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "vermont": {
+    "avif2400": "/places/vermont-2400.avif",
+    "webp2400": "/places/vermont-2400.webp",
+    "avif1600": "/places/vermont-1600.avif",
+    "webp1600": "/places/vermont-1600.webp",
+    "og": "/places/vermont-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Lake Willoughby in the Northeast Kingdom of Vermont, between autumn-coloured hills.",
+    "credit": "King of Hearts / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lake_Willoughby_October_2021_003.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "virginia": {
+    "avif2400": "/places/virginia-2400.avif",
+    "webp2400": "/places/virginia-2400.webp",
+    "avif1600": "/places/virginia-1600.avif",
+    "webp1600": "/places/virginia-1600.webp",
+    "og": "/places/virginia-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Clouds over the Blue Ridge Mountains along the Blue Ridge Parkway in Virginia.",
+    "credit": "Acroterion / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Blue_Ridge_Parkway_clouds_VA1.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "colorado": {
+    "avif2400": "/places/colorado-2400.avif",
+    "webp2400": "/places/colorado-2400.webp",
+    "avif1600": "/places/colorado-1600.avif",
+    "webp1600": "/places/colorado-1600.webp",
+    "og": "/places/colorado-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Maroon Bells peaks above Maroon Lake near Aspen, Colorado.",
+    "credit": "Rhododendrites / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Maroon_Bells_(11553)a.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "minnesota": {
+    "avif2400": "/places/minnesota-2400.avif",
+    "webp2400": "/places/minnesota-2400.webp",
+    "avif1600": "/places/minnesota-1600.avif",
+    "webp1600": "/places/minnesota-1600.webp",
+    "og": "/places/minnesota-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Split Rock Lighthouse on its cliff above Lake Superior in Minnesota.",
+    "credit": "MichaelDPhotos / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Split_Rock_Light_Station.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "hawaii": {
+    "avif2400": "/places/hawaii-2400.avif",
+    "webp2400": "/places/hawaii-2400.webp",
+    "avif1600": "/places/hawaii-1600.avif",
+    "webp1600": "/places/hawaii-1600.webp",
+    "og": "/places/hawaii-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Waikiki and Diamond Head on Oahu, Hawaii, seen from Tantalus Road.",
+    "credit": "Dcrjsr / Wikimedia Commons / CC BY 3.0 (cropped, resized)",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oahu_Waikiki_DiamondHead_from_Tantalus_Rd.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "north-carolina": {
+    "avif2400": "/places/north-carolina-2400.avif",
+    "webp2400": "/places/north-carolina-2400.webp",
+    "avif1600": "/places/north-carolina-1600.avif",
+    "webp1600": "/places/north-carolina-1600.webp",
+    "og": "/places/north-carolina-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "Ridges of the Appalachian Mountains along the Blue Ridge Parkway in North Carolina.",
+    "credit": "MusikAnimal / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Appalachian_Mountains_along_Blue_Ridge_Parkway,_North_Carolina.JPG",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "south-carolina": {
+    "avif2400": "/places/south-carolina-2400.avif",
+    "webp2400": "/places/south-carolina-2400.webp",
+    "avif1600": "/places/south-carolina-1600.avif",
+    "webp1600": "/places/south-carolina-1600.webp",
+    "og": "/places/south-carolina-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Arthur Ravenel Jr. Bridge lit at night over Charleston Harbor, South Carolina.",
+    "credit": "Juliancolton / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ravenel_Bridge_at_night_from_Mt_Pleasant.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
+  },
+  "arkansas": {
+    "avif2400": "/places/arkansas-2400.avif",
+    "webp2400": "/places/arkansas-2400.webp",
+    "avif1600": "/places/arkansas-1600.avif",
+    "webp1600": "/places/arkansas-1600.webp",
+    "og": "/places/arkansas-og.jpg",
+    "width": 2400,
+    "height": 1350,
+    "alt": "The Little Rock, Arkansas, skyline along the Arkansas River.",
+    "credit": "Daniel Schwen / Wikimedia Commons / CC BY-SA 4.0 (cropped, resized)",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Little_Rock_pano.jpg",
+    "focal": {
+      "x": 50,
+      "y": 50
+    }
   }
 };

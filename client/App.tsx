@@ -53,6 +53,7 @@ import { Suspense, lazy } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 import Index from "./pages/Index";
+import { PLACES } from "./data/wd-local/places";
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
@@ -86,6 +87,12 @@ const WebDesignChesterCounty = lazy(
 const WebDesignPhiladelphia = lazy(
   () => import("./pages/services/WebDesignPhiladelphia"),
 );
+/* Website-development wave 1-2 + rev 4 (2026-10-24): three service pages and the generated place pages
+   (scripts/wd-local-gen.mjs -> data/wd-local/places.ts; one lazy chunk per place inside LocalRoute). */
+const WebsiteCost = lazy(() => import("./pages/services/WebsiteCost"));
+const SmallBusinessWebsiteDesign = lazy(() => import("./pages/services/SmallBusinessWebsiteDesign"));
+const WebsiteRedesign = lazy(() => import("./pages/services/WebsiteRedesign"));
+const WebDesignPlace = lazy(() => import("./components/wd/LocalRoute"));
 const GoogleAdsPhiladelphia = lazy(
   () => import("./pages/services/GoogleAdsPhiladelphia"),
 );
@@ -199,6 +206,12 @@ const App = () => (
                 path="/services/web-design-philadelphia"
                 element={<WebDesignPhiladelphia />}
               />
+              <Route path="/services/website-cost" element={<WebsiteCost />} />
+              <Route path="/services/small-business-website-design" element={<SmallBusinessWebsiteDesign />} />
+              <Route path="/services/website-redesign" element={<WebsiteRedesign />} />
+              {PLACES.map((p) => (
+                <Route key={p.slug} path={p.path} element={<WebDesignPlace slug={p.slug} />} />
+              ))}
               <Route
                 path="/services/google-ads-philadelphia"
                 element={<GoogleAdsPhiladelphia />}

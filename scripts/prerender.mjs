@@ -14,7 +14,9 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
 
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
-const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-");
+/* The three website-development service pages (2026-10-24) are on the same v2 kit as the hub and the place pages. */
+const WD_SERVICE = new Set(["/services/website-cost", "/services/small-business-website-design", "/services/website-redesign"]);
+const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || WD_SERVICE.has(r);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
@@ -63,7 +65,13 @@ const ROUTES = [
   "/services/operational-transformation-consulting",
   "/industries/construction", "/industries/manufacturing", "/industries/ecommerce",
   "/industries/marketing", /* /industries/website-development: 301 in _redirects (2026-10-24) */ "/industries/government",
+  ...WD_SERVICE,
 ];
+/* Generated web-design place pages (scripts/wd-local-gen.mjs): paths from client/data/wd-local/places.ts, the same index App.tsx maps. */
+{
+  const src = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "client", "data", "wd-local", "places.ts"), "utf8");
+  for (const p of JSON.parse(src.slice(src.indexOf("= [") + 2, src.lastIndexOf("];") + 1))) ROUTES.push(p.path);
+}
 
 const TYPES = {
   ".html": "text/html", ".js": "text/javascript", ".mjs": "text/javascript",
@@ -171,7 +179,7 @@ async function main() {
          render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
          caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
          state (rules drawn, figures final, numbers real); the client replays from it. */
-      if (route.startsWith("/services/salesforce") || route === "/contact" || route.split("?")[0] === "/services/website-development" || route.startsWith("/services/web-design-")) { // /contact is on the v2 kit too (2026-10-23)
+      if (route.startsWith("/services/salesforce") || route === "/contact" || route.split("?")[0] === "/services/website-development" || route.startsWith("/services/web-design-") || WD_SERVICE.has(route)) { // /contact is on the v2 kit too (2026-10-23)
         await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
       }
 

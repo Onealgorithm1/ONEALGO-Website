@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-austin",
  "kind": "metro",
  "photo": "austin",
+ "parent": {
+  "label": "Texas",
+  "to": "/services/web-design-texas"
+ },
  "seo": {
   "title": "Web Design Austin, TX: Custom Websites | OneAlgorithm",
   "description": "Web design for Austin businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web development austin tx"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 10,
+  "rank": 11,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 10 of the 134 places we measured, at 2,360 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 11 of the 134 places we measured, at 2,360 searches a month.",
      "The development phrasing draws 260 a month and the developer phrasing 320, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 480 searches a month at about $17.99 a click, the buyer already looking for a firm.",
      "Advertisers paid about $10.89 a click for “web design austin”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 25th of 45 places by businesses",
-   "lede": "The metro ranks 25th of the 45 places we build pages for by business establishments, and 4th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 42nd of 64 places by businesses",
+   "lede": "The metro ranks 42nd of the 64 places we build pages for by business establishments, and 4th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 1st of 45, and the share of establishments under 20 staff ranks 17th.",
+   "lead": "population growth since 2019 ranks 1st of 64, and the share of establishments under 20 staff ranks 26th.",
    "table": {
-    "caption": "The Austin metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Austin metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "220.4",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+21.7%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+14.5%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "85.1%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 66,280 establishments here against the 45 places' own counts, 1st for their change since 2018.",
-     "Programming firms run 220.4 per 10,000 businesses here against a median of 86.9. The under-20 share is 85.1% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 2,360, 10th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 66,280 establishments here against the 64 places' own counts, 1st for their change since 2018.",
+     "Programming firms run 220.4 per 10,000 businesses here against a median of 85.2. The under-20 share is 85.1% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,360, 11th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -784,6 +788,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-texas",
+     "title": "Texas web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-san-antonio",
      "title": "San Antonio web design",
      "tag": "Nearby metro"
@@ -813,12 +822,13 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "derived: rank of estabChg among the 45 place pages",
-  "4": "derived: rank of per511 among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
-  "10": "page-map-webdev.json national_ranking rank",
-  "17": "derived: rank of u20 among the 45 place pages",
-  "25": "derived: rank of estab among the 45 place pages",
+  "1": "derived: rank of estabChg among the 64 place pages",
+  "4": "derived: rank of per511 among the 64 place pages",
+  "11": "page-map-webdev.json national_ranking rank",
+  "17": "derived: health care and social assistance employees per establishment, 2023",
+  "26": "derived: rank of u20 among the 64 place pages",
+  "42": "derived: rank of estab among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush keyword difficulty, \"web design austin\"",
   "71": "derived: wholesale trade establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
@@ -942,9 +952,10 @@ export const PLACE: LocalPlace = {
   "36.8": "derived: top-3 sectors' share of paid employees, 2023",
   "503,961": "derived: top-4 sectors' paid employees, 2023",
   "48.4": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-miami",
  "kind": "metro",
  "photo": "miami",
+ "parent": {
+  "label": "Florida",
+  "to": "/services/web-design-florida"
+ },
  "seo": {
   "title": "Web Design Miami, FL: Custom Websites | OneAlgorithm",
   "description": "Web design for Miami businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design miami agency"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 17,
+  "rank": 18,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 17 of the 134 places we measured, at 1,820 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 18 of the 134 places we measured, at 1,820 searches a month.",
      "The development phrasing draws 170 a month and the developer phrasing 30, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 320 searches a month at about $13.69 a click, the buyer already looking for a firm.",
      "Advertisers paid about $8.97 a click for “web design miami”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 6th of 45 places by businesses",
-   "lede": "The metro ranks 6th of the 45 places we build pages for by business establishments, and 30th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 13th of 64 places by businesses",
+   "lede": "The metro ranks 13th of the 64 places we build pages for by business establishments, and 37th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 24th of 45, and the share of establishments under 20 staff ranks 1st.",
+   "lead": "population growth since 2019 ranks 29th of 64, and the share of establishments under 20 staff ranks 1st.",
    "table": {
-    "caption": "The Miami metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Miami metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "79.8",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+12.4%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+4.7%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "90.1%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 222,388 establishments here against the 45 places' own counts, 12th for their change since 2018.",
-     "Programming firms run 79.8 per 10,000 businesses here against a median of 86.9. The under-20 share is 90.1% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,820, 17th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 222,388 establishments here against the 64 places' own counts, 14th for their change since 2018.",
+     "Programming firms run 79.8 per 10,000 businesses here against a median of 85.2. The under-20 share is 90.1% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,820, 18th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-florida",
+     "title": "Florida web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-orlando",
      "title": "Orlando web design",
      "tag": "Nearby metro"
@@ -809,17 +818,17 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "derived: rank of u20 among the 45 place pages",
+  "1": "derived: rank of u20 among the 64 place pages",
   "5": "derived: professional, scientific and technical services employees per establishment, 2023",
-  "6": "derived: median estabChg of the 45 place pages",
-  "12": "derived: rank of estabChg among the 45 place pages",
-  "17": "page-map-webdev.json national_ranking rank",
-  "18": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
+  "13": "derived: rank of estab among the 64 place pages",
+  "14": "derived: rank of estabChg among the 64 place pages",
+  "18": "page-map-webdev.json national_ranking rank",
   "21": "derived: change in NAICS 541511 establishments 2018-2023, percent",
-  "24": "derived: rank of popChg among the 45 place pages",
-  "29": "derived: population 2024 / establishments 2023",
-  "30": "derived: rank of per511 among the 45 place pages",
+  "29": "derived: rank of popChg among the 64 place pages",
+  "30": "Semrush US exact volume, \"web developer miami\", pulled 2026-10-24 13:05-13:15 ET",
+  "37": "derived: rank of per511 among the 64 place pages",
   "42": "Semrush keyword difficulty, \"web design miami\"",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "134": "page-map-webdev.json national_ranking length",
   "169": "derived: manufacturing establishments 2023 minus 2018",
   "170": "Semrush US exact volume, \"website development miami\", pulled 2026-10-24 13:05-13:15 ET",
@@ -938,9 +947,10 @@ export const PLACE: LocalPlace = {
   "41.6": "derived: top-3 sectors' share of paid employees, 2023",
   "1,211,532": "derived: top-4 sectors' paid employees, 2023",
   "49.9": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

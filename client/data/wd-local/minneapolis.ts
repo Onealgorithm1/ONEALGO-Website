@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-minneapolis",
  "kind": "metro",
  "photo": "minneapolis",
+ "parent": {
+  "label": "Minnesota",
+  "to": "/services/web-design-minnesota"
+ },
  "seo": {
   "title": "Web Design Minneapolis, MN: Custom Websites | OneAlgorithm",
   "description": "Web design for Minneapolis businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design agency minneapolis"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 37,
+  "rank": 43,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 37 of the 134 places we measured, at 1,050 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 43 of the 134 places we measured, at 1,050 searches a month.",
      "The development phrasing draws 110 a month and the developer phrasing 90, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month at about $12.28 a click, the buyer already looking for a firm.",
      "Advertisers paid about $8.60 a click for “web design minneapolis”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 16th of 45 places by businesses",
-   "lede": "The metro ranks 16th of the 45 places we build pages for by business establishments, and 11th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 30th of 64 places by businesses",
+   "lede": "The metro ranks 30th of the 64 places we build pages for by business establishments, and 13th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 31st of 45, and the share of establishments under 20 staff ranks 36th.",
+   "lead": "population growth since 2019 ranks 40th of 64, and the share of establishments under 20 staff ranks 53rd.",
    "table": {
-    "caption": "The Minneapolis metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Minneapolis metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "121",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+2%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+3.2%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "83.3%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 99,443 establishments here against the 45 places' own counts, 35th for their change since 2018.",
-     "Programming firms run 121 per 10,000 businesses here against a median of 86.9. The under-20 share is 83.3% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,050, 37th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 99,443 establishments here against the 64 places' own counts, 48th for their change since 2018.",
+     "Programming firms run 121 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.3% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,050, 43rd of the 134 places we measured nationwide."
     ]
    }
   },
@@ -784,6 +788,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-minnesota",
+     "title": "Minnesota web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-omaha",
      "title": "Omaha web design",
      "tag": "Nearby metro"
@@ -814,18 +823,18 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "2": "derived: change in total establishments 2018-2023, percent",
-  "6": "derived: median estabChg of the 45 place pages",
   "8": "derived: information establishments change 2018-2023, percent",
   "10": "derived: professional, scientific and technical services employees per establishment, 2023",
-  "11": "derived: rank of per511 among the 45 place pages",
-  "16": "derived: rank of estab among the 45 place pages",
+  "13": "derived: rank of per511 among the 64 place pages",
+  "16": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "19": "derived: paid employees / establishments, 2023",
-  "31": "derived: rank of popChg among the 45 place pages",
-  "35": "derived: rank of estabChg among the 45 place pages",
-  "36": "derived: rank of u20 among the 45 place pages",
-  "37": "page-map-webdev.json national_ranking rank",
+  "30": "derived: rank of estab among the 64 place pages",
+  "40": "derived: rank of popChg among the 64 place pages",
+  "43": "page-map-webdev.json national_ranking rank",
+  "48": "derived: rank of estabChg among the 64 place pages",
   "49": "Semrush keyword difficulty, \"web design minneapolis\"",
-  "64": "derived: educational services establishments 2023 minus 2018",
+  "53": "derived: rank of u20 among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "90": "Semrush US exact volume, \"web developer minneapolis\", pulled 2026-10-24 13:05-13:15 ET",
   "95": "derived: administrative and support services establishments 2023 minus 2018",
   "110": "Semrush US exact volume, \"website development minneapolis\", pulled 2026-10-24 13:05-13:15 ET",
@@ -908,7 +917,7 @@ export const PLACE: LocalPlace = {
   "1,579": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "1,515": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "30.7": "derived: educational services employees per establishment, 2023",
-  "4.2": "derived: educational services establishments change 2018-2023, percent",
+  "4.2": "derived: median popChg of the 64 place pages",
   "312,551": "Census County Business Patterns 2023, paid employees, naics 62 health care and social assistance, 2023",
   "13,207": "Census County Business Patterns 2023, establishments, naics 62 health care and social assistance, 2023",
   "10,990": "Census County Business Patterns 2018, establishments, naics 62 health care and social assistance, 2018",
@@ -942,9 +951,9 @@ export const PLACE: LocalPlace = {
   "37.6": "derived: top-3 sectors' share of paid employees, 2023",
   "869,171": "derived: top-4 sectors' paid employees, 2023",
   "46.1": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

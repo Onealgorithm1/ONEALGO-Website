@@ -607,46 +607,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 4th of 45 places by businesses",
-   "lede": "The metro ranks 4th of the 45 places we build pages for by business establishments, and 16th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 10th of 64 places by businesses",
+   "lede": "The metro ranks 10th of the 64 places we build pages for by business establishments, and 20th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 41st of 45, and the share of establishments under 20 staff ranks 16th.",
+   "lead": "population growth since 2019 ranks 60th of 64, and the share of establishments under 20 staff ranks 23rd.",
    "table": {
-    "caption": "The Chicago metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Chicago metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "102.7",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+0.2%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "−0.5%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "85.4%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 248,519 establishments here against the 45 places' own counts, 42nd for their change since 2018.",
-     "Programming firms run 102.7 per 10,000 businesses here against a median of 86.9. The under-20 share is 85.4% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 4,550, 1st of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 248,519 establishments here against the 64 places' own counts, 57th for their change since 2018.",
+     "Programming firms run 102.7 per 10,000 businesses here against a median of 85.2. The under-20 share is 85.4% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 4,550, 1st of the 134 places we measured nationwide."
     ]
    }
   },
@@ -815,15 +815,16 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "page-map-webdev.json national_ranking rank",
-  "4": "derived: rank of estab among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
   "7": "Semrush keyword difficulty, \"web design chicago\"",
   "8": "derived: information establishments change 2018-2023, percent",
+  "10": "derived: rank of estab among the 64 place pages",
   "11": "derived: educational services establishments 2023 minus 2018",
   "15": "derived: health care and social assistance share of paid employees, 2023",
-  "16": "derived: rank of u20 among the 45 place pages",
-  "41": "derived: rank of popChg among the 45 place pages",
-  "42": "derived: rank of estabChg among the 45 place pages",
+  "20": "derived: rank of per511 among the 64 place pages",
+  "23": "derived: rank of u20 among the 64 place pages",
+  "57": "derived: rank of estabChg among the 64 place pages",
+  "60": "derived: rank of popChg among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "93": "derived: construction establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "228": "derived: administrative and support services establishments 2023 minus 2018",
@@ -943,9 +944,10 @@ export const PLACE: LocalPlace = {
   "34.4": "derived: top-3 sectors' share of paid employees, 2023",
   "1,880,505": "derived: top-4 sectors' paid employees, 2023",
   "43.9": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

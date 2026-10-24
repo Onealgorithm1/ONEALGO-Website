@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-denver",
  "kind": "metro",
  "photo": "denver",
+ "parent": {
+  "label": "Colorado",
+  "to": "/services/web-design-colorado"
+ },
  "seo": {
   "title": "Web Design Denver, CO: Custom Websites | OneAlgorithm",
   "description": "Web design for Denver businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web development denver"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 8,
+  "rank": 9,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 8 of the 134 places we measured, at 2,540 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 9 of the 134 places we measured, at 2,540 searches a month.",
      "The development phrasing draws 590 a month and the developer phrasing 260, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 390 searches a month at about $11.31 a click, the buyer already looking for a firm.",
      "Advertisers paid about $11.96 a click for “web design denver”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 18th of 45 places by businesses",
-   "lede": "The metro ranks 18th of the 45 places we build pages for by business establishments, and 9th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 33rd of 64 places by businesses",
+   "lede": "The metro ranks 33rd of the 64 places we build pages for by business establishments, and 11th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 33rd of 45, and the share of establishments under 20 staff ranks 9th.",
+   "lead": "population growth since 2019 ranks 45th of 64, and the share of establishments under 20 staff ranks 15th.",
    "table": {
-    "caption": "The Denver metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Denver metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "133.5",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+6%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+2.8%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "86%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 91,522 establishments here against the 45 places' own counts, 23rd for their change since 2018.",
-     "Programming firms run 133.5 per 10,000 businesses here against a median of 86.9. The under-20 share is 86% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 2,540, 8th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 91,522 establishments here against the 64 places' own counts, 30th for their change since 2018.",
+     "Programming firms run 133.5 per 10,000 businesses here against a median of 85.2. The under-20 share is 86% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,540, 9th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-colorado",
+     "title": "Colorado web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-salt-lake-city",
      "title": "Salt Lake City web design",
      "tag": "Nearby metro"
@@ -809,15 +818,18 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: median estabChg of the 45 place pages",
-  "8": "page-map-webdev.json national_ranking rank",
-  "9": "derived: rank of u20 among the 45 place pages",
+  "6": "derived: construction establishments change 2018-2023, percent",
+  "8": "derived: information establishments 2023 minus 2018",
+  "9": "page-map-webdev.json national_ranking rank",
   "10": "derived: retail trade establishments 2023 minus 2018",
-  "18": "derived: rank of estab among the 45 place pages",
-  "23": "derived: rank of estabChg among the 45 place pages",
-  "33": "derived: rank of popChg among the 45 place pages",
+  "11": "derived: rank of per511 among the 64 place pages",
+  "15": "derived: rank of u20 among the 64 place pages",
+  "30": "derived: rank of estabChg among the 64 place pages",
+  "33": "derived: rank of estab among the 64 place pages",
+  "45": "derived: rank of popChg among the 64 place pages",
   "46": "Semrush keyword difficulty, \"web design denver\"",
   "52": "derived: finance and insurance establishments 2023 minus 2018",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "derived: administrative and support services establishments 2023 minus 2018",
   "81": "derived: manufacturing establishments 2023 minus 2018",
   "86": "derived: establishments under 20 employees / total establishments, 2023",
@@ -936,9 +948,10 @@ export const PLACE: LocalPlace = {
   "34.8": "derived: top-3 sectors' share of paid employees, 2023",
   "639,915": "derived: top-4 sectors' paid employees, 2023",
   "45.1": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

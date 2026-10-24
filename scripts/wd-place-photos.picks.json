@@ -329,5 +329,157 @@
   "fx": 0.5,
   "fy": 0.5,
   "alt": "Downtown Louisville above the Ohio River with the Delta Queen steamboat at the waterfront."
+ },
+ {
+  "slug": "new-york-state",
+  "name": "New York State",
+  "title": "File:Hudson River and valley from Shaupeneak Ridge, Esopus, NY.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Hudson River valley in New York State, seen from Shaupeneak Ridge above Esopus."
+ },
+ {
+  "slug": "utah",
+  "name": "Utah",
+  "title": "File:Utah Dunes Landscape - West Desert District.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Wind-shaped sand dunes under a blue sky in the West Desert of Utah."
+ },
+ {
+  "slug": "florida",
+  "name": "Florida",
+  "title": "File:Everglades Anhinga Trail Pond.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "A still pond on the Anhinga Trail in Everglades National Park, Florida."
+ },
+ {
+  "slug": "texas",
+  "name": "Texas",
+  "title": "File:TexasStateCapitol-2010-01.JPG",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Texas State Capitol in Austin, Texas, under a blue sky."
+ },
+ {
+  "slug": "michigan",
+  "name": "Michigan",
+  "title": "File:St. Ignace, Michigan, 2026.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "St. Ignace, Michigan, on the Straits of Mackinac."
+ },
+ {
+  "slug": "ohio",
+  "name": "Ohio",
+  "title": "File:Cuyahoga Valley National Park (14968792293).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Cuyahoga Valley National Park in northeast Ohio."
+ },
+ {
+  "slug": "maryland",
+  "name": "Maryland",
+  "title": "File:Chesapeake Bay Bridge at Sandy Point MD1.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Chesapeake Bay Bridge in Maryland, seen from Sandy Point."
+ },
+ {
+  "slug": "indiana",
+  "name": "Indiana",
+  "title": "File:Indiana Dunes National Lakeshore, Michigan City, Indiana, Estados Unidos, 2012-10-20, DD 02.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Dunes and the Lake Michigan shore at Indiana Dunes, near Michigan City, Indiana."
+ },
+ {
+  "slug": "arizona",
+  "name": "Arizona",
+  "title": "File:Grand canyon march 2013.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Grand Canyon in northern Arizona under a clear sky."
+ },
+ {
+  "slug": "california",
+  "name": "California",
+  "title": "File:Bixby Creek Bridge, California, USA - May 2013.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Bixby Creek Bridge on the Big Sur coast of California."
+ },
+ {
+  "slug": "connecticut",
+  "name": "Connecticut",
+  "title": "File:20191016 hartford sunrise from goodwin dock 9UV2622.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Sunrise over the Connecticut River and downtown Hartford, Connecticut."
+ },
+ {
+  "slug": "vermont",
+  "name": "Vermont",
+  "title": "File:Lake Willoughby October 2021 003.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Lake Willoughby in the Northeast Kingdom of Vermont, between autumn-coloured hills."
+ },
+ {
+  "slug": "virginia",
+  "name": "Virginia",
+  "title": "File:Blue Ridge Parkway clouds VA1.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Clouds over the Blue Ridge Mountains along the Blue Ridge Parkway in Virginia."
+ },
+ {
+  "slug": "colorado",
+  "name": "Colorado",
+  "title": "File:Maroon Bells (11553)a.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Maroon Bells peaks above Maroon Lake near Aspen, Colorado."
+ },
+ {
+  "slug": "minnesota",
+  "name": "Minnesota",
+  "title": "File:Split Rock Light Station.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Split Rock Lighthouse on its cliff above Lake Superior in Minnesota."
+ },
+ {
+  "slug": "hawaii",
+  "name": "Hawaii",
+  "title": "File:Oahu Waikiki DiamondHead from Tantalus Rd.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Waikiki and Diamond Head on Oahu, Hawaii, seen from Tantalus Road."
+ },
+ {
+  "slug": "north-carolina",
+  "name": "North Carolina",
+  "title": "File:Appalachian Mountains along Blue Ridge Parkway, North Carolina.JPG",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Ridges of the Appalachian Mountains along the Blue Ridge Parkway in North Carolina."
+ },
+ {
+  "slug": "south-carolina",
+  "name": "South Carolina",
+  "title": "File:Ravenel Bridge at night from Mt Pleasant.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Arthur Ravenel Jr. Bridge lit at night over Charleston Harbor, South Carolina."
+ },
+ {
+  "slug": "arkansas",
+  "name": "Arkansas",
+  "title": "File:Little Rock pano.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Little Rock, Arkansas, skyline along the Arkansas River."
  }
 ]

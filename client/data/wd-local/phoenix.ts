@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-phoenix",
  "kind": "metro",
  "photo": "phoenix",
+ "parent": {
+  "label": "Arizona",
+  "to": "/services/web-design-arizona"
+ },
  "seo": {
   "title": "Web Design Phoenix, AZ: Custom Websites | OneAlgorithm",
   "description": "Web design for Phoenix businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web development phoenix"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 11,
+  "rank": 12,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 11 of the 134 places we measured, at 2,360 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 12 of the 134 places we measured, at 2,360 searches a month.",
      "The development phrasing draws 260 a month and the developer phrasing 320, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 480 searches a month at about $9.82 a click, the buyer already looking for a firm.",
      "Advertisers paid about $9.82 a click for “web design phoenix”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 13th of 45 places by businesses",
-   "lede": "The metro ranks 13th of the 45 places we build pages for by business establishments, and 20th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 27th of 64 places by businesses",
+   "lede": "The metro ranks 27th of the 64 places we build pages for by business establishments, and 26th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 22nd of 45, and the share of establishments under 20 staff ranks 25th.",
+   "lead": "population growth since 2019 ranks 27th of 64, and the share of establishments under 20 staff ranks 41st.",
    "table": {
-    "caption": "The Phoenix metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Phoenix metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "90",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+14.9%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+4.8%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "84.1%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 114,586 establishments here against the 45 places' own counts, 6th for their change since 2018.",
-     "Programming firms run 90 per 10,000 businesses here against a median of 86.9. The under-20 share is 84.1% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 2,360, 11th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 114,586 establishments here against the 64 places' own counts, 7th for their change since 2018.",
+     "Programming firms run 90 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.1% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,360, 12th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-arizona",
+     "title": "Arizona web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-las-vegas",
      "title": "Las Vegas web design",
      "tag": "Nearby metro"
@@ -809,18 +818,18 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: median estabChg of the 45 place pages",
-  "11": "page-map-webdev.json national_ranking rank",
-  "13": "derived: rank of estab among the 45 place pages",
+  "7": "derived: rank of estabChg among the 64 place pages",
+  "12": "page-map-webdev.json national_ranking rank",
   "14": "derived: educational services establishments change 2018-2023, percent",
-  "20": "derived: rank of per511 among the 45 place pages",
-  "22": "derived: rank of popChg among the 45 place pages",
   "23": "derived: information employees per establishment, 2023",
-  "25": "derived: rank of u20 among the 45 place pages",
-  "26": "Semrush keyword difficulty, \"web design phoenix\"",
+  "25": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
+  "26": "derived: rank of per511 among the 64 place pages",
+  "27": "derived: rank of popChg among the 64 place pages",
   "29": "derived: information establishments 2023 minus 2018",
+  "41": "derived: rank of u20 among the 64 place pages",
   "43": "derived: wholesale trade establishments 2023 minus 2018",
   "47": "derived: manufacturing establishments 2023 minus 2018",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "90": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "134": "page-map-webdev.json national_ranking length",
   "229": "derived: educational services establishments 2023 minus 2018",
@@ -856,7 +865,7 @@ export const PLACE: LocalPlace = {
   "1,117": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "184.1": "derived: NAICS 5415 establishments per 10,000 establishments, 2023",
   "14.9": "derived: change in total establishments 2018-2023, percent",
-  "4.8": "derived: median popChg of the 45 place pages",
+  "4.8": "derived: change in population 2019-2024 (ACS 1-year), percent",
   "12.4": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "14,850": "derived: total establishments 2023 minus 2018",
   "14,964": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 20-99 employees, 2023",
@@ -937,8 +946,10 @@ export const PLACE: LocalPlace = {
   "38.1": "derived: top-3 sectors' share of paid employees, 2023",
   "952,938": "derived: top-4 sectors' paid employees, 2023",
   "45.8": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

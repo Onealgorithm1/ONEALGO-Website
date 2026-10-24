@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-baltimore",
  "kind": "metro",
  "photo": "baltimore",
+ "parent": {
+  "label": "Maryland",
+  "to": "/services/web-design-maryland"
+ },
  "seo": {
   "title": "Web Design Baltimore, MD: Custom Websites | OneAlgorithm",
   "description": "Web design for Baltimore businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "baltimore web developer"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 45,
+  "rank": 56,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 45 of the 134 places we measured, at 710 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 56 of the 134 places we measured, at 710 searches a month.",
      "The development phrasing draws 40 a month and the developer phrasing 20, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 170 searches a month at about $9.20 a click, the buyer already looking for a firm.",
      "Advertisers paid about $6.80 a click for “web design baltimore”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 24th of 45 places by businesses",
-   "lede": "The metro ranks 24th of the 45 places we build pages for by business establishments, and 5th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 41st of 64 places by businesses",
+   "lede": "The metro ranks 41st of the 64 places we build pages for by business establishments, and 6th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 36th of 45, and the share of establishments under 20 staff ranks 29th.",
+   "lead": "population growth since 2019 ranks 50th of 64, and the share of establishments under 20 staff ranks 46th.",
    "table": {
-    "caption": "The Baltimore metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Baltimore metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "157.8",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+1.9%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+2.1%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "83.7%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 68,827 establishments here against the 45 places' own counts, 36th for their change since 2018.",
-     "Programming firms run 157.8 per 10,000 businesses here against a median of 86.9. The under-20 share is 83.7% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 710, 45th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 68,827 establishments here against the 64 places' own counts, 49th for their change since 2018.",
+     "Programming firms run 157.8 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.7% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 710, 56th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -784,6 +788,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-maryland",
+     "title": "Maryland web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-washington-dc",
      "title": "Washington, DC web design",
      "tag": "Nearby metro"
@@ -813,17 +822,18 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "5": "derived: rank of per511 among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
+  "6": "derived: rank of per511 among the 64 place pages",
   "9": "derived: wholesale trade establishments change 2018-2023, percent",
   "16": "derived: information establishments 2023 minus 2018",
   "20": "Semrush US exact volume, \"web developer baltimore\", pulled 2026-10-24 13:05-13:15 ET",
-  "24": "derived: rank of estab among the 45 place pages",
-  "29": "derived: rank of u20 among the 45 place pages",
-  "36": "derived: rank of estabChg among the 45 place pages",
   "40": "Semrush US exact volume, \"website development baltimore\", pulled 2026-10-24 13:05-13:15 ET",
-  "45": "page-map-webdev.json national_ranking rank",
+  "41": "derived: rank of estab among the 64 place pages",
+  "46": "derived: rank of u20 among the 64 place pages",
+  "49": "derived: rank of estabChg among the 64 place pages",
+  "50": "derived: rank of popChg among the 64 place pages",
   "55": "Semrush keyword difficulty, \"web design baltimore\"",
+  "56": "page-map-webdev.json national_ranking rank",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "66": "derived: administrative and support services establishments 2023 minus 2018",
   "87": "derived: manufacturing establishments 2023 minus 2018",
   "90": "derived: educational services establishments 2023 minus 2018",
@@ -940,9 +950,10 @@ export const PLACE: LocalPlace = {
   "41.3": "derived: top-3 sectors' share of paid employees, 2023",
   "620,451": "derived: top-4 sectors' paid employees, 2023",
   "50.8": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

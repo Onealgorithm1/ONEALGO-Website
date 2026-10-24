@@ -374,7 +374,7 @@ export const PLACE: LocalPlace = {
    "web development company new jersey"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 18,
+  "rank": 19,
   "of": 134
  },
  "sections": [
@@ -556,7 +556,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 18 of the 134 places we measured, at 1,680 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 19 of the 134 places we measured, at 1,680 searches a month.",
      "Advertisers paid about $19.61 a click for “web design new jersey”, which is what a search costs to buy, not the price of a website.",
      "The top phrasing, at 720 searches, carries a Semrush keyword difficulty of 37 out of 100."
     ]
@@ -627,46 +627,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 5th of 45 places by businesses",
-   "lede": "The state ranks 5th of the 45 places we build pages for by business establishments, and 10th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 11th of 64 places by businesses",
+   "lede": "The state ranks 11th of the 64 places we build pages for by business establishments, and 12th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 13th of 45, and the share of establishments under 20 staff ranks 9th.",
+   "lead": "population growth since 2019 ranks 16th of 64, and the share of establishments under 20 staff ranks 15th.",
    "table": {
-    "caption": "New Jersey against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "New Jersey against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "124.6",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+1.8%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+7%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "86%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 237,968 establishments here against the 45 places' own counts, 39th for their change since 2018.",
-     "Programming firms run 124.6 per 10,000 businesses here against a median of 86.9. The under-20 share is 86% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,680, 18th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 237,968 establishments here against the 64 places' own counts, 53rd for their change since 2018.",
+     "Programming firms run 124.6 per 10,000 businesses here against a median of 85.2. The under-20 share is 86% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,680, 19th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -845,19 +845,20 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "Semrush US exact volume, \"web developer princeton nj\", pulled 2026-10-24 13:05-13:15 ET",
-  "5": "derived: rank of estab among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
+  "5": "derived: educational services establishments change 2018-2023, percent",
   "7": "derived: change in population 2019-2024 (ACS 1-year), percent",
-  "9": "derived: rank of u20 among the 45 place pages",
-  "10": "derived: rank of per511 among the 45 place pages",
-  "13": "derived: rank of popChg among the 45 place pages",
-  "16": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "18": "page-map-webdev.json national_ranking rank",
+  "10": "derived: administrative and support services share of paid employees, 2023",
+  "11": "derived: rank of estab among the 64 place pages",
+  "12": "derived: rank of per511 among the 64 place pages",
+  "15": "derived: rank of u20 among the 64 place pages",
+  "16": "derived: rank of popChg among the 64 place pages",
+  "19": "page-map-webdev.json national_ranking rank",
   "20": "Semrush US exact volume, \"web developer new jersey\", pulled 2026-10-24 13:05-13:15 ET",
   "30": "Semrush US exact volume, \"web design princeton nj\", pulled 2026-10-24 13:05-13:15 ET",
   "37": "Semrush keyword difficulty, \"web design new jersey\"",
-  "39": "derived: rank of estabChg among the 45 place pages",
   "50": "Semrush US exact volume, \"website design princeton nj\", pulled 2026-10-24 13:05-13:15 ET",
+  "53": "derived: rank of estabChg among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "73": "derived: information establishments 2023 minus 2018",
   "80": "Semrush exact sum for Princeton (page-map-webdev.json)",
   "86": "derived: establishments under 20 employees / total establishments, 2023",
@@ -978,9 +979,10 @@ export const PLACE: LocalPlace = {
   "37.9": "derived: top-3 sectors' share of paid employees, 2023",
   "1,839,866": "derived: top-4 sectors' paid employees, 2023",
   "46.6": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

@@ -25,6 +25,13 @@ import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createLocalBusinessSchema, createWebPageSchema } from "../../components/StructuredData";
 import "../../styles/wd.css";
 import "../../components/wd/wd-page.css";
+import { PLACES } from "../../data/wd-local/places";
+
+/* U13 "Where we work": every state page, then the 12 largest metros (places.ts is in page-map build order, by Semrush sum)
+   plus every metro whose state has no page of its own, so each place page is at most two clicks from here. */
+const PLACE_STATES = PLACES.filter((p) => p.kind === "state").sort((a, b) => a.name.localeCompare(b.name));
+const STATE_NAMES = new Set(PLACE_STATES.map((p) => p.state));
+const PLACE_METROS = PLACES.filter((p) => p.kind === "metro").filter((p, i) => i < 12 || !STATE_NAMES.has(p.state));
 
 /* /services/website-development, THE SHOWCASE. Rebuilt 2026-10-24 around the 17 Smart Brevity units of
  * onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo/structure-spec.md §4 (title, meta, H2 list in order, answer
@@ -175,6 +182,7 @@ export default function WebsiteDevelopment() {
               <p className="sf-rule">We crawl the old site first and map every address to its new one, so the redirect list exists before the first screen is designed. The content audit keeps what ranks and rewrites what does not. The redirects are tested before launch, and Search Console is read after it.</p>
               <h3>Working with the site you already have</h3>
               <p>Often, yes. Sometimes the honest answer is that rebuilding is cheaper than fixing, and we tell you which one you are looking at rather than quoting whichever is bigger.</p>
+              <p><Link className="sf-link" to="/services/website-redesign">Website redesign that keeps your rankings</Link></p>
             </GoDeeper>
           </SmartUnit>
           <SiteWindow item={second(BY_SLUG["phantom-arcades"])} screen="second" size="wide" sweep onPreview={onPreview} className="sf-c7" />
@@ -192,6 +200,7 @@ export default function WebsiteDevelopment() {
               </ul>
               <h3>Three small-business sites we built</h3>
               <p>Inspect This Home Inspections: service pages by area, online scheduling, and reports the owner updates himself. The Boards Professor: booking, tutor profiles and reviews pulled from two platforms into one page. Starzi Brothers: moved off Squarespace to a page for each service and town, and a quote form that lands in the office inbox.</p>
+              <p><Link className="sf-link" to="/services/small-business-website-design">Small business website design</Link></p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c12 wd-windows-6 wd-strip">
@@ -220,6 +229,7 @@ export default function WebsiteDevelopment() {
             <GoDeeper label={U.cost.deep!}>
               <p className="sf-rule">The proposal lists the pages and layouts, the integrations, the content we need from you and the dates, with the price against that list. If the number is wrong for you, we say what we would cut to get there.</p>
               <p>After signing, the two things that move a quote are content that has not been written and feedback that sits unanswered, so both carry dates in the schedule.</p>
+              <p><Link className="sf-link" to="/services/website-cost">How much does a website cost?</Link></p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c7">
@@ -333,6 +343,14 @@ export default function WebsiteDevelopment() {
               <li>
                 <h3 className="sf-h4">Web design for Philadelphia and Chester County</h3>
                 <div className="sf-links">{LOCAL_LINKS.map((l) => <Link key={l.to} className="sf-link" to={l.to}>{l.label}</Link>)}</div>
+              </li>
+              <li>
+                <h3 className="sf-h4">Where we work: web design by state</h3>
+                <div className="sf-links">{PLACE_STATES.map((p) => <Link key={p.path} className="sf-link" to={p.path}>{p.name}</Link>)}</div>
+              </li>
+              <li>
+                <h3 className="sf-h4">Where we work: the largest metros</h3>
+                <div className="sf-links">{PLACE_METROS.map((p) => <Link key={p.path} className="sf-link" to={p.path}>{p.name}</Link>)}</div>
               </li>
             </ul>
             <GoDeeper label={U.who.deep!}>

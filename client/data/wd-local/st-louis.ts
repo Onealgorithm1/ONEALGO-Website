@@ -362,7 +362,7 @@ export const PLACE: LocalPlace = {
    "web development st louis"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 14,
+  "rank": 15,
   "of": 134
  },
  "sections": [
@@ -534,7 +534,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 14 of the 134 places we measured, at 1,950 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 15 of the 134 places we measured, at 1,950 searches a month.",
      "The development phrasing draws 720 a month and the developer phrasing 140, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 210 searches a month, the buyer already looking for a firm.",
      "Advertisers paid about $16.89 a click for “web design st louis”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +607,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 23rd of 45 places by businesses",
-   "lede": "The metro ranks 23rd of the 45 places we build pages for by business establishments, and 40th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 40th of 64 places by businesses",
+   "lede": "The metro ranks 40th of the 64 places we build pages for by business establishments, and 52nd for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 39th of 45, and the share of establishments under 20 staff ranks 32nd.",
+   "lead": "population growth since 2019 ranks 57th of 64, and the share of establishments under 20 staff ranks 49th.",
    "table": {
-    "caption": "The St. Louis metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The St. Louis metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "65.1",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "−4.3%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+0.3%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "83.5%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 69,470 establishments here against the 45 places' own counts, 44th for their change since 2018.",
-     "Programming firms run 65.1 per 10,000 businesses here against a median of 86.9. The under-20 share is 83.5% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,950, 14th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 69,470 establishments here against the 64 places' own counts, 63rd for their change since 2018.",
+     "Programming firms run 65.1 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.5% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,950, 15th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -814,17 +814,18 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: educational services establishments 2023 minus 2018",
-  "6": "derived: median estabChg of the 45 place pages",
-  "14": "page-map-webdev.json national_ranking rank",
+  "6": "derived: retail trade establishments change 2018-2023, percent",
+  "15": "page-map-webdev.json national_ranking rank",
   "16": "derived: health care and social assistance establishments change 2018-2023, percent",
   "20": "derived: accommodation and food services employees per establishment, 2023",
-  "23": "derived: rank of estab among the 45 place pages",
-  "32": "derived: rank of u20 among the 45 place pages",
   "37": "Semrush keyword difficulty, \"web design st louis\"",
-  "39": "derived: rank of popChg among the 45 place pages",
-  "40": "derived: rank of per511 among the 45 place pages",
-  "44": "derived: rank of estabChg among the 45 place pages",
+  "40": "derived: rank of estab among the 64 place pages",
+  "49": "derived: rank of u20 among the 64 place pages",
+  "52": "derived: rank of per511 among the 64 place pages",
+  "57": "derived: rank of popChg among the 64 place pages",
   "61": "derived: administrative and support services establishments 2023 minus 2018",
+  "63": "derived: rank of estabChg among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "99": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "115": "derived: construction establishments 2023 minus 2018",
   "127": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -900,7 +901,7 @@ export const PLACE: LocalPlace = {
   "3,226": "Census County Business Patterns 2023, establishments, naics 53 real estate and rental and leasing, 2023",
   "3,095": "Census County Business Patterns 2018, establishments, naics 53 real estate and rental and leasing, 2018",
   "6.3": "derived: real estate, rental and leasing employees per establishment, 2023",
-  "4.2": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
+  "4.2": "derived: median popChg of the 64 place pages",
   "90,808": "Census County Business Patterns 2023, paid employees, naics 54 professional, scientific and technical services, 2023",
   "7,057": "Census County Business Patterns 2023, establishments, naics 54 professional, scientific and technical services, 2023",
   "7,266": "Census County Business Patterns 2018, establishments, naics 54 professional, scientific and technical services, 2018",
@@ -942,9 +943,9 @@ export const PLACE: LocalPlace = {
   "36.5": "derived: top-3 sectors' share of paid employees, 2023",
   "571,017": "derived: top-4 sectors' paid employees, 2023",
   "45.2": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

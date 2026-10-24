@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-sacramento",
  "kind": "metro",
  "photo": "sacramento",
+ "parent": {
+  "label": "California",
+  "to": "/services/web-design-california"
+ },
  "seo": {
   "title": "Web Design Sacramento, CA: Custom Websites | OneAlgorithm",
   "description": "Web design for Sacramento businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "sacramento web design firms"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 21,
+  "rank": 22,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 21 of the 134 places we measured, at 1,540 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 22 of the 134 places we measured, at 1,540 searches a month.",
      "The development phrasing draws 110 a month and the developer phrasing 170, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month at about $8.25 a click, the buyer already looking for a firm.",
      "Advertisers paid about $8.58 a click for “web design sacramento”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 27th of 45 places by businesses",
-   "lede": "The metro ranks 27th of the 45 places we build pages for by business establishments, and 18th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 44th of 64 places by businesses",
+   "lede": "The metro ranks 44th of the 64 places we build pages for by business establishments, and 24th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 27th of 45, and the share of establishments under 20 staff ranks 14th.",
+   "lead": "population growth since 2019 ranks 32nd of 64, and the share of establishments under 20 staff ranks 20th.",
    "table": {
-    "caption": "The Sacramento metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Sacramento metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "93.8",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+11.7%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+4.2%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "85.6%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 55,974 establishments here against the 45 places' own counts, 15th for their change since 2018.",
-     "Programming firms run 93.8 per 10,000 businesses here against a median of 86.9. The under-20 share is 85.6% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,540, 21st of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 55,974 establishments here against the 64 places' own counts, 18th for their change since 2018.",
+     "Programming firms run 93.8 per 10,000 businesses here against a median of 85.2. The under-20 share is 85.6% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,540, 22nd of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-california",
+     "title": "California web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-san-francisco",
      "title": "San Francisco web design",
      "tag": "Nearby metro"
@@ -809,18 +818,18 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: median estabChg of the 45 place pages",
   "10": "derived: information establishments 2023 minus 2018",
-  "14": "derived: rank of u20 among the 45 place pages",
-  "15": "derived: rank of estabChg among the 45 place pages",
-  "18": "derived: rank of per511 among the 45 place pages",
+  "18": "derived: rank of estabChg among the 64 place pages",
   "19": "derived: accommodation and food services employees per establishment, 2023",
-  "21": "page-map-webdev.json national_ranking rank",
-  "27": "derived: rank of popChg among the 45 place pages",
+  "20": "derived: rank of u20 among the 64 place pages",
+  "22": "page-map-webdev.json national_ranking rank",
+  "24": "derived: rank of per511 among the 64 place pages",
+  "32": "derived: rank of popChg among the 64 place pages",
   "40": "derived: manufacturing establishments 2023 minus 2018",
-  "44": "derived: population 2024 / establishments 2023",
+  "44": "derived: rank of estab among the 64 place pages",
   "45": "Semrush keyword difficulty, \"web design sacramento\"",
   "61": "derived: wholesale trade establishments 2023 minus 2018",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "78": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "86": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "100": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
@@ -862,7 +871,7 @@ export const PLACE: LocalPlace = {
   "1,153": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "93.8": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "11.7": "derived: change in total establishments 2018-2023, percent",
-  "4.2": "derived: retail trade establishments change 2018-2023, percent",
+  "4.2": "derived: median popChg of the 64 place pages",
   "9.6": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "5,849": "derived: total establishments 2023 minus 2018",
   "6,861": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 20-99 employees, 2023",
@@ -935,9 +944,9 @@ export const PLACE: LocalPlace = {
   "42.8": "derived: top-3 sectors' share of paid employees, 2023",
   "422,926": "derived: top-4 sectors' paid employees, 2023",
   "51.2": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

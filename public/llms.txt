@@ -21,6 +21,9 @@
 ## Services
 
 - [Custom website design and development](https://onealgorithm.com/services/website-development): custom websites designed and built from our Malvern, PA office, with six live client sites shown on the page.
+- [How much does a website cost](https://onealgorithm.com/services/website-cost): what sets the price of a custom website, with the scope and price in writing before work starts.
+- [Small business website design](https://onealgorithm.com/services/small-business-website-design): websites for owner-led businesses, built to be found, explain the service and take the call, booking or order.
+- [Website redesign](https://onealgorithm.com/services/website-redesign): a new design and code on your existing domain, with every old address redirected so rankings carry over.
 - SEO: https://onealgorithm.com/services/seo
 - Google Ads management: https://onealgorithm.com/services/google-ads
 - Marketing & social media: https://onealgorithm.com/services/marketing
@@ -61,6 +64,76 @@ one-week Salesforce health check.
 - Salesforce consultant for Austin companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-austin
 - Salesforce consultant for Miami companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-miami
 - Salesforce consultant for Chicago companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-chicago
+
+## Web design by state (built remotely from Malvern, PA)
+
+- [Web design for Arizona businesses](https://onealgorithm.com/services/web-design-arizona)
+- [Web design for Arkansas businesses](https://onealgorithm.com/services/web-design-arkansas)
+- [Web design for California businesses](https://onealgorithm.com/services/web-design-california)
+- [Web design for Colorado businesses](https://onealgorithm.com/services/web-design-colorado)
+- [Web design for Connecticut businesses](https://onealgorithm.com/services/web-design-connecticut)
+- [Web design for Delaware businesses](https://onealgorithm.com/services/web-design-delaware)
+- [Web design for Florida businesses](https://onealgorithm.com/services/web-design-florida)
+- [Web design for Hawaii businesses](https://onealgorithm.com/services/web-design-hawaii)
+- [Web design for Indiana businesses](https://onealgorithm.com/services/web-design-indiana)
+- [Web design for Maryland businesses](https://onealgorithm.com/services/web-design-maryland)
+- [Web design for Michigan businesses](https://onealgorithm.com/services/web-design-michigan)
+- [Web design for Minnesota businesses](https://onealgorithm.com/services/web-design-minnesota)
+- [Web design for New Jersey businesses](https://onealgorithm.com/services/web-design-new-jersey)
+- [Web design for New York State businesses](https://onealgorithm.com/services/web-design-new-york-state)
+- [Web design for North Carolina businesses](https://onealgorithm.com/services/web-design-north-carolina)
+- [Web design for Ohio businesses](https://onealgorithm.com/services/web-design-ohio)
+- [Web design for Pennsylvania businesses](https://onealgorithm.com/services/web-design-pennsylvania)
+- [Web design for South Carolina businesses](https://onealgorithm.com/services/web-design-south-carolina)
+- [Web design for Texas businesses](https://onealgorithm.com/services/web-design-texas)
+- [Web design for Utah businesses](https://onealgorithm.com/services/web-design-utah)
+- [Web design for Vermont businesses](https://onealgorithm.com/services/web-design-vermont)
+- [Web design for Virginia businesses](https://onealgorithm.com/services/web-design-virginia)
+
+## Web design by metro (built remotely from Malvern, PA)
+
+- [Web design for Atlanta businesses](https://onealgorithm.com/services/web-design-atlanta)
+- [Web design for Austin businesses](https://onealgorithm.com/services/web-design-austin)
+- [Web design for Baltimore businesses](https://onealgorithm.com/services/web-design-baltimore)
+- [Web design for Boston businesses](https://onealgorithm.com/services/web-design-boston)
+- [Web design for Charlotte businesses](https://onealgorithm.com/services/web-design-charlotte)
+- [Web design for Chicago businesses](https://onealgorithm.com/services/web-design-chicago)
+- [Web design for Cincinnati businesses](https://onealgorithm.com/services/web-design-cincinnati)
+- [Web design for Cleveland businesses](https://onealgorithm.com/services/web-design-cleveland)
+- [Web design for Columbus businesses](https://onealgorithm.com/services/web-design-columbus)
+- [Web design for Dallas businesses](https://onealgorithm.com/services/web-design-dallas)
+- [Web design for Denver businesses](https://onealgorithm.com/services/web-design-denver)
+- [Web design for Detroit businesses](https://onealgorithm.com/services/web-design-detroit)
+- [Web design for Houston businesses](https://onealgorithm.com/services/web-design-houston)
+- [Web design for Indianapolis businesses](https://onealgorithm.com/services/web-design-indianapolis)
+- [Web design for Jacksonville businesses](https://onealgorithm.com/services/web-design-jacksonville)
+- [Web design for Kansas City businesses](https://onealgorithm.com/services/web-design-kansas-city)
+- [Web design for Las Vegas businesses](https://onealgorithm.com/services/web-design-las-vegas)
+- [Web design for Los Angeles businesses](https://onealgorithm.com/services/web-design-los-angeles)
+- [Web design for Louisville businesses](https://onealgorithm.com/services/web-design-louisville)
+- [Web design for Miami businesses](https://onealgorithm.com/services/web-design-miami)
+- [Web design for Milwaukee businesses](https://onealgorithm.com/services/web-design-milwaukee)
+- [Web design for Minneapolis businesses](https://onealgorithm.com/services/web-design-minneapolis)
+- [Web design for Nashville businesses](https://onealgorithm.com/services/web-design-nashville)
+- [Web design for New Orleans businesses](https://onealgorithm.com/services/web-design-new-orleans)
+- [Web design for New York businesses](https://onealgorithm.com/services/web-design-new-york)
+- [Web design for Omaha businesses](https://onealgorithm.com/services/web-design-omaha)
+- [Web design for Orlando businesses](https://onealgorithm.com/services/web-design-orlando)
+- [Web design for Phoenix businesses](https://onealgorithm.com/services/web-design-phoenix)
+- [Web design for Pittsburgh businesses](https://onealgorithm.com/services/web-design-pittsburgh)
+- [Web design for Portland businesses](https://onealgorithm.com/services/web-design-portland)
+- [Web design for Raleigh businesses](https://onealgorithm.com/services/web-design-raleigh)
+- [Web design for Richmond businesses](https://onealgorithm.com/services/web-design-richmond)
+- [Web design for Sacramento businesses](https://onealgorithm.com/services/web-design-sacramento)
+- [Web design for Salt Lake City businesses](https://onealgorithm.com/services/web-design-salt-lake-city)
+- [Web design for San Antonio businesses](https://onealgorithm.com/services/web-design-san-antonio)
+- [Web design for San Diego businesses](https://onealgorithm.com/services/web-design-san-diego)
+- [Web design for San Francisco businesses](https://onealgorithm.com/services/web-design-san-francisco)
+- [Web design for Seattle businesses](https://onealgorithm.com/services/web-design-seattle)
+- [Web design for St. Louis businesses](https://onealgorithm.com/services/web-design-st-louis)
+- [Web design for Tampa businesses](https://onealgorithm.com/services/web-design-tampa)
+- [Web design for Tulsa businesses](https://onealgorithm.com/services/web-design-tulsa)
+- [Web design for Washington, DC businesses](https://onealgorithm.com/services/web-design-washington-dc)
 
 ## Local (Philadelphia metro)
 

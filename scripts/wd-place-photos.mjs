@@ -9,7 +9,7 @@ import { createRequire } from 'node:module';
 const sharp = createRequire(import.meta.url)('C:/Users/louis/oa-sf-redesign/node_modules/sharp'); // ponytail: borrow the SF worktree's sharp, no new dep in this repo
 sharp.cache(false);
 const UA = 'OneAlgoImageSourcing/1.0 (https://onealgorithm.com)';
-const REPO = 'C:/Users/louis/oa-wd-wave';
+const REPO = 'C:/Users/louis/oa-sf-redesign';
 const SF = 'C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/redesign-v2';
 const RUN = 'C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo/build-wave12';
 const CAND = `${RUN}/place-photo-candidates`;

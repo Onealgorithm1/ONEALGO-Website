@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-raleigh",
  "kind": "metro",
  "photo": "raleigh",
+ "parent": {
+  "label": "North Carolina",
+  "to": "/services/web-design-north-carolina"
+ },
  "seo": {
   "title": "Web Design Raleigh, NC: Custom Websites | OneAlgorithm",
   "description": "Web design for Raleigh businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "raleigh best graphic design company"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 15,
+  "rank": 16,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 15 of the 134 places we measured, at 1,920 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 16 of the 134 places we measured, at 1,920 searches a month.",
      "The development phrasing draws 320 a month and the developer phrasing 40, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month, the buyer already looking for a firm.",
      "Advertisers paid about $8.22 a click for “web design raleigh”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 38th of 45 places by businesses",
-   "lede": "The metro ranks 38th of the 45 places we build pages for by business establishments, and 8th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 55th of 64 places by businesses",
+   "lede": "The metro ranks 55th of the 64 places we build pages for by business establishments, and 10th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 4th of 45, and the share of establishments under 20 staff ranks 19th.",
+   "lead": "population growth since 2019 ranks 4th of 64, and the share of establishments under 20 staff ranks 29th.",
    "table": {
-    "caption": "The Raleigh metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Raleigh metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "134.8",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+15%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+12.3%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "84.5%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 39,252 establishments here against the 45 places' own counts, 5th for their change since 2018.",
-     "Programming firms run 134.8 per 10,000 businesses here against a median of 86.9. The under-20 share is 84.5% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,920, 15th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 39,252 establishments here against the 64 places' own counts, 6th for their change since 2018.",
+     "Programming firms run 134.8 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.5% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,920, 16th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-north-carolina",
+     "title": "North Carolina web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-charlotte",
      "title": "Charlotte web design",
      "tag": "Nearby metro"
@@ -810,19 +819,20 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: wholesale trade establishments change 2018-2023, percent",
-  "4": "derived: rank of popChg among the 45 place pages",
-  "5": "derived: rank of estabChg among the 45 place pages",
-  "6": "derived: median estabChg of the 45 place pages",
-  "8": "derived: rank of per511 among the 45 place pages",
-  "10": "derived: construction employees per establishment, 2023",
-  "15": "page-map-webdev.json national_ranking rank",
-  "19": "derived: rank of u20 among the 45 place pages",
+  "4": "derived: rank of popChg among the 64 place pages",
+  "6": "derived: rank of estabChg among the 64 place pages",
+  "10": "derived: rank of per511 among the 64 place pages",
+  "15": "derived: wholesale trade establishments 2023 minus 2018",
+  "16": "page-map-webdev.json national_ranking rank",
+  "19": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "20": "derived: educational services employees per establishment, 2023",
+  "29": "derived: rank of u20 among the 64 place pages",
   "32": "derived: manufacturing establishments 2023 minus 2018",
-  "38": "derived: rank of estab among the 45 place pages",
   "40": "Semrush US exact volume, \"web developer raleigh\", pulled 2026-10-24 13:05-13:15 ET",
   "54": "derived: information establishments 2023 minus 2018",
+  "55": "derived: rank of estab among the 64 place pages",
   "60": "Semrush keyword difficulty, \"web design raleigh\"",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "68": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "74": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "82": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
@@ -892,7 +902,7 @@ export const PLACE: LocalPlace = {
   "10,888": "Census County Business Patterns 2023, paid employees, naics 53 real estate and rental and leasing, 2023",
   "2,616": "Census County Business Patterns 2023, establishments, naics 53 real estate and rental and leasing, 2023",
   "1,958": "Census County Business Patterns 2018, establishments, naics 53 real estate and rental and leasing, 2018",
-  "4.2": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "4.2": "derived: median popChg of the 64 place pages",
   "33.6": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "74,424": "Census County Business Patterns 2023, paid employees, naics 54 professional, scientific and technical services, 2023",
   "6,345": "Census County Business Patterns 2023, establishments, naics 54 professional, scientific and technical services, 2023",
@@ -922,7 +932,7 @@ export const PLACE: LocalPlace = {
   "4,345": "Census County Business Patterns 2023, establishments, naics 44-45 retail trade, 2023",
   "4,131": "Census County Business Patterns 2018, establishments, naics 44-45 retail trade, 2018",
   "17.4": "derived: retail trade employees per establishment, 2023",
-  "5.2": "derived: retail trade establishments change 2018-2023, percent",
+  "5.2": "derived: median estabChg of the 64 place pages",
   "1,014": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "1,300": "Semrush US exact volume, \"web design raleigh\", pulled 2026-10-24 13:05-13:15 ET",
   "8.22": "Semrush CPC (USD), \"web design raleigh\"",
@@ -935,9 +945,8 @@ export const PLACE: LocalPlace = {
   "37.9": "derived: top-3 sectors' share of paid employees, 2023",
   "303,505": "derived: top-4 sectors' paid employees, 2023",
   "49.1": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

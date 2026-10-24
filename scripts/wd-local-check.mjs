@@ -20,9 +20,9 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 
-const REPO = "C:/Users/louis/oa-wd-wave";
+const REPO = "C:/Users/louis/oa-sf-redesign";
 const RUN = "C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo";
-const OUTDIR = `${RUN}/build-wave12`;
+const OUTDIR = `${RUN}/build-all`;
 const args = process.argv.slice(2);
 const arg = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
 const BASE = arg("--base") || "http://127.0.0.1:5191";
@@ -33,7 +33,7 @@ const sharp = createRequire(`${REPO}/package.json`)("sharp");
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 const MAP = readJson(`${RUN}/page-map-webdev.json`);
-const FACTS = [...readJson(`${RUN}/facts/economy/facts.json`), ...readJson(`${RUN}/facts/economy/facts-metros.json`)];
+const FACTS = [...readJson(`${RUN}/facts/economy/facts.json`), ...readJson(`${RUN}/facts/economy/facts-metros.json`), ...readJson(`${RUN}/facts/economy/facts-states.json`)];
 const loadTs = (f) => { const s = fs.readFileSync(f, "utf8"); return JSON.parse(s.slice(s.indexOf("= {") + 2, s.lastIndexOf("};") + 1)); };
 const INDEX = (() => { const s = fs.readFileSync(`${REPO}/client/data/wd-local/places.ts`, "utf8"); return JSON.parse(s.slice(s.indexOf("= [") + 2, s.lastIndexOf("];") + 1)); })();
 const DATA = Object.fromEntries(INDEX.map((r) => [r.slug, loadTs(`${REPO}/client/data/wd-local/${r.slug}.ts`)]));

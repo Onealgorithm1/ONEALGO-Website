@@ -362,7 +362,7 @@ export const PLACE: LocalPlace = {
    "custom web development kansas city"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 23,
+  "rank": 24,
   "of": 134
  },
  "sections": [
@@ -534,7 +534,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 23 of the 134 places we measured, at 1,530 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 24 of the 134 places we measured, at 1,530 searches a month.",
      "The development phrasing draws 480 a month and the developer phrasing 70, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month at about $17.31 a click, the buyer already looking for a firm.",
      "Advertisers paid about $10.93 a click for “web design kansas city”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +607,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 28th of 45 places by businesses",
-   "lede": "The metro ranks 28th of the 45 places we build pages for by business establishments, and 37th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 45th of 64 places by businesses",
+   "lede": "The metro ranks 45th of the 64 places we build pages for by business establishments, and 46th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 26th of 45, and the share of establishments under 20 staff ranks 38th.",
+   "lead": "population growth since 2019 ranks 31st of 64, and the share of establishments under 20 staff ranks 55th.",
    "table": {
-    "caption": "The Kansas City metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Kansas City metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "69.9",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+3.9%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+4.6%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "83.1%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 55,104 establishments here against the 45 places' own counts, 27th for their change since 2018.",
-     "Programming firms run 69.9 per 10,000 businesses here against a median of 86.9. The under-20 share is 83.1% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,530, 23rd of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 55,104 establishments here against the 64 places' own counts, 38th for their change since 2018.",
+     "Programming firms run 69.9 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.1% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,530, 24th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -815,18 +815,19 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: finance and insurance establishments change 2018-2023, percent",
   "5": "derived: change in paid employees 2018-2023, percent",
-  "6": "derived: median estabChg of the 45 place pages",
   "15": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "18": "derived: information establishments 2023 minus 2018",
-  "23": "page-map-webdev.json national_ranking rank",
-  "26": "derived: rank of popChg among the 45 place pages",
-  "27": "derived: rank of estabChg among the 45 place pages",
-  "28": "derived: rank of estab among the 45 place pages",
-  "37": "derived: rank of per511 among the 45 place pages",
-  "38": "derived: rank of u20 among the 45 place pages",
+  "23": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "24": "page-map-webdev.json national_ranking rank",
+  "31": "derived: rank of popChg among the 64 place pages",
+  "38": "derived: rank of estabChg among the 64 place pages",
   "41": "derived: finance and insurance establishments 2023 minus 2018",
   "43": "derived: manufacturing establishments 2023 minus 2018",
+  "45": "derived: rank of estab among the 64 place pages",
+  "46": "derived: rank of per511 among the 64 place pages",
   "49": "derived: administrative and support services establishments 2023 minus 2018",
+  "55": "derived: rank of u20 among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush US exact volume, \"web developer kansas city\", pulled 2026-10-24 13:05-13:15 ET",
   "77": "derived: educational services establishments 2023 minus 2018",
   "114": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
@@ -897,7 +898,7 @@ export const PLACE: LocalPlace = {
   "15,208": "Census County Business Patterns 2023, paid employees, naics 53 real estate and rental and leasing, 2023",
   "3,153": "Census County Business Patterns 2023, establishments, naics 53 real estate and rental and leasing, 2023",
   "2,741": "Census County Business Patterns 2018, establishments, naics 53 real estate and rental and leasing, 2018",
-  "4.8": "derived: median popChg of the 45 place pages",
+  "4.8": "derived: real estate, rental and leasing employees per establishment, 2023",
   "98,484": "Census County Business Patterns 2023, paid employees, naics 54 professional, scientific and technical services, 2023",
   "6,702": "Census County Business Patterns 2023, establishments, naics 54 professional, scientific and technical services, 2023",
   "6,679": "Census County Business Patterns 2018, establishments, naics 54 professional, scientific and technical services, 2018",
@@ -943,8 +944,10 @@ export const PLACE: LocalPlace = {
   "35.7": "derived: top-3 sectors' share of paid employees, 2023",
   "461,461": "derived: top-4 sectors' paid employees, 2023",
   "45.4": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

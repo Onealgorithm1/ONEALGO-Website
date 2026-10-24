@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-charlotte",
  "kind": "metro",
  "photo": "charlotte",
+ "parent": {
+  "label": "North Carolina",
+  "to": "/services/web-design-north-carolina"
+ },
  "seo": {
   "title": "Web Design Charlotte, NC: Custom Websites | OneAlgorithm",
   "description": "Web design for Charlotte businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design agency charlotte"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 20,
+  "rank": 21,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 20 of the 134 places we measured, at 1,540 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 21 of the 134 places we measured, at 1,540 searches a month.",
      "The development phrasing draws 320 a month and the developer phrasing 110, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 390 searches a month at about $14.68 a click, the buyer already looking for a firm.",
      "Advertisers paid about $10.93 a click for “web design charlotte”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 22nd of 45 places by businesses",
-   "lede": "The metro ranks 22nd of the 45 places we build pages for by business establishments, and 36th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 38th of 64 places by businesses",
+   "lede": "The metro ranks 38th of the 64 places we build pages for by business establishments, and 45th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 9th of 45, and the share of establishments under 20 staff ranks 21st.",
+   "lead": "population growth since 2019 ranks 9th of 64, and the share of establishments under 20 staff ranks 35th.",
    "table": {
-    "caption": "The Charlotte metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Charlotte metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "71.6",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+14.4%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+9.3%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "84.2%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 71,411 establishments here against the 45 places' own counts, 8th for their change since 2018.",
-     "Programming firms run 71.6 per 10,000 businesses here against a median of 86.9. The under-20 share is 84.2% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,540, 20th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 71,411 establishments here against the 64 places' own counts, 9th for their change since 2018.",
+     "Programming firms run 71.6 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.2% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,540, 21st of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-north-carolina",
+     "title": "North Carolina web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-raleigh",
      "title": "Raleigh web design",
      "tag": "Nearby metro"
@@ -809,18 +818,18 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: median estabChg of the 45 place pages",
-  "8": "derived: rank of estabChg among the 45 place pages",
-  "9": "derived: rank of popChg among the 45 place pages",
+  "6": "derived: retail trade establishments change 2018-2023, percent",
+  "9": "derived: rank of estabChg among the 64 place pages",
   "12": "derived: health care and social assistance share of paid employees, 2023",
-  "20": "page-map-webdev.json national_ranking rank",
-  "21": "derived: rank of u20 among the 45 place pages",
-  "22": "derived: rank of estab among the 45 place pages",
+  "21": "page-map-webdev.json national_ranking rank",
   "27": "derived: manufacturing establishments 2023 minus 2018",
   "34": "derived: top-3 sectors' share of paid employees, 2023",
-  "36": "derived: rank of per511 among the 45 place pages",
+  "35": "derived: rank of u20 among the 64 place pages",
+  "38": "derived: rank of estab among the 64 place pages",
   "44": "Semrush keyword difficulty, \"web design charlotte\"",
+  "45": "derived: rank of per511 among the 64 place pages",
   "61": "derived: information establishments 2023 minus 2018",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "110": "Semrush US exact volume, \"web developer charlotte\", pulled 2026-10-24 13:05-13:15 ET",
   "122": "derived: educational services establishments 2023 minus 2018",
   "126": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -857,7 +866,7 @@ export const PLACE: LocalPlace = {
   "2,883,370": "Census ACS 1-year 2024, total population",
   "2,636,883": "Census ACS 1-year 2019, total population",
   "60,102": "derived: total establishments 2023 minus the six size classes of 20+ employees (Census CBP (read 21 October 2026))",
-  "84.2": "derived: median u20 of the 45 place pages",
+  "84.2": "derived: establishments under 20 employees / total establishments, 2023",
   "1,319": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "71.6": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "184.7": "derived: NAICS 5415 establishments per 10,000 establishments, 2023",
@@ -878,7 +887,7 @@ export const PLACE: LocalPlace = {
   "3,683": "Census County Business Patterns 2023, establishments, naics 42 wholesale trade, 2023",
   "3,883": "Census County Business Patterns 2018, establishments, naics 42 wholesale trade, 2018",
   "17.7": "derived: wholesale trade employees per establishment, 2023",
-  "5.2": "derived: wholesale trade establishments change 2018-2023, percent",
+  "5.2": "derived: median estabChg of the 64 place pages",
   "29,354": "Census County Business Patterns 2023, paid employees, naics 51 information, 2023",
   "1,150": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
   "1,089": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
@@ -939,8 +948,9 @@ export const PLACE: LocalPlace = {
   "10.2": "derived: accommodation and food services share of paid employees, 2023",
   "531,368": "derived: top-4 sectors' paid employees, 2023",
   "42.9": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

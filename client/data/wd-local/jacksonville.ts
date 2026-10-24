@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-jacksonville",
  "kind": "metro",
  "photo": "jacksonville",
+ "parent": {
+  "label": "Florida",
+  "to": "/services/web-design-florida"
+ },
  "seo": {
   "title": "Web Design Jacksonville, FL: Custom Websites | OneAlgorithm",
   "description": "Web design for Jacksonville businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design jacksonville fl"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 25,
+  "rank": 28,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 25 of the 134 places we measured, at 1,450 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 28 of the 134 places we measured, at 1,450 searches a month.",
      "The development phrasing draws 260 a month and the developer phrasing 50, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month at about $15.79 a click, the buyer already looking for a firm.",
      "Advertisers paid about $17.75 a click for “web design jacksonville”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 36th of 45 places by businesses",
-   "lede": "The metro ranks 36th of the 45 places we build pages for by business establishments, and 31st for programming firms per 10,000 businesses.",
+   "h2": "Ranked 53rd of 64 places by businesses",
+   "lede": "The metro ranks 53rd of the 64 places we build pages for by business establishments, and 38th for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 2nd of 45, and the share of establishments under 20 staff ranks 7th.",
+   "lead": "population growth since 2019 ranks 2nd of 64, and the share of establishments under 20 staff ranks 12th.",
    "table": {
-    "caption": "The Jacksonville metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Jacksonville metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "77.7",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+13.8%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+12.9%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "86.4%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 44,152 establishments here against the 45 places' own counts, 10th for their change since 2018.",
-     "Programming firms run 77.7 per 10,000 businesses here against a median of 86.9. The under-20 share is 86.4% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 1,450, 25th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 44,152 establishments here against the 64 places' own counts, 12th for their change since 2018.",
+     "Programming firms run 77.7 per 10,000 businesses here against a median of 85.2. The under-20 share is 86.4% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,450, 28th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -780,6 +784,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-florida",
+     "title": "Florida web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-orlando",
      "title": "Orlando web design",
      "tag": "Nearby metro"
@@ -809,24 +818,23 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "2": "derived: rank of popChg among the 45 place pages",
+  "2": "derived: rank of popChg among the 64 place pages",
   "3": "derived: finance and insurance establishments change 2018-2023, percent",
   "4": "derived: retail trade establishments change 2018-2023, percent",
-  "6": "derived: median estabChg of the 45 place pages",
-  "7": "derived: rank of u20 among the 45 place pages",
-  "10": "derived: rank of estabChg among the 45 place pages",
+  "12": "derived: rank of u20 among the 64 place pages",
   "14": "derived: wholesale trade establishments 2023 minus 2018",
   "15": "derived: paid employees / establishments, 2023",
   "20": "derived: educational services employees per establishment, 2023",
-  "25": "page-map-webdev.json national_ranking rank",
+  "28": "page-map-webdev.json national_ranking rank",
   "29": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "30": "Semrush keyword difficulty, \"web design jacksonville\"",
-  "31": "derived: rank of per511 among the 45 place pages",
   "34": "derived: information establishments 2023 minus 2018",
-  "36": "derived: rank of estab among the 45 place pages",
+  "38": "derived: rank of per511 among the 64 place pages",
   "39": "derived: top-3 sectors' share of paid employees, 2023",
   "47": "derived: top-4 sectors' share of paid employees, 2023",
   "50": "Semrush US exact volume, \"web developer jacksonville\", pulled 2026-10-24 13:05-13:15 ET",
+  "53": "derived: rank of estab among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "69": "derived: finance and insurance establishments 2023 minus 2018",
   "76": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "78": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -939,9 +947,10 @@ export const PLACE: LocalPlace = {
   "12.6": "derived: retail trade share of paid employees, 2023",
   "11.6": "derived: accommodation and food services share of paid employees, 2023",
   "311,934": "derived: top-4 sectors' paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages",
-  "84.2": "derived: median u20 of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 

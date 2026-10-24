@@ -125,6 +125,24 @@ const SERVICES = [
     to: "/services/website-development",
   },
   {
+    icon: Code,
+    title: "Website Cost",
+    body: "What sets the price of a website: pages, content, integrations and whether it sells, books or logs people in, with the scope in writing first.",
+    to: "/services/website-cost",
+  },
+  {
+    icon: Code,
+    title: "Small Business Website Design",
+    body: "Websites for owner-led businesses, sized to three jobs: be found, explain the service, and turn a visit into a call, booking or order.",
+    to: "/services/small-business-website-design",
+  },
+  {
+    icon: Code,
+    title: "Website Redesign",
+    body: "A new design and new code on the domain you already have, with every old address mapped and redirected so rankings carry over.",
+    to: "/services/website-redesign",
+  },
+  {
     icon: Boxes,
     title: "Application Development",
     body: "Internal control panels, iOS and Android apps, customer portals and Salesforce applications — built so your company owns the code, the cloud accounts and the signing keys.",

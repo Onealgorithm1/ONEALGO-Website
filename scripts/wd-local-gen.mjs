@@ -1,5 +1,5 @@
-// Generator for the 45 web-design PLACE pages (42 metros + Pennsylvania, New Jersey, Delaware) on the one local template.
-//   node scripts/wd-local-gen.mjs            -> client/data/wd-local/<slug>.ts (45), client/data/wd-local/places.ts (index),
+// Generator for the 64 web-design PLACE pages (42 metros + 22 states: PA, NJ, DE from rev 3, 19 more at rev 4) on the one local template.
+//   node scripts/wd-local-gen.mjs            -> client/data/wd-local/<slug>.ts (64), client/data/wd-local/places.ts (index),
 //                                              public/og/places/web-design-<slug>.jpg (1200x630), build-wave12/routes-manifest.json
 //   node scripts/wd-local-gen.mjs --no-og    -> data + manifest only
 // Inputs (read-only, all in the 2026-10-24_webdev-seo run): page-map-webdev.json (national_ranking, rows, build_order),
@@ -13,13 +13,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
-const REPO = "C:/Users/louis/oa-wd-wave";
+const REPO = "C:/Users/louis/oa-sf-redesign";
 const RUN = "C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo";
 const OUT = `${REPO}/client/data/wd-local`;
 const TODAY = "2026-10-24";
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 const MAP = readJson(`${RUN}/page-map-webdev.json`);
-const FACTS = [...readJson(`${RUN}/facts/economy/facts.json`), ...readJson(`${RUN}/facts/economy/facts-metros.json`)];
+const FACTS = [...readJson(`${RUN}/facts/economy/facts.json`), ...readJson(`${RUN}/facts/economy/facts-metros.json`), ...readJson(`${RUN}/facts/economy/facts-states.json`)]; // first match wins: rev-3 pages read the same rows as before
 const SEM = readJson(`${RUN}/demand/semrush-volumes.json`);
 const SUGGEST = readJson(`${RUN}/demand/suggest-places.json`);
 
@@ -71,10 +71,33 @@ const META = {
   "Pennsylvania": { st: "PA", state: "Pennsylvania", geo: "state:42", tz: "ET", ll: [40.9, -77.8], kind: "state" },
   "New Jersey": { st: "NJ", state: "New Jersey", geo: "state:34", tz: "ET", ll: [40.1, -74.5], kind: "state" },
   "Delaware": { st: "DE", state: "Delaware", geo: "state:10", tz: "ET", ll: [39.0, -75.5], kind: "state" },
+  // rev 4 (2026-10-24): every state whose own Semrush exact sum clears 500/mo (demand/semrush-states.md). most: the state spans two time zones.
+  "New York State": { st: "NY", state: "New York", geo: "state:36", tz: "ET", ll: [42.9, -75.5], kind: "state", key: "new york" },
+  "Utah": { st: "UT", state: "Utah", geo: "state:49", tz: "MT", ll: [39.3, -111.7], kind: "state" },
+  "Florida": { st: "FL", state: "Florida", geo: "state:12", tz: "ET", ll: [28.6, -82.4], kind: "state", most: true },
+  "Texas": { st: "TX", state: "Texas", geo: "state:48", tz: "CT", ll: [31.0, -99.3], kind: "state", most: true },
+  "Michigan": { st: "MI", state: "Michigan", geo: "state:26", tz: "ET", ll: [43.6, -84.7], kind: "state", most: true },
+  "Ohio": { st: "OH", state: "Ohio", geo: "state:39", tz: "ET", ll: [40.4, -82.8], kind: "state" },
+  "Maryland": { st: "MD", state: "Maryland", geo: "state:24", tz: "ET", ll: [39.0, -76.8], kind: "state" },
+  "Indiana": { st: "IN", state: "Indiana", geo: "state:18", tz: "ET", ll: [39.9, -86.3], kind: "state", most: true },
+  "Arizona": { st: "AZ", state: "Arizona", geo: "state:04", tz: "AZ", ll: [34.2, -111.7], kind: "state" },
+  "California": { st: "CA", state: "California", geo: "state:06", tz: "PT", ll: [37.2, -119.5], kind: "state" },
+  "Connecticut": { st: "CT", state: "Connecticut", geo: "state:09", tz: "ET", ll: [41.6, -72.7], kind: "state" },
+  "Vermont": { st: "VT", state: "Vermont", geo: "state:50", tz: "ET", ll: [44.0, -72.7], kind: "state" },
+  "Virginia": { st: "VA", state: "Virginia", geo: "state:51", tz: "ET", ll: [37.5, -78.8], kind: "state", drop: /virginia beach|west virginia/ },
+  "Colorado": { st: "CO", state: "Colorado", geo: "state:08", tz: "MT", ll: [39.0, -105.5], kind: "state" },
+  "Minnesota": { st: "MN", state: "Minnesota", geo: "state:27", tz: "CT", ll: [46.3, -94.3], kind: "state" },
+  "Hawaii": { st: "HI", state: "Hawaii", geo: "state:15", tz: "HT", ll: [20.8, -156.3], kind: "state" },
+  "North Carolina": { st: "NC", state: "North Carolina", geo: "state:37", tz: "ET", ll: [35.5, -79.4], kind: "state" },
+  "South Carolina": { st: "SC", state: "South Carolina", geo: "state:45", tz: "ET", ll: [33.9, -80.9], kind: "state" },
+  "Arkansas": { st: "AR", state: "Arkansas", geo: "state:05", tz: "CT", ll: [34.9, -92.4], kind: "state" },
 };
 const EXISTING = { Philadelphia: "/services/web-design-philadelphia", "Chester County": "/services/web-design-chester-county" };
 const NAMES = MAP.build_order.filter((p) => !EXISTING[p]);
-if (NAMES.length !== 45) throw new Error(`expected 45 places, got ${NAMES.length}`);
+const N = NAMES.length;
+if (N !== 64) throw new Error(`expected 64 places, got ${N}`);
+// a metro's state page, when the state has one (rev 4: every state at or above the floor)
+const STATE_PAGE = Object.fromEntries(NAMES.filter((n) => META[n].kind === "state").map((n) => [META[n].state, n]));
 for (const n of NAMES) if (!META[n]) throw new Error(`no META for ${n}`);
 const slugOf = (n) => n.toLowerCase().replace(/\./g, "").replace(/,/g, "").replace(/\s+/g, "-");
 const keyOf = (n) => META[n].key ?? n.toLowerCase().replace(/\./g, "");
@@ -162,9 +185,10 @@ const TZ = {
   MT: { name: "Mountain", hours: "7 a.m. to 3 p.m." },
   PT: { name: "Pacific", hours: "6 a.m. to 2 p.m." },
   AZ: { name: "Mountain Standard", hours: "7 a.m. to 3 p.m. in winter and 6 a.m. to 2 p.m. in summer" },
+  HT: { name: "Hawaii-Aleutian", hours: "from 4 a.m. in winter and 3 a.m. in summer" },
 };
 
-/* ---------- pre-pass: the measures every place is compared on (ranks among the 45 place pages) ---------- */
+/* ---------- pre-pass: the measures every place is compared on (ranks among the N place pages) ---------- */
 const QUICK = Object.fromEntries(NAMES.map((n) => {
   const F = factsFor(n); const v = (f, p) => F.get(f, p).value;
   const E23 = v("Total establishments (all industries)", "2023"), E18 = v("Total establishments (all industries)", "2018");
@@ -178,7 +202,7 @@ const QUICK = Object.fromEntries(NAMES.map((n) => {
   }];
 }));
 const rankOf = (n, key) => 1 + NAMES.filter((x) => QUICK[x][key] > QUICK[n][key]).length;
-const median = (key) => { const a = NAMES.map((x) => QUICK[x][key]).sort((x, y) => x - y); return (a[22]); };
+const median = (key) => { const a = NAMES.map((x) => QUICK[x][key]).sort((x, y) => x - y); return a[Math.floor((N - 1) / 2)]; };
 const ordinal = (k) => k + (["th", "st", "nd", "rd"][((k % 100) - 20) % 10] || ["th", "st", "nd", "rd"][k % 100] || "th");
 
 /* ================================== build one place ================================== */
@@ -304,11 +328,12 @@ function build(name, all) {
   const extraPhrasings = ph.clean.filter((p) => !used.has(p)).slice(0, 3);
   const sectorHits = SECTOR_HINTS.filter((h) => ph.all.some((p) => h.re.test(p))).map((h) => ({ ...h, from: ph.all.find((p) => h.re.test(p)) }));
   const hasWord = (re) => ph.all.find((p) => re.test(p));
+  const shared = isState && NAMES.some((n) => n !== name && keyOf(n) === keyOf(name)); // same phrase strings as a metro page
 
   /* ---------- neighbours (3 nearest metros) and the state page ---------- */
   const metros = NAMES.filter((n) => META[n].kind !== "state" && n !== name);
   const near = (isState ? metros.filter((n) => META[n].st === m.st) : []).concat(metros.map((n) => ({ n, d: hav(m.ll, META[n].ll) })).sort((a, b) => a.d - b.d).map((x) => x.n)).filter((n, i, a) => a.indexOf(n) === i).slice(0, name === "Pennsylvania" ? 1 : 3);
-  const statePage = m.st === "PA" && !isState ? "Pennsylvania" : null;
+  const statePage = !isState ? STATE_PAGE[m.state] ?? null : null;
   const tz = TZ[m.tz];
   const inPhilly = ["Pennsylvania", "New Jersey", "Delaware"].includes(name);
   const HUB = "/services/website-development";
@@ -317,14 +342,18 @@ function build(name, all) {
   const s1 = top[0], s2 = top[1], s3 = top[2], s4 = top[3];
   const sizeWord = (avg) => (avg < 10 ? "so the owner usually edits the site" : avg < 25 ? "so a site often feeds a shared inbox" : "so sites serve several teams with approvals");
   const tzLine = m.tz === "ET"
-    ? `${P} shares Eastern time with our office, so calls and reviews fall inside the same working day.`
+    ? `${m.most ? "Most of " : ""}${P} shares Eastern time with our office, so calls and reviews fall inside the same working day.`
     : m.tz === "AZ"
       ? `${P} keeps Mountain Standard Time all year, so our Eastern office day starts at 7 a.m. there in winter.`
-      : `${P} runs on ${tz.name} time, so our 9-to-5 Eastern day is ${tz.hours} there.`;
+      : m.tz === "HT"
+        ? `${P} keeps Hawaii-Aleutian time all year, so our Eastern office day starts before dawn there; calls are booked for your morning.`
+        : `${m.most ? "Most of " : ""}${P} runs on ${tz.name} time, so our 9-to-5 Eastern day is ${tz.hours} there.`;
   const hoursLead = m.tz === "ET"
     ? `the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day ${fmt(N511)} programming firms here keep.`
     : m.tz === "AZ"
       ? "the office answers (610) 890-9711 Monday to Friday: 7 a.m. to 3 p.m. Arizona time in winter, 6 a.m. to 2 p.m. in summer."
+      : m.tz === "HT"
+        ? "the office answers (610) 890-9711 Monday to Friday, from 4 a.m. Hawaii time in winter and 3 a.m. in summer."
       : `the office answers (610) 890-9711 Monday to Friday, ${tz.hours} local time, the day ${fmt(N511)} programming firms here keep.`;
   const rose = EDIFF >= 0 ? "rose" : "fell";
 
@@ -411,9 +440,11 @@ function build(name, all) {
   const search = {
     kind: "search", id: "search",
     h2: `What ${P} businesses search for`,
-    lede: `The top phrasing, “${topP.phrase}”, draws ${fmt(topP.volume)} US searches a month by Semrush’s exact count.`,
+    lede: shared ? `Semrush counts “${topP.phrase}” at ${fmt(topP.volume)} US searches a month, one figure for the city and the rest of the state together.` : `The top phrasing, “${topP.phrase}”, draws ${fmt(topP.volume)} US searches a month by Semrush’s exact count.`,
     leadIn: "By the numbers:",
-    lead: isState
+    lead: shared
+      ? `the ${S.own.length} phrasings total ${fmt(S.ownSum)} a month, and our city page reads the same count, so neither page claims it alone.`
+      : isState
       ? `the state’s own phrasings add up to ${fmt(S.ownSum)} a month, and ${fmt(S.rankSum)} with the ${S.folded.length} places folded into this page.`
       : `the ${S.own.length} phrasings add up to ${fmt(S.ownSum)} searches a month, ${fmt(topP.volume)} of them on the top one${S.folded.length ? `, and ${S.folded.map((f) => f.place).join(" and ")} adds ${fmt(S.foldedSum)} more` : ""}.`,
     points: extraPhrasings.length ? [`Autocomplete also completes “${extraPhrasings[0]}”, a phrasing people type.`] : undefined,
@@ -423,9 +454,9 @@ function build(name, all) {
       paras: [
         `We rank every place in the country by the same measure, the sum of these phrasings, and this page sits ${S.rank} of the ${S.of} places we measured, at ${fmt(S.rankSum)} searches a month.`,
         ...(() => { const dv = S.own.find((x) => x.phrase.startsWith("website development")), de = S.own.find((x) => x.phrase.startsWith("web developer")); return dv && de ? [`The development phrasing draws ${fmt(dv.volume)} a month and the developer phrasing ${fmt(de.volume)}, phrasings that often signal a build beyond a brochure site.`] : []; })(),
-        ...(() => { const c = S.own.find((x) => x.phrase.startsWith("web design company")); return c && c.volume > 0 ? [`The company-intent phrasing draws ${fmt(c.volume)} searches a month${c.cpc != null ? ` at about $${c.cpc.toFixed(2)} a click` : ""}, the buyer already looking for a firm.`] : []; })(),
-        wdPhrase.cpc != null ? `Advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for “${wdPhrase.phrase}”, which is what a search costs to buy, not the price of a website.` : `Semrush recorded no advertiser bids for “${wdPhrase.phrase}”, so its cost per click is left blank rather than guessed.`,
-        isState && S.folded.length > 3 ? `The other ${T(String(S.folded.length - 3), "count of folded places beyond the three in the table")} folded places add the rest of the ${fmt(S.foldedSum)}; none is big enough for a page of its own.` : topP.kd != null ? `The top phrasing, at ${fmt(topP.volume)} searches, carries a Semrush keyword difficulty of ${topP.kd} out of 100.` : `Semrush gives no keyword difficulty for the top phrasing at ${fmt(topP.volume)} searches.`,
+        ...(() => { const c = S.own.find((x) => x.phrase.startsWith("web design company")); return c && c.volume > 0 && shared ? [`A buyer anywhere in ${P} types the same company-intent string, “${c.phrase}”, counted at ${fmt(c.volume)} searches a month for the whole state.`] : c && c.volume > 0 ? [`The company-intent phrasing draws ${fmt(c.volume)} searches a month${c.cpc != null ? ` at about $${c.cpc.toFixed(2)} a click` : ""}, the buyer already looking for a firm.`] : []; })(),
+        shared && wdPhrase.cpc != null ? `Bids on “${wdPhrase.phrase}” ran about $${wdPhrase.cpc.toFixed(2)} a click, one price for the phrase wherever in the state the searcher sits.` : wdPhrase.cpc != null ? `Advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for “${wdPhrase.phrase}”, which is what a search costs to buy, not the price of a website.` : `Semrush recorded no advertiser bids for “${wdPhrase.phrase}”, so its cost per click is left blank rather than guessed.`,
+        isState && S.folded.length > 3 ? `The other ${T(String(S.folded.length - 3), "count of folded places beyond the three in the table")} folded places add the rest of the ${fmt(S.foldedSum)}; none is big enough for a page of its own.` : shared && topP.kd != null ? `Its keyword difficulty, ${topP.kd} out of 100, is the same contest our city page enters, so this page leads with statewide facts.` : topP.kd != null ? `The top phrasing, at ${fmt(topP.volume)} searches, carries a Semrush keyword difficulty of ${topP.kd} out of 100.` : `Semrush gives no keyword difficulty for the top phrasing at ${fmt(topP.volume)} searches.`,
       ],
     },
     source: `Semrush US exact match · ${fmt(S.ownSum)} a month in all, top ${fmt(topP.volume)} · pulled ${fmtDate(TODAY)}`,
@@ -479,16 +510,17 @@ function build(name, all) {
   };
 
   const rk = { estab: rankOf(name, "estab"), per511: rankOf(name, "per511"), popChg: rankOf(name, "popChg"), estabChg: rankOf(name, "estabChg"), u20: rankOf(name, "u20") };
-  for (const [k, v] of Object.entries(rk)) T(String(v), `derived: rank of ${k} among the 45 place pages`);
+  for (const [k, v] of Object.entries(rk)) T(String(v), `derived: rank of ${k} among the ${N} place pages`);
+  T(String(N), "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)");
   const med = { per511: median("per511"), popChg: median("popChg"), estabChg: median("estabChg"), u20: median("u20") };
-  for (const [k, v] of Object.entries(med)) T(String(Math.abs(v)), `derived: median ${k} of the 45 place pages`);
+  for (const [k, v] of Object.entries(med)) T(String(Math.abs(v)), `derived: median ${k} of the ${N} place pages`);
   const compare = {
     kind: "text", id: "compare",
-    h2: `Ranked ${ordinal(rk.estab)} of 45 places by businesses`,
-    lede: `${cap(area)} ranks ${ordinal(rk.estab)} of the 45 places we build pages for by business establishments, and ${ordinal(rk.per511)} for programming firms per 10,000 businesses.`,
+    h2: `Ranked ${ordinal(rk.estab)} of ${N} places by businesses`,
+    lede: `${cap(area)} ranks ${ordinal(rk.estab)} of the ${N} places we build pages for by business establishments, and ${ordinal(rk.per511)} for programming firms per 10,000 businesses.`,
     leadIn: "By the numbers:",
-    lead: `population growth since 2019 ranks ${ordinal(rk.popChg)} of 45, and the share of establishments under 20 staff ranks ${ordinal(rk.u20)}.`,
-    table: { caption: `${cap(areaLong)} against the median of the 45 place pages, Census CBP 2023 and ACS 2024`, cols: ["Measure", "Here", "Median of 45"], rows: [
+    lead: `population growth since 2019 ranks ${ordinal(rk.popChg)} of ${N}, and the share of establishments under 20 staff ranks ${ordinal(rk.u20)}.`,
+    table: { caption: `${cap(areaLong)} against the median of the ${N} place pages, Census CBP 2023 and ACS 2024`, cols: ["Measure", "Here", `Median of ${N}`], rows: [
       ["Programming per 10,000", String(PER511), String(med.per511)],
       ["Establishments since 2018", signedPct(ECHG), signedPct(med.estabChg)],
       ["Population since 2019", signedPct(PCHG), signedPct(med.popChg)],
@@ -497,9 +529,9 @@ function build(name, all) {
     deeper: {
       label: "why every place is measured the same way",
       paras: [
-        `Every place page uses the same Census tables, so these ranks compare like with like: ${fmt(E23)} establishments here against the 45 places' own counts, ${ordinal(rk.estabChg)} for their change since 2018.`,
+        `Every place page uses the same Census tables, so these ranks compare like with like: ${fmt(E23)} establishments here against the ${N} places' own counts, ${ordinal(rk.estabChg)} for their change since 2018.`,
         `Programming firms run ${PER511} per 10,000 businesses here against a median of ${med.per511}. The under-20 share is ${U20P}% against ${med.u20}%.`,
-        `The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws ${fmt(S.rankSum)}, ${ordinal(S.rank)} of the ${S.of} places we measured nationwide.`,
+        `The ${N} are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws ${fmt(S.rankSum)}, ${ordinal(S.rank)} of the ${S.of} places we measured nationwide.`,
       ],
     },
   };
@@ -544,7 +576,7 @@ function build(name, all) {
   const faq = [];
   const add = (q, a, from, link) => faq.push({ q, a, from, ...(link ? { link } : {}) });
   add(`Can a ${P} business hire a remote web design team?`,
-    `Yes. We take on website work for ${P} businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in ${m.tz === "ET" ? "Eastern" : m.tz === "AZ" ? "Arizona" : tz.name} hours, the clock ${area}'s ${fmt(E23)} establishments keep.`,
+    `Yes. We take on website work for ${P} businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in ${m.tz === "ET" ? "Eastern" : m.tz === "AZ" ? "Arizona" : m.tz === "HT" ? "Hawaii" : tz.name} hours, the clock ${area}'s ${fmt(E23)} establishments keep.`,
     "suggest-base: can web design be outsourced / do web designers work from home");
   add(`How much does web design cost in ${P}?`,
     `The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the ${fmt(U20)} small establishments here or a larger one. You get the price and schedule in writing first${wdPhrase.cpc != null ? `; advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for the main web design phrasing here (Semrush)` : `; Semrush recorded no advertiser bids for the main web design phrasing here`}.`,
@@ -552,7 +584,10 @@ function build(name, all) {
   add("Should we hire a website designer or use a builder?",
     `Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In ${area}, ${U20P}% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.`,
     "suggest-base: should i hire a website designer", { to: `${HUB}#builder-or-custom`, label: "Squarespace, Wix or WordPress versus custom" });
-  add("Does website design affect SEO?",
+  if (shared) add("Does website design affect SEO?",
+    `Yes. Titles, headings, page speed and schema go in during the build, and Search Console is connected at launch. A statewide site competes for “${wdPhrase.phrase}” (${fmt(wdPhrase.volume)} a month by Semrush’s count) with every firm in the city, so the page leans on what is true of the ${fmt(E23)} establishments across ${P}.`,
+    hasWord(/seo/) ? `suggest-places: ${hasWord(/seo/)}` : "suggest-base: does website design affect seo", { to: "/services/seo", label: "SEO services" });
+  else add("Does website design affect SEO?",
     `Yes. Titles, headings, page speed and schema go in while the site is built, and Search Console is connected at launch, so the ${fmt(S.ownSum)} monthly searches (top phrasing ${fmt(topP.volume)}) in the table above are targeted from day one. “${wdPhrase.phrase}” alone draws ${fmt(wdPhrase.volume)} a month, by Semrush’s count.`,
     hasWord(/seo/) ? `suggest-places: ${hasWord(/seo/)}` : "suggest-base: does website design affect seo", { to: "/services/seo", label: "SEO services" });
   const SECTOR_Q = {
@@ -607,7 +642,7 @@ function build(name, all) {
       { to: "/services/small-business-website-design", title: "Small business website design", tag: "Service" },
       { to: "/services/website-cost", title: "How much a website costs", tag: "Service" },
       { to: "/services/website-redesign", title: "Website redesign", tag: "Service" },
-      ...(statePage ? [{ to: "/services/web-design-pennsylvania", title: "Pennsylvania web design", tag: "State" }] : []),
+      ...(statePage ? [{ to: `/services/web-design-${slugOf(statePage)}`, title: `${statePage} web design`, tag: "State" }] : []),
       ...(inPhilly ? [{ to: EXISTING.Philadelphia, title: "Philadelphia web design", tag: "Nearby" }] : []),
       ...(name === "Pennsylvania" ? [{ to: EXISTING["Chester County"], title: "Chester County web design", tag: "Nearby" }] : []),
       ...(name === "New Jersey" ? [{ to: "/services/web-design-delaware", title: "Delaware web design", tag: "State" }, { to: "/services/web-design-pennsylvania", title: "Pennsylvania web design", tag: "State" }] : []),
@@ -635,7 +670,7 @@ function build(name, all) {
 
   return {
     slug, name, path: `/services/web-design-${slug}`, kind: isState ? "state" : "metro", photo: slug,
-    ...(statePage ? { parent: { label: "Pennsylvania", to: "/services/web-design-pennsylvania" } } : {}),
+    ...(statePage ? { parent: { label: statePage, to: `/services/web-design-${slugOf(statePage)}` } } : {}),
     seo: { title, description, dateModified: TODAY, ogImage: `/og/places/web-design-${slug}.jpg` },
     hero: { kicker: "Web design and development", h1: `Web design for ${P} businesses`, lede: `We design and build custom websites for ${P} businesses remotely from Malvern, PA, with the scope, price and schedule in writing first.` },
     areaServed,
@@ -665,9 +700,9 @@ for (const p of pages) {
   fs.writeFileSync(`${OUT}/${p.slug}.ts`, `${header(p)}export const PLACE: LocalPlace = ${JSON.stringify(data, null, 1)};\n\nexport default PLACE;\n`);
 }
 // index for the route component and the check (slug -> path, title)
-fs.writeFileSync(`${OUT}/places.ts`, `/* GENERATED by scripts/wd-local-gen.mjs: the 45 place pages (slug, path, name, kind). Data files: ./<slug>.ts. */
-export type PlaceIndexRow = { slug: string; path: string; name: string; kind: "metro" | "state" };
-export const PLACES: PlaceIndexRow[] = ${JSON.stringify(pages.map((p) => ({ slug: p.slug, path: p.path, name: p.name, kind: p.kind })), null, 1)};\n`);
+fs.writeFileSync(`${OUT}/places.ts`, `/* GENERATED by scripts/wd-local-gen.mjs: the ${pages.length} place pages (slug, path, name, kind). Data files: ./<slug>.ts. */
+export type PlaceIndexRow = { slug: string; path: string; name: string; kind: "metro" | "state"; state: string };
+export const PLACES: PlaceIndexRow[] = ${JSON.stringify(pages.map((p) => ({ slug: p.slug, path: p.path, name: p.name, kind: p.kind, state: META[p.name].state })), null, 1)};\n`);
 
 const manifest = {
   generated: new Date().toISOString(), generator: "scripts/wd-local-gen.mjs", component: "client/components/wd/LocalRoute.tsx (default export; prop slug)",

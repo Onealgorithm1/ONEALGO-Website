@@ -10,6 +10,10 @@ export const PLACE: LocalPlace = {
  "path": "/services/web-design-houston",
  "kind": "metro",
  "photo": "houston",
+ "parent": {
+  "label": "Texas",
+  "to": "/services/web-design-texas"
+ },
  "seo": {
   "title": "Web Design Houston, TX: Custom Websites | OneAlgorithm",
   "description": "Web design for Houston businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
@@ -362,7 +366,7 @@ export const PLACE: LocalPlace = {
    "web design agency houston"
   ],
   "autocompleteRead": "24 October 2026",
-  "rank": 5,
+  "rank": 6,
   "of": 134
  },
  "sections": [
@@ -534,7 +538,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how we rank every place by the same numbers",
     "paras": [
-     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 5 of the 134 places we measured, at 2,810 searches a month.",
+     "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 6 of the 134 places we measured, at 2,810 searches a month.",
      "The development phrasing draws 320 a month and the developer phrasing 170, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 720 searches a month at about $7.62 a click, the buyer already looking for a firm.",
      "Advertisers paid about $9.82 a click for “web design houston”, which is what a search costs to buy, not the price of a website.",
@@ -607,46 +611,46 @@ export const PLACE: LocalPlace = {
   {
    "kind": "text",
    "id": "compare",
-   "h2": "Ranked 9th of 45 places by businesses",
-   "lede": "The metro ranks 9th of the 45 places we build pages for by business establishments, and 24th for programming firms per 10,000 businesses.",
+   "h2": "Ranked 19th of 64 places by businesses",
+   "lede": "The metro ranks 19th of the 64 places we build pages for by business establishments, and 31st for programming firms per 10,000 businesses.",
    "leadIn": "By the numbers:",
-   "lead": "population growth since 2019 ranks 6th of 45, and the share of establishments under 20 staff ranks 21st.",
+   "lead": "population growth since 2019 ranks 6th of 64, and the share of establishments under 20 staff ranks 35th.",
    "table": {
-    "caption": "The Houston metro against the median of the 45 place pages, Census CBP 2023 and ACS 2024",
+    "caption": "The Houston metro against the median of the 64 place pages, Census CBP 2023 and ACS 2024",
     "cols": [
      "Measure",
      "Here",
-     "Median of 45"
+     "Median of 64"
     ],
     "rows": [
      [
       "Programming per 10,000",
       "86.8",
-      "86.9"
+      "85.2"
      ],
      [
       "Establishments since 2018",
       "+12.2%",
-      "+6%"
+      "+5.2%"
      ],
      [
       "Population since 2019",
       "+10.3%",
-      "+4.8%"
+      "+4.2%"
      ],
      [
       "Under 20 staff",
       "84.2%",
-      "84.2%"
+      "84.4%"
      ]
     ]
    },
    "deeper": {
     "label": "why every place is measured the same way",
     "paras": [
-     "Every place page uses the same Census tables, so these ranks compare like with like: 162,055 establishments here against the 45 places' own counts, 13th for their change since 2018.",
-     "Programming firms run 86.8 per 10,000 businesses here against a median of 86.9. The under-20 share is 84.2% against 84.2%.",
-     "The 45 are the places whose web design searches clear 500 a month in Semrush's exact data; this one draws 2,810, 5th of the 134 places we measured nationwide."
+     "Every place page uses the same Census tables, so these ranks compare like with like: 162,055 establishments here against the 64 places' own counts, 16th for their change since 2018.",
+     "Programming firms run 86.8 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.2% against 84.4%.",
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,810, 6th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -785,6 +789,11 @@ export const PLACE: LocalPlace = {
      "tag": "Service"
     },
     {
+     "to": "/services/web-design-texas",
+     "title": "Texas web design",
+     "tag": "State"
+    },
+    {
      "to": "/services/web-design-austin",
      "title": "Austin web design",
      "tag": "Nearby metro"
@@ -815,15 +824,17 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "2": "derived: wholesale trade establishments change 2018-2023, percent",
-  "5": "page-map-webdev.json national_ranking rank",
-  "6": "derived: median estabChg of the 45 place pages",
-  "9": "derived: rank of estab among the 45 place pages",
-  "13": "derived: rank of estabChg among the 45 place pages",
+  "6": "derived: rank of popChg among the 64 place pages",
   "14": "derived: health care and social assistance share of paid employees, 2023",
+  "16": "derived: rank of estabChg among the 64 place pages",
+  "19": "derived: rank of estab among the 64 place pages",
   "20": "derived: health care and social assistance employees per establishment, 2023",
-  "21": "derived: rank of u20 among the 45 place pages",
-  "24": "derived: rank of per511 among the 45 place pages",
+  "21": "derived: accommodation and food services employees per establishment, 2023",
+  "24": "derived: administrative and support services employees per establishment, 2023",
   "30": "Semrush keyword difficulty, \"web design houston\"",
+  "31": "derived: rank of per511 among the 64 place pages",
+  "35": "derived: rank of u20 among the 64 place pages",
+  "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "134": "page-map-webdev.json national_ranking length",
   "170": "Semrush US exact volume, \"web developer houston\", pulled 2026-10-24 13:05-13:15 ET",
   "188": "derived: wholesale trade establishments 2023 minus 2018",
@@ -854,7 +865,7 @@ export const PLACE: LocalPlace = {
   "7,796,182": "Census ACS 1-year 2024, total population",
   "7,066,140": "Census ACS 1-year 2019, total population",
   "136,371": "derived: total establishments 2023 minus the six size classes of 20+ employees (Census CBP (read 21 October 2026))",
-  "84.2": "derived: median u20 of the 45 place pages",
+  "84.2": "derived: establishments under 20 employees / total establishments, 2023",
   "1,406": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "1,289": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "3,471": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
@@ -944,8 +955,10 @@ export const PLACE: LocalPlace = {
   "36.8": "derived: top-3 sectors' share of paid employees, 2023",
   "1,295,787": "derived: top-4 sectors' paid employees, 2023",
   "45.3": "derived: top-4 sectors' share of paid employees, 2023",
-  "86.9": "derived: median per511 of the 45 place pages",
-  "4.8": "derived: median popChg of the 45 place pages"
+  "85.2": "derived: median per511 of the 64 place pages",
+  "4.2": "derived: median popChg of the 64 place pages",
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "84.4": "derived: median u20 of the 64 place pages"
  }
 };
 
