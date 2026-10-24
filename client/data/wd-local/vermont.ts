@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 18.9% of the 256,460 paid employees counted in the state in 2023.",
      "Retail trade adds 14.6% and accommodation and food services 12.7%, so three sectors hold 46.2% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Manufacturing is fourth, with 29,246 paid employees in 1,005 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 48,409 employees",
-   "lede": "Health care and social assistance employed 48,409 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 48,409 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 37,491 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Hospitality and food: 17 employees per establishment; hours and menus must read fast."
    ],
    "table": {
-    "caption": "Vermont: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Vermont: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "2,150 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 2,937 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 1,915 establishments that need hours, menus and bookings that read on a phone in a hurry, and manufacturing, fourth at 29,246 employees, needs spec sheets, distributor lookups and request-for-quote forms.",
-     "Construction ranks fifth at 15,177 employees, and the 13 sectors we read cover 229,908 of the 256,460 paid employees in the state.",
+     "Construction ranks fifth at 15,177 employees, and the 12 sectors we read cover 229,908 of the 256,460 paid employees in the state.",
      "Together the four employ 147,692 people, 57.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 21,019 to 20,841 businesses since 2018",
    "lede": "Establishments in the state fell from 21,019 in 2018 to 20,841 in 2023, a change of −0.8%.",
    "leadIn": "The bottom line:",
-   "lead": "administrative and support services grew the most of the 13 sectors, +6.2% in establishments, while wholesale trade moved −10.4%.",
+   "lead": "administrative and support services grew the most of the 12 sectors, +6.2% in establishments, while wholesale trade moved −10.4%.",
    "points": [
     "20 to 99 employees: 2,074 establishments in 2018, 2,077 in 2023.",
     "100 to 499 employees: 309 in 2018, 302 in 2023.",
@@ -914,7 +914,7 @@ export const PLACE: LocalPlace = {
   "12.8": "derived: retail trade employees per establishment, 2023",
   "8.59": "Semrush CPC (USD), \"web design vermont\"",
   "32.1": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "229,908": "derived: paid employees in the 13 sectors read, 2023",
+  "229,908": "derived: paid employees in the 12 sectors read, 2023",
   "18.9": "derived: health care and social assistance share of paid employees, 2023",
   "14.6": "derived: retail trade share of paid employees, 2023",
   "46.2": "derived: top-3 sectors' share of paid employees, 2023",

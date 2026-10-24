@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 15.3% of the 648,726 paid employees counted in the metro in 2023.",
      "Manufacturing adds 13.4% and retail trade 11.3%, so three sectors hold 40% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 62,647 paid employees in 2,843 establishments."
     ]
    }
@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 99,309 employees",
-   "lede": "Health care and social assistance employed 99,309 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 99,309 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 86,832 employees.",
    "points": [
@@ -452,7 +452,7 @@ export const PLACE: LocalPlace = {
     "Retail: 17.6 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "The Louisville metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Louisville metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -486,7 +486,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "4,180 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 1,222 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 4,154 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 62,647 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 39,891 employees, and the 13 sectors we read cover 513,433 of the 648,726 paid employees in the metro.",
+     "Administrative and support services ranks fifth at 39,891 employees, and the 12 sectors we read cover 513,433 of the 648,726 paid employees in the metro.",
      "Together the four employ 321,849 people, 49.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -578,7 +578,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 29,698 to 31,628 businesses since 2018",
    "lede": "Establishments in the metro rose from 29,698 in 2018 to 31,628 in 2023, a change of +6.5%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +14.1% in establishments, while wholesale trade moved −7.5%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +14.1% in establishments, while wholesale trade moved −7.5%.",
    "points": [
     "20 to 99 employees: 4,351 establishments in 2018, 4,475 in 2023.",
     "100 to 499 employees: 884 in 2018, 896 in 2023.",
@@ -931,7 +931,7 @@ export const PLACE: LocalPlace = {
   "7.98": "Semrush CPC (USD), \"web design louisville\"",
   "4.58": "Semrush CPC (USD), \"web developer louisville\"",
   "19.6": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "513,433": "derived: paid employees in the 13 sectors read, 2023",
+  "513,433": "derived: paid employees in the 12 sectors read, 2023",
   "15.3": "derived: health care and social assistance share of paid employees, 2023",
   "11.3": "derived: retail trade share of paid employees, 2023",
   "321,849": "derived: top-4 sectors' paid employees, 2023",

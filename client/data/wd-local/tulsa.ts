@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 15.5% of the 402,255 paid employees counted in the metro in 2023.",
      "Retail trade adds 12% and manufacturing 11.9%, so three sectors hold 39.4% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and manufacturing.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and manufacturing.",
      "Hospitality and food is fourth, with 45,627 paid employees in 2,273 establishments."
     ]
    }
@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 62,383 employees",
-   "lede": "Health care and social assistance employed 62,383 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 62,383 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 48,360 employees.",
    "points": [
@@ -452,7 +452,7 @@ export const PLACE: LocalPlace = {
     "Manufacturing: 43.1 employees per establishment; spec sheets and RFQ forms carry the site."
    ],
    "table": {
-    "caption": "The Tulsa metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Tulsa metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -486,7 +486,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "2,959 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 3,120 in retail trade need stock that matches the till and a phone checkout.",
      "Manufacturing counts 1,108 establishments that need spec sheets, distributor lookups and request-for-quote forms, and accommodation and food services, fourth at 45,627 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 26,212 employees, and the 13 sectors we read cover 338,205 of the 402,255 paid employees in the metro.",
+     "Administrative and support services ranks fifth at 26,212 employees, and the 12 sectors we read cover 338,205 of the 402,255 paid employees in the metro.",
      "Together the four employ 204,078 people, 50.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -578,7 +578,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 24,525 to 25,565 businesses since 2018",
    "lede": "Establishments in the metro rose from 24,525 in 2018 to 25,565 in 2023, a change of +4.2%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +13.4% in establishments, while wholesale trade moved −10.6%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +13.4% in establishments, while wholesale trade moved −10.6%.",
    "points": [
     "20 to 99 employees: 3,294 establishments in 2018, 3,427 in 2023.",
     "100 to 499 employees: 596 in 2018, 565 in 2023.",
@@ -927,7 +927,7 @@ export const PLACE: LocalPlace = {
   "7.38": "Semrush CPC (USD), \"web design tulsa\"",
   "1,060": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "19.9": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "338,205": "derived: paid employees in the 13 sectors read, 2023",
+  "338,205": "derived: paid employees in the 12 sectors read, 2023",
   "11.9": "derived: manufacturing share of paid employees, 2023",
   "39.4": "derived: top-3 sectors' share of paid employees, 2023",
   "204,078": "derived: top-4 sectors' paid employees, 2023",

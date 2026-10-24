@@ -559,7 +559,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 20% of the 5,713,846 paid employees counted in the state in 2023.",
      "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and manufacturing.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and manufacturing.",
      "Hospitality and food is fourth, with 474,507 paid employees in 29,187 establishments."
     ]
    }
@@ -613,7 +613,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 1,142,207 employees",
-   "lede": "Health care and social assistance employed 1,142,207 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 1,142,207 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 650,539 employees.",
    "points": [
@@ -622,7 +622,7 @@ export const PLACE: LocalPlace = {
     "Manufacturing: 42.7 employees per establishment; spec sheets and RFQ forms carry the site."
    ],
    "table": {
-    "caption": "Pennsylvania: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Pennsylvania: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -656,7 +656,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "39,602 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 40,238 in retail trade need stock that matches the till and a phone checkout.",
      "Manufacturing counts 13,231 establishments that need spec sheets, distributor lookups and request-for-quote forms, and accommodation and food services, fourth at 474,507 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Professional, scientific and technical services ranks fifth at 378,845 employees, and the 13 sectors we read cover 4,816,628 of the 5,713,846 paid employees in the state.",
+     "Professional, scientific and technical services ranks fifth at 378,845 employees, and the 12 sectors we read cover 4,816,628 of the 5,713,846 paid employees in the state.",
      "Together the four employ 2,831,647 people, 49.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -756,7 +756,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 303,492 to 307,065 businesses since 2018",
    "lede": "Establishments in the state rose from 303,492 in 2018 to 307,065 in 2023, a change of +1.2%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +10.9% in establishments, while finance and insurance moved −10.4%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +10.9% in establishments, while finance and insurance moved −10.4%.",
    "points": [
     "20 to 99 employees: 40,021 establishments in 2018, 41,074 in 2023.",
     "100 to 499 employees: 7,724 in 2018, 7,527 in 2023.",
@@ -1134,7 +1134,7 @@ export const PLACE: LocalPlace = {
   "2,110": "sum of the folded places' Semrush exact sums",
   "2,569": "derived: NAICS 541511 + 541430 establishments, 2023",
   "15.3": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "4,816,628": "derived: paid employees in the 13 sectors read, 2023",
+  "4,816,628": "derived: paid employees in the 12 sectors read, 2023",
   "11.4": "derived: retail trade share of paid employees, 2023",
   "9.9": "derived: manufacturing share of paid employees, 2023",
   "41.3": "derived: top-3 sectors' share of paid employees, 2023",

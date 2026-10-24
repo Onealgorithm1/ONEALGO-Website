@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 15.9% of the 1,846,717 paid employees counted in the metro in 2023.",
      "Manufacturing adds 13% and professional, scientific and technical services 12%, so three sectors hold 40.9% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and professional, scientific and technical services.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and professional, scientific and technical services.",
      "Retail is fourth, with 200,705 paid employees in 14,016 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 293,543 employees",
-   "lede": "Health care and social assistance employed 293,543 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 293,543 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 240,214 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Professional services: 18.8 employees per establishment; expertise must be easy to check."
    ],
    "table": {
-    "caption": "The Detroit metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Detroit metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "13,890 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 5,103 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Professional, scientific and technical services counts 11,783 establishments that need proof of expertise, case pages and a routed enquiry form, and retail trade, fourth at 200,705 employees, needs stock that matches the till and a phone checkout.",
-     "Accommodation and food services ranks fifth at 171,440 employees, and the 13 sectors we read cover 1,586,667 of the 1,846,717 paid employees in the metro.",
+     "Accommodation and food services ranks fifth at 171,440 employees, and the 12 sectors we read cover 1,586,667 of the 1,846,717 paid employees in the metro.",
      "Together the four employ 955,840 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 100,255 to 102,430 businesses since 2018",
    "lede": "Establishments in the metro rose from 100,255 in 2018 to 102,430 in 2023, a change of +2.2%.",
    "leadIn": "The bottom line:",
-   "lead": "construction grew the most of the 13 sectors, +7.2% in establishments, while information moved −7.8%.",
+   "lead": "construction grew the most of the 12 sectors, +7.2% in establishments, while information moved −7.8%.",
    "points": [
     "20 to 99 employees: 12,909 establishments in 2018, 13,066 in 2023.",
     "100 to 499 employees: 2,587 in 2018, 2,537 in 2023.",
@@ -942,7 +942,7 @@ export const PLACE: LocalPlace = {
   "9.50": "Semrush CPC (USD), \"web design detroit\"",
   "7.33": "Semrush CPC (USD), \"web developer detroit\"",
   "15.9": "derived: health care and social assistance share of paid employees, 2023",
-  "1,586,667": "derived: paid employees in the 13 sectors read, 2023",
+  "1,586,667": "derived: paid employees in the 12 sectors read, 2023",
   "40.9": "derived: top-3 sectors' share of paid employees, 2023",
   "955,840": "derived: top-4 sectors' paid employees, 2023",
   "51.8": "derived: top-4 sectors' share of paid employees, 2023",

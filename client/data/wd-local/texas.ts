@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 14.3% of the 12,012,629 paid employees counted in the state in 2023.",
      "Retail trade adds 11.5% and accommodation and food services 11.3%, so three sectors hold 37.1% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Admin and support is fourth, with 1,126,884 paid employees in 32,936 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 1,718,907 employees",
-   "lede": "Health care and social assistance employed 1,718,907 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 1,718,907 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 1,382,827 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Hospitality and food: 20.3 employees per establishment; hours and menus must read fast."
    ],
    "table": {
-    "caption": "Texas: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Texas: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "80,576 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 84,369 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 66,844 establishments that need hours, menus and bookings that read on a phone in a hurry, and administrative and support services, fourth at 1,126,884 employees, needs clear service pages, quote requests and a careers page that fills roles.",
-     "Professional, scientific and technical services ranks fifth at 871,344 employees, and the 13 sectors we read cover 10,086,509 of the 12,012,629 paid employees in the state.",
+     "Professional, scientific and technical services ranks fifth at 871,344 employees, and the 12 sectors we read cover 10,086,509 of the 12,012,629 paid employees in the state.",
      "Together the four employ 5,584,037 people, 46.5% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 600,747 to 670,878 businesses since 2018",
    "lede": "Establishments in the state rose from 600,747 in 2018 to 670,878 in 2023, a change of +11.7%.",
    "leadIn": "The bottom line:",
-   "lead": "educational services grew the most of the 13 sectors, +20% in establishments, while wholesale trade moved +0.9%.",
+   "lead": "educational services grew the most of the 12 sectors, +20% in establishments, while wholesale trade moved +0.9%.",
    "points": [
     "20 to 99 employees: 81,470 establishments in 2018, 87,664 in 2023.",
     "100 to 499 employees: 14,805 in 2018, 15,821 in 2023.",
@@ -916,7 +916,7 @@ export const PLACE: LocalPlace = {
   "1,150": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "7,325": "derived: NAICS 541511 + 541430 establishments, 2023",
   "13.6": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "10,086,509": "derived: paid employees in the 13 sectors read, 2023",
+  "10,086,509": "derived: paid employees in the 12 sectors read, 2023",
   "11.5": "derived: retail trade share of paid employees, 2023",
   "37.1": "derived: top-3 sectors' share of paid employees, 2023",
   "5,584,037": "derived: top-4 sectors' paid employees, 2023",

@@ -388,7 +388,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 16.8% of the 457,635 paid employees counted in the state in 2023.",
      "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Finance and insurance is fourth, with 45,586 paid employees in 1,999 establishments."
     ]
    }
@@ -439,7 +439,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 76,784 employees",
-   "lede": "Health care and social assistance employed 76,784 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 76,784 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 62,102 employees.",
    "points": [
@@ -448,7 +448,7 @@ export const PLACE: LocalPlace = {
     "Hospitality and food: 18.9 employees per establishment; hours and menus must read fast."
    ],
    "table": {
-    "caption": "Delaware: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Delaware: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "3,066 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 3,742 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 2,444 establishments that need hours, menus and bookings that read on a phone in a hurry, and finance and insurance, fourth at 45,586 employees, needs secure forms, plain disclosures and a short path to a call.",
-     "Professional, scientific and technical services ranks fifth at 39,610 employees, and the 13 sectors we read cover 402,214 of the 457,635 paid employees in the state.",
+     "Professional, scientific and technical services ranks fifth at 39,610 employees, and the 12 sectors we read cover 402,214 of the 457,635 paid employees in the state.",
      "Together the four employ 230,578 people, 50.4% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -569,7 +569,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 25,771 to 29,706 businesses since 2018",
    "lede": "Establishments in the state rose from 25,771 in 2018 to 29,706 in 2023, a change of +15.3%.",
    "leadIn": "The bottom line:",
-   "lead": "information grew the most of the 13 sectors, +82.9% in establishments, while finance and insurance moved −0.4%.",
+   "lead": "information grew the most of the 12 sectors, +82.9% in establishments, while finance and insurance moved −0.4%.",
    "points": [
     "20 to 99 employees: 3,170 establishments in 2018, 3,549 in 2023.",
     "100 to 499 employees: 531 in 2018, 576 in 2023.",
@@ -938,7 +938,7 @@ export const PLACE: LocalPlace = {
   "2.9": "derived: retail trade establishments change 2018-2023, percent",
   "1,301": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "7.69": "Semrush CPC (USD), \"website design delaware\"",
-  "402,214": "derived: paid employees in the 13 sectors read, 2023",
+  "402,214": "derived: paid employees in the 12 sectors read, 2023",
   "16.8": "derived: health care and social assistance share of paid employees, 2023",
   "13.6": "derived: retail trade share of paid employees, 2023",
   "40.4": "derived: top-3 sectors' share of paid employees, 2023",

@@ -112,7 +112,7 @@ const hav = ([a, b], [c, d]) => { const R = 3958.8, t = Math.PI / 180; const x =
 const fmtDate = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 const stripKey = (u) => u.replace(/[&?]key=[^&]*/g, "");
 
-/* ---------- sectors (13 two-digit CBP sectors in the pull; 813 and the 5415/5414xx/5416xx/5418xx detail rows are not sectors) ---------- */
+/* ---------- sectors (12 two-digit CBP sectors in the pull; 813 and the 5415/5414xx/5416xx/5418xx detail rows are not sectors) ---------- */
 const SECTORS = {
   "23": { label: "construction", needs: "service-area pages, project photos and quote requests that land in the office inbox" },
   "31-33": { label: "manufacturing", needs: "spec sheets, distributor lookups and request-for-quote forms" },
@@ -280,7 +280,7 @@ function build(name, all) {
   T(fmt(Math.abs(EDIFF)), "derived: total establishments 2023 minus 2018");
   for (const [v, f, p] of [[S20_99, "Establishments with 20-99 employees", "2023"], [S20_99_18, "Establishments with 20-99 employees", "2018"], [S100, "Establishments with 100-499 employees", "2023"], [S100_18, "Establishments with 100-499 employees", "2018"], [S500, "Establishments with 500+ employees", "2023"], [S500_18, "Establishments with 500+ employees", "2018"]]) T(fmt(v), src(f, p));
 
-  // sectors ranked by employees (13 two-digit sectors pulled)
+  // sectors ranked by employees (12 two-digit sectors pulled)
   const sectors = Object.entries(SECTORS).map(([code, s]) => {
     const fact = SECTOR_FACT[code];
     const emp = val(`Paid employees, ${fact}`, "2023"), est = val(`Establishments, ${fact}`, "2023"), est18 = val(`Establishments, ${fact}`, "2018");
@@ -371,7 +371,7 @@ function build(name, all) {
         inPhilly
           ? ({ "Pennsylvania": "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them.", "New Jersey": "Most of a build runs remotely; South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.", "Delaware": "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them." })[name]
           : `${cap(s2.label)} adds ${r1((s2.emp / EMP23) * 100)}% and ${s3.label} ${r1((s3.emp / EMP23) * 100)}%, so three sectors hold ${r1(((s1.emp + s2.emp + s3.emp) / EMP23) * 100)}% of the payroll count.`,
-        `The three cards above are the three largest of the 13 sectors we read for ${area}, by paid employees: ${s1.label}, ${s2.label} and ${s3.label}.`,
+        `The three cards above are the three largest of the ${sectors.length} sectors we read for ${area}, by paid employees: ${s1.label}, ${s2.label} and ${s3.label}.`,
         `${SHORT[s4.code]} is fourth, with ${fmt(s4.emp)} paid employees in ${fmt(s4.est)} establishments.`,
       ],
     },
@@ -419,17 +419,17 @@ function build(name, all) {
   const industries = {
     kind: "text", id: "industries",
     h2: `${SHORT[s1.code]} leads, with ${fmt(s1.emp)} employees`,
-    lede: `${cap(s1.label)} employed ${fmt(s1.emp)} people in ${area} in 2023, the most of the 13 sectors we read.`,
+    lede: `${cap(s1.label)} employed ${fmt(s1.emp)} people in ${area} in 2023, the most of the ${sectors.length} sectors we read.`,
     leadIn: "Why it matters:",
     lead: `who a site talks to follows the sector mix, and ${s2.label} comes next at ${fmt(s2.emp)} employees.`,
     points: [s1, s2, s3].map((s) => `${SHORT[s.code]}: ${s.avg} employees per establishment; ${CUE[s.code]}.`),
-    table: { caption: `${cap(areaLong)}: the four largest of 13 sectors by paid employees, Census CBP 2023`, cols: ["Sector", "Paid employees, 2023", "Establishments, 2023"], rows: top.map((s) => [SHORT[s.code], fmt(s.emp), fmt(s.est)]) },
+    table: { caption: `${cap(areaLong)}: the four largest of ${sectors.length} sectors by paid employees, Census CBP 2023`, cols: ["Sector", "Paid employees, 2023", "Establishments, 2023"], rows: top.map((s) => [SHORT[s.code], fmt(s.emp), fmt(s.est)]) },
     deeper: {
       label: "who these pages are written for",
       paras: [
         `${fmt(s1.est)} ${s1.label} establishments in ${area} need ${s1.needs}. The ${fmt(s2.est)} in ${s2.label} need ${s2.needs}.`,
         `${cap(s3.label)} counts ${fmt(s3.est)} establishments that need ${s3.needs}, and ${s4.label}, fourth at ${fmt(s4.emp)} employees, needs ${s4.needs}.`,
-        `${cap(sectors[4].label)} ranks fifth at ${fmt(sectors[4].emp)} employees, and the 13 sectors we read cover ${fmt(sectors.reduce((a, x) => a + x.emp, 0))} of the ${fmt(EMP23)} paid employees in ${area}.`,
+        `${cap(sectors[4].label)} ranks fifth at ${fmt(sectors[4].emp)} employees, and the ${sectors.length} sectors we read cover ${fmt(sectors.reduce((a, x) => a + x.emp, 0))} of the ${fmt(EMP23)} paid employees in ${area}.`,
         `Together the four employ ${fmt(top.reduce((a, s) => a + s.emp, 0))} people, ${r1((top.reduce((a, s) => a + s.emp, 0) / EMP23) * 100)}% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work.`,
       ],
     },
@@ -483,7 +483,7 @@ function build(name, all) {
   };
   T(fmt(N511 + N430), "derived: NAICS 541511 + 541430 establishments, 2023");
   T(String(r1((N430 / E23) * 10000)), "derived: NAICS 541430 establishments per 10,000, 2023");
-  T(fmt(sectors.reduce((a, x) => a + x.emp, 0)), "derived: paid employees in the 13 sectors read, 2023");
+  T(fmt(sectors.reduce((a, x) => a + x.emp, 0)), `derived: paid employees in the ${sectors.length} sectors read, 2023`);
   for (const x of [s1, s2, s3]) T(String(r1((x.emp / EMP23) * 100)), `derived: ${x.label} share of paid employees, 2023`);
   T(String(r1(((s1.emp + s2.emp + s3.emp) / EMP23) * 100)), "derived: top-3 sectors' share of paid employees, 2023");
   T(fmt(top.reduce((a, x) => a + x.emp, 0)), "derived: top-4 sectors' paid employees, 2023");
@@ -495,7 +495,7 @@ function build(name, all) {
     h2: `From ${fmt(E18)} to ${fmt(E23)} businesses since 2018`,
     lede: `Establishments in ${area} ${rose} from ${fmt(E18)} in 2018 to ${fmt(E23)} in 2023, a change of ${signedPct(ECHG)}.`,
     leadIn: "The bottom line:",
-    lead: `${fastest.label} grew the most of the 13 sectors, ${signedPct(fastest.chg)} in establishments, while ${slowest.label} moved ${signedPct(slowest.chg)}.`,
+    lead: `${fastest.label} grew the most of the ${sectors.length} sectors, ${signedPct(fastest.chg)} in establishments, while ${slowest.label} moved ${signedPct(slowest.chg)}.`,
     points: [`20 to 99 employees: ${fmt(S20_99_18)} establishments in 2018, ${fmt(S20_99)} in 2023.`, `100 to 499 employees: ${fmt(S100_18)} in 2018, ${fmt(S100)} in 2023.`, `500 or more employees: ${fmt(S500_18)} in 2018, ${fmt(S500)} in 2023.`],
     links: [{ to: "/services/small-business-website-design", label: "Small business website design" }, { to: "/services/website-redesign", label: "Website redesign" }],
     deeper: {

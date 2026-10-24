@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 20.2% of the 971,092 paid employees counted in the metro in 2023.",
      "Manufacturing adds 12.7% and retail trade 11.3%, so three sectors hold 44.2% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 88,900 paid employees in 5,040 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 196,117 employees",
-   "lede": "Health care and social assistance employed 196,117 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 196,117 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 123,303 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Retail: 17 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "The Cleveland metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Cleveland metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "5,962 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 2,951 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 6,468 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 88,900 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Professional, scientific and technical services ranks fifth at 58,723 employees, and the 13 sectors we read cover 847,377 of the 971,092 paid employees in the metro.",
+     "Professional, scientific and technical services ranks fifth at 58,723 employees, and the 12 sectors we read cover 847,377 of the 971,092 paid employees in the metro.",
      "Together the four employ 518,009 people, 53.3% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 50,478 to 51,450 businesses since 2018",
    "lede": "Establishments in the metro rose from 50,478 in 2018 to 51,450 in 2023, a change of +1.9%.",
    "leadIn": "The bottom line:",
-   "lead": "accommodation and food services grew the most of the 13 sectors, +10.9% in establishments, while finance and insurance moved −23.3%.",
+   "lead": "accommodation and food services grew the most of the 12 sectors, +10.9% in establishments, while finance and insurance moved −23.3%.",
    "points": [
     "20 to 99 employees: 6,856 establishments in 2018, 7,298 in 2023.",
     "100 to 499 employees: 1,359 in 2018, 1,322 in 2023.",
@@ -945,7 +945,7 @@ export const PLACE: LocalPlace = {
   "10.65": "Semrush CPC (USD), \"website development cleveland\"",
   "1,330": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "20.6": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "847,377": "derived: paid employees in the 13 sectors read, 2023",
+  "847,377": "derived: paid employees in the 12 sectors read, 2023",
   "20.2": "derived: health care and social assistance share of paid employees, 2023",
   "12.7": "derived: manufacturing share of paid employees, 2023",
   "11.3": "derived: retail trade share of paid employees, 2023",

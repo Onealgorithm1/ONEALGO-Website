@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 19% of the 1,536,698 paid employees counted in the state in 2023.",
      "Retail trade adds 11.8% and manufacturing 10.3%, so three sectors hold 41.2% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and manufacturing.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and manufacturing.",
      "Hospitality and food is fourth, with 141,070 paid employees in 9,050 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 292,377 employees",
-   "lede": "Health care and social assistance employed 292,377 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 292,377 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 181,494 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Manufacturing: 42.4 employees per establishment; spec sheets and RFQ forms carry the site."
    ],
    "table": {
-    "caption": "Connecticut: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Connecticut: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "11,961 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 11,696 in retail trade need stock that matches the till and a phone checkout.",
      "Manufacturing counts 3,735 establishments that need spec sheets, distributor lookups and request-for-quote forms, and accommodation and food services, fourth at 141,070 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Finance and insurance ranks fifth at 119,436 employees, and the 13 sectors we read cover 1,352,135 of the 1,536,698 paid employees in the state.",
+     "Finance and insurance ranks fifth at 119,436 employees, and the 12 sectors we read cover 1,352,135 of the 1,536,698 paid employees in the state.",
      "Together the four employ 773,462 people, 50.3% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 89,054 to 89,234 businesses since 2018",
    "lede": "Establishments in the state rose from 89,054 in 2018 to 89,234 in 2023, a change of +0.2%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +6.8% in establishments, while real estate, rental and leasing moved −6.7%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +6.8% in establishments, while real estate, rental and leasing moved −6.7%.",
    "points": [
     "20 to 99 employees: 11,470 establishments in 2018, 11,589 in 2023.",
     "100 to 499 employees: 2,150 in 2018, 2,127 in 2023.",
@@ -922,7 +922,7 @@ export const PLACE: LocalPlace = {
   "7.80": "Semrush CPC (USD), \"web design connecticut\"",
   "10.39": "Semrush CPC (USD), \"web design company connecticut\"",
   "11.7": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "1,352,135": "derived: paid employees in the 13 sectors read, 2023",
+  "1,352,135": "derived: paid employees in the 12 sectors read, 2023",
   "11.8": "derived: retail trade share of paid employees, 2023",
   "10.3": "derived: manufacturing share of paid employees, 2023",
   "773,462": "derived: top-4 sectors' paid employees, 2023",

@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 13.6% of the 617,511 paid employees counted in the metro in 2023.",
      "Retail trade adds 12.2% and professional, scientific and technical services 12.1%, so three sectors hold 37.9% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and professional, scientific and technical services.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and professional, scientific and technical services.",
      "Hospitality and food is fourth, with 69,490 paid employees in 3,299 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 83,997 employees",
-   "lede": "Health care and social assistance employed 83,997 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 83,997 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 75,594 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Professional services: 11.7 employees per establishment; expertise must be easy to check."
    ],
    "table": {
-    "caption": "The Raleigh metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Raleigh metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "4,184 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 4,345 in retail trade need stock that matches the till and a phone checkout.",
      "Professional, scientific and technical services counts 6,345 establishments that need proof of expertise, case pages and a routed enquiry form, and accommodation and food services, fourth at 69,490 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Construction ranks fifth at 44,159 employees, and the 13 sectors we read cover 538,346 of the 617,511 paid employees in the metro.",
+     "Construction ranks fifth at 44,159 employees, and the 12 sectors we read cover 538,346 of the 617,511 paid employees in the metro.",
      "Together the four employ 303,505 people, 49.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 34,140 to 39,252 businesses since 2018",
    "lede": "Establishments in the metro rose from 34,140 in 2018 to 39,252 in 2023, a change of +15%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +33.6% in establishments, while wholesale trade moved +1%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +33.6% in establishments, while wholesale trade moved +1%.",
    "points": [
     "20 to 99 employees: 4,684 establishments in 2018, 5,182 in 2023.",
     "100 to 499 employees: 758 in 2018, 834 in 2023.",
@@ -939,7 +939,7 @@ export const PLACE: LocalPlace = {
   "9.60": "Semrush CPC (USD), \"website development raleigh\"",
   "1,920": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "32.4": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "538,346": "derived: paid employees in the 13 sectors read, 2023",
+  "538,346": "derived: paid employees in the 12 sectors read, 2023",
   "12.2": "derived: retail trade share of paid employees, 2023",
   "12.1": "derived: professional, scientific and technical services share of paid employees, 2023",
   "37.9": "derived: top-3 sectors' share of paid employees, 2023",

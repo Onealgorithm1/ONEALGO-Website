@@ -384,7 +384,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 17.4% of the 1,120,356 paid employees counted in the state in 2023.",
      "Manufacturing adds 14.7% and retail trade 12.9%, so three sectors hold 44.9% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 114,055 paid employees in 6,577 establishments."
     ]
    }
@@ -435,7 +435,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 194,618 employees",
-   "lede": "Health care and social assistance employed 194,618 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 194,618 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 164,240 employees.",
    "points": [
@@ -444,7 +444,7 @@ export const PLACE: LocalPlace = {
     "Retail: 13.7 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "Arkansas: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Arkansas: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -478,7 +478,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "9,072 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 2,526 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 10,566 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 114,055 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 75,272 employees, and the 13 sectors we read cover 938,448 of the 1,120,356 paid employees in the state.",
+     "Administrative and support services ranks fifth at 75,272 employees, and the 12 sectors we read cover 938,448 of the 1,120,356 paid employees in the state.",
      "Together the four employ 617,444 people, 55.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -563,7 +563,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 66,975 to 70,452 businesses since 2018",
    "lede": "Establishments in the state rose from 66,975 in 2018 to 70,452 in 2023, a change of +5.2%.",
    "leadIn": "The bottom line:",
-   "lead": "construction grew the most of the 13 sectors, +15.3% in establishments, while wholesale trade moved −2%.",
+   "lead": "construction grew the most of the 12 sectors, +15.3% in establishments, while wholesale trade moved −2%.",
    "points": [
     "20 to 99 employees: 8,252 establishments in 2018, 8,756 in 2023.",
     "100 to 499 employees: 1,311 in 2018, 1,367 in 2023.",
@@ -908,7 +908,7 @@ export const PLACE: LocalPlace = {
   "10,781": "Census County Business Patterns 2018, establishments, naics 44-45 retail trade, 2018",
   "13.7": "derived: retail trade employees per establishment, 2023",
   "9.8": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "938,448": "derived: paid employees in the 13 sectors read, 2023",
+  "938,448": "derived: paid employees in the 12 sectors read, 2023",
   "17.4": "derived: health care and social assistance share of paid employees, 2023",
   "14.7": "derived: manufacturing share of paid employees, 2023",
   "12.9": "derived: retail trade share of paid employees, 2023",

@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 13.2% of the 2,417,363 paid employees counted in the metro in 2023.",
      "Professional, scientific and technical services adds 13.2% and information 12.1%, so three sectors hold 38.5% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, professional, scientific and technical services and information.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, professional, scientific and technical services and information.",
      "Hospitality and food is fourth, with 222,923 paid employees in 13,736 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 319,201 employees",
-   "lede": "Health care and social assistance employed 319,201 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 319,201 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and professional, scientific and technical services comes next at 318,400 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Information: 67.1 employees per establishment; speed under heavy content matters."
    ],
    "table": {
-    "caption": "The San Francisco-Oakland metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The San Francisco-Oakland metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "16,920 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 23,140 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
      "Information counts 4,360 establishments that need pages that load fast under heavy content and sign-up flows that work, and accommodation and food services, fourth at 222,923 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Retail trade ranks fifth at 198,184 employees, and the 13 sectors we read cover 2,093,076 of the 2,417,363 paid employees in the metro.",
+     "Retail trade ranks fifth at 198,184 employees, and the 12 sectors we read cover 2,093,076 of the 2,417,363 paid employees in the metro.",
      "Together the four employ 1,153,203 people, 47.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 131,036 to 133,246 businesses since 2018",
    "lede": "Establishments in the metro rose from 131,036 in 2018 to 133,246 in 2023, a change of +1.7%.",
    "leadIn": "The bottom line:",
-   "lead": "educational services grew the most of the 13 sectors, +12.2% in establishments, while wholesale trade moved −14.1%.",
+   "lead": "educational services grew the most of the 12 sectors, +12.2% in establishments, while wholesale trade moved −14.1%.",
    "points": [
     "20 to 99 employees: 16,281 establishments in 2018, 15,781 in 2023.",
     "100 to 499 employees: 3,006 in 2018, 2,993 in 2023.",
@@ -948,7 +948,7 @@ export const PLACE: LocalPlace = {
   "1,090": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "3,375": "derived: NAICS 541511 + 541430 establishments, 2023",
   "31.2": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "2,093,076": "derived: paid employees in the 13 sectors read, 2023",
+  "2,093,076": "derived: paid employees in the 12 sectors read, 2023",
   "13.2": "derived: professional, scientific and technical services share of paid employees, 2023",
   "12.1": "derived: information share of paid employees, 2023",
   "38.5": "derived: top-3 sectors' share of paid employees, 2023",

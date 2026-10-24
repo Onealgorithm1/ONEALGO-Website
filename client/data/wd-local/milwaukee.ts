@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 17.1% of the 775,828 paid employees counted in the metro in 2023.",
      "Manufacturing adds 14.1% and retail trade 10.1%, so three sectors hold 41.4% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 68,144 paid employees in 3,630 establishments."
     ]
    }
@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 132,658 employees",
-   "lede": "Health care and social assistance employed 132,658 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 132,658 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 109,511 employees.",
    "points": [
@@ -452,7 +452,7 @@ export const PLACE: LocalPlace = {
     "Retail: 18 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "The Milwaukee metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Milwaukee metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -486,7 +486,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "5,999 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 2,190 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 4,367 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 68,144 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 46,887 employees, and the 13 sectors we read cover 662,411 of the 775,828 paid employees in the metro.",
+     "Administrative and support services ranks fifth at 46,887 employees, and the 12 sectors we read cover 662,411 of the 775,828 paid employees in the metro.",
      "Together the four employ 389,034 people, 50.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -578,7 +578,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 38,574 to 39,486 businesses since 2018",
    "lede": "Establishments in the metro rose from 38,574 in 2018 to 39,486 in 2023, a change of +2.4%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +13.6% in establishments, while wholesale trade moved −9.5%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +13.6% in establishments, while wholesale trade moved −9.5%.",
    "points": [
     "20 to 99 employees: 6,099 establishments in 2018, 6,135 in 2023.",
     "100 to 499 employees: 1,216 in 2018, 1,207 in 2023.",
@@ -930,7 +930,7 @@ export const PLACE: LocalPlace = {
   "8.70": "Semrush CPC (USD), \"website development milwaukee\"",
   "4.38": "Semrush CPC (USD), \"web design company milwaukee\"",
   "5.72": "Semrush CPC (USD), \"web developer milwaukee\"",
-  "662,411": "derived: paid employees in the 13 sectors read, 2023",
+  "662,411": "derived: paid employees in the 12 sectors read, 2023",
   "17.1": "derived: health care and social assistance share of paid employees, 2023",
   "14.1": "derived: manufacturing share of paid employees, 2023",
   "10.1": "derived: retail trade share of paid employees, 2023",

@@ -384,7 +384,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 17.2% of the 2,803,410 paid employees counted in the state in 2023.",
      "Manufacturing adds 11.6% and retail trade 10.9%, so three sectors hold 39.8% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 237,574 paid employees in 12,374 establishments."
     ]
    }
@@ -435,7 +435,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 482,616 employees",
-   "lede": "Health care and social assistance employed 482,616 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 482,616 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 325,317 employees.",
    "points": [
@@ -444,7 +444,7 @@ export const PLACE: LocalPlace = {
     "Retail: 17.3 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "Minnesota: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Minnesota: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -478,7 +478,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "19,985 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 6,718 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 17,727 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 237,574 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Professional, scientific and technical services ranks fifth at 195,107 employees, and the 13 sectors we read cover 2,356,867 of the 2,803,410 paid employees in the state.",
+     "Professional, scientific and technical services ranks fifth at 195,107 employees, and the 12 sectors we read cover 2,356,867 of the 2,803,410 paid employees in the state.",
      "Together the four employ 1,351,975 people, 48.2% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -564,7 +564,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 151,595 to 154,455 businesses since 2018",
    "lede": "Establishments in the state rose from 151,595 in 2018 to 154,455 in 2023, a change of +1.9%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +15.2% in establishments, while wholesale trade moved −9.9%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +15.2% in establishments, while wholesale trade moved −9.9%.",
    "points": [
     "20 to 99 employees: 19,562 establishments in 2018, 19,771 in 2023.",
     "100 to 499 employees: 3,777 in 2018, 3,696 in 2023.",
@@ -918,7 +918,7 @@ export const PLACE: LocalPlace = {
   "16.28": "Semrush CPC (USD), \"web design company minnesota\"",
   "1,694": "derived: NAICS 541511 + 541430 establishments, 2023",
   "22.7": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "2,356,867": "derived: paid employees in the 13 sectors read, 2023",
+  "2,356,867": "derived: paid employees in the 12 sectors read, 2023",
   "17.2": "derived: health care and social assistance share of paid employees, 2023",
   "11.6": "derived: manufacturing share of paid employees, 2023",
   "39.8": "derived: top-3 sectors' share of paid employees, 2023",

@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 16.3% of the 982,448 paid employees counted in the metro in 2023.",
      "Retail trade adds 11.3% and accommodation and food services 10.1%, so three sectors hold 37.7% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Professional services is fourth, with 80,825 paid employees in 5,803 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 159,829 employees",
-   "lede": "Health care and social assistance employed 159,829 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 159,829 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 111,374 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Hospitality and food: 20.9 employees per establishment; hours and menus must read fast."
    ],
    "table": {
-    "caption": "The Indianapolis metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Indianapolis metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "6,448 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 5,880 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 4,751 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 80,825 employees, needs proof of expertise, case pages and a routed enquiry form.",
-     "Manufacturing ranks fifth at 80,365 employees, and the 13 sectors we read cover 808,641 of the 982,448 paid employees in the metro.",
+     "Manufacturing ranks fifth at 80,365 employees, and the 12 sectors we read cover 808,641 of the 982,448 paid employees in the metro.",
      "Together the four employ 451,236 people, 45.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 47,468 to 51,076 businesses since 2018",
    "lede": "Establishments in the metro rose from 47,468 in 2018 to 51,076 in 2023, a change of +7.6%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +16.1% in establishments, while wholesale trade moved −6.3%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +16.1% in establishments, while wholesale trade moved −6.3%.",
    "points": [
     "20 to 99 employees: 6,962 establishments in 2018, 7,443 in 2023.",
     "100 to 499 employees: 1,358 in 2018, 1,416 in 2023.",
@@ -936,7 +936,7 @@ export const PLACE: LocalPlace = {
   "16.79": "Semrush CPC (USD), \"web design company indianapolis\"",
   "1,840": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "24.9": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "808,641": "derived: paid employees in the 13 sectors read, 2023",
+  "808,641": "derived: paid employees in the 12 sectors read, 2023",
   "16.3": "derived: health care and social assistance share of paid employees, 2023",
   "11.3": "derived: retail trade share of paid employees, 2023",
   "10.1": "derived: accommodation and food services share of paid employees, 2023",

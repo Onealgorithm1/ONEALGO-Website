@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Manufacturing alone holds 17.9% of the 2,924,989 paid employees counted in the state in 2023.",
      "Health care and social assistance adds 15.9% and retail trade 11.5%, so three sectors hold 45.4% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: manufacturing, health care and social assistance and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: manufacturing, health care and social assistance and retail trade.",
      "Hospitality and food is fourth, with 291,843 paid employees in 14,708 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Manufacturing leads, with 524,995 employees",
-   "lede": "Manufacturing employed 524,995 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Manufacturing employed 524,995 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and health care and social assistance comes next at 465,689 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Retail: 16 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "Indiana: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Indiana: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "7,938 manufacturing establishments in the state need spec sheets, distributor lookups and request-for-quote forms. The 19,159 in health care and social assistance need online booking, intake forms and an accessible path for every patient.",
      "Retail trade counts 21,015 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 291,843 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 217,207 employees, and the 13 sectors we read cover 2,523,733 of the 2,924,989 paid employees in the state.",
+     "Administrative and support services ranks fifth at 217,207 employees, and the 12 sectors we read cover 2,523,733 of the 2,924,989 paid employees in the state.",
      "Together the four employ 1,618,406 people, 55.3% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 148,304 to 155,692 businesses since 2018",
    "lede": "Establishments in the state rose from 148,304 in 2018 to 155,692 in 2023, a change of +5%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +12.5% in establishments, while wholesale trade moved −4.5%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +12.5% in establishments, while wholesale trade moved −4.5%.",
    "points": [
     "20 to 99 employees: 20,867 establishments in 2018, 21,868 in 2023.",
     "100 to 499 employees: 3,941 in 2018, 4,033 in 2023.",
@@ -915,7 +915,7 @@ export const PLACE: LocalPlace = {
   "7.71": "Semrush CPC (USD), \"website development indiana\"",
   "1,003": "derived: NAICS 541511 + 541430 establishments, 2023",
   "16.2": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "2,523,733": "derived: paid employees in the 13 sectors read, 2023",
+  "2,523,733": "derived: paid employees in the 12 sectors read, 2023",
   "17.9": "derived: manufacturing share of paid employees, 2023",
   "15.9": "derived: health care and social assistance share of paid employees, 2023",
   "11.5": "derived: retail trade share of paid employees, 2023",

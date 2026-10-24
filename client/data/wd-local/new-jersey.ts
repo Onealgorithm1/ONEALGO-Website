@@ -404,7 +404,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 16.1% of the 3,945,019 paid employees counted in the state in 2023.",
      "Most of a build runs remotely; South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, retail trade and administrative and support services.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and administrative and support services.",
      "Professional services is fourth, with 342,794 paid employees in 29,052 establishments."
     ]
    }
@@ -455,7 +455,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 635,422 employees",
-   "lede": "Health care and social assistance employed 635,422 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 635,422 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 465,759 employees.",
    "points": [
@@ -464,7 +464,7 @@ export const PLACE: LocalPlace = {
     "Admin and support: 26.9 employees per establishment; service pages and careers carry it."
    ],
    "table": {
-    "caption": "New Jersey: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "New Jersey: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -498,7 +498,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "29,996 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 29,729 in retail trade need stock that matches the till and a phone checkout.",
      "Administrative and support services counts 14,693 establishments that need clear service pages, quote requests and a careers page that fills roles, and professional, scientific and technical services, fourth at 342,794 employees, needs proof of expertise, case pages and a routed enquiry form.",
-     "Accommodation and food services ranks fifth at 339,307 employees, and the 13 sectors we read cover 3,339,152 of the 3,945,019 paid employees in the state.",
+     "Accommodation and food services ranks fifth at 339,307 employees, and the 12 sectors we read cover 3,339,152 of the 3,945,019 paid employees in the state.",
      "Together the four employ 1,839,866 people, 46.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 233,806 to 237,968 businesses since 2018",
    "lede": "Establishments in the state rose from 233,806 in 2018 to 237,968 in 2023, a change of +1.8%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +6.9% in establishments, while wholesale trade moved −6.1%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +6.9% in establishments, while wholesale trade moved −6.1%.",
    "points": [
     "20 to 99 employees: 26,943 establishments in 2018, 27,454 in 2023.",
     "100 to 499 employees: 5,083 in 2018, 5,103 in 2023.",
@@ -974,7 +974,7 @@ export const PLACE: LocalPlace = {
   "1,220": "sum of the Semrush exact volumes in the table",
   "1,680": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "3,345": "derived: NAICS 541511 + 541430 establishments, 2023",
-  "3,339,152": "derived: paid employees in the 13 sectors read, 2023",
+  "3,339,152": "derived: paid employees in the 12 sectors read, 2023",
   "16.1": "derived: health care and social assistance share of paid employees, 2023",
   "37.9": "derived: top-3 sectors' share of paid employees, 2023",
   "1,839,866": "derived: top-4 sectors' paid employees, 2023",

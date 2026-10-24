@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 17.4% of the 5,081,279 paid employees counted in the state in 2023.",
      "Manufacturing adds 13.6% and retail trade 11%, so three sectors hold 42% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, manufacturing and retail trade.",
      "Hospitality and food is fourth, with 496,313 paid employees in 25,953 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 883,961 employees",
-   "lede": "Health care and social assistance employed 883,961 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 883,961 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 689,133 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Retail: 16.4 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "Ohio: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Ohio: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "31,168 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 13,307 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 34,275 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 496,313 employees, needs hours, menus and bookings that read on a phone in a hurry.",
-     "Administrative and support services ranks fifth at 411,579 employees, and the 13 sectors we read cover 4,310,518 of the 5,081,279 paid employees in the state.",
+     "Administrative and support services ranks fifth at 411,579 employees, and the 12 sectors we read cover 4,310,518 of the 5,081,279 paid employees in the state.",
      "Together the four employ 2,630,027 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 251,937 to 255,049 businesses since 2018",
    "lede": "Establishments in the state rose from 251,937 in 2018 to 255,049 in 2023, a change of +1.2%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +8.3% in establishments, while finance and insurance moved −12.5%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +8.3% in establishments, while finance and insurance moved −12.5%.",
    "points": [
     "20 to 99 employees: 36,312 establishments in 2018, 37,728 in 2023.",
     "100 to 499 employees: 7,091 in 2018, 6,872 in 2023.",
@@ -922,7 +922,7 @@ export const PLACE: LocalPlace = {
   "7.79": "Semrush CPC (USD), \"website development ohio\"",
   "1,110": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "2,175": "derived: NAICS 541511 + 541430 establishments, 2023",
-  "4,310,518": "derived: paid employees in the 13 sectors read, 2023",
+  "4,310,518": "derived: paid employees in the 12 sectors read, 2023",
   "17.4": "derived: health care and social assistance share of paid employees, 2023",
   "13.6": "derived: manufacturing share of paid employees, 2023",
   "2,630,027": "derived: top-4 sectors' paid employees, 2023",

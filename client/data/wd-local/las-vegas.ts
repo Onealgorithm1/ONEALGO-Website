@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Accommodation and food services alone holds 27.2% of the 974,603 paid employees counted in the metro in 2023.",
      "Retail trade adds 12.4% and health care and social assistance 11.1%, so three sectors hold 50.7% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: accommodation and food services, retail trade and health care and social assistance.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: accommodation and food services, retail trade and health care and social assistance.",
      "Construction is fourth, with 76,796 paid employees in 3,588 establishments."
     ]
    }
@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Hospitality and food leads, with 264,881 employees",
-   "lede": "Accommodation and food services employed 264,881 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Accommodation and food services employed 264,881 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 121,153 employees.",
    "points": [
@@ -452,7 +452,7 @@ export const PLACE: LocalPlace = {
     "Health care: 15.4 employees per establishment; booking and intake matter most."
    ],
    "table": {
-    "caption": "The Las Vegas metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Las Vegas metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -486,7 +486,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "5,780 accommodation and food services establishments in the metro need hours, menus and bookings that read on a phone in a hurry. The 6,500 in retail trade need stock that matches the till and a phone checkout.",
      "Health care and social assistance counts 7,065 establishments that need online booking, intake forms and an accessible path for every patient, and construction, fourth at 76,796 employees, needs service-area pages, project photos and quote requests that land in the office inbox.",
-     "Administrative and support services ranks fifth at 71,549 employees, and the 13 sectors we read cover 834,436 of the 974,603 paid employees in the metro.",
+     "Administrative and support services ranks fifth at 71,549 employees, and the 12 sectors we read cover 834,436 of the 974,603 paid employees in the metro.",
      "Together the four employ 571,392 people, 58.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -578,7 +578,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 46,861 to 54,202 businesses since 2018",
    "lede": "Establishments in the metro rose from 46,861 in 2018 to 54,202 in 2023, a change of +15.7%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +25.6% in establishments, while wholesale trade moved +2.7%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +25.6% in establishments, while wholesale trade moved +2.7%.",
    "points": [
     "20 to 99 employees: 6,119 establishments in 2018, 6,918 in 2023.",
     "100 to 499 employees: 1,131 in 2018, 1,255 in 2023.",
@@ -936,7 +936,7 @@ export const PLACE: LocalPlace = {
   "12.97": "Semrush CPC (USD), \"web developer las vegas\"",
   "1,470": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "20.8": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "834,436": "derived: paid employees in the 13 sectors read, 2023",
+  "834,436": "derived: paid employees in the 12 sectors read, 2023",
   "27.2": "derived: accommodation and food services share of paid employees, 2023",
   "12.4": "derived: retail trade share of paid employees, 2023",
   "11.1": "derived: health care and social assistance share of paid employees, 2023",

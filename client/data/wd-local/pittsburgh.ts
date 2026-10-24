@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 19.4% of the 1,122,366 paid employees counted in the metro in 2023.",
      "Retail trade adds 11% and accommodation and food services 8.9%, so three sectors hold 39.3% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
+     "The three cards above are the three largest of the 12 sectors we read for the metro, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Professional services is fourth, with 87,252 paid employees in 6,278 establishments."
     ]
    }
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 217,914 employees",
-   "lede": "Health care and social assistance employed 217,914 people in the metro in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 217,914 people in the metro in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 123,006 employees.",
    "points": [
@@ -456,7 +456,7 @@ export const PLACE: LocalPlace = {
     "Hospitality and food: 17.2 employees per establishment; hours and menus must read fast."
    ],
    "table": {
-    "caption": "The Pittsburgh metro: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "The Pittsburgh metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "8,680 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 7,718 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 5,828 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 87,252 employees, needs proof of expertise, case pages and a routed enquiry form.",
-     "Manufacturing ranks fifth at 85,875 employees, and the 13 sectors we read cover 931,955 of the 1,122,366 paid employees in the metro.",
+     "Manufacturing ranks fifth at 85,875 employees, and the 12 sectors we read cover 931,955 of the 1,122,366 paid employees in the metro.",
      "Together the four employ 528,309 people, 47.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 59,600 to 61,628 businesses since 2018",
    "lede": "Establishments in the metro rose from 59,600 in 2018 to 61,628 in 2023, a change of +3.4%.",
    "leadIn": "The bottom line:",
-   "lead": "real estate, rental and leasing grew the most of the 13 sectors, +12.4% in establishments, while wholesale trade moved −5.9%.",
+   "lead": "real estate, rental and leasing grew the most of the 12 sectors, +12.4% in establishments, while wholesale trade moved −5.9%.",
    "points": [
     "20 to 99 employees: 8,310 establishments in 2018, 8,664 in 2023.",
     "100 to 499 employees: 1,471 in 2018, 1,427 in 2023.",
@@ -941,7 +941,7 @@ export const PLACE: LocalPlace = {
   "27.05": "Semrush CPC (USD), \"web developer pittsburgh\"",
   "12.97": "Semrush CPC (USD), \"web design company pittsburgh\"",
   "12.8": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "931,955": "derived: paid employees in the 13 sectors read, 2023",
+  "931,955": "derived: paid employees in the 12 sectors read, 2023",
   "19.4": "derived: health care and social assistance share of paid employees, 2023",
   "8.9": "derived: accommodation and food services share of paid employees, 2023",
   "39.3": "derived: top-3 sectors' share of paid employees, 2023",

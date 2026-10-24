@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Health care and social assistance alone holds 16.4% of the 2,468,367 paid employees counted in the state in 2023.",
      "Professional, scientific and technical services adds 12.2% and retail trade 11.7%, so three sectors hold 40.3% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: health care and social assistance, professional, scientific and technical services and retail trade.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, professional, scientific and technical services and retail trade.",
      "Admin and support is fourth, with 256,840 paid employees in 8,340 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Health care leads, with 403,945 employees",
-   "lede": "Health care and social assistance employed 403,945 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Health care and social assistance employed 403,945 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and professional, scientific and technical services comes next at 301,509 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Retail: 17.3 employees per establishment; stock and checkout must agree."
    ],
    "table": {
-    "caption": "Maryland: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Maryland: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "18,859 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 21,699 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
      "Retail trade counts 16,687 establishments that need stock that matches the till and a phone checkout, and administrative and support services, fourth at 256,840 employees, needs clear service pages, quote requests and a careers page that fills roles.",
-     "Accommodation and food services ranks fifth at 241,483 employees, and the 13 sectors we read cover 2,143,186 of the 2,468,367 paid employees in the state.",
+     "Accommodation and food services ranks fifth at 241,483 employees, and the 12 sectors we read cover 2,143,186 of the 2,468,367 paid employees in the state.",
      "Together the four employ 1,251,763 people, 50.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 139,497 to 142,967 businesses since 2018",
    "lede": "Establishments in the state rose from 139,497 in 2018 to 142,967 in 2023, a change of +2.5%.",
    "leadIn": "The bottom line:",
-   "lead": "health care and social assistance grew the most of the 13 sectors, +10.3% in establishments, while wholesale trade moved −8.9%.",
+   "lead": "health care and social assistance grew the most of the 12 sectors, +10.3% in establishments, while wholesale trade moved −8.9%.",
    "points": [
     "20 to 99 employees: 18,697 establishments in 2018, 19,005 in 2023.",
     "100 to 499 employees: 3,365 in 2018, 3,350 in 2023.",
@@ -914,7 +914,7 @@ export const PLACE: LocalPlace = {
   "6.06": "Semrush CPC (USD), \"web design maryland\"",
   "2,467": "derived: NAICS 541511 + 541430 establishments, 2023",
   "20.4": "derived: NAICS 541430 establishments per 10,000, 2023",
-  "2,143,186": "derived: paid employees in the 13 sectors read, 2023",
+  "2,143,186": "derived: paid employees in the 12 sectors read, 2023",
   "16.4": "derived: health care and social assistance share of paid employees, 2023",
   "12.2": "derived: professional, scientific and technical services share of paid employees, 2023",
   "11.7": "derived: retail trade share of paid employees, 2023",

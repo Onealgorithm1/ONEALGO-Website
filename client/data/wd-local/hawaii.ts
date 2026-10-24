@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Accommodation and food services alone holds 18.8% of the 520,043 paid employees counted in the state in 2023.",
      "Administrative and support services adds 13.8% and health care and social assistance 13.7%, so three sectors hold 46.3% of the payroll count.",
-     "The three cards above are the three largest of the 13 sectors we read for the state, by paid employees: accommodation and food services, administrative and support services and health care and social assistance.",
+     "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: accommodation and food services, administrative and support services and health care and social assistance.",
      "Retail is fourth, with 65,686 paid employees in 4,395 establishments."
     ]
    }
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "industries",
    "h2": "Hospitality and food leads, with 97,559 employees",
-   "lede": "Accommodation and food services employed 97,559 people in the state in 2023, the most of the 13 sectors we read.",
+   "lede": "Accommodation and food services employed 97,559 people in the state in 2023, the most of the 12 sectors we read.",
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and administrative and support services comes next at 71,783 employees.",
    "points": [
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
     "Health care: 19 employees per establishment; booking and intake matter most."
    ],
    "table": {
-    "caption": "Hawaii: the four largest of 13 sectors by paid employees, Census CBP 2023",
+    "caption": "Hawaii: the four largest of 12 sectors by paid employees, Census CBP 2023",
     "cols": [
      "Sector",
      "Paid employees, 2023",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "4,044 accommodation and food services establishments in the state need hours, menus and bookings that read on a phone in a hurry. The 1,920 in administrative and support services need clear service pages, quote requests and a careers page that fills roles.",
      "Health care and social assistance counts 3,763 establishments that need online booking, intake forms and an accessible path for every patient, and retail trade, fourth at 65,686 employees, needs stock that matches the till and a phone checkout.",
-     "Construction ranks fifth at 31,002 employees, and the 13 sectors we read cover 446,013 of the 520,043 paid employees in the state.",
+     "Construction ranks fifth at 31,002 employees, and the 12 sectors we read cover 446,013 of the 520,043 paid employees in the state.",
      "Together the four employ 306,342 people, 58.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
@@ -566,7 +566,7 @@ export const PLACE: LocalPlace = {
    "h2": "From 32,952 to 32,911 businesses since 2018",
    "lede": "Establishments in the state fell from 32,952 in 2018 to 32,911 in 2023, a change of −0.1%.",
    "leadIn": "The bottom line:",
-   "lead": "educational services grew the most of the 13 sectors, +9.4% in establishments, while wholesale trade moved −10.8%.",
+   "lead": "educational services grew the most of the 12 sectors, +9.4% in establishments, while wholesale trade moved −10.8%.",
    "points": [
     "20 to 99 employees: 4,344 establishments in 2018, 4,061 in 2023.",
     "100 to 499 employees: 682 in 2018, 597 in 2023.",
@@ -918,7 +918,7 @@ export const PLACE: LocalPlace = {
   "5.3": "derived: retail trade establishments change 2018-2023, percent",
   "6.10": "Semrush CPC (USD), \"web design hawaii\"",
   "16.28": "Semrush CPC (USD), \"web design company hawaii\"",
-  "446,013": "derived: paid employees in the 13 sectors read, 2023",
+  "446,013": "derived: paid employees in the 12 sectors read, 2023",
   "18.8": "derived: accommodation and food services share of paid employees, 2023",
   "13.8": "derived: administrative and support services share of paid employees, 2023",
   "13.7": "derived: health care and social assistance share of paid employees, 2023",
