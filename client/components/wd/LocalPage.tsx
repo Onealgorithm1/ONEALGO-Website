@@ -9,6 +9,9 @@ import { contactHref } from "../sf/DeskCTA";
 import { SiteWindow } from "./SiteWindow";
 import { RegionPlate } from "./RegionPlate";
 import { LocalFaq } from "./LocalFaq";
+import { LocalBanner, placePhoto } from "./LocalBanner";
+import { CensusSourcesDialog, SearchSourcesDialog } from "./LocalSources";
+import { PhotoCreditDialog, PhotoCreditsLine } from "../sf/PhotoCredit";
 import { Preview } from "../WorkCarousel";
 import { WORK, type WorkItem } from "../../data/work";
 import { NAP, COUNTIES, LISTING, STAGES, CENSUS_SOURCES } from "../../data/wd-local/shared";
@@ -37,8 +40,9 @@ import "./local.css";
  */
 
 const SITE = "https://onealgorithm.com";
-/* Per-route og:image (SS §10.3): public/og/{last path segment}.jpg, 1200x630, made by build-wave0/og-local.mjs. */
-const ogFor = (path: string) => ({ url: `${SITE}/og/${path.split("/").pop()}.jpg`, width: 1200, height: 630 });
+/* Per-route og:image (SS §10.3): public/og/{last path segment}.jpg, 1200x630, made by build-wave0/og-local.mjs; the place
+ * pages carry their own (seo.ogImage = /og/places/web-design-<slug>.jpg, made by scripts/wd-local-gen.mjs from the photo). */
+const ogFor = (place: LocalPlace) => ({ url: `${SITE}${place.seo.ogImage ?? `/og/${place.path.split("/").pop()}.jpg`}`, width: 1200, height: 630 });
 
 const fmtDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
@@ -175,28 +179,45 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
         </SmartSection>
       );
     case "facts": {
+      // Place pages (rows carry their query): every readout opens the sources pop-up. PHL/CHE: one chip on the third.
+      const perRow = place.facts.rows.some((f) => f.query);
       const items: Readout[] = s.readouts.map((k, i) => {
         const f = place.facts.rows[k];
-        return { value: f.value, label: f.label, source: i === 2 ? <>{f.source} · <Verify id="figures-src">Where these figures come from</Verify></> : f.source };
+        const chip = perRow ? <Verify id="figures-src">Source</Verify> : i === 2 ? <Verify id="figures-src">Where these figures come from</Verify> : null;
+        return { value: f.value, label: f.label, source: chip ? <>{f.source} · {chip}</> : f.source };
       });
       return (
         <SmartSection id={s.id} tone={tone} grid labelledBy={`h-${s.id}`}>
           <Unit s={s} className="sf-c12">
-            <Readouts items={items} withEvidence={false} />
+            <Readouts items={items} withEvidence={false} className={items.length > 3 ? "wd-readouts-many" : ""} />
           </Unit>
         </SmartSection>
       );
     }
+    case "search":
+      return (
+        <SmartSection id={s.id} tone={tone} grid labelledBy={`h-${s.id}`}>
+          <Unit s={s} className="sf-c5" />
+          <div className="sf-c7">
+            <table className="wd-table wd-local-table wd-search-table">
+              <caption className="sr-only">{s.table.caption}</caption>
+              <thead><tr>{s.table.cols.map((c, i) => <th scope="col" key={i}>{c}</th>)}</tr></thead>
+              <tbody>{s.table.rows.map((r) => <tr key={r[0]}><th scope="row">{r[0]}</th><td>{r[1]}</td><td>{r[2]}</td></tr>)}</tbody>
+            </table>
+            <p className="sf-mono wd-table-src">{s.source} · <Verify id="search-src">Source</Verify></p>
+          </div>
+        </SmartSection>
+      );
     case "office":
       return (
         <SmartSection id={s.id} tone={tone} grid labelledBy={`h-${s.id}`}>
-          <SmartUnit className="sf-c7" headingId={`h-${s.id}`} title={s.h2} lede={s.lede} leadIn={s.leadIn} lead={s.lead} measure={false}>
+          <SmartUnit className={s.plate === false ? "sf-c8" : "sf-c7"} headingId={`h-${s.id}`} title={s.h2} lede={s.lede} leadIn={s.leadIn} lead={s.lead} measure={false}>
             <NapBand updated={fmtDate(place.seo.dateModified)} />
             <h3 className="sf-h3" style={{ marginTop: 32 }}>{s.question.q}</h3>
             <p style={{ marginTop: 8 }}>{s.question.a}</p>
             <Deeper d={s.deeper} />
           </SmartUnit>
-          <RegionPlate className="sf-c5" fig={2} counties={COUNTIES} office={{ l1: NAP.l1, l2: NAP.l2 }} note={s.plateNote} caption="Schematic of the six counties in our Business Profile, office marked; the street address is in the contact band." />
+          {s.plate !== false && <RegionPlate className="sf-c5" fig={2} counties={COUNTIES} office={{ l1: NAP.l1, l2: NAP.l2 }} note={s.plateNote} caption="Schematic of the six counties in our Business Profile, office marked; the street address is in the contact band." />}
         </SmartSection>
       );
     case "faq":
@@ -227,7 +248,8 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
 
 export function LocalPage({ place }: { place: LocalPlace }) {
   const url = `${SITE}${place.path}`;
-  const OG = ogFor(place.path);
+  const OG = ogFor(place);
+  const photo = placePhoto(place);
   const [open, setOpen] = React.useState<{ item: WorkItem; opener: HTMLElement } | null>(null);
   const onPreview = React.useCallback((item: WorkItem, opener: HTMLElement) => setOpen({ item, opener }), []);
   const close = React.useCallback(() => setOpen(null), []);
@@ -243,7 +265,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
     ogUrl: getCanonicalUrl(place.path),
     ogImage: OG.url,
     ogImageSize: [OG.width, OG.height],
-    ogImageAlt: "OneAlgorithm, web design and development from Malvern, PA",
+    ogImageAlt: place.seo.ogImage ? `Web design for ${place.name}: ${photo?.alt ?? "OneAlgorithm, custom websites built remotely"}` : "OneAlgorithm, web design and development from Malvern, PA",
     twitterTitle: place.seo.title,
     twitterDescription: place.seo.description,
     twitterImage: OG.url,
@@ -280,7 +302,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
       <StructuredData data={webPage} />
       {faqLd && <StructuredData data={faqLd} />}
 
-      <SfPage crumbs={[{ label: "Website development", to: "/services/website-development" }, { label: place.name }]} className="wd wd-local">
+      <SfPage crumbs={[{ label: "Website development", to: "/services/website-development" }, ...(place.parent ? [place.parent] : []), { label: place.name }]} className="wd wd-local">
         <div className="wd-progress" aria-hidden="true" />
 
         <section className="sf-hero sf-hero-wide" aria-labelledby="h1">
@@ -297,6 +319,8 @@ export function LocalPage({ place }: { place: LocalPlace }) {
           </div>
         </section>
 
+        {place.photo && <LocalBanner place={place} photo={photo} />}
+
         {place.sections.map((s) => {
           const tone: Tone = s.kind === "work" ? "night" : alt++ % 2 === 0 ? "surface" : "paper";
           return <Block key={s.id} s={s} place={place} tone={tone} onPreview={onPreview} />;
@@ -312,14 +336,16 @@ export function LocalPage({ place }: { place: LocalPlace }) {
           hcLink={false}
         />
 
-        <SourcesDialog
+        {fr.some((f) => f.query) ? <CensusSourcesDialog place={place} /> : <SourcesDialog
           id="figures-src"
           intro={`Every figure in the numbers section covers the ${place.facts.geoName}, names its source and gives the date a person at OneAlgorithm read it. Nothing on the page links to a data endpoint.`}
           sources={[
             { name: CENSUS_SOURCES.cbp.name, what: `Employer establishments by size and by industry (NAICS), ${has("2018") ? "2018 and 2023" : "2023"}`, read, page: CENSUS_SOURCES.cbp.page },
             { name: CENSUS_SOURCES.acs.name, what: "Total population, table B01003, 2024", read, page: CENSUS_SOURCES.acs.page },
           ]}
-        />
+        />}
+        {place.search && <SearchSourcesDialog place={place} />}
+        {photo && <PhotoCreditDialog photo={photo as any} />}
         <EvidenceDialog
           id="listing"
           title="Our Google Business Profile figures"
@@ -333,6 +359,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
           ]}
         />
         {open && <Preview item={open.item} onClose={close} opener={open.opener} />}
+        {photo && <PhotoCreditsLine photo={photo as any} />}
       </SfPage>
     </Layout>
   );
