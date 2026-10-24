@@ -357,7 +357,6 @@ export default function SalesforceConsultantChesterCounty() {
           proof
           photo={PHOTO}
         />
-        <PhotoCreditDialog photo={PHOTO} />
         <AppExchangeEvidence />
         <SourcesDialog id="sources" sources={SOURCES} />
 

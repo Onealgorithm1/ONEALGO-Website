@@ -692,7 +692,6 @@ export default function SalesforceCity({ slug }: { slug: string }) {
 
         <SourcesDialog id="market" sources={marketSources(c)} />
         <SourcesDialog id="community" title="Where the community figures come from" sources={communitySources(c, day)} />
-        <PhotoCreditDialog photo={photo} />
         <PhotoCreditsLine photo={photo} />
       </SfPage>
     </Layout>

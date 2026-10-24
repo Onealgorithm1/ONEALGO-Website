@@ -57,9 +57,6 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
               <source type="image/webp" srcSet={`${files.webp800} 800w, ${files.webp1600} 1600w, ${files.webp2400} 2400w`} sizes="(min-width: 1024px) 50vw, 100vw" />
               <img src={files.webp1600} alt={photo.alt} width={photo.width} height={photo.height} loading="eager" decoding="async" {...({ fetchpriority: "high" } as any)} />
             </picture>
-            <button type="button" className="sf-photo-credit" data-evidence="photo-credit" aria-haspopup="dialog">
-              Photo: {photo.credit.replace(/^Photo: /, "").split(" / ")[0].replace(/^© /, "").replace(/, (public domain|CC0) \(no credit required\)$/i, "")} · {photo.licence}
-            </button>
             <span className="sf-tick" aria-hidden="true" style={{ display: "block" }} />
           </figure>
         )}

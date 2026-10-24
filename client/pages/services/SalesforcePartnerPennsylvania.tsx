@@ -505,7 +505,6 @@ export default function SalesforcePartnerPennsylvania() {
           external={{ href: SF_APPEXCHANGE_URL }}
         />
         <SourcesDialog id="sources" title="Where these facts come from" sources={SOURCES} intro="Every statement about Salesforce's partner program on this page comes from these pages, read by a person at OneAlgorithm on the date shown. Nothing on the page links to them directly." />
-        <PhotoCreditDialog photo={PHOTO} />
         <PhotoCreditsLine photo={PHOTO} />
       </SfPage>
     </Layout>

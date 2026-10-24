@@ -632,8 +632,6 @@ export default function SalesforceConsultantPhiladelphia() {
             <FAQ items={FAQS} />
           </div>
         </SmartSection>
-
-        <PhotoCreditDialog photo={PHOTO} />
         <PhotoCreditsLine photo={PHOTO} />
       </SfPage>
     </Layout>
