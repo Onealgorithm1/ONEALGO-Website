@@ -99,3 +99,62 @@
 .sfv2.wd .wk-frame-wrap[data-loaded] .wk-frame { opacity: 1; }
 .sfv2.wd .wk-frame-wrap[data-loaded]::before { content: none; }
 @media (prefers-reduced-motion: no-preference) { .sfv2.wd .wk-frame-wrap .wk-frame { transition: opacity 0.3s var(--arrive); } }
+
+/* ---------- motion pass 2026-10-24: the story device, depth layers, staggered entrances (hub only) ----------
+   STORY: every section is numbered (01-16) at the top of its own wire: a 2 px orange line drops from the section's top
+   edge into the corner tick of the unit (or figure) below it, drawing as the section enters, so the page reads as one
+   line from the windows to the desk; the header hairline (wd.css) carries the overall progress. The numerals are
+   decoration (alt text "") so no heading gains a digit. Reduced motion: wires drawn, numerals shown. U1's wire and numeral are
+   drawn from the start (on a phone the band's top edge is inside the first screen, and nothing there may move at load).
+   impeccable-disable codex-grid-background: the night-band grid is the build stage blueprint grid (.bs-grid), reused as the depth plane */
+.sfv2.wd { counter-reset: wdsec; }
+.sfv2.wd .sf-section { position: relative; counter-increment: wdsec; view-timeline: --wdsec block; }
+.sfv2.wd .sf-section::before { content: ""; position: absolute; left: var(--g); top: 0; width: 2px; height: calc(var(--sp) - 6px); background: var(--orange); transform-origin: top; pointer-events: none; }
+.sfv2.wd .sf-section::after { content: counter(wdsec, decimal-leading-zero) / ""; position: absolute; left: calc(var(--g) + 12px); top: 14px; font: 500 13px/1 var(--mono); letter-spacing: 0.14em; color: var(--orange-text); pointer-events: none; }
+.sfv2.wd .sf-night::after { color: var(--orange); }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) {
+  .sfv2.wd .sf-section:not(#work)::before { animation: wd-wire linear both; animation-timeline: --wdsec; animation-range: entry 0% entry 40%; }
+  .sfv2.wd .sf-section:not(#work)::after { animation: wd-num linear both; animation-timeline: --wdsec; animation-range: entry 10% entry 40%; }
+} }
+@keyframes wd-wire { from { transform: scaleY(0); } to { transform: none; } }
+@keyframes wd-num { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+/* the seam under the hero (critic smaller #4): the breadcrumb sits on night, so hero, crumbs and the windows band are one surface */
+.sfv2.wd > .sf-crumbs { background: var(--night); border-bottom-color: rgba(255, 255, 255, 0.1); }
+.sfv2.wd > .sf-crumbs a, .sfv2.wd > .sf-crumbs li + li::before { color: var(--n-ink3); }
+.sfv2.wd > .sf-crumbs [aria-current] { color: var(--orange); }
+@media (hover: hover) { .sfv2.wd > .sf-crumbs a:hover { color: #fff; } }
+
+/* DEPTH on the night bands (U1 windows, U12 road, the desk): a blueprint grid behind the content travels against the
+   scroll, so the windows and the road sit on a plane in front of it (transform only, masked, 0 JS) */
+.sfv2.wd .sf-night { overflow: clip; }
+.sfv2.wd .sf-night > .sf-wrap { position: relative; isolation: isolate; }
+.sfv2.wd .sf-night > .sf-wrap::before { content: ""; position: absolute; inset: -140px 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(127, 180, 230, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(127, 180, 230, 0.07) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 45%, #000 30%, transparent 80%); mask-image: radial-gradient(ellipse 70% 60% at 60% 45%, #000 30%, transparent 80%); }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) {
+  .sfv2.wd .sf-night:not(#work) > .sf-wrap::before { animation: wd-grid linear both; animation-timeline: --wdsec; animation-range: cover; }
+  @media (min-width: 1024px) { .sfv2.wd #work > .sf-wrap::before { animation: wd-grid linear both; animation-timeline: --wdsec; animation-range: cover; } }
+} }
+@keyframes wd-grid { from { translate: 0 -90px; } to { translate: 0 90px; } }
+
+/* ENTRANCES: a unit's parts arrive in order (heading, lede, lead-in, list, Go deeper: 60 ms apart, 14 px rise) as its
+   ledger rule draws; window bodies rise column by column; the five stage units one after another. Units already on
+   screen at load are .in before .js lands (sfMotion), so nothing above the fold moves. Reduced motion: nothing hidden.
+   The transition lives on the .in state only, so hiding below-the-fold parts when .js lands is instant (no load-time burst). */
+@media (prefers-reduced-motion: no-preference) {
+  .sfv2.wd.js .sf-unit.in > * { transition: opacity 0.5s var(--arrive) calc(var(--d, 0s) + var(--k, 0) * 0.06s + 0.1s), translate 0.6s var(--arrive) calc(var(--d, 0s) + var(--k, 0) * 0.06s + 0.1s); }
+  .sfv2.wd.js .sf-unit:not(.in) > * { opacity: 0; translate: 0 14px; }
+  .sfv2.wd .sf-unit > :nth-child(2) { --k: 1; } .sfv2.wd .sf-unit > :nth-child(3) { --k: 2; } .sfv2.wd .sf-unit > :nth-child(4) { --k: 3; } .sfv2.wd .sf-unit > :nth-child(n+5) { --k: 4; }
+  .sfv2.wd .sf-stages > li:nth-child(2) { --d: 0.08s; } .sfv2.wd .sf-stages > li:nth-child(3) { --d: 0.16s; } .sfv2.wd .sf-stages > li:nth-child(4) { --d: 0.24s; } .sfv2.wd .sf-stages > li:nth-child(5) { --d: 0.32s; }
+  .sfv2.wd.js .wd-window.in .wd-window-body { transition: opacity 0.5s var(--arrive) calc(var(--d, 0s) + 0.15s), translate 0.6s var(--arrive) calc(var(--d, 0s) + 0.15s); }
+  .sfv2.wd.js .wd-window:not(.in) .wd-window-body { opacity: 0; translate: 0 16px; }
+  .sfv2.wd .wd-windows-6 > :nth-child(3n+2) { --d: 0.1s; } .sfv2.wd .wd-windows-6 > :nth-child(3n) { --d: 0.2s; }
+  /* FAQ: the hovered or open question carries the wire on its top edge; Go deeper's chevron nods toward its content */
+  .sfv2.wd .wd-faq-item { position: relative; }
+  .sfv2.wd .wd-faq-item::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--draw); pointer-events: none; }
+  .sfv2.wd .wd-faq-item:has([aria-expanded="true"])::before, .sfv2.wd .wd-faq-item:focus-within::before { transform: none; }
+  .sfv2.wd .sf-deep summary svg { transition: translate 0.2s var(--arrive), transform 0.2s var(--arrive); }
+  @media (hover: hover) {
+    .sfv2.wd .wd-faq-item:hover::before { transform: none; }
+    .sfv2.wd .sf-deep summary:hover svg { translate: 0 2px; }
+  }
+}

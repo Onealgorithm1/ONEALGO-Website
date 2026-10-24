@@ -39,7 +39,7 @@ export function SiteWindow({ item, screen = "card", size = "grid", eager, sweep,
   const tall = { ["--tall" as string]: `image-set(url("${src("tall", "avif")}") type("image/avif"), url("${src("tall", "webp")}") type("image/webp"))` } as React.CSSProperties;
   const vouch = item.review && `${item.review.author}’s review of us`;
   return (
-    <figure className={`sf-stage wd-window wd-window-${size}${sweep ? " sf-sweep" : ""} ${className}`} aria-labelledby={hid} data-reveal="" data-window={item.slug}>
+    <figure className={`sf-stage wd-window wd-window-${size}${sweep ? " sf-sweep" : ""} ${className}`} aria-labelledby={hid} data-reveal="" data-tilt="" data-window={item.slug}>
       <div className="sf-stage-in">
         <div className="wd-shot wd-cut">
           <picture>

@@ -29,7 +29,7 @@ export function HandoverPlate({ fig = 5, id = `fig${fig}`, stamp = "What runs wh
 }) {
   const X = [50, 190, 330, 470], W = 90, Y = 70, H = 64;
   return (
-    <figure className={`sf-stage sf-sweep wd-plate wd-handover ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="">
+    <figure className={`sf-stage sf-sweep wd-plate wd-handover ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="" data-tilt="">
       <div className="sf-stage-in">
         <svg viewBox="0 0 610 250" role="img" aria-labelledby={`${id}-t ${id}-d`} style={{ aspectRatio: "610/250" }}>
           <title id={`${id}-t`}>Wiring diagram of a handed-over website</title>
