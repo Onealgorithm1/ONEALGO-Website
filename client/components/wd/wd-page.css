@@ -68,3 +68,34 @@
 /* hero proposal B (preview only, ?hero=b): the sr-only H1's words made visible under the tagline; the canvas is untouched */
 .hs-identity { margin: -4px 0 0; font: 500 clamp(0.78rem, 1vw, 0.95rem) / 1.4 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.85); }
 .wd-hero-note { position: absolute; left: 50%; top: 72px; transform: translateX(-50%); z-index: 5; padding: 6px 10px; background: rgba(4, 24, 43, 0.85); color: #fff; font: 500 11px/1.4 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(255, 166, 52, 0.6); }
+
+/* ---------- fix round 2 (critic 2026-10-24) ---------- */
+/* #4 a figure in a stage row is as tall as its drawing, not as tall as the text beside it (no void under the caption) */
+.sfv2.wd .sf-grid > figure.sf-stage { align-self: start; }
+/* #4 U5: the three second screens as one strip under the unit (the U1 grid: 3 across, 2 across < 1024, a scroller < 640) */
+.sfv2.wd .wd-strip { margin-top: 8px; }
+/* #5 U16: accordion in columns 6-12 beside the heading (the local pages' layout); measure kept inside the panel */
+.sfv2.wd .sf-faq-col .wd-faq { margin-top: 0; }
+.sfv2.wd .sf-faq-col .wd-faq-a { max-width: 68ch; }
+/* #1 depth: scroll-linked drift, 0 JS, transform-family only (`translate`, so it composes with the kit's transforms).
+   Pictures move slower than their text (text stays still); U1's second row of windows travels at its own rate; the
+   demo sheet's three frames travel at three rates so the fan opens as it crosses the screen. Desktop only, never the
+   pinned build stage, nothing in the first viewport, nothing under reduced motion (the finished page). */
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  .sfv2.wd .sf-grid > figure.sf-stage:not(.wd-build) { animation: wd-drift linear both; animation-timeline: view(); animation-range: cover; }
+  .sfv2.wd .wd-windows-6:not(.wd-strip) > :nth-child(n+4), .sfv2.wd .wd-strip > :nth-child(2) { animation: wd-drift-row linear both; animation-timeline: view(); animation-range: cover; }
+  .sfv2.wd .wd-sheet .wd-deal > :first-child { animation: wd-fan linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; }
+} }
+@keyframes wd-drift { from { translate: 0 32px; } to { translate: 0 -32px; } }
+@keyframes wd-drift-row { from { translate: 0 40px; } to { translate: 0 -24px; } }
+@keyframes wd-fan { from { translate: 0 calc(-8px - var(--i, 0) * 8px); } to { translate: 0 0; } }
+
+/* #3 the in-page preview on these pages is the window grown to full size: night, radius 0, the card capture under a
+   mono stamp while the live site loads; the frame fades in on load (instant under reduced motion) */
+.sfv2.wd .wk-modal { border-radius: 0; background: var(--night); }
+.sfv2.wd .wk-frame-wrap { background: var(--night) var(--cap) top / cover no-repeat; }
+.sfv2.wd .wk-frame-wrap::before { content: "Loading live site · " attr(data-host); place-items: end start; padding: 14px 16px; background: linear-gradient(to top, rgba(4, 24, 43, 0.9), rgba(4, 24, 43, 0) 35%); color: #fff; font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.sfv2.wd .wk-frame-wrap .wk-frame { opacity: 0; }
+.sfv2.wd .wk-frame-wrap[data-loaded] .wk-frame { opacity: 1; }
+.sfv2.wd .wk-frame-wrap[data-loaded]::before { content: none; }
+@media (prefers-reduced-motion: no-preference) { .sfv2.wd .wk-frame-wrap .wk-frame { transition: opacity 0.3s var(--arrive); } }

@@ -32,7 +32,7 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-mobile",
     q: "Will my website work properly on a phone?",
-    a: "Yes: it is built at 390 pixels wide first, then opened out to a laptop. Tap targets are sized for thumbs, text stays readable without zooming, nothing scrolls sideways, and we test at real widths on real devices rather than in a preview pane.",
+    a: "Yes: it is built at 390 pixels wide first, then opened out to a laptop. Tap targets are sized for thumbs, text stays readable without zooming, nothing scrolls sideways, and we test it in iPhone and Android browser profiles at real widths, not only in a preview pane.",
   },
   {
     id: "faq-coding",

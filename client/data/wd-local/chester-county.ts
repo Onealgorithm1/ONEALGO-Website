@@ -43,13 +43,13 @@ export const CHESTER_COUNTY: LocalPlace = {
       kind: "intro",
       id: "custom",
       h2: "Custom website designers in Chester County",
-      lede: "Custom website designers build the site around one business, its content and its systems, and that is our work for companies across the county.",
+      lede: "Custom website designers build the site around one business, its content and its systems; that is how we build for Chester County businesses.",
       leadIn: "Why it matters:",
       lead: "A template decides what your site can do; a custom build starts from what the business needs it to do.",
       cards: [
         { h3: "Built for the job, not a template", line: "Written in HTML, CSS and TypeScript, so the site can take a booking, quote a job or reach your systems." },
         { h3: "Built so people can find it", line: "Page structure, titles, headings and schema are set during the build, not bolted on months later." },
-        { h3: "Fast on a phone", line: "Designed at 390 pixels first, opened out from there, and checked on real devices before launch." },
+        { h3: "Fast on a phone", line: "Designed at 390 pixels first, opened out from there, and tested in iPhone and Android browser profiles before launch." },
       ],
       deeper: {
         label: "what custom means in practice",
@@ -105,7 +105,7 @@ export const CHESTER_COUNTY: LocalPlace = {
       kind: "text",
       id: "area",
       h2: "Across Chester County and the surrounding counties",
-      lede: "We work across Chester County, from West Chester and Exton to Downingtown, Malvern, Chester Springs and Coatesville, and into neighboring counties.",
+      lede: "We serve all of Chester County, from West Chester and Exton to Downingtown, Malvern, Chester Springs and Coatesville, and into neighboring counties.",
       leadIn: "Why it matters:",
       lead: "the office sits inside the county, so meeting in person is a short drive whenever a project calls for it.",
       cards: [

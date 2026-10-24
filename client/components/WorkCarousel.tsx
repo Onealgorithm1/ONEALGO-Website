@@ -77,9 +77,17 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
         </div>
       </div>
       {item.embed ? (
-        <div className="wk-frame-wrap" data-loading="Loading the live site…">
+        <div
+          className="wk-frame-wrap"
+          data-loading="Loading the live site…"
+          data-host={siteHost(item.url)}
+          /* The card capture (already in cache from the window) is the frame's backdrop while the live site loads;
+             only the website-development pages paint it (wd-page.css), elsewhere the var is unused. */
+          style={{ ["--cap" as string]: `image-set(url("/work/${item.slug}-card.avif?v=${item.shot}") type("image/avif"), url("/work/${item.slug}-card.webp?v=${item.shot}") type("image/webp"))` } as React.CSSProperties}
+        >
         <iframe
           className="wk-frame"
+          onLoad={(e) => e.currentTarget.parentElement?.setAttribute("data-loaded", "")}
           src={item.url}
           title={`Live preview of the ${item.name} website`}
           loading="eager"

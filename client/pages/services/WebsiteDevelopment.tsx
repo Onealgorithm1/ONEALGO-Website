@@ -180,12 +180,9 @@ export default function WebsiteDevelopment() {
           <SiteWindow item={second(BY_SLUG["phantom-arcades"])} screen="second" size="wide" sweep onPreview={onPreview} className="sf-c7" />
         </SmartSection>
 
-        {/* U5 · windows: ITH · TBP · Starzi second screens, stepped 0 / 24 / 48 px. */}
+        {/* U5 · the unit, then ITH · TBP · Starzi second screens as one full-width strip (legible at 1440; 2-up / scroller below). */}
         <SmartSection id={U.small.id} tone="surface" grid labelledBy="h-small">
-          <div className="sf-c7 wd-windows-3">
-            {SMALL.map((w) => <SiteWindow key={w.slug} item={second(w)} screen="second" size="third" sweep onPreview={onPreview} />)}
-          </div>
-          <SmartUnit className="sf-c5" headingId="h-small" title={U.small.title} lede={U.small.lede} leadIn={U.small.leadIn} lead={U.small.lead} points={U.small.points} measure={false}>
+          <SmartUnit className="sf-c12" headingId="h-small" title={U.small.title} lede={U.small.lede} leadIn={U.small.leadIn} lead={U.small.lead} points={U.small.points} measure={false}>
             <GoDeeper label={U.small.deep!}>
               <h3>What a small business site has to do</h3>
               <ul className="sf-points" style={{ marginTop: 0 }}>
@@ -197,6 +194,9 @@ export default function WebsiteDevelopment() {
               <p>Inspect This Home Inspections: service pages by area, online scheduling, and reports the owner updates himself. The Boards Professor: booking, tutor profiles and reviews pulled from two platforms into one page. Starzi Brothers: moved off Squarespace to a page for each service and town, and a quote form that lands in the office inbox.</p>
             </GoDeeper>
           </SmartUnit>
+          <div className="sf-c12 wd-windows-6 wd-strip">
+            {SMALL.map((w) => <SiteWindow key={w.slug} item={second(w)} screen="second" sweep onPreview={onPreview} />)}
+          </div>
         </SmartSection>
 
         {/* U6 · S3 the rail, five stations; hovering a stage unit lights its station. */}
@@ -346,24 +346,14 @@ export default function WebsiteDevelopment() {
           </SmartUnit>
         </SmartSection>
 
-        {/* U15 · the company you can check: readouts with Verify, the three reviews, the NAP band, the region plate. "Who leads website work" is GATED. */}
+        {/* U15 · the company you can check: the rating readout with its source + Verify, the three reviews, the NAP band, the region plate. "Who leads website work" is GATED. */}
         <SmartSection id={U.check.id} tone="surface" grid labelledBy="h-check">
           <SmartUnit className="sf-c7" headingId="h-check" title={U.check.title} lede={U.check.lede} leadIn={U.check.leadIn} lead={U.check.lead} measure={false}>
             <div className="sf-readouts wd-readouts">
               <div className="sf-readout">
                 <span className="sf-readout-num">{GOOGLE_LISTING.rating}</span>
                 <p className="sf-readout-lab">Google rating</p>
-                <p className="sf-readout-src sf-mono">read {READ_LISTING} · <Verify id="google-listing" /></p>
-              </div>
-              <div className="sf-readout">
-                <span className="sf-readout-num" data-count={GOOGLE_LISTING.reviews}>{GOOGLE_LISTING.reviews}</span>
-                <p className="sf-readout-lab">Google reviews</p>
-                <p className="sf-readout-src sf-mono">three from clients whose sites are above</p>
-              </div>
-              <div className="sf-readout">
-                <span className="sf-readout-num">{GOOGLE_LISTING.founded}</span>
-                <p className="sf-readout-lab">Founded</p>
-                <p className="sf-readout-src sf-mono">PA entity {FOUNDED.paEntity} · <Verify id="founded" /></p>
+                <p className="sf-readout-src sf-mono">{GOOGLE_LISTING.reviews} Google reviews · read {READ_LISTING} · <Verify id="google-listing" /></p>
               </div>
             </div>
             <div className="sf-links wd-review-row">
@@ -378,6 +368,7 @@ export default function WebsiteDevelopment() {
               <p>{NAP.name} · {NAP.l1}, {NAP.l2}</p>
               <p><a href={NAP.phone.href}>{NAP.phone.display}</a> · {NAP.hours}</p>
               <p className="sf-mono">{NAP.counties.join(" · ")}</p>
+              <p className="sf-mono">Founded {GOOGLE_LISTING.founded} · PA entity {FOUNDED.paEntity} · <Verify id="founded" /></p>
               <p>{NAP.travel}</p>
             </address>
             <p className="sf-mono wd-updated">Updated {PAGE_UPDATED_LABEL}</p>
@@ -389,9 +380,13 @@ export default function WebsiteDevelopment() {
           <RegionPlate className="sf-c5" counties={NAP.counties} office={{ l1: NAP.l1, l2: NAP.l2 }} />
         </SmartSection>
 
-        {/* U16 · S6 the FAQ: nine APG accordion items, answers in the HTML, open from 768 px. */}
-        <SmartSection id={U.faq.id} heading={{ id: "h-faq", title: U.faq.title }}>
-          <WdFaq items={WD_FAQ} />
+        {/* U16 · S6 the FAQ on the local pages' layout (heading + phone left, accordion right): nine APG items, answers in the HTML. */}
+        <SmartSection id={U.faq.id} grid labelledBy="h-faq">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">{U.faq.title}</h2>
+            <p style={{ marginTop: 12 }}>Not answered here? Call the office: <a className="sf-phone" href={NAP.phone.href} data-cta="faq">{NAP.phone.display}</a></p>
+          </div>
+          <div className="sf-c7 sf-faq-col"><WdFaq items={WD_FAQ} /></div>
         </SmartSection>
 
         {/* U17 · S7 the desk: the one primary action (magnet 2 of 2), the phone, no form. */}
