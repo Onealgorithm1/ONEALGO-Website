@@ -55,7 +55,8 @@ const PLACE_METROS = PLACES.filter((p) => p.kind === "metro").filter((p, i) => i
  * GATED, rendered as company facts only until Louis answers (structure-spec.md §13): "Who leads website work"
  * (no H3), "customer portals" (U3), "backups" (U10), WordPress (U8/U11), the Atlas window. */
 
-const HeroProposal = lazy(() => import("../../components/wd/HeroProposal").then((m) => ({ default: m.HeroProposal })));
+// Preview builds only (__OA_HERO_PROPOSALS__): a production build neither ships the chunk nor reads ?hero=.
+const HeroProposal = __OA_HERO_PROPOSALS__ ? lazy(() => import("../../components/wd/HeroProposal").then((m) => ({ default: m.HeroProposal }))) : () => null;
 const CONTACT = contactHref(DESK.form.topicLabel, PAGE_PATH, DESK.form.need);
 const BY_SLUG = Object.fromEntries(WORK.map((w) => [w.slug, w])) as Record<string, WorkItem>;
 const SMALL = [BY_SLUG["inspect-this-home"], BY_SLUG["boards-professor"], BY_SLUG["starzi-bros"]].filter(Boolean);
@@ -84,7 +85,8 @@ export default function WebsiteDevelopment() {
     twitterImage: OG_IMAGE,
   });
 
-  const hero = new URLSearchParams(useLocation().search).get("hero");
+  const search = useLocation().search;
+  const hero = __OA_HERO_PROPOSALS__ ? new URLSearchParams(search).get("hero") : null; // production ignores ?hero=
   const [open, setOpen] = React.useState<{ item: WorkItem; opener: HTMLElement } | null>(null);
   const close = React.useCallback(() => setOpen(null), []);
   const onPreview = React.useCallback((item: WorkItem, opener: HTMLElement) => setOpen({ item, opener }), []);
@@ -421,7 +423,7 @@ export default function WebsiteDevelopment() {
               key={w.slug}
               id={reviewId(w)!}
               title={`${r.author}’s review of OneAlgorithm on Google`}
-              intro={`Five stars on OneAlgorithm's Google listing, quoted as posted. Read ${READ_LISTING}.`}
+              intro={r.text ? `Five stars on OneAlgorithm's Google listing, quoted as posted. Read ${READ_LISTING}.` : `Five stars on OneAlgorithm's Google listing; the review text is on Google, behind the link below. Read ${READ_LISTING}.`}
               rows={[
                 { th: "Reviewer", td: r.authorLine },
                 { th: "Rating", td: "5 of 5" },
@@ -431,7 +433,7 @@ export default function WebsiteDevelopment() {
               ]}
               external={{ href: r.url, label: "Open on Google (new tab)" }}
             >
-              <blockquote><p>“{r.text}”</p></blockquote>
+              {r.text && <blockquote><p>“{r.text}”</p></blockquote>}
             </EvidenceDialog>
           );
         })}

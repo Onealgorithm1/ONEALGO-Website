@@ -63,6 +63,7 @@
 .sfv2.wd .wd-faq-q button[aria-expanded="true"] svg { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) { .sfv2.wd .wd-faq-q button svg { transition: none; } }
 .sfv2.wd .wd-faq-a { padding: 0 0 20px; display: grid; gap: 12px; }
+.sfv2.wd .wd-faq-a[hidden] { display: none; }
 .sfv2.wd .wd-faq-a p { font-size: 17px; line-height: 1.55; color: var(--ink2); }
 
 /* hero proposal B (preview only, ?hero=b): the sr-only H1's words made visible under the tagline; the canvas is untouched */

@@ -27,7 +27,7 @@ export const FOUNDED = {
 };
 
 /** The three client reviews of us on the Google listing (work.ts slugs). `text` verbatim where on file. */
-export const REVIEWS: Record<string, { author: string; authorLine: string; text: string; textNote?: string; disclosure?: string; url: string }> = {
+export const REVIEWS: Record<string, { author: string; authorLine: string; text?: string; textNote?: string; disclosure?: string; url: string }> = {
   "phantom-arcades": {
     author: "Dennis",
     authorLine: "Dennis Riese, Phantom Arcades, Valrico, FL",
@@ -39,16 +39,16 @@ export const REVIEWS: Record<string, { author: string; authorLine: string; text:
   "inspect-this-home": {
     author: "Lou",
     authorLine: "Louis Rubino, Inspect This Home Inspections, Long Island, NY",
-    // Excerpt as quoted in /blog/home-inspector-website-design; the full text is TKTK (pull from the listing at build).
+    // Excerpt as quoted in /blog/home-inspector-website-design; the full review is on the listing.
     text: "One algorithm did a great job on my new web site design and development… They are also directing more traffic to my site resulting in more business.",
-    textNote: "Excerpt as quoted in our case study; the full review is on Google. TKTK full text.",
+    textNote: "Excerpt as quoted in our case study; the full review is on Google.",
     disclosure: "Lou is Louis's father",
     url: "https://maps.app.goo.gl/vvpRdMq7cGVZD9mg6",
   },
   "boards-professor": {
     author: "Sean",
     authorLine: "Sean, The Boards Professor (posts on Google as “Shiggity”)",
-    text: "TKTK: the review text, verbatim from the Google listing, pulled at build.",
+    // No verified text on file: the dialog links to the review and quotes nothing (Codex review finding 6).
     url: "https://maps.app.goo.gl/ssMbAsPBu5wBcgNu6",
   },
 };

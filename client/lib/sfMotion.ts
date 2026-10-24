@@ -60,11 +60,12 @@ const BUILD_SCENE_LEN = 6;
 /** The build stage: one pinned, scrubbed, snapped timeline per [data-scene="build"]. Called inside gsap.matchMedia(PIN_MQ). */
 function initBuildScenes(root: HTMLElement) {
   const { gsap, ScrollTrigger } = window;
+  const scrubbed: HTMLElement[] = [];
   root.querySelectorAll<HTMLElement>('[data-scene="build"]').forEach((fig) => {
     const scenes = Array.from(fig.querySelectorAll<HTMLElement>(".bs-scene"));
     if (!scenes.length) return;
     const row = fig.closest<HTMLElement>("[data-pin]") || fig;
-    fig.classList.add("js-scrub"); fig.classList.remove("play"); // GSAP owns the layers; the CSS keyframes are stripped
+    fig.classList.add("js-scrub"); fig.classList.remove("play"); scrubbed.push(fig); // GSAP owns the layers; the CSS keyframes are stripped
     const movers = Array.from(fig.querySelectorAll<HTMLElement>(".bs-scene, .bs-paint, .bs-photo, .bs-cursor"));
     const d = (el: HTMLElement) => parseFloat(el.style.getPropertyValue("--d")) || 0;
     const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: {
@@ -96,14 +97,18 @@ function initBuildScenes(root: HTMLElement) {
     tl.to({}, { duration: 0.001 }, scenes.length * BUILD_SCENE_LEN); // total = scenes x LEN exactly, so the snap thirds land on finished builds
     ScrollTrigger.refresh();
   });
+  // matchMedia cleanup (query stops matching, or the page's disposer reverts it): hand the layers back to the CSS
+  return () => scrubbed.forEach((fig) => fig.classList.remove("js-scrub"));
 }
 
 /** GSAP part: called once the library is present. Everything inside gsap.matchMedia(no-preference). */
-function initGsap(root: HTMLElement) {
+/** Returns a disposer that reverts this page's matchMedia instances (their tweens, inline styles and ScrollTriggers), so a route change leaves nothing behind. */
+function initGsap(root: HTMLElement): () => void {
   const { gsap, ScrollTrigger } = window;
-  if (!gsap || !ScrollTrigger) return;
+  if (!gsap || !ScrollTrigger) return () => {};
   gsap.registerPlugin(ScrollTrigger);
-  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+  const mm = gsap.matchMedia();
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
     // registry readouts: count up once, only if they started below the fold; the HTML already holds the final value
     // motion-system.md: at most 3 count-ups tween at once (an anchor jump past two rows of three fires six triggers together)
     let active = 0; const queue: (() => void)[] = [];
@@ -154,8 +159,9 @@ function initGsap(root: HTMLElement) {
     });
   });
   // the one pin: desktop with room for it, and no reduced-motion preference; nothing is created otherwise
-  gsap.matchMedia().add(PIN_MQ, () => initBuildScenes(root));
-  if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+  mm.add(PIN_MQ, () => initBuildScenes(root));
+  if (document.fonts) document.fonts.ready.then(() => { if (root.isConnected) ScrollTrigger.refresh(); });
+  return () => mm.revert();
 }
 
 /**
@@ -241,14 +247,14 @@ export function initSfMotion(root: HTMLElement): () => void {
   if (reduced) { railFig && railFig.classList.add("static"); return () => cleanups.forEach((f) => f()); }
   const targets = Array.from(root.querySelectorAll<HTMLElement>("[data-scene], [data-count], [data-magnet]"));
   if (!targets.length) return () => cleanups.forEach((f) => f());
-  let done = false, anchorId = "", anchorAt = 0;
+  let done = false, disposed = false, anchorId = "", anchorAt = 0;
   // ScrollTrigger's set-up refresh restores the scroll position, which stops a native smooth scroll in flight: tapping
   // "#start" before GSAP is present (the first scroll is what loads it) left iPhone WebKit ~140px down the page.
   // ponytail: remember the last in-page anchor tap and replay it once GSAP is set up (4s window).
   on(document, "click", (e: MouseEvent) => { const a = (e.target as HTMLElement).closest?.('a[href^="#"]'); if (a) { anchorId = a.getAttribute("href")!.slice(1); anchorAt = Date.now(); } });
   const load = () => { if (done) return; done = true; loadGsap().then(() => {
-    if (!root.isConnected) return;
-    initGsap(root);
+    if (disposed || !root.isConnected) return;
+    cleanups.push(initGsap(root));
     const el = anchorId && Date.now() - anchorAt < 4000 ? document.getElementById(anchorId) : null;
     if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth" }));
   }); };
@@ -261,5 +267,5 @@ export function initSfMotion(root: HTMLElement): () => void {
   };
   on(window as unknown as Document, "scroll", watch, { once: true, passive: true });
   root.querySelectorAll<HTMLElement>("[data-magnet]").forEach((b) => on(b, "pointerenter", load, { once: true }));
-  return () => cleanups.forEach((f) => f());
+  return () => { disposed = true; cleanups.forEach((f) => f()); };
 }

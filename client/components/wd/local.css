@@ -29,6 +29,7 @@
 @media (hover: hover) { .sfv2.wd-local .wd-faq-q button:hover { color: var(--navy); } }
 @media (prefers-reduced-motion: reduce) { .sfv2.wd-local .wd-faq-q button svg { transition: none; } }
 .sfv2.wd-local .wd-faq-a { padding: 0 0 20px; display: grid; gap: 12px; }
+.sfv2.wd-local .wd-faq-a[hidden] { display: none; }
 /* Place pages (wd-local-gen.mjs): photo banner, many readouts, search table, source tables in the pop-ups */
 .sfv2.wd-local .wd-local-banner { position: relative; margin-top: 8px; margin-bottom: 8px; }
 .sfv2.wd-local .wd-local-banner picture, .sfv2.wd-local .wd-local-banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }

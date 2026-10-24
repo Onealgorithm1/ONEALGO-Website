@@ -35,7 +35,12 @@ function Segment({ k, animate }: { k: number; animate: boolean }) {
 }
 
 export function FoundRoad({ className = "" }: { className?: string }) {
-  const animate = !useReducedMotion();
+  // The prerender runs with no preference, so the first client render must match it whatever the visitor prefers:
+  // the reduced-motion swap to the bare, listener-free road happens after hydration (Codex review finding 2).
+  const reduce = useReducedMotion();
+  const [hydrated, setHydrated] = React.useState(false);
+  React.useEffect(() => setHydrated(true), []);
+  const animate = !(hydrated && reduce);
   const Item: any = animate ? motion.li : "li";
   const itemMotion = animate
     ? { initial: "hidden", whileInView: "show", viewport: { once: true, amount: 0.35 }, variants: { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } } }

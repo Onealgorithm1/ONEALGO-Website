@@ -74,6 +74,9 @@ export default defineConfig(({ mode }) => ({
     // Optimize CSS
     cssCodeSplit: true,
   },
+  // Preview-only hero proposals (?hero=a|b, Codex review finding 5): compiled in only when the build runs with
+  // OA_HERO_PROPOSALS=1, the same flag scripts/prerender.mjs uses; a production build drops the branch.
+  define: { __OA_HERO_PROPOSALS__: JSON.stringify(!!process.env.OA_HERO_PROPOSALS) },
   plugins: [
     react(),
     // Written outside dist/spa. Everything in that directory is uploaded to
