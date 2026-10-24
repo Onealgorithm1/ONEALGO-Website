@@ -370,7 +370,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Professional services",
-     "line": "536,441 paid employees across 32,231 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "536,441 paid employees across 32,231 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Health care",
@@ -378,7 +378,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "423,568 paid employees across 25,872 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "423,568 paid employees across 25,872 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -478,8 +478,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "32,231 professional, scientific and technical services establishments in the state need proof of expertise, case pages and an enquiry form that reaches the right person. The 23,812 in health care and social assistance need online booking, intake forms and an accessible path for every patient.",
-     "Retail trade counts 25,872 establishments that need stock that agrees with the till and a checkout that works on a phone, and accommodation and food services, fourth at 368,252 employees, needs hours, menus and bookings that read on a phone in a hurry.",
+     "32,231 professional, scientific and technical services establishments in the state need proof of expertise, case pages and a routed enquiry form. The 23,812 in health care and social assistance need online booking, intake forms and an accessible path for every patient.",
+     "Retail trade counts 25,872 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 368,252 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Administrative and support services ranks fifth at 270,238 employees, and the 13 sectors we read cover 3,086,895 of the 3,581,650 paid employees in the state.",
      "Together the four employ 1,816,492 people, 50.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]

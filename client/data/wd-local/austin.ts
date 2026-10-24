@@ -384,11 +384,11 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Professional services",
-     "line": "126,409 paid employees across 12,232 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "126,409 paid employees across 12,232 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Retail",
-     "line": "122,607 paid employees across 6,650 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "122,607 paid employees across 6,650 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -488,8 +488,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "5,951 accommodation and food services establishments in the metro need hours, menus and bookings that read on a phone in a hurry. The 12,232 in professional, scientific and technical services need proof of expertise, case pages and an enquiry form that reaches the right person.",
-     "Retail trade counts 6,650 establishments that need stock that agrees with the till and a checkout that works on a phone, and health care and social assistance, fourth at 120,877 employees, needs online booking, intake forms and an accessible path for every patient.",
+     "5,951 accommodation and food services establishments in the metro need hours, menus and bookings that read on a phone in a hurry. The 12,232 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
+     "Retail trade counts 6,650 establishments that need stock that matches the till and a phone checkout, and health care and social assistance, fourth at 120,877 employees, needs online booking, intake forms and an accessible path for every patient.",
      "Construction ranks fifth at 77,222 employees, and the 13 sectors we read cover 916,717 of the 1,042,004 paid employees in the metro.",
      "Together the four employ 503,961 people, 48.4% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -666,7 +666,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the metro, where accommodation and food services employs 134,068 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 2,762 systems design establishments in the metro could pick up from.",
-     "For the 12,232 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and an enquiry form that reaches the right person."
+     "For the 12,232 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and a routed enquiry form."
     ]
    }
   },

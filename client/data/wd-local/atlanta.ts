@@ -380,7 +380,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "297,187 paid employees across 18,625 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "297,187 paid employees across 18,625 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Hospitality and food",
@@ -484,8 +484,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "18,435 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 18,625 in retail trade need stock that agrees with the till and a checkout that works on a phone.",
-     "Accommodation and food services counts 14,416 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 255,343 employees, needs proof of expertise, case pages and an enquiry form that reaches the right person.",
+     "18,435 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 18,625 in retail trade need stock that matches the till and a phone checkout.",
+     "Accommodation and food services counts 14,416 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 255,343 employees, needs proof of expertise, case pages and a routed enquiry form.",
      "Administrative and support services ranks fifth at 187,905 employees, and the 13 sectors we read cover 2,197,656 of the 2,692,513 paid employees in the metro.",
      "Together the four employ 1,171,101 people, 43.5% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -662,7 +662,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 335,426 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 4,900 systems design establishments in the metro could pick up from.",
-     "For the 18,625 retail trade establishments here, stage two usually lists stock that agrees with the till and a checkout that works on a phone."
+     "For the 18,625 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
    }
   },

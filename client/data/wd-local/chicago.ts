@@ -380,11 +380,11 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "421,424 paid employees across 25,308 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "421,424 paid employees across 25,308 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Professional services",
-     "line": "409,424 paid employees across 32,828 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "409,424 paid employees across 32,828 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     }
    ],
    "deeper": {
@@ -484,8 +484,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "29,768 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 25,308 in retail trade need stock that agrees with the till and a checkout that works on a phone.",
-     "Professional, scientific and technical services counts 32,828 establishments that need proof of expertise, case pages and an enquiry form that reaches the right person, and accommodation and food services, fourth at 407,576 employees, needs hours, menus and bookings that read on a phone in a hurry.",
+     "29,768 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 25,308 in retail trade need stock that matches the till and a phone checkout.",
+     "Professional, scientific and technical services counts 32,828 establishments that need proof of expertise, case pages and a routed enquiry form, and accommodation and food services, fourth at 407,576 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Manufacturing ranks fifth at 370,871 employees, and the 13 sectors we read cover 3,554,839 of the 4,285,971 paid employees in the metro.",
      "Together the four employ 1,880,505 people, 43.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -662,7 +662,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 642,081 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 5,425 systems design establishments in the metro could pick up from.",
-     "For the 25,308 retail trade establishments here, stage two usually lists stock that agrees with the till and a checkout that works on a phone."
+     "For the 25,308 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
    }
   },

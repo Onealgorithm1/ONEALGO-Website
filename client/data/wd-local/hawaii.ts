@@ -479,7 +479,7 @@ export const PLACE: LocalPlace = {
     "label": "who these pages are written for",
     "paras": [
      "4,044 accommodation and food services establishments in the state need hours, menus and bookings that read on a phone in a hurry. The 1,920 in administrative and support services need clear service pages, quote requests and a careers page that fills roles.",
-     "Health care and social assistance counts 3,763 establishments that need online booking, intake forms and an accessible path for every patient, and retail trade, fourth at 65,686 employees, needs stock that agrees with the till and a checkout that works on a phone.",
+     "Health care and social assistance counts 3,763 establishments that need online booking, intake forms and an accessible path for every patient, and retail trade, fourth at 65,686 employees, needs stock that matches the till and a phone checkout.",
      "Construction ranks fifth at 31,002 employees, and the 13 sectors we read cover 446,013 of the 520,043 paid employees in the state.",
      "Together the four employ 306,342 people, 58.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]

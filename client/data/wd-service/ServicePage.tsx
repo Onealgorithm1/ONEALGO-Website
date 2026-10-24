@@ -203,7 +203,7 @@ function Block({ s, page, tone, fig, onPreview }: { s: ServiceSection; page: Ser
           {s.cta && (
             <div className="sf-c12 wd-cta-row">
               <SfButton to={cta} magnet cta={s.id}>Start a project</SfButton>
-              <a className="sf-link" href={NAP.phone.href}>Call {NAP.phone.display}</a>
+              <a className="sf-link" href={NAP.phone.href} style={{ display: "inline-block", padding: "11px 0" }}>Call {NAP.phone.display}</a>
             </div>
           )}
         </SmartSection>

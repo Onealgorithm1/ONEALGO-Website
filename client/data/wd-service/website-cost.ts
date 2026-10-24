@@ -166,8 +166,8 @@ export const WEBSITE_COST: ServicePageData = {
       points: ["Builder: lower to start, a fee for as long as the site is up", "Custom: one build price, then domain and hosting at cost", "Exit: a builder exports content; a custom site moves whole"],
       cards: [
         { h3: "Does it have to connect to anything?", line: "A CRM, a booking calendar, payments or stock: a builder offers its marketplace apps, custom code wires what you run." },
-        { h3: "Will the layout need to change?", line: "A template is a fixed set of slots; the day you need a page the template cannot make is the day the fee stops paying for itself." },
-        { h3: "Do you want to be able to leave?", line: "Content exports from a builder; the design and the layout stay behind. A built site moves as a repository and a domain." },
+        { h3: "Will the layout need to change?", line: "A template is a fixed set of slots, so the fee stops paying the day you need a page it cannot make." },
+        { h3: "Do you want to be able to leave?", line: "Content exports from a builder but the design stays behind, while a built site moves as a repository and a domain." },
       ],
       links: [{ to: `${LINKS.hub}#builder-or-custom`, label: "The six-row comparison on the showcase" }],
     },

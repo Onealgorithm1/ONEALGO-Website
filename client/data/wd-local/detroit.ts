@@ -388,7 +388,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Professional services",
-     "line": "221,378 paid employees across 11,783 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "221,378 paid employees across 11,783 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     }
    ],
    "deeper": {
@@ -489,7 +489,7 @@ export const PLACE: LocalPlace = {
     "label": "who these pages are written for",
     "paras": [
      "13,890 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 5,103 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
-     "Professional, scientific and technical services counts 11,783 establishments that need proof of expertise, case pages and an enquiry form that reaches the right person, and retail trade, fourth at 200,705 employees, needs stock that agrees with the till and a checkout that works on a phone.",
+     "Professional, scientific and technical services counts 11,783 establishments that need proof of expertise, case pages and a routed enquiry form, and retail trade, fourth at 200,705 employees, needs stock that matches the till and a phone checkout.",
      "Accommodation and food services ranks fifth at 171,440 employees, and the 13 sectors we read cover 1,586,667 of the 1,846,717 paid employees in the metro.",
      "Together the four employ 955,840 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]

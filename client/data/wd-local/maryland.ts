@@ -374,11 +374,11 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Professional services",
-     "line": "301,509 paid employees across 21,699 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "301,509 paid employees across 21,699 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Retail",
-     "line": "289,469 paid employees across 16,687 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "289,469 paid employees across 16,687 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -478,8 +478,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "18,859 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 21,699 in professional, scientific and technical services need proof of expertise, case pages and an enquiry form that reaches the right person.",
-     "Retail trade counts 16,687 establishments that need stock that agrees with the till and a checkout that works on a phone, and administrative and support services, fourth at 256,840 employees, needs clear service pages, quote requests and a careers page that fills roles.",
+     "18,859 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 21,699 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
+     "Retail trade counts 16,687 establishments that need stock that matches the till and a phone checkout, and administrative and support services, fourth at 256,840 employees, needs clear service pages, quote requests and a careers page that fills roles.",
      "Accommodation and food services ranks fifth at 241,483 employees, and the 13 sectors we read cover 2,143,186 of the 2,468,367 paid employees in the state.",
      "Together the four employ 1,251,763 people, 50.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -650,7 +650,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 403,945 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 5,227 systems design establishments in the state could pick up from.",
-     "For the 21,699 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and an enquiry form that reaches the right person."
+     "For the 21,699 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and a routed enquiry form."
     ]
    }
   },

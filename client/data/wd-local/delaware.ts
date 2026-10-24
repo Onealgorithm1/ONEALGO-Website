@@ -376,7 +376,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "62,102 paid employees across 3,742 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "62,102 paid employees across 3,742 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Hospitality and food",
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "3,066 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 3,742 in retail trade need stock that agrees with the till and a checkout that works on a phone.",
+     "3,066 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 3,742 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 2,444 establishments that need hours, menus and bookings that read on a phone in a hurry, and finance and insurance, fourth at 45,586 employees, needs secure forms, plain disclosures and a short path to a call.",
      "Professional, scientific and technical services ranks fifth at 39,610 employees, and the 13 sectors we read cover 402,214 of the 457,635 paid employees in the state.",
      "Together the four employ 230,578 people, 50.4% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
@@ -653,7 +653,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 76,784 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 1,407 systems design establishments in the state could pick up from.",
-     "For the 3,742 retail trade establishments here, stage two usually lists stock that agrees with the till and a checkout that works on a phone."
+     "For the 3,742 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
    }
   },

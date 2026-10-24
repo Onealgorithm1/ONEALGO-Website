@@ -384,7 +384,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Professional services",
-     "line": "318,400 paid employees across 23,140 establishments in 2023; a site here needs proof of expertise, case pages and an enquiry form that reaches the right person."
+     "line": "318,400 paid employees across 23,140 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Information",
@@ -488,7 +488,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "16,920 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 23,140 in professional, scientific and technical services need proof of expertise, case pages and an enquiry form that reaches the right person.",
+     "16,920 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 23,140 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
      "Information counts 4,360 establishments that need pages that load fast under heavy content and sign-up flows that work, and accommodation and food services, fourth at 222,923 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Retail trade ranks fifth at 198,184 employees, and the 13 sectors we read cover 2,093,076 of the 2,417,363 paid employees in the metro.",
      "Together the four employ 1,153,203 people, 47.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
@@ -666,7 +666,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 319,201 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 5,029 systems design establishments in the metro could pick up from.",
-     "For the 23,140 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and an enquiry form that reaches the right person."
+     "For the 23,140 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and a routed enquiry form."
     ]
    }
   },

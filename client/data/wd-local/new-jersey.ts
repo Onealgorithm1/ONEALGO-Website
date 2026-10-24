@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "465,759 paid employees across 29,729 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "465,759 paid employees across 29,729 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Admin and support",
@@ -496,8 +496,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "29,996 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 29,729 in retail trade need stock that agrees with the till and a checkout that works on a phone.",
-     "Administrative and support services counts 14,693 establishments that need clear service pages, quote requests and a careers page that fills roles, and professional, scientific and technical services, fourth at 342,794 employees, needs proof of expertise, case pages and an enquiry form that reaches the right person.",
+     "29,996 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 29,729 in retail trade need stock that matches the till and a phone checkout.",
+     "Administrative and support services counts 14,693 establishments that need clear service pages, quote requests and a careers page that fills roles, and professional, scientific and technical services, fourth at 342,794 employees, needs proof of expertise, case pages and a routed enquiry form.",
      "Accommodation and food services ranks fifth at 339,307 employees, and the 13 sectors we read cover 3,339,152 of the 3,945,019 paid employees in the state.",
      "Together the four employ 1,839,866 people, 46.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -682,7 +682,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 635,422 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 6,369 systems design establishments in the state could pick up from.",
-     "For the 29,729 retail trade establishments here, stage two usually lists stock that agrees with the till and a checkout that works on a phone."
+     "For the 29,729 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
    }
   },

@@ -388,7 +388,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "149,427 paid employees across 8,583 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "149,427 paid employees across 8,583 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -489,7 +489,7 @@ export const PLACE: LocalPlace = {
     "label": "who these pages are written for",
     "paras": [
      "10,010 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 7,349 in accommodation and food services need hours, menus and bookings that read on a phone in a hurry.",
-     "Retail trade counts 8,583 establishments that need stock that agrees with the till and a checkout that works on a phone, and professional, scientific and technical services, fourth at 145,828 employees, needs proof of expertise, case pages and an enquiry form that reaches the right person.",
+     "Retail trade counts 8,583 establishments that need stock that matches the till and a phone checkout, and professional, scientific and technical services, fourth at 145,828 employees, needs proof of expertise, case pages and a routed enquiry form.",
      "Administrative and support services ranks fifth at 104,222 employees, and the 13 sectors we read cover 1,183,444 of the 1,419,833 paid employees in the metro.",
      "Together the four employ 639,915 people, 45.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]

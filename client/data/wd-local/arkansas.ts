@@ -376,7 +376,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "144,531 paid employees across 10,566 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "144,531 paid employees across 10,566 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -477,7 +477,7 @@ export const PLACE: LocalPlace = {
     "label": "who these pages are written for",
     "paras": [
      "9,072 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 2,526 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
-     "Retail trade counts 10,566 establishments that need stock that agrees with the till and a checkout that works on a phone, and accommodation and food services, fourth at 114,055 employees, needs hours, menus and bookings that read on a phone in a hurry.",
+     "Retail trade counts 10,566 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 114,055 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Administrative and support services ranks fifth at 75,272 employees, and the 13 sectors we read cover 938,448 of the 1,120,356 paid employees in the state.",
      "Together the four employ 617,444 people, 55.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]

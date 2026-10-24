@@ -384,7 +384,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Retail",
-     "line": "376,684 paid employees across 21,680 establishments in 2023; a site here needs stock that agrees with the till and a checkout that works on a phone."
+     "line": "376,684 paid employees across 21,680 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Hospitality and food",
@@ -488,8 +488,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "who these pages are written for",
     "paras": [
-     "23,741 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 21,680 in retail trade need stock that agrees with the till and a checkout that works on a phone.",
-     "Accommodation and food services counts 18,161 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 305,390 employees, needs proof of expertise, case pages and an enquiry form that reaches the right person.",
+     "23,741 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 21,680 in retail trade need stock that matches the till and a phone checkout.",
+     "Accommodation and food services counts 18,161 establishments that need hours, menus and bookings that read on a phone in a hurry, and professional, scientific and technical services, fourth at 305,390 employees, needs proof of expertise, case pages and a routed enquiry form.",
      "Manufacturing ranks fifth at 281,809 employees, and the 13 sectors we read cover 2,957,749 of the 3,594,749 paid employees in the metro.",
      "Together the four employ 1,508,063 people, 42% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
@@ -666,7 +666,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 449,862 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 6,784 systems design establishments in the metro could pick up from.",
-     "For the 21,680 retail trade establishments here, stage two usually lists stock that agrees with the till and a checkout that works on a phone."
+     "For the 21,680 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
    }
   },

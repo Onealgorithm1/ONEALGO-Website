@@ -108,12 +108,12 @@ export const SMALL_BUSINESS: ServicePageData = {
     {
       kind: "text", id: "jobs",
       h2: "What a small business website must do",
-      lede: "A small business website must do three things: appear when someone nearby searches, explain the service plainly, and make calling or booking one tap.",
+      lede: "A small business website must appear in nearby searches, explain the service plainly and make calling or booking one tap.",
       leadIn: "What we do:",
       lead: "we write the scope against those three jobs and leave out the pages that do none of them.",
       cards: [
         { h3: "Be found", line: "Business Profile linked, one title and one heading per page in the customer's words, schema written, Search Console connected at launch." },
-        { h3: "Explain", line: "A page per service, in the owner's words: what the job involves, what it covers, what happens next, and an area page where the work is local." },
+        { h3: "Explain", line: "A page per service in the owner's words, saying what the job covers and what happens next, plus an area page for local work." },
         { h3: "Convert", line: "The phone one tap away on every screen, a form that reaches the inbox and the CRM, and booking where the business already books." },
       ],
       links: [{ to: `${LINKS.hub}#small-business`, label: "Website design for small businesses on the showcase" }],
@@ -171,7 +171,7 @@ export const SMALL_BUSINESS: ServicePageData = {
       cards: [
         { h3: "Phone", line: "A tap-to-call number in the header on every page at phone widths, and the hours next to it, so nobody calls a closed office." },
         { h3: "Forms", line: "Short, named for the job (quote, booking, question), sent to the inbox and the CRM, with a copy kept if either send fails." },
-        { h3: "Booking", line: "If you book in a calendar tool already, the site books into it; we do not replace a system that works with one that is new." },
+        { h3: "Booking", line: "If you already book in a calendar tool, the site books into it rather than replacing a system that works." },
       ],
       links: [{ to: "/services/salesforce", label: "Salesforce consulting" }],
       deeper: {
@@ -185,7 +185,7 @@ export const SMALL_BUSINESS: ServicePageData = {
       kind: "text", id: "builder", figure: "build-dentist",
       figureCaption: "A demo dental practice site built from a blank page: services, the team, online booking. A booking flow is the point where a template usually stops fitting; nothing here is client work.",
       h2: "Squarespace or Wix for a small business?",
-      lede: "Squarespace or Wix suits a small business that needs a few standard pages and nothing connected; custom code suits one that books, quotes or integrates.",
+      lede: "Squarespace or Wix suits a few standard pages with nothing connected; custom code suits a business that books, quotes or integrates.",
       leadIn: "Yes, but:",
       lead: "we tell you which one you are, including when the builder is the better buy.",
       points: ["Builder: a few pages, your own layout work, a monthly fee", "Custom: booking, quoting, CRM or stock wired in; owned outright", "Either way: the domain in your name, so you can move"],

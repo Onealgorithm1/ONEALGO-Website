@@ -12,7 +12,7 @@ export const CHESTER_COUNTY: LocalPlace = {
   path: "/services/web-design-chester-county",
   name: "Chester County",
   seo: {
-    title: "Custom Website Designers in Chester County, PA | OneAlgorithm",
+    title: "Website Designers in Chester County, PA | OneAlgorithm",
     description: "Custom website designers in Chester County, PA, based in Malvern: sites you own outright, built for how your business runs. Written scope: (610) 890-9711.",
     dateModified: "2026-10-24",
   },

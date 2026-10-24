@@ -489,7 +489,7 @@ export const PLACE: LocalPlace = {
     "label": "who these pages are written for",
     "paras": [
      "5,605 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 2,121 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
-     "Accommodation and food services counts 4,958 establishments that need hours, menus and bookings that read on a phone in a hurry, and retail trade, fourth at 104,263 employees, needs stock that agrees with the till and a checkout that works on a phone.",
+     "Accommodation and food services counts 4,958 establishments that need hours, menus and bookings that read on a phone in a hurry, and retail trade, fourth at 104,263 employees, needs stock that matches the till and a phone checkout.",
      "Administrative and support services ranks fifth at 69,821 employees, and the 13 sectors we read cover 830,902 of the 1,030,698 paid employees in the metro.",
      "Together the four employ 482,117 people, 46.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
