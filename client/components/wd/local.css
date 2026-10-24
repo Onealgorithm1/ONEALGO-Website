@@ -1,0 +1,31 @@
+/* Local web-design pages only (LocalPage.tsx). Everything else comes from sf.css + wd.css. No motion here:
+   the ledger rules, wire sweep, rail scrub, readout count-up and plate draws are the kit's (already gated). */
+.sfv2.wd-local .wd-local-cards { display: grid; gap: 28px; }
+.sfv2.wd-local .wd-local-cards .sf-unit { padding-top: 16px; }
+.sfv2.wd-local .wd-local-cards p { margin-top: 8px; }
+.sfv2.wd-local .wd-local-table { margin-top: 4px; }
+.sfv2.wd-local .wd-stages5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap); margin-top: 32px; }
+.sfv2.wd-local .wd-stages5 .sf-unit { padding-top: 16px; padding-inline: 4px; transition: background-color 0.15s; }
+.sfv2.wd-local .wd-stages5 .sf-num { font: 500 13px/1 var(--mono); color: var(--orange-text); letter-spacing: 0.1em; }
+.sfv2.wd-local .wd-stages5 .sf-h3 { margin-top: 10px; }
+.sfv2.wd-local .wd-stages5 p { margin-top: 8px; }
+@media (hover: hover) { .sfv2.wd-local .wd-stages5 .sf-unit:hover { background: var(--tint); } }
+@media (max-width: 1023px) { .sfv2.wd-local .wd-stages5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .sfv2.wd-local .wd-stages5 { grid-template-columns: 1fr; } }
+/* NAP band: one address block, mono meta lines */
+.sfv2.wd-local .wd-nap { font-style: normal; display: grid; gap: 6px; margin-top: 28px; padding: 20px 0 18px; border-top: 2px solid var(--navy); border-bottom: 1px solid var(--hair-s); }
+.sfv2.wd-local .wd-nap-name { font: 600 18px/1.3 var(--body); color: var(--ink); }
+.sfv2.wd-local .wd-nap .sf-phone { justify-self: start; }
+.sfv2.wd-local .wd-nap-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+/* APG accordion FAQ (LocalFaq) in the sf-faq look */
+.sfv2.wd-local .wd-faq-item { border-top: 1px solid var(--hair-s); }
+.sfv2.wd-local .wd-faq-item:last-child { border-bottom: 1px solid var(--hair-s); }
+.sfv2.wd-local .wd-faq-q { margin: 0; font: inherit; }
+.sfv2.wd-local .wd-faq-q button { all: unset; box-sizing: border-box; width: 100%; cursor: pointer; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 12px 0; font: 600 18px/1.35 var(--body); color: var(--ink); transition: color 0.15s; }
+.sfv2.wd-local .wd-faq-q button > span { flex: 1; }
+.sfv2.wd-local .wd-faq-q button svg { flex: none; transition: transform 0.2s var(--arrive); }
+.sfv2.wd-local .wd-faq-q button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.sfv2.wd-local .wd-faq-q button:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+@media (hover: hover) { .sfv2.wd-local .wd-faq-q button:hover { color: var(--navy); } }
+@media (prefers-reduced-motion: reduce) { .sfv2.wd-local .wd-faq-q button svg { transition: none; } }
+.sfv2.wd-local .wd-faq-a { padding: 0 0 20px; display: grid; gap: 12px; }
