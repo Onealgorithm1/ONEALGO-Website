@@ -321,6 +321,9 @@ async function main() {
           const texts = [];
           for (let n = walker.nextNode(); n; n = walker.nextNode()) texts.push(n);
           for (const t of texts) if (t.nextSibling?.nodeType === Node.TEXT_NODE) t.after(document.createComment(" "));
+          /* ?hero=a|b (preview only): the proposal sits in its own <Suspense> (lazy); mark that boundary too. */
+          const proposal = document.querySelector(".wd-hero-note")?.nextElementSibling;
+          if (proposal) { proposal.before(document.createComment("$")); proposal.after(document.createComment("/$")); }
           root.prepend(document.createComment("$"));
           root.append(document.createComment("/$"));
         });
