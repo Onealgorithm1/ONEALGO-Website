@@ -822,7 +822,7 @@
 @media (max-width: 639px) { .sfv2 .sf-hero-logo { height: 40px; margin-bottom: 12px; } }
 
 /* Certification marquee under the hero (Louis 2026-10-24). */
-.sfv2 .sf-marquee { border-top: 1px solid var(--hair-s); border-bottom: 1px solid var(--hair-s); background: #fff; padding: 14px 0 18px; overflow: hidden; }
+.sfv2 .sf-marquee { border-top: 1px solid var(--hair-s); border-bottom: 1px solid var(--hair-s); background: #fff; padding: 18px 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .sfv2 .sf-marquee-label { text-align: center; font-size: 12px; letter-spacing: .06em; color: var(--ink3); margin: 0 16px 10px; }
 .sfv2 .sf-marquee-track { display: flex; width: max-content; animation: sf-marquee 45s linear infinite; }
 .sfv2 .sf-marquee:hover .sf-marquee-track, .sfv2 .sf-marquee:focus-within .sf-marquee-track { animation-play-state: paused; }

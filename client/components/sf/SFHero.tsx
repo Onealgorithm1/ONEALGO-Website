@@ -18,8 +18,7 @@ function CertMarquee() {
     </ul>
   );
   return (
-    <section className="sf-marquee" aria-label="Salesforce certifications our team holds">
-      <p className="sf-marquee-label sf-mono">Salesforce certifications held by our team · {SF_PEOPLE_V2.map((p) => `${p.name} ${p.badges.length}`).join(" · ")} · <a href="#who-leads" className="sf-link">see who holds them</a></p>
+    <section className="sf-marquee" aria-label="Salesforce certifications held by Sreenivas Amirisetti and Swapna Amirisetti">
       <div className="sf-marquee-track">{row(false)}{row(true)}</div>
     </section>
   );
