@@ -67,8 +67,14 @@ const roleCounts = (c: City) => {
   return `${rows.slice(0, -1).join(", ")} and ${rows[rows.length - 1]}`;
 };
 /** Upcoming community events only: they go stale, so past ones are dropped at render time. */
-const upcomingEvents = (c: City) =>
-  (c.events as readonly { name: string; date: string; url: string }[]).filter((e) => e.date.slice(0, 10) >= today());
+const EVENTS_CUTOFF = "2026-10-23"; // first render (prerender + hydration) uses a fixed cutoff; real date after mount
+const upcomingEvents = (c: City, day: string = EVENTS_CUTOFF) =>
+  (c.events as readonly { name: string; date: string; url: string }[]).filter((e) => e.date.slice(0, 10) >= day);
+function useToday() {
+  const [day, setDay] = React.useState(EVENTS_CUTOFF);
+  React.useEffect(() => { setDay(today()); }, []);
+  return day;
+}
 
 /** Renders [text](/path) inside copy strings as router links (salesforceCityCopy.ts). In-site paths only. */
 function Rich({ text }: { text: string }) {
@@ -214,11 +220,11 @@ function marketSources(c: City): SfSource[] {
   for (const s of CITY_COPY[c.slug].sources ?? []) out.push(s);
   return out;
 }
-function communitySources(c: City): SfSource[] {
+function communitySources(c: City, day?: string): SfSource[] {
   return [
     { name: "Trailblazer Community Groups", what: `Salesforce community groups within 50 km of central ${c.name} with an event since 23 October 2025`, read: `read ${fmtDate(c.community.pulled)}`, page: "https://trailblazercommunitygroups.com/" },
     { name: "Salesforce office locations", what: "Salesforce's published list of its offices", read: `read ${fmtDate(c.jobsPulled)}`, page: "https://www.salesforce.com/company/locations/" },
-    ...upcomingEvents(c).map((e) => ({ name: e.name, what: `Community event, ${fmtEvent(e.date)}`, read: `read ${fmtDate(c.jobsPulled)}`, page: e.url })),
+    ...upcomingEvents(c, day).map((e) => ({ name: e.name, what: `Community event, ${fmtEvent(e.date)}`, read: `read ${fmtDate(c.jobsPulled)}`, page: e.url })),
   ];
 }
 
@@ -285,7 +291,8 @@ export default function SalesforceCity({ slug }: { slug: string }) {
   const estChange = pct(c.establishments.value, c.establishments2018.value);
   const popChange = pct(c.population.value, c.population2019.value);
   const fed = federalSentence(c);
-  const upcoming = upcomingEvents(c);
+  const day = useToday();
+  const upcoming = upcomingEvents(c, day);
   const groups = c.community.groups;
   const shareImage = `https://onealgorithm.com${files.og}`;
   const ogTitle = `${h1} | OneAlgorithm`;
@@ -683,7 +690,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         </SmartSection>
 
         <SourcesDialog id="market" sources={marketSources(c)} />
-        <SourcesDialog id="community" title="Where the community figures come from" sources={communitySources(c)} />
+        <SourcesDialog id="community" title="Where the community figures come from" sources={communitySources(c, day)} />
         <PhotoCreditDialog photo={photo} />
         <PhotoCreditsLine photo={photo} />
       </SfPage>

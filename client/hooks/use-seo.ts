@@ -142,6 +142,8 @@ function applySEO({
   const robotsTag = document.querySelector('meta[name="robots"]');
   if (originalRobotsContent === undefined) {
     originalRobotsContent = robotsTag ? robotsTag.getAttribute("content") : null;
+    // A noindex page opened directly (e.g. a gated city) must not make every later route noindex.
+    if (originalRobotsContent && /noindex/i.test(originalRobotsContent)) originalRobotsContent = "index, follow";
   }
 
   if (noindex) {
