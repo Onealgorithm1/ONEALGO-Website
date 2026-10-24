@@ -358,7 +358,8 @@ export function ServicePage({ page }: { page: ServicePageData }) {
       <SfPage crumbs={[{ label: "Website development", to: "/services/website-development" }, { label: page.name }]} className="wd wd-local wd-service">
         <div className="wd-progress" aria-hidden="true" />
 
-        <section className="sf-hero sf-hero-wide" aria-labelledby="h1">
+        {/* sf-hero-wide puts the text on columns 1-9, which collides with the plate in 7-13 and drops the H1 a row; plain sf-hero keeps 1-7. */}
+        <section className={`sf-hero${page.hero.figure ? "" : " sf-hero-wide"}`} aria-labelledby="h1">
           <div className="sf-wrap sf-grid">
             <div className="sf-hero-text" style={page.hero.figure ? { alignSelf: "start" } : undefined}>
               <p className="sf-kicker">{page.hero.kicker}</p>
