@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
 
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
-const hydrated = (r) => r.startsWith("/services/salesforce") || r === "/services/website-development" || r.startsWith("/services/web-design-");
+const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-");
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
@@ -119,6 +119,10 @@ async function main() {
   // discovered from the feed — seed it so it prerenders and so the discovery
   // regex below recognises it as known, not a leak.
   ROUTES.push("/blog", "/careers", "/blog/author/louis-rubino");
+  /* Preview builds only (OA_HERO_PROPOSALS=1): the two hero proposals prerendered as their own files
+     (website-development.hero-a.html / .hero-b.html) so ?hero=a|b hydrates cleanly and its LCP is measured as it would
+     ship. Never set for a production build; the preview worker maps the query to the file. */
+  if (process.env.OA_HERO_PROPOSALS) ROUTES.push("/services/website-development?hero=a", "/services/website-development?hero=b");
   const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
@@ -167,7 +171,7 @@ async function main() {
          render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
          caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
          state (rules drawn, figures final, numbers real); the client replays from it. */
-      if (route.startsWith("/services/salesforce") || route === "/contact" || route === "/services/website-development" || route.startsWith("/services/web-design-")) { // /contact is on the v2 kit too (2026-10-23)
+      if (route.startsWith("/services/salesforce") || route === "/contact" || route.split("?")[0] === "/services/website-development" || route.startsWith("/services/web-design-")) { // /contact is on the v2 kit too (2026-10-23)
         await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
       }
 
@@ -337,7 +341,7 @@ async function main() {
       // Write "/about" as about.html, not about/index.html — Cloudflare Pages serves
       // the former at /about directly, while the latter 308-redirects to /about/ and
       // would change every canonical URL on the site.
-      const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route}.html`);
+      const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route.replace("?hero=", ".hero-")}.html`);
       fs.mkdirSync(path.dirname(outFile), { recursive: true });
       fs.writeFileSync(outFile, html);
 
