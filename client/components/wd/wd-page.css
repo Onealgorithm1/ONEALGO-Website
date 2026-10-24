@@ -1,0 +1,70 @@
+/* /services/website-development: page-level layout on top of client/styles/wd.css (the kit) and sf.css.
+   Scope `.sfv2.wd`. Nothing here moves except the FAQ chevron (200 ms) and 150 ms hover tints, all compositor or
+   colour; every other motion rule lives in wd.css behind its gates. */
+
+/* the pinned row (U2): unit beside the build stage; items start at the top so the pin holds the text still */
+.sfv2.wd .wd-pin-row { align-items: start; }
+
+/* H3 rows beside a figure (U3 kinds, U10 after-launch): hairline list, one line each; a row lights its plate node on hover / focus */
+.sfv2.wd .wd-rows { margin-top: 20px; border-bottom: 1px solid var(--hair-s); }
+.sfv2.wd .wd-rows > li { border-top: 1px solid var(--hair-s); padding: 14px 8px 14px 0; transition: background-color 0.15s; }
+.sfv2.wd .wd-rows > li p { margin-top: 4px; font-size: 16px; line-height: 1.5; color: var(--ink2); }
+.sfv2.wd .wd-rows .sf-links { margin-top: 6px; }
+@media (hover: hover) { .sfv2.wd .wd-rows > li[data-hl-key]:hover { background: var(--tint); } }
+.sfv2.wd .wd-rows > li:focus-within { background: var(--tint); }
+
+/* the Verify chip under a lead-in (U4 redesign figures) */
+.sfv2.wd .wd-verify-line { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+
+/* five stage units under the rail (U6): five across from 1280, two across below, stacked under 1024 (sf.css) */
+@media (min-width: 1280px) {
+  .sfv2.wd .sf-stages.wd-stages-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .sfv2.wd .wd-stages-5 > li { grid-column: auto; }
+}
+
+/* the mid-page CTA row (U7) */
+.sfv2.wd .wd-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 8px; }
+.sfv2.wd .wd-cta-row .sf-link { min-height: 44px; display: inline-flex; align-items: center; font-weight: 600; }
+
+/* the handover ledger (U11): LedgerRule rows (tick + rule draw on entry); hover tints and turns the rule orange */
+.sfv2.wd .wd-ledger { display: grid; gap: 18px; }
+.sfv2.wd .wd-lrow { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 20px 8px 14px 0; transition: background-color 0.15s; }
+.sfv2.wd .wd-lrow .sf-mono { color: var(--orange-text); letter-spacing: 0.1em; }
+.sfv2.wd .wd-lrow p { font-size: 17px; font-weight: 600; color: var(--ink); }
+.sfv2.wd .wd-lrow::before { transition: background-color 0.15s, transform 0.6s var(--draw) calc(var(--d, 0s) + 0.14s); }
+@media (hover: hover) { .sfv2.wd .wd-lrow:hover { background: var(--tint); } .sfv2.wd .wd-lrow:hover::before { background: var(--orange); } }
+@media (max-width: 639px) { .sfv2.wd .wd-lrow { grid-template-columns: 1fr; gap: 4px; } }
+
+/* the road (U12): the stops run the full 12 columns, the stop links are 44 px targets */
+.sfv2.wd .wd-road { margin-top: 40px; max-width: none; }
+.sfv2.wd .wd-road .rd-link { display: inline-flex; align-items: center; min-height: 44px; }
+.sfv2.wd .wd-road .rd-stop-title { color: #fff; }
+
+/* link rows (U13): inline links on one hairline row each */
+.sfv2.wd .wd-linkrows { margin-top: 20px; border-bottom: 1px solid var(--hair-s); }
+.sfv2.wd .wd-linkrows > li { border-top: 1px solid var(--hair-s); padding: 12px 0; }
+.sfv2.wd .wd-linkrows .sf-links { margin-top: 6px; }
+
+/* registry readouts (U15): the kit's readouts; 5.0 and 2020 are static, 6 counts up once (data-count) */
+.sfv2.wd .wd-readouts .sf-readout-num { min-width: 2.2ch; }
+.sfv2.wd .wd-review-row { margin-top: 20px; }
+.sfv2.wd .wd-nap { margin-top: 24px; display: grid; gap: 6px; font-style: normal; }
+.sfv2.wd .wd-nap .sf-h4 { margin-bottom: 4px; }
+.sfv2.wd .wd-nap a { color: var(--navy); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.sfv2.wd .wd-updated { margin-top: 20px; }
+
+/* FAQ (U16): APG accordion; the question is a 56 px button inside the H3; only the chevron moves */
+.sfv2.wd .wd-faq { margin-top: 32px; border-top: 1px solid var(--hair-s); }
+.sfv2.wd .wd-faq-item { border-bottom: 1px solid var(--hair-s); }
+.sfv2.wd .wd-faq-q { margin: 0; font: inherit; }
+.sfv2.wd .wd-faq-q button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 12px 0; background: none; border: 0; cursor: pointer; text-align: left; font: 600 18px/1.3 var(--body); color: var(--ink); transition: color 0.15s; }
+@media (hover: hover) { .sfv2.wd .wd-faq-q button:hover { color: var(--navy); } }
+.sfv2.wd .wd-faq-q button svg { flex: none; transition: transform 0.2s var(--arrive); }
+.sfv2.wd .wd-faq-q button[aria-expanded="true"] svg { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .sfv2.wd .wd-faq-q button svg { transition: none; } }
+.sfv2.wd .wd-faq-a { padding: 0 0 20px; display: grid; gap: 12px; }
+.sfv2.wd .wd-faq-a p { font-size: 17px; line-height: 1.55; color: var(--ink2); }
+
+/* hero proposal B (preview only, ?hero=b): the sr-only H1's words made visible under the tagline; the canvas is untouched */
+.hs-identity { margin: -4px 0 0; font: 500 clamp(0.78rem, 1vw, 0.95rem) / 1.4 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.85); }
+.wd-hero-note { position: absolute; left: 50%; top: 72px; transform: translateX(-50%); z-index: 5; padding: 6px 10px; background: rgba(4, 24, 43, 0.85); color: #fff; font: 500 11px/1.4 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(255, 166, 52, 0.6); }
