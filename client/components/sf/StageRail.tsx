@@ -11,12 +11,14 @@ import { LedgerRule } from "./SmartSection";
  */
 
 /** `short` is the phone drawing's label when `title` is too long for the 400-unit-wide SVG (about 30 characters). */
-export type Station = { k: "s1" | "s2" | "s3" | "s4"; num: string; title: string; sub: string; short?: string };
+export type Station = { k: string; num: string; title: string; sub: string; short?: string };
 export type Stage = Station & { line: string; details: string[] };
 
 const F = { body: "IBM Plex Sans, Arial, sans-serif", mono: "JetBrains Mono, monospace", display: "Bricolage Grotesque, Arial, sans-serif" };
-const DX = [110, 400, 760, 1090];
-const MY = [30, 130, 230, 330];
+/* Station positions. Four stations keep the Salesforce drawing's exact coordinates; any other count is spread
+   evenly over the same rail (desktop x 110..1090, phone y from 30 in 100-unit steps). */
+const stationX = (n: number) => (n === 4 ? [110, 400, 760, 1090] : Array.from({ length: n }, (_, i) => Math.round(110 + (i * 980) / Math.max(1, n - 1))));
+const stationY = (n: number) => Array.from({ length: n }, (_, i) => 30 + i * 100);
 
 /**
  *   <StageRail fig={3} stations={HUB_STAGES} ledger title="Staged diagram of a four-stage Salesforce implementation with a reconciliation ledger"
@@ -29,12 +31,15 @@ export function StageRail({ fig, stations, ledger, title, desc, stamp, caption, 
   sample?: boolean;
 }) {
   const id = `fig${fig}`;
+  const n = stations.length, DX = stationX(n), MY = stationY(n);
+  const mH = ledger ? 600 : MY[n - 1] + 50; /* 380 for four stations, as before */
+  const wide = n > 4; /* five or more stations: the desktop labels use `short` too, there is no room for 36-character titles */
   return (
     <figure className={`sf-stage sf-sweep sf-rail-fig ${className}`} aria-labelledby={`${id}-cap`} data-scene="rail">
       <div className="sf-stage-in">
-        <svg className="sf-fig-m" viewBox={`0 0 400 ${ledger ? 600 : 380}`} role="img" aria-labelledby={`${id}m-title`} style={{ aspectRatio: ledger ? "400/600" : "400/380" }}>
+        <svg className="sf-fig-m" viewBox={`0 0 400 ${mH}`} role="img" aria-labelledby={`${id}m-title`} style={{ aspectRatio: `400/${mH}` }}>
           <title id={`${id}m-title`}>{title}, stacked for phones</title>
-          <path className="rail" d={`M40 30 V${ledger ? 400 : MY[3]}`} fill="none" stroke="#00366B" strokeWidth="2" pathLength="1" />
+          <path className="rail" d={`M40 30 V${ledger ? 400 : MY[n - 1]}`} fill="none" stroke="#00366B" strokeWidth="2" pathLength="1" />
           {stations.map((s, i) => (
             <g className={`sta ${s.k}`} fontFamily={F.body} key={s.k}>
               <circle className="node" cx="40" cy={MY[i]} r="11" fill="#fff" stroke="#00366B" strokeWidth="2" />
@@ -68,7 +73,7 @@ export function StageRail({ fig, stations, ledger, title, desc, stamp, caption, 
             <g className={`sta ${s.k}`} fontFamily={F.body} key={s.k}>
               <circle className="node" cx={DX[i]} cy="90" r="11" fill="#fff" stroke="#00366B" strokeWidth="2" />
               <text x={DX[i]} y="60" textAnchor="middle" fontFamily={F.mono} fontSize="12" fill="#8A4600" letterSpacing=".1em">{s.num}</text>
-              <text x={DX[i]} y="128" textAnchor="middle" fontSize="15" fontWeight="600" fill="#0F1E2E">{s.title}</text>
+              <text x={DX[i]} y="128" textAnchor="middle" fontSize="15" fontWeight="600" fill="#0F1E2E">{wide ? s.short ?? s.title : s.title}</text>
               <text x={DX[i]} y="148" textAnchor="middle" fontSize="12" fill="#5B6B7C">{s.sub}</text>
             </g>
           ))}

@@ -26,16 +26,18 @@ export type DeskForm = {
   prompt: string;
   submitLabel: string;
   formId?: string;
+  /** The service the contact page preselects (`?need=`). Defaults to "salesforce"; the website pages pass "website". */
+  need?: string;
 };
 
 /**
  * Where the contact page gets its prefill from (client/pages/Contact.tsx reads these in an effect):
- *   need=salesforce  → "Salesforce / CRM" preselected
+ *   need=salesforce  → "Salesforce / CRM" preselected (need=website → "Website Development", once Contact.tsx has that branch)
  *   topic=<label>    → shown as the Topic chip and sent as the Lead's "Topic:" line
  *   from=<route>     → sent as the Lead's "Submitted on:" line and the GA4 `source`
  */
-export function contactHref(topicLabel: string, from: string) {
-  return `/contact?need=salesforce&topic=${encodeURIComponent(topicLabel)}&from=${encodeURIComponent(from)}`;
+export function contactHref(topicLabel: string, from: string, need = "salesforce") {
+  return `/contact?need=${encodeURIComponent(need)}&topic=${encodeURIComponent(topicLabel)}&from=${encodeURIComponent(from)}`;
 }
 
 /**
@@ -49,12 +51,14 @@ export function contactHref(topicLabel: string, from: string) {
  *                    prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
  * `heading` defaults to the hub's; a service page passes its own 8-word H2 and lede.
  */
-export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, next = DEFAULT_NEXT, hcLink = true }: {
+export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next = DEFAULT_NEXT, hcLink = true }: {
   form: DeskForm;
   heading?: string;
   headingId?: string;
   lede?: React.ReactNode;
   covers?: string[];
+  /** Kicker over the covers list; the website pages pass "What to have ready". */
+  coversLabel?: string;
   next?: string[];
   /** The one body link to the health-check page ("What the free health check covers"); off on the HC page itself. */
   hcLink?: boolean;
@@ -66,7 +70,7 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
         <div className="sf-c6 sf-desk-copy">
           <h2 className="sf-h2" id={headingId}>{heading}</h2>
           <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">{lede}</p>
-          <p className="sf-kicker" style={{ marginTop: 32 }}>What the week covers</p>
+          <p className="sf-kicker" style={{ marginTop: 32 }}>{coversLabel}</p>
           <ul className="sf-covers">
             {covers.map((c) => <li key={c}>{c}</li>)}
           </ul>
@@ -91,7 +95,7 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
             <h3 className="sf-h3" id="start-title">{form.heading}</h3>
             <p className="sf-topic-chip">Topic · {form.topicLabel}</p>
             <p style={{ marginTop: 18 }}>{form.prompt} Tell us on the contact page; the topic is already filled in.</p>
-            <SfButton to={contactHref(form.topicLabel, pathname)} magnet cta="desk" className="sf-desk-btn">{form.submitLabel}</SfButton>
+            <SfButton to={contactHref(form.topicLabel, pathname, form.need)} magnet cta="desk" className="sf-desk-btn">{form.submitLabel}</SfButton>
             <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
             <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="desk">{SF_PHONE.display}</a>
             <p className="sf-mono" style={{ marginTop: 16 }}>

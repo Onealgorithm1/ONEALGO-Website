@@ -28,7 +28,13 @@ import { WORK, type WorkItem } from "../data/work";
  * it does not need either today.
  */
 
-function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
+/**
+ * The in-page preview dialog. Exported for the website-development pages, where every SiteWindow's Preview
+ * button opens it (design-contract-webdev.md §5). `opener` is the button that opened it: the dialog is closed
+ * with dialog.close() before React unmounts it and focus goes back to that button (APG modal pattern; before
+ * this, focus landed on <body> because an unmounted open dialog has nothing to return focus to).
+ */
+export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: () => void; opener?: HTMLElement | null }) {
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -39,8 +45,12 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
     if (!d.open) d.showModal();
     const onCancel = (e: Event) => { e.preventDefault(); onClose(); };
     d.addEventListener("cancel", onCancel);
-    return () => d.removeEventListener("cancel", onCancel);
-  }, [onClose]);
+    return () => {
+      d.removeEventListener("cancel", onCancel);
+      if (d.open) d.close();
+      opener?.focus({ preventScroll: true });
+    };
+  }, [onClose, opener]);
 
   return (
     <dialog ref={ref} className="wk-modal" aria-label={`Preview of ${item.name}`}>
@@ -101,7 +111,7 @@ function Preview({ item, onClose }: { item: WorkItem; onClose: () => void }) {
 
 /** Bare hostname for display: "https://phantomarcades.com/" -> "phantomarcades.com".
  *  Falls back to the raw string rather than throwing on a malformed URL. */
-function siteHost(u: string): string {
+export function siteHost(u: string): string {
   try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; }
 }
 
@@ -109,6 +119,7 @@ export default function WorkCarousel() {
   const [open, setOpen] = useState<WorkItem | null>(null);
   const close = useCallback(() => setOpen(null), []);
   const rail = useRef<HTMLUListElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
 
   const nudge = (dir: 1 | -1) => {
     const r = rail.current;
@@ -175,7 +186,7 @@ export default function WorkCarousel() {
                 </a>
               </span>
             )}
-            <button type="button" className="wk-btn" onClick={() => setOpen(w)}>
+            <button type="button" className="wk-btn" onClick={(e) => { opener.current = e.currentTarget; setOpen(w); }}>
               <span className="wk-shot">
                 <picture>
                   {/* Phones see the site's own phone layout, not a desktop
@@ -236,7 +247,7 @@ export default function WorkCarousel() {
         })}
       </ul>
 
-      {open && <Preview item={open} onClose={close} />}
+      {open && <Preview item={open} onClose={close} opener={opener.current} />}
     </section>
   );
 }

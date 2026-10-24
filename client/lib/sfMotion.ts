@@ -12,6 +12,11 @@
  *      brings a [data-scene] / [data-count] within 300px, or a pointer reaches a [data-magnet] CTA; never
  *      under reduced motion. It drives the rail scene (scrub), the registry readouts (count once, below
  *      the fold only) and the magnetic CTAs (<= 6px, quickTo).
+ *   7. website-development pages (design-contract-webdev.md §3-§4): [data-reveal] figures get .in like units;
+ *      [data-hl-for="<figure id>"][data-hl-key="k"] rows highlight a node on a plate (data-hl, as the rail);
+ *      [data-scene="build"] (wd/BuildStage) is THE ONE PIN: at >= 1024x700 and no-preference GSAP pins the
+ *      row ([data-pin] ancestor) and scrubs the three builds with snap points at the finished states; below
+ *      that the CSS keyframes play scene 1 once when .play lands (IO at 70% of the viewport).
  *
  * Reduced motion: nothing is observed or tweened; the rail figure gets .static; the CSS already holds.
  * Prerender: scripts/prerender.mjs sets window.__oaPrerender for Salesforce routes and this file does
@@ -46,6 +51,52 @@ export function loadGsap(): Promise<void> {
 
 const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
 const below = (el: Element) => el.getBoundingClientRect().top > innerHeight;
+
+/** The one pin on the site (website-development U2). scripts/wd-motion-gates-check.mjs asserts this string. */
+export const PIN_MQ = "(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)";
+/** Seconds of timeline per build scene: 4.56 s of build (the CSS keyframes' clock, --d on each layer), then hold; the next scene wipes in over the end. */
+const BUILD_SCENE_LEN = 6;
+
+/** The build stage: one pinned, scrubbed, snapped timeline per [data-scene="build"]. Called inside gsap.matchMedia(PIN_MQ). */
+function initBuildScenes(root: HTMLElement) {
+  const { gsap, ScrollTrigger } = window;
+  root.querySelectorAll<HTMLElement>('[data-scene="build"]').forEach((fig) => {
+    const scenes = Array.from(fig.querySelectorAll<HTMLElement>(".bs-scene"));
+    if (!scenes.length) return;
+    const row = fig.closest<HTMLElement>("[data-pin]") || fig;
+    fig.classList.add("js-scrub"); fig.classList.remove("play"); // GSAP owns the layers; the CSS keyframes are stripped
+    const movers = Array.from(fig.querySelectorAll<HTMLElement>(".bs-scene, .bs-paint, .bs-photo, .bs-cursor"));
+    const d = (el: HTMLElement) => parseFloat(el.style.getPropertyValue("--d")) || 0;
+    const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: {
+      trigger: row, start: "top top+=65", end: "+=200%", pin: true, pinSpacing: true, anticipatePin: 1, scrub: 0.6, invalidateOnRefresh: true,
+      snap: { snapTo: [0, 1 / 3, 2 / 3, 1], duration: { min: 0.2, max: 0.5 }, ease: "power1.inOut", inertia: false }, // no velocity projection: one flick never skips a build
+      onToggle: (st: any) => movers.forEach((el) => { el.style.willChange = st.isActive ? "transform, opacity" : ""; }),
+    } });
+    scenes.forEach((sc, k) => {
+      const at = k * BUILD_SCENE_LEN, q = (s: string) => Array.from(sc.querySelectorAll<HTMLElement>(s));
+      const log = Array.from(fig.querySelectorAll<HTMLElement>(`.bs-log[data-for="${k}"], .bs-url[data-scene-index="${k}"]`)); // the scene's log and its address bar come and go with it
+      const lines = log.flatMap((l) => Array.from(l.querySelectorAll<HTMLElement>("li")));
+      gsap.set(sc, { autoAlpha: k ? 0 : 1, y: k ? 10 : 0 }); gsap.set(log, { autoAlpha: k ? 0 : 1 });
+      gsap.set(q(".bs-grid"), { opacity: 0 }); gsap.set(q(".bs-block"), { opacity: 0, scaleY: 0.6, transformOrigin: "top", outlineColor: "rgba(127,180,230,.7)" });
+      gsap.set(q(".bs-paint"), { backgroundColor: "rgba(0,0,0,0)" }); gsap.set(q(".bs-type"), { clipPath: "inset(0 100% 0 0)" });
+      gsap.set(q(".bs-pop"), { opacity: 0, scale: 0.85 }); gsap.set(q(".bs-photo"), { opacity: 0 }); gsap.set(q(".bs-cursor"), { opacity: 0, x: 60, y: 40 });
+      gsap.set(q(".bs-check"), { opacity: 0 }); gsap.set(lines, { opacity: 0 });
+      if (k) { tl.to(sc, { autoAlpha: 1, y: 0, duration: 0.55 }, at); tl.to(log, { autoAlpha: 1, duration: 0.3 }, at); }
+      q(".bs-grid").forEach((el) => tl.to(el, { opacity: 1, duration: 0.5 }, at + 0.05).to(el, { opacity: 0, duration: 0.6 }, at + 1.6));
+      q(".bs-block").forEach((el) => tl.to(el, { opacity: 1, scaleY: 1, duration: 0.55 }, at + d(el)).to(el, { outlineColor: "rgba(0,0,0,0)", duration: 0.5 }, at + 1.7));
+      q(".bs-paint").forEach((el) => tl.to(el, { backgroundColor: el.getAttribute("data-bg"), duration: 0.6 }, at + 1.5));
+      q(".bs-type").forEach((el) => tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: 0.7, ease: "steps(18)" }, at + d(el)));
+      q(".bs-pop").forEach((el) => tl.to(el, { opacity: 1, scale: 1, duration: 0.45 }, at + d(el)));
+      q(".bs-photo").forEach((el) => tl.to(el, { opacity: 1, duration: 0.8 }, at + 3.05));
+      q(".bs-cursor").forEach((el) => tl.to(el, { opacity: 1, x: 0, y: 0, duration: 0.98 }, at + 3.3).to(el, { scale: 0.85, duration: 0.14 }, at + 4.28).to(el, { scale: 1, duration: 0.14 }, at + 4.42));
+      q(".bs-check").forEach((el) => tl.to(el, { opacity: 1, duration: 0.3 }, at + 3.75));
+      lines.forEach((el) => tl.to(el, { opacity: 1, duration: 0.3 }, at + d(el)));
+      if (k < scenes.length - 1) { tl.to(sc, { autoAlpha: 0, y: -8, scale: 0.985, duration: 0.8 }, at + BUILD_SCENE_LEN); tl.to(log, { autoAlpha: 0, duration: 0.3 }, at + BUILD_SCENE_LEN); }
+    });
+    tl.to({}, { duration: 0.001 }, scenes.length * BUILD_SCENE_LEN); // total = scenes x LEN exactly, so the snap thirds land on finished builds
+    ScrollTrigger.refresh();
+  });
+}
 
 /** GSAP part: called once the library is present. Everything inside gsap.matchMedia(no-preference). */
 function initGsap(root: HTMLElement) {
@@ -102,6 +153,8 @@ function initGsap(root: HTMLElement) {
       zone.addEventListener("pointerleave", () => { xTo(0); yTo(0); });
     });
   });
+  // the one pin: desktop with room for it, and no reduced-motion preference; nothing is created otherwise
+  gsap.matchMedia().add(PIN_MQ, () => initBuildScenes(root));
   if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
 }
 
@@ -119,8 +172,8 @@ export function initSfMotion(root: HTMLElement): () => void {
   root.classList.add("js");
   cleanups.push(() => root.classList.remove("js"));
 
-  // 1. ledger rules draw once as their unit enters (under reduced motion the CSS never hides them)
-  const units = Array.from(root.querySelectorAll<HTMLElement>(".sf-unit"));
+  // 1. ledger rules draw once as their unit enters (under reduced motion the CSS never hides them); [data-reveal] figures the same
+  const units = Array.from(root.querySelectorAll<HTMLElement>(".sf-unit, [data-reveal]"));
   if (!reduced && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
     units.forEach((u) => io.observe(u));
@@ -153,6 +206,19 @@ export function initSfMotion(root: HTMLElement): () => void {
     const k = u.getAttribute("data-station")!, hl = () => railFig.setAttribute("data-hl", k), off = () => railFig.removeAttribute("data-hl");
     on(u, "mouseenter", hl); on(u, "mouseleave", off); on(u, "focusin", hl); on(u, "focusout", off);
   });
+  // 3b. the same for any plate: a row with data-hl-for="<figure id>" data-hl-key="k" sets data-hl="k" on that figure
+  root.querySelectorAll<HTMLElement>("[data-hl-for][data-hl-key]").forEach((u) => {
+    const fig = document.getElementById(u.getAttribute("data-hl-for")!); if (!fig) return;
+    const k = u.getAttribute("data-hl-key")!, hl = () => fig.setAttribute("data-hl", k), off = () => fig.removeAttribute("data-hl");
+    on(u, "mouseenter", hl); on(u, "mouseleave", off); on(u, "focusin", hl); on(u, "focusout", off);
+  });
+  // 3c. the build stage below the pin's media query: scene 1's CSS keyframes play once when the figure reaches 70% of the viewport
+  const builds = Array.from(root.querySelectorAll<HTMLElement>('[data-scene="build"]'));
+  if (builds.length && !reduced && "IntersectionObserver" in window) {
+    const bio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("play"); bio.unobserve(e.target); } }), { rootMargin: "0px 0px -30% 0px" });
+    builds.forEach((b) => bio.observe(b));
+    cleanups.push(() => bio.disconnect());
+  }
 
   // 4. card tilt: fine pointers only, transform written directly (no CSS-var recalc), <= 3deg
   if (FINE().matches && !reduced) root.querySelectorAll<HTMLElement>("[data-tilt]").forEach((c) => {

@@ -274,8 +274,8 @@
 .sfv2 .sf-rail-fig .okpath { stroke-dasharray: 30; stroke-dashoffset: 0; }
 .sfv2 .sf-rail-fig .sta { transition: opacity 0.15s, stroke-width 0.15s; }
 .sfv2 .sf-rail-fig[data-hl] .sta { opacity: 0.35; }
-.sfv2 .sf-rail-fig[data-hl="s1"] .sta.s1, .sfv2 .sf-rail-fig[data-hl="s2"] .sta.s2, .sfv2 .sf-rail-fig[data-hl="s3"] .sta.s3, .sfv2 .sf-rail-fig[data-hl="s4"] .sta.s4 { opacity: 1; }
-.sfv2 .sf-rail-fig[data-hl="s1"] .s1 circle, .sfv2 .sf-rail-fig[data-hl="s2"] .s2 circle, .sfv2 .sf-rail-fig[data-hl="s3"] .s3 circle, .sfv2 .sf-rail-fig[data-hl="s4"] .s4 circle { stroke-width: 3.5; }
+.sfv2 .sf-rail-fig[data-hl="s1"] .sta.s1, .sfv2 .sf-rail-fig[data-hl="s2"] .sta.s2, .sfv2 .sf-rail-fig[data-hl="s3"] .sta.s3, .sfv2 .sf-rail-fig[data-hl="s4"] .sta.s4, .sfv2 .sf-rail-fig[data-hl="s5"] .sta.s5 { opacity: 1; }
+.sfv2 .sf-rail-fig[data-hl="s1"] .s1 circle, .sfv2 .sf-rail-fig[data-hl="s2"] .s2 circle, .sfv2 .sf-rail-fig[data-hl="s3"] .s3 circle, .sfv2 .sf-rail-fig[data-hl="s4"] .s4 circle, .sfv2 .sf-rail-fig[data-hl="s5"] .s5 circle { stroke-width: 3.5; }
 .sfv2 .sf-fig-m { display: none; }
 @media (max-width: 1023px) { .sfv2 .sf-fig-d { display: none; } .sfv2 .sf-fig-m { display: block; } }
 @media (min-width: 640px) and (max-width: 1023px) { .sfv2 .sf-fig-m { max-width: 440px; } }
