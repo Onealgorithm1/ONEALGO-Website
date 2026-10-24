@@ -13,6 +13,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
 
+/* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
+const hydrated = (r) => r.startsWith("/services/salesforce") || r === "/services/website-development" || r.startsWith("/services/web-design-");
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
@@ -308,7 +310,7 @@ async function main() {
            static page on screen (no spinner) while the route chunk loads.
          ⛔ Keep the strip step above to things React did NOT render, or
          hydration sees a missing node and re-renders the page client-side. */
-      if (route.startsWith("/services/salesforce")) {
+      if (hydrated(route)) {
         await page.evaluate(() => {
           const root = document.getElementById("root");
           const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -326,7 +328,7 @@ async function main() {
          module entry and the modulepreloads shared bandwidth with the CSS and the
          fonts; low priority lets the page paint first. Routes that still
          createRoot() keep High: their content waits on the JS. */
-      if (route.startsWith("/services/salesforce")) {
+      if (hydrated(route)) {
         html = html
           .replace(/<script type="module" /g, '<script type="module" fetchpriority="low" ')
           .replace(/<link rel="modulepreload" /g, '<link rel="modulepreload" fetchpriority="low" ');

@@ -169,6 +169,8 @@ export function initSfMotion(root: HTMLElement): () => void {
     el.addEventListener(type as string, fn, opts); cleanups.push(() => el.removeEventListener(type as string, fn, opts));
   };
   const reduced = RM().matches;
+  // units already on screen at load start drawn (measured before .js hides them): nothing above the fold moves on arrival
+  root.querySelectorAll<HTMLElement>(".sf-unit, [data-reveal]").forEach((u) => { if (u.getBoundingClientRect().top < innerHeight) u.classList.add("in"); });
   root.classList.add("js");
   cleanups.push(() => root.classList.remove("js"));
 

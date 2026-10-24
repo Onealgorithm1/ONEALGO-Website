@@ -62,7 +62,7 @@ export const PHILADELPHIA: LocalPlace = {
       kind: "work",
       id: "work",
       h2: "Websites we built",
-      lede: "These six sites are ours, and each one opens here in a preview window without leaving this page.",
+      lede: "These six sites are ours, and each one opens right here, full size, in a preview window without leaving this page.",
       leadIn: "Why it matters:",
       lead: "A working site shows how a build loads, reads and takes an enquiry, which no mock-up can.",
       deeper: {
@@ -106,7 +106,7 @@ export const PHILADELPHIA: LocalPlace = {
       kind: "facts",
       id: "figures",
       h2: "Philadelphia's businesses, in public numbers",
-      lede: "The metro area had 153,791 business establishments in 2023, and 19,805 of them employed 20 to 99 people.",
+      lede: "The metro area had 153,791 business establishments in 2023, per County Business Patterns, and 19,805 of them employed 20 to 99 people.",
       leadIn: "By the numbers:",
       lead: "3,624 establishments worked in computer systems design (NAICS 5415), and 6,330,422 people lived in the metro in 2024.",
       readouts: [0, 1, 2],

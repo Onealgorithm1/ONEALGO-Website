@@ -153,6 +153,8 @@ function Layout({ children }: LayoutProps) {
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  // v2-kit routes (Salesforce + website-development set) carry the AA "contrast" logo tone: orange-500 "One" is 1.86:1 on the white header.
+  const contrastLogo = isSalesforce || location.pathname === "/services/website-development" || location.pathname.startsWith("/services/web-design-");
   // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
   // and every Section/PageHero inside <main> read this one value, so their
   // left edges cannot drift apart. Every other route keeps the 1200px frame.
@@ -500,7 +502,7 @@ function Layout({ children }: LayoutProps) {
               className="flex min-h-11 flex-shrink-0 items-center"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <OneAlgorithmText size="md" oneTone={isSalesforce ? "contrast" : "brand"} />
+              <OneAlgorithmText size="md" oneTone={contrastLogo ? "contrast" : "brand"} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -779,7 +781,7 @@ function Layout({ children }: LayoutProps) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              <OneAlgorithmText size="md" oneTone={isSalesforce ? "contrast" : "brand"} />
+              <OneAlgorithmText size="md" oneTone={contrastLogo ? "contrast" : "brand"} />
             </Link>
             <button
               ref={closeButtonRef}

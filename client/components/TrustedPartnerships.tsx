@@ -205,6 +205,7 @@ function Row({ ariaHidden }: { ariaHidden?: boolean }) {
 }
 
 export default function TrustedPartnerships() {
+  const [paused, setPaused] = React.useState(false);
   return (
     <section
       aria-labelledby="platform-band-heading"
@@ -257,7 +258,16 @@ export default function TrustedPartnerships() {
           at the screen edge (photographed on an iPhone 2026-08-30), and the
           giant unclipped paint region is itself a flicker source on iOS. The
           clip is what pins the fades to the strip's real edges. */}
-      <div className="marquee relative mt-3 overflow-hidden">
+      {/* WCAG 2.2.2: anything moving for more than 5s gets a pause control (hidden under reduced motion, where nothing moves). */}
+      <button
+        type="button"
+        aria-pressed={paused}
+        onClick={() => setPaused((p) => !p)}
+        className="mt-2 inline-flex min-h-11 items-center text-xs text-oa-nightInk2 underline underline-offset-4 hover:text-white focus-visible:text-white motion-reduce:hidden"
+      >
+        {paused ? "Play logo strip" : "Pause logo strip"}
+      </button>
+      <div className={`marquee relative mt-1 overflow-hidden${paused ? " is-paused" : ""}`}>
         {/* ⛔ motion-reduce:w-full is load-bearing. global.css switches the
             track to flex-wrap under reduced motion so nothing scrolls out of
             reach -- but an element at width:max-content is exactly as wide as

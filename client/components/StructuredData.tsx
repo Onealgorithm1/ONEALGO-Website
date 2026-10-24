@@ -19,7 +19,7 @@ const NAP = {
   // not connect us to a client site we built.
   alternateName: [siteConfig.name, "One Algorithm"],
   telephone: siteConfig.contact.phonePrimary,
-  telephoneE164: "+1-610-890-9711",
+  telephoneE164: "+16108909711",
   email: siteConfig.contact.emailPrimary,
   address: {
     streetAddress: A.street + ", " + A.streetUnit,
@@ -253,7 +253,7 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
     url: "https://onealgorithm.com",
     logo: "https://onealgorithm.com/logo.webp",
     image: "https://onealgorithm.com/logo.webp",
-    telephone: NAP.telephone,
+    telephone: NAP.telephoneE164,
     email: NAP.email,
     address: { "@type": "PostalAddress", ...NAP.address },
     geo: { "@type": "GeoCoordinates", ...NAP.geo },
@@ -272,7 +272,6 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
       "Philadelphia County, PA",
       "New Castle County, DE",
     ],
-    priceRange: "$$$",
     // Corrected 2026-08-12. This said Mon-Fri 09:00-18:00 while the site sells
     // 24/7 support (Index.tsx:207, :269) -- and 24/7 is real, not marketing.
     //

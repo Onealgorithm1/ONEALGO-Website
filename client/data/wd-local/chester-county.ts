@@ -124,7 +124,7 @@ export const CHESTER_COUNTY: LocalPlace = {
       kind: "facts",
       id: "figures",
       h2: "Chester County's businesses, in public numbers",
-      lede: "The county had 15,102 business establishments in 2023, and 1,923 of them employed 20 to 99 people.",
+      lede: "The county had 15,102 business establishments in 2023, per County Business Patterns, and 1,923 of them employed 20 to 99 people.",
       leadIn: "By the numbers:",
       lead: "577 establishments worked in computer systems design (NAICS 5415), and the population stood at 560,745 in 2024.",
       readouts: [0, 1, 2],

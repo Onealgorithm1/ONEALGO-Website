@@ -465,6 +465,7 @@
      (scripts/rasterize-marks.mjs), which shimmer-proof and cull-proof the
      strip without any compositor hints. */
 
+  .marquee.is-paused .marquee-track,
   .marquee:hover .marquee-track,
   .marquee:focus-within .marquee-track {
     animation-play-state: paused;
