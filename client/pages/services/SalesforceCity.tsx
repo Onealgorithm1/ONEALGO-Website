@@ -72,7 +72,8 @@ const upcomingEvents = (c: City, day: string = EVENTS_CUTOFF) =>
   (c.events as readonly { name: string; date: string; url: string }[]).filter((e) => e.date.slice(0, 10) >= day);
 function useToday() {
   const [day, setDay] = React.useState(EVENTS_CUTOFF);
-  React.useEffect(() => { setDay(today()); }, []);
+  // Prerender keeps the fixed cutoff so the saved HTML matches the first browser render.
+  React.useEffect(() => { if (!(window as { __oaPrerender?: boolean }).__oaPrerender) setDay(today()); }, []);
   return day;
 }
 
