@@ -74,7 +74,7 @@ function timelineMobile() {
 /* ------------------------------ HC-F2 ---------------------------------- */
 
 const AREAS = [
-  { k: 'lic', t: 'Licences and edition' },
+  { k: 'lic', t: 'Licenses and edition' },
   { k: 'data', t: 'Data' },
   { k: 'auto', t: 'Automation' },
   { k: 'perm', t: 'Permissions' },
@@ -83,7 +83,7 @@ const AREAS = [
 const LIST_TITLE = 'A written list, ranked by what to fix first'
 // Area tags only (see the ⛔ at the top). One row per area: the old sixth row repeated DATA under a
 // "five areas" caption and read as an error (fix round M5).
-const BARS = ['AUTOMATION', 'DATA', 'PERMISSIONS', 'LICENCES', 'INTEGRATIONS']
+const BARS = ['AUTOMATION', 'DATA', 'PERMISSIONS', 'LICENSES', 'INTEGRATIONS']
 
 /** The document: frame, wrapped title, numbered bars. Shapes, not a box(),
  *  because node rects are drawn after shapes and would paint over the bars. */
@@ -166,7 +166,7 @@ export default [
   {
     id: 'salesforce-health-check-five-areas',
     title: 'What the free Salesforce health check covers',
-    alt: 'Diagram: the five areas the free health check covers (licences and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.',
+    alt: 'Diagram: the five areas the free health check covers (licenses and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.',
     tone: 'light',
     og: 'og-salesforce-health-check',
     desktop: areasDesktop(),

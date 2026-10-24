@@ -125,8 +125,36 @@ export default {
           nightInk3: "#9fb3c8",
           nightBlue: "#7fb4e6", // brand blue is too dark to link on night
         },
+        // Salesforce redesign v2 (2026-10-23): the design-contract palette, mirrored
+        // from the custom properties on `.sfv2` (client/styles/sf.css). Additive:
+        // only the /services/salesforce* pages use these; nothing else changes.
+        //   #FFAD33 is 1.9:1 on white: fills, rules and text on night ONLY; the
+        //   only orange permitted as text on paper is sf.orangeText (6.9:1).
+        sf: {
+          navy: "#00366b",
+          night: "#0b1f3a",
+          nightStage: "#10294a",
+          orange: "#ffad33",
+          orangeHover: "#ffbf5c",
+          orangeText: "#8a4600",
+          paper: "#f6f7f9",
+          surface: "#ffffff",
+          tint: "#e8f0f8",
+          hairline: "#dce3ec",
+          hairlineStrong: "#c9d3df",
+          ink: "#0f1e2e",
+          ink2: "#3a4b5e",
+          ink3: "#5b6b7c",
+          nightInk: "#ffffff",
+          nightInk2: "#dce3ec",
+          nightInk3: "#9fb3c8",
+        },
       },
       fontFamily: {
+        // Salesforce v2 display face (H1, H2, the big figures). Self-hosted latin
+        // subset, weights 700-800, declared in client/styles/sf.css and loaded only
+        // with the Salesforce route chunks.
+        display: ["Bricolage Grotesque", "Bricolage Grotesque Fallback", "Arial", "sans-serif"],
         // The site shipped with no fontFamily at all, so everything rendered in
         // Segoe UI / SF. IBM Plex Sans replaced Instrument Sans on 2026-08-12 --
         // see the note in client/global.css. Short version: Instrument Sans was

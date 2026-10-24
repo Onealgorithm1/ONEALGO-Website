@@ -7,7 +7,6 @@ import {
   CTAProof,
   DataTable,
   DeliveredLedger,
-  Desk,
   HcLink,
   JumpList,
   PeopleStrip,
@@ -16,6 +15,7 @@ import {
   RouteBoard,
 } from "./salesforce";
 import { RecordLine } from "./SalesforceRecordCard";
+import { DeskCTA } from "./sf/DeskCTA";
 import { PageHero, PrimaryCTA, ProcessSteps, SecondaryCTA, Section } from "./site";
 import { PLATES } from "../data/plates/hub";
 import { SF_PAGES, SF_VERIFIED_LABEL } from "../data/salesforceProof";
@@ -110,21 +110,19 @@ describe("Salesforce primitives", () => {
     expect(html.indexOf("An SAP-to-Salesforce sync")).toBeLessThan(html.indexOf("lending company"));
   });
 
-  it("the Desk is the #start anchor with labelled fields, the honeypot and the phone", () => {
+  it("DeskCTA is the #start anchor: the CTA links to /contact with the topic and the route, plus the phone", () => {
     const html = at(
       "/services/salesforce-integration",
-      <Desk heading="h" body="b" form={{ topic: "int", topicLabel: "Integration", heading: "Tell us", prompt: "Which two systems?", submitLabel: "Send" }} />,
+      <DeskCTA form={{ topic: "int", topicLabel: "Salesforce integration", heading: "Tell us", prompt: "Which two systems?", submitLabel: "Send" }} />,
     );
     expect(html).toContain('id="start"');
     expect(html).toContain('id="start-title"');
-    for (const f of ["firstName", "lastName", "email", "phone", "company", "message"]) expect(html).toContain(`for="sf-desk-${f}"`);
-    expect(html).toContain('name="company_website"');
+    expect(html).toContain('href="/contact?need=salesforce&amp;topic=Salesforce%20integration&amp;from=%2Fservices%2Fsalesforce-integration"');
     expect(html).toContain('href="tel:+16108909711"');
-    expect(html).toContain("Which two systems? (optional)");
+    expect(html).toContain("Topic · Salesforce integration");
     expect(html).toContain("What the free health check covers");
-    // Nothing in the Desk starts hidden (the off-screen honeypot is the one
-    // deliberate opacity:0, same markup as Contact.tsx).
-    expect(html.replace(/<input[^>]*company_website[^>]*>/, "")).not.toMatch(/opacity:\s*0(?![.\d])/);
+    expect(html).not.toContain("<form");
+    expect(html).not.toMatch(/opacity:s*0(?![.d])/);
   });
 
   it("HcLink is absent on the health check page", () => {

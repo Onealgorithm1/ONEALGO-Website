@@ -1,277 +1,162 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { Factory, Calculator, AlertTriangle, ArrowLeftRight } from "lucide-react";
 import Layout from "../../components/Layout";
-import { PageHero, Section, SectionHeading, Card, CardGrid, ProcessSteps, Prose } from "../../components/site";
 import {
-  AnswerBand,
-  CTAProof,
-  DataTable,
-  DeliveredLedger,
-  Desk,
-  DocNote,
-  FAQList,
-  HcLink,
-  MidStrip,
-  Objections,
-  PeopleStrip,
-  Plate,
-  PlateScope,
-  RouteBoard,
-  SF_OBJECTIONS,
-  type SfFaq,
-} from "../../components/salesforce";
-import { RecordLine } from "../../components/SalesforceRecordCard";
-import { SF_VERIFIED_LABEL } from "../../data/salesforceProof";
-import { PLATES } from "../../data/plates/integration";
+  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
+  FAQ, DeskCTA, StageRail, StageUnits, SourcesDialog, Verify, type SfFaqItem, type Stage, type SfSource,
+} from "../../components/sf";
+import { SapSync } from "../../components/sf/illus";
+import { SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_PHONE, SF_PLATFORM_CERTS, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
-  SF_HEALTH_CHECK_OFFER,
-  StructuredData,
-  createServiceSchema,
-  createWebPageSchema,
-  createLocalBusinessSchema,
-  createFAQSchema,
+  StructuredData, createServiceSchema, createWebPageSchema, createLocalBusinessSchema, SF_HEALTH_CHECK_OFFER,
 } from "../../components/StructuredData";
 
-/* Salesforce integration (SAP / ERP), rebuilt on the plate system 2026-10-23.
- * Spec: onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/design-spec.md §3 INT, §5 INT,
- * plus the wide-layout and voice addenda.
+/* /services/salesforce-integration, rebuilt 2026-10-23 on the redesign-v2 kit (client/components/sf), in the design
+ * Louis approved ("Yes, build the 23 pages this way"). SEO: seo-completeness/structure-spec.md §5.4 (title, meta, H1,
+ * the twelve H2 strings exact, H3s, schema); section ORDER follows the approved prototype's rhythm (hero → answer
+ * units → night band → … → desk → FAQ), which spec §0 allows. Build notes: build-v2/page-integration.md.
  *
- * ⛔ PROOF: the invoiced work package "DOG Synch from SAP to SFDC"
- * (salesforce-delivery-evidence-2026-09-01.md). Client is NOT named, ever, and
- * its SAP version, objects, direction and middleware are NOT released (owner
- * decision #11). So the diagram and the mapping table are a TYPICAL pattern,
- * stamped "ILLUSTRATIVE" (was "NOT A CLIENT BUILD" until the L4 voice fix), and never tied to the delivered sync.
- * ⛔ MULESOFT (owner, 2026-10-23): keep the 2026-09-01 CloudHub sentence
- * verbatim, add no new MuleSoft claim. MuleSoft is otherwise named only as a
- * product Salesforce sells separately (market fact, not a capability claim).
- * ⛔ NetSuite / QuickBooks / HubSpot: no delivery evidence; FAQs answer how
- * the connection works in general.
- * ⛔ No reviews exist; nothing on this page says so (voice addendum rule 4),
- * and the AppExchange "no ratings" objection is deliberately not used.
- * INT-F2 (demo-org screenshot) is skipped: Salesforce screenshots are blocked.
- * "Five free Integration licences": read 2026-10-23 from Salesforce Help's
- * "Give Integration Users API Only Access" via its search-indexed text (the
- * Help app does not render to a fetcher). Re-read before changing it.
- */
+ * ⛔ PROOF: the invoiced SAP work is "an SAP-to-Salesforce sync", nothing more. Client never named; its SAP version,
+ * objects, direction and middleware are NOT released (owner decision 11). The SAP figure (FIG. 1) is a staged scene
+ * for the fictional Example Manufacturing Co., and the mapping table is the TYPICAL pattern, never the delivered build.
+ * ⛔ MULESOFT: the 2026-09-01 CloudHub sentence stays verbatim ("Where a managed runtime is worth paying for, we scope
+ * and build on CloudHub; where it is not, we say so and keep the moving parts down."). No new MuleSoft claim.
+ * ⛔ NetSuite / QuickBooks / Oracle / Dynamics / HubSpot / Mailchimp / Marketo: approach only, no delivery claim.
+ * ⛔ Integration user licenses: "Supported editions include a limited number" (fix round FV-01), never a count.
+ * Partner tier "Select": owner decision 2026-10-23 ~19:05 (owner-decisions.md, answer 1).
+ * LINKS: in-site only in the body. Every source is cited as text + read date and listed in the SourcesDialog
+ * ("int-sources"); api.sap.com is named without a link (link policy). */
 
-const URL_ = "https://onealgorithm.com/services/salesforce-integration";
-const HC = "/services/salesforce-health-check";
-const COST = "/services/salesforce-implementation-cost";
-const TRAILBLAZER = "https://www.salesforce.com/trailblazer/samirisetti";
-const FLOW = PLATES["salesforce-sap-integration-data-flow"];
-const ROUTES = PLATES["salesforce-integration-routes"];
-const IMG_16x9 = `https://onealgorithm.com/media/salesforce/${FLOW.id}-1600x900.jpg`;
-const OG = "https://onealgorithm.com/media/salesforce/og-salesforce-integration.jpg";
-
+const PAGE_PATH = "/services/salesforce-integration";
+const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
+const PAGE_UPDATED = "2026-10-23";
 const TITLE = "Salesforce Integration Services: SAP & ERP | OneAlgorithm";
 const DESCRIPTION =
   "Salesforce integration services for SAP, ERP and finance systems. Start with a free one-week health check of your integrations. Call (610) 890-9711.";
+const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-sap-sync.jpg";
+const OG_ALT =
+  "Illustration with sample data: an order sync between SAP and Salesforce, three objects each with a count, a time and a log.";
+const HUB = "/services/salesforce";
+const HC = "/services/salesforce-health-check";
+const COST = "/services/salesforce-implementation-cost";
+const MS = "/services/salesforce-managed-services";
+const MC = "/services/salesforce-marketing-cloud-consulting";
+const DM = "/services/salesforce-data-migration";
+const SOURCES_ID = "int-sources";
 
-const ARCH = "https://architect.salesforce.com/docs/architect/fundamentals/guide/integration-patterns.html";
-const SRC = {
-  patterns: { label: "Salesforce Architects: Integration Patterns", href: ARCH },
-  user: {
-    label: "Salesforce Help: Give Integration Users API Only Access",
-    href: "https://help.salesforce.com/s/articleView?id=platform.integration_user.htm&type=5",
-  },
-  limits: {
-    label: "Salesforce Developers: API Request Limits and Allocations",
-    href: "https://developer.salesforce.com/docs/platform/salesforce-app-limits-cheatsheet/guide/salesforce-app-limits-platform-api.html",
-  },
-  connect: { label: "Salesforce Help: Salesforce Connect", href: "https://help.salesforce.com/s/articleView?id=sf.platform_connect_about.htm&type=5" },
-  events: {
-    label: "Salesforce Developers: Platform Events",
-    href: "https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_intro.htm",
-  },
-  bulk: {
-    label: "Salesforce Developers: Bulk API",
-    href: "https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm",
-  },
-  sapHub: { label: "SAP Business Accelerator Hub", href: "https://api.sap.com/" },
-  b1: {
-    label: "SAP Learning: Business One Service Layer",
-    href: "https://learning.sap.com/courses/leveraging-the-sap-business-one-service-layer/introducing-service-layer-api-terms-and-documentation",
-  },
-  brainspate: { label: "BrainSpate: Salesforce implementation cost guide", href: "https://brainspate.com/blog/salesforce-implementation-cost-guide/" },
-};
-
-const ext = (href: string, label: string) => (
-  <a className="oa-link" href={href} target="_blank" rel="noopener noreferrer">
-    {label}
-  </a>
-);
-
-const PROBLEMS = [
-  {
-    icon: Factory,
-    title: "SAP to Salesforce",
-    to: "#sap",
-    body: "Sales cannot see the customers, prices and orders that live in SAP. We keep SAP and Salesforce in sync, with each field's owner and timing agreed before we build.",
-  },
-  {
-    icon: Calculator,
-    title: "Finance and ERP systems",
-    to: "#routes",
-    body: "Invoices, payment status and credit holds belong in the finance system, but reps need to see them. We give Salesforce a read-only view, not a second copy anyone can edit.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "The sync that broke quietly",
-    to: HC,
-    body: "An integration that stopped months ago and told nobody. The free one-week health check finds it first, because every day it is down the two systems drift further apart.",
-  },
-  {
-    icon: ArrowLeftRight,
-    title: "Two-way, done carefully",
-    to: "#decisions",
-    body: "When both systems can edit the same record, someone has to decide who wins a conflict. We write that rule down with you before building, because code only enforces a decision a person made.",
-  },
+/* Every source this page cites, with the date a person read it (the ef1a8f0 page: SF_VERIFIED_LABEL on the
+   patterns, user-license and API-limit notes; "checked October 2026" on the FAQ sources). */
+const SOURCES: SfSource[] = [
+  { name: "Salesforce Architects: Integration Patterns", what: "The six pattern names and what each one is for", read: `read ${SF_VERIFIED_LABEL}`, page: "https://architect.salesforce.com/docs/architect/fundamentals/guide/integration-patterns.html" },
+  { name: "Salesforce Help: Give Integration Users API Only Access", what: "The Integration user license: API-only, permission sets, a limited number with supported editions", read: `read ${SF_VERIFIED_LABEL}`, page: "https://help.salesforce.com/s/articleView?id=platform.integration_user.htm&type=5" },
+  { name: "Salesforce Developers: API Request Limits and Allocations", what: "API requests counted across the org over a rolling 24 hours", read: `read ${SF_VERIFIED_LABEL}`, page: "https://developer.salesforce.com/docs/platform/salesforce-app-limits-cheatsheet/guide/salesforce-app-limits-platform-api.html" },
+  { name: "Salesforce Help: Salesforce Connect", what: "External data shown inside Salesforce without copying it", read: "read October 2026", page: "https://help.salesforce.com/s/articleView?id=sf.platform_connect_about.htm&type=5" },
+  { name: "Salesforce Developers: Platform Events", read: "read October 2026", page: "https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_intro.htm" },
+  { name: "Salesforce Developers: Bulk API", read: "read October 2026", page: "https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm" },
+  { name: "SAP Business Accelerator Hub", what: "SAP's catalogue of ECC and S/4HANA interfaces (IDocs, BAPIs, OData and REST)", read: "read October 2026" },
+  { name: "SAP Learning: Business One Service Layer", what: "The Service Layer (REST and OData) and the older DI API", read: "read October 2026", page: "https://learning.sap.com/courses/leveraging-the-sap-business-one-service-layer/introducing-service-layer-api-terms-and-documentation" },
+  { name: "BrainSpate: Salesforce implementation cost guide", what: "$5,000 to $75,000 or more for a single integration", read: "read October 2026", page: "https://brainspate.com/blog/salesforce-implementation-cost-guide/" },
 ];
 
-/* General guidance on SAP interfaces (gap INT-2 wording). Never tied to the
-   delivered sync's version, which is not a released fact. */
-const SAP_VERSIONS = [
-  { name: "SAP ECC", body: "Usually reached through IDocs, BAPIs or RFC calls, normally through middleware." },
-  { name: "SAP S/4HANA", body: "Mainly OData and REST APIs, in the cloud or on premise. IDocs and BAPIs are still available." },
-  { name: "SAP Business One", body: "The Service Layer (REST and OData) or the older DI API. Third-party connectors exist." },
-  {
-    name: "Middleware",
-    body: "SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's; MuleSoft is Salesforce's, sold separately. Either earns its licence when many systems or heavy transformation are involved.",
-  },
+/* The four steps of an integration project (the ef1a8f0 process, stations for FIG. 2). Desktop labels are centred on
+   the 1200-unit rail; keep each title under ~30 characters. */
+const INT_STAGES: Stage[] = [
+  { k: "s1", num: "01", title: "Free one-week health check", sub: "inside your org, read-only", line: "We start inside your org: what syncs today, what fails without telling anyone, and which integration users hold more access than the job needs.",
+    details: ["A read-only user you create", "Integrations: syncs that fail without telling anyone", "Integration users holding more access than the job needs", "A written list ranked by what to fix first"] },
+  { k: "s2", num: "02", title: "The five decisions, written down", sub: "ownership · timing · failures", line: "Ownership, copy or view, timing, failure handling and the integration user, agreed with you and recorded before anyone builds.",
+    details: ["Which system owns each object and each field", "Copy into Salesforce, or view in place", "Real time, scheduled batches, or on demand", "What happens to a failed record, and who is told", "Which integration user runs it, with only the permissions it needs"] },
+  { k: "s3", num: "03", title: "Build for the record that fails", short: "Build for the failed record", sub: "API-only user · API allocation", line: "Its own API-only integration user, sized against your org's API allocation and designed for the record that fails, because one always does.",
+    details: ["Its own API-only integration user", "Sized against your org's rolling 24-hour API allocation", "The lightest route that holds up", "A failure path for every record"] },
+  { k: "s4", num: "04", title: "After go-live", sub: "log · reruns · support", line: "A named person reads the failure log and reruns what failed; after go-live, that can be us, through managed services.",
+    details: ["A failure log a named person reads", "Reruns for every failed record", "Field changes on the other system noticed", "Weekly administration and development, through managed services"] },
 ];
 
-/* Row keys = lane keys in scripts/plates/integration.mjs (INT-3 typical pattern). */
-const MAPPING = [
-  { k: "bp", cells: ["Business Partner (customer)", "Account and Contact", "SAP", "SAP to Salesforce", "Scheduled"] },
-  { k: "mat", cells: ["Material", "Product", "SAP", "SAP to Salesforce", "Scheduled"] },
-  { k: "price", cells: ["Pricing conditions", "Price Book entries", "SAP", "SAP to Salesforce", "Scheduled"] },
-  {
-    k: "order",
-    cells: ["Sales Order", "Won Opportunity or Quote", "SAP owns the order; Salesforce owns the deal", "Salesforce to SAP, status back", "On change"],
-  },
-  {
-    k: "inv",
-    cells: ["Invoice and credit status", "Status shown on the Account", "SAP", "Read-only in Salesforce", "Live with Salesforce Connect, or nightly"],
-  },
-  { k: "fail", cells: ["A record that fails to move", "Failure log entry", "The integration's named owner", "Written by the sync", "Read by a named person"] },
+/* The four routes (spec §5.4 row 4), with Salesforce's own pattern names (Architects guide, read SF_VERIFIED_LABEL).
+   Examples and moving parts are ours, from the ef1a8f0 patterns table. */
+const ROUTES: { route: string; when: string; adds: string; pattern: string }[] = [
+  { route: "Real-time API calls", when: "A user needs an answer from the other system before moving on, such as a credit check; or the other system writes to Salesforce itself.", adds: "The other system's API has to answer while the user waits.", pattern: "Request and Reply · Remote Call-In" },
+  { route: "Scheduled batch loads", when: "Large volumes on a schedule, such as customers, products and prices every night.", adds: "A scheduler and a Bulk API job.", pattern: "Batch Data Synchronization" },
+  { route: "Platform events", when: "Salesforce starts work elsewhere and does not wait, such as a won deal becoming an order.", adds: "An event channel and a subscriber.", pattern: "Fire and Forget · UI Update Based on Data Changes" },
+  { route: "Middleware", when: "Many systems, or heavy transformation between them.", adds: "A middleware license, and its runtime to run and watch.", pattern: "Batch Data Synchronization, run by MuleSoft or SAP Integration Suite" },
 ];
 
-const DECISIONS = [
-  { t: "Which system owns each object and each field", b: "Agreed field by field, so the two systems never overwrite each other." },
-  { t: "Copy into Salesforce, or view in place", b: "Data Salesforce never edits can stay where it is and show through Salesforce Connect." },
-  {
-    t: "Real time, scheduled batches, or on demand",
-    b: "A nightly batch is simple, cheap and easy to rerun. Real time earns its extra moving parts only when someone is waiting on the answer.",
-  },
-  { t: "What happens to a failed record, and who is told", b: "Every failure writes somewhere a person will see it. A silent failure is the expensive kind." },
-  {
-    t: "Which integration user runs it, with only the permissions it needs",
-    b: "Its own API-only user with access to the objects and fields the job needs, so a leaked credential cannot read the whole org.",
-  },
+/* The typical SAP and Salesforce pattern (ef1a8f0 mapping table). Standard object names; not a client build. */
+const MAPPING: string[][] = [
+  ["Business Partner (customer)", "Account and Contact", "SAP", "SAP to Salesforce", "Scheduled"],
+  ["Material", "Product", "SAP", "SAP to Salesforce", "Scheduled"],
+  ["Pricing conditions", "Price Book entries", "SAP", "SAP to Salesforce", "Scheduled"],
+  ["Sales Order", "Won Opportunity or Quote", "SAP owns the order; Salesforce owns the deal", "Salesforce to SAP, status back", "On change"],
+  ["Invoice and credit status", "Status shown on the Account", "SAP", "Read-only in Salesforce", "Live with Salesforce Connect, or nightly"],
+  ["A record that fails to move", "Failure log entry", "The integration's named owner", "Written by the sync", "Read by a named person"],
 ];
+const MAPPING_HEAD = ["SAP record", "Salesforce record", "Usual owner", "Direction", "Typical timing"];
 
-/* Salesforce's official pattern names (INT-9), each linked to its section of the
-   Architects guide (anchors read 2026-10-23). Row keys = routes in Fig. 2. */
-const PATTERNS: { k?: string; name: string; anchor: string; when: string; how: string; parts: string }[] = [
-  {
-    name: "Remote Process Invocation—Request and Reply",
-    anchor: "remote-process-invocation--request-and-reply",
-    when: "A user in Salesforce needs an answer from the other system before moving on, such as a credit check.",
-    how: "A callout from Flow or Apex to the other system's API",
-    parts: "The other system's API has to answer while the user waits",
-  },
-  {
-    k: "events",
-    name: "Remote Process Invocation—Fire and Forget",
-    anchor: "remote-process-invocation--fire-and-forget",
-    when: "Salesforce starts work elsewhere and does not wait, such as a won deal becoming an order.",
-    how: "Platform Events or Change Data Capture",
-    parts: "An event channel and a subscriber",
-  },
-  {
-    k: "bulk",
-    name: "Batch Data Synchronization",
-    anchor: "batch-data-synchronization",
-    when: "Large volumes on a schedule, such as customers, products and prices every night.",
-    how: "The Bulk API, run by a scheduled job or by middleware such as MuleSoft or SAP Integration Suite",
-    parts: "A scheduler and a bulk job",
-  },
-  {
-    name: "Remote Call-In",
-    anchor: "remote-call-in",
-    when: "The other system creates or updates Salesforce records itself.",
-    how: "Salesforce's REST, Composite or Bulk API 2.0, called by the other system",
-    parts: "The caller's code and its integration user",
-  },
-  {
-    k: "events",
-    name: "UI Update Based on Data Changes",
-    anchor: "ui-update-based-on-data-changes",
-    when: "A Salesforce screen has to refresh when data changes, without a reload.",
-    how: "Change Data Capture or Platform Events, read by a Lightning component",
-    parts: "An event channel and a component",
-  },
-  {
-    k: "connect",
-    name: "Data Virtualization",
-    anchor: "data-virtualization",
-    when: "Salesforce shows data that stays in the other system, such as invoices.",
-    how: "Salesforce Connect",
-    parts: "An OData or custom adapter",
-  },
-];
+/* Page-local styles (requested for the kit in build-v2/requests-integration.md): the visible table (the kit has no
+   visible-table class yet; stacks into labelled rows below 768px, explicit ARIA roles keep table semantics when display
+   changes) and a wrap for the long source addresses in this page's SourcesDialog (they widened it past 390px). */
+const TABLE_CSS = `
+.sfv2 .sf-int-table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.45;color:var(--ink2)}
+.sfv2 .sf-int-table th,.sfv2 .sf-int-table td{text-align:left;vertical-align:top;padding:16px 16px 16px 0;border-top:1px solid var(--hair-s)}
+.sfv2 .sf-int-table th:first-child{padding-left:8px}
+.sfv2 .sf-int-table thead th{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-top:0;padding-top:0;padding-bottom:10px}
+.sfv2 .sf-int-table tbody th{font:700 19px/1.25 var(--display);letter-spacing:-.01em;color:var(--ink)}
+.sfv2 .sf-int-table td.sf-int-pat{font:500 13px/1.5 var(--mono);letter-spacing:.02em;color:var(--ink3)}
+.sfv2 .sf-int-table tbody tr:last-child th,.sfv2 .sf-int-table tbody tr:last-child td{border-bottom:1px solid var(--hair-s)}
+.sfv2 .sf-int-table tbody tr{transition:background-color .15s}
+@media (hover:hover){.sfv2 .sf-int-table tbody tr:hover{background:var(--tint)}}
+.sfv2 .sf-int-sm{font-size:15px}
+.sfv2 .sf-int-sm th:first-child{padding-left:0}
+.sfv2 .sf-int-sm tbody th{font:600 15px/1.4 var(--body)}
+.sfv2 .sf-int-sm th,.sfv2 .sf-int-sm td{padding:10px 12px 10px 0}
+@media (max-width:767px){
+.sfv2 .sf-int-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sfv2 .sf-int-table,.sfv2 .sf-int-table tbody,.sfv2 .sf-int-table tr,.sfv2 .sf-int-table th,.sfv2 .sf-int-table td{display:block}
+.sfv2 .sf-int-table tbody tr{border-top:1px solid var(--hair-s);padding:14px 0}
+.sfv2 .sf-int-table tbody tr:last-child{border-bottom:1px solid var(--hair-s)}
+.sfv2 .sf-int-table th,.sfv2 .sf-int-table td,.sfv2 .sf-int-table th:first-child,.sfv2 .sf-int-table tbody tr:last-child th,.sfv2 .sf-int-table tbody tr:last-child td{border:0;padding:4px 0}
+.sfv2 .sf-int-table td[data-label]::before{content:attr(data-label);display:block;font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
+}
+.sfv2 #ev-int-sources .sf-ev-sources .sf-mono{overflow-wrap:anywhere}`;
 
-const STEPS = [
-  {
-    title: "Free one-week health check",
-    to: HC,
-    body: "We start inside your org: what syncs today, what fails without telling anyone, and which integration users hold more access than the job needs.",
-  },
-  {
-    title: "The five decisions, written down",
-    body: "Ownership, copy or view, timing, failure handling and the integration user, agreed with you and recorded before anyone builds.",
-  },
-  {
-    title: "Build as a least-access user",
-    body: "Its own API-only integration user, sized against your org's API allocation and designed for the record that fails, because one always does.",
-  },
-  {
-    title: "Go live with a failure log",
-    to: "/services/salesforce-managed-services",
-    body: "A named person reads the log, reruns what failed and notices when the other system changes a field. After go-live, that can be us, through managed services.",
-  },
-];
+function DataTable({ id, label, head, rows, small }: { id: string; label: string; head: string[]; rows: React.ReactNode[][]; small?: boolean }) {
+  return (
+    <table className={`sf-int-table${small ? " sf-int-sm" : ""}`} role="table" aria-label={label} id={id}>
+      <thead role="rowgroup">
+        <tr role="row">{head.map((h) => <th key={h} scope="col" role="columnheader">{h}</th>)}</tr>
+      </thead>
+      <tbody role="rowgroup">
+        {rows.map((r, i) => (
+          <tr key={i} role="row">
+            <th scope="row" role="rowheader">{r[0]}</th>
+            {r.slice(1).map((c, j) => (
+              <td key={j} role="cell" data-label={head[j + 1]} className={small || j < head.length - 2 ? undefined : "sf-int-pat"}>{c}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
 
-/* Not in FAQPage schema; none repeats a FAQ question below. "Do we need
-   MuleSoft?" adds no capability claim: existing wording plus "we say so". */
-const OBJECTIONS = [
-  {
-    q: "Do we need MuleSoft?",
-    a: "Not by default. Many integrations run on Salesforce's own APIs and a scheduled job. Middleware earns its licence when many systems or heavy transformation are involved, and we tell you which side of that line you are on before you buy anything.",
-  },
-  SF_OBJECTIONS.pitch,
-  SF_OBJECTIONS.cost,
-  SF_OBJECTIONS.city,
-];
-
-/* Buyer questions: questions/questions-by-page.md (Integration). ⛔ Not
-   repeated on sibling pages; the Dallas copy owns "How long does a
-   Salesforce-to-ERP integration take?", so the cost question stays on cost. */
-const FAQS: SfFaq[] = [
+/* FAQ: the integration question bank (questions/questions-by-page.md, 13 questions; "Can Salesforce integrate with
+   SAP?" stays EXACT). One owner page per question across the 23 pages. Moved into the body, so not repeated here:
+   the SAP-versions question (→ "SAP: which SAP you run changes the route") and the marketing-automation question
+   (→ the marketing automation H2). The array renders AND feeds FAQPage schema. */
+const FAQS: SfFaqItem[] = [
   {
     q: "Can Salesforce integrate with SAP?",
     a: "Yes. Salesforce exposes standard APIs, and SAP systems connect to them through middleware, through scheduled API jobs, or by viewing SAP data from Salesforce without copying it, using Salesforce Connect. Which route fits depends on your SAP version, how fresh the data has to be, and whether Salesforce ever writes back. We have built an SAP-to-Salesforce sync and bring that experience to the trade-offs.",
   },
   {
-    q: "Does it matter whether we run SAP ECC, S/4HANA or Business One?",
-    a: "Yes, because the interfaces differ. ECC is usually reached through IDocs, BAPIs or RFC calls, normally through middleware. S/4HANA mainly offers OData and REST APIs, in the cloud or on premise, and still supports IDocs and BAPIs. Business One has the Service Layer (REST and OData) and the older DI API. The version shapes the route; the ownership and failure rules stay the same.",
-    link: { to: "#sap", label: "Which SAP you run changes the route" },
-  },
-  {
     q: "What data usually moves between SAP and Salesforce?",
     a: "In the usual pattern, customers (Business Partners), products (Materials) and prices move from SAP into Salesforce on a schedule. Won deals create sales orders in SAP, with order status sent back. Invoice and credit status stays in SAP and shows read-only in Salesforce. Your own list depends on what reps need to see and what finance needs to own.",
-    link: { to: `#fig-${FLOW.id}`, label: "See the typical pattern (Fig. 1)" },
+    more: (
+      <>
+        <DataTable id="int-mapping" small label="What usually moves between SAP and Salesforce (typical pattern)" head={MAPPING_HEAD} rows={MAPPING} />
+        <p className="sf-mono">Typical pattern using SAP's and Salesforce's standard object names. Not the objects of a specific client build.</p>
+      </>
+    ),
   },
   {
     q: "Can SAP and Salesforce sync in real time?",
@@ -280,34 +165,30 @@ const FAQS: SfFaq[] = [
   {
     q: "Is a Salesforce integration secure?",
     a: "It is when it runs as its own API-only integration user with access to only the objects and fields it needs, so a leaked credential cannot read the whole org. Every failure writes somewhere a person will see it, so a broken sync cannot hide.",
+    link: { to: "#practices", label: "Salesforce integration best practices" },
   },
   {
-    q: "What is a Salesforce Integration user licence?",
-    a: "A Salesforce licence for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce includes a limited number of these licences with supported editions; Setup > Company Information shows how many your org has. We run each integration as its own user.",
+    q: "What is a Salesforce Integration user license?",
+    a: "A Salesforce license for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce includes a limited number of these licenses with supported editions; Setup > Company Information shows how many your org has. We run each integration as its own user.",
   },
   {
     q: "Can you fix an integration that already exists?",
     a: "Yes. Integrations are one of the five areas the free one-week health check covers: what syncs, what fails without telling anyone, and which integration users hold more access than the job needs. You get a written list ranked by what to fix first.",
-    link: { to: HC, label: "What the free health check covers" },
+    link: { to: HC, label: "Free one-week Salesforce health check" },
   },
   {
     q: "Is Salesforce a CRM or an ERP?",
     a: "A CRM and application platform. Salesforce runs sales, service and marketing; finance, inventory and production usually stay in an ERP such as SAP. That split is why integration matters: customers and deals live in Salesforce, orders and invoices in the ERP, and each record needs one agreed owner.",
   },
   {
-    q: "Can you connect Salesforce to a marketing automation tool?",
-    a: "Yes. Marketing Cloud links to Salesforce through Marketing Cloud Connect, Salesforce's own connector, and we support Marketing Cloud accounts that are already running, the Connect sync included. Other marketing tools connect through their own Salesforce connector or the APIs, under the same rules: which system owns each field, how often it syncs, and who reads the failures.",
-    link: { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud consulting" },
-  },
-  {
     q: "How much does a Salesforce integration cost?",
-    a: "It depends on the number of objects, one-way or two-way, real time or batch, any middleware licence, and your SAP version. Published guides put a single integration at $5,000 to $75,000 or more (BrainSpate). The cost guide sets that next to the other parts of a Salesforce budget.",
+    a: "It depends on the number of objects, one-way or two-way, real time or batch, any middleware license, and your SAP version. Published guides put a single integration at $5,000 to $75,000 or more (BrainSpate). The cost guide sets that next to the other parts of a Salesforce budget.",
     link: { to: COST, label: "Salesforce implementation cost guide" },
   },
   {
     q: "What are the different types of Salesforce integration, and which tools do they use?",
-    a: "Salesforce's architects name six patterns: Request and Reply, Fire and Forget, Batch Data Synchronization, Remote Call-In, UI Update Based on Data Changes and Data Virtualization. In practice they run on four routes: Salesforce's APIs (the Bulk API for volume), Platform Events and Change Data Capture, Salesforce Connect, and middleware. The best tool is the lightest one that holds up.",
-    link: { to: "#routes", label: "The routes compared" },
+    a: "Salesforce's architects name six patterns: Request and Reply, Fire and Forget, Batch Data Synchronization, Remote Call-In, UI Update Based on Data Changes and Data Virtualization. In practice they run on Salesforce's APIs (the Bulk API for volume), Platform Events and Change Data Capture, Salesforce Connect, and middleware. The best tool is the lightest one that holds up.",
+    link: { to: "#patterns", label: "The routes compared" },
   },
   {
     q: "Does Salesforce integrate with NetSuite?",
@@ -327,53 +208,44 @@ const FAQS: SfFaq[] = [
   },
 ];
 
-const TOC = [
-  { id: "problems", label: "Four problems" },
-  { id: "sap", label: "SAP routes" },
-  { id: "decisions", label: "Five decisions" },
-  { id: "routes", label: "Integration routes" },
-  { id: "process", label: "How it runs" },
-  { id: "delivered", label: "Delivered work" },
-  { id: "faq", label: "Questions" },
-  { id: "start", label: "Start" },
+/* Objection questions (H3) with the answers in Go deeper. None repeats a FAQ question. The travel line follows the
+   owner's 2026-10-23 wording (answer 3): most work is remote; in person when the project calls for it. */
+const CONCERNS: { q: string; a: React.ReactNode }[] = [
+  { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your org stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
+  { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first. <Link className="sf-link" to={COST}>What Salesforce work costs</Link></> },
+  {
+    q: "You are not in our city.",
+    a: (
+      <>
+        We work from Malvern, PA, and most of the work happens inside your org, remotely; in-person sessions happen when the project calls for them, easiest across the Philadelphia region.
+        <span className="sf-links" style={{ marginTop: 8 }}>
+          <Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultants for Philadelphia companies</Link>
+          <Link className="sf-link" to="/services/salesforce-consultant-dallas">Salesforce consultants in Dallas</Link>
+        </span>
+      </>
+    ),
+  },
 ];
 
-const mono = "font-mono text-[11px] uppercase tracking-[0.14em]";
-
-/** Hero panel: the two proofs that matter on THIS page, beside the CTA pair.
- *  The registry figures sit under the CTA pair (CTAProof), so they are not repeated here. */
-function HeroRecord() {
-  return (
-    <dl className="space-y-6">
-      <div>
-        <dt className={`${mono} text-oa-nightInk3`}>Delivered</dt>
-        <dd className="mt-1.5 text-lg font-semibold text-oa-nightInk">An SAP-to-Salesforce sync</dd>
-      </div>
-      <div className="border-t border-white/10 pt-5">
-        <dt className={`${mono} text-oa-nightInk3`}>Who leads the work</dt>
-        <dd>
-          <PeopleStrip tone="night" className="mt-1.5 text-sm leading-relaxed text-oa-nightInk2" />
-        </dd>
-      </div>
-    </dl>
-  );
-}
+const SourcesChip = () => <Verify id={SOURCES_ID}>Sources</Verify>;
 
 export default function SalesforceIntegration() {
   useSEO({
     title: TITLE,
     description: DESCRIPTION,
-    canonical: getCanonicalUrl("/services/salesforce-integration"),
+    canonical: getCanonicalUrl(PAGE_PATH),
     ogTitle: "Salesforce Integration Services: SAP & ERP",
     ogDescription:
       "We keep SAP, ERP and finance systems in sync with Salesforce, with ownership and failure rules agreed before anything is built. Free one-week health check.",
-    ogUrl: getCanonicalUrl("/services/salesforce-integration"),
-    ogImage: OG,
+    ogUrl: getCanonicalUrl(PAGE_PATH),
+    ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
-    ogImageAlt: FLOW.alt,
+    ogImageAlt: OG_ALT,
     twitterTitle: "Salesforce Integration Services: SAP & ERP",
     twitterDescription: DESCRIPTION,
-    twitterImage: OG,
+    twitterImage: OG_IMAGE,
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
   return (
@@ -381,266 +253,359 @@ export default function SalesforceIntegration() {
       <StructuredData
         data={createServiceSchema(
           "Salesforce Integration with SAP and ERP Systems",
-          "Integration of Salesforce with SAP, ERP and finance systems: record ownership agreed field by field, scheduled and event-driven syncs, viewing external data with Salesforce Connect, least-access integration users, and failure logs a named person reads. Delivered by a listed AppExchange Consulting Partner based in Malvern, Pennsylvania.",
+          "Integration of Salesforce with SAP, ERP, finance and marketing automation systems: record ownership agreed field by field, scheduled and event-driven syncs, viewing external data with Salesforce Connect, least-access integration users, and failure logs a named person reads. Delivered by a listed AppExchange Consulting Partner based in Malvern, Pennsylvania.",
           "Salesforce integration",
-          URL_,
-          { image: IMG_16x9, offers: SF_HEALTH_CHECK_OFFER },
+          PAGE_URL,
+          { image: OG_IMAGE, offers: SF_HEALTH_CHECK_OFFER },
         )}
       />
-      <StructuredData
-        data={createWebPageSchema(TITLE, DESCRIPTION, URL_, {
-          dateModified: "2026-10-23",
-          primaryImage: { url: IMG_16x9, width: 1600, height: 900 },
-        })}
-      />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: PAGE_UPDATED, primaryImage: { url: OG_IMAGE, width: 1200, height: 630 } })} />
       <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
-      <StructuredData data={createFAQSchema(FAQS)} />
 
-      <PageHero
-        title={
-          <>
-            Salesforce integration services for <span className="text-oa-orange">SAP and your ERP</span>
-          </>
-        }
-        lede="Your customers live in Salesforce and your orders live somewhere else. We connect the two so reps see the truth, and so a failed sync gets noticed the same day."
-        panel={{ title: "Our record on integration", items: [], slot: <HeroRecord /> }}
-        primary={{ label: "Tell us which two systems need to talk", href: "#start", cta: "hero" }}
-        secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711", cta: "hero" }}
-        meta={[{ label: "Updated", value: "23 October 2026" }]}
-        siblings={false}
-      >
-        <HcLink />
-        <CTAProof tone="dark" className="mt-6" />
-      </PageHero>
-
-      <AnswerBand
-        question="What are Salesforce integration services?"
-        answer="Salesforce integration services connect Salesforce to the other systems a business runs, such as SAP and other ERPs, finance and e-commerce, using Salesforce's APIs, Platform Events, Salesforce Connect or middleware, so each record has one agreed owner and changes move on a schedule you choose."
-        leads={[
-          {
-            label: "Why it matters",
-            body: "Reps who cannot see orders, prices or invoice status in Salesforce ring finance, or work from a copy that is out of date.",
-          },
-          {
-            label: "What we do",
-            body: "We agree which system owns each record, build the lightest route that holds up, and give every failed record a log a named person reads.",
-          },
-          {
-            label: "What it costs",
-            body: (
-              <>
-                It turns on how many objects move, which direction, how often, and any middleware licence; the{" "}
-                <Link className="oa-link" to={COST}>
-                  cost guide
-                </Link>{" "}
-                cites published ranges. The{" "}
-                <Link className="oa-link" to={HC}>
-                  free one-week health check
-                </Link>{" "}
-                reviews the integrations you already run.
-              </>
-            ),
-          },
-        ]}
-        toc={TOC}
-      >
-        <RecordLine />
-      </AnswerBand>
-
-      <Section tone="surface" bordered id="problems">
-        <SectionHeading
-          title="Four integration problems we solve"
-          lede="The systems differ. The question underneath is always which one is telling the truth, and we settle it before anything is built."
+      <SfPage crumbs={[{ label: "Salesforce", to: HUB }, { label: "Integration" }]}>
+        {/* 1 HERO. H1 = the LCP; FIG. 1 (the SAP ↔ Salesforce order sync, sample data) is dealt by CSS 250ms after first paint. */}
+        <SFHero
+          kicker={<>Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
+          title="Salesforce integration services for SAP and your ERP"
+          lede="We connect Salesforce to SAP, other ERPs and finance systems for US companies, starting with a free one-week health check of what syncs today."
+          proof
+          figure={<SapSync fig={1} hero className="sf-hero-fig" />}
         />
-        <CardGrid columns={4} className="mt-12">
-          {PROBLEMS.map((c) => (
-            <Card key={c.title} wire to={c.to} icon={c.icon} title={c.title} body={c.body} />
-          ))}
-        </CardGrid>
-      </Section>
 
-      <Section tone="paper" clip id="sap">
-        <PlateScope>
-          <SectionHeading
-            title="Which SAP you run changes the route"
-            lede="We keep SAP and Salesforce in sync. In the usual pattern, customers, products and prices move into Salesforce on a schedule, won deals become sales orders in SAP, and every failed record lands in a log a named person reads."
-          />
-          <div className="mt-12 grid grid-cols-1 gap-x-10 border-b border-oa-hairlineStrong sm:grid-cols-2 xl:grid-cols-4">
-            {SAP_VERSIONS.map((v) => (
-              <div key={v.name} className="border-t border-oa-hairlineStrong py-6">
-                <h3 className="text-lg font-semibold text-oa-ink">{v.name}</h3>
-                <p className="mt-2 text-oa-ink2">{v.body}</p>
+        {/* 2 THE ANSWER UNITS, two abreast: what the service is (spec row 1) and the two ways data moves (row 5). */}
+        <SmartSection id="what" tone="surface" grid labelledBy="h-what">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-what"
+            title="What are Salesforce integration services?"
+            lede="Salesforce integration services connect Salesforce to your ERP, finance and marketing systems so each record has one owner and moves on a known schedule."
+            lead="Reps who cannot see orders, prices or invoice status in Salesforce ring finance, or work from a copy that is out of date."
+            points={[
+              "Which system owns each record, agreed field by field before anyone builds",
+              "The lightest route that holds up: API, batch, events or middleware",
+              "A failure log for every failed record, read by a named person",
+            ]}
+          >
+            <GoDeeper label="the full definition, what we do and what it costs">
+              <p className="sf-rule">
+                Salesforce integration services connect Salesforce to the other systems a business runs, such as SAP and other ERPs, finance and e-commerce, using Salesforce's APIs, Platform Events, Salesforce Connect or middleware, so each record has one agreed owner and changes move on a schedule you choose.
+              </p>
+              <p><span className="sf-lead-in">What we do:</span> We agree which system owns each record, build the lightest route that holds up, and give every failed record a log a named person reads.</p>
+              <p><span className="sf-lead-in">What it costs:</span> It turns on how many objects move, which direction, how often, and any middleware license. The cost guide cites published ranges; the free one-week health check reviews the integrations you already run.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
+                <Link className="sf-link" to={HUB}>Salesforce consulting services</Link>
               </div>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-col gap-2 lg:flex-row lg:items-baseline lg:gap-8">
-            <p className="text-lg font-semibold text-oa-ink">We have built an SAP-to-Salesforce sync.</p>
-            <p className={`${mono} text-oa-ink3`}>Delivered</p>
-          </div>
-          <p className="mt-3 max-w-[34em] text-oa-ink2">
-            Tell us your SAP version and what reps need to see, and we will tell you which route we would look at first.
-          </p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            className="sf-c5"
+            delay={0.08}
+            headingId="h-data"
+            id="data"
+            title="Salesforce data integration, ETL and Salesforce Connect"
+            lede="Data integration either copies records into Salesforce on a schedule or shows them in place through Salesforce Connect."
+            lead="Invoices, payment status and credit holds belong in the finance system, but reps need to see them."
+            points={[
+              "Scheduled loads on the Bulk API for customers, products and prices",
+              "Salesforce Connect for data that changes often and Salesforce never edits",
+            ]}
+          >
+            <GoDeeper label="copy into Salesforce or view in place">
+              <h3>Copy into Salesforce, or view in place</h3>
+              <p className="sf-rule">
+                Data Salesforce never edits can stay where it is and show through Salesforce Connect, which displays external data inside Salesforce without copying it: reps get a read-only view, not a second copy anyone can edit. Large scheduled loads run on the Bulk API; a nightly batch is simple, cheap and easy to rerun.
+              </p>
+              <p>Moving off the old system rather than keeping it? That is a data migration, which is simpler.</p>
+              <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+                Salesforce Help and Salesforce Developers, read October 2026 · <SourcesChip />
+              </p>
+              <div className="sf-links"><Link className="sf-link" to={DM}>Salesforce data migration services</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-          <div className="mt-14">
-            <Plate
-              spec={FLOW}
-              fig={1}
-              first
-              stamp={["DIAGRAM · TYPICAL SAP-TO-SALESFORCE PATTERN, ILLUSTRATIVE", "ONEALGORITHM"]}
-              caption="A typical SAP and Salesforce data flow. Hover or tap a row in the table below to trace its lane."
-            />
-          </div>
-          <h3 className="mt-14 text-h3 font-semibold text-oa-ink">What usually moves between SAP and Salesforce (typical pattern)</h3>
-          <div className="mt-6">
-            <DataTable
-              label="What usually moves between SAP and Salesforce (typical pattern)"
-              head={["SAP record", "Salesforce record", "Usual owner", "Direction", "Typical timing"]}
-              rows={MAPPING}
-              source="Typical pattern using SAP's and Salesforce's standard object names. Not the objects of a specific client build."
-            />
-          </div>
-        </PlateScope>
-      </Section>
-
-      <Section tone="surface" bordered id="decisions">
-        <SectionHeading
-          title="Five decisions we make with you first"
-          lede="Most failed integrations were built correctly against a decision nobody actually made. We write these five down with you before anyone builds."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <ol className="border-b border-oa-hairlineStrong">
-            {DECISIONS.map((d, i) => (
-              <li key={d.t} className="grid grid-cols-[2.5rem_minmax(0,1fr)] border-t border-oa-hairlineStrong py-5">
-                <span className="font-mono text-sm tabular-nums text-oa-orangeText">{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3 className="text-lg font-semibold text-oa-ink">{d.t}</h3>
-                  <p className="mt-1.5 max-w-[34em] text-oa-ink2">{d.b}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <div className="lg:self-end">
-            <DocNote
-              said="Salesforce sells an Integration user licence for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Supported editions include a limited number of these licences."
-              title={SRC.user.label}
-              url={SRC.user.href}
-              readOn={SF_VERIFIED_LABEL}
-              meaning="Each integration can run as its own least-access user, often without buying another licence, so a leaked credential cannot read the whole org."
-            />
-          </div>
-        </div>
-      </Section>
-
-      <MidStrip
-        line="Name the two systems, the direction the data should go, and what breaks today."
-        label="Tell us which two systems need to talk"
-      />
-
-      <Section tone="paper" clip id="routes">
-        <PlateScope>
-          <SectionHeading
-            title="The lightest route that holds up"
-            lede="Salesforce gives you several ways to connect a system, and they are not interchangeable. We pick the one with the fewest moving parts that still meets the timing you need."
+        {/* 3 NIGHT BAND: ERP and accounting (spec row 2), three H3 units abreast. SAP detail stays the general guidance (OD 11). */}
+        <SmartSection
+          id="erp"
+          tone="night"
+          grid
+          heading={{
+            id: "h-erp",
+            title: "Salesforce ERP and accounting integration",
+            lede: "We have built an SAP-to-Salesforce sync, and we connect other ERP and accounting systems the same way.",
+          }}
+        >
+          <SmartUnit
+            level={3}
+            className="sf-c4"
+            kicker="ECC · S/4HANA · Business One"
+            title="SAP: which SAP you run changes the route"
+            lede="ECC, S/4HANA and Business One expose different interfaces; the ownership and failure rules stay the same."
+            leadIn="What we do:"
+            lead="Tell us your SAP version and what reps need to see, and we tell you which route we would look at first."
+          >
+            <GoDeeper label="the SAP interfaces and the usual pattern">
+              <p className="sf-rule">In the usual pattern, customers, products and prices move into Salesforce on a schedule, won deals become sales orders in SAP with status sent back, and every failed record lands in a log a named person reads.</p>
+              <ul className="sf-points" style={{ marginTop: 0 }}>
+                <li><b>SAP ECC:</b> usually reached through IDocs, BAPIs or RFC calls, normally through middleware.</li>
+                <li><b>SAP S/4HANA:</b> mainly OData and REST APIs, in the cloud or on premise; IDocs and BAPIs are still available.</li>
+                <li><b>SAP Business One:</b> the Service Layer (REST and OData) or the older DI API; third-party connectors exist.</li>
+                <li><b>Middleware:</b> SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's; MuleSoft is Salesforce's, sold separately.</li>
+              </ul>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            level={3}
+            className="sf-c4"
+            delay={0.08}
+            kicker="Accounting and ERP"
+            title="NetSuite and QuickBooks"
+            lede="Both connect through APIs or AppExchange connectors; check what a connector syncs, which direction and how often before you buy."
+            leadIn="Yes, but:"
+            lead="Most problems we hear about come from assuming a connector does something it does not."
           />
-          <div className="mt-10 grid grid-cols-1 gap-x-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-            <Prose>
-              <p>
-                {ext(SRC.connect.href, "Salesforce Connect")} shows external data inside Salesforce without copying it,
-                which suits data that changes often and that Salesforce never edits.{" "}
-                {ext(SRC.events.href, "Platform Events")} let Salesforce announce a change for another system to pick
-                up. Large scheduled loads run on the {ext(SRC.bulk.href, "Bulk API")}. Where a managed runtime is worth
-                paying for, we scope and build on CloudHub; where it is not, we say so and keep the moving parts down.
-              </p>
-              <p>
-                Scheduling matters more than people expect. A nightly batch is simple, cheap and easy to rerun, and for
-                most finance data it is enough. Real-time syncs earn their extra moving parts only when a rep or a
-                customer is actually waiting on the answer.
-              </p>
-              <p>
-                Moving off the old system rather than keeping it? That is a{" "}
-                <Link className="oa-link" to="/services/salesforce-data-migration">
-                  data migration
-                </Link>
-                , which is simpler.
-              </p>
-            </Prose>
-            <div className="lg:self-end">
-              <DocNote
-                said="Salesforce counts API requests across the whole org over a rolling 24 hours. The allowance comes from your edition and licences. Salesforce lets an org run somewhat over its allocation, then a hard cap blocks further calls; regular overage is not something to rely on."
-                title={SRC.limits.label}
-                url={SRC.limits.href}
-                readOn={SF_VERIFIED_LABEL}
-                meaning="A sync that polls every minute can starve your other tools. We size the route against your org's allocation before choosing it."
+          <SmartUnit
+            level={3}
+            className="sf-c4"
+            delay={0.16}
+            kicker="Oracle ERP · Microsoft"
+            title="Oracle and Dynamics 365"
+            lede="Oracle ERP and Microsoft Dynamics 365 get the same approach: agree which system owns customers, orders and invoices, then pick the lightest route."
+            leadIn="The bottom line:"
+            lead="The system shapes the route; ownership, timing and failure handling stay the same."
+          />
+        </SmartSection>
+
+        {/* 4 MARKETING AUTOMATION (spec row 3, the page's largest query cluster): three H3 units abreast. Approach only. */}
+        <SmartSection
+          id="marketing"
+          grid
+          heading={{
+            id: "h-marketing",
+            title: "Salesforce marketing automation integration: HubSpot, Mailchimp",
+            lede: "HubSpot, Mailchimp and Marketo connect to Salesforce through their own connectors or the APIs; the work is deciding which system owns each field.",
+          }}
+        >
+          <SmartUnit level={3} className="sf-c4" title="HubSpot" lede="HubSpot's own Salesforce integration is the usual start; the work is the field rules you set before switching it on."
+            points={["Which system owns each field", "Which records sync at all", "What happens to duplicates"]} />
+          <SmartUnit level={3} className="sf-c4" delay={0.08} title="Mailchimp and Marketo" lede="Both connect through their own Salesforce connector or the APIs, under the same rules as any integration."
+            points={["Which direction each field moves", "How often it syncs", "Who reads the failures"]} />
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Marketing Cloud" lede="Marketing Cloud links to Salesforce through Marketing Cloud Connect, Salesforce's own connector."
+            leadIn="What we do:" lead="We support Marketing Cloud accounts that are already running, the Connect sync included.">
+            <div className="sf-links" style={{ marginTop: 12 }}><Link className="sf-link" to={MC}>Salesforce Marketing Cloud consulting</Link></div>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 5 HOW IT RUNS: FIG. 2 (the scroll-drawn rail, no ledger) + four stage units wired to their stations. Spec row 7. */}
+        <SmartSection
+          id="how"
+          tone="surface"
+          heading={{
+            id: "h-how",
+            title: "How a Salesforce integration project runs",
+            lede: "An integration project runs in four steps, from a free look at your org to a sync someone owns.",
+          }}
+        >
+          <StageRail
+            fig={2}
+            stations={INT_STAGES}
+            className="sf-rail-top"
+            title="Staged diagram of a four-step Salesforce integration project"
+            desc="A rail runs through four stations: the free one-week health check, the five decisions written down, the build designed for the record that fails, and after go-live."
+            stamp="How an integration project runs"
+            caption="The four steps in the order they run, from a free look at your org to a sync someone owns."
+          />
+          <StageUnits items={INT_STAGES} />
+        </SmartSection>
+
+        {/* 6 PATTERNS: the routes table (visible: the table is the answer) + the middleware H3. Spec row 4. */}
+        <SmartSection
+          id="patterns"
+          grid
+          heading={{
+            id: "h-patterns",
+            title: "Salesforce integration patterns: API, batch, events, middleware",
+            lede: "There are four routes: real-time API calls, scheduled batch loads, platform events and middleware, and the lightest one that holds up wins.",
+          }}
+        >
+          <style dangerouslySetInnerHTML={{ __html: TABLE_CSS }} />
+          <LedgerRule className="sf-c8">
+            <p className="sf-kicker" id="int-routes-label">The four routes compared</p>
+            <div style={{ marginTop: 16 }}>
+              <DataTable
+                id="int-routes"
+                label="The four routes compared: when each fits, what it adds, and Salesforce's pattern name"
+                head={["Route", "When it fits", "What it adds", "Salesforce's pattern"]}
+                rows={ROUTES.map((r) => [r.route, r.when, r.adds, r.pattern])}
               />
             </div>
+            <p className="sf-mono" style={{ marginTop: 12, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              Pattern names: Salesforce Architects, read {SF_VERIFIED_LABEL}. Examples are ours · <SourcesChip />
+            </p>
+            <GoDeeper label="when each route fails, and the sixth pattern">
+              <p className="sf-rule">Real time earns its extra moving parts only when a rep or a customer is waiting on the answer. A nightly batch is simple, cheap and easy to rerun, and for most finance data it is enough.</p>
+              <p>Salesforce counts API requests across the whole org over a rolling 24 hours, and the allowance comes from your edition and licenses. It lets an org run somewhat over its allocation, then a hard cap blocks further calls; regular overage is not something to rely on. A sync that polls every minute can starve your other tools, so we size the route against your org's allocation before choosing it.</p>
+              <p>The sixth pattern, Data Virtualization, shows data that stays in the other system, such as invoices, through Salesforce Connect and an OData or custom adapter.</p>
+            </GoDeeper>
+          </LedgerRule>
+          <SmartUnit
+            level={3}
+            className="sf-c4"
+            delay={0.08}
+            kicker="Tools and platforms"
+            title="Middleware and MuleSoft"
+            lede="Many integrations run on Salesforce's own APIs and a scheduled job; middleware earns its license when many systems or heavy transformation are involved."
+            leadIn="What we do:"
+            lead="We tell you which side of that line you are on before you buy anything."
+          >
+            <GoDeeper label="MuleSoft, CloudHub and SAP Integration Suite">
+              <p className="sf-rule">Where a managed runtime is worth paying for, we scope and build on CloudHub; where it is not, we say so and keep the moving parts down.</p>
+              <p>MuleSoft is Salesforce's integration platform, sold separately; SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's. Either earns its license when many systems or heavy transformation are involved.</p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 7 BEST PRACTICES: three H3 units (spec row 6); the ef1a8f0 "five decisions" content sits in Go deeper. */}
+        <SmartSection
+          id="practices"
+          tone="surface"
+          grid
+          heading={{
+            id: "h-practices",
+            title: "Salesforce integration best practices",
+            lede: "Most failed integrations were built correctly against a decision nobody made, so we write five decisions down with you first.",
+          }}
+        >
+          <SmartUnit level={3} className="sf-c4" title="Decide which system owns each record" lede="Agreed field by field, so the two systems never overwrite each other.">
+            <GoDeeper label="two-way records, conflicts and timing">
+              <p className="sf-rule">When both systems can edit the same record, someone has to decide who wins a conflict. We write that rule down with you before building, because code only enforces a decision a person made.</p>
+              <p>Timing is part of the same decision: real time, scheduled batches, or on demand. Real time earns its extra moving parts only when someone is waiting on the answer.</p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c4" delay={0.08} title="Build as a least-access integration user" lede="Its own API-only user, with access to only the objects and fields the job needs, so a leaked credential cannot read the whole org.">
+            <GoDeeper label="the Salesforce Integration user license">
+              <p className="sf-rule">Salesforce sells an Integration user license for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Supported editions include a limited number of these licenses; Setup &gt; Company Information shows how many your org has.</p>
+              <p>Each integration can run as its own least-access user, often without buying another license.</p>
+              <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+                Salesforce Help, read {SF_VERIFIED_LABEL} · <SourcesChip />
+              </p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Go live with a failure log" lede="Every failure writes somewhere a person will see it; a silent failure is the expensive kind.">
+            <GoDeeper label="who reads the log and what they do">
+              <p className="sf-rule">A named person reads the log, reruns what failed and notices when the other system changes a field. The build is designed for the record that fails, because one always does.</p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 8 AFTER GO-LIVE (spec row 8, links MS) beside the quiet-failure unit (links HC). 7/5. */}
+        <SmartSection id="after" grid labelledBy="h-after">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-after"
+            title="Supporting a Salesforce integration after go-live"
+            lede="After go-live, someone has to read the failure log, rerun what failed and notice when the other system changes a field; that can be us."
+            lead="The other system changes a field, a record fails, and someone has to notice the same day."
+            points={["Weekly administration and development, with hours reported every week", "Failed records rerun by a named person"]}
+          >
+            <GoDeeper label="managed services after go-live">
+              <p className="sf-rule">After go-live, the person who reads the log can be us, through managed services: weekly administration and development, with hours reported every week.</p>
+              <div className="sf-links"><Link className="sf-link" to={MS}>Salesforce managed services</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            level={3}
+            className="sf-c5"
+            delay={0.08}
+            kicker="Already integrated"
+            title="The sync that broke quietly"
+            lede="The free one-week health check finds an integration that stopped months ago and told nobody."
+            leadIn="The bottom line:"
+            lead="Every day it is down, the two systems drift further apart."
+          >
+            <div className="sf-links" style={{ marginTop: 12 }}><Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link></div>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 9 THE PEOPLE AND THE RECORD (spec row 9): readouts, delivered work (the SAP sync is a row), who leads the work. */}
+        <SmartSection
+          id="record"
+          tone="surface"
+          heading={{
+            id: "h-record",
+            title: "Salesforce integration consultants who do the work",
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</>,
+          }}
+        >
+          <Readouts />
+          <div className="sf-grid" style={{ marginTop: 56 }}>
+            <SmartUnit
+              level={3}
+              className="sf-c7"
+              title="Salesforce work we have delivered"
+              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support."
+            >
+              <DeliveredLedger />
+            </SmartUnit>
+            <LedgerRule as="aside" className="sf-c5 sf-lead-block" delay={0.08} aria-labelledby="h-lead">
+              <h3 className="sf-h3" id="h-lead">Who leads your Salesforce work</h3>
+              <PersonCredentials />
+            </LedgerRule>
           </div>
+        </SmartSection>
 
-          <div className="mt-6">
-            <Plate
-              spec={ROUTES}
-              fig={2}
-              stamp={["DIAGRAM · FOUR WAYS TO CONNECT A SYSTEM TO SALESFORCE", "ONEALGORITHM"]}
-              caption="Each route drawn with the moving parts it adds. Rows in the table below light up the route they use."
-            />
-          </div>
-          <h3 className="mt-14 text-h3 font-semibold text-oa-ink">Salesforce's integration patterns, and the route each one uses</h3>
-          <div className="mt-6">
-            <DataTable
-              label="Salesforce's integration patterns, and the route each one uses"
-              head={["Pattern (Salesforce's name)", "When it fits", "Usual mechanism", "Moving parts"]}
-              rows={PATTERNS.map((p) => ({
-                k: p.k,
-                cells: [ext(`${ARCH}#${p.anchor}`, p.name), p.when, p.how, p.parts],
-              }))}
-              source={<>Pattern names from {SRC.patterns.label}, read {SF_VERIFIED_LABEL}. Examples and moving parts are ours.</>}
-            />
-          </div>
-        </PlateScope>
-      </Section>
+        {/* 10 CONCERNS: objection questions as H3, answers in Go deeper (spec row 11). */}
+        <SmartSection
+          id="concerns"
+          grid
+          heading={{
+            id: "h-concerns",
+            title: "Concerns before a Salesforce integration project",
+            lede: "Four questions buyers raise before the first call, each with the direct answer.",
+          }}
+        >
+          {CONCERNS.map((c, i) => (
+            <LedgerRule as="article" key={c.q} className="sf-c6" delay={i % 2 ? 0.08 : 0}>
+              <h3 className="sf-h3">{c.q}</h3>
+              <GoDeeper label={c.q} title="The answer">
+                <p className="sf-rule">{c.a}</p>
+              </GoDeeper>
+            </LedgerRule>
+          ))}
+        </SmartSection>
 
-      <Section tone="surface" bordered clip id="process">
-        <SectionHeading title="How an integration runs with us" lede="From a free look at your org to a sync someone owns." />
-        <div className="mt-12">
-          <ProcessSteps rail terminal={{ label: "Name your two systems" }} steps={STEPS} />
-        </div>
-      </Section>
-
-      <Section tone="paper" id="delivered">
-        <DeliveredLedger title="Salesforce work we have delivered" lead="sap" />
-      </Section>
-
-      <Section tone="surface" bordered id="objections">
-        <Objections items={OBJECTIONS} />
-      </Section>
-
-      <Section tone="paper" id="faq">
-        <SectionHeading title="Salesforce integration questions, answered" />
-        <FAQList
-          faqs={FAQS}
-          sources={{
-            checked: "October 2026",
-            links: [SRC.patterns, SRC.user, SRC.limits, SRC.connect, SRC.sapHub, SRC.b1, SRC.brainspate],
+        {/* 11 DESK: the one form (spec row 10). */}
+        <DeskCTA
+          lede="Name the two systems, the direction the data should go and what breaks today, and we tell you which route we would look at first."
+          form={{
+            topic: "integration",
+            topicLabel: "Salesforce integration",
+            heading: "Book a free health check",
+            prompt: "Which two systems, which direction, and what breaks today?",
+            submitLabel: "Book a free health check",
           }}
         />
-      </Section>
 
-      <Section tone="surface" bordered id="related">
-        <SectionHeading title="More Salesforce work we do" />
-        <RouteBoard groups={["services", "cities"]} citiesLabel="Where we deliver this" />
-      </Section>
-
-      <Desk
-        heading="Connect Salesforce to the system that holds your orders"
-        body="Name the two systems, say which direction the data should go, and tell us what breaks today. We will tell you which route we would look at first."
-        form={{
-          topic: "integration",
-          topicLabel: "Salesforce integration",
-          heading: "Tell us which two systems need to talk",
-          prompt: "Which two systems, which direction, and what breaks today?",
-          submitLabel: "Tell us which two systems need to talk",
-        }}
-        next={["Call or send the form.", "A person at OneAlgorithm reads it and replies.", "We tell you which route we would look at first."]}
-      />
+        {/* 12 FAQ: questions visible, answers in the HTML behind native disclosures (spec row 12). */}
+        <SmartSection id="faq" tone="surface" grid labelledBy="h-faq" className="sf-faq-section">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">Salesforce integration questions</h2>
+            <p style={{ marginTop: 12 }}>Not here? Call the office: <a className="sf-phone" href={SF_PHONE.href} data-cta="faq">{SF_PHONE.display}</a></p>
+            <p className="sf-mono" style={{ marginTop: 16 }}>Answers cite Salesforce, SAP and BrainSpate, read October 2026.</p>
+            <p style={{ marginTop: 8 }}><Verify id={SOURCES_ID}>Where these facts come from</Verify></p>
+          </div>
+          <div className="sf-c7 sf-faq-col">
+            <FAQ items={FAQS} />
+          </div>
+          <SourcesDialog
+            id={SOURCES_ID}
+            title="Where these facts come from"
+            intro="Salesforce and SAP facts on this page name their source and when a person at OneAlgorithm read it. The source pages are listed here; nothing in the page body links off-site."
+            sources={SOURCES}
+          />
+        </SmartSection>
+      </SfPage>
     </Layout>
   );
 }

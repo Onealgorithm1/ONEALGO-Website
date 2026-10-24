@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 689" width="1136" height="689" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
 <title>Published Salesforce implementation cost ranges, by company size</title>
-<desc>Range chart of published Salesforce implementation costs before licences, from four guides checked 23 October 2026. Small business: $10,000 to $50,000 (Cynoteck), $15,000 to $50,000 (BrainSpate, Groviya and American Chase). Mid-market: $75,000 to $250,000 (Cynoteck), $50,000 to $150,000 (BrainSpate and American Chase), $50,000 to $250,000 (Groviya). Enterprise: $150,000 to $500,000 or more (Cynoteck, BrainSpate and American Chase), $250,000 to $1,000,000 or more (Groviya). These are market figures, not OneAlgorithm prices.</desc>
+<desc>Range chart of published Salesforce implementation costs before licenses, from four guides checked 23 October 2026. Small business: $10,000 to $50,000 (Cynoteck), $15,000 to $50,000 (BrainSpate, Groviya and American Chase). Mid-market: $75,000 to $250,000 (Cynoteck), $50,000 to $150,000 (BrainSpate and American Chase), $50,000 to $250,000 (Groviya). Enterprise: $150,000 to $500,000 or more (Cynoteck, BrainSpate and American Chase), $250,000 to $1,000,000 or more (Groviya). These are market figures, not OneAlgorithm prices.</desc>
 <rect width="1136" height="689" fill="#ffffff"/>
 <rect x="335.7" y="107" width="614.7" height="8" fill="#005eaa" stroke="none" stroke-width="1" opacity="0.14"/>
 <rect x="332.7" y="108" width="6" height="6" fill="#5a6b7d" stroke="none" stroke-width="1"/>
@@ -67,7 +67,7 @@
 <path d="M912.6 590 L919.6 597 L912.6 604" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
 <path d="M292.6 629 L550.8 629" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
 <path d="M543.8 622 L550.8 629 L543.8 636" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
-<text x="32" y="36" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">MARKET RANGES BEFORE LICENCES · FOUR PUBLISHED GUIDES · NOT ONEALGORITHM PRICES</text>
+<text x="32" y="36" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#5a6b7d">MARKET RANGES BEFORE LICENSES · FOUR PUBLISHED GUIDES · NOT ONEALGORITHM PRICES</text>
 <text x="32" y="81" font-size="17" font-weight="600" fill="#0d1b2a">Small business</text>
 <text x="166" y="116.6" font-size="16" text-anchor="end" fill="#35485c">Cynoteck</text>
 <text x="964.3" y="115.9" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">$10,000–$50,000</text>

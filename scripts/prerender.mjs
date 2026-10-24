@@ -159,6 +159,15 @@ async function main() {
         }
       });
 
+      /* Salesforce redesign v2 (2026-10-23): the motion runtime (client/lib/sfMotion.ts)
+         does nothing when this flag is set, so the serialised DOM is exactly React's
+         render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
+         caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
+         state (rules drawn, figures final, numbers real); the client replays from it. */
+      if (route.startsWith("/services/salesforce") || route === "/contact") { // /contact is on the v2 kit too (2026-10-23)
+        await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
+      }
+
       await page.goto(`http://localhost:${port}${route}`, {
         waitUntil: "networkidle0",
         timeout: 30000,

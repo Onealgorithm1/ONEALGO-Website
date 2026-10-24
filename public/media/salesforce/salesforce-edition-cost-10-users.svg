@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1136 352" width="1136" height="352" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
 <title>Salesforce list price for 10 users a month</title>
-<desc>Bar chart of Salesforce list prices for 10 users a month, read from salesforce.com on 23 October 2026: Starter Suite $250, Pro Suite $1,000 ($1,250 with API access), Core $1,950, Advanced $3,950, Max $5,500; licences only, before setup.</desc>
+<desc>Bar chart of Salesforce list prices for 10 users a month, read from salesforce.com on 23 October 2026: Starter Suite $250, Pro Suite $1,000 ($1,250 with API access), Core $1,950, Advanced $3,950, Max $5,500; licenses only, before setup.</desc>
 <rect width="1136" height="352" fill="#ffffff"/>
 <path d="M300 64 L300 320" fill="none" stroke="#e3e8ef" stroke-width="1"/>
 <path d="M406.7 64 L406.7 320" fill="none" stroke="#e3e8ef" stroke-width="1"/>
@@ -26,7 +26,7 @@
 <path d="M300 192 L508 192" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
 <path d="M300 244 L721.3 244" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
 <path d="M300 296 L886.7 296" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
-<text x="32" y="36" font-size="16" fill="#35485c">Monthly list price for 10 users · licences only, before setup</text>
+<text x="32" y="36" font-size="16" fill="#35485c">Monthly list price for 10 users · licenses only, before setup</text>
 <text x="300" y="340" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$0</text>
 <text x="406.66666666666663" y="340" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$1,000</text>
 <text x="513.3333333333333" y="340" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" text-anchor="middle" fill="#5a6b7d">$2,000</text>

@@ -49,7 +49,8 @@ const check = (label, fn) => {
   }
 };
 
-/** Every frame container on the page, tagged by role, with its content edge. */
+/** Every frame container on the page, tagged by role, with its content edge. The v2 kit's frame is `.sf-wrap`
+ *  (client/styles/sf.css: 1440px, 1680px from 1536px), not a Tailwind max-w class (integrate step 2026-10-23). */
 const frames = () =>
   page.evaluate(() => {
     const role = (el) =>
@@ -58,7 +59,7 @@ const frames = () =>
       : el.closest("nav") ? "header"
       : el.closest("main") ? "main"
       : "other";
-    return [...document.querySelectorAll('[class*="max-w-[1200px]"],[class*="max-w-[1440px]"],[class*="max-w-[1680px]"]')]
+    return [...document.querySelectorAll('[class*="max-w-[1200px]"],[class*="max-w-[1440px]"],[class*="max-w-[1680px]"],.sfv2 .sf-wrap')]
       .filter((el) => el.getClientRects().length)
       .map((el) => {
         const r = el.getBoundingClientRect();

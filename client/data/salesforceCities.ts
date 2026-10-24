@@ -7,7 +7,9 @@
  * (BLS OEWS May 2025: 15-1211 computer systems analysts, 15-1252 software developers; a PROXY,
  * Salesforce roles have no SOC code) and `community` (Trailblazer Community Groups within 50 km
  * with an event since 2025-10-23; supersedes `groups` on the city template).
- * ⛔ Do not hand-edit numbers — re-run the generator. `api` = exact source query for audit.
+ * ⛔ Do not hand-edit numbers — re-run the generator. 2026-10-23 integrate: the `api` / `series` /
+ * `msa.source` query URLs were stripped from this client file (owner rule: no raw API/data URL ships to
+ * the browser); the exact queries stay in the facts folder. BLS links point at www.bls.gov/oes/.
  * 2026-10-23 fix round (FV-09): `wages.page` re-pointed from www.bls.gov/oes/2025/may/oes_<MSA>.htm
  * (redirects to the OEWS home page) to data.bls.gov/oes/#/area/00<MSA>/2025 by a URL-only replace;
  * free-data/bls-oews/pull.mjs now emits the same URL. The generator writes to the live repo, so it
@@ -20,90 +22,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-new-york",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM003562000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=New%20York%2C%20New%20York&distance=25"
   },
   "establishments": {
    "value": 562802,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 582021,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2018"
   },
   "size20to99": {
    "value": 54214,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2023"
   },
   "size100to499": {
    "value": 10499,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2023"
   },
   "size500plus": {
    "value": 1686,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 1545,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 65817,
-    "employees": 1804859,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+    "employees": 1804859
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 71000,
-    "employees": 796173,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+    "employees": 796173
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 25005,
-    "employees": 574814,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+    "employees": 574814
    },
    {
     "code": "42",
     "label": "wholesale trade",
     "establishments": 30739,
-    "employees": 410779,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=42&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+    "employees": 410779
    }
   ],
   "population": {
    "value": 19940274,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2024"
   },
   "population2019": {
    "value": 19216182,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 121000,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003562000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 166830,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003562000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -184,22 +172,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "35620",
-   "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620"
+   "name": "New York-Newark-Jersey City, NY-NJ Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0035620/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 128340,
-    "employment": 26540,
-    "series": "https://data.bls.gov/timeseries/OEUM003562000000015121113"
+    "employment": 26540
    },
    "developers": {
     "median": 166830,
-    "employment": 121000,
-    "series": "https://data.bls.gov/timeseries/OEUM003562000000015125213"
+    "employment": 121000
    }
   },
   "community": {
@@ -258,90 +243,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-washington-dc",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM004790000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Washington%2C%20District%20of%20Columbia&distance=25"
   },
   "establishments": {
    "value": 159002,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 154938,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2018"
   },
   "size20to99": {
    "value": 21511,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2023"
   },
   "size100to499": {
    "value": 4201,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2023"
   },
   "size500plus": {
    "value": 497,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 431,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 34327,
-    "employees": 633277,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+    "employees": 633277
    },
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 19078,
-    "employees": 365086,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+    "employees": 365086
    },
    {
     "code": "813",
     "label": "nonprofit, civic and professional organizations",
     "establishments": 8661,
-    "employees": 142394,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=813&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+    "employees": 142394
    },
    {
     "code": "51",
     "label": "information",
     "establishments": 3787,
-    "employees": 127928,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=51&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+    "employees": 127928
    }
   ],
   "population": {
    "value": 6437907,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2024"
   },
   "population2019": {
    "value": 6280697,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 69060,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004790000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 154930,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004790000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -393,22 +364,19 @@ export const SALESFORCE_CITIES = [
   "events": [],
   "msa": {
    "code": "47900",
-   "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+   "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0047900/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 127040,
-    "employment": 18620,
-    "series": "https://data.bls.gov/timeseries/OEUM004790000000015121113"
+    "employment": 18620
    },
    "developers": {
     "median": 154930,
-    "employment": 69060,
-    "series": "https://data.bls.gov/timeseries/OEUM004790000000015125213"
+    "employment": 69060
    }
   },
   "community": {
@@ -439,90 +407,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-dallas",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001910000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Dallas%2C%20Texas&distance=25"
   },
   "establishments": {
    "value": 189739,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 167453,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2018"
   },
   "size20to99": {
    "value": 25585,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2023"
   },
   "size100to499": {
    "value": 4964,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2023"
   },
   "size500plus": {
    "value": 697,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 569,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 23741,
-    "employees": 449862,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+    "employees": 449862
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 27552,
-    "employees": 305390,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+    "employees": 305390
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 5673,
-    "employees": 281809,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+    "employees": 281809
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 12347,
-    "employees": 262677,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+    "employees": 262677
    }
   ],
   "population": {
    "value": 8344032,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2024"
   },
   "population2019": {
    "value": 7573136,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 67030,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001910000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 133290,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001910000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -600,22 +554,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "19100",
-   "name": "Dallas-Fort Worth-Arlington, TX Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+   "name": "Dallas-Fort Worth-Arlington, TX Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0019100/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 122520,
-    "employment": 20000,
-    "series": "https://data.bls.gov/timeseries/OEUM001910000000015121113"
+    "employment": 20000
    },
    "developers": {
     "median": 133290,
-    "employment": 67030,
-    "series": "https://data.bls.gov/timeseries/OEUM001910000000015125213"
+    "employment": 67030
    }
   },
   "community": {
@@ -702,90 +653,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-denver",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001974000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Denver%2C%20Colorado&distance=25"
   },
   "establishments": {
    "value": 91522,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 86343,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2018"
   },
   "size20to99": {
    "value": 10570,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2023"
   },
   "size100to499": {
    "value": 2025,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2023"
   },
   "size500plus": {
    "value": 223,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 205,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 10010,
-    "employees": 192464,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+    "employees": 192464
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 15561,
-    "employees": 145828,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+    "employees": 145828
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 5880,
-    "employees": 80270,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+    "employees": 80270
    },
    {
     "code": "51",
     "label": "information",
     "establishments": 2050,
-    "employees": 66048,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=51&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+    "employees": 66048
    }
   ],
   "population": {
    "value": 3050512,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2024"
   },
   "population2019": {
    "value": 2967239,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 27010,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001974000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 137610,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001974000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -865,22 +802,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "19740",
-   "name": "Denver-Aurora-Centennial, CO Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+   "name": "Denver-Aurora-Centennial, CO Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0019740/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 127880,
-    "employment": 4190,
-    "series": "https://data.bls.gov/timeseries/OEUM001974000000015121113"
+    "employment": 4190
    },
    "developers": {
     "median": 137610,
-    "employment": 27010,
-    "series": "https://data.bls.gov/timeseries/OEUM001974000000015125213"
+    "employment": 27010
    }
   },
   "community": {
@@ -932,90 +866,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-atlanta",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001206000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Atlanta%2C%20Georgia&distance=25"
   },
   "establishments": {
    "value": 163103,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 145736,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2018"
   },
   "size20to99": {
    "value": 19026,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2023"
   },
   "size100to499": {
    "value": 3860,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2023"
   },
   "size500plus": {
    "value": 485,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 394,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 18435,
-    "employees": 335426,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+    "employees": 335426
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 25159,
-    "employees": 255343,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+    "employees": 255343
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 4023,
-    "employees": 163443,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+    "employees": 163443
    },
    {
     "code": "42",
     "label": "wholesale trade",
     "establishments": 8164,
-    "employees": 150040,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=42&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+    "employees": 150040
    }
   ],
   "population": {
    "value": 6409047,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2024"
   },
   "population2019": {
    "value": 6018744,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 36300,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001206000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 132960,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001206000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -1087,22 +1007,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "12060",
-   "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+   "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0012060/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 119090,
-    "employment": 8300,
-    "series": "https://data.bls.gov/timeseries/OEUM001206000000015121113"
+    "employment": 8300
    },
    "developers": {
     "median": 132960,
-    "employment": 36300,
-    "series": "https://data.bls.gov/timeseries/OEUM001206000000015125213"
+    "employment": 36300
    }
   },
   "community": {
@@ -1147,90 +1064,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-boston",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001446000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Boston%2C%20Massachusetts&distance=25"
   },
   "establishments": {
    "value": 133807,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 131352,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2018"
   },
   "size20to99": {
    "value": 17561,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2023"
   },
   "size100to499": {
    "value": 3570,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2023"
   },
   "size500plus": {
    "value": 484,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 457,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 15127,
-    "employees": 444538,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+    "employees": 444538
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 17803,
-    "employees": 328542,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+    "employees": 328542
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 4046,
-    "employees": 168685,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+    "employees": 168685
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 7165,
-    "employees": 167363,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+    "employees": 167363
    }
   ],
   "population": {
    "value": 5025517,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2024"
   },
   "population2019": {
    "value": 4873019,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 42310,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001446000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 166090,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001446000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -1304,22 +1207,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "14460",
-   "name": "Boston-Cambridge-Newton, MA-NH Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+   "name": "Boston-Cambridge-Newton, MA-NH Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0014460/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 129180,
-    "employment": 17470,
-    "series": "https://data.bls.gov/timeseries/OEUM001446000000015121113"
+    "employment": 17470
    },
    "developers": {
     "median": 166090,
-    "employment": 42310,
-    "series": "https://data.bls.gov/timeseries/OEUM001446000000015125213"
+    "employment": 42310
    }
   },
   "community": {
@@ -1385,90 +1285,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-seattle",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM004266000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Seattle%2C%20Washington&distance=25"
   },
   "establishments": {
    "value": 110685,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 107883,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2018"
   },
   "size20to99": {
    "value": 12665,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2023"
   },
   "size100to499": {
    "value": 2360,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2023"
   },
   "size500plus": {
    "value": 323,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 266,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 13557,
-    "employees": 283099,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+    "employees": 283099
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 14812,
-    "employees": 167804,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+    "employees": 167804
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 3154,
-    "employees": 159957,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+    "employees": 159957
    },
    {
     "code": "51",
     "label": "information",
     "establishments": 2413,
-    "employees": 145560,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=51&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+    "employees": 145560
    }
   ],
   "population": {
    "value": 4145494,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2024"
   },
   "population2019": {
    "value": 3979845,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 92770,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004266000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 167280,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004266000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -1520,22 +1406,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "42660",
-   "name": "Seattle-Tacoma-Bellevue, WA Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+   "name": "Seattle-Tacoma-Bellevue, WA Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0042660/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 133690,
-    "employment": 19050,
-    "series": "https://data.bls.gov/timeseries/OEUM004266000000015121113"
+    "employment": 19050
    },
    "developers": {
     "median": 167280,
-    "employment": 92770,
-    "series": "https://data.bls.gov/timeseries/OEUM004266000000015125213"
+    "employment": 92770
    }
   },
   "community": {
@@ -1573,90 +1456,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-san-francisco",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM004186000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=San%20Francisco%2C%20California&distance=25"
   },
   "establishments": {
    "value": 133246,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 131036,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2018"
   },
   "size20to99": {
    "value": 15781,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2023"
   },
   "size100to499": {
    "value": 2993,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2023"
   },
   "size500plus": {
    "value": 503,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 387,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 16920,
-    "employees": 319201,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+    "employees": 319201
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 23140,
-    "employees": 318400,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+    "employees": 318400
    },
    {
     "code": "51",
     "label": "information",
     "establishments": 4360,
-    "employees": 292679,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=51&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+    "employees": 292679
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 3398,
-    "employees": 139010,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+    "employees": 139010
    }
   ],
   "population": {
    "value": 4648486,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2024"
   },
   "population2019": {
    "value": 4731803,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 69030,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004186000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 186640,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM004186000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -1718,22 +1587,19 @@ export const SALESFORCE_CITIES = [
   "events": [],
   "msa": {
    "code": "41860",
-   "name": "San Francisco-Oakland-Fremont, CA Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+   "name": "San Francisco-Oakland-Fremont, CA Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0041860/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 134460,
-    "employment": 11180,
-    "series": "https://data.bls.gov/timeseries/OEUM004186000000015121113"
+    "employment": 11180
    },
    "developers": {
     "median": 186640,
-    "employment": 69030,
-    "series": "https://data.bls.gov/timeseries/OEUM004186000000015125213"
+    "employment": 69030
    }
   },
   "community": {
@@ -1785,90 +1651,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-los-angeles",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM003108000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Los%20Angeles%2C%20California&distance=25"
   },
   "establishments": {
    "value": 411949,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 379268,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2018"
   },
   "size20to99": {
    "value": 41077,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2023"
   },
   "size100to499": {
    "value": 7342,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2023"
   },
   "size500plus": {
    "value": 840,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 810,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 53869,
-    "employees": 845665,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+    "employees": 845665
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 61848,
-    "employees": 471294,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+    "employees": 471294
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 14403,
-    "employees": 435021,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+    "employees": 435021
    },
    {
     "code": "42",
     "label": "wholesale trade",
     "establishments": 27945,
-    "employees": 336540,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=42&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+    "employees": 336540
    }
   ],
   "population": {
    "value": 12927614,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2024"
   },
   "population2019": {
    "value": 13214799,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 55540,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003108000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 160920,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003108000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -1922,22 +1774,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "31080",
-   "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+   "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0031080/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 121560,
-    "employment": 16900,
-    "series": "https://data.bls.gov/timeseries/OEUM003108000000015121113"
+    "employment": 16900
    },
    "developers": {
     "median": 160920,
-    "employment": 55540,
-    "series": "https://data.bls.gov/timeseries/OEUM003108000000015125213"
+    "employment": 55540
    }
   },
   "community": {
@@ -1961,90 +1810,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-austin",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001242000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Austin%2C%20Texas&distance=25"
   },
   "establishments": {
    "value": 66280,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 54446,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2018"
   },
   "size20to99": {
    "value": 8216,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2023"
   },
   "size100to499": {
    "value": 1422,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2023"
   },
   "size500plus": {
    "value": 208,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 148,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 12232,
-    "employees": 126409,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+    "employees": 126409
    },
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 7125,
-    "employees": 120877,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+    "employees": 120877
    },
    {
     "code": "51",
     "label": "information",
     "establishments": 1880,
-    "employees": 68926,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=51&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+    "employees": 68926
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 1619,
-    "employees": 51973,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+    "employees": 51973
    }
   ],
   "population": {
    "value": 2550637,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2024"
   },
   "population2019": {
    "value": 2227083,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 31960,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001242000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 134120,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001242000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -2110,22 +1945,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "12420",
-   "name": "Austin-Round Rock-San Marcos, TX Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+   "name": "Austin-Round Rock-San Marcos, TX Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0012420/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 104590,
-    "employment": 6930,
-    "series": "https://data.bls.gov/timeseries/OEUM001242000000015121113"
+    "employment": 6930
    },
    "developers": {
     "median": 134120,
-    "employment": 31960,
-    "series": "https://data.bls.gov/timeseries/OEUM001242000000015125213"
+    "employment": 31960
    }
   },
   "community": {
@@ -2149,90 +1981,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-miami",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM003310000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Miami%2C%20Florida&distance=25"
   },
   "establishments": {
    "value": 222388,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 197795,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2018"
   },
   "size20to99": {
    "value": 18240,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2023"
   },
   "size100to499": {
    "value": 3368,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2023"
   },
   "size500plus": {
    "value": 336,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 320,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 26082,
-    "employees": 380934,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+    "employees": 380934
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 40122,
-    "employees": 200585,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+    "employees": 200585
    },
    {
     "code": "42",
     "label": "wholesale trade",
     "establishments": 15088,
-    "employees": 139081,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=42&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+    "employees": 139081
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 13086,
-    "employees": 116609,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+    "employees": 116609
    }
   ],
   "population": {
    "value": 6457988,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2024"
   },
   "population2019": {
    "value": 6166488,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 18900,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003310000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 132650,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003310000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -2286,22 +2104,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "33100",
-   "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+   "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0033100/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 103650,
-    "employment": 9000,
-    "series": "https://data.bls.gov/timeseries/OEUM003310000000015121113"
+    "employment": 9000
    },
    "developers": {
     "median": 132650,
-    "employment": 18900,
-    "series": "https://data.bls.gov/timeseries/OEUM003310000000015125213"
+    "employment": 18900
    }
   },
   "community": {
@@ -2325,90 +2140,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-chicago",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM001698000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Chicago%2C%20Illinois&distance=25"
   },
   "establishments": {
    "value": 248519,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 247915,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2018"
   },
   "size20to99": {
    "value": 29422,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2023"
   },
   "size100to499": {
    "value": 6068,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2023"
   },
   "size500plus": {
    "value": 792,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 734,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 29768,
-    "employees": 642081,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+    "employees": 642081
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 32828,
-    "employees": 409424,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+    "employees": 409424
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 9298,
-    "employees": 370871,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+    "employees": 370871
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 13997,
-    "employees": 278545,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+    "employees": 278545
    }
   ],
   "population": {
    "value": 9406924,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2024"
   },
   "population2019": {
    "value": 9457867,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 40370,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001698000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 134380,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM001698000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -2478,22 +2279,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "16980",
-   "name": "Chicago-Naperville-Elgin, IL-IN Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+   "name": "Chicago-Naperville-Elgin, IL-IN Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0016980/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 103490,
-    "employment": 14660,
-    "series": "https://data.bls.gov/timeseries/OEUM001698000000015121113"
+    "employment": 14660
    },
    "developers": {
     "median": 134380,
-    "employment": 40370,
-    "series": "https://data.bls.gov/timeseries/OEUM001698000000015125213"
+    "employment": 40370
    }
   },
   "community": {
@@ -2566,90 +2364,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-houston",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM002642000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Houston%2C%20Texas&distance=25"
   },
   "establishments": {
    "value": 162055,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 144404,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2018"
   },
   "size20to99": {
    "value": 21092,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2023"
   },
   "size100to499": {
    "value": 4099,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2023"
   },
   "size500plus": {
    "value": 493,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 444,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 20054,
-    "employees": 401276,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+    "employees": 401276
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 22233,
-    "employees": 242722,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+    "employees": 242722
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 5739,
-    "employees": 207412,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+    "employees": 207412
    },
    {
     "code": "42",
     "label": "wholesale trade",
     "establishments": 9596,
-    "employees": 155666,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=42&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+    "employees": 155666
    }
   ],
   "population": {
    "value": 7796182,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2024"
   },
   "population2019": {
    "value": 7066140,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 22940,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM002642000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 129440,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM002642000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -2715,22 +2499,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "26420",
-   "name": "Houston-Pasadena-The Woodlands, TX Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+   "name": "Houston-Pasadena-The Woodlands, TX Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0026420/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 113440,
-    "employment": 8510,
-    "series": "https://data.bls.gov/timeseries/OEUM002642000000015121113"
+    "employment": 8510
    },
    "developers": {
     "median": 129440,
-    "employment": 22940,
-    "series": "https://data.bls.gov/timeseries/OEUM002642000000015125213"
+    "employment": 22940
    }
   },
   "community": {
@@ -2775,90 +2556,76 @@ export const SALESFORCE_CITIES = [
   "path": "/services/salesforce-consultant-philadelphia",
   "sources": {
    "cbp": "https://www.census.gov/programs-surveys/cbp.html",
-   "oews": "https://data.bls.gov/timeseries/OEUM003798000000015125213",
+   "oews": "https://www.bls.gov/oes/",
    "usaspending": "https://www.usaspending.gov/search",
    "trailblazer": "https://trailblazercommunitygroups.com/",
    "linkedin": "https://www.linkedin.com/jobs/search?keywords=Salesforce&location=Philadelphia%2C%20Pennsylvania&distance=25"
   },
   "establishments": {
    "value": 153791,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2023"
   },
   "establishments2018": {
    "value": 148772,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2018"
   },
   "size20to99": {
    "value": 19805,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2023"
   },
   "size100to499": {
    "value": 3763,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2023"
   },
   "size500plus": {
    "value": 514,
-   "period": "2023",
-   "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2023"
   },
   "size500plus2018": {
    "value": 466,
-   "period": "2018",
-   "api": "https://api.census.gov/data/2018/cbp?get=ESTAB,EMP,EMPSZES&NAICS2017=00&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2018"
   },
   "industries": [
    {
     "code": "62",
     "label": "health care and social assistance",
     "establishments": 19759,
-    "employees": 589442,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=62&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+    "employees": 589442
    },
    {
     "code": "54",
     "label": "professional, scientific and technical services",
     "establishments": 19559,
-    "employees": 244547,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=54&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+    "employees": 244547
    },
    {
     "code": "52",
     "label": "finance and insurance",
     "establishments": 8765,
-    "employees": 190997,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=52&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+    "employees": 190997
    },
    {
     "code": "31-33",
     "label": "manufacturing",
     "establishments": 4708,
-    "employees": 171124,
-    "api": "https://api.census.gov/data/2023/cbp?get=ESTAB,EMP&NAICS2017=31-33&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+    "employees": 171124
    }
   ],
   "population": {
    "value": 6330422,
-   "period": "2024",
-   "api": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2024"
   },
   "population2019": {
    "value": 6102434,
-   "period": "2019",
-   "api": "https://api.census.gov/data/2019/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "period": "2019"
   },
   "softwareDevelopers": {
    "value": 28480,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003798000000015125201?latest=true"
+   "period": "May 2025"
   },
   "softwareDeveloperMedianWage": {
    "value": 133040,
-   "period": "May 2025",
-   "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/OEUM003798000000015125213?latest=true"
+   "period": "May 2025"
   },
   "jobs": [
    {
@@ -2933,22 +2700,19 @@ export const SALESFORCE_CITIES = [
   ],
   "msa": {
    "code": "37980",
-   "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
-   "source": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01003_001E&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980"
+   "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area"
   },
   "wages": {
    "period": "May 2025",
    "pulled": "2026-10-23",
-   "page": "https://data.bls.gov/oes/#/area/0037980/2025",
+   "page": "https://www.bls.gov/oes/",
    "analysts": {
     "median": 105050,
-    "employment": 8520,
-    "series": "https://data.bls.gov/timeseries/OEUM003798000000015121113"
+    "employment": 8520
    },
    "developers": {
     "median": 133040,
-    "employment": 28480,
-    "series": "https://data.bls.gov/timeseries/OEUM003798000000015125213"
+    "employment": 28480
    }
   },
   "community": {

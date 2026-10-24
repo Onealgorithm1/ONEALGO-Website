@@ -73,7 +73,7 @@ function rangesDesktop() {
   const W = 1136, x = 32, labelW = 150, right = W - 32
   const plotX = x + labelW, plotW = right - plotX
   const rowH = 32, size = 16, val = 14
-  const items = [text('MARKET RANGES BEFORE LICENCES · FOUR PUBLISHED GUIDES · NOT ONEALGORITHM PRICES', x, 36, { size: 12, mono: true, fill: 'ink3' })]
+  const items = [text('MARKET RANGES BEFORE LICENSES · FOUR PUBLISHED GUIDES · NOT ONEALGORITHM PRICES', x, 36, { size: 12, mono: true, fill: 'ink3' })]
   let cy = 64
   for (const b of BANDS) {
     items.push(text(b.title, x, cy + 17, { size: 17, weight: 600 }))
@@ -146,7 +146,7 @@ const NARROW = { tag: 12, label: 16, value: 15, tick: 12, barGap: 14, rowGap: 24
 const rangesMobile = () =>
   stacked({
     W: 640,
-    head: ['MARKET RANGES BEFORE LICENCES', 'NOT ONEALGORITHM PRICES'],
+    head: ['MARKET RANGES BEFORE LICENSES', 'NOT ONEALGORITHM PRICES'],
     rows: BANDS.map((b) => ({
       group: b.title, max: b.max, ticks: b.mticks,
       rows: SOURCES.map((s) => ({ k: s.k, label: s.name, lo: s[b.key][0], hi: s[b.key][1], open: s[b.key][2] })),
@@ -175,7 +175,7 @@ export default [
   {
     id: 'salesforce-implementation-cost-ranges',
     title: 'Published Salesforce implementation cost ranges, by company size',
-    alt: `Range chart of published Salesforce implementation costs before licences, from four guides checked 23 October 2026. ${BANDS.map(bandAlt).join(' ')} These are market figures, not OneAlgorithm prices.`,
+    alt: `Range chart of published Salesforce implementation costs before licenses, from four guides checked 23 October 2026. ${BANDS.map(bandAlt).join(' ')} These are market figures, not OneAlgorithm prices.`,
     tone: 'light',
     og: 'og-salesforce-implementation-cost',
     desktop: rangesDesktop(),

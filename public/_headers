@@ -21,6 +21,11 @@
 /fonts/*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+# Vendored GSAP (Salesforce redesign v2), loaded lazily by client/lib/sfMotion.ts.
+# The version is in the folder name, so a bump is a new URL and immutable is safe.
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # CSS is fingerprinted too (vite.config.ts assetFileNames), so it can be
 # immutable like the JS. It was a stable name with max-age=0 until 2026-08-25,
 # when Cloudflare's zone Browser Cache TTL (4h) silently raised that max-age and

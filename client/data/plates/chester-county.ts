@@ -6,7 +6,7 @@ import type { PlateSpec, ShotSpec } from "./types";
 export const PLATES = {
   "salesforce-edition-cost-10-users": {
     "id": "salesforce-edition-cost-10-users",
-    "alt": "Bar chart of Salesforce list prices for 10 users a month, read from salesforce.com on 23 October 2026: Starter Suite $250, Pro Suite $1,000 ($1,250 with API access), Core $1,950, Advanced $3,950, Max $5,500; licences only, before setup.",
+    "alt": "Bar chart of Salesforce list prices for 10 users a month, read from salesforce.com on 23 October 2026: Starter Suite $250, Pro Suite $1,000 ($1,250 with API access), Core $1,950, Advanced $3,950, Max $5,500; licenses only, before setup.",
     "src": "/media/salesforce/salesforce-edition-cost-10-users.svg",
     "w": 1136,
     "h": 352,
@@ -148,7 +148,7 @@ export const PLATES = {
   },
   "chester-county-map-malvern": {
     "id": "chester-county-map-malvern",
-    "alt": "Map of Chester County, Pennsylvania, and its neighbouring counties (Lancaster, Berks, Montgomery and Delaware in Pennsylvania, New Castle in Delaware and Cecil in Maryland), marking OneAlgorithm's office in Malvern and the straight-line distance from it to Exton (about 3 miles), West Chester (about 6 miles) and Downingtown (about 7 miles).",
+    "alt": "Map of Chester County, Pennsylvania, and its neighboring counties (Lancaster, Berks, Montgomery and Delaware in Pennsylvania, New Castle in Delaware and Cecil in Maryland), marking OneAlgorithm's office in Malvern and the straight-line distance from it to Exton (about 3 miles), West Chester (about 6 miles) and Downingtown (about 7 miles).",
     "src": "/media/salesforce/chester-county-map-malvern.svg",
     "w": 560,
     "h": 480,

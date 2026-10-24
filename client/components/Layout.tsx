@@ -157,6 +157,15 @@ function Layout({ children }: LayoutProps) {
   // and every Section/PageHero inside <main> read this one value, so their
   // left edges cannot drift apart. Every other route keeps the 1200px frame.
   const frame = isSalesforce ? "wide" : "default";
+  // Salesforce link policy (owner rule 2026-10-23): every off-site text link shows the external mark and says
+  // it opens a new tab. Footer only, Salesforce routes only; every other page's footer is unchanged.
+  const newTab = isSalesforce ? " (opens in a new tab)" : "";
+  const extMark = isSalesforce ? (
+    <>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true" className="ml-1 inline-block align-[-1px]"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" /></svg>
+      <span className="sr-only"> (opens in a new tab)</span>
+    </>
+  ) : null;
   // Shown once the hero's own buttons have scrolled away, so a phone's first
   // screen never carries the same two buttons twice.
   const [showSfBar, setShowSfBar] = React.useState(false);
@@ -996,7 +1005,7 @@ function Layout({ children }: LayoutProps) {
         <div className={`mx-auto ${FRAME[frame]} border-t border-white/10 pt-10 pb-8`}>
           {/* Not on Salesforce pages (spec 2.16, INT-17): a strip of other
               vendors' logos under a Salesforce page reads as claimed partners. */}
-          {!isSalesforce && <TrustedPartnerships />}
+          {!isSalesforce && location.pathname !== "/contact" && <TrustedPartnerships />}
 
           {/* Footer reorganised 2026-10-09 (Louis: "our footer is unorganized
               looking"). One 21-link Services column became three groups;
@@ -1021,7 +1030,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="LinkedIn"
-                  aria-label="LinkedIn"
+                  aria-label={`LinkedIn${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1038,7 +1047,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="TikTok"
-                  aria-label="TikTok"
+                  aria-label={`TikTok${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1055,7 +1064,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="YouTube"
-                  aria-label="YouTube"
+                  aria-label={`YouTube${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1072,7 +1081,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Facebook"
-                  aria-label="Facebook"
+                  aria-label={`Facebook${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1089,7 +1098,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Instagram"
-                  aria-label="Instagram"
+                  aria-label={`Instagram${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1106,7 +1115,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener noreferrer"
                   className="group bg-white/[0.06] hover:bg-oa-blue p-3.5 md:p-2.5 rounded-full transition-colors duration-200"
                   title="Google Business Profile"
-                  aria-label="Google Business Profile"
+                  aria-label={`Google Business Profile${newTab}`}
                 >
                   <svg
                     className="w-4 h-4 text-oa-nightInk2 group-hover:text-white"
@@ -1150,7 +1159,7 @@ function Layout({ children }: LayoutProps) {
                   rel="noopener"
                   className={footerLink}
                 >
-                  Salesforce Consulting Partner
+                  Salesforce Consulting Partner{extMark}
                 </a>
                 <Link to="/capabilities" className={footerLink}>
                   WBENC Certified WBE
@@ -1223,7 +1232,7 @@ function Layout({ children }: LayoutProps) {
                 rel="noopener noreferrer"
                 className={footerLink}
               >
-                Review us on Google
+                Review us on Google{extMark}
               </a>
               {/* /careers is a real page again (jobs come from the Blogger feed, label "Careers"). */}
               <a href="/careers" className={footerLink}>
@@ -1283,7 +1292,7 @@ function Layout({ children }: LayoutProps) {
             <nav aria-label="Salesforce consultants by city" className="mt-6 border-t border-white/10 pt-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-oa-nightInk3">Salesforce consultants by city</p>
               <ul className="mt-1 flex flex-wrap gap-x-5">
-                {SF_CITY_LINKS.map((c) => (
+                {SF_CITY_LINKS.filter((c) => !c.to.endsWith("-houston")).map((c) => ( /* Houston: routed, not linked until its gate (spec D9) */
                   <li key={c.to}>
                     <Link to={c.to} className="inline-flex min-h-11 min-w-11 items-center text-sm text-oa-nightInk2 transition-colors hover:text-oa-nightInk">
                       {c.label}

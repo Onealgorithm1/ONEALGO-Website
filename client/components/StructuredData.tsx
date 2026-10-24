@@ -243,7 +243,7 @@ export function createFAQSchema(faqs: readonly { q: string; a: string }[]) {
 // ProfessionalService is a LocalBusiness subtype (PHL-11): more specific, same rich-result
 // eligibility. Salesforce pages pass it; every other page keeps the "LocalBusiness" it had.
 export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalService" = "LocalBusiness") {
-  return {
+  const node: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": type,
     "@id": "https://onealgorithm.com/#localbusiness",
@@ -291,6 +291,14 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
     },
     sameAs: NAP.sameAs,
   };
+  // Salesforce pages (structure-spec §9): the node mirrors the visible NAP band, so no email or
+  // priceRange (neither is shown there) and hasMap = the Google Business Profile map link (LOC-04).
+  if (type === "ProfessionalService") {
+    delete node.email;
+    delete node.priceRange;
+    node.hasMap = "https://maps.app.goo.gl/kVEeTz9dCyB64CGk6";
+  }
+  return node;
 }
 
 // Helper function to create service schema

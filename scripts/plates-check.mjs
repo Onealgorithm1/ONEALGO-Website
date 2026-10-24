@@ -97,7 +97,8 @@ for (const f of fs.readdirSync(media).filter((f) => f.endsWith('.jpg'))) {
 const prerender = fs.readFileSync(path.join(root, 'scripts/prerender.mjs'), 'utf8')
 const routes = [...new Set([...prerender.matchAll(/"(\/services\/salesforce[a-z-]*)"/g)].map((m) => m[1]))]
 const llms = fs.readFileSync(path.join(root, 'public/llms.txt'), 'utf8')
-for (const r of routes) if (!llms.includes(`https://onealgorithm.com${r}\n`) && !llms.includes(`https://onealgorithm.com${r}\r\n`)) fail(`public/llms.txt does not list ${r}`)
+for (const r of routes.filter((r) => !r.endsWith('-houston'))) if ( // Houston: gated (structure-spec D9), not listed until it ships
+  !llms.includes(`https://onealgorithm.com${r}\n`) && !llms.includes(`https://onealgorithm.com${r}\r\n`)) fail(`public/llms.txt does not list ${r}`)
 if (routes.length < 22) fail(`expected 22 Salesforce routes in prerender.mjs, found ${routes.length}`)
 
 // 6. Plate data stays out of the shared chunk.

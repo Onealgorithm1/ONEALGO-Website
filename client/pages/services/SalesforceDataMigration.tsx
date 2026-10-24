@@ -1,193 +1,69 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { Blocks, Database, GitMerge, Sheet } from "lucide-react";
 import Layout from "../../components/Layout";
 import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  ProcessSteps,
-  CheckList,
-} from "../../components/site";
-import {
-  AnswerBand,
-  CTAProof,
-  DataTable,
-  DeliveredLedger,
-  Desk,
-  DocNote,
-  FAQList,
-  HcLink,
-  MidStrip,
-  Objections,
-  PeopleStrip,
-  Plate,
-  PlateScope,
-  RouteBoard,
-  SF_OBJECTIONS,
-  WiredRow,
-  type SfFaq,
-} from "../../components/salesforce";
-import { RecordLine } from "../../components/SalesforceRecordCard";
-import { PLATES } from "../../data/plates/data-migration";
+  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
+  FAQ, DeskCTA, StageRail, StageUnits, SourcesDialog, Verify, type SfFaqItem, type Stage, type SfSource,
+} from "../../components/sf";
+import { DataMigration } from "../../components/sf/illus";
+import { SF_PHONE } from "../../data/salesforceShared";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
-  StructuredData,
-  createServiceSchema,
-  createWebPageSchema,
-  createFAQSchema,
-  createLocalBusinessSchema,
+  StructuredData, createServiceSchema, createWebPageSchema, createLocalBusinessSchema, SF_HEALTH_CHECK_OFFER,
 } from "../../components/StructuredData";
 
-/* Salesforce data migration — rebuilt 2026-10-23 on the Salesforce plate
- * system (onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/design-spec.md
- * §3 DM and §5 DM, plus the wide-layout and voice addenda).
+/* /services/salesforce-data-migration. Rebuilt 2026-10-23 on the redesign-v2 kit (client/components/sf), in the
+ * approved prototype's rhythm (Louis 2026-10-23: "build the 23 pages this way"), with title, meta, H1, the H2/H3
+ * list and schema from seo-completeness/structure-spec.md §5.3. Build notes: build-v2/page-data-migration.md.
  *
- * ⛔ PROOF IS PATTERNS, NEVER A NAMED CUSTOMER. Delivery claims on this page
- * are limited to the allowed-proof list: QuickBase and Kissflow migrations to
- * Salesforce, an SAP-to-Salesforce sync, ongoing weekly development for a
- * lending company since April 2026, about 18 months of Marketing Cloud support
- * (the last two only through DeliveredLedger). Never name a client; no job
- * details, phases, volumes or figures from any engagement.
- *   Sources: salesforce-delivery-evidence-2026-09-01.md (invoiced "QuickBase
- *   Migration" and "Kissflow Migration to SFDC"), deepak-fundmate-automation-
- *   2026-09-22.md (the lending company).
- * ⛔ HubSpot, Zoho, Dynamics, spreadsheets and org-to-org are METHOD only. We
- * describe how we would do them, never that we have.
- * ⛔ No timelines, prices, record-count promises, success rates or SLAs (owner
- * decision #10 is open). Duration and cost FAQs answer with the drivers only.
- * ⛔ Security answer uses page facts only: no encryption, SOC 2, ISO or
- * "zero downtime" language.
- * ⛔ MuleSoft: not named here at all (owner decision #6: add nothing).
- * Gated, renders nothing until supplied: DM-F4 demo-org specimen (no capture
- * exists), a typical duration or price, a
- * redacted reconciliation artifact, reviews.
- * Voice (addendum, Louis 2026-10-23): no visible "we have no case studies /
- * reviews" lines. Honesty is kept by never claiming the opposite.
- */
+ * ⛔ PROOF IS PATTERNS, NEVER A NAMED CUSTOMER. Delivered claims here: QuickBase and Kissflow migrations into
+ * Salesforce, an SAP-to-Salesforce sync, and (through DeliveredLedger only) the lending company and Marketing Cloud
+ * support. HubSpot, Zoho, Dynamics 365, Zendesk, spreadsheets, SQL Server and org merges are METHOD only: how we
+ * run it, never that we have (Zendesk and SQL Server are named per spec §5.3 row 2, method wording only).
+ * ⛔ No duration, price, record-count promise, success rate or SLA (owner decision #10 open): drivers only.
+ * ⛔ Security answers use page facts only: no encryption, SOC 2, ISO, NIST, CMMC, FedRAMP or "zero downtime".
+ * ⛔ MuleSoft is not named on this page (owner decision #6: add nothing). No years-of-experience figure.
+ * ⛔ The company count never describes individuals: "the certified people doing the migration" is gone (gap #35);
+ *    the people block names Sreenivas (14) and Swapna (2) with their own badges.
+ * LINKS: in-site only in the body. Salesforce's documentation is cited as text + read date and listed in ONE
+ * sources pop-up (id "docs"); the only off-site anchors live inside the dialogs (new tab, noopener, external mark). */
 
-const PAGE = "/services/salesforce-data-migration";
-const PAGE_URL = `https://onealgorithm.com${PAGE}`;
-const READ_ON = "23 October 2026";
+const PAGE_PATH = "/services/salesforce-data-migration";
+const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
+const PAGE_UPDATED = "2026-10-23";
+const READ_ON = "23 October 2026"; // the date a person read Salesforce's documentation below (fact-checked at ef1a8f0)
+const TITLE = "Salesforce Data Migration Services & Consultants | OneAlgorithm";
+const DESCRIPTION =
+  "Salesforce data migration services from QuickBase, Kissflow, HubSpot or another org, reconciled before go-live. Free one-week health check: (610) 890-9711.";
+const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-data-migration.jpg";
+const OG_ALT =
+  "Illustration with sample data: five legacy Account fields mapped to Salesforce fields with their rules, then 18,420 of 18,420 accounts matched after the load.";
+const COST = "/services/salesforce-implementation-cost";
+const INT = "/services/salesforce-integration";
+const MS = "/services/salesforce-managed-services";
+const PHL = "/services/salesforce-consultant-philadelphia";
 
-const F1 = PLATES["salesforce-data-migration-sources"];
-const F2 = PLATES["salesforce-data-migration-steps"];
-const F3 = PLATES["salesforce-external-id-upsert-relationships"];
-const PRIMARY_IMAGE = {
-  url: "https://onealgorithm.com/media/salesforce/salesforce-data-migration-sources-1600x900.jpg",
-  width: 1600,
-  height: 900,
-};
-
-const DOCS = {
-  dataLoader: {
-    label: "Salesforce: When to Use Data Loader",
-    href: "https://developer.salesforce.com/docs/atlas.en-us.dataLoader.meta/dataLoader/when_to_use_the_data_loader.htm",
-  },
-  trailhead: {
-    label: "Trailhead: Import Data into Salesforce",
-    href: "https://trailhead.salesforce.com/content/learn/modules/lex_implementation_data_management/lex_implementation_data_import",
-  },
-  wizard: {
-    label: "Salesforce Help: Data Import Wizard",
-    href: "https://help.salesforce.com/s/articleView?id=sf.data_import_wizard.htm&type=5",
-  },
-  export: {
-    label: "Salesforce Help: Export Backup Data",
-    href: "https://help.salesforce.com/s/articleView?id=sf.exporting_data.htm&type=5",
-  },
-  bulk: {
-    label: "Salesforce: Bulk API 2.0 Developer Guide",
-    href: "https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm",
-  },
-  async: {
-    label: "Salesforce Architects: Asynchronous Processing Decision Guide",
-    href: "https://architect.salesforce.com/decision-guides/async-processing",
-  },
-  audit: {
-    label: "Salesforce: System Fields (Set Audit Fields)",
-    href: "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/system_fields.htm",
-  },
-} as const;
-
-const KINDS = [
-  {
-    icon: Blocks,
-    title: "Off a no-code platform",
-    body: "QuickBase and Kissflow apps that grew one form at a time, with years of records in whatever shape each form took.",
-    to: "#source-lowcode",
-  },
-  {
-    icon: Database,
-    title: "Off another CRM",
-    body: "HubSpot, Zoho or Dynamics 365, mapped field by field, with the history you choose to keep.",
-    to: "#source-crm",
-  },
-  {
-    icon: Sheet,
-    title: "Out of spreadsheets",
-    body: "Contact lists and trackers that become Accounts and Contacts, with duplicates merged first.",
-    to: "#source-sheets",
-  },
-  {
-    icon: GitMerge,
-    title: "From another Salesforce org",
-    body: "Two orgs merged into one after an acquisition, with relationships rebuilt from external IDs.",
-    to: "#source-org",
-  },
+/* Salesforce's own documentation, read READ_ON. Shown only inside the sources pop-up (link policy). */
+const DOCS: SfSource[] = [
+  { name: "Salesforce Developers: When to Use Data Loader", what: "Data Loader: up to 150 million records at a time, any object, scheduled loads, exports", read: `read ${READ_ON}`, page: "https://developer.salesforce.com/docs/atlas.en-us.dataLoader.meta/dataLoader/when_to_use_the_data_loader.htm" },
+  { name: "Trailhead: Import Data into Salesforce", what: "Data Import Wizard: under 50,000 records, common objects, duplicate matching", read: `read ${READ_ON}`, page: "https://trailhead.salesforce.com/content/learn/modules/lex_implementation_data_management/lex_implementation_data_import" },
+  { name: "Salesforce Help: Data Import Wizard", what: "Which objects the wizard imports", read: `read ${READ_ON}`, page: "https://help.salesforce.com/s/articleView?id=sf.data_import_wizard.htm&type=5" },
+  { name: "Salesforce Help: Export Backup Data", what: "The Data Export Service: weekly or monthly CSV files", read: `read ${READ_ON}`, page: "https://help.salesforce.com/s/articleView?id=sf.exporting_data.htm&type=5" },
+  { name: "Salesforce Developers: Bulk API 2.0 Developer Guide", what: "Large loads processed asynchronously and in parallel", read: `read ${READ_ON}`, page: "https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm" },
+  { name: "Salesforce Architects: Asynchronous Processing Decision Guide", what: "The Bulk API for large record sets, run as background jobs", read: `read ${READ_ON}`, page: "https://architect.salesforce.com/decision-guides/async-processing" },
+  { name: "Salesforce Developers: System Fields", what: "Set Audit Fields upon Record Creation: original created dates and creators on insert", read: `read ${READ_ON}`, page: "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/system_fields.htm" },
 ];
 
-/* Wired to DM-F1 by key. `chip` mirrors the plate; only lowcode says DELIVERED. */
-const SOURCES = [
-  {
-    k: "lowcode",
-    id: "source-lowcode",
-    chip: "Delivered",
-    title: "QuickBase and Kissflow to Salesforce",
-    body: "No-code apps hold years of records in whatever shape the person who built each form chose. We have migrated QuickBase and Kissflow systems into Salesforce, and each move starts by deciding what every table really is: which tables are live, which are history, and which are three copies of the same list. You get Salesforce objects that mean what your team thinks they mean.",
-  },
-  {
-    k: "crm",
-    id: "source-crm",
-    chip: "Field map first",
-    title: "HubSpot, Zoho or Dynamics 365 to Salesforce",
-    body: "CRMs share names, not structures. A HubSpot company, a Zoho account and a Dynamics account all become Salesforce Accounts, but their owners, stages and custom fields do not line up one to one. We map every field and picklist value from your system's own export, agree the map with you in writing, and decide with you which emails, notes and activities come across.",
-  },
-  {
-    k: "sheets",
-    id: "source-sheets",
-    chip: "Dedupe first",
-    title: "Spreadsheets to Salesforce",
-    body: "A sheet can become Accounts and Contacts, duplicates merged first. A contact list with a company column is two objects, not one: the companies become Accounts and the people become Contacts linked to them. Name variants such as Inc. and Inc are merged into one record before the load, so they never reach a report.",
-  },
-  {
-    k: "org",
-    id: "source-org",
-    chip: "External IDs",
-    title: "Merging two Salesforce orgs",
-    body: "After a merger, or when a business unit was given its own org years ago, the objects share names but rarely share fields, picklist values or record IDs. Every record carries its old ID into an external ID field, so parents and children reconnect in the target org and the load can run again without creating duplicates.",
-  },
-];
-
-/* A real sequence, so the numbering is honest (web-build banlist). */
-const STEPS = [
-  {
-    title: "Inventory the source",
-    body: "Every table, field and attachment, with a row count and a note on who still uses it. Fields nobody has filled in for years are flagged so you can leave them behind.",
-  },
-  {
-    title: "Map to the Salesforce data model",
-    body: "Source fields to standard and custom objects, picklist values to picklist values, users to owners. Parent records and their external IDs are planned before anything loads.",
-  },
-  {
-    title: "Load into a sandbox first",
-    body: "A full trial run against a sandbox, with record counts reconciled object by object and a sample checked by the people who know the data. Automation that would fire on insert is paused for the load.",
-  },
-  {
-    title: "Cut over and reconcile",
-    body: "The production load runs in a planned window, counts are reconciled again, and the source is set read-only rather than deleted, so anything questioned later can be checked against the original.",
-  },
+/* The four steps (spec §5.3 row 3 H3s, exact). Lines and details are the ef1a8f0 page's STEPS and CHECKLIST. */
+const STEPS: Stage[] = [
+  { k: "s1", num: "01", title: "Inventory the source", sub: "tables · fields · files · owners", line: "Every table, field and attachment, with a row count and a note on who still uses it.",
+    details: ["Fields nobody has filled in for years flagged so you can leave them behind", "A full export of the source, kept as a backup before any load", "Every table, field and file counted, with a named owner"] },
+  { k: "s2", num: "02", title: "Map to the Salesforce data model", short: "Map to the data model", sub: "objects · picklists · owners · IDs", line: "Source fields to standard and custom objects, picklist values to picklist values, users to owners.",
+    details: ["Parent records and their external IDs planned before anything loads", "Duplicate and merge rules agreed before the load", "The field map agreed with you in writing"] },
+  { k: "s3", num: "03", title: "Load into a sandbox first", sub: "trial load · counts reconciled", line: "A full trial run against a sandbox, with record counts reconciled object by object.",
+    details: ["A sample checked by the people who know the data", "Automation that would fire on insert paused for the load", "Consent and do-not-call fields tested first"] },
+  { k: "s4", num: "04", title: "Cut over and reconcile", sub: "planned window · source read-only", line: "The production load runs in a planned window, and the counts are reconciled again.",
+    details: ["The source set read-only rather than deleted", "Anything questioned later checked against the original", "Rules switched back on and tested before users return"] },
 ];
 
 const CHECKLIST = [
@@ -204,37 +80,16 @@ const CHECKLIST = [
   "Source set read-only, never deleted",
 ];
 
-const HISTORY = [
-  {
-    k: "ext",
-    title: "Every record keeps its old ID.",
-    body: "The old system's ID goes into an external ID field on the Salesforce record, so anything can be traced back to where it came from.",
-  },
-  {
-    k: "child",
-    title: "Relationships are rebuilt, parent first.",
-    body: "Accounts load before the contacts, opportunities and cases that hang off them, and each child finds its parent through that ID.",
-  },
-  {
-    k: "rerun",
-    title: "Reruns are safe.",
-    body: "Loads run as upserts matched on the external ID, so a corrected file can be loaded again: existing records update and nothing duplicates.",
-  },
-  {
-    title: "Original dates and creators, where you need them.",
-    body: "Salesforce's Set Audit Fields upon Record Creation permission lets a load keep the original created date and created-by user on insert. Record owners come across through the user map.",
-  },
-  {
-    title: "Attachments become Files.",
-    body: "Documents attached in the old system load as Salesforce Files on the records they belong to.",
-  },
-  {
-    title: "Rules are paused, then switched back on.",
-    body: "Validation rules, duplicate rules, flows and triggers are reviewed and paused for the load, then re-enabled and tested before users return.",
-  },
+const HISTORY: [string, string][] = [
+  ["Every record keeps its old ID.", "The old system's ID goes into an external ID field on the Salesforce record, so anything can be traced back to where it came from."],
+  ["Relationships are rebuilt, parent first.", "Accounts load before the contacts, opportunities and cases that hang off them, and each child finds its parent through that ID."],
+  ["Reruns are safe.", "Loads run as upserts matched on the external ID, so a corrected file can be loaded again: existing records update and nothing duplicates."],
+  ["Original dates and creators, where you need them.", "Salesforce's Set Audit Fields upon Record Creation permission lets a load keep the original created date and created-by user on insert. Record owners come across through the user map."],
+  ["Attachments become Files.", "Documents attached in the old system load as Salesforce Files on the records they belong to."],
+  ["Rules are paused, then switched back on.", "Validation rules, duplicate rules, flows and triggers are reviewed and paused for the load, then re-enabled and tested before users return."],
 ];
 
-const BREAKS = [
+const BREAKS: [string, string][] = [
   ["Relationships that do not connect", "Parents load first; children find them by external ID"],
   ["Duplicates that load perfectly", "Merge rules agreed with you before the load, not after"],
   ["Six spellings of one picklist value", "Every source value mapped to one Salesforce value"],
@@ -244,12 +99,26 @@ const BREAKS = [
   ["The old system switched off too early", "Source set read-only and kept for checks"],
 ];
 
-/* Questions are the page's own entries in the buyer question bank
-   (2026-10-23_sf-audit/questions/questions-by-page.md, Data migration). None
-   repeats a question on another Salesforce page; "What is Salesforce data
-   migration?" is answered by the AnswerBand. ⛔ Duration and cost: drivers
-   only until owner decision #10. */
-const FAQS: SfFaq[] = [
+/* The visible comparison (spec §5.3 row 5: the table IS the answer). Limits are Salesforce's, read READ_ON. */
+const TOOLS: { tool: string; fits: React.ReactNode; limit: string }[] = [
+  { tool: "Data Import Wizard", fits: "Accounts, contacts, leads and custom objects", limit: "Under 50,000 records per import" },
+  { tool: "Data Loader", fits: "Any object; repeat, scheduled and backup jobs", limit: "Up to 150 million records at a time" },
+  { tool: "Bulk API 2.0", fits: "Large loads run as background jobs; Data Loader can switch to it", limit: "Asynchronous and parallel" },
+  { tool: "Integration and ETL platforms", fits: "The old system keeps running beside Salesforce", limit: "Set by each product" },
+];
+
+/* Objections (H3) with the answers in Go deeper. ⛔ None repeats a FAQ question. The city answer is the owner's
+   2026-10-23 19:05 wording (most work remote; in person when the project calls for it, easiest around Philadelphia). */
+const CONCERNS: { q: string; a: React.ReactNode }[] = [
+  { q: "What if the load goes wrong halfway?", a: <>Nothing touches production until a full trial load has reconciled in a sandbox. The source stays read-only, not deleted, so anything questioned later is checked against the original.</> },
+  { q: "Our data is a mess. Should we clean it up first?", a: <>Cleanup is part of the migration. Duplicate accounts, contacts with no owner and picklists with six spellings of one value are agreed and merged before the load.</> },
+  { q: "You are not in our city.", a: <>Most of the work is remote, inside your org, from Malvern, PA; in-person sessions when the project calls for them, easiest across the Philadelphia region. <Link className="sf-link" to={PHL}>Salesforce consultants for Philadelphia companies</Link></> },
+];
+
+/* The page's own question bank (questions/questions-by-page.md, data migration): the ef1a8f0 set minus the tools
+   question, which is now the H2 "Salesforce data migration tools compared" (spec §5.3 row 11, HDG-08). One owner
+   page per question across the 23 pages. ⛔ Duration and cost: drivers only until owner decision #10. */
+const FAQS: SfFaqItem[] = [
   {
     q: "What do Salesforce data migration services include?",
     a: "An inventory of the source, a field map to Salesforce objects and owners agreed in writing, data cleansing and duplicate merging, a full trial load in a sandbox, the production cutover, and a reconciliation of record counts after each load. The source system is set read-only at the end, not deleted, so no data is lost.",
@@ -257,12 +126,7 @@ const FAQS: SfFaq[] = [
   {
     q: "How do you handle data migration into Salesforce?",
     a: "In four steps: inventory the source, map it to the Salesforce data model with external IDs, run a full trial load in a sandbox, then cut over to production and reconcile again. Nothing touches production until the sandbox counts match, which is how a migration avoids data loss.",
-    link: { to: "#process", label: "The order we do it in" },
-  },
-  {
-    q: "What are the best data migration tools for Salesforce?",
-    a: "For loads under 50,000 records into common objects, Salesforce's Data Import Wizard. For larger volumes, objects the wizard does not support, or loads that repeat on a schedule, Data Loader, which handles up to 150 million records at a time and can run on the Bulk API. We choose by the size and shape of the data; the mapping and testing matter more than the tool.",
-    link: { to: "#tools", label: "Which tool fits the volume" },
+    link: { to: "#process", label: "Salesforce data migration process and checklist" },
   },
   {
     q: "Can I export data from Salesforce?",
@@ -276,6 +140,7 @@ const FAQS: SfFaq[] = [
   {
     q: "How do we migrate from HubSpot to Salesforce?",
     a: "Export every HubSpot object you use, map companies to Accounts, contacts to Contacts and deals to Opportunities, map each pipeline stage and owner, and decide which emails, notes and activities come across. Then run a trial load in a sandbox and reconcile the counts before the production load.",
+    link: { to: "#source-crm", label: "HubSpot, Zoho, Dynamics 365 or Zendesk to Salesforce" },
   },
   {
     q: "How long does a migration to Salesforce take?",
@@ -284,7 +149,7 @@ const FAQS: SfFaq[] = [
   {
     q: "How much does Salesforce data migration cost?",
     a: "The same four drivers set the cost: sources, volume, cleanup and trial runs. The work is scoped in writing before it starts. Published market ranges for migration inside a wider Salesforce project are in our cost guide.",
-    link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
+    link: { to: COST, label: "Salesforce implementation cost guide" },
   },
   {
     q: "Will the migration disrupt our daily work?",
@@ -297,7 +162,7 @@ const FAQS: SfFaq[] = [
   {
     q: "Will we keep activity history, notes and attachments?",
     a: "Yes, when they are mapped. Notes and activities load against the records they belong to, attachments load as Salesforce Files, and where original created dates matter, Salesforce's Set Audit Fields upon Record Creation permission keeps them on insert. Which history comes across is decided with you at the mapping stage.",
-    link: { to: "#history", label: "Keeping history" },
+    link: { to: "#history", label: "Keeping record history in a Salesforce migration" },
   },
   {
     q: "Can you move an app off QuickBase or Kissflow into Salesforce?",
@@ -310,48 +175,26 @@ const FAQS: SfFaq[] = [
   },
 ];
 
-const OBJECTIONS = [
-  {
-    q: "What if the load goes wrong halfway?",
-    a: "Nothing touches production until a full trial load has reconciled in a sandbox. The source stays read-only, not deleted, so anything questioned later is checked against the original.",
-  },
-  {
-    q: "Our data is a mess. Should we clean it up first?",
-    a: "Cleanup is part of the migration. Duplicate accounts, contacts with no owner and picklists with six spellings of one value are agreed and merged before the load. A day spent agreeing merge rules saves a month of cleanup after it.",
-  },
-  SF_OBJECTIONS.city,
-];
-
-const TOC = [
-  { id: "kinds", label: "Four kinds" },
-  { id: "sources", label: "By source system" },
-  { id: "process", label: "The order" },
-  { id: "history", label: "History and what breaks" },
-  { id: "tools", label: "Which tool" },
-  { id: "delivered", label: "Delivered work" },
-  { id: "questions", label: "Questions" },
-  { id: "start", label: "Start" },
-];
-
-const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
+/* Visible comparison table: the kit has no visible-table class yet (requested in build-v2/requests-data-migration.md),
+   so the cells carry the kit's own tokens inline. Three columns stay readable at 390 because every cell is short. */
+const cell: React.CSSProperties = { textAlign: "left", verticalAlign: "top", padding: "14px 16px 14px 0", borderTop: "1px solid var(--hair-s)" };
+const headCell: React.CSSProperties = { ...cell, borderTop: 0, padding: "0 16px 10px 0", font: "500 12px/1.4 var(--mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink3)" };
 
 export default function SalesforceDataMigration() {
   useSEO({
-    title: "Salesforce Data Migration Services and Consultants",
-    description:
-      "Salesforce data migration services from QuickBase, Kissflow, HubSpot or another org, reconciled before go-live. Free one-week health check: (610) 890-9711.",
-    canonical: getCanonicalUrl(PAGE),
-    ogTitle: "Salesforce data migration services, reconciled row by row",
-    ogDescription:
-      "Moving records into Salesforce from no-code tools, other CRMs, spreadsheets or another org, with sandbox trial loads and reconciled counts.",
-    ogUrl: getCanonicalUrl(PAGE),
-    ogImage: "https://onealgorithm.com/media/salesforce/og-salesforce-data-migration.jpg",
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PAGE_PATH),
+    ogTitle: "Salesforce data migration services, reconciled row by row | OneAlgorithm",
+    ogDescription: DESCRIPTION,
+    ogUrl: getCanonicalUrl(PAGE_PATH),
+    ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
-    ogImageAlt: F1.alt,
-    twitterTitle: "Salesforce data migration services, reconciled row by row",
-    twitterDescription:
-      "Moving records into Salesforce from QuickBase, Kissflow, other CRMs or another org, reconciled before go-live.",
-    twitterImage: "https://onealgorithm.com/media/salesforce/og-salesforce-data-migration.jpg",
+    ogImageAlt: OG_ALT,
+    twitterTitle: "Salesforce data migration services, reconciled row by row | OneAlgorithm",
+    twitterDescription: DESCRIPTION,
+    twitterImage: OG_IMAGE,
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
   return (
@@ -362,372 +205,378 @@ export default function SalesforceDataMigration() {
           "Data migration into Salesforce from no-code platforms such as QuickBase and Kissflow, from other CRMs and spreadsheets, and between Salesforce orgs: source inventory, field mapping with external IDs, sandbox trial loads, production cutover and record-count reconciliation. Delivered by a listed AppExchange Consulting Partner based in Malvern, Pennsylvania.",
           "Salesforce data migration",
           PAGE_URL,
-          { image: PRIMARY_IMAGE.url },
+          { image: OG_IMAGE, offers: SF_HEALTH_CHECK_OFFER },
         )}
       />
-      <StructuredData
-        data={createWebPageSchema(
-          "Salesforce Data Migration Services and Consultants",
-          "Salesforce data migration from QuickBase, Kissflow, other CRMs, spreadsheets or another org, reconciled object by object before go-live.",
-          PAGE_URL,
-          { dateModified: "2026-10-23", primaryImage: PRIMARY_IMAGE },
-        )}
-      />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: PAGE_UPDATED, primaryImage: { url: OG_IMAGE, width: 1200, height: 630 } })} />
       <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
-      <StructuredData data={createFAQSchema(FAQS)} />
 
-      <PageHero
-        eyebrow="Salesforce data migration"
-        title={
-          <>
-            Salesforce data migration services,{" "}
-            <span className="text-oa-orange">reconciled row by row</span>
-          </>
-        }
-        lede="We move QuickBase, Kissflow, other CRMs and other Salesforce orgs into Salesforce, and we prove the counts match before anyone switches the old system off."
-        panel={{
-          title: "What you get",
-          items: [
-            "A source inventory: every table, field and file, with row counts",
-            "A field map to Salesforce objects, owners and external IDs, agreed in writing",
-            "A full trial load in a sandbox, reconciled object by object",
-            "The production cutover, reconciled again, with the source kept read-only",
-          ],
-        }}
-        primary={{ label: "Tell us what you are moving", href: "#start", cta: "hero" }}
-        secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711", cta: "hero" }}
-        siblings={false}
-      >
-        <div>
-          <HcLink label="Data already in Salesforce? What the free health check covers →" />
-        </div>
-        <CTAProof tone="dark" className="mt-6" />
-      </PageHero>
-
-      <AnswerBand
-        question="What is Salesforce data migration?"
-        answer="Salesforce data migration moves records from another system, or another Salesforce org, into Salesforce so they land in the right objects with their relationships, owners and history intact. The copying is the small part. The work is the mapping before it and the reconciliation after it: counts that match, object by object, before go-live."
-        leads={[
-          {
-            label: "Why it matters",
-            body: "Records that load but no longer mean what they meant make every report wrong from the first day.",
-          },
-          {
-            label: "What we do",
-            body: "We inventory the source, map it to Salesforce with external IDs, trial-load a sandbox, then cut over and reconcile again. We have migrated QuickBase and Kissflow systems into Salesforce.",
-          },
-          {
-            label: "What it costs",
-            body: (
-              <>
-                Scoped in writing once we know the source and the volume; published market ranges are in the{" "}
-                <Link className="oa-link" to="/services/salesforce-implementation-cost">
-                  Salesforce cost guide
-                </Link>
-                . Data already in Salesforce? Start with the{" "}
-                <Link className="oa-link" to="/services/salesforce-health-check">
-                  free one-week health check
-                </Link>
-                .
-              </>
-            ),
-          },
-        ]}
-        toc={TOC}
-      >
-        <RecordLine />
-      </AnswerBand>
-
-      <Section tone="surface" id="kinds">
-        <SectionHeading
-          title="Four kinds of migration we are asked for"
-          lede="The source changes. The risk stays the same: records that arrive but no longer mean what they meant. Every path ends the same way, with counts reconciled before go-live."
+      <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: "Data migration" }]}>
+        {/* 1 HERO. H1 = the LCP; FIG. 1 (field mapping + reconciliation) is dealt by CSS 250ms after first paint. */}
+        <SFHero
+          kicker={<>Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
+          title="Salesforce data migration services, reconciled row by row"
+          lede="We move US companies off QuickBase, Kissflow or another CRM into Salesforce, reconciled before go-live; existing orgs start with a free one-week health check."
+          proof
+          figure={<DataMigration fig={1} hero className="sf-hero-fig" />}
         />
-        <CardGrid columns={4} className="mt-12">
-          {KINDS.map((c) => (
-            <Card key={c.title} wire icon={c.icon} title={c.title} body={c.body} to={c.to} />
-          ))}
-        </CardGrid>
-      </Section>
 
-      <Section tone="paper" id="sources" clip>
-        <PlateScope>
-          <SectionHeading
-            title="Salesforce data migration by source system"
-            lede="Each source needs one thing settled before anything loads. Every path runs through the same field map and the same reconciliation."
-          />
-          <div className="mt-12 grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
-            <div className="xl:order-2">
-              <div className="mx-auto max-w-[760px] xl:sticky xl:top-28 xl:max-w-none">
-                <Plate
-                  spec={F1}
-                  fig={1}
-                  first
-                  stamp={["DIAGRAM · WHERE MIGRATIONS COME FROM", "ONEALGORITHM"]}
-                  caption="Every source runs through one field map into Salesforce, and every load ends in a count-by-count reconciliation."
-                />
+        {/* 2 WHAT IT IS (spec row 1) + what you get (the contract's 3 visible bullets; the old 14px H2 is now a label). */}
+        <SmartSection id="what" tone="surface" grid labelledBy="h-what">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-what"
+            title="What is Salesforce data migration?"
+            lede="Salesforce data migration moves records, history and files from another system into Salesforce and proves the counts match before go-live."
+            lead="The copying is the small part; records that load but no longer mean what they meant make every report wrong from day one."
+          >
+            <GoDeeper label="what a migration involves and what it costs">
+              <p className="sf-rule">
+                Records from another system, or another Salesforce org, have to land in the right objects with their relationships, owners and history intact. The work is the mapping before the load and the reconciliation after it: counts that match, object by object, before go-live.
+              </p>
+              <p><span className="sf-lead-in">What we do:</span> We inventory the source, map it to Salesforce with external IDs, trial-load a sandbox, then cut over and reconcile again.</p>
+              <p><span className="sf-lead-in">What it costs:</span> Scoped in writing once we know the source and the volume; published market ranges are in our cost guide.</p>
+              <p>Data migration is one stage of a Salesforce implementation.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
+                <Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link>
               </div>
-            </div>
-            <div className="xl:order-1">
-              {SOURCES.map((s) => (
-                <WiredRow key={s.k} k={s.k} as="article" className="-mx-3 px-3">
-                  <div className="border-t border-oa-hairlineStrong py-7">
-                  <p
-                    className={`inline-flex border px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.14em] ${
-                      s.k === "lowcode" ? "border-oa-blue text-oa-blue" : "border-oa-hairlineStrong text-oa-ink3"
-                    }`}
-                  >
-                    {s.chip}
-                  </p>
-                  <h3 id={s.id} className="mt-3 text-lg font-semibold text-oa-ink">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2.5 max-w-[34em] leading-relaxed text-oa-ink2">{s.body}</p>
-                  </div>
-                </WiredRow>
-              ))}
-              <article className="border-y border-oa-hairlineStrong py-7">
-                <h3 id="source-sap" className="text-lg font-semibold text-oa-ink">
-                  SAP: a one-off move or a sync
-                </h3>
-                <p className="mt-2.5 max-w-[34em] leading-relaxed text-oa-ink2">
-                  If SAP keeps running after go-live, the job is an integration, not a migration. We have delivered an
-                  SAP-to-Salesforce sync, and it starts by agreeing which system owns each record. If SAP is being
-                  retired, the move runs like any other source on this page.{" "}
-                  <Link className="oa-link" to="/services/salesforce-integration">
-                    Salesforce integration with SAP and ERP
-                  </Link>
-                </p>
-              </article>
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
+            </GoDeeper>
+          </SmartUnit>
+          <LedgerRule as="div" className="sf-c5" delay={0.08}>
+            <p className="sf-kicker">What you get</p>
+            <ul className="sf-points">
+              <li>A source inventory: every table, field and file, with row counts</li>
+              <li>A field map to objects, owners and external IDs, agreed in writing</li>
+              <li>Two reconciliations: after the sandbox trial and after the production load</li>
+            </ul>
+          </LedgerRule>
+        </SmartSection>
 
-      <Section tone="surface" id="process" clip>
-        <PlateScope>
-          <SectionHeading
-            title="The order we do it in"
-            lede="Nothing touches production until a full trial load has reconciled in a sandbox."
+        {/* 3 BY SOURCE SYSTEM (spec row 2): five H3 units on the night band. "Delivered" only on QuickBase/Kissflow. */}
+        <SmartSection
+          id="sources"
+          tone="night"
+          grid
+          heading={{
+            id: "h-sources",
+            title: "Salesforce data migration by source system",
+            lede: "We have migrated QuickBase and Kissflow systems into Salesforce, and we run the same method for other CRMs, spreadsheets and orgs.",
+          }}
+        >
+          <SmartUnit level={3} className="sf-c4" headingId="source-lowcode" kicker="Delivered" measure={false}
+            title="QuickBase and Kissflow to Salesforce"
+            lede="No-code apps grow one form at a time, so each move starts by agreeing which tables are live and which are history.">
+            <GoDeeper label="moving a no-code app into Salesforce">
+              <p className="sf-rule">No-code apps hold years of records in whatever shape the person who built each form chose. Every table is sorted first: live, history, or three copies of the same list. You get Salesforce objects that mean what your team thinks they mean.</p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c4" headingId="source-crm" kicker="Field map first" delay={0.08} measure={false}
+            title="HubSpot, Zoho, Dynamics 365 or Zendesk to Salesforce"
+            lede="CRMs share names, not structures, so every field, picklist value and owner is mapped from your system's own export first.">
+            <GoDeeper label="how we would run a move off another CRM">
+              <p className="sf-rule">A HubSpot company, a Zoho account and a Dynamics account all become Salesforce Accounts, but their owners, stages and custom fields do not line up one to one. We map every field and picklist value from your system's own export, agree the map with you in writing, and decide with you which emails, notes and activities come across. Zendesk runs the same way, with tickets mapped to Salesforce Cases and the ticket history you choose to keep.</p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c4" headingId="source-sheets" kicker="Dedupe first" delay={0.16} measure={false}
+            title="Spreadsheets or SQL Server to Salesforce"
+            lede="A contact list with a company column is two objects: companies become Accounts, people become Contacts linked to them.">
+            <GoDeeper label="how we would run a move off spreadsheets or a database">
+              <p className="sf-rule">Name variants such as "Inc." and "Inc" are merged into one record before the load, so they never reach a report. A SQL Server database moves the same way: each table is mapped to an object, and the keys that join tables are carried into external ID fields so the relationships rebuild in Salesforce.</p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c6" headingId="source-org" kicker="External IDs" measure={false}
+            title="Merging two Salesforce orgs"
+            lede="Every record carries its old ID into an external ID field, so parents and children reconnect in the target org.">
+            <GoDeeper label="how we would merge two orgs">
+              <p className="sf-rule">After a merger, or when a business unit was given its own org years ago, the objects share names but rarely share fields, picklist values or record IDs. Because every load matches on that external ID, it can run again without creating duplicates.</p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit level={3} className="sf-c6" headingId="source-sap" kicker="Migration or integration" delay={0.08} measure={false}
+            title="SAP: a one-off move or a sync"
+            lede="If SAP keeps running after go-live, the job is an integration; if SAP is being retired, it runs like any source here.">
+            <GoDeeper label="SAP data and Salesforce">
+              <p className="sf-rule">We have delivered an SAP-to-Salesforce sync, and it starts by agreeing which system owns each record.</p>
+              <div className="sf-links"><Link className="sf-link" to={INT}>Salesforce integration with SAP and ERP</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 4 PROCESS AND CHECKLIST (spec row 3): FIG. 2 rail scrubbed by scroll + four stage units + the checklist. */}
+        <SmartSection
+          id="process"
+          heading={{
+            id: "h-process",
+            title: "Salesforce data migration process and checklist",
+            lede: "We inventory, map, load into a sandbox, then cut over and reconcile count by count.",
+          }}
+        >
+          <StageRail
+            fig={2}
+            stations={STEPS}
+            className="sf-rail-top"
+            title="Staged diagram of the four steps of a Salesforce data migration"
+            desc="A rail runs through four stations: inventory the source, map to the Salesforce data model, load into a sandbox first, then cut over and reconcile."
+            stamp="The order of a migration"
+            caption="The four steps in the order they run. Nothing touches production until the sandbox counts match, and the source stays readable throughout."
           />
-          <div className="mt-12">
-            <Plate
-              spec={F2}
-              fig={2}
-              legend
-              stamp={["DIAGRAM · THE ORDER OF A MIGRATION", "ONEALGORITHM"]}
-              caption="Two tallies, one after the sandbox trial and one after the production load. The source stays readable throughout."
-            />
+          <StageUnits items={STEPS} />
+          <div className="sf-grid" style={{ marginTop: 56 }}>
+            <SmartUnit
+              level={3}
+              className="sf-c12"
+              headingId="h-checklist"
+              title="Salesforce data migration checklist"
+              lede="Eleven checks, in the order they run, from the first export to the source going read-only."
+            >
+              <ol style={{ marginTop: 24, columns: "20em 3", columnGap: 40 }}>
+                {CHECKLIST.map((c, i) => (
+                  <li key={c} style={{ display: "flex", gap: 14, padding: "10px 0", borderTop: "1px solid var(--hair)", breakInside: "avoid" }}>
+                    <span className="sf-mono" aria-hidden="true" style={{ color: "var(--orange-text)", paddingTop: 3 }}>{String(i + 1).padStart(2, "0")}</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ol>
+            </SmartUnit>
           </div>
-        </PlateScope>
-        <div className="mt-16">
-          <ProcessSteps rail terminal={{ label: "Name your source" }} steps={STEPS} />
-        </div>
-        <div className="mt-6 grid grid-cols-1 gap-x-16 lg:grid-cols-2 lg:items-start">
-          <DocNote
-            said="Salesforce's architecture guidance names the Bulk API as the way to move large record sets in with the least strain on org limits. Its jobs run in the background as platform capacity allows, and report their results when they finish."
-            title={DOCS.async.label}
-            url={DOCS.async.href}
-            readOn={READ_ON}
-            meaning="A load is a job to check, not a button to press. We read every job's success and error results and reconcile the counts before the next object loads, and the production load runs in a planned window."
-          />
-          <div className="lg:pt-10">
-            <h3 className="text-lg font-semibold text-oa-ink">Salesforce data migration checklist</h3>
-            <div className="mt-5">
-              <CheckList items={CHECKLIST} />
-            </div>
-          </div>
-        </div>
-      </Section>
+        </SmartSection>
 
-      <MidStrip line="Name the source system and roughly how much is in it." label="Tell us what you are moving" />
-
-      <Section tone="paper" id="history" clip>
-        <PlateScope>
-          <SectionHeading
-            title="Keeping history, and what breaks"
-            lede="History survives a migration when it is planned at the mapping stage. These are the Salesforce features we use to keep it, decided with you object by object."
-          />
-          <div className="mt-12 grid grid-cols-1 gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:gap-14">
-            <div>
-              <div className="mx-auto max-w-[600px] xl:sticky xl:top-28 xl:max-w-none">
-                <Plate
-                  spec={F3}
-                  fig={3}
-                  stamp={["DIAGRAM · ILLUSTRATIVE VALUES, SAMPLE DATA", "ONEALGORITHM"]}
-                  caption="The old system's ID travels with every record, so children find their parents and a rerun updates instead of duplicating."
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-h3 font-semibold text-oa-ink">How history comes across</h3>
-              <div className="mt-6 border-b border-oa-hairlineStrong">
-                {HISTORY.map((h) =>
-                  h.k ? (
-                    <WiredRow key={h.title} k={h.k} className="-mx-3 px-3">
-                      <p className="max-w-[34em] border-t border-oa-hairlineStrong py-5 text-oa-ink2">
-                        <strong className="font-semibold text-oa-ink">{h.title}</strong> {h.body}
-                      </p>
-                    </WiredRow>
-                  ) : (
-                    <div key={h.title} className="border-t border-oa-hairlineStrong py-5">
-                      <p className="max-w-[34em] text-oa-ink2">
-                        <strong className="font-semibold text-oa-ink">{h.title}</strong> {h.body}
-                      </p>
-                    </div>
-                  ),
-                )}
-              </div>
-              <h3 className="mt-16 text-h3 font-semibold text-oa-ink">What breaks, and the check that catches it</h3>
-              <div className="mt-6">
-                <DataTable
-                  label="Common Salesforce data migration mistakes and the check that catches each one"
-                  head={["What breaks", "The check that catches it"]}
-                  rows={BREAKS.map(([a, b]) => ({ cells: [a, b] }))}
-                  source="Each check is a step in the method above."
-                />
-              </div>
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
-
-      <Section tone="surface" id="tools">
-        <SectionHeading
-          title="Which Salesforce tool fits the volume"
-          lede="We choose the tool by the size and shape of the data. Salesforce documents where each one stops."
-        />
-        <div className="mt-10">
-          <DataTable
-            label="Salesforce data loading tools and their documented limits"
-            ground="surface"
-            head={["Tool", "Fits", "Salesforce's documented limit"]}
-            rows={[
-              {
-                cells: [
-                  "Data Import Wizard",
-                  "Common standard objects such as accounts, contacts and leads, plus custom objects. Matches duplicates on account name and site, or on contact or lead email.",
-                  "Under 50,000 records per import",
-                ],
-              },
-              {
-                cells: [
-                  "Data Loader",
-                  "Any object, including those the wizard does not support; field mappings that repeat; scheduled loads such as nightly imports; full exports for backup.",
-                  "Up to 150 million records at a time. Above that, Salesforce points you to a partner or to AppExchange.",
-                ],
-              },
-              {
-                cells: [
-                  "Bulk API 2.0",
-                  "Large loads processed as background jobs. Data Loader can switch to it.",
-                  "Asynchronous and parallel: faster than the SOAP API that Data Loader uses by default",
-                ],
-              },
-              {
-                cells: [
-                  "Integration and ETL platforms",
-                  <>
-                    When the old system keeps running beside Salesforce, the job is an integration rather than a one-off load.{" "}
-                    <Link className="oa-link" to="/services/salesforce-integration">
-                      Salesforce integration
-                    </Link>
-                  </>,
-                  "Set by each product",
-                ],
-              },
-            ]}
-            source={
-              <>
-                Sources, read {READ_ON}:{" "}
-                <a className="oa-link" href={DOCS.dataLoader.href} {...ext}>
-                  {DOCS.dataLoader.label} ↗
-                </a>{" "}
-                ·{" "}
-                <a className="oa-link" href={DOCS.trailhead.href} {...ext}>
-                  {DOCS.trailhead.label} ↗
-                </a>{" "}
-                ·{" "}
-                <a className="oa-link" href={DOCS.bulk.href} {...ext}>
-                  {DOCS.bulk.label} ↗
-                </a>
-              </>
-            }
-          />
-        </div>
-        <p className="mt-10 max-w-[30em] text-lede text-oa-ink">
-          Above 150 million records, Salesforce's own guidance is to work with a Salesforce partner. We are a listed
-          Consulting Partner on AppExchange.
-        </p>
-      </Section>
-
-      <Section tone="paper" id="delivered">
-        <div className="grid grid-cols-1 gap-14 xl:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] xl:gap-16">
-          <div>
-            <DeliveredLedger title="Work we have delivered" lead="lowcode" />
-          </div>
-          <aside className="border-t-2 border-oa-blue pt-6 xl:mt-2 xl:self-start">
-            <h3 className="text-h3 font-semibold text-oa-ink">Who leads the work</h3>
-            <PeopleStrip className="mt-4 max-w-[30em] text-oa-ink2" />
-            <p className="mt-5 max-w-[30em] text-oa-ink2">
-              You work directly with the certified people doing the migration, from the first inventory to the last
-              count.
+        {/* 5 TOOLS COMPARED (spec row 5): the table is the answer, so it stays visible; sources in the pop-up. */}
+        <SmartSection
+          id="tools"
+          tone="surface"
+          grid
+          heading={{
+            id: "h-tools",
+            title: "Salesforce data migration tools compared",
+            lede: "Data Import Wizard suits small loads, Data Loader and the Bulk API handle large ones; the volume decides.",
+          }}
+        >
+          <div className="sf-c8">
+            {/* Two columns (tool + what it fits | the limit) so the comparison stays readable at 390. */}
+            <table style={{ width: "100%", borderCollapse: "collapse", borderBottom: "1px solid var(--hair-s)", fontSize: 16, lineHeight: 1.45 }}>
+              <caption className="sr-only">Salesforce data loading tools, what each fits, and Salesforce's documented limits</caption>
+              <thead>
+                <tr><th scope="col" style={{ ...headCell, width: "58%" }}>Tool · what it fits</th><th scope="col" style={headCell}>Salesforce's documented limit</th></tr>
+              </thead>
+              <tbody>
+                {TOOLS.map((t) => (
+                  <tr key={t.tool}>
+                    <th scope="row" style={{ ...cell, fontWeight: 400 }}>
+                      <span style={{ display: "block", font: "700 19px/1.3 var(--display)", color: "var(--ink)" }}>{t.tool}</span>
+                      <span style={{ display: "block", marginTop: 4, color: "var(--ink2)" }}>{t.fits}</span>
+                    </th>
+                    <td style={{ ...cell, color: "var(--ink)", fontWeight: 600 }}>{t.limit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="sf-mono" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              Salesforce's documentation, read {READ_ON} · <Verify id="docs">Where these limits come from</Verify>
             </p>
-          </aside>
-        </div>
-      </Section>
+          </div>
+          <SmartUnit
+            level={3}
+            className="sf-c4"
+            delay={0.08}
+            measure={false}
+            title="Above 150 million records"
+            lede="Salesforce's own guidance is to work with a Salesforce partner, and we are a listed Consulting Partner on AppExchange."
+          >
+            <GoDeeper label="how a large load runs">
+              <p className="sf-rule">Salesforce's architecture guidance names the Bulk API as the way to move large record sets in with the least strain on org limits. Its jobs run in the background as platform capacity allows, and report their results when they finish.</p>
+              <p><span className="sf-lead-in">What we do:</span> We read every job's success and error results and reconcile the counts before the next object loads.</p>
+              <p>The Data Import Wizard matches duplicates on account name and site, or on contact or lead email. When the old system keeps running beside Salesforce, the job is an integration rather than a one-off load.</p>
+              <div className="sf-links"><Link className="sf-link" to={INT}>Salesforce integration services</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      <Section tone="surface" id="objections">
-        {/* Measure cap for the shared answer column (~110 chars at 1440 otherwise). */}
-        <div className="[&_dd]:max-w-[34em]">
-          <Objections items={OBJECTIONS} />
-        </div>
-      </Section>
+        {/* 6 HISTORY (spec row 6): two H3 units abreast; the history list and the failure table in Go deeper. */}
+        <SmartSection
+          id="history"
+          grid
+          heading={{
+            id: "h-history",
+            title: "Keeping record history in a Salesforce migration",
+            lede: "History survives a migration when it is planned at the mapping stage, decided with you object by object.",
+          }}
+        >
+          <SmartUnit
+            level={3}
+            className="sf-c6"
+            measure={false}
+            title="How history comes across"
+            lede="Every record keeps its old ID, so children find their parents and a corrected file can load again without duplicates."
+            points={[
+              "Original created dates and creators kept on insert, where you need them",
+              "Attachments from the old system load as Salesforce Files",
+              "Notes and activities load against the records they belong to",
+            ]}
+          >
+            <GoDeeper label="the six ways history is kept">
+              <ul className="sf-points" style={{ marginTop: 0 }}>
+                {HISTORY.map(([t, b]) => <li key={t}><b className="sf-lead-in">{t}</b> {b}</li>)}
+              </ul>
+              <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+                Set Audit Fields: Salesforce's documentation, read {READ_ON} · <Verify id="docs">Sources</Verify>
+              </p>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            level={3}
+            className="sf-c6"
+            delay={0.08}
+            measure={false}
+            title="What breaks, and the check that catches it"
+            lede="Seven things break migrations, and each has a check in the method above that catches it before go-live."
+            points={[
+              "Relationships that do not connect: parents load first, children find them by ID",
+              "Duplicates that load perfectly: merge rules agreed before the load",
+              "Consent and do-not-call flags lost: suppression fields tested first",
+            ]}
+          >
+            <GoDeeper label="all seven failure points and their checks">
+              <table>
+                <caption className="sr-only">Common Salesforce data migration mistakes and the check that catches each one</caption>
+                <thead><tr><th scope="col">What breaks</th><th scope="col">The check that catches it</th></tr></thead>
+                <tbody>
+                  {BREAKS.map(([a, b]) => <tr key={a}><th scope="row">{a}</th><td>{b}</td></tr>)}
+                </tbody>
+              </table>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      <Section tone="paper" id="questions">
-        <SectionHeading title="What people ask about moving data into Salesforce" />
-        <div className="[&_h3+div]:max-w-[34em]">
-          <FAQList
-            faqs={FAQS}
-            sources={{
-              checked: "October 2026",
-              links: [DOCS.dataLoader, DOCS.trailhead, DOCS.wizard, DOCS.export, DOCS.bulk, DOCS.async, DOCS.audit],
-            }}
-          />
-        </div>
-      </Section>
+        {/* 7 BEST PRACTICES (spec row 4) + AFTER THE MIGRATION (spec row 7): two H2 units abreast. */}
+        <SmartSection id="practices" tone="surface" grid labelledBy="h-practices">
+          <SmartUnit
+            className="sf-c6"
+            headingId="h-practices"
+            measure={false}
+            title="Salesforce data migration best practices"
+            lede="The practices that prevent data loss: the source stays read-only, every old ID travels with its record, and counts are reconciled twice."
+            lead="A day spent agreeing merge rules saves a month of cleanup after the load."
+            points={[
+              "A full export of the source first, kept as a backup",
+              "Automation paused for the load, consent fields tested first",
+              "Every user mapped to a Salesforce record owner",
+            ]}
+          >
+            <GoDeeper label="the full list of practices">
+              <ul className="sf-points" style={{ marginTop: 0 }}>
+                <li>Set the source read-only instead of deleting it, so anything questioned later is checked against the original.</li>
+                <li>Carry every old record ID in an external ID field; parents load first and children find them by it.</li>
+                <li>Load as upserts matched on the external ID, so a corrected file can run again without duplicates.</li>
+                <li>Agree duplicate and merge rules with you before the load, not after.</li>
+                <li>Map every source picklist value to one Salesforce value.</li>
+                <li>Review and pause validation rules, duplicate rules, flows and triggers for the load, then re-enable and test them.</li>
+                <li>Reconcile record counts object by object in the sandbox, and again after the production load.</li>
+              </ul>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            className="sf-c6"
+            headingId="h-after"
+            delay={0.08}
+            measure={false}
+            leadIn="What we do:"
+            title="After the migration: support and clean-up"
+            lede="After cutover, every paused rule is switched back on and tested, and the old system stays readable for checks."
+            lead="Weekly administration and development keeps the org running after go-live, with hours reported every week."
+            points={[
+              "Validation rules, flows and triggers re-enabled and tested before users return",
+              "Questions about a record checked against the read-only source",
+              "Reports and dashboards changed as the questions change",
+            ]}
+          >
+            <GoDeeper label="support after go-live">
+              <p className="sf-rule">Training for admins and for everyday users, reports and dashboards changed as the questions change, and testing before every Salesforce release. Managed services carry it on: weekly administration and development, with hours reported every week.</p>
+              <div className="sf-links"><Link className="sf-link" to={MS}>Salesforce managed services and development</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      <Section tone="surface" id="related">
-        <SectionHeading
-          title="Other Salesforce work"
-          lede={
-            <>
-              Data migration is one stage of a Salesforce implementation.{" "}
-              <Link className="oa-link" to="/services/salesforce">
-                How an implementation runs
-              </Link>
-            </>
-          }
+        {/* 8 DELIVERED (spec row 8): the delivered rows, who leads the work (badges, Verify), Salesforce's record. */}
+        <SmartSection
+          id="delivered"
+          heading={{
+            id: "h-delivered",
+            title: "Salesforce data migration work we have delivered",
+            lede: "We have migrated QuickBase and Kissflow systems into Salesforce, and delivered an SAP sync, Marketing Cloud support and ongoing development for a lending company.",
+          }}
+        >
+          <div className="sf-grid" style={{ marginTop: 40 }}>
+            {/* The unit's own H3 comes first: the ledger rows are H3s too, and the unit heading is what the
+                brevity lint measures (8 words). The QuickBase/Kissflow row is spec §5.3 row 8's H3. */}
+            <LedgerRule as="div" className="sf-c7">
+              <h3 className="sf-h3" id="h-practice-work">Delivered across our Salesforce practice</h3>
+              <DeliveredLedger />
+              <p className="sf-mono" style={{ marginTop: 10 }}>Client names stay private.</p>
+              {/* Salesforce's record sits under the ledger so the 7/5 spread is full beside the people block. */}
+              <p className="sf-kicker" style={{ marginTop: 56 }}>Salesforce's AppExchange record of OneAlgorithm</p>
+              <Readouts />
+            </LedgerRule>
+            <LedgerRule as="aside" className="sf-c5 sf-lead-block" delay={0.08} aria-labelledby="h-lead">
+              <h3 className="sf-h3" id="h-lead">Who leads your Salesforce work</h3>
+              <PersonCredentials />
+            </LedgerRule>
+          </div>
+        </SmartSection>
+
+        {/* 9 CONCERNS (spec row 10): objection questions as H3, answers in Go deeper. */}
+        <SmartSection
+          id="concerns"
+          tone="surface"
+          grid
+          heading={{
+            id: "h-concerns",
+            title: "Concerns before a Salesforce data migration",
+            lede: "Three questions buyers raise before a migration, each with the direct answer.",
+          }}
+        >
+          {CONCERNS.map((c, i) => (
+            <LedgerRule as="article" key={c.q} className="sf-c4" delay={i * 0.08}>
+              <h3 className="sf-h3">{c.q}</h3>
+              <GoDeeper label={c.q} title="The answer">
+                <p className="sf-rule">{c.a}</p>
+              </GoDeeper>
+            </LedgerRule>
+          ))}
+        </SmartSection>
+
+        {/* 10 DESK (spec row 9): the one form, #start. */}
+        <DeskCTA
+          heading="Scope your Salesforce data migration"
+          lede="Name the source system and roughly how much is in it; data already in Salesforce starts with the free one-week health check."
+          next={["Call or send the form.", "A person at OneAlgorithm reads it and replies.", "We tell you what we would check first."]}
+          form={{
+            topic: "data-migration",
+            topicLabel: "Salesforce data migration",
+            heading: "Book a free health check",
+            prompt: "Source system and roughly how much is in it",
+            submitLabel: "Book a free health check",
+          }}
         />
-        <RouteBoard groups={["services", "local", "cities"]} citiesLabel="Where we deliver this" />
-      </Section>
 
-      <Desk
-        heading="Tell us what you are moving"
-        body="Name the source system and roughly how much is in it. We will tell you what we would check first."
-        form={{
-          topic: "data-migration",
-          topicLabel: "Salesforce data migration",
-          heading: "Scope your Salesforce migration",
-          prompt: "Source system and roughly how much is in it",
-          submitLabel: "Tell us what you are moving",
-        }}
-        next={[
-          "Call or send the form.",
-          "A person at OneAlgorithm reads it and replies.",
-          "We tell you what we would check first.",
-        ]}
-      />
+        {/* 11 FAQ (spec row 11): questions visible, answers in the HTML behind native disclosures. */}
+        <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">Salesforce data migration questions</h2>
+            <p style={{ marginTop: 12 }}>Not here? Call the office: <a className="sf-phone" href={SF_PHONE.href} data-cta="faq">{SF_PHONE.display}</a></p>
+          </div>
+          <div className="sf-c7 sf-faq-col">
+            <FAQ items={FAQS} />
+          </div>
+        </SmartSection>
+
+        <SourcesDialog
+          id="docs"
+          title="Where these limits come from"
+          intro={`Every tool limit and feature on this page is Salesforce's own documentation, read by a person at OneAlgorithm on ${READ_ON}. The pages are listed here.`}
+          sources={DOCS}
+        />
+      </SfPage>
     </Layout>
   );
 }

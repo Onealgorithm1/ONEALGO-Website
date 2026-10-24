@@ -33,6 +33,15 @@ interface SEOConfig {
    *  nothing. The prerenderer snapshots <head> after this runs, so on those two
    *  pages the tag is in the served HTML where the parser sees it first. */
   preloadImage?: string;
+  /** Responsive preload for preloadImage (imagesrcset/imagesizes + MIME type), so the preload matches the
+   *  <picture> source the browser will choose. Salesforce city heroes only; unset everywhere else. */
+  preloadImageSrcset?: string;
+  preloadImageSizes?: string;
+  preloadImageType?: string;
+  /** Route-owned font preloads (same-origin woff2). Salesforce v2 pages preload the
+   *  display face their H1 is set in; a global preload in index.html would spend
+   *  35KB on every other page for nothing. Replaced on navigation like preloadImage. */
+  preloadFonts?: string[];
 }
 
 export function useSEO(config: SEOConfig) {
@@ -62,6 +71,8 @@ export function useSEO(config: SEOConfig) {
     config.twitterImage,
     config.noindex,
     config.preloadImage,
+    config.preloadImageSrcset,
+    config.preloadFonts?.join(","),
   ]);
 }
 
@@ -81,9 +92,24 @@ function applySEO({
   twitterImage,
   noindex,
   preloadImage,
+  preloadImageSrcset,
+  preloadImageSizes,
+  preloadImageType,
+  preloadFonts,
 }: SEOConfig) {
   if (title) {
     document.title = title;
+  }
+  document.querySelectorAll("link[data-seo-preload-font]").forEach((el) => el.remove());
+  for (const href of preloadFonts ?? []) {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "font";
+    link.type = "font/woff2";
+    link.href = href;
+    link.crossOrigin = "anonymous"; // required even for same-origin fonts, or the browser fetches twice
+    link.setAttribute("data-seo-preload-font", "");
+    document.head.appendChild(link);
   }
   // Exactly one route-owned preload at a time: replace on navigation, remove
   // when the next page has none. Marked with a data attribute so it never
@@ -94,6 +120,9 @@ function applySEO({
     link.rel = "preload";
     link.as = "image";
     link.href = preloadImage;
+    if (preloadImageSrcset) link.setAttribute("imagesrcset", preloadImageSrcset);
+    if (preloadImageSizes) link.setAttribute("imagesizes", preloadImageSizes);
+    if (preloadImageType) link.type = preloadImageType;
     link.setAttribute("fetchpriority", "high");
     link.setAttribute("data-seo-preload", "");
     document.head.appendChild(link);

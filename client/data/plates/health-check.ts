@@ -61,7 +61,7 @@ export const PLATES = {
   },
   "salesforce-health-check-five-areas": {
     "id": "salesforce-health-check-five-areas",
-    "alt": "Diagram: the five areas the free health check covers (licences and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.",
+    "alt": "Diagram: the five areas the free health check covers (licenses and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.",
     "src": "/media/salesforce/salesforce-health-check-five-areas.svg",
     "w": 580,
     "h": 407.6,

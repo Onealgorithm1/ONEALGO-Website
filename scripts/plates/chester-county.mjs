@@ -76,7 +76,7 @@ const usd = (v) => '$' + n(v)
 const EDITION_ALT =
   `Bar chart of Salesforce list prices for ${SEATS} users a month, read from salesforce.com on ${PRICES_CHECKED}: ` +
   EDITIONS.map((e) => `${e.name} ${usd(e.price * SEATS)}${e.api ? ` (${usd((e.price + e.api) * SEATS)} with API access)` : ''}`).join(', ') +
-  '; licences only, before setup.'
+  '; licenses only, before setup.'
 
 /** One readout row: a hairline-grey bar (palette `line`, so the night share image re-tones it) with the signal wire through it, a node at the
  *  value, and (Pro Suite) a dashed run to the price with API access. */
@@ -107,7 +107,7 @@ function editionsDesktop() {
   const max = Math.max(...EDITIONS.map((e) => (e.price + (e.api ?? 0)) * SEATS))
   const top = Math.ceil(max / 1000) * 1000
   const sx = (v) => x0 + (v / top) * plotW
-  const items = [text(`Monthly list price for ${SEATS} users · licences only, before setup`, 32, 36, { size: t.label, fill: 'ink2' })]
+  const items = [text(`Monthly list price for ${SEATS} users · licenses only, before setup`, 32, 36, { size: t.label, fill: 'ink2' })]
   const bottom = y0 + EDITIONS.length * rowH
   for (let v = 0; v <= top; v += 1000) {
     items.push(shape({ d: `M${round(sx(v))} ${y0 - 8} L${round(sx(v))} ${bottom - 12}`, stroke: 'line', width: 1 }))
@@ -127,7 +127,7 @@ function editionsMobile() {
   const W = 640, x0 = 32, plotW = 380, y0 = 92, rowH = 96
   const max = Math.max(...EDITIONS.map((e) => (e.price + (e.api ?? 0)) * SEATS))
   const sx = (v) => x0 + (v / max) * plotW
-  const items = [text(`${SEATS} users a month, licences only`, 32, 48, { size: t.label, fill: 'ink2' })]
+  const items = [text(`${SEATS} users a month, licenses only`, 32, 48, { size: t.label, fill: 'ink2' })]
   EDITIONS.forEach((e, i) => {
     const cy = y0 + i * rowH
     items.push(text(e.name, 32, cy + 26, { size: t.label, weight: 600 }))
@@ -270,7 +270,7 @@ function map(W, H, { tag, label, node, pad }) {
 }
 
 const MAP_ALT =
-  "Map of Chester County, Pennsylvania, and its neighbouring counties (Lancaster, Berks, Montgomery and Delaware in Pennsylvania, New Castle in Delaware and Cecil in Maryland), marking OneAlgorithm's office in Malvern and the straight-line distance from it to " +
+  "Map of Chester County, Pennsylvania, and its neighboring counties (Lancaster, Berks, Montgomery and Delaware in Pennsylvania, New Castle in Delaware and Cecil in Maryland), marking OneAlgorithm's office in Malvern and the straight-line distance from it to " +
   TOWNS.map((t) => `${t.label} (about ${t.mi} miles)`).join(', ').replace(/, ([^,]*)$/, ' and $1') +
   '.'
 

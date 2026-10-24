@@ -34,20 +34,20 @@
 
 ## Salesforce
 
-OneAlgorithm is a listed Salesforce Consulting Partner on AppExchange (listing
+OneAlgorithm is a Select Salesforce Consulting Partner on AppExchange (listing
 a0N3A00000EV7SwUAL: 16 Salesforce-certified people, 53 certifications, 38 of
 them Platform), working from Malvern, PA. Every page below offers the free
 one-week Salesforce health check.
 
 - Salesforce implementation services (hub): https://onealgorithm.com/services/salesforce
-- Free one-week Salesforce health check: licences, data, automation, permissions and integrations, in a written list ranked by what to fix first: https://onealgorithm.com/services/salesforce-health-check
-- Salesforce implementation cost guide: published market ranges, named and dated, before licences: https://onealgorithm.com/services/salesforce-implementation-cost
+- Free one-week Salesforce health check: licenses, data, automation, permissions and integrations, in a written list ranked by what to fix first: https://onealgorithm.com/services/salesforce-health-check
+- Salesforce implementation cost guide: published market ranges, named and dated, before licenses: https://onealgorithm.com/services/salesforce-implementation-cost
 - Salesforce data migration: QuickBase, Kissflow, another CRM or another org, reconciled before go-live: https://onealgorithm.com/services/salesforce-data-migration
 - Salesforce integration with SAP and ERP: which system owns each record, agreed before anything is built: https://onealgorithm.com/services/salesforce-integration
 - Salesforce managed services: weekly administration and development, with hours reported every week: https://onealgorithm.com/services/salesforce-managed-services
 - Marketing Cloud consulting: support for Marketing Cloud accounts already running: https://onealgorithm.com/services/salesforce-marketing-cloud-consulting
 - Salesforce consultants for Philadelphia companies: https://onealgorithm.com/services/salesforce-consultant-philadelphia
-- Salesforce consultant for Chester County businesses: which edition you need, what it costs, and a licence count before you sign: https://onealgorithm.com/services/salesforce-consultant-chester-county
+- Salesforce consultant for Chester County businesses: which edition you need, what it costs, and a license count before you sign: https://onealgorithm.com/services/salesforce-consultant-chester-county
 - Salesforce Consulting Partner in Pennsylvania, and how to check any partner's record on AppExchange: https://onealgorithm.com/services/salesforce-consulting-partner-pennsylvania
 - Salesforce consultant for New York companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-new-york
 - Salesforce consultant for Washington, DC companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-washington-dc
@@ -61,7 +61,6 @@ one-week Salesforce health check.
 - Salesforce consultant for Austin companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-austin
 - Salesforce consultant for Miami companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-miami
 - Salesforce consultant for Chicago companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-chicago
-- Salesforce consultant for Houston companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-houston
 
 ## Local (Philadelphia metro)
 

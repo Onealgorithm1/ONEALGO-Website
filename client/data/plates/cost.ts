@@ -6,7 +6,7 @@ import type { PlateSpec, ShotSpec } from "./types";
 export const PLATES = {
   "salesforce-implementation-cost-ranges": {
     "id": "salesforce-implementation-cost-ranges",
-    "alt": "Range chart of published Salesforce implementation costs before licences, from four guides checked 23 October 2026. Small business: $10,000 to $50,000 (Cynoteck), $15,000 to $50,000 (BrainSpate, Groviya and American Chase). Mid-market: $75,000 to $250,000 (Cynoteck), $50,000 to $150,000 (BrainSpate and American Chase), $50,000 to $250,000 (Groviya). Enterprise: $150,000 to $500,000 or more (Cynoteck, BrainSpate and American Chase), $250,000 to $1,000,000 or more (Groviya). These are market figures, not OneAlgorithm prices.",
+    "alt": "Range chart of published Salesforce implementation costs before licenses, from four guides checked 23 October 2026. Small business: $10,000 to $50,000 (Cynoteck), $15,000 to $50,000 (BrainSpate, Groviya and American Chase). Mid-market: $75,000 to $250,000 (Cynoteck), $50,000 to $150,000 (BrainSpate and American Chase), $50,000 to $250,000 (Groviya). Enterprise: $150,000 to $500,000 or more (Cynoteck, BrainSpate and American Chase), $250,000 to $1,000,000 or more (Groviya). These are market figures, not OneAlgorithm prices.",
     "src": "/media/salesforce/salesforce-implementation-cost-ranges.svg",
     "w": 1136,
     "h": 689,

@@ -1,61 +1,41 @@
-import type { ReactNode } from "react";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { PageHero, ProcessSteps, Prose, Section, SectionHeading } from "../../components/site";
 import {
-  AnswerBand,
-  DataTable,
-  Desk,
-  FAQList,
-  HcLink,
-  Objections,
-  PeopleStrip,
-  Plate,
-  PlateScope,
-  RouteBoard,
-  SF_OBJECTIONS,
-  WiredRow,
-  type SfFaq,
-} from "../../components/salesforce";
-import { RecordLine, SalesforceRecordCard } from "../../components/SalesforceRecordCard";
+  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, FAQ, DeskCTA,
+  ServiceCards, HUB_SERVICE_CARDS, StageRail, SourcesDialog, Verify, PhotoCreditDialog, PhotoCreditsLine,
+  type Readout, type SfFaqItem, type Station, type SfSource, sfHeroAvifSrcset, SF_HERO_SIZES } from "../../components/sf";
+import { HealthCheck } from "../../components/sf/illus";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
-  SF_HEALTH_CHECK_OFFER,
-  StructuredData,
-  createFAQSchema,
-  createLocalBusinessSchema,
-  createServiceSchema,
-  createWebPageSchema,
+  SF_HEALTH_CHECK_OFFER, StructuredData, createFAQSchema, createLocalBusinessSchema, createServiceSchema, createWebPageSchema,
 } from "../../components/StructuredData";
 import { SALESFORCE_CITIES } from "../../data/salesforceCities";
-import { CITY_COPY } from "../../data/salesforceCityCopy";
-import { PLATES } from "../../data/plates/city";
+import { CITY_COPY, type CityUnit } from "../../data/salesforceCityCopy";
+import { SF_CITY_HEROES, sfCityFiles } from "../../data/sfCityHeroes";
 import {
-  SF_APPEXCHANGE_URL,
-  SF_CERTIFICATIONS,
-  SF_CERTIFIED_PEOPLE,
-  SF_LISTING_ID,
-  SF_PAGES,
-  SF_PHONE,
-  SF_PLATFORM_CERTS,
+  SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_LISTING_ID, SF_PAGES, SF_PHONE, SF_PLATFORM_CERTS, SF_VERIFIED_LABEL,
 } from "../../data/salesforceProof";
 
-/* One template for the Salesforce city pages: /services/salesforce-consultant-<slug>, the 12
- * wave-2 cities plus Houston (2026-10-23). Build spec: onealgo-icm-oa/areas/sales/runs/
- * 2026-10-23_sf-audit/design-spec.md §3 "City template" and §5 "City template", plus the
- * wide-layout and voice addenda.
- * WHY ONE TEMPLATE IS NOT A DOORWAY PAGE: the body is the city's own data (Census, BLS,
- * LinkedIn, USAspending and Trailblazer community figures generated from source into
- * client/data/salesforceCities.ts, drawn as four plates by scripts/plates/city.mjs) plus a
- * hand-written angle and FAQs unique to that city (salesforceCityCopy.ts).
- * ⛔ We are in Malvern, PA. Never imply an office or clients in the city.
- * ⛔ Proof is the allowed list only (salesforceProof.ts). The page never says what we lack
- *    (voice addendum); e.g. there is no review block because there are no reviews to show.
- * Gap IDs closed (gap-audit-verified-gaps.md, Dallas = template): CITY-1 record card + RecordLine
- * + certification FAQ; CITY-3 one offer name; CITY-4 Desk form + phone; CITY-5 service cards
- * with delivered facts + rail; CITY-6 budget/timeline FAQ; CITY-7 hire/contract/partner;
- * CITY-9 four captioned plates; CITY-11 schema; CITY-12 all four industries; CITY-13 body
- * links; CITY-14 office answer; CITY-15 after-go-live + migration FAQs. */
+/* One template for the 13 Salesforce city pages, /services/salesforce-consultant-<slug> (the 12 wave-2 cities plus
+ * Houston). Rebuilt 2026-10-23 on the redesign-v2 kit (client/components/sf), in the design Louis approved that day
+ * ("Yes, build the 23 pages this way"). Build notes: onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/build-v2/
+ * page-city-template.md. Structure: seo-completeness/structure-spec.md §7.4 (title, meta, H1, the 13 H2s, H3s,
+ * FAQ, schema, links) and §11 (doorway rules). Section order follows the approved prototype's rhythm (spec §0:
+ * heading order is not a ranking factor); every H2 string is the spec's.
+ *
+ * WHY THIS IS NOT A DOORWAY PAGE (spec §11): the hero is the city's own licensed photograph; the market figures,
+ * industry chart, role counts, community groups, Salesforce office line and federal lines are the city's own
+ * sourced data (client/data/salesforceCities.ts, generated, never typed); the city-only H2 band, the service order
+ * and at least four FAQs are hand-written per city (client/data/salesforceCityCopy.ts); shared blocks (rail,
+ * objections, generic FAQs) are one or two sentences that link their owner page; the hero button opens this page's
+ * own form (#start), never another URL.
+ * ⛔ We are in Malvern, PA: no city address, office, client or "serving since" claim. Visits only as the owner put
+ *    it (2026-10-23 19:05): most work is remote; on larger projects on-site visits are planned into the project.
+ * ⛔ Proof is the allowed list only (structure-spec §8.1). No industry-to-delivery pairing beyond lending (D8).
+ * ⛔ Links: in-site only in the body. Every source (Census, BLS, LinkedIn, USAspending, Trailblazer groups, events)
+ *    is named as text with its read date; the human-readable source pages sit in the two SourcesDialogs. No API or
+ *    data URL anywhere (the 91 api.census.gov anchors of ef1a8f0 are gone). Houston is never linked until its gate. */
 
 type City = (typeof SALESFORCE_CITIES)[number];
 
@@ -65,8 +45,8 @@ const pct = (a?: number | null, b?: number | null) => (a && b ? Math.round(((a -
 const signed = (v: number) => `${v >= 0 ? "+" : ""}${v}%`;
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 /** "2026-10-21" -> "21 October 2026" (the site's registry date style, as SF_VERIFIED_LABEL). */
-const fmtDate = (iso: string) =>
-  new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const fmtDate = (iso: string, month: "long" | "short" = "long") =>
+  new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month, year: "numeric", timeZone: "UTC" });
 /** "2027-07-15/16" -> "15–16 July 2027". */
 const fmtEvent = (d: string) => {
   const [base, end] = d.split("/");
@@ -74,17 +54,14 @@ const fmtEvent = (d: string) => {
   return end ? out.replace(/^\d+/, (day) => `${day}–${Number(end)}`) : out;
 };
 const today = () => new Date().toISOString().slice(0, 10);
-const where = (c: City) => (c.slug === "washington-dc" ? "Washington, DC" : `${c.name}, ${c.state}`);
 /** For possessives: "DC's", "Dallas's". */
 const short = (c: City) => (c.slug === "washington-dc" ? "DC" : c.name);
-const roleCount = (c: City, r: string) => c.jobs.find((j) => j.role.endsWith(r))?.count;
 const jobsTotal = (c: City) => c.jobs.reduce((s, j) => s + j.count, 0);
 const msaName = (c: City) => c.msa.name.replace(/ Metro Area$/, " metro area");
-const industryKey = (code: string) => `i${code}`;
 const roleName = (r: string) => r.replace(/^Salesforce /, "");
-/** The four role searches, most listings first: the order Fig. 1 draws them in (L6). */
+/** The four role searches, most listings first (one order everywhere, fix round L6). */
 const jobsByCount = (c: City) => [...c.jobs].sort((a, b) => b.count - a.count);
-/** "202 listings for Salesforce consultants, 172 for administrators, … and 100 for developers". */
+/** "844 listings for Salesforce consultants, 672 for administrators, … and 391 for developers". */
 const roleCounts = (c: City) => {
   const rows = jobsByCount(c).map((j, i) => `${n(j.count)} ${i === 0 ? "listings for Salesforce " : "for "}${roleName(j.role).toLowerCase()}s`);
   return `${rows.slice(0, -1).join(", ")} and ${rows[rows.length - 1]}`;
@@ -93,765 +70,623 @@ const roleCounts = (c: City) => {
 const upcomingEvents = (c: City) =>
   (c.events as readonly { name: string; date: string; url: string }[]).filter((e) => e.date.slice(0, 10) >= today());
 
-/** Renders [text](/path) inside copy strings as router links (salesforceCityCopy.ts). */
+/** Renders [text](/path) inside copy strings as router links (salesforceCityCopy.ts). In-site paths only. */
 function Rich({ text }: { text: string }) {
-  const out: ReactNode[] = [];
+  const out: React.ReactNode[] = [];
   let last = 0;
   for (const m of text.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)) {
     out.push(text.slice(last, m.index));
-    out.push(
-      <Link key={m.index} className="oa-link" to={m[2]}>
-        {m[1]}
-      </Link>,
-    );
+    out.push(<Link key={m.index} className="sf-link" to={m[2]}>{m[1]}</Link>);
     last = (m.index ?? 0) + m[0].length;
   }
   out.push(text.slice(last));
   return <>{out}</>;
 }
 
-const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
-
 const STATE: Record<string, string> = { NY: "New York State", DC: "the District of Columbia", TX: "Texas", CO: "Colorado", GA: "Georgia", MA: "Massachusetts", WA: "Washington State", CA: "California", FL: "Florida", IL: "Illinois", PA: "Pennsylvania" };
 
-/** The state-level federal line appears on ONE city page per state (the largest without a
- *  city figure), so Dallas/Austin/Houston and San Francisco/Los Angeles do not share it. */
+/** The state-level federal line appears on ONE city page per state (the largest without a city figure), so
+ *  Dallas/Austin/Houston and San Francisco/Los Angeles do not share it. Dallas carries Texas in its city-only band. */
 function federalStateFor(c: City) {
-  const owner = SALESFORCE_CITIES.filter((x) => x.state === c.state && !x.federal).sort(
+  const owner = SALESFORCE_CITIES.filter((x) => x.state === c.state && !x.federal && x.slug !== "philadelphia").sort(
     (a, b) => (b.establishments?.value ?? 0) - (a.establishments?.value ?? 0),
   )[0];
-  return !c.federal && owner?.slug === c.slug ? c.federalState : null;
+  return !c.federal && owner?.slug === c.slug && c.slug !== "dallas" ? c.federalState : null;
 }
-
 function federalSentence(c: City) {
   const f = federalStateFor(c);
-  if (!f) return null;
-  return (
-    <>
-      Across {STATE[f.place] ?? f.place}, federal agencies recorded {n(f.awards)} contract award{f.awards === 1 ? "" : "s"} mentioning Salesforce in {f.period}
-      {f.usd ? <>, worth ${n(f.usd)} in obligations</> : null}
-      {f.agencies ? (
-        <>
-          ; the largest buyers were{" "}
-          {String(f.agencies)
-            .split(";")
-            .slice(0, 2)
-            .map((a) => a.split(":")[0].trim())
-            .join(" and ")}
-        </>
-      ) : null}
-      .
-    </>
-  );
+  if (f) {
+    const top = f.agencies ? String(f.agencies).split(";").slice(0, 2).map((a) => a.split(":")[0].trim()).join(" and ") : "";
+    return `Across ${STATE[f.place] ?? f.place}, federal agencies recorded ${n(f.awards)} contract award${f.awards === 1 ? "" : "s"} mentioning Salesforce in ${f.period.replace("–", " to ")}${f.usd ? `, worth $${n(f.usd)} in obligations` : ""}${top ? `; the largest buyers were ${top}` : ""}.`;
+  }
+  /* FV-16: a handful of tiny awards (New York: 1 award, $500) reads as a data error; the city line shows from 3 awards
+     up, and only where the city-only band does not already carry it (DC, Atlanta, Denver say it there). */
+  if (c.federal && c.federal.awards >= 3 && c.slug === "san-francisco")
+    return `Federal agencies recorded ${n(c.federal.awards)} contract awards mentioning Salesforce with work performed in San Francisco in ${c.federal.period.replace("–", " to ")}, worth $${n(c.federal.usd)}.`;
+  return null;
 }
+const usesUsaspending = (c: City) => Boolean(federalStateFor(c) || c.federal?.awards && c.federal.awards >= 3 || c.slug === "dallas");
 
-/* Where our proven work meets each industry. Every clause is either true of OneAlgorithm on
-   the allowed-proof list (lending development, SAP sync, QuickBase/Kissflow migrations) or a
-   plain statement of what the work involves; no industry client claims. Lower-case clause
-   fragments (the row capitalises them). 2026-10-23: "we run bulk data jobs as routine work"
-   (not on the allowed list) became a statement of method. */
-const INDUSTRY_FIT: Record<string, string> = {
-  "62": "Salesforce work there usually turns on access, who can see which records, enforced with permission sets and sharing rules rather than a pile of profiles",
-  "52": "that is where we run ongoing Salesforce development for a lending company, every week since April 2026",
-  "54": "firms like these tend to use Salesforce to track clients, projects and proposals, and need reporting that agrees across all three",
-  "31-33": "manufacturers usually need Salesforce to agree with an ERP on accounts, orders and pricing, which is integration work we deliver",
-  "42": "distribution runs on volume, so bulk loads and de-duplication decide whether reports can be trusted; we load in tested batches with duplicate rules switched on",
-  "813": "associations and nonprofits often move member and donor data off older databases, and we have migrated QuickBase and Kissflow systems into Salesforce",
-  "51": "these businesses usually need Salesforce connected to billing and product systems, which is integration work we deliver",
-  "53": "firms here typically use Salesforce to keep properties, contacts and deals in one place",
+/* Where Salesforce work sits in each employer group: sector context only, no delivery claim beyond lending
+   (structure-spec D8; the 2026-10-23 fix round already dropped "we run bulk data jobs as routine work"). */
+const INDUSTRY_NOTE: Record<string, string> = {
+  "62": "Salesforce work there usually turns on access: who can see which records, enforced with permission sets and sharing rules rather than a pile of profiles.",
+  "52": "Lending is where we run ongoing Salesforce development every week, since April 2026.",
+  "54": "Firms like these tend to use Salesforce to track clients, projects and proposals, and need reporting that agrees across all three.",
+  "31-33": "Manufacturers usually need Salesforce to agree with an ERP on accounts, orders and pricing.",
+  "42": "Distribution runs on volume, so bulk loads and de-duplication decide whether reports can be trusted.",
+  "813": "Associations and nonprofits often move member and donor data off older databases into Salesforce.",
+  "51": "These businesses usually need Salesforce connected to billing and product systems.",
+  "53": "Firms here typically use Salesforce to keep properties, contacts and deals in one place.",
+};
+/** The four-word phrase for the "Why it matters:" line of the industries unit. */
+const INDUSTRY_WORK: Record<string, string> = {
+  "62": "health care access rules",
+  "54": "professional services project tracking",
+  "52": "loan pipelines in finance",
+  "31-33": "manufacturing ERP sync",
+  "42": "wholesale bulk loads",
+  "813": "nonprofit member data",
+  "51": "information-sector billing integrations",
+  "53": "real estate deal tracking",
+};
+/** "200 Spectrum Center Drive, Suite 1500, Irvine, CA 92618" -> "Irvine" (the town is the segment before the state). */
+const officeTown = (address: string) => address.split(";")[0].split(",").map((x) => x.trim()).slice(-2)[0];
+/** The community unit's lede: how close the groups meet, from data (the heading lede already gives the count). */
+function communityLede(groups: readonly { km: number }[]) {
+  if (!groups.length) return "No group with a recent event meets within 50 km of the city center.";
+  if (groups.length === 1) return `The one group with a recent event meets ${groups[0].km === 0 ? "in the city center" : `${groups[0].km} km from the city center`}.`;
+  const near = groups.filter((g) => g.km <= 5).length;
+  return `${near ? `${near} of the ${groups.length}` : `None of the ${groups.length}`} groups ${near === 1 ? "meets" : "meet"} within 5 km of the city center; the nearest are listed first.`;
+}
+const list = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
+
+/** The four role searches, most listings first, with what each role does (general definitions, not claims about us). */
+const ROLE_DOES: Record<string, string> = {
+  Administrator: "runs the org day to day: users, permissions, reports and small changes",
+  Developer: "builds what configuration cannot: Apex code, integrations and complex automation",
+  Consultant: "designs how Salesforce should fit the business and leads the project",
+  Architect: "designs the data model, security and integrations across a large org",
 };
 
-/* ---------------------------------------------------------------------------
-   THE TEMPLATE (plate system).
---------------------------------------------------------------------------- */
+/** The free health check's four steps (titles: structure-spec §7.4 row 9; lines: SalesforceHealthCheck at ef1a8f0). */
+const HC_STAGES: (Station & { line: string })[] = [
+  { k: "s1", num: "01", title: "Tell us the symptom", sub: "a call or the form", line: "Reports nobody trusts, a renewal you are unsure about, automation nobody dares touch." },
+  { k: "s2", num: "02", title: "A week in your org", sub: "read-only user · free", line: "You create a user that can read your setup and records; the week is free." },
+  { k: "s3", num: "03", title: "A written, ranked list", sub: "ordered by what to fix first", line: "What we found and why it matters, ordered by what to fix first." },
+  { k: "s4", num: "04", title: "You decide what happens next", sub: "with us or your admin", line: "Act on it with us, with your own admin, or not at all." },
+];
+/** The rail's own labels: the desktop drawing centres station 04 at x=1090 of 1200, so its title is shortened there. */
+const HC_STATIONS: Station[] = HC_STAGES.map((s) => (s.k === "s4" ? { ...s, title: "You decide next" } : s));
 
-/** The free health check's four steps: titles and FIRST sentences verbatim from
- *  SalesforceHealthCheck.tsx STEPS. ponytail: one sentence each keeps 13 city pages under the
- *  duplicate-sentence budget (README); the full steps live on the health check page. */
-const HC_STEPS = [
-  { title: "Tell us the symptom", body: "Reports nobody trusts, a renewal you are unsure about, automation nobody dares touch." },
-  { title: "A week in your org", body: "You create a user that can read your setup and records.", to: "/services/salesforce-health-check" },
-  { title: "A written, ranked list", body: "What we found and why it matters, ordered by what to fix first." },
-  { title: "You decide what happens next", body: "Act on it with us, with your own admin, or not at all." },
+const CONCERNS: { q: string; a: React.ReactNode }[] = [
+  { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your org stays on it through delivery, and you deal with the people doing the work directly.</> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
+  { q: "What does it cost after the free week?", a: <>Fixes are scoped and priced in writing first. <Link className="sf-link" to="/services/salesforce-implementation-cost">What Salesforce work costs</Link></> },
 ];
 
-/** General role definitions (not claims about us). Order is fixed; counts come from data. */
-const ROLES = [
-  { key: "Administrator", does: "Runs the org day to day: users, permissions, reports and small changes." },
-  { key: "Developer", does: "Builds what configuration cannot: Apex code, integrations and complex automation." },
-  { key: "Consultant", does: "Designs how Salesforce should fit the business and leads the project." },
-  { key: "Architect", does: "Designs the data model, security and integrations across a large org." },
-] as const;
+/** `schema: false` = shown on the page but left out of FAQPage: the answer is the same on all 13 city pages (SEO-08). */
+type CityFaqRow = SfFaqItem & { schema?: false };
 
-/* The named lead's approved sentence and verify link come from SF_PEOPLE via PeopleStrip. */
-const LEAD = { verify: "https://www.salesforce.com/trailblazer/samirisetti" };
-
-/** One allowed-fact sentence per service card (CITY-5). hc/sa/cost keep the hub's lines. */
-const SERVICE_BODIES = {
-  dm: "We have migrated QuickBase and Kissflow systems into Salesforce, reconciled before go-live.",
-  int: "We have built an SAP-to-Salesforce sync. Which system owns each record is agreed before anything is built.",
-  ms: "Ongoing Salesforce development for a lending company since April 2026, with hours reported every week.",
-  mc: "About 18 months of Marketing Cloud support, for accounts already running.",
-};
-
-/** `schema: false` = shown on the page but left out of FAQPage: these answers are the same on
- *  all 13 city pages (SEO-08), so only the city-specific Q&As go into each page's schema. */
-type CityFaqRow = SfFaq & { schema?: false };
-
-function buildFaqs(c: City): CityFaqRow[] {
+function buildFaqs(c: City, who: string): CityFaqRow[] {
   const copy = CITY_COPY[c.slug];
-  const total = jobsTotal(c);
-  const g = c.community.groups;
-  const office = c.salesforceOffice
-    ? `Salesforce lists an office at ${c.salesforceOffice}.`
-    : `Salesforce lists no office in ${c.name}${c.nearestOffice ? `; the nearest is at ${c.nearestOffice}` : ""}.`;
-  const upcoming = upcomingEvents(c);
   return [
     {
-      q: `How do I find a good Salesforce consultant in ${c.name}?`,
-      a: `Start with Salesforce's own directory: the Consultants section of AppExchange lists every Salesforce partner with its certified people and certifications, and filters by location and product. Shortlist the firms whose record fits your project, check who would do the work on their Trailblazer profiles, then ask each for a written scope before you compare prices; ours is AppExchange listing ${SF_LISTING_ID}.`,
-      link: { to: "/services/salesforce-consulting-partner-pennsylvania", label: "How to check a Salesforce partner" },
+      q: `Do you have an office in ${c.name}?`,
+      a: `No. We take on Salesforce work for ${who} remotely from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most of the work runs inside your org over video and screen-share; on larger projects, on-site visits for kickoff, go-live or training are planned into the project.`,
       schema: false,
     },
     ...copy.faqs,
     {
+      q: `How many Salesforce jobs are open in ${c.name}?`,
+      a: `On ${fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of ${c.name} showed ${roleCounts(c)}: ${n(jobsTotal(c))} across the four searches, ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked. A listing can match more than one search, so read the total as demand rather than a head count.`,
+    },
+    {
       q: `Can you move a ${c.name} company off an older database into Salesforce?`,
-      a: "Yes. We have migrated QuickBase and Kissflow systems into Salesforce with record counts and totals reconciled before go-live, and the free one-week Salesforce health check shows the state of your data first, so the plan starts from facts.",
-      link: { to: "/services/salesforce-data-migration", label: "Salesforce data migration" },
+      a: "Yes. We have migrated QuickBase and Kissflow systems into Salesforce with record counts and totals reconciled before go-live, and the free one-week health check shows the state of your data first, so the plan starts from facts.",
+      link: { to: "/services/salesforce-data-migration", label: "Salesforce data migration services" },
       schema: false,
     },
     {
       q: `What should a ${c.name} company budget for Salesforce consulting, and how long does it take?`,
-      a: `Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase); Cynoteck puts a small project at 4 to 8 weeks and Groviya a mid-sized rollout at 3 to 6 months. Those are other firms' published ranges, not our quote: for a ${c.name} company we scope and price the work in writing after the free one-week Salesforce health check. For comparison, one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
+      a: `We scope and price ${c.name} work in writing after the free one-week health check. Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase), and Cynoteck puts a small project at 4 to 8 weeks; for comparison, one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
       link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
     },
     {
       q: `After go-live, who looks after Salesforce for a ${short(c)} team?`,
-      a: "We can: our managed services run weekly administration and development with hours reported every week, which is how we have run Salesforce development for a lending company since April 2026, and if your own admin takes over instead, the handover is written down.",
+      a: "We can: our managed services run weekly administration and development with hours reported every week, and if your own admin takes over instead, the handover is written down.",
       link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" },
       schema: false,
     },
-    {
-      q: `Is a Pennsylvania Salesforce partner certified to work in a ${c.name} company's org?`,
-      a: `Yes. Salesforce certifies people, not offices, so the certification travels with the person, and OneAlgorithm is a Salesforce Consulting Partner listed on AppExchange (listing ${SF_LISTING_ID}), and Salesforce's record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them Platform.`,
-      schema: false,
-    },
-    {
-      q: `How much demand is there for Salesforce skills in ${c.name}?`,
-      a: `On ${fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of ${c.name} showed ${roleCounts(c)}, ${n(total)} across the four searches. That ranked ${c.name} ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked, and when that many employers compete for the same people, a partner covers a defined project without a new hire.`,
-    },
-    {
-      q: `Is there a Salesforce user community in ${c.name}?`,
-      a: g.length
-        ? `Yes. ${g.length} Salesforce Trailblazer Community Group${g.length === 1 ? " with recent events meets" : "s with recent events meet"} within 50 km of central ${c.name}: ${g.map((x) => `${x.name} (${x.km} km)`).join(", ")}. ${office}${upcoming.length ? ` Upcoming regional events include ${upcoming.map((e) => `${e.name} (${fmtEvent(e.date)})`).join(" and ")}.` : ""}`
-        : `The nearest active Trailblazer Community Groups are more than 50 km from central ${c.name}. ${office}${upcoming.length ? ` Upcoming regional events include ${upcoming.map((e) => `${e.name} (${fmtEvent(e.date)})`).join(" and ")}.` : ""}`,
-      link: { to: `#fig-salesforce-community-${c.slug}`, label: "See the community diagram" },
-    },
   ];
+}
+
+/** Market sources for the "Where these figures come from" pop-up: program pages only, never a query or API. */
+function marketSources(c: City): SfSource[] {
+  const read = `read ${fmtDate(c.jobsPulled)}`;
+  const out: SfSource[] = [
+    { name: "LinkedIn public job search", what: `Four role searches (Salesforce consultant, administrator, architect, developer) within 25 miles of ${c.name}`, read, page: "https://www.linkedin.com/jobs/" },
+    { name: "U.S. Census Bureau, County Business Patterns", what: `Establishments by size and employees by industry, ${c.msa.name}, 2018 and 2023`, read, page: "https://www.census.gov/programs-surveys/cbp.html" },
+    { name: "U.S. Census Bureau, American Community Survey (1-year)", what: `Population, ${c.msa.name}, 2019 and 2024`, read, page: "https://www.census.gov/programs-surveys/acs" },
+    { name: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics", what: `Computer systems analysts and software developers, ${c.msa.name}, ${c.wages.period}; Salesforce roles have no federal job code of their own, so the closest occupations stand in`, read: `read ${fmtDate(c.wages.pulled)}`, page: "https://www.bls.gov/oes/" },
+  ];
+  if (usesUsaspending(c)) out.push({ name: "USAspending.gov", what: "Federal contract awards mentioning Salesforce, fiscal years 2022 to 2026", read, page: "https://www.usaspending.gov/" });
+  for (const s of CITY_COPY[c.slug].sources ?? []) out.push(s);
+  return out;
+}
+function communitySources(c: City): SfSource[] {
+  return [
+    { name: "Trailblazer Community Groups", what: `Salesforce community groups within 50 km of central ${c.name} with an event since 23 October 2025`, read: `read ${fmtDate(c.community.pulled)}`, page: "https://trailblazercommunitygroups.com/" },
+    { name: "Salesforce office locations", what: "Salesforce's published list of its offices", read: `read ${fmtDate(c.jobsPulled)}`, page: "https://www.salesforce.com/company/locations/" },
+    ...upcomingEvents(c).map((e) => ({ name: e.name, what: `Community event, ${fmtEvent(e.date)}`, read: `read ${fmtDate(c.jobsPulled)}`, page: e.url })),
+  ];
+}
+
+/** FIG. 2: the city's four largest employer groups (Census CBP 2023), as a framed chart. Real figures, so the stamp
+ *  names the source instead of "sample data". Static: values are text in the HTML; the frame is the kit's stage. */
+function IndustriesFigure({ c, fig }: { c: City; fig: number }) {
+  const max = Math.max(...c.industries.map((i) => i.employees ?? 0));
+  const id = `fig${fig}-cap`;
+  return (
+    <figure className="sf-stage sf-c7" aria-labelledby={id} style={{ alignSelf: "start" }}>
+      <div className="sf-stage-in" style={{ padding: "clamp(18px, 2.2vw, 32px)" }}>
+        <p className="sf-kicker">Employees by employer group · {msaName(c)}</p>
+        <ol style={{ display: "grid", gap: 22, marginTop: 20 }}>
+          {c.industries.map((i, k) => (
+            <li key={i.code}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "4px 16px", flexWrap: "wrap" }}>
+                <span className="sf-h4">{cap(i.label)}</span>
+                <span className="sf-mono" style={{ color: "var(--ink)", fontSize: 15 }}>{n(i.employees)}</span>
+              </div>
+              <span aria-hidden="true" style={{ display: "block", marginTop: 8, height: 14, background: "var(--tint)" }}>
+                <span style={{ display: "block", height: "100%", width: `${Math.max(4, Math.round(((i.employees ?? 0) / max) * 100))}%`, background: "var(--navy)", opacity: k === 0 ? 1 : 0.62 }} />
+              </span>
+              <span className="sf-mono" style={{ display: "block", marginTop: 6 }}>{n(i.establishments)} establishments</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <span className="sf-tick" aria-hidden="true" style={{ display: "block" }} />
+      <div className="stamp" aria-hidden="true"><span>FIG. {fig} · Chart · Census County Business Patterns 2023 · MSA {c.msa.code}</span><span>OneAlgorithm</span></div>
+      <figcaption id={id} style={{ padding: "10px 12px 12px" }}>
+        Employees in the four largest of the eight employer groups we pulled for the {msaName(c)}; {c.industries[0].label} leads with {n(c.industries[0].employees)}.
+      </figcaption>
+    </figure>
+  );
+}
+
+/** One hand-written H3 unit of the city-only band (night). */
+function LocalUnit({ u, delay }: { u: CityUnit; delay?: number }) {
+  return (
+    <SmartUnit level={3} className="sf-c6" delay={delay} title={u.title} lede={u.lede} leadIn={u.leadIn} lead={u.lead} points={u.points} measure={false}>
+      <GoDeeper label={u.label}>
+        {u.deeper.map((p, i) => (
+          <p key={i} className={i === 0 ? "sf-rule" : undefined}><Rich text={p} /></p>
+        ))}
+      </GoDeeper>
+    </SmartUnit>
+  );
 }
 
 export default function SalesforceCity({ slug }: { slug: string }) {
   const c = SALESFORCE_CITIES.find((x) => x.slug === slug)!;
   const copy = CITY_COPY[slug];
+  const photo = SF_CITY_HEROES[slug];
+  const files = sfCityFiles(slug);
   const path = c.path;
   const url = `https://onealgorithm.com${path}`;
+  const noun = copy.noun ?? "companies";
+  const who = `${c.name} ${noun}`;
+  const place = c.slug === "washington-dc" ? "Washington, DC" : `${c.name}, ${c.state}`;
+  const h1 = `Salesforce consultants for ${place} ${noun}`;
   const total = jobsTotal(c);
-  const faqs = buildFaqs(c);
-  const jobs = PLATES[`salesforce-jobs-${slug}` as keyof typeof PLATES];
-  const growth = PLATES[`${slug}-business-establishments-2018-2023` as keyof typeof PLATES];
-  const inds = PLATES[`${slug}-largest-industries` as keyof typeof PLATES];
-  const community = PLATES[`salesforce-community-${slug}` as keyof typeof PLATES];
+  const byCount = jobsByCount(c);
+  const faqs = buildFaqs(c, who);
   const estChange = pct(c.establishments.value, c.establishments2018.value);
-  const bigChange = pct(c.size500plus.value, c.size500plus2018.value);
   const popChange = pct(c.population.value, c.population2019.value);
   const fed = federalSentence(c);
-  const shareImage = `https://onealgorithm.com/media/salesforce/og-${slug}.jpg`;
-  const leadImage = `https://onealgorithm.com/media/salesforce/salesforce-jobs-${slug}-1600x900.jpg`;
   const upcoming = upcomingEvents(c);
-  const siblings = copy.related
-    .map((s) => SF_PAGES.cities.find((x) => x.to === `/services/salesforce-consultant-${s}`))
-    .filter((x): x is (typeof SF_PAGES.cities)[number] => Boolean(x));
-  const wage = c.wages;
-  const byCount = jobsByCount(c);
-  const topRole = byCount[0];
-  const lowRole = byCount[byCount.length - 1];
+  const groups = c.community.groups;
+  const shareImage = `https://onealgorithm.com${files.og}`;
+  const ogTitle = `${h1} | OneAlgorithm`;
+  const heroLede = copy.heroLede ?? `We take on Salesforce work for ${who} remotely from Malvern, PA, starting with a free one-week health check.`;
+  const indTotal = c.industries.reduce((t, i) => t + (i.employees ?? 0), 0);
+  const cards = [HUB_SERVICE_CARDS[0], ...copy.services.order.map((k) => {
+    const to = SF_PAGES.services.find((s) => s.key === k)!.to;
+    return HUB_SERVICE_CARDS.find((x) => x.to === to)!;
+  })];
+  const otherCities = [
+    ...SF_PAGES.cities.filter((x) => !x.to.endsWith(`-${slug}`) && !x.to.endsWith("-houston")).map((x) => ({ to: x.to, label: x.label })),
+    { to: "/services/salesforce-consultant-philadelphia", label: "Philadelphia" },
+  ];
 
-  // 45, not 50: Houston's planned title (page-map-final-plan.md §3) is 48 characters.
-  if (import.meta.env.DEV && (copy.title.length < 45 || copy.title.length > 60 || copy.description.length > 155))
-    console.warn(`[SalesforceCity:${slug}] title ${copy.title.length} chars (45-60), description ${copy.description.length} (<=155)`);
+  // structure-spec §1.1-1.2: titles 50-60 (Denver's planned title is 62, allowed: the phrase and city sit inside 60).
+  if (import.meta.env.DEV && (copy.title.length < 45 || copy.title.length > 62 || copy.description.length > 155))
+    console.warn(`[SalesforceCity:${slug}] title ${copy.title.length} chars (45-62), description ${copy.description.length} (<=155)`);
 
   useSEO({
     title: copy.title,
     description: copy.description,
     canonical: getCanonicalUrl(path),
-    ogTitle: `Salesforce consultants for ${where(c)} companies | OneAlgorithm`,
+    ogTitle,
     ogDescription: copy.description,
     ogUrl: getCanonicalUrl(path),
     ogImage: shareImage,
     ogImageSize: [1200, 630],
-    ogImageAlt: jobs.alt,
-    twitterTitle: `Salesforce consultants for ${where(c)} companies | OneAlgorithm`,
+    ogImageAlt: photo.alt,
+    twitterTitle: ogTitle,
     twitterDescription: copy.description,
     twitterImage: shareImage,
+    // structure-spec D9: Houston is built and routed but not shipped to search until its gate passes
+    // (D2 vs Dallas/Austin + a Keyword Planner pull). Flip this, then add it to sitemap.xml and llms.txt.
+    noindex: slug === "houston",
+    preloadImage: files.avif1600,
+    preloadImageSrcset: sfHeroAvifSrcset(files),
+    preloadImageSizes: SF_HERO_SIZES,
+    preloadImageType: "image/avif",
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
+  // CITY-11: the Malvern entity stays the provider, but its PA/DE county service area is not this page's area.
   const localBusiness: Record<string, unknown> = { ...createLocalBusinessSchema("ProfessionalService") };
-  // CITY-11: the Malvern entity stays the provider, but its PA/DE county service area is not
-  // this page's area. areaServed for the page is on the Service node below.
   delete localBusiness.areaServed;
+
+  const marketReadouts: Readout[] = [
+    { value: total, label: "Salesforce job listings within 25 miles", source: <>LinkedIn · read {fmtDate(c.jobsPulled, "short")} · {ord(c.jobsRank.rank)} of {c.jobsRank.of} metros</> },
+    { value: c.establishments.value, label: "Business establishments in the metro", source: <>Census CBP 2023{estChange != null && <> · {signed(estChange)} since 2018</>}</> },
+    { value: c.size500plus.value, label: "Establishments with 500 or more employees", source: <>Census CBP 2023 · <Verify id="market">Where these figures come from</Verify></> },
+  ];
 
   return (
     <Layout>
       <StructuredData
         data={createServiceSchema(
-          `Salesforce consulting in ${where(c)}`,
-          `Salesforce consulting for companies in ${where(c)}: data migration, SAP and ERP integration, managed services and Marketing Cloud support, delivered remotely from Malvern, Pennsylvania by a listed AppExchange Consulting Partner.`,
+          `Salesforce consulting in ${place}`,
+          `Salesforce consulting for ${who}: ${copy.answer.lead.replace(/, scoped.*$/, "")}, delivered remotely from Malvern, Pennsylvania by a listed AppExchange Consulting Partner.`,
           "Salesforce consulting",
           url,
           {
-            providerId: "https://onealgorithm.com/#localbusiness",
             areaServed: { "@type": "City", name: c.name, containedInPlace: { "@type": "AdministrativeArea", name: c.msa.name } },
-            image: leadImage,
+            image: shareImage,
             offers: SF_HEALTH_CHECK_OFFER,
           },
         )}
       />
       <StructuredData data={localBusiness} />
       <StructuredData data={createFAQSchema(faqs.filter((f) => f.schema !== false))} />
-      <StructuredData
-        data={createWebPageSchema(copy.title, copy.description, url, {
-          dateModified: "2026-10-23",
-          primaryImage: { url: leadImage, width: 1600, height: 900 },
-        })}
-      />
+      <StructuredData data={createWebPageSchema(copy.title, copy.description, url, { dateModified: "2026-10-23", primaryImage: { url: shareImage, width: 1200, height: 630 } })} />
 
-      <PageHero
-        title={
-          <>
-            {copy.h1.lead}
-            <span className="text-oa-orange">{copy.h1.place}</span>
-            {copy.h1.tail}
-          </>
-        }
-        lede={`${copy.intro ?? `Salesforce consulting for ${c.name} companies, from our office in Malvern, Pennsylvania:`} data migration, SAP and ERP integration, weekly administration and development, and Marketing Cloud support, run inside your Salesforce org and in person when a meeting needs it.`}
-        panel={{ title: "Salesforce's record of us", items: [], slot: <SalesforceRecordCard /> }}
-        primary={{ label: "Book a free health check", href: "#start", cta: "hero" }}
-        secondary={{ label: `Call ${SF_PHONE.display}`, href: SF_PHONE.href, cta: "hero" }}
-        meta={[
-          { label: "Data pulled", value: fmtDate(c.jobsPulled) },
-          { label: "Community read", value: fmtDate(c.community.pulled) },
-        ]}
-        siblings={false}
-      >
-        <HcLink />
-      </PageHero>
-
-      {/* 2. AnswerBand: the office question, answered by how the work runs (CITY-14). */}
-      <AnswerBand
-        question={`Do you provide Salesforce consulting in ${c.name}?`}
-        answer={`Yes. OneAlgorithm is a listed Salesforce Consulting Partner in Malvern, Pennsylvania, and we take on ${c.name} Salesforce work remotely: migrations, ERP and SAP integration, weekly administration and development, and Marketing Cloud support. The work happens inside your org over video and screen-share, and we travel to ${c.name} when a meeting needs people in the room.`}
-        leads={[
-          {
-            label: "Why it matters",
-            body: `${c.name} employers posted ${n(total)} Salesforce job listings across four LinkedIn role searches on ${fmtDate(c.jobsPulled)}; a partner delivers a defined piece of work without joining that hiring race.`,
-          },
-          { label: "What we do", body: "We scope the work in writing, deliver it with certified people and hand over an org your own team can run." },
-          {
-            label: "What it costs",
-            body: (
-              <>
-                It starts with a{" "}
-                <Link className="oa-link" to="/services/salesforce-health-check">
-                  free one-week Salesforce health check
-                </Link>
-                ; fixes are scoped and priced in writing, and published market ranges are in our{" "}
-                <Link className="oa-link" to="/services/salesforce-implementation-cost">
-                  cost guide
-                </Link>
-                .
-              </>
-            ),
-          },
-        ]}
-        toc={[
-          { id: "data", label: `The ${short(c)} data` },
-          { id: "hire", label: "Hire or partner" },
-          { id: "industries", label: "Industries" },
-          { id: "figures", label: "Sourced figures" },
-          { id: "community", label: "Community" },
-          { id: "services", label: "Services" },
-          { id: "process", label: "How it starts" },
-          { id: "faq", label: "Questions" },
-          { id: "start", label: "Book" },
-        ]}
-      >
-        <RecordLine
-          extra={
-            <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={SF_PHONE.href} data-cta="answer">
-              Call {SF_PHONE.display}
-            </a>
-          }
+      <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: c.name }]}>
+        {/* 1 HERO: the city's licensed photograph is the LCP (eager, preloaded, never animated); H1 + one-sentence lede. */}
+        <SFHero
+          kicker={<>Salesforce Consulting Partner<span className="sf-kicker-loc"> · remote from Malvern, PA</span></>}
+          title={h1}
+          lede={heroLede}
+          primary={{ href: "#start", label: "Book a free health check" }}
+          proof
+          photo={photo}
         />
-      </AnswerBand>
 
-      {/* 3. Reading the data (CITY-9): F1 is the page's first figure (eager, static). */}
-      <Section clip tone="surface" bordered id="data">
-        <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-14">
-          <div className="xl:col-span-5">
-            <SectionHeading title={`Reading the ${short(c)} data`} />
-            <Prose className="mt-6 text-lg">
-              <p>
-                On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {roleCounts(c)}: {n(total)} across the four searches, {ord(c.jobsRank.rank)} of the {c.jobsRank.of} metro areas we checked.
-              </p>
-              <p>A listing can match more than one search, so read the {n(total)} as demand rather than a head count.</p>
-            </Prose>
-          </div>
-          <div className="xl:col-span-7">
-            <Plate
-              spec={jobs}
-              fig={1}
-              first
-              stamp={["CHART · LINKEDIN PUBLIC JOB SEARCH", fmtDate(c.jobsPulled)]}
-              caption={<>Open Salesforce listings within 25 miles of {c.name} on {fmtDate(c.jobsPulled)}, one LinkedIn search per role: {roleName(topRole.role).toLowerCase()} listings lead with {n(topRole.count)}.</>}
-            />
-          </div>
-        </div>
-
-        <PlateScope>
-          <div className="mt-16 grid grid-cols-1 gap-10 xl:mt-20 xl:grid-cols-12 xl:gap-14">
-            <div className="xl:col-span-7 xl:row-start-1">
-              <Plate
-                spec={growth}
-                fig={2}
-                stamp={["CHART · CENSUS COUNTY BUSINESS PATTERNS", "2018 → 2023"]}
-                caption={<>Business establishments in the {msaName(c)}: {n(c.establishments2018.value)} in 2018 and {n(c.establishments.value)} in 2023, with {n(c.size500plus2018.value)} and then {n(c.size500plus.value)} employing 500 or more people; each line has its own scale.</>}
-              />
-            </div>
-            <div className="xl:col-span-5 xl:col-start-8 xl:row-start-1">
-              <Prose className="text-lg">
-                <p>
-                  The {msaName(c)} had {n(c.establishments.value)} business establishments in 2023
-                  {estChange != null && <>, {estChange >= 0 ? "up" : "down"} {Math.abs(estChange)}% from 2018</>}; {n(c.size500plus.value)} of them employed 500 or more people and another {n(c.size100to499.value)} employed 100 to 499.
-                  {popChange != null && <> Population changed {signed(popChange)} between 2019 and 2024.</>} {fed}
-                </p>
-              </Prose>
-              <dl className="mt-8 border-b border-oa-hairlineStrong">
-                <WiredRow k="all" className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 border-t border-oa-hairlineStrong px-2 py-4">
-                  <dt className="font-semibold text-oa-ink">Business establishments</dt>
-                  <dd className="text-right font-mono tabular-nums text-oa-ink">
-                    {n(c.establishments2018.value)} → {n(c.establishments.value)}
-                  </dd>
-                  <dd className="col-span-2 font-mono text-xs text-oa-ink3">
-                    {estChange != null && signed(estChange)} · Census CBP 2018, 2023 ·{" "}
-                    <a className="oa-link" href={c.establishments.api} {...ext}>
-                      query ↗
-                    </a>
-                  </dd>
-                </WiredRow>
-                <WiredRow k="big" className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 border-t border-oa-hairlineStrong px-2 py-4">
-                  <dt className="font-semibold text-oa-ink">With 500 or more employees</dt>
-                  <dd className="text-right font-mono tabular-nums text-oa-ink">
-                    {n(c.size500plus2018.value)} → {n(c.size500plus.value)}
-                  </dd>
-                  <dd className="col-span-2 font-mono text-xs text-oa-ink3">
-                    {bigChange != null && signed(bigChange)} · Census CBP 2018, 2023, two size classes summed
-                  </dd>
-                </WiredRow>
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 border-t border-oa-hairlineStrong px-2 py-4">
-                  <dt className="font-semibold text-oa-ink">Population</dt>
-                  <dd className="text-right font-mono tabular-nums text-oa-ink">
-                    {n(c.population2019.value)} → {n(c.population.value)}
-                  </dd>
-                  <dd className="col-span-2 font-mono text-xs text-oa-ink3">
-                    Census ACS 2019, 2024 ·{" "}
-                    <a className="oa-link" href={c.population.api} {...ext}>
-                      query ↗
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
-
-      {/* 4. Hire, contract or partner (CITY-7). City data only. */}
-      <Section tone="paper" id="hire">
-        <SectionHeading
-          title={`Hire, contract or bring in a partner? What ${short(c)}'s ${n(total)} Salesforce job listings mean`}
-          lede={`${roleName(topRole.role)} listings lead in ${c.name} with ${n(topRole.count)}; ${roleName(lowRole.role).toLowerCase()} listings are the fewest at ${n(lowRole.count)}.`}
-        />
-        <dl className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
-          {[...ROLES].sort((a, b) => (roleCount(c, b.key) ?? 0) - (roleCount(c, a.key) ?? 0)).map((r) => {
-            const j = c.jobs.find((x) => x.role.endsWith(r.key));
-            return (
-              <div key={r.key} className="border-t border-oa-hairlineStrong pt-5">
-                <dt className="text-lg font-semibold text-oa-ink">Salesforce {r.key.toLowerCase()}</dt>
-                <dd className="mt-3 font-mono text-4xl leading-none tabular-nums text-oa-ink">{n(j?.count)}</dd>
-                <dd className="mt-1.5 font-mono text-xs text-oa-ink3">
-                  listings within 25 miles ·{" "}
-                  {j && (
-                    <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={j.url} {...ext}>
-                      LinkedIn search ↗
-                    </a>
-                  )}
-                </dd>
-                <dd className="mt-3 text-oa-ink2">
-                  {r.does.replace(/.$/, "")}; {j ? Math.round((j.count / total) * 100) : 0}% of the {c.name} searches.
-                </dd>
+        {/* 2 THE ANSWER (spec H2 1) + FIG. 1, the one staged scene: what the free week produces. 7/5. */}
+        <SmartSection id="answer" tone="surface" grid labelledBy="h-answer">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-answer"
+            title={`Do you provide Salesforce consulting in ${c.name}?`}
+            lede={`Yes, we take on Salesforce work for ${who} remotely from Malvern, PA, and the work runs inside your org from day one.`}
+            leadIn="What we do:"
+            lead={copy.answer.lead}
+            points={copy.answer.points}
+          >
+            <GoDeeper label={`how a ${c.name} engagement runs remotely`}>
+              <p className="sf-rule">Salesforce work happens inside the org, not in a room, so we run {who.replace(/ (companies|organizations)$/, "")} projects from our office at 625 Swedesford Rd, Unit B, Malvern, PA, over video and screen-share.</p>
+              {copy.siblings.length > 0 && <p>The nearest of our other city pages is <Link className="sf-link" to={copy.siblings[0].to}>{copy.siblings[0].label}</Link>.</p>}
+              <div className="sf-links">
+                <Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link>
+                <Link className="sf-link" to="/services/salesforce-implementation-cost">Salesforce implementation cost guide</Link>
               </div>
-            );
-          })}
-        </dl>
+            </GoDeeper>
+          </SmartUnit>
+          <HealthCheck fig={1} className="sf-c5" />
+        </SmartSection>
 
-        <h3 className="mt-16 text-h3 font-semibold text-oa-ink">Three ways to get the work done</h3>
-        <div className="mt-6">
-          <DataTable
-            label="Hire, contract or partner"
-            head={["", "The market you are in", "What it costs to start", "What you have at the end"]}
-            rows={[
-              {
-                cells: [
-                  "Full-time hire",
-                  `${n(total)} listings within 25 miles of ${c.name} compete for the same people.`,
-                  <>
-                    Salary alone: BLS medians in the {msaName(c)} are ${n(wage.analysts.median)} for computer systems analysts and ${n(wage.developers.median)} for software developers, before benefits.
-                  </>,
-                  "A person on staff who knows your org, for as long as they stay.",
-                ],
-              },
-              {
-                cells: [
-                  "Contractor",
-                  `The same ${n(total)} listings, on shorter terms.`,
-                  "A day or hourly rate set by each contractor.",
-                  "Hours of work against a brief you write and manage.",
-                ],
-              },
-              {
-                cells: [
-                  "Salesforce partner",
-                  `A team that is already certified and staffed, outside the ${n(total)}-listing race.`,
-                  <>
-                    A written scope and price before work starts, after a{" "}
-                    <Link className="oa-link" to="/services/salesforce-health-check">
-                      free one-week Salesforce health check
-                    </Link>
-                    .
-                  </>,
-                  "The finished work and a written handover your own people can run.",
-                ],
-              },
-            ]}
-            source={
-              <>
-                Sources: LinkedIn public job search, {fmtDate(c.jobsPulled)}; BLS Occupational Employment and Wage Statistics, {wage.period} (
-                <a className="oa-link" href={wage.page} {...ext}>
-                  {c.msa.name} ↗
-                </a>
-                ), read {fmtDate(wage.pulled)}; Salesforce roles have no federal job code of their own, so the closest occupations stand in.
-              </>
-            }
-          />
-        </div>
-        <p className="mt-10 max-w-[34em] text-lg text-oa-ink2">
-          Before you sign with any partner, read its public AppExchange record:{" "}
-          <Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">
-            how to check a Salesforce partner
-          </Link>{" "}
-          walks through it, and ours is{" "}
-          <a className="oa-link" href={SF_APPEXCHANGE_URL} {...ext}>
-            listing {SF_LISTING_ID} ↗
-          </a>
-          .
-        </p>
-      </Section>
+        {/* 3 SERVICES (spec H2 2): 4 + 3 cards, the health check first, then this city's own emphasis. */}
+        <SmartSection id="services" heading={{ id: "h-services", title: `Salesforce consulting services for ${who}`, lede: copy.services.lede }}>
+          <ServiceCards items={cards} />
+        </SmartSection>
 
-      {/* 5. Industries (CITY-12): all four groups, rows wired to FIG. 3. */}
-      <Section clip tone="surface" bordered id="industries">
-        <PlateScope>
-          {/* DOM order = phone order (heading, chart, rows); xl puts the chart beside both. */}
-          <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
-            <div className="xl:col-span-6 xl:row-start-1">
-              <SectionHeading
-                title={`Where Salesforce fits ${short(c)}'s largest industries`}
-                lede={`The four largest employer groups in the ${msaName(c)} together employ ${n(c.industries.reduce((t, i) => t + (i.employees ?? 0), 0))} people, and each one needs different Salesforce work.`}
-              />
+        {/* 4 THE CITY-ONLY BAND (spec H2 6, doorway rule D3b): night split, two hand-written H3 units. */}
+        <SmartSection id="local" tone="night" grid heading={{ id: "h-local", title: copy.local.h2, lede: copy.local.lede }}>
+          <LocalUnit u={copy.local.units[0]} />
+          <LocalUnit u={copy.local.units[1]} delay={0.08} />
+        </SmartSection>
+
+        {/* 5 CHOOSING (spec H2 3) beside HIRE, CONTRACT OR PARTNER (spec H2 4): the buyer's two decisions. */}
+        <SmartSection id="decide" grid labelledBy="h-choose">
+          <SmartUnit
+            className="sf-c5"
+            headingId="h-choose"
+            title={`Choosing a Salesforce consultant in ${c.name}`}
+            lede="Check the firm in Salesforce's AppExchange Partner Finder, count its certified people, and ask who will do the work."
+            lead="A partner's record is public, so you can read it before the first call instead of after the contract."
+            points={["Find the firm on AppExchange and open its listing", "Read its certified people, certifications and competency rows", "Ask who will do your work; check them on Trailblazer"]}
+            measure={false}
+            style={{ alignSelf: "start" }}
+          >
+            <GoDeeper label="our own record, checked the same way">
+              <p className="sf-rule">Ours is AppExchange listing {SF_LISTING_ID}, a Select Consulting Partner record: Salesforce lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</p>
+              <div className="sf-links">
+                <Verify id="appexchange">Check our AppExchange record</Verify>
+                <Link className="sf-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a Salesforce partner</Link>
+              </div>
+            </GoDeeper>
+          </SmartUnit>
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-hire"
+            title={`Hire, contract or partner in ${c.name}?`}
+            lede={`${c.name} showed ${n(total)} Salesforce listings across four LinkedIn role searches on ${fmtDate(c.jobsPulled)}; hire, contract or partner: the table shows which fits.`}
+            lead={`One in-house software developer here earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}), before benefits.`}
+            measure={false}
+          >
+            <h3 className="sf-h3" style={{ marginTop: 32 }}>Three ways to get the work done</h3>
+            <div className="sf-deep-body" style={{ padding: "12px 0 0" }}>
+              <table>
+                <caption className="sr-only">Hire, contract or bring in a Salesforce partner in {c.name}: what each costs to start and what you have at the end</caption>
+                <thead>
+                  <tr><th scope="col">Option</th><th scope="col">To start, and at the end</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Full-time hire</th>
+                    <td><span style={{ display: "block" }}>Salary alone: BLS medians in the {msaName(c)} are ${n(c.wages.analysts.median)} for computer systems analysts and ${n(c.wages.developers.median)} for software developers, before benefits.</span><span className="sf-mono" style={{ display: "block", marginTop: 4 }}>At the end: a {c.name} hire who knows your org, for as long as they stay.</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Contractor</th>
+                    <td><span style={{ display: "block" }}>A day or hourly rate set by each contractor, competing for the same {n(total)} {c.name} listings.</span><span className="sf-mono" style={{ display: "block", marginTop: 4 }}>At the end: hours of work against a brief you write and manage.</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Salesforce partner</th>
+                    <td><span style={{ display: "block" }}>A written scope and price for the {c.name} work after the free one-week health check, from a team already certified and staffed.</span><span className="sf-mono" style={{ display: "block", marginTop: 4 }}>At the end: the finished work and a written handover your own people can run.</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div className="xl:sticky xl:top-24 xl:col-span-6 xl:col-start-7 xl:row-span-2 xl:row-start-1 xl:self-start xl:pt-2">
-              <Plate
-                spec={inds}
-                fig={3}
-                stamp={["CHART · CENSUS COUNTY BUSINESS PATTERNS 2023", `MSA ${c.msa.code}`]}
-                caption={<>Employees in the four largest of the eight employer groups we pulled for the {msaName(c)}; {c.industries[0].label} leads with {n(c.industries[0].employees)}.</>}
-              />
+            <p className="sf-mono" style={{ marginTop: 12, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              LinkedIn, read {fmtDate(c.jobsPulled, "short")} · BLS OEWS {c.wages.period}, read {fmtDate(c.wages.pulled, "short")} · <Verify id="market">Sources</Verify>
+            </p>
+
+            <h3 className="sf-h3" style={{ marginTop: 40 }}>Salesforce admin, developer, consultant or architect?</h3>
+            <p style={{ marginTop: 8 }}>{roleName(byCount[0].role)} listings lead in {c.name} with {n(byCount[0].count)}; {roleName(byCount[3].role).toLowerCase()} listings are the fewest at {n(byCount[3].count)}.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "20px var(--gap)", marginTop: 20 }}>
+              {byCount.map((j) => (
+                <div className="sf-readout" key={j.role}>
+                  <span className="sf-h2" data-count={j.count} style={{ display: "inline-block", minWidth: "2ch", fontVariantNumeric: "tabular-nums" }}>{n(j.count)}</span>
+                  <p className="sf-readout-lab">{roleName(j.role)} listings</p>
+                  <p className="sf-readout-src sf-mono">{Math.round((j.count / total) * 100)}% of the four searches</p>
+                </div>
+              ))}
             </div>
-            <div className="xl:col-span-6 xl:row-start-2">
-              <ul className="border-b border-oa-hairlineStrong xl:mt-10">
+            <GoDeeper label="what each Salesforce role does">
+              <ul className="sf-points" style={{ marginTop: 0 }}>
+                {byCount.map((j) => {
+                  const r = roleName(j.role);
+                  return <li key={r}><b className="sf-lead-in">{r}:</b> {ROLE_DOES[r]}.</li>;
+                })}
+              </ul>
+              <p>Need one of these roles inside your team rather than a project? <Link className="sf-link" to="/services/staff-augmentation">Salesforce staff augmentation</Link></p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 6 INDUSTRIES (spec H2 5): unit + FIG. 2, the city's own employer groups. */}
+        <SmartSection id="industries" tone="surface" grid labelledBy="h-industries">
+          <SmartUnit
+            className="sf-c5"
+            headingId="h-industries"
+            title={`Where Salesforce fits ${short(c)}'s largest industries`}
+            lede={`The four largest employer groups in the ${msaName(c)} employ ${n(indTotal)} people, led by ${c.industries[0].label}.`}
+            lead={`Each needs different Salesforce work: ${list(c.industries.map((i) => INDUSTRY_WORK[i.code] ?? i.label))}.`}
+            measure={false}
+          >
+            <GoDeeper label={`the four ${short(c)} employer groups, one by one`}>
+              <ul className="sf-points" style={{ marginTop: 0 }}>
                 {c.industries.map((i) => (
-                  <WiredRow key={i.code} k={industryKey(i.code)} as="li" className="border-t border-oa-hairlineStrong px-2 py-5">
-                    <p className="text-lg font-semibold text-oa-ink">{cap(i.label)}</p>
-                    <p className="mt-1 font-mono text-sm tabular-nums text-oa-ink2">
-                      {n(i.employees)} employees · {n(i.establishments)} establishments
-                    </p>
-                    {INDUSTRY_FIT[i.code] && <p className="mt-2 max-w-[34em] text-oa-ink2">{cap(INDUSTRY_FIT[i.code])}.</p>}
-                  </WiredRow>
+                  <li key={i.code}><b className="sf-lead-in">{cap(i.label)}:</b> {n(i.employees)} employees, {n(i.establishments)} establishments. {INDUSTRY_NOTE[i.code]}</li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
+            </GoDeeper>
+          </SmartUnit>
+          <IndustriesFigure c={c} fig={2} />
+        </SmartSection>
 
-      {/* 6. Sourced figures: every value links to its public source. */}
-      <Section tone="paper" id="figures">
-        <SectionHeading
-          title={`Business and Salesforce figures for ${c.name}`}
-          lede={`Every figure links to its public source and covers the ${msaName(c)} (Census MSA ${c.msa.code}) unless stated.`}
-        />
-        <div className="mt-10">
-          <DataTable
-            label="Sourced figures"
-            head={["Figure", "Value", "Source"]}
-            rows={[
-              { cells: ["Business establishments, 2023", <span className="font-mono tabular-nums">{n(c.establishments.value)}</span>, <a className="oa-link" href={c.establishments.api} {...ext}>Census County Business Patterns 2023 ↗</a>] },
-              { cells: ["Establishments with 500 or more employees", <span className="font-mono tabular-nums">{n(c.size500plus.value)}</span>, "Census CBP 2023, two size classes summed"] },
-              { cells: ["Establishments with 100 to 499 employees", <span className="font-mono tabular-nums">{n(c.size100to499.value)}</span>, "Census CBP 2023, two size classes summed"] },
-              ...c.industries.map((i) => ({
-                cells: [
-                  `Employees in ${i.label}`,
-                  <span className="font-mono tabular-nums">
-                    {n(i.employees)} <span className="text-oa-ink3">· {n(i.establishments)} establishments</span>
-                  </span>,
-                  <a className="oa-link" href={i.api} {...ext}>Census CBP 2023 ↗</a>,
-                ],
-              })),
-              {
-                cells: [
-                  "Software developers employed",
-                  <span className="font-mono tabular-nums">
-                    {n(wage.developers.employment)} <span className="text-oa-ink3">· median ${n(wage.developers.median)}</span>
-                  </span>,
-                  <a className="oa-link" href={wage.developers.series} {...ext}>BLS OEWS {wage.period} ↗</a>,
-                ],
-              },
-              {
-                cells: [
-                  "Computer systems analysts employed",
-                  <span className="font-mono tabular-nums">
-                    {n(wage.analysts.employment)} <span className="text-oa-ink3">· median ${n(wage.analysts.median)}</span>
-                  </span>,
-                  <a className="oa-link" href={wage.analysts.series} {...ext}>BLS OEWS {wage.period} ↗</a>,
-                ],
-              },
-              {
-                cells: [
-                  "Salesforce job listings within 25 miles",
-                  <span className="font-mono tabular-nums">
-                    {n(total)} <span className="text-oa-ink3">· four role searches</span>
-                  </span>,
-                  <span>
-                    LinkedIn, {fmtDate(c.jobsPulled)}:{" "}
-                    {byCount.map((j, i) => (
-                      <span key={j.role}>
-                        {i > 0 && " · "}
-                        <a className="oa-link inline-flex min-h-11 items-center" href={j.url} {...ext}>
-                          {roleName(j.role)}
-                        </a>
-                      </span>
-                    ))}
-                  </span>,
-                ],
-              },
-              /* FV-16: a handful of tiny awards (New York: 1 award, $500) reads as a data error;
-                 the row shows only from 3 awards up (DC, Atlanta, San Francisco, Denver). */
-              ...(c.federal && c.federal.awards >= 3
-                ? [
-                    {
-                      cells: [
-                        `Federal contract awards mentioning Salesforce, ${c.federal.place === "Washington DC" ? "Washington, DC" : `city of ${c.federal.place}`}`,
-                        <span className="font-mono tabular-nums">
-                          {n(c.federal.awards)}
-                          {c.federal.usd ? <span className="text-oa-ink3"> · ${n(c.federal.usd)}</span> : null}
-                        </span>,
-                        <a className="oa-link" href={c.sources.usaspending} {...ext}>USAspending.gov, {c.federal.period} ↗</a>,
-                      ],
-                    },
-                  ]
-                : []),
-            ]}
-            source={<>Census and BLS figures for MSA {c.msa.code} pulled {fmtDate(c.jobsPulled)}; BLS occupation figures re-read {fmtDate(wage.pulled)}.</>}
-          />
-        </div>
-      </Section>
-
-      {/* 7. The city angle beside the community plate (CITY-9). */}
-      <Section clip tone="surface" bordered id="community">
-        <PlateScope>
-          {/* DOM order = phone order (heading and angle, diagram, the list); xl puts the diagram beside both. */}
-          <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-0">
-            <div className="xl:col-span-7 xl:row-start-1">
-              <SectionHeading title={copy.angleTitle} />
-              <Prose className="mt-6 text-lg">
-                {copy.angle.map((p) => (
-                  <p key={p.slice(0, 32)}>
-                    <Rich text={p} />
-                  </p>
-                ))}
-              </Prose>
-            </div>
-            <div className="xl:sticky xl:top-24 xl:col-span-5 xl:col-start-8 xl:row-span-2 xl:row-start-1 xl:self-start">
-              <Plate
-                spec={community}
-                fig={4}
-                stamp={["DIAGRAM · TRAILBLAZER GROUPS WITHIN 50 KM", `READ ${fmtDate(c.community.pulled)}`]}
-                caption={<>{c.community.groups.length} Trailblazer Community Group{c.community.groups.length === 1 ? "" : "s"} within 50 km of central {c.name} with an event in the past year, nearest first.</>}
-              />
-            </div>
-            <div className="xl:col-span-7 xl:row-start-2">
-              <h3 className="text-lg xl:mt-12 font-semibold text-oa-ink">Where {short(c)}'s Salesforce community meets</h3>
-              <ul className="mt-4 max-w-[34em] border-b border-oa-hairlineStrong">
-                {c.community.groups.map((g, i) => (
-                  <WiredRow key={g.url} k={`g${i + 1}`} as="li" className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 border-t border-oa-hairline px-2 py-3">
-                    <a className="oa-link" href={g.url} {...ext}>
-                      {g.name} ↗
-                    </a>
-                    <span className="font-mono text-sm tabular-nums text-oa-ink3">{g.km} km</span>
-                  </WiredRow>
-                ))}
-                <WiredRow k="office" as="li" className="border-t border-oa-hairline px-2 py-3 text-oa-ink2">
-                  {c.salesforceOffice ? <>Salesforce office: {c.salesforceOffice}</> : <>Salesforce lists no office in {c.name}{c.nearestOffice ? <>; the nearest is at {c.nearestOffice}</> : null}.</>}
-                </WiredRow>
-                <WiredRow k="oa" as="li" className="border-t border-oa-hairline px-2 py-3 text-oa-ink2">
-                  OneAlgorithm, Malvern, PA: the work runs remotely, inside your org, and we come in person when a meeting needs it.
-                </WiredRow>
-              </ul>
-              {upcoming.length > 0 && (
-                <p className="mt-4 max-w-[34em] text-oa-ink2">
-                  Upcoming regional events:{" "}
-                  {upcoming.map((e, i) => (
-                    <span key={e.url}>
-                      {i > 0 && " · "}
-                      <a className="oa-link" href={e.url} {...ext}>
-                        {e.name} ↗
-                      </a>{" "}
-                      <span className="font-mono text-sm text-oa-ink3">{fmtEvent(e.date)}</span>
-                    </span>
-                  ))}
-                </p>
-              )}
-              <p className="mt-4 font-mono text-xs text-oa-ink3">
-                Source:{" "}
-                <a className="oa-link" href={c.sources.trailblazer} {...ext}>
-                  trailblazercommunitygroups.com ↗
-                </a>
-                , read {fmtDate(c.community.pulled)}; distances from the city centre; office from{" "}
-                <a className="oa-link" href="https://www.salesforce.com/company/locations/" {...ext}>
-                  Salesforce office locations ↗
-                </a>
-                .
-              </p>
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
-
-      {/* 8. Services, each card with one allowed-fact sentence (CITY-5, CITY-3). */}
-      <Section tone="paper" id="services">
-        <SectionHeading
-          title={`Salesforce services for ${c.name} companies`}
-        />
-        <RouteBoard groups={["services"]} bodies={SERVICE_BODIES} />
-      </Section>
-
-      {/* 9. Rail: the health check, ending in the Desk CTA (CITY-5). */}
-      <Section clip tone="surface" bordered id="process">
-        <SectionHeading title="How the free health check runs" />
-        <div className="mt-12">
-          <ProcessSteps rail terminal={{ label: "Book a free health check" }} steps={HC_STEPS} />
-        </div>
-      </Section>
-
-      {/* 10. Objections: before the FAQ and the Desk. Not in FAQPage. */}
-      <Section tone="paper" id="objections">
-        <Objections
-          items={[
-            SF_OBJECTIONS.pitch,
-            SF_OBJECTIONS.cost,
-            {
-              q: "Who actually does the work?",
-              a: (
-                <PeopleStrip
-                  providerId="https://onealgorithm.com/#localbusiness"
-                  className="max-w-[34em]"
-                  lead="The certified people you talk to, with no hand-off to a bench you never meet. "
-                />
-              ),
-            },
-          ]}
-        />
-      </Section>
-
-      {/* 11. FAQ (CITY-6, CITY-15, CITY-1). The same array feeds FAQPage. */}
-      <Section tone="surface" bordered id="faq">
-        <SectionHeading title={`What ${c.name} buyers ask first`} />
-        <FAQList
-          faqs={faqs}
-          sources={{
-            checked: "October 2026",
-            links: [
-              { label: `AppExchange listing ${SF_LISTING_ID}`, href: SF_APPEXCHANGE_URL },
-              { label: "Sreenivas Amirisetti on Trailblazer", href: LEAD.verify },
-              { label: "BrainSpate cost guide", href: "https://brainspate.com/blog/salesforce-implementation-cost-guide/" },
-              { label: "American Chase cost guide", href: "https://americanchase.com/salesforce-implementation-costs/" },
-              { label: "Cynoteck cost guide", href: "https://www.cynoteck.com/blog-post/salesforce-implementation-cost" },
-              { label: "Groviya cost guide", href: "https://www.groviya.com/blog/salesforce-implementation-cost-guide" },
-              { label: "LinkedIn job search", href: c.sources.linkedin },
-              { label: "Trailblazer Community Groups", href: c.sources.trailblazer },
-            ],
+        {/* 7 FIGURES (spec H2 7): three market readouts + the one "Where these figures come from" pop-up. */}
+        <SmartSection
+          id="figures"
+          heading={{
+            id: "h-figures",
+            title: `${c.name} business and Salesforce figures`,
+            lede: `Every figure covers the ${msaName(c)} unless stated, with its source and the date we read it.`,
           }}
-        />
-      </Section>
+        >
+          <Readouts items={marketReadouts} withEvidence={false} />
+          <div className="sf-grid" style={{ marginTop: 8 }}>
+            <div className="sf-c7">
+              <GoDeeper label={`how to read the ${short(c)} figures`}>
+                <p className="sf-rule">On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {roleCounts(c)}; a listing can match more than one search, so read the {n(total)} as demand rather than a head count.</p>
+                <p>
+                  The {msaName(c)} had {n(c.establishments.value)} business establishments in 2023{estChange != null && <>, {estChange >= 0 ? "up" : "down"} {Math.abs(estChange)}% from 2018</>}; {n(c.size500plus.value)} of them employed 500 or more people and another {n(c.size100to499.value)} employed 100 to 499.
+                  {popChange != null && <> Population changed {signed(popChange)} between 2019 and 2024.</>}
+                </p>
+                {fed && <p>{fed}</p>}
+                <p>Salesforce roles have no federal job code of their own, so the BLS figures use the closest occupations: {n(c.wages.analysts.employment)} computer systems analysts (median ${n(c.wages.analysts.median)}) and {n(c.wages.developers.employment)} software developers (median ${n(c.wages.developers.median)}), {c.wages.period}.</p>
+              </GoDeeper>
+            </div>
+          </div>
+        </SmartSection>
 
-      {/* 12. Cities list (CITY-13). Sibling links render only once the route exists in SF_PAGES. */}
-      <Section tone="paper" compact id="cities">
-        {siblings.length > 0 && (
-          <p className="max-w-[34em] text-lg text-oa-ink2">
-            Nearest to {c.name} on our Salesforce pages:{" "}
-            {siblings.map((s, i) => (
-              <span key={s.to}>
-                {i > 0 && (i === siblings.length - 1 ? " and " : ", ")}
-                <Link className="oa-link" to={s.to}>
-                  Salesforce consultants in {s.label}
-                </Link>
-              </span>
+        {/* 8 COMMUNITY (spec H2 8): the groups and the Salesforce office question, both from data. */}
+        <SmartSection
+          id="community"
+          tone="surface"
+          grid
+          heading={{
+            id: "h-community",
+            title: `The Salesforce community in ${c.name}`,
+            lede: groups.length
+              ? `${groups.length} Trailblazer Community Group${groups.length === 1 ? "" : "s"} with an event in the past year ${groups.length === 1 ? "meets" : "meet"} within 50 km of central ${c.name}.`
+              : `The nearest active Trailblazer Community Groups meet more than 50 km from central ${c.name}.`,
+          }}
+        >
+          <SmartUnit
+            level={3}
+            className="sf-c6"
+            title={`Where ${short(c)}'s Salesforce community meets`}
+            lede={communityLede(groups)}
+            points={groups.slice(0, 3).map((g) => <>{g.name} <span className="sf-mono">· {g.km} km</span></>)}
+            measure={false}
+          >
+            {(groups.length > 3 || upcoming.length > 0) && (
+              <GoDeeper label={`every ${short(c)} group and the upcoming events`}>
+                {groups.length > 3 && (
+                  <ul className="sf-points" style={{ marginTop: 0 }}>
+                    {groups.slice(3).map((g) => <li key={g.url}>{g.name} <span className="sf-mono">· {g.km} km</span></li>)}
+                  </ul>
+                )}
+                {upcoming.length > 0 && <p>Upcoming regional events: {list(upcoming.map((e) => `${e.name} (${fmtEvent(e.date)})`))}.</p>}
+              </GoDeeper>
+            )}
+            <p className="sf-mono" style={{ marginTop: 16, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              Trailblazer Community Groups · read {fmtDate(c.community.pulled, "short")} · <Verify id="community">Sources</Verify>
+            </p>
+          </SmartUnit>
+          <SmartUnit
+            level={3}
+            className="sf-c6"
+            delay={0.08}
+            title={`Does Salesforce have an office in ${c.name}?`}
+            lede={c.salesforceOffice ? `Yes, Salesforce lists an office in ${c.name}, at the address below.` : `No, Salesforce lists no office in ${c.name}${c.nearestOffice ? `; the nearest is in ${officeTown(c.nearestOffice)}` : ""}.`}
+            leadIn="The bottom line:"
+            lead="Salesforce certifies people, not offices, so the certification travels with the person and the work runs inside your org."
+            measure={false}
+          >
+            {(c.salesforceOffice || c.nearestOffice) && (
+              <p className="sf-mono" style={{ marginTop: 16, color: "var(--ink)" }}>{c.salesforceOffice ?? c.nearestOffice}</p>
+            )}
+            <p className="sf-mono" style={{ marginTop: 8, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              Salesforce office locations · read {fmtDate(c.jobsPulled, "short")} · <Verify id="community">Sources</Verify>
+            </p>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 9 HOW IT RUNS (spec H2 9): FIG. 3, the scroll-drawn rail of the health check's four steps. */}
+        <SmartSection
+          id="process"
+          heading={{
+            id: "h-process",
+            title: "How a Salesforce engagement runs from Malvern",
+            lede: `A ${c.name} engagement starts with the free one-week health check and runs remotely from our Malvern office, in four steps.`,
+          }}
+        >
+          <StageRail
+            fig={3}
+            stations={HC_STATIONS}
+            className="sf-rail-top"
+            title="Staged diagram of the four steps of the free one-week Salesforce health check"
+            desc="A rail runs through four stations: tell us the symptom, a week in your org, a written ranked list, and you decide what happens next."
+            stamp="How the free week runs"
+            caption={`The four steps in order; every ${c.name} engagement starts here, and you can stop after any of them.`}
+          />
+          {/* D4: the shared rail stays one line per step (the detail lives on the health-check page); each unit is wired
+              to its station through data-station, so hover and focus still highlight the rail. */}
+          <ol className="sf-grid sf-stages">
+            {HC_STAGES.map((s) => (
+              <LedgerRule as="li" key={s.k} className="sf-c3" data-station={s.k}>
+                <span className="sf-num" aria-hidden="true">{s.num}</span>
+                <h3 className="sf-h3">{s.title}</h3>
+                <p data-lede="">{s.line}</p>
+              </LedgerRule>
             ))}
-            . Closer to our office:{" "}
-            <Link className="oa-link" to="/services/salesforce-consultant-philadelphia">
-              Philadelphia
-            </Link>{" "}
-            and{" "}
-            <Link className="oa-link" to="/services/salesforce-consultant-chester-county">
-              Chester County
-            </Link>
-            .
-          </p>
-        )}
-        <RouteBoard groups={["cities"]} />
-      </Section>
+          </ol>
+        </SmartSection>
 
-      {/* 13. Desk (CITY-4). */}
-      <Desk
-        heading="Start with a free one-week Salesforce health check"
-        body={`An org nobody trusts, a migration that stalled or an integration that fails quietly: describe it, and we will tell you what we would look at first in your ${c.name} org.`}
-        form={{
-          topic: slug,
-          topicLabel: `Salesforce consulting · ${c.name}`,
-          heading: "Book a free health check",
-          prompt: "What is your Salesforce doing wrong?",
-          submitLabel: "Book a free health check",
-        }}
-      />
+        {/* 10 WHY US (spec H2 10): the record, who leads the work, delivered work, the objections. */}
+        <SmartSection
+          id="record"
+          tone="surface"
+          heading={{
+            id: "h-record",
+            title: `Why ${who} work with OneAlgorithm`,
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</>,
+          }}
+        >
+          <Readouts />
+          <div className="sf-grid" style={{ marginTop: 56 }}>
+            <SmartUnit
+              level={3}
+              className="sf-c7"
+              title="Salesforce work we have delivered"
+              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support; client names stay private."
+            >
+              <DeliveredLedger />
+            </SmartUnit>
+            <LedgerRule as="aside" className="sf-c5 sf-lead-block" delay={0.08} aria-labelledby="h-lead">
+              <h3 className="sf-h3" id="h-lead">Who leads your Salesforce work</h3>
+              <PersonCredentials />
+            </LedgerRule>
+          </div>
+          <div className="sf-grid" style={{ marginTop: 56 }}>
+            {CONCERNS.map((q, i) => (
+              <LedgerRule as="article" key={q.q} className="sf-c4" delay={i * 0.08}>
+                <h3 className="sf-h3">{q.q}</h3>
+                <GoDeeper label={q.q} title="The answer">
+                  <p className="sf-rule">{q.a}</p>
+                </GoDeeper>
+              </LedgerRule>
+            ))}
+          </div>
+        </SmartSection>
+
+        {/* 11 DESK (spec H2 13): the one form; every primary CTA points here. */}
+        <DeskCTA form={{ topic: slug, topicLabel: `Salesforce consulting · ${c.name}`, heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
+
+        {/* 12 FAQ (spec H2 11): the city's own questions + the template set; answers in the HTML behind disclosures. */}
+        <SmartSection id="faq" tone="surface" grid labelledBy="h-faq">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">Salesforce consulting in {c.name}: questions</h2>
+            <p style={{ marginTop: 12 }}>Not here? Call the office: <a className="sf-phone" href={SF_PHONE.href} data-cta="faq">{SF_PHONE.display}</a></p>
+          </div>
+          <div className="sf-c7 sf-faq-col">
+            <FAQ items={faqs} schema={false} />
+          </div>
+        </SmartSection>
+
+        {/* 13 OTHER CITIES (spec H2 12): the named siblings in prose, then the city nav. Houston waits for its gate. */}
+        <SmartSection
+          id="cities"
+          compact
+          heading={{
+            id: "h-cities",
+            title: "Salesforce consulting in other cities",
+            lede: <>Nearest to {c.name} on our Salesforce pages: {copy.siblings.map((s, i) => (
+              <React.Fragment key={s.to}>{i > 0 && (i === copy.siblings.length - 1 ? " and " : ", ")}<Link className="sf-link" to={s.to}>{s.label}</Link></React.Fragment>
+            ))}.</>,
+          }}
+        >
+          <nav aria-label="Salesforce consultants by city" style={{ marginTop: 24 }}>
+            <ul className="sf-links">
+              {otherCities.map((x) => (
+                <li key={x.to}><Link className="sf-link" to={x.to}>Salesforce consultants in {x.label}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        </SmartSection>
+
+        <SourcesDialog id="market" sources={marketSources(c)} />
+        <SourcesDialog id="community" title="Where the community figures come from" sources={communitySources(c)} />
+        <PhotoCreditDialog photo={photo} />
+        <PhotoCreditsLine photo={photo} />
+      </SfPage>
     </Layout>
   );
 }

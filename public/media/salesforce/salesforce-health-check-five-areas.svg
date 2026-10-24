@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 407.6" width="580" height="407.6" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
 <title>What the free Salesforce health check covers</title>
-<desc>Diagram: the five areas the free health check covers (licences and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.</desc>
+<desc>Diagram: the five areas the free health check covers (licenses and edition, data, automation, permissions and integrations) feed one written list, ranked by what to fix first.</desc>
 <rect width="580" height="407.6" fill="#ffffff"/>
 <rect x="320" y="24" width="236" height="359.6" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
 <rect x="336" y="99.6" width="204" height="44" fill="#e3e8ef" stroke="none" stroke-width="1"/>
@@ -25,12 +25,12 @@
 <text x="346.8" y="237.8" font-size="12" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">3</text>
 <text x="367.2" y="237.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">PERMISSIONS</text>
 <text x="346.8" y="293.8" font-size="12" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">4</text>
-<text x="367.2" y="293.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">LICENCES</text>
+<text x="367.2" y="293.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">LICENSES</text>
 <text x="346.8" y="349.8" font-size="12" font-weight="600" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">5</text>
 <text x="367.2" y="349.8" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">INTEGRATIONS</text>
 <text x="336" y="57" font-size="17" font-weight="600" fill="#0d1b2a">A written list, ranked</text>
 <text x="336" y="80.8" font-size="17" font-weight="600" fill="#0d1b2a">by what to fix first</text>
-<text x="40" y="69" font-size="17" font-weight="600" fill="#0d1b2a">Licences and edition</text>
+<text x="40" y="69" font-size="17" font-weight="600" fill="#0d1b2a">Licenses and edition</text>
 <text x="40" y="138.9" font-size="17" font-weight="600" fill="#0d1b2a">Data</text>
 <text x="40" y="208.8" font-size="17" font-weight="600" fill="#0d1b2a">Automation</text>
 <text x="40" y="278.7" font-size="17" font-weight="600" fill="#0d1b2a">Permissions</text>

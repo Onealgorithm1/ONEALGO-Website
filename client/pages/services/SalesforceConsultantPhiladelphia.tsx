@@ -1,85 +1,45 @@
+import * as React from "react";
 import { Link } from "react-router-dom";
-import { ClipboardCheck, Plug, Users, Workflow } from "lucide-react";
 import Layout from "../../components/Layout";
 import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  ProcessSteps,
-  PrimaryCTA,
-} from "../../components/site";
-import {
-  AnswerBand,
-  DataTable,
-  DeliveredLedger,
-  Desk,
-  FAQList,
-  HcLink,
-  Objections,
-  PeopleStrip,
-  Plate,
-  PlateScope,
-  RouteBoard,
-  SF_OBJECTIONS,
-  WiredRow,
-  type SfFaq,
-} from "../../components/salesforce";
-import { RecordLine, SalesforceRecordCard } from "../../components/SalesforceRecordCard";
-import { PLATES } from "../../data/plates/philadelphia";
-import {
-  SF_APPEXCHANGE_URL,
-  SF_CERTIFICATIONS,
-  SF_CERTIFIED_PEOPLE,
-  SF_LISTING_ID,
-  SF_PHONE,
-  SF_PLATFORM_CERTS,
-  SF_VERIFIED_LABEL,
-} from "../../data/salesforceProof";
+  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, FAQ,
+  DeskCTA, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, SourcesDialog, Verify, PhotoCreditDialog,
+  PhotoCreditsLine, type SfFaqItem, type Stage, type Readout, type SfSource, sfHeroAvifSrcset, SF_HERO_SIZES } from "../../components/sf";
+import { HealthCheck } from "../../components/sf/illus";
+import { SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_LISTING_ID, SF_PHONE, SF_PLATFORM_CERTS, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
+import { SF_CITY_LINKS } from "../../data/salesforceShared";
+import { SREENIVAS, SWAPNA } from "../../data/sfPeople";
+import { SF_CITY_HEROES, sfCityFiles } from "../../data/sfCityHeroes";
 import { SALESFORCE_CITIES } from "../../data/salesforceCities";
+import { PLATES } from "../../data/plates/philadelphia";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
-  StructuredData,
-  SF_HEALTH_CHECK_OFFER,
-  createServiceSchema,
-  createLocalBusinessSchema,
-  createFAQSchema,
-  createWebPageSchema,
+  StructuredData, SF_HEALTH_CHECK_OFFER, createServiceSchema, createLocalBusinessSchema, createWebPageSchema,
 } from "../../components/StructuredData";
 
-/* Salesforce consultants for Philadelphia companies. Rebuilt 2026-10-23 on the
- * Salesforce plate system: design-spec.md §3 PHL and §5 PHL, plus the binding
- * wide-layout and voice addenda (onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/).
+/* /services/salesforce-consultant-philadelphia. Rebuilt 2026-10-23 on the redesign-v2 kit (client/components/sf):
+ * the approved prototype's rhythm (Louis 2026-10-23, "build the 23 pages this way") with the city-photo hero, one
+ * staged scene (FIG. 1, the health-check list) and the rail; seo-completeness/structure-spec.md §7.3 for title,
+ * meta, H1 and the twelve H2 strings (exact), §8-10 for the expert block, schema and links. Build notes:
+ * onealgo-icm-oa/areas/sales/runs/2026-10-23_sf-audit/build-v2/page-philadelphia.md.
  *
- * WHY THIS PAGE IS NOT THE CHESTER COUNTY OR PENNSYLVANIA PAGE (unchanged since
- * 2026-09-01): the three are split by BUYER, not by place name, so they are not
- * doorway pages.
- *   - Philadelphia (this page): already owns Salesforce, often has an in-house
- *     admin, and the org is not earning its keep. Owns "what does a Salesforce
- *     consultant do", the admin question, the local market data.
- *   - Chester County: still choosing an edition; owns licence cost, meeting in
- *     person, moving off spreadsheets/QuickBase, support after set-up.
- *   - Pennsylvania: "is this partner real, and how would I check?"
- * ⛔ No FAQ question repeats across the three (or across the city pages). Check
- *    all of them before adding one.
+ * WHY THIS PAGE IS NOT THE CHESTER COUNTY OR PENNSYLVANIA PAGE (unchanged since 2026-09-01): the three are split
+ * by BUYER, not by place name. Philadelphia (this page): already owns Salesforce, often has an in-house admin, the
+ * org is not earning its keep; owns "what does a Salesforce consultant do", the admin question and the local
+ * market data. Chester County: still choosing an edition. Pennsylvania: "is this partner real, how do I check?"
+ * ⛔ No FAQ question repeats across the three (or the city pages).
  *
- * ⛔ WE ARE IN MALVERN, NOT PHILADELPHIA. Every location line says Malvern,
- *    about 25 miles west of Center City (the same figure as
- *    /services/web-design-philadelphia; ~23 miles straight-line from the
- *    LocalBusiness geo to City Hall, ~25 by road via US-202 and I-76).
- * ⛔ HONESTY: proof is only the allowed set — the AppExchange record
- *    (SF_* constants), the four unnamed delivery patterns (SF_DELIVERED), and
- *    Sreenivas Amirisetti's approved sentence + Trailblazer link. No client
- *    names, no reviews, no invented numbers. Sales Cloud / Service Cloud
- *    delivery is owner-gated (PHL-9), so those names are not claimed here.
- *    Market figures come from client/data/salesforceCities.ts (generated, never
- *    typed); LinkedIn role searches overlap, so their counts are never summed.
- * ⛔ VOICE: no deficit lines in visible copy. The old "We are not a Center City
- *    firm" / "No, and we would rather say so" framing is gone; the facts it
- *    carried (Malvern, 25 miles, in person when needed) are stated as facts.
- * ⛔ NO TOWN LISTS: one coverage sentence (PHL-13), never a block of places.
- */
+ * ⛔ WE ARE IN MALVERN, NOT PHILADELPHIA: every location line says Malvern, about 25 miles west of Center City.
+ *    Visits (owner 2026-10-23 ~19:05): most work is remote; in-person sessions when the project calls for them,
+ *    easiest across the Philadelphia region. Never promise visits as standard.
+ * ⛔ PROOF, and only this: Salesforce's AppExchange record (16 / 53 / 38, tier "Select", read SF_VERIFIED_ON), the
+ *    four delivered patterns with clients unnamed, Sreenivas (14 active) and Swapna (2) with their own badges. No
+ *    client name, review, years figure, price, SLA or industry-to-delivery pairing beyond lending (spec D8).
+ * ⛔ LINKS: in-site only in the body. Market sources live in the "Where these figures come from" pop-up as program
+ *    pages (no LinkedIn query, no api.census.gov, no data endpoint); the one off-site control per record is inside
+ *    its dialog. Houston is routed but not linked until its gate.
+ * ⛔ HYDRATION: nothing here depends on the clock. The event line is dated ("listed … when read 21 October 2026"),
+ *    so server and client markup match; refresh it with the city data. */
 
 const PATH = "/services/salesforce-consultant-philadelphia";
 const PAGE_URL = `https://onealgorithm.com${PATH}`;
@@ -87,18 +47,24 @@ const PAGE_UPDATED = "2026-10-23";
 const TITLE = "Salesforce Consultant Philadelphia, PA | OneAlgorithm";
 const DESCRIPTION =
   "Salesforce consultants for Philadelphia companies, from a listed Consulting Partner in Malvern. Free one-week health check. Call (610) 890-9711.";
-const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og-salesforce-philadelphia.jpg";
-const IMAGE_1600 = "https://onealgorithm.com/media/salesforce/philadelphia-region-map-malvern-1600x900.jpg";
-const TRAILBLAZER = "https://www.salesforce.com/trailblazer/samirisetti";
+const PHOTO = SF_CITY_HEROES.philadelphia;
+const FILES = sfCityFiles("philadelphia");
+const OG_IMAGE = `https://onealgorithm.com${FILES.og}`;
 const MAP = PLATES["philadelphia-region-map-malvern"];
+const HC = "/services/salesforce-health-check";
+const COST = "/services/salesforce-implementation-cost";
+const MS = "/services/salesforce-managed-services";
+const INT = "/services/salesforce-integration";
+const PA = "/services/salesforce-consulting-partner-pennsylvania";
+const CHE = "/services/salesforce-consultant-chester-county";
 
-/* The fields this page reads from the generated city file. Assigning (not
-   casting) makes tsc fail if the generator ever drops or renames one. */
+/* The fields this page reads from the generated city file. Assigning (not casting) makes tsc fail if the
+   generator ever drops or renames one. */
 type Figure = { value: number };
 type PhlData = {
   name: string;
   jobsPulled: string;
-  jobs: readonly { role: string; count: number; url: string }[];
+  jobs: readonly { role: string; count: number }[];
   industries: readonly { code: string; label: string; establishments: number; employees: number }[];
   establishments: Figure;
   establishments2018: Figure;
@@ -116,197 +82,169 @@ type PhlData = {
     analysts: { median: number; employment: number };
     developers: { median: number; employment: number };
   };
-  community: { pulled: string; radiusKm: number; groups: readonly { name: string; url: string }[] };
-  events: readonly { name: string; date: string; url: string }[];
-  salesforceOffice: string | null;
+  community: { pulled: string; radiusKm: number; groups: readonly { name: string; city: string }[] };
+  events: readonly { name: string; date: string }[];
 };
 const CITY: PhlData = SALESFORCE_CITIES.find((x) => x.slug === "philadelphia")!;
 
 const n = (v: number) => v.toLocaleString("en-US");
 const longDate = (iso: string) =>
-  new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
-const roleKey = (role: string) => role.replace(/^Salesforce /, "").toLowerCase(); // = scripts/plates/philadelphia.mjs
+  new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const PULLED = longDate(CITY.jobsPulled); // "21 October 2026": LinkedIn, Census CBP/ACS and the event calendar
+const WAGES_READ = longDate(CITY.wages.pulled); // "23 October 2026"
 const roleCount = (r: string) => CITY.jobs.find((j) => j.role.endsWith(r))?.count ?? 0;
-const ROLES = [...CITY.jobs].sort((a, b) => b.count - a.count);
-const PULLED = longDate(CITY.jobsPulled);
-const STAMP_DATE = new Date(`${CITY.jobsPulled}T12:00:00Z`)
-  .toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })
-  .toUpperCase(); // "21 OCT 2026"
+const METRO = CITY.msa.name.replace(/ Metro Area$/, ""); // "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD"
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const listJoin = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 
-/* ----------------------------- copy ---------------------------------- */
+/* LinkedIn role searches overlap, so their counts are shown side by side and never summed. */
+const ROLES = [
+  { key: "Consultant", does: "Designs how Salesforce should fit the business and leads the project." },
+  { key: "Administrator", does: "Runs the org day to day: users, permissions, reports and small changes." },
+  { key: "Architect", does: "Designs the data model, security and integrations across a large org." },
+  { key: "Developer", does: "Builds what configuration cannot: Apex code, integrations and complex automation." },
+].map((r) => ({ ...r, count: roleCount(r.key) })).sort((a, b) => b.count - a.count);
+/** "247 consultant, 211 administrator, 185 architect and 132 developer", in the data's own order. */
+const ROLES_LINE = listJoin(ROLES.map((r) => `${n(r.count)} ${r.key.toLowerCase()}`));
 
-/* PHL-1: each card links to the page that fixes it (and turns on the card hover). */
-const PROBLEMS = [
-  {
-    icon: Workflow,
-    title: "An org that grew sideways",
-    body: "Fields nobody fills, three ways to record the same thing, reports leadership stopped opening. The health check maps what is there and ranks what to fix first, so the org matches how you work again.",
-    to: "/services/salesforce-health-check",
-  },
-  {
-    icon: Users,
-    title: "Working alongside your admin",
-    body: "Your admin keeps the day-to-day. We take the work that needs a specialism they were never hired for, such as Flow automation, permission design and integrations, and the org stays theirs.",
-    to: "/services/salesforce-managed-services",
-  },
-  {
-    icon: Plug,
-    title: "The integration that fails quietly",
-    body: "A sync between Salesforce and the ERP, the finance system or the warehouse that broke months ago and told nobody. We agree which system owns each record, repair the sync and give failures a log a named person reads.",
-    to: "/services/salesforce-integration",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "A build somebody else left",
-    body: "Inherited orgs are normal, and we do not editorialise about the last firm. You get a plain account of what is there, what is worth keeping and what is costing you, then you decide.",
-    to: "/services/salesforce-health-check",
-  },
-];
-
-/* Where Salesforce work meets each of Philadelphia's four largest employer
-   groups. Only allowed facts: lending development, the SAP sync, or a plain
-   statement of what the work involves. Keyed by NAICS code; a group the
-   generator adds later without a line here simply shows its numbers. */
+/* Where Salesforce work meets each of the metro's four largest employer groups. Sector context only; the one
+   pairing with our delivered work is lending (spec D8). Keyed by NAICS code. */
+/** Short names for the lede; a group the generator adds later falls back to its Census label. */
+const SHORT: Record<string, string> = { "62": "health care", "54": "professional services", "52": "finance and insurance", "31-33": "manufacturing" };
 const FIT: Record<string, string> = {
   "62": "Salesforce work here turns on access: who can see which records, enforced with permission sets and sharing rules.",
   "54": "Firms like these track clients, projects and proposals in Salesforce and need reports that agree across all three.",
   "52": "This is where we run ongoing Salesforce development for a lending company, every week since April 2026.",
-  "31-33": "Manufacturers need Salesforce to agree with the ERP on accounts, orders and pricing. We have built an SAP-to-Salesforce sync.",
+  "31-33": "Manufacturers need Salesforce to agree with the ERP on accounts, orders and pricing.",
 };
 
-/* Keys match the nodes and wire in PHL-F1 (scripts/plates/philadelphia.mjs). */
-const OFFICE_ROWS = [
-  { k: "office", tag: "Office", text: "Swedesford Road, Malvern, in Chester County" },
-  { k: "route", tag: "To Center City", text: "About 25 miles by road" },
-  { k: "center", tag: "In the city", text: "We come in when a decision is better made across a table" },
+/* Every market figure names its source and read date here; nothing on the page links a data endpoint. */
+const SOURCES: SfSource[] = [
+  { name: "LinkedIn public job search", what: `Open roles for Salesforce consultant, administrator, architect and developer within 25 miles of ${CITY.name}, PA. The searches overlap, so the counts are never added together.`, read: `read ${PULLED}`, page: "https://www.linkedin.com/jobs/" },
+  { name: "U.S. Census Bureau, County Business Patterns", what: `Business establishments by size and by industry in the ${METRO} metro (MSA ${CITY.msa.code}), 2023 and 2018.`, read: `read ${PULLED}`, page: CITY.sources.cbp },
+  { name: "U.S. Census Bureau, American Community Survey", what: "Population of the same metro, 2024 and 2019.", read: `read ${PULLED}`, page: "https://www.census.gov/programs-surveys/acs" },
+  { name: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics", what: `Computer systems analysts and software developers in the metro, ${CITY.wages.period}: employment and median salary. Salesforce roles have no federal job code of their own, so these are the closest official categories.`, read: `read ${WAGES_READ}`, page: CITY.wages.page },
+  { name: "Trailblazer Community Groups", what: `Salesforce community groups within ${CITY.community.radiusKm} km of ${CITY.name} with an event listed since October 2025.`, read: `read ${longDate(CITY.community.pulled)}`, page: "https://trailblazercommunitygroups.com/" },
+  { name: "Salesforce World Tour events", what: "The event calendar Salesforce publishes for its World Tour stops.", read: `read ${PULLED}`, page: "https://www.salesforce.com/events/world-tour/" },
 ];
 
-const STEPS = [
-  {
-    title: "A free one-week health check",
-    body: "With a read-only user you create, we review licences against actual use, data quality, what is still done by hand, who can see what, and which integrations fail quietly.",
-    to: "/services/salesforce-health-check",
-  },
-  {
-    title: "A written list, ranked",
-    body: "What to fix first, in writing, with the reason for each item. The list is yours whether or not we do the work.",
-  },
-  {
-    title: "You choose; we build with your admin",
-    body: "Each fix is scoped in writing before work starts, built alongside your team, and handed back to the people who run the org.",
-  },
-  {
-    title: "Ongoing development, if you want it",
-    body: "Weekly administration and development, with hours reported every week.",
-    to: "/services/salesforce-managed-services",
-  },
+const MARKET_READOUTS: Readout[] = [
+  { value: CITY.establishments.value, label: "Business establishments in the metro, 2023", source: <>Census County Business Patterns · {n(CITY.establishments2018.value)} in 2018</> },
+  { value: CITY.size500plus.value, label: "Establishments with 500 or more employees", source: <>Census CBP, 2023 · {n(CITY.size500plus2018.value)} in 2018</> },
+  { value: CITY.wages.developers.employment, label: "Software developers employed in the metro", source: <>BLS, {CITY.wages.period} · median salary ${n(CITY.wages.developers.median)}</> },
 ];
 
-/* Not in FAQPage; none repeats a FAQ question below. Existing site wording. */
-const OBJECTIONS = [
-  SF_OBJECTIONS.pitch,
-  {
-    q: "We are not handing a consultant the keys to our org.",
-    a: "You do not have to. The health check starts with a read-only user you create, and you decide what we work on once the list is in your hands.",
-  },
-  SF_OBJECTIONS.cost,
+/* The page's own four steps (facts: the page at ef1a8f0). Titles are short enough for the 1200-unit rail drawing. */
+const STAGES: Stage[] = [
+  { k: "s1", num: "01", title: "A free week in your org", sub: "health check · read-only user", line: "With a read-only user you create, we review licenses against use, data quality, manual work, access and integrations.",
+    details: ["Licenses against actual use", "Data quality: duplicates, orphans, fields nobody fills", "What is still done by hand", "Who can see and change what", "Which integrations fail quietly"] },
+  { k: "s2", num: "02", title: "A written list, ranked", sub: "what to fix first, and why", line: "What to fix first, in writing, with the reason for each item; the list is yours whether or not we do the work.",
+    details: ["Every finding ranked by what to fix first", "The reason for each item, written down", "Yours to keep, whoever does the work"] },
+  { k: "s3", num: "03", title: "You choose; we build", sub: "scoped in writing · with your admin", line: "Each fix is scoped in writing before work starts, built alongside your team and handed back to the people who run the org.",
+    details: ["A written scope before any work starts", "Built alongside your admin, not around them", "Handed back to the people who run the org"] },
+  { k: "s4", num: "04", title: "Ongoing development", sub: "weekly admin · hours reported", line: "If you want it, weekly administration and development, with hours reported every week.",
+    details: ["Weekly administration and development", "Hours reported every week", "Terms set in the written proposal after the health check"] },
 ];
 
-/* The AnswerBand question, moved up from the FAQ (spec §5 PHL-2) and kept in
-   FAQPage. "What does a Salesforce consultant do?" is a live People Also Ask
-   question (observed 2026-08-31 and again in the 2026-10-23 question bank). */
-const ANSWER: SfFaq = {
-  q: "What does a Salesforce consultant actually do?",
-  a: "A Salesforce consultant works out how your business actually runs, including the workarounds nobody wrote down, then configures Salesforce around that process and hands over an org your own people can run. For a company that already owns Salesforce, the job is usually cleaner data, automation in place of manual steps, and systems that agree.",
-};
+/* Four engagements, each linked to the page that fixes it (spec §7.3 row 2: titles + one line; detail in Go deeper). */
+const PROBLEMS: { title: string; line: string; more: string; deep: string; link: { to: string; label: string } }[] = [
+  { title: "An org that grew sideways", line: "Fields nobody fills, three ways to record the same thing, and reports leadership stopped opening.",
+    more: "The health check maps what is there and ranks what to fix first, so the org matches how you work again.", deep: "how the health check sorts a sideways org",
+    link: { to: HC, label: "Free one-week Salesforce health check" } },
+  { title: "Working alongside your admin", line: "Your admin keeps the day-to-day; we take the Flow, permission and integration work they were never hired for.",
+    more: "Specialist work such as Flow automation, permission design and integrations comes to us, and the org stays theirs.", deep: "how we work alongside your admin",
+    link: { to: MS, label: "Salesforce managed services and development" } },
+  { title: "The integration that fails quietly", line: "A sync between Salesforce and the ERP, finance system or warehouse that broke months ago and told nobody.",
+    more: "We agree which system owns each record, repair the sync and give failures a log a named person reads.", deep: "how we repair an integration that fails quietly",
+    link: { to: INT, label: "Salesforce integration services" } },
+  { title: "A build somebody else left", line: "Inherited orgs are normal; you get a plain account of what is there, what to keep and what it costs you.",
+    more: "We describe the org, not the last firm: what is there, what is worth keeping and what is costing you, then you decide.", deep: "how we take over an inherited org",
+    link: { to: HC, label: "Start with the free health check" } },
+];
 
-const today = new Date().toISOString().slice(0, 10);
-/* Generated from data so a past event drops out on its own (PHL-7c). Only
-   events in Philadelphia itself; regional ones belong to other pages. */
-const upcoming = CITY.events.filter((e) => e.date.slice(0, 10) >= today && e.name.includes(CITY.name));
-const groupNames = CITY.community.groups.map((g) => g.name.replace(/^Salesforce /, ""));
-const listJoin = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
+/* Objection questions (H3) with the answers in Go deeper. The page's own three (ef1a8f0); none repeats a FAQ. */
+const CONCERNS: { q: string; a: React.ReactNode }[] = [
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
+  { q: "We are not handing a consultant the keys to our org.", a: <>You do not have to. The health check starts with a read-only user you create, and you decide what we work on once the list is in your hands.</> },
+  { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first, and the terms are set in the written proposal. <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link></> },
+];
 
-const FAQS: SfFaq[] = [
+const PHL_GROUPS = CITY.community.groups.filter((g) => g.city.startsWith(`${CITY.name},`)).map((g) => g.name.replace(/^Salesforce /, "").replace(/, .*$/, "").replace(/ Group$/, ""));
+const NEAR_TOWNS = [...new Set(CITY.community.groups.filter((g) => !g.city.startsWith(`${CITY.name},`)).map((g) => g.city.replace(/, [A-Z]{2}$/, "")))];
+const CITY_EVENTS = CITY.events.filter((e) => e.name.includes(CITY.name));
+
+/* FAQ: the Philadelphia question bank minus #1, which is now the first H2 (HDG-08). Verbatim FAQPage schema. */
+const FAQS: SfFaqItem[] = [
   {
     q: "Who are the best Salesforce consultants in Philadelphia?",
-    a: `The ones whose record you can check before you call. Look up the firm's AppExchange listing, where Salesforce publishes its certified people and certifications; ask what it has delivered that looks like your problem; and ask who will do the work. Ours: listing ${SF_LISTING_ID}, ${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications on Salesforce's record, an SAP-to-Salesforce sync and QuickBase and Kissflow migrations delivered, and our Salesforce practice led by Sreenivas Amirisetti.`,
-    link: { to: "/services/salesforce-consulting-partner-pennsylvania", label: "How to check any Salesforce partner" },
+    a: `The ones whose record you can check before you call. Open the firm's AppExchange listing, where Salesforce publishes its certified people and certifications; ask what it has delivered that looks like your problem; and ask who will do the work. Ours is listing ${SF_LISTING_ID}: ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications on Salesforce's record, and Sreenivas Amirisetti leads our Salesforce practice.`,
+    link: { to: PA, label: "How to check a Salesforce partner" },
   },
   {
     q: "Which Salesforce certifications does your team hold?",
-    a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them on the Platform competency (read ${SF_VERIFIED_LABEL}). Sreenivas Amirisetti leads our Salesforce practice. He holds Salesforce certifications from Administrator to Application Architect and earned his first in 2014.`,
+    a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them on the Platform competency (read ${SF_VERIFIED_LABEL}). ${SREENIVAS.statement} ${SWAPNA.statement}`,
+    link: { to: "#record", label: "Who leads your Salesforce work" },
   },
   {
     q: "We already have a Salesforce admin. What would you add?",
     a: `Specialist depth, not a replacement. Your admin keeps the org running day to day. We take the Platform work that needs more time or a different skill: Flow that replaces manual steps, permission sets doing a profile's job, integrations that fail silently. ${SF_PLATFORM_CERTS} of our ${SF_CERTIFICATIONS} Salesforce certifications are on the Platform competency, and your admin keeps ownership of the org.`,
-    link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" },
+    link: { to: MS, label: "Salesforce managed services and development" },
   },
   {
     q: "What Salesforce integrations have you built?",
     a: "An SAP-to-Salesforce sync, and migrations that moved QuickBase and Kissflow systems into Salesforce. On every integration we agree which system owns each record before anything is built, so both sides report the same numbers and a failed record lands in a log a named person reads.",
-    link: { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP" },
+    link: { to: INT, label: "Salesforce integration services" },
   },
   {
     q: "Is your office in Philadelphia?",
-    a: "Our office is on Swedesford Road in Malvern, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; when a conversation is better across a table, we come into the city.",
+    a: "Our office is on Swedesford Road in Malvern, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
   },
   {
     q: "Do you work with companies on the Main Line, in King of Prussia and in South Jersey?",
-    a: "Yes. The Main Line and King of Prussia are a short drive from our Malvern office. For South Jersey companies the work runs the same way: inside the org, remotely, and in person when a meeting needs it.",
+    a: "Yes. The Main Line and King of Prussia are a short drive from our Malvern office. For South Jersey companies the work runs the same way: inside the org, remotely, with in-person sessions when the project calls for them.",
   },
   {
     q: "What does Salesforce talent cost in Philadelphia?",
     a: `Salesforce roles have no federal job code of their own, so the closest official figures are computer systems analysts, at a median salary of $${n(CITY.wages.analysts.median)}, and software developers, at $${n(CITY.wages.developers.median)}, in the Philadelphia metro (BLS, ${CITY.wages.period}; salary only, before benefits). A partner engagement is scoped and priced in writing before work starts instead.`,
-    link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
+    link: { to: COST, label: "Salesforce implementation cost guide" },
   },
   {
     q: "Is there a Salesforce user community in Philadelphia?",
-    a: `Yes. ${CITY.community.groups.length} Salesforce Trailblazer Community Groups within ${CITY.community.radiusKm} km of Philadelphia have held an event in the past year: ${listJoin(groupNames)}.${
-      CITY.salesforceOffice ? ` Salesforce also lists an office at ${CITY.salesforceOffice}.` : ""
-    }${upcoming.length ? ` Coming up: ${listJoin(upcoming.map((e) => `${e.name} (${longDate(e.date)})`))}.` : ""}`,
+    a: `Yes. ${CITY.community.groups.length} Salesforce Trailblazer Community Groups within ${CITY.community.radiusKm} km of ${CITY.name} have listed an event since October 2025: the ${listJoin(PHL_GROUPS)} groups in the city, and groups in ${listJoin(NEAR_TOWNS)}.${
+      CITY_EVENTS.length ? ` When we read Salesforce's calendar on ${PULLED}, it listed ${listJoin(CITY_EVENTS.map((e) => `${e.name} for ${longDate(e.date)}`))}.` : ""
+    }`,
   },
 ];
 
-const SOURCES = {
-  checked: "October 2026",
-  links: [
-    { label: `AppExchange listing ${SF_LISTING_ID}`, href: SF_APPEXCHANGE_URL },
-    { label: "Sreenivas Amirisetti on Trailblazer", href: TRAILBLAZER },
-    { label: `BLS wages, Philadelphia metro, ${CITY.wages.period}`, href: CITY.wages.page },
-    { label: "Trailblazer Community Groups", href: "https://trailblazercommunitygroups.com/" },
-  ],
-};
+const CITY_NAV = SF_CITY_LINKS.filter((c) => !c.to.endsWith("-houston"));
 
 export default function SalesforceConsultantPhiladelphia() {
   useSEO({
-    // Query first, brand last; 53 characters (page-map title).
+    // Query first, brand last; 53 characters (structure-spec §7.3: keep).
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PATH),
-    ogTitle: "Salesforce Consultant Philadelphia — OneAlgorithm",
-    ogDescription:
-      "Salesforce consultants for Philadelphia companies, from a listed AppExchange Consulting Partner in Malvern, 25 miles west of Center City. Free one-week Salesforce health check.",
+    ogTitle: "Salesforce consultants for Philadelphia companies | OneAlgorithm",
+    ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
-    ogImageAlt: MAP.alt,
-    twitterTitle: "Salesforce Consultant Philadelphia — OneAlgorithm",
-    twitterDescription:
-      "Salesforce consultants for Philadelphia companies, from a listed Consulting Partner in Malvern. Free one-week Salesforce health check.",
+    ogImageAlt: PHOTO.alt,
+    twitterTitle: "Salesforce consultants for Philadelphia companies | OneAlgorithm",
+    twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
+    preloadImage: FILES.avif1600,
+    preloadImageSrcset: sfHeroAvifSrcset(FILES),
+    preloadImageSizes: SF_HERO_SIZES,
+    preloadImageType: "image/avif",
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
   return (
     <Layout>
-      {/* PHL-11: provider is the Malvern LocalBusiness, areaServed the city,
-          the free health check as an Offer. BreadcrumbList comes from PageHero
-          (Home > Services > Salesforce > Philadelphia). */}
+      {/* Spec §9 (Cities + PHL): Service with areaServed City (containedInPlace the metro), provider #org, the free
+          health check as an Offer; WebPage with primaryImageOfPage = og:image; the Malvern ProfessionalService.
+          BreadcrumbList (SfPage), Person (PersonCredentials) and FAQPage (FAQ) are emitted by the kit. */}
       <StructuredData
         data={createServiceSchema(
           "Salesforce Consulting in Philadelphia, Pennsylvania",
@@ -314,355 +252,390 @@ export default function SalesforceConsultantPhiladelphia() {
           "CRM & Salesforce Implementation",
           PAGE_URL,
           {
-            providerId: "https://onealgorithm.com/#localbusiness",
-            areaServed: {
-              "@type": "City",
-              name: "Philadelphia",
-              containedInPlace: { "@type": "State", name: "Pennsylvania" },
-            },
+            areaServed: { "@type": "City", name: CITY.name, containedInPlace: { "@type": "Place", name: CITY.msa.name } },
             offers: SF_HEALTH_CHECK_OFFER,
-            image: IMAGE_1600,
+            image: OG_IMAGE,
           },
         )}
       />
-      <StructuredData
-        data={createWebPageSchema("Salesforce consultants for Philadelphia companies", DESCRIPTION, PAGE_URL, {
-          dateModified: PAGE_UPDATED,
-          primaryImage: { url: IMAGE_1600, width: 1600, height: 900 },
-        })}
-      />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: PAGE_UPDATED, primaryImage: { url: OG_IMAGE, width: 1200, height: 630 } })} />
       <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
-      <StructuredData data={createFAQSchema([ANSWER, ...FAQS])} />
 
-      {/* 1. Hero (PHL-12: H1 carries "consultants"). The record card is the
-          panel, so no CTAProof under the pair. Nothing here animates. */}
-      <PageHero
-        eyebrow="Philadelphia"
-        title={
-          <>
-            Salesforce consultants for <span className="text-oa-orange">Philadelphia companies</span>
-          </>
-        }
-        lede="Most people who call us already run Salesforce and want more from it. We find what is holding the org back, fix it alongside your team and keep it running, starting with a free one-week health check. Our office is in Malvern, about 25 miles west of Center City."
-        panel={{ title: "Salesforce's record of us", items: [], slot: <SalesforceRecordCard /> }}
-        primary={{ label: "Book a free health check", href: "#start", cta: "hero" }}
-        secondary={{ label: `Call ${SF_PHONE.display}`, href: SF_PHONE.href, cta: "hero" }}
-        meta={[
-          { label: "Office", value: "Malvern, PA" },
-          { label: "Market data pulled", value: PULLED },
-        ]}
-        siblings={false}
-      >
-        <HcLink />
-      </PageHero>
-
-      {/* 2. The answer, 55 words, plus the registry line and the jump list. */}
-      <AnswerBand
-        question={ANSWER.q}
-        answer={ANSWER.a}
-        leads={[
-          {
-            label: "Why it matters",
-            body: "An org that does not match how you work gets worked around: the real data moves to spreadsheets, reports stop being trusted and licences go unused.",
-          },
-          {
-            label: "What we do",
-            body: "We run a free one-week health check, then fix what it finds: Flow automation, permission sets, integrations and data, built alongside your admin.",
-          },
-          {
-            label: "What it costs",
-            body: (
-              <>
-                The health check is free. Fixes are scoped in writing first; the{" "}
-                <Link className="oa-link" to="/services/salesforce-implementation-cost">
-                  Salesforce implementation cost guide
-                </Link>{" "}
-                shows published market ranges.
-              </>
-            ),
-          },
-        ]}
-        toc={[
-          { id: "problems", label: "Problems we fix" },
-          { id: "delivered", label: "Delivered work" },
-          { id: "office", label: "Where we work" },
-          { id: "data", label: "Philadelphia data" },
-          { id: "process", label: "How it runs" },
-          { id: "faq", label: "Questions" },
-          { id: "start", label: "Book a health check" },
-        ]}
-      >
-        <RecordLine />
-      </AnswerBand>
-
-      {/* 3. Engagement cards, each linked (PHL-1). Four across at lg. */}
-      <Section tone="surface" bordered id="problems">
-        <SectionHeading
-          title="Four Salesforce problems we fix for Philadelphia companies"
-          lede="Rarely a fresh install. Usually an org with five years of history in it and a team that needs it to work this quarter."
+      {/* className: page-local stopgap for kit gaps filed in build-v2/requests-philadelphia.md (the hero <picture> does
+          not fill the 4:3 photo frame on phones; below 1024px the photo sits flush under the buttons). Remove once
+          sf.css carries the fix. */}
+      <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: "Philadelphia" }]} className="[&_.sf-photo_picture]:block [&_.sf-photo_picture]:h-full max-lg:[&_.sf-hero-photo_.sf-photo]:!mt-8">
+        {/* 1 HERO: the licensed Center City photograph is the LCP (eager, preloaded, never animated); the credit chip
+            opens #ev-photo-credit. Hero button → #start (city pages keep the action on the page, spec §10.1). */}
+        <SFHero
+          kicker={<>Select Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
+          title="Salesforce consultants for Philadelphia companies"
+          lede="We fix, extend and run Salesforce for Philadelphia companies from our Malvern office, starting with a free one-week health check of your org."
+          primary={{ href: "#start", label: "Book a free health check" }}
+          proof
+          photo={PHOTO}
         />
-        <CardGrid columns={4} className="mt-12">
-          {PROBLEMS.map((p) => (
-            <Card key={p.title} wire to={p.to} icon={p.icon} title={p.title} body={p.body} />
+
+        {/* 2 ANSWER UNIT + FIG. 1 (the staged health-check list) beside it, 7/5. Spec §7.3 row 1. */}
+        <SmartSection id="what" tone="surface" grid labelledBy="h-what">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-what"
+            title="What does a Salesforce consultant actually do?"
+            lede="A Salesforce consultant works out how your business really runs, then configures Salesforce to match and trains your team on it."
+            leadIn="What we do:"
+            lead="For a company that already owns Salesforce, we clean the data, hand manual steps to Flow and make your systems agree."
+            points={[
+              "Map how your team really works, workarounds included",
+              "Configure Salesforce to match, with Flow for the steps done by hand",
+              "Hand over an org your own people can run",
+            ]}
+          >
+            <GoDeeper label="the full answer, why it matters and what it costs">
+              <p className="sf-rule">
+                A Salesforce consultant works out how your business actually runs, including the workarounds nobody wrote down, then configures Salesforce around that process and hands over an org your own people can run. For a company that already owns Salesforce, the job is usually cleaner data, automation in place of manual steps, and systems that agree.
+              </p>
+              <p><span className="sf-lead-in">Why it matters:</span> An org that does not match how you work gets worked around: the real data moves to spreadsheets, reports stop being trusted and licenses go unused.</p>
+              <p><span className="sf-lead-in">What it costs:</span> The health check is free. Fixes are scoped in writing first; the cost guide shows the market's published ranges.</p>
+              <p><span className="sf-lead-in">After the work:</span> Training for admins and everyday users, then weekly administration and development if you want it.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link>
+                <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
+              </div>
+            </GoDeeper>
+          </SmartUnit>
+          <HealthCheck fig={1} className="sf-c5" />
+        </SmartSection>
+
+        {/* 3 THE NIGHT BAND: four engagements as H3 units, each linked to the page that fixes it. Spec §7.3 row 2. */}
+        <SmartSection
+          id="problems"
+          tone="night"
+          grid
+          heading={{
+            id: "h-problems",
+            kicker: "Already on Salesforce",
+            title: "Four Salesforce problems we fix for Philadelphia companies",
+            lede: "Rarely a fresh install: usually an org with years of history in it and a team that needs it working this quarter.",
+          }}
+        >
+          {PROBLEMS.map((p, i) => (
+            <SmartUnit key={p.title} level={3} className="sf-c3" delay={(i % 4) * 0.08} title={p.title} lede={p.line} measure={false}>
+              <GoDeeper label={p.deep}>
+                <p className="sf-rule">{p.more}</p>
+                <div className="sf-links"><Link className="sf-link" to={p.link.to}>{p.link.label}</Link></div>
+              </GoDeeper>
+            </SmartUnit>
           ))}
-        </CardGrid>
-      </Section>
+        </SmartSection>
 
-      {/* 4. Delivered work (PHL-2), with the practice lead and a CTA beside it
-          (wide layout: proof beside the CTA). The lead block is the approved
-          wording from SF_PEOPLE via PeopleStrip, with its Person schema
-          (PHL-4: no photo exists). */}
-      <Section tone="paper" id="delivered">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-8">
-            <DeliveredLedger title="Salesforce work we have delivered" lead="lending" />
-          </div>
-          <aside className="border-t border-oa-hairlineStrong pt-6 lg:col-span-4 lg:mt-2 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <h3 className="text-lg font-semibold text-oa-ink">Who leads the work</h3>
-            <PeopleStrip providerId="https://onealgorithm.com/#localbusiness" />
-            <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
-              You work directly with the certified people doing the work, from the first call to the last fix.
-            </p>
-            <div className="mt-7 flex flex-col items-start gap-3">
-              <PrimaryCTA href="#start" tone="light" cta="mid">
-                Book a free health check
-              </PrimaryCTA>
-              <a href={SF_PHONE.href} data-cta="mid" className="oa-link inline-flex min-h-11 items-center font-mono text-sm">
-                Call {SF_PHONE.display}
-              </a>
-            </div>
-          </aside>
-        </div>
-      </Section>
-
-      {/* 5. The one mid-page night band (PHL-6, PHL-13, PHL-4). PHL-F1 is the
-          page's first <figure>: eager and static. Rows are wired to the map. */}
-      <Section tone="night" grid clip id="office">
-        <PlateScope>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
-            <div className="lg:col-span-5">
-              <SectionHeading
-                tone="dark"
-                title="Our office is in Malvern, 25 miles west of Center City"
-                lede="Salesforce work happens inside your org, so it runs remotely from the first day of the health check, with the people doing the work."
-              />
-              <p className="mt-6 max-w-[30em] leading-relaxed text-oa-nightInk2">
-                We work with companies across Philadelphia, Montgomery, Delaware, Bucks and Chester counties,
-                northern Delaware and South Jersey.
-              </p>
-              {/* Each row is wired to its mark on Fig. 1 (hover, focus or tap). */}
-              <ul className="mt-8 border-b border-white/10">
-                {OFFICE_ROWS.map((r) => (
-                  <WiredRow key={r.k} k={r.k} as="li" className="cursor-default border-t border-white/10 px-2 py-4">
-                    <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-oa-nightInk3">{r.tag}</span>
-                    <span className="mt-1 block text-oa-nightInk">{r.text}</span>
-                  </WiredRow>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-7">
-              <Plate
-                spec={MAP}
-                fig={1}
-                first
-                tone="night"
-                stamp={["MAP · PHILADELPHIA REGION", "US CENSUS BOUNDARIES 2023, PUBLIC DOMAIN"]}
-                caption="Our Malvern office sits in Chester County, about 25 miles by road west of Center City. County outlines: US Census Bureau cartographic boundaries, 2023."
-              />
-            </div>
-          </div>
-        </PlateScope>
-      </Section>
-
-      {/* 6. Local market data (PHL-F2, PHL-F3 and the sourced fact table the
-          gap audit asked to keep). Plates alternate sides. */}
-      <Section tone="paper" clip id="data">
-        <PlateScope>
-          <SectionHeading
-            title="Philadelphia's Salesforce market, in public numbers"
-            lede="Figures from LinkedIn, the US Census Bureau and the Bureau of Labor Statistics, each linked to its source and dated."
+        {/* 4 HOW IT RUNS: FIG. 2 (the scrubbed rail) + the four steps wired to their stations. Spec §7.3 row 8. */}
+        <SmartSection
+          id="how"
+          heading={{
+            id: "h-how",
+            title: "How a Philadelphia Salesforce engagement runs",
+            lede: "A Philadelphia engagement runs in four steps, from a free week in your org to ongoing development if you want it.",
+          }}
+        >
+          <StageRail
+            fig={2}
+            stations={STAGES}
+            className="sf-rail-top"
+            title="Staged diagram of a four-step Salesforce engagement for a Philadelphia company"
+            desc="A rail runs through four stations: a free week in your org, a written list ranked by what to fix first, the fixes you choose built with your admin, and ongoing development."
+            stamp="How a Philadelphia engagement runs"
+            caption="The four steps in the order they run: one free week with read-only access, a written list ranked by what to fix first, the fixes you choose, and ongoing development if you want it."
           />
+          <StageUnits items={STAGES} />
+        </SmartSection>
 
-          <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
-            <div className="lg:col-span-7">
-              <Plate
-                spec={PLATES["philadelphia-salesforce-roles"]}
-                fig={2}
-                stamp={["CHART · LINKEDIN JOB SEARCH", `PULLED ${STAMP_DATE}`]}
-                caption={`Open Salesforce roles within 25 miles of Philadelphia, ${PULLED}. The role searches overlap, so the counts are not added together.`}
-              />
-            </div>
-            <div className="lg:col-span-5">
-              <h3 className="text-h3 font-semibold text-oa-ink">Every employer here is hiring the same people</h3>
-              <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
-                On {PULLED}, LinkedIn showed {n(roleCount("Consultant"))} Salesforce consultant openings within 25 miles of
-                Philadelphia, {n(roleCount("Administrator"))} for administrators, {n(roleCount("Architect"))} for architects and{" "}
-                {n(roleCount("Developer"))} for developers. For a migration, an integration or an org clean-up, a partner covers
-                the project without a new hire, and the work starts with a free one-week health check instead of a recruiting cycle.
+        {/* 5 HIRE, CONTRACT OR PARTNER: the answer unit + the three-way table with Philadelphia job data. Spec §7.3 row 3. */}
+        <SmartSection id="hire" tone="surface" grid labelledBy="h-hire">
+          <SmartUnit
+            className="sf-c5"
+            headingId="h-hire"
+            title="Hire, contract or partner in Philadelphia?"
+            lede={`LinkedIn showed ${n(roleCount("Consultant"))} Salesforce consultant openings within 25 miles of ${CITY.name} on ${PULLED}; you can hire, contract or bring in a partner.`}
+            lead="Every employer here is hiring the same people, so a partner covers a migration, an integration or a clean-up without a recruiting cycle."
+            measure={false}
+          >
+            <GoDeeper label="salaries behind the table, and people for your team">
+              <p className="sf-rule">
+                Salesforce roles have no federal job code of their own. The closest official categories in the metro are computer systems analysts ({n(CITY.wages.analysts.employment)} employed, median ${n(CITY.wages.analysts.median)}) and software developers ({n(CITY.wages.developers.employment)} employed, median ${n(CITY.wages.developers.median)}), BLS, {CITY.wages.period}, salary only.
               </p>
-              <ul className="mt-6 border-b border-oa-hairline">
-                {ROLES.map((j) => (
-                  <WiredRow key={j.role} k={roleKey(j.role)} as="li" className="flex items-baseline justify-between gap-4 border-t border-oa-hairline px-2 py-2.5">
-                    <a className="oa-link inline-flex min-h-11 items-center text-sm" href={j.url} target="_blank" rel="noopener noreferrer">
-                      {j.role} search ↗
-                    </a>
-                    <span className="font-mono text-sm tabular-nums text-oa-ink">{n(j.count)}</span>
-                  </WiredRow>
+              <p>Need people inside your team rather than a project? Staff augmentation adds Salesforce people for as long as you need them.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to="/services/staff-augmentation">Salesforce staff augmentation</Link>
+                <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
+              </div>
+            </GoDeeper>
+          </SmartUnit>
+          <LedgerRule className="sf-c7" delay={0.08} aria-labelledby="h-ways">
+            <h3 className="sf-h3" id="h-ways">Three ways to get the work done</h3>
+            <table className="mt-5 w-full border-collapse text-left text-[16px] leading-[1.5]" role="table">
+              <caption className="sr-only">Hire, contract or partner for Salesforce work in Philadelphia: the market, what it costs to start and what you have at the end</caption>
+              <thead className="max-md:sr-only">
+                <tr role="row">
+                  <th role="columnheader" scope="col" className="w-[19%] py-3 pr-4 align-bottom"><span className="sr-only">Way</span></th>
+                  {["The market you are in", "What it costs to start", "What you have at the end"].map((h) => (
+                    <th key={h} role="columnheader" scope="col" className="sf-mono py-3 pr-4 align-bottom font-medium uppercase !tracking-[0.08em] !text-[12px]">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { way: "Full-time hire", cells: [
+                    `${ROLES_LINE} openings compete for the same people.`,
+                    `Salary alone: BLS medians of $${n(CITY.wages.analysts.median)} for systems analysts and $${n(CITY.wages.developers.median)} for developers, before benefits.`,
+                    "A person on staff who knows your org, for as long as they stay.",
+                  ] },
+                  { way: "Contractor", cells: [
+                    "The same openings, on shorter terms.",
+                    "A day or hourly rate set by each contractor.",
+                    "Hours of work against a brief you write and manage.",
+                  ] },
+                  { way: "Salesforce partner", own: true, cells: [
+                    "A Consulting Partner team already staffed, outside the hiring race.",
+                    "A written scope and price before work starts, after a free one-week health check.",
+                    "The finished work and a written handover your own people can run.",
+                  ] },
+                ].map((r) => (
+                  <tr key={r.way} role="row" className={`block border-t border-sf-hairlineStrong py-4 md:table-row md:py-0${r.own ? " bg-sf-tint px-3 md:px-0" : ""}`}>
+                    <th role="rowheader" scope="row" className={`block pb-2 font-semibold text-sf-ink md:table-cell md:py-4 md:pr-4 md:align-top${r.own ? " md:pl-3" : ""}`}>{r.way}</th>
+                    {r.cells.map((c, i) => (
+                      <td key={i} role="cell" className="block pb-2 text-sf-ink2 md:table-cell md:py-4 md:pr-4 md:align-top">
+                        <span className="sf-mono block md:hidden" aria-hidden="true">{["The market you are in", "What it costs to start", "What you have at the end"][i]}</span>
+                        {c}
+                      </td>
+                    ))}
+                  </tr>
                 ))}
-              </ul>
-            </div>
+              </tbody>
+            </table>
+            <p className="sf-mono" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+              LinkedIn, read {PULLED}; BLS, {CITY.wages.period}, read {WAGES_READ} · <Verify id="market">Where these figures come from</Verify>
+            </p>
+          </LedgerRule>
+        </SmartSection>
+
+        {/* 6 MARKET: three readouts (count up once below the fold) + three H3 units; every source in one pop-up. Spec §7.3 row 7. */}
+        <SmartSection
+          id="market"
+          heading={{
+            id: "h-market",
+            title: "Philadelphia's Salesforce market in public numbers",
+            lede: "Figures from LinkedIn, the US Census Bureau and the Bureau of Labor Statistics, each named with its source and the date we read it.",
+          }}
+        >
+          <Readouts items={MARKET_READOUTS} withEvidence={false} />
+          <p className="sf-mono" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+            {METRO} metro (MSA {CITY.msa.code}) · Census and LinkedIn read {PULLED}; BLS read {WAGES_READ} · <Verify id="market">Where these figures come from</Verify>
+          </p>
+          <div className="sf-grid" style={{ marginTop: 48 }}>
+            <SmartUnit
+              level={3}
+              className="sf-c4"
+              title="Every employer here is hiring the same people"
+              lede={`LinkedIn showed ${ROLES_LINE} openings within 25 miles on ${PULLED}.`}
+              measure={false}
+            >
+              <GoDeeper label="the four role searches and what each role does">
+                <table>
+                  <thead><tr><th scope="col">Role</th><th scope="col">Openings</th><th scope="col">What the role does</th></tr></thead>
+                  <tbody>
+                    {ROLES.map((r) => (
+                      <tr key={r.key}><th scope="row">Salesforce {r.key.toLowerCase()}</th><td className="sf-mono">{n(r.count)}</td><td>{r.does}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p>The role searches overlap, so the counts are not added together. For a migration, an integration or an org clean-up, a partner covers the project without a new hire.</p>
+              </GoDeeper>
+            </SmartUnit>
+            <SmartUnit
+              level={3}
+              className="sf-c4"
+              delay={0.08}
+              title="Where Salesforce fits Philadelphia's largest employers"
+              lede={`By employees, the metro's ${CITY.industries.length === 4 ? "four" : CITY.industries.length} largest employer groups are ${CITY.industries.map((i, k, a) => `${k === a.length - 1 ? "and " : ""}${SHORT[i.code] ?? i.label}`).join(", ")}.`}
+              measure={false}
+            >
+              <GoDeeper label="the four employer groups and the Salesforce work each needs">
+                <ul className="sf-points" style={{ marginTop: 0 }}>
+                  {CITY.industries.map((i) => (
+                    <li key={i.code}>
+                      <b>{cap(i.label)}</b>, {n(i.employees)} employees in {n(i.establishments)} establishments. {FIT[i.code] ?? ""}
+                    </li>
+                  ))}
+                </ul>
+              </GoDeeper>
+            </SmartUnit>
+            <SmartUnit
+              level={3}
+              className="sf-c4"
+              delay={0.16}
+              title="Business and Salesforce data for the Philadelphia metro"
+              lede={`The metro spans Pennsylvania, New Jersey, Delaware and Maryland and counted ${n(CITY.population.value)} residents in 2024.`}
+              measure={false}
+            >
+              <GoDeeper label="the full figures table, with sources">
+                <table>
+                  <tbody>
+                    <tr><th scope="row">Business establishments, 2023</th><td>{n(CITY.establishments.value)} ({n(CITY.establishments2018.value)} in 2018) · Census CBP</td></tr>
+                    <tr><th scope="row">With 500 or more employees</th><td>{n(CITY.size500plus.value)} ({n(CITY.size500plus2018.value)} in 2018) · Census CBP</td></tr>
+                    <tr><th scope="row">With 100 to 499 employees</th><td>{n(CITY.size100to499.value)} · Census CBP</td></tr>
+                    <tr><th scope="row">Population, 2024</th><td>{n(CITY.population.value)} ({n(CITY.population2019.value)} in 2019) · Census ACS</td></tr>
+                    <tr><th scope="row">Software developers</th><td>{n(CITY.wages.developers.employment)} employed · median ${n(CITY.wages.developers.median)} · BLS</td></tr>
+                    <tr><th scope="row">Computer systems analysts</th><td>{n(CITY.wages.analysts.employment)} employed · median ${n(CITY.wages.analysts.median)} · BLS</td></tr>
+                  </tbody>
+                </table>
+                <p>Size classes are the sum of two Census bands. BLS has no Salesforce job code, so analysts and developers are the closest official categories.</p>
+              </GoDeeper>
+            </SmartUnit>
           </div>
+          <SourcesDialog id="market" sources={SOURCES} />
+        </SmartSection>
 
-          <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-14">
-            <div className="lg:col-span-5">
-              <h3 className="text-h3 font-semibold text-oa-ink">Where Salesforce fits Philadelphia's largest employers</h3>
-              <p className="mt-4 max-w-[30em] leading-relaxed text-oa-ink2">
-                The metro's four largest employer groups by employees, and the Salesforce work each one usually needs.
-              </p>
-              <ul className="mt-6 border-b border-oa-hairline">
-                {CITY.industries.map((i) => (
-                  <WiredRow key={i.code} k={`naics-${i.code}`} as="li" className="cursor-default border-t border-oa-hairline px-2 py-4">
-                    <p className="font-semibold text-oa-ink">{i.label.charAt(0).toUpperCase() + i.label.slice(1)}</p>
-                    <p className="mt-1 font-mono text-xs tabular-nums text-oa-ink3">
-                      {n(i.employees)} employees · {n(i.establishments)} establishments
-                    </p>
-                    {FIT[i.code] && <p className="mt-2 max-w-[30em] text-sm leading-relaxed text-oa-ink2">{FIT[i.code]}</p>}
-                  </WiredRow>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-7">
-              <Plate
-                spec={PLATES["philadelphia-largest-employer-groups"]}
-                fig={3}
-                stamp={["CHART · CENSUS CBP 2023", `PULLED ${STAMP_DATE}`]}
-                caption={`Largest employer groups in the ${CITY.msa.name.replace(/ Metro Area$/, "")} metro, by employees, 2023.`}
-              />
-            </div>
+        {/* 7 THE RECORD: delivered work (H2 + four H3 rows), who leads the work (H3, badges), Salesforce's record (readouts
+            + the AppExchange dialog the hero's Verify opens). Spec §7.3 row 4. */}
+        <SmartSection id="record" tone="surface" grid labelledBy="h-delivered">
+          <div className="sf-c7">
+          <SmartUnit
+            headingId="h-delivered"
+            title="Salesforce work we have delivered"
+            lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support; client names stay private."
+          >
+            <DeliveredLedger />
+            <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
+            <GoDeeper label="the competency rows and how to check any partner">
+              <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency: {SF_PLATFORM_CERTS} Platform and 7 Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+              <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+            <p className="sf-kicker" style={{ marginTop: 56 }}>Salesforce's AppExchange record of us</p>
+            <Readouts />
           </div>
+          {/* lg-only side rule (Tailwind) instead of .sf-lead-block, whose phone rule zeroes the unit's padding-top
+              and lands the H3 on the ledger rule (filed in requests-philadelphia.md). */}
+          <LedgerRule as="aside" className="sf-c5 lg:border-l lg:border-sf-hairlineStrong lg:pl-7" delay={0.08} aria-labelledby="h-lead">
+            <h3 className="sf-h3" id="h-lead">Who leads your Salesforce work</h3>
+            <PersonCredentials />
+            <p style={{ marginTop: 20 }}>You work directly with the people doing the work, from the first call to the last fix.</p>
+          </LedgerRule>
+        </SmartSection>
 
-          <div className="mt-20">
-            <h3 className="text-h3 font-semibold text-oa-ink">Business and Salesforce data for the Philadelphia metro</h3>
-            <div className="mt-6">
-              <DataTable
-                label="Business and Salesforce data for the Philadelphia metro"
-                head={["Figure", "Value", "Source"]}
-                rows={[
-                  {
-                    cells: [
-                      "Business establishments, 2023",
-                      <span className="font-mono tabular-nums">{n(CITY.establishments.value)} ({n(CITY.establishments2018.value)} in 2018)</span>,
-                      <a className="oa-link" href={CITY.sources.cbp} target="_blank" rel="noopener noreferrer">US Census Bureau, County Business Patterns ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Establishments with 500 or more employees, 2023",
-                      <span className="font-mono tabular-nums">{n(CITY.size500plus.value)} ({n(CITY.size500plus2018.value)} in 2018)</span>,
-                      <a className="oa-link" href={CITY.sources.cbp} target="_blank" rel="noopener noreferrer">Census CBP, sum of two size classes ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Establishments with 100 to 499 employees, 2023",
-                      <span className="font-mono tabular-nums">{n(CITY.size100to499.value)}</span>,
-                      <a className="oa-link" href={CITY.sources.cbp} target="_blank" rel="noopener noreferrer">Census CBP, sum of two size classes ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Population, 2024",
-                      <span className="font-mono tabular-nums">{n(CITY.population.value)} ({n(CITY.population2019.value)} in 2019)</span>,
-                      <a className="oa-link" href="https://www.census.gov/programs-surveys/acs" target="_blank" rel="noopener noreferrer">US Census Bureau, American Community Survey ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Software developers employed, and their median salary",
-                      <span className="font-mono tabular-nums">{n(CITY.wages.developers.employment)} · ${n(CITY.wages.developers.median)}</span>,
-                      <a className="oa-link" href={CITY.wages.page} target="_blank" rel="noopener noreferrer">BLS wage statistics, {CITY.wages.period} ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Computer systems analysts employed, and their median salary",
-                      <span className="font-mono tabular-nums">{n(CITY.wages.analysts.employment)} · ${n(CITY.wages.analysts.median)}</span>,
-                      <a className="oa-link" href={CITY.wages.page} target="_blank" rel="noopener noreferrer">BLS wage statistics, {CITY.wages.period} ↗</a>,
-                    ],
-                  },
-                  {
-                    cells: [
-                      "Open Salesforce roles within 25 miles, by role search",
-                      <span className="font-mono tabular-nums">
-                        {ROLES.map((j) => `${j.role.replace(/^Salesforce /, "")} ${n(j.count)}`).join(" · ")}
-                      </span>,
-                      <span>LinkedIn public job search, {PULLED} (links above)</span>,
-                    ],
-                  },
-                ]}
-                source={`Metro: ${CITY.msa.name} (MSA ${CITY.msa.code}). Census and LinkedIn figures pulled ${PULLED}; BLS wages pulled ${longDate(CITY.wages.pulled)}. BLS has no Salesforce job code, so analysts and developers are the closest official categories.`}
-              />
+        {/* 8 WHERE WE WORK: the office unit, the map (FIG. 3) and the New Jersey unit, one night band. Spec §7.3 rows 5-6. */}
+        <SmartSection id="office" tone="night" grid labelledBy="h-office">
+          <SmartUnit
+            className="lg:[grid-column:1/6]"
+            headingId="h-office"
+            title="Our Malvern office, 25 miles from Center City"
+            lede="Our office is at 625 Swedesford Rd, Unit B, in Malvern, Chester County, about 25 miles by road west of Center City."
+            leadIn="The bottom line:"
+            lead="Most Salesforce work runs remotely inside your org; in-person sessions happen when the project calls for them, easiest across the Philadelphia region."
+            measure={false}
+            points={[
+              "Work starts inside your org on day one of the health check",
+              "Philadelphia, Montgomery, Delaware, Bucks and Chester counties, northern Delaware and South Jersey",
+            ]}
+          >
+            <GoDeeper label="how the work runs from Malvern">
+              <p className="sf-rule">Salesforce work happens inside your org, so it runs remotely from the first day of the health check, with the people doing the work. In-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.</p>
+              <div className="sf-links"><Link className="sf-link" to={CHE}>Salesforce consultant for Chester County businesses</Link></div>
+            </GoDeeper>
+          </SmartUnit>
+          <figure className="sf-stage lg:[grid-column:6/13] lg:[grid-row:1/3] lg:self-start" aria-labelledby="fig3-cap">
+            <div className="sf-stage-in">
+              <picture>
+                <source media="(max-width: 639px)" srcSet={MAP.mSrc} width={MAP.mw} height={MAP.mh} />
+                <img src={MAP.src} alt={MAP.alt} width={MAP.w} height={MAP.h} loading="lazy" decoding="async" style={{ width: "100%", height: "auto" }} />
+              </picture>
             </div>
+            <span className="sf-tick" aria-hidden="true" style={{ display: "block" }} />
+            <div className="stamp" aria-hidden="true"><span>FIG. 3 · Map · Philadelphia region · US Census boundaries 2023, public domain</span><span>OneAlgorithm</span></div>
+            <figcaption id="fig3-cap" style={{ color: "var(--n-ink3)", padding: "10px 12px 12px" }}>
+              Our Malvern office sits in Chester County, about 25 miles by road west of Center City. County outlines: US Census Bureau cartographic boundaries, 2023.
+            </figcaption>
+          </figure>
+          <SmartUnit
+            className="lg:[grid-column:1/6]"
+            headingId="h-nj"
+            title="Salesforce consultants for New Jersey companies"
+            lede="We take on Salesforce work for South Jersey and New Jersey companies from Malvern, about 25 miles from Center City."
+            leadIn="What we do:"
+            lead="We run the work the same way across the river: inside your org, remotely, with in-person sessions when the project calls for them."
+            measure={false}
+          >
+            <GoDeeper label="the Main Line, King of Prussia and South Jersey">
+              <p className="sf-rule">Closer in, the Main Line and King of Prussia are a short drive from our Malvern office. On the map, Camden, Gloucester and Burlington counties sit across the river from Center City.</p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 9 SERVICES: the seven service cards + the buyer routing (Chester County, Pennsylvania) and the city nav. Spec §7.3 row 11. */}
+        <SmartSection
+          id="services"
+          heading={{
+            id: "h-services",
+            title: "Salesforce services for Philadelphia companies",
+            lede: "Seven Salesforce services, from a free one-week health check to people working inside your team.",
+          }}
+        >
+          <ServiceCards items={HUB_SERVICE_CARDS} />
+          <nav aria-label="More Salesforce pages" style={{ marginTop: 40 }}>
+            <p className="sf-kicker">Still deciding</p>
+            <ul className="sf-links" style={{ marginTop: 8 }}>
+              <li><Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link></li>
+              <li><Link className="sf-link" to={CHE}>Choosing an edition: Salesforce for Chester County businesses</Link></li>
+              <li><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></li>
+            </ul>
+            <p className="sf-kicker" style={{ marginTop: 24 }}>Salesforce consulting in other cities</p>
+            <ul className="sf-links" style={{ marginTop: 8 }}>
+              {CITY_NAV.map((c) => (
+                <li key={c.to}><Link className="sf-link" to={c.to}>Salesforce consultants in {c.label}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        </SmartSection>
+
+        {/* 10 CONCERNS: objection questions as H3, answers in Go deeper. Spec §7.3 row 9. */}
+        <SmartSection
+          id="concerns"
+          tone="surface"
+          grid
+          heading={{
+            id: "h-concerns",
+            title: "Concerns before hiring a Philadelphia Salesforce consultant",
+            lede: "Three questions Philadelphia buyers raise before the first call, each with the direct answer.",
+          }}
+        >
+          {CONCERNS.map((c, i) => (
+            <LedgerRule as="article" key={c.q} className="sf-c4" delay={i * 0.08}>
+              <h3 className="sf-h3">{c.q}</h3>
+              <GoDeeper label={c.q} title="The answer">
+                <p className="sf-rule">{c.a}</p>
+              </GoDeeper>
+            </LedgerRule>
+          ))}
+        </SmartSection>
+
+        {/* 11 DESK: the one form (#start). Spec §7.3 row 12, H2 exact (the kit's default). */}
+        <DeskCTA form={{ topic: "philadelphia", topicLabel: "Salesforce consulting · Philadelphia", heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
+
+        {/* 12 FAQ: questions visible, answers in the HTML behind native disclosures. Spec §7.3 row 10. */}
+        <SmartSection id="faq" tone="surface" grid labelledBy="h-faq" className="sf-faq-section">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">Salesforce consulting in Philadelphia: questions</h2>
+            <p style={{ marginTop: 12 }}>Not here? Call the office: <a className="sf-phone" href={SF_PHONE.href} data-cta="faq">{SF_PHONE.display}</a></p>
           </div>
-        </PlateScope>
-      </Section>
+          <div className="sf-c7 sf-faq-col">
+            <FAQ items={FAQS} />
+          </div>
+        </SmartSection>
 
-      {/* 7. How an engagement runs (PHL-10): rail, ending in the Desk CTA. */}
-      <Section tone="surface" bordered clip id="process">
-        <SectionHeading
-          title="How an engagement runs"
-          lede="Four steps from the first call to an org that works the way your team does."
-        />
-        <div className="mt-12">
-          <ProcessSteps rail terminal={{ label: "Book a free health check" }} steps={STEPS} />
-        </div>
-      </Section>
-
-      {/* 8. Objections, before the FAQ and the Desk. */}
-      <Section tone="paper" id="objections">
-        <Objections items={OBJECTIONS} />
-      </Section>
-
-      {/* 9. FAQ (PHL-7, PHL-8: certification counts read from the constants). */}
-      <Section tone="surface" bordered id="faq">
-        <SectionHeading title="What Philadelphia callers ask first" />
-        <FAQList faqs={FAQS} sources={SOURCES} />
-      </Section>
-
-      {/* 10. Routes to every other Salesforce page, plus the buyer routing to
-          Chester County and Pennsylvania (PHL-1). */}
-      <Section tone="paper" id="services">
-        <SectionHeading
-          title="Salesforce services for Philadelphia companies"
-          lede={
-            <>
-              Still choosing an edition?{" "}
-              <Link className="oa-link" to="/services/salesforce-consultant-chester-county">
-                Our Chester County page covers licences and what they cost
-              </Link>
-              . Checking whether a partner is genuine?{" "}
-              <Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">
-                Here is how to check a Salesforce partner
-              </Link>
-              .
-            </>
-          }
-        />
-        <RouteBoard groups={["services", "local", "cities"]} citiesLabel="Salesforce consulting in other cities" />
-      </Section>
-
-      {/* 11. The page's one form (PHL-3). */}
-      <Desk
-        heading="Start with a free one-week Salesforce health check"
-        body="A fixed week inside your org with a read-only user: licences against actual use, data quality, what is still done by hand, who can see what, and which integrations fail quietly. You get a written list, ranked by what to fix first."
-        form={{
-          topic: "philadelphia",
-          topicLabel: "Salesforce consulting · Philadelphia",
-          heading: "Book a free health check",
-          prompt: "What is your Salesforce doing wrong?",
-          submitLabel: "Book a free health check",
-        }}
-      />
+        <PhotoCreditDialog photo={PHOTO} />
+        <PhotoCreditsLine photo={PHOTO} />
+      </SfPage>
     </Layout>
   );
 }
