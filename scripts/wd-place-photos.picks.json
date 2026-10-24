@@ -1,0 +1,333 @@
+[
+ {
+  "slug": "philadelphia",
+  "name": "Philadelphia",
+  "sf": "philadelphia"
+ },
+ {
+  "slug": "chester-county",
+  "name": "Chester County",
+  "sf": "chester-county"
+ },
+ {
+  "slug": "chicago",
+  "name": "Chicago",
+  "sf": "chicago"
+ },
+ {
+  "slug": "dallas",
+  "name": "Dallas",
+  "sf": "dallas"
+ },
+ {
+  "slug": "new-york",
+  "name": "New York",
+  "sf": "new-york",
+  "alt": "Lower Manhattan and One World Trade Center in New York across the calm Hudson River, seen from a pier in Jersey City."
+ },
+ {
+  "slug": "los-angeles",
+  "name": "Los Angeles",
+  "sf": "los-angeles"
+ },
+ {
+  "slug": "houston",
+  "name": "Houston",
+  "sf": "houston"
+ },
+ {
+  "slug": "atlanta",
+  "name": "Atlanta",
+  "sf": "atlanta"
+ },
+ {
+  "slug": "denver",
+  "name": "Denver",
+  "sf": "denver"
+ },
+ {
+  "slug": "austin",
+  "name": "Austin",
+  "sf": "austin"
+ },
+ {
+  "slug": "raleigh",
+  "name": "Raleigh",
+  "title": "File:Downtown-Raleigh-from-Western-Boulevard-Overpass-20081012.jpeg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "The downtown Raleigh skyline above the trees and Western Boulevard on a clear day."
+ },
+ {
+  "slug": "miami",
+  "name": "Miami",
+  "sf": "miami"
+ },
+ {
+  "slug": "seattle",
+  "name": "Seattle",
+  "sf": "seattle"
+ },
+ {
+  "slug": "charlotte",
+  "name": "Charlotte",
+  "title": "File:Skyline of Charlotte 2016.jpg",
+  "fx": 0.5,
+  "fy": 0.35,
+  "alt": "Uptown Charlotte skyscrapers behind a park footbridge under a blue sky."
+ },
+ {
+  "slug": "boston",
+  "name": "Boston",
+  "sf": "boston"
+ },
+ {
+  "slug": "washington-dc",
+  "name": "Washington, DC",
+  "sf": "washington-dc"
+ },
+ {
+  "slug": "san-francisco",
+  "name": "San Francisco",
+  "sf": "san-francisco",
+  "alt": "The Golden Gate Bridge in San Francisco from Marshall’s Beach in the Presidio, with smooth water around the rocks in late-day light."
+ },
+ {
+  "slug": "pennsylvania",
+  "name": "Pennsylvania",
+  "sf": "pennsylvania",
+  "alt": "Downtown Pittsburgh, Pennsylvania, and its rivers in early-morning light, seen from the Duquesne Incline on Mount Washington."
+ },
+ {
+  "slug": "milwaukee",
+  "name": "Milwaukee",
+  "title": "File:Milwaukee June 2022 49 (skyline).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Milwaukee towers above the Milwaukee River on a sunny June day."
+ },
+ {
+  "slug": "richmond",
+  "name": "Richmond",
+  "title": "File:Richmond virginia (7185781784).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Richmond, Virginia, across the rocky James River with a railroad trestle in the foreground."
+ },
+ {
+  "slug": "baltimore",
+  "name": "Baltimore",
+  "title": "File:2016-07-27 09 21 00 View north-northwest across the Inner Harbor towards downtown Baltimore from the Baltimore Science Center in Baltimore City, Maryland.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "Downtown Baltimore across the calm water of the Inner Harbor in morning light."
+ },
+ {
+  "slug": "pittsburgh",
+  "name": "Pittsburgh",
+  "title": "File:Pittsburgh skyline 2015 from Mount Washington.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The downtown Pittsburgh skyline seen from Mount Washington across the Monongahela River."
+ },
+ {
+  "slug": "san-diego",
+  "name": "San Diego",
+  "title": "File:San Diego Skyline-02.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The San Diego skyline across the blue water of San Diego Bay."
+ },
+ {
+  "slug": "phoenix",
+  "name": "Phoenix",
+  "title": "File:Phoenix Maricopa County Arizona.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "Downtown Phoenix and the wide Valley of the Sun seen from a desert ridge, mountains on the horizon."
+ },
+ {
+  "slug": "tampa",
+  "name": "Tampa",
+  "title": "File:Downtown Tampa, Florida.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Tampa towers above the Hillsborough River under a blue sky."
+ },
+ {
+  "slug": "san-antonio",
+  "name": "San Antonio",
+  "title": "File:SATX Skyline.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The San Antonio skyline and the Tower of the Americas rising above a green tree canopy."
+ },
+ {
+  "slug": "st-louis",
+  "name": "St. Louis",
+  "title": "File:Gateway Arch as seen from East St. Louis, IL (5263761913).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Gateway Arch and downtown St. Louis across the Mississippi River under a clear sky."
+ },
+ {
+  "slug": "indianapolis",
+  "name": "Indianapolis",
+  "title": "File:Indianapolis - 2013-06-11.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "Downtown Indianapolis towers behind a stone bridge over the White River."
+ },
+ {
+  "slug": "new-jersey",
+  "name": "New Jersey",
+  "title": "File:Monksville Reservoir - New Jersey in autumn (1911792206).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Monksville Reservoir in northern New Jersey with autumn-coloured hills along the shore."
+ },
+ {
+  "slug": "sacramento",
+  "name": "Sacramento",
+  "title": "File:Sacramento Skyline (2).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Sacramento seen from the air, office towers among tree-lined streets."
+ },
+ {
+  "slug": "kansas-city",
+  "name": "Kansas City",
+  "title": "File:Kansas City, Missouri, USA - panoramio (5).jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "Kansas City Union Station and the downtown skyline above a striped lawn."
+ },
+ {
+  "slug": "las-vegas",
+  "name": "Las Vegas",
+  "title": "File:Las Vegas Strip from Resorts World February 2023 HDR 2.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Las Vegas Strip lit up at dusk, seen from high above."
+ },
+ {
+  "slug": "jacksonville",
+  "name": "Jacksonville",
+  "title": "File:Jacksonville, Florida - downtown.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Jacksonville and the blue Main Street Bridge across the St. Johns River."
+ },
+ {
+  "slug": "portland",
+  "name": "Portland",
+  "title": "File:Portland skyline from OMSI - Portland, Oregon.JPG",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Portland, Oregon, and the Hawthorne Bridge across the Willamette River."
+ },
+ {
+  "slug": "new-orleans",
+  "name": "New Orleans",
+  "title": "File:New Orleans Skyline (5913698572).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The New Orleans skyline across the Mississippi River with a tugboat in the foreground."
+ },
+ {
+  "slug": "nashville",
+  "name": "Nashville",
+  "title": "File:Nashville Skyline from Ft Negly- Photo 2- June 2022.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Nashville skyline seen from Fort Negley on a clear June day."
+ },
+ {
+  "slug": "cleveland",
+  "name": "Cleveland",
+  "title": "File:Cleveland Skyline (29740737950).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Cleveland script sign in front of the downtown skyline and Terminal Tower."
+ },
+ {
+  "slug": "orlando",
+  "name": "Orlando",
+  "title": "File:OrlandoFLSkyline21.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Orlando towers and the Lake Eola fountain across the lake."
+ },
+ {
+  "slug": "cincinnati",
+  "name": "Cincinnati",
+  "title": "File:Cincinnati Skyline - panoramio (1).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Cincinnati and its riverfront stadium under a partly cloudy sky."
+ },
+ {
+  "slug": "tulsa",
+  "name": "Tulsa",
+  "title": "File:Downtown Tulsa Skyline.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "alt": "Downtown Tulsa office towers lining a wide street under a light blue sky."
+ },
+ {
+  "slug": "minneapolis",
+  "name": "Minneapolis",
+  "title": "File:Minneapolis skyline 54.JPG",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Minneapolis skyline above green trees on a clear day."
+ },
+ {
+  "slug": "columbus",
+  "name": "Columbus",
+  "title": "File:Downtown Columbus View from Main St Bridge - edit1.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Columbus, Ohio, and the Scioto River seen from the Main Street Bridge."
+ },
+ {
+  "slug": "omaha",
+  "name": "Omaha",
+  "title": "File:City of Omaha, Nebraska Skyline on the Missouri River (30899969517).jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Omaha skyline above the Missouri River on a clear day."
+ },
+ {
+  "slug": "salt-lake-city",
+  "name": "Salt Lake City",
+  "title": "File:SLCskyline april2008crop.JPG",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Salt Lake City and the Utah State Capitol beneath the snow-dusted Wasatch foothills."
+ },
+ {
+  "slug": "delaware",
+  "name": "Delaware",
+  "title": "File:Wilmington.jpeg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Wilmington, the largest city in Delaware, above the Brandywine Creek."
+ },
+ {
+  "slug": "detroit",
+  "name": "Detroit",
+  "title": "File:Renaissance Center, Detroit, Michigan from S 2014-12-07.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "The Renaissance Center towers on the Detroit riverfront under a pale blue sky."
+ },
+ {
+  "slug": "louisville",
+  "name": "Louisville",
+  "title": "File:Steamboat Delta Queen and downtown buildings Louisville Kentucky USA Ohio River mile 604 July 2005 file a5g004.jpg",
+  "fx": 0.5,
+  "fy": 0.5,
+  "alt": "Downtown Louisville above the Ohio River with the Delta Queen steamboat at the waterfront."
+ }
+]
