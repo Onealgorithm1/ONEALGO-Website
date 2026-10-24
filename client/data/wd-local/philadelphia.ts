@@ -128,14 +128,14 @@ export const PHILADELPHIA: LocalPlace = {
       lead: "most work is remote, and in-person sessions are easiest across the Philadelphia region when the project calls for them.",
       question: {
         q: "Do you have an office in Philadelphia?",
-        a: "We work from one office, in Malvern, and for Philadelphia projects we meet you in person when the project calls for it.",
+        a: "We work from one office, in Malvern, and come to you in the city when the project calls for it.",
       },
       plateNote: "ABOUT 25 MILES WEST OF CENTER CITY",
       deeper: {
         label: "visits, calls and where the work happens",
         paras: [
           "Calls and screen-shares cover most of a build, and you review the work in your own browser between them. When a decision is easier in a room, such as a kickoff with several people or a content workshop, we plan the session into the schedule.",
-          "The office is open Monday to Friday, 9 to 5, and the phone rings there. One address, one number, answered in that office.",
+          "The office is open Monday to Friday, 9 to 5, and the phone rings there. One address and one number: calls are answered in that office, during those hours.",
         ],
       },
     },
