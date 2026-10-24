@@ -20,7 +20,7 @@ export function AccessibilityPlate({ fig = 4, id = `fig${fig}`, stamp = "Three c
 }) {
   const dd = (s: number) => ({ ["--d" as string]: `${s}s` }) as React.CSSProperties;
   return (
-    <figure className={`sf-stage sf-sweep wd-plate wd-a11y ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="">
+    <figure className={`sf-stage sf-sweep wd-plate wd-a11y ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="" data-tilt="">
       <div className="sf-stage-in">
         <svg viewBox="0 0 610 300" role="img" aria-labelledby={`${id}-t ${id}-d`} style={{ aspectRatio: "610/300" }}>
           <title id={`${id}-t`}>Three accessibility checks drawn as a plate</title>

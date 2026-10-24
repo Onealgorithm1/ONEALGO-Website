@@ -32,7 +32,7 @@ export function RegionPlate({ counties, office, officeTile = 0, note, fig = 6, i
   const lx = Math.min(mx + 44, 420), ly = Y0 + 2 * (TH + GAP) + 10; // the label sits under the tiles
   const cap = caption ?? `${office.l1}, ${office.l2}. ${counties.slice(0, 6).join(" · ")}.`;
   return (
-    <figure className={`sf-stage sf-sweep wd-plate wd-region ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="">
+    <figure className={`sf-stage sf-sweep wd-plate wd-region ${className}`} id={id} aria-labelledby={`${id}-cap`} data-reveal="" data-tilt="">
       <div className="sf-stage-in">
         <svg viewBox="0 0 610 350" role="img" aria-labelledby={`${id}-t ${id}-d`} style={{ aspectRatio: "610/350" }}>
           <title id={`${id}-t`}>Schematic of the counties OneAlgorithm works in, with the office marked</title>

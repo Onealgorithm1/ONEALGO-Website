@@ -173,6 +173,9 @@ export function initSfMotion(root: HTMLElement): () => void {
   root.querySelectorAll<HTMLElement>(".sf-unit, [data-reveal]").forEach((u) => { if (u.getBoundingClientRect().top < innerHeight) u.classList.add("in"); });
   root.classList.add("js");
   cleanups.push(() => root.classList.remove("js"));
+  // the header progress hairline (wd.css) shows from the first scroll on, so nothing above the fold is animating at load
+  on(window as unknown as Document, "scroll", () => root.classList.add("scrolled"), { once: true, passive: true });
+  cleanups.push(() => root.classList.remove("scrolled"));
 
   // 1. ledger rules draw once as their unit enters (under reduced motion the CSS never hides them); [data-reveal] figures the same
   const units = Array.from(root.querySelectorAll<HTMLElement>(".sf-unit, [data-reveal]"));
