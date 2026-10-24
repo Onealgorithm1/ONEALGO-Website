@@ -31,8 +31,8 @@ export function PersonCredentials({ people = SF_PEOPLE_V2, providerId = "https:/
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
-      {people.map((p) => (
-        <div key={p.slug} className="sf-person">
+      {people.map((p, i) => (
+        <div key={p.slug} className="sf-person" id={i === 0 ? "who-leads" : undefined} style={{ scrollMarginTop: 96 }}>
           <p style={{ marginTop: 10 }}>
             <b className="sf-lead-in">{p.name}</b> · {p.title}
           </p>

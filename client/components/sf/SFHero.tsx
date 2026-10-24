@@ -4,6 +4,26 @@ import { Verify } from "./EvidenceDialog";
 import { SF_PHONE } from "../../data/salesforceShared";
 import { SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_PLATFORM_CERTS, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
 import { sfCityFiles, type SfCityHero } from "../../data/sfCityHeroes";
+import { SF_PEOPLE_V2, badgeSrc, type SfBadge } from "../../data/sfPeople";
+
+/** Scrolling strip of the official certification logos our people hold (Louis 2026-10-24: near the top, keeps
+ *  scrolling). Credentials stay attributed to the PEOPLE in the label; no dates. Reduced motion: static row. */
+function CertMarquee() {
+  const seen = new Set<string>();
+  const badges: SfBadge[] = [];
+  for (const p of SF_PEOPLE_V2) for (const b of p.badges) if (!seen.has(b.slug)) { seen.add(b.slug); badges.push(b); }
+  const row = (hidden: boolean) => (
+    <ul className="sf-marquee-row" aria-hidden={hidden || undefined}>
+      {badges.map((b) => <li key={b.slug}><img src={badgeSrc(b)} alt={hidden ? "" : b.name} width={80} height={78} loading="lazy" decoding="async" /></li>)}
+    </ul>
+  );
+  return (
+    <section className="sf-marquee" aria-label="Salesforce certifications our team holds">
+      <p className="sf-marquee-label sf-mono">Salesforce certifications held by our team · {SF_PEOPLE_V2.map((p) => `${p.name} ${p.badges.length}`).join(" · ")} · <a href="#who-leads" className="sf-link">see who holds them</a></p>
+      <div className="sf-marquee-track">{row(false)}{row(true)}</div>
+    </section>
+  );
+}
 
 /**
  * The hero: text-led. The H1 is the LCP element and never animates; nothing above the fold moves until 250ms
@@ -38,9 +58,11 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
   const files = photo ? sfCityFiles(photo.slug) : null;
   const cls = ["sf-hero", split === "7/5" ? "sf-hero-75" : "", photo ? "sf-hero-photo" : "", !figure && !photo ? "sf-hero-wide" : ""].filter(Boolean).join(" ");
   return (
+    <>
     <section className={cls} aria-labelledby={id}>
       <div className="sf-wrap sf-grid">
         <div className="sf-hero-text">
+          <img className="sf-hero-logo" src="/media/salesforce/salesforce-logo.svg" alt="Salesforce" width={92} height={64} decoding="async" />
           {kicker && <p className="sf-kicker">{kicker}</p>}
           <h1 className="sf-h1" id={id}>{title}</h1>
           <p className="sf-lede sf-measure" data-lede="">{lede}</p>
@@ -68,6 +90,8 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
         )}
       </div>
     </section>
+    <CertMarquee />
+    </>
   );
 }
 

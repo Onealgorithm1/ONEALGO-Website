@@ -816,3 +816,18 @@
 
 /* Phones/tablets: the city photo opens the page as a compact 16:9 banner above the headline (Louis 2026-10-24). Credit lives in the line at the end of the page. */
 @media (max-width: 1023px) { .sfv2 .sf-hero-photo .sf-hero-fig { order: -1; margin: 0 0 24px; aspect-ratio: 16 / 9; } }
+
+/* Salesforce cloud above the hero kicker on every Salesforce page (Louis 2026-10-24: cloud only, no badge square). */
+.sfv2 .sf-hero-logo { display: block; width: auto; height: 48px; margin: 0 0 16px; }
+@media (max-width: 639px) { .sfv2 .sf-hero-logo { height: 40px; margin-bottom: 12px; } }
+
+/* Certification marquee under the hero (Louis 2026-10-24). */
+.sfv2 .sf-marquee { border-top: 1px solid var(--hair-s); border-bottom: 1px solid var(--hair-s); background: #fff; padding: 14px 0 18px; overflow: hidden; }
+.sfv2 .sf-marquee-label { text-align: center; font-size: 12px; letter-spacing: .06em; color: var(--ink3); margin: 0 16px 10px; }
+.sfv2 .sf-marquee-track { display: flex; width: max-content; animation: sf-marquee 45s linear infinite; }
+.sfv2 .sf-marquee:hover .sf-marquee-track, .sfv2 .sf-marquee:focus-within .sf-marquee-track { animation-play-state: paused; }
+.sfv2 .sf-marquee-row { display: flex; gap: 40px; padding: 0 20px; margin: 0; list-style: none; }
+.sfv2 .sf-marquee-row img { height: 78px; width: auto; display: block; }
+@media (max-width: 639px) { .sfv2 .sf-marquee-row img { height: 60px; } .sfv2 .sf-marquee-row { gap: 24px; } }
+@keyframes sf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .sfv2 .sf-marquee-track { animation: none; width: auto; overflow-x: auto; } .sfv2 .sf-marquee-row[aria-hidden] { display: none; } }
