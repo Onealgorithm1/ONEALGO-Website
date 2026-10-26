@@ -1,0 +1,13 @@
+name: PR check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  site-check:
+    uses: Onealgorithm1/ci/.github/workflows/site-check.yml@main
+    with:
+      dir: "dist/spa"
+      build: "npm ci && npm run build"
+      spa: true
