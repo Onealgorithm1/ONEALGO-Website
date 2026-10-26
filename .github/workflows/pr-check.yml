@@ -1,0 +1,14 @@
+# Shared check lives in the public repo Onealgorithm1/ci (public repos cannot call private reusable workflows).
+name: PR check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  site-check:
+    uses: Onealgorithm1/ci/.github/workflows/site-check.yml@main
+    with:
+      dir: "dist/spa"
+      build: "corepack enable && pnpm install --frozen-lockfile && pnpm run build"
+      spa: true
