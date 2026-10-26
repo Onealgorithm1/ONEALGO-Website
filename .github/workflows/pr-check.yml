@@ -1,3 +1,4 @@
+# Shared check lives in the public repo Onealgorithm1/ci (public repos cannot call private reusable workflows).
 name: PR check
 
 on:
