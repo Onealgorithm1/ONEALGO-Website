@@ -22,6 +22,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
 const beasties = new Beasties({ path: DIST, publicPath: "/", preload: "swap", pruneSource: false, logLevel: "warn" });
+// Beasties drops the metric-matched fallback @font-face rules (no src url), so text first paints in
+// plain Arial and jumps when IBM Plex arrives (preview CLS up to 0.17). Re-inline them: CLS 0.
+let fontFallbacks = null;
+const withFallbacks = (html) => {
+  fontFallbacks ??= [...new Set(fs.readdirSync(path.join(DIST, "assets")).filter((n) => n.endsWith(".css"))
+    .flatMap((n) => fs.readFileSync(path.join(DIST, "assets", n), "utf8").match(/@font-face\{font-family:[^;}]*Fallback[^}]*\}/g) || []))].join("");
+  return html.replace("<style>", `<style>${fontFallbacks}`);
+};
 // 0 lets the OS hand out a free port, and the real one is read back from the
 // listening server below. A fixed 5055 meant a stale process from an earlier run,
 // or a second build on the same machine, failed the whole thing with EADDRINUSE.
@@ -358,12 +366,11 @@ async function main() {
       // Inline the CSS this page's first screen uses and load the full stylesheets
       // without blocking paint. Measured 2026-10-26 on web-design-chester-county,
       // devtools-throttled mobile: first paint 4.9s -> 1.4s; the settled page is
-      // pixel-identical at 390 and 1440px. ponytail: font swap adds CLS ~0.08
-      // (still "good"); fallback-font metric overrides would remove it.
+      // pixel-identical at 390 and 1440px.
       // Written copy only: the hidden-content guard below must keep scanning the page's own
       // markup, not the inlined stylesheet rules (.opacity-0, keyframes) beasties adds.
       fs.mkdirSync(path.dirname(outFile), { recursive: true });
-      fs.writeFileSync(outFile, await beasties.process(html));
+      fs.writeFileSync(outFile, withFallbacks(await beasties.process(html)));
 
       // Fail the build if a page is about to ship content that is invisible
       // without JavaScript. This is not hypothetical: adding scroll reveals put
