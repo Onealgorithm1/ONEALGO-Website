@@ -10,5 +10,5 @@ jobs:
     uses: Onealgorithm1/ci/.github/workflows/site-check.yml@main
     with:
       dir: "dist/spa"
-      build: "npm ci && npm run build"
+      build: "corepack enable && pnpm install --frozen-lockfile && pnpm run build"
       spa: true
