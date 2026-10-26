@@ -12,6 +12,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
+import Beasties from "beasties";
 
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
 /* The three website-development service pages (2026-10-24) are on the same v2 kit as the hub and the place pages. */
@@ -20,6 +21,7 @@ const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
+const beasties = new Beasties({ path: DIST, publicPath: "/", preload: "swap", pruneSource: false, logLevel: "warn" });
 // 0 lets the OS hand out a free port, and the real one is read back from the
 // listening server below. A fixed 5055 meant a stale process from an earlier run,
 // or a second build on the same machine, failed the whole thing with EADDRINUSE.
@@ -353,8 +355,15 @@ async function main() {
       // the former at /about directly, while the latter 308-redirects to /about/ and
       // would change every canonical URL on the site.
       const outFile = route === "/" ? path.join(DIST, "index.html") : path.join(DIST, `${route.replace("?hero=", ".hero-")}.html`);
+      // Inline the CSS this page's first screen uses and load the full stylesheets
+      // without blocking paint. Measured 2026-10-26 on web-design-chester-county,
+      // devtools-throttled mobile: first paint 4.9s -> 1.4s; the settled page is
+      // pixel-identical at 390 and 1440px. ponytail: font swap adds CLS ~0.08
+      // (still "good"); fallback-font metric overrides would remove it.
+      // Written copy only: the hidden-content guard below must keep scanning the page's own
+      // markup, not the inlined stylesheet rules (.opacity-0, keyframes) beasties adds.
       fs.mkdirSync(path.dirname(outFile), { recursive: true });
-      fs.writeFileSync(outFile, html);
+      fs.writeFileSync(outFile, await beasties.process(html));
 
       // Fail the build if a page is about to ship content that is invisible
       // without JavaScript. This is not hypothetical: adding scroll reveals put
