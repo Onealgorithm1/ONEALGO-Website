@@ -12,14 +12,14 @@ export const CHESTER_COUNTY: LocalPlace = {
   path: "/services/web-design-chester-county",
   name: "Chester County",
   seo: {
-    title: "Website Designers in Chester County, PA | OneAlgorithm",
+    title: "Website Development Company in Chester County, PA | OneAlgorithm",
     description: "Custom website designers in Chester County, PA, based in Malvern: sites you own outright, built for how your business runs. Written scope: (610) 890-9711.",
-    dateModified: "2026-10-24",
+    dateModified: "2026-10-26",
   },
   hero: {
     kicker: "Custom web design and development",
     h1: "Chester County web design, custom-built in Malvern",
-    lede: "We design and build custom websites for Chester County businesses from our Swedesford Road office in Malvern, with scope and price in writing first.",
+    lede: "We are a website development company that designs and builds custom websites for Chester County businesses from our Swedesford Road office in Malvern, with scope and price in writing first.",
   },
   areaServed: { "@type": "AdministrativeArea", name: "Chester County, PA" },
   facts: {
