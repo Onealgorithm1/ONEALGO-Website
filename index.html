@@ -68,13 +68,26 @@
          Declining is remembered so the banner does not nag. */
       function oaLoadAnalytics() {
         if (!ANALYTICS_HOSTS.includes(location.hostname)) return;
-        if (document.getElementById("ga-tag")) return;
-        const s = document.createElement("script");
-        s.id = "ga-tag";
-        s.async = true;
-        s.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
-        document.head.appendChild(s);
+        if (window.oaGaScheduled) return;
+        window.oaGaScheduled = true;
         gtag("config", "G-RC48CMQ05T");
+        /* 2026-10-26: the 193KB gtag script used to start before the page had painted, so Lighthouse
+           (and Semrush, which grades with it) charged it to the headline: LCP "Poor" at 8s on the
+           Salesforce pages while a real phone painted them in 0.4s. It now starts right after the first
+           frame is on screen (rAF runs before that paint, the timeout after it). Every pageview is still
+           recorded: gtag() calls queue in dataLayer until the script arrives, and this is ~0.4s after
+           arrival, not `load` (which the Clarity note below explains would lose early leavers).
+           rAF never fires in a background tab, so a 1.5s timer backs it up; whichever comes first wins. */
+        function loadGa() {
+          if (document.getElementById("ga-tag")) return;
+          const s = document.createElement("script");
+          s.id = "ga-tag";
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-RC48CMQ05T";
+          document.head.appendChild(s);
+        }
+        requestAnimationFrame(function () { setTimeout(loadGa, 0); });
+        setTimeout(loadGa, 1500);
 
         /* Clarity rides the same gate. It used to load unconditionally on the
            window load event, which meant a session recorder -- it sets _clck
