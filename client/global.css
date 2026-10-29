@@ -903,7 +903,10 @@
 .wk-visit:hover{background:#ffb757}
 .wk-close{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;cursor:pointer;font-size:.95rem}
 .wk-close:hover{background:rgba(255,255,255,.1)}
-.wk-modal-scroll{height:calc(100% - 68px);overflow-y:auto;overflow-x:hidden;background:#fff}
+.wk-modal-scroll{height:calc(100% - 68px);overflow-y:auto;overflow-x:hidden;background:#fff;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+/* A swipe that reaches the end of the preview (or lands on a frame that cannot scroll) must not scroll the page behind the dialog: Android 2026-10-29 moved the page 370px under an open Preview. */
+html:has(dialog.wk-modal[open]){overflow:hidden}
+.wk-capture-note{margin:0;padding:10px 16px;background:#04182b;color:#c9d3dd;font-size:.8rem;line-height:1.4;border-bottom:1px solid rgba(255,255,255,.12)}
 .wk-frame-wrap{position:relative;height:calc(100% - 68px);background:#fff}
 .wk-frame-wrap::before{content:attr(data-loading);position:absolute;inset:0;display:grid;place-items:center;color:#5b6b7c;font-size:.9rem}
 .wk-frame{position:relative;display:block;width:100%;height:100%;border:0;background:transparent}

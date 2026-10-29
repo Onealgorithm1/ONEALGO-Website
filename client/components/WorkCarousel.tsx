@@ -36,6 +36,24 @@ import { WORK, type WorkItem } from "../data/work";
  */
 export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: () => void; opener?: HTMLElement | null }) {
   const ref = useRef<HTMLDialogElement>(null);
+  /* `embed` in work.ts is what curl said on the day it was set; a client can add security headers any day after
+     (Phantom did, 2026-10-29, and its Preview went blank). So ask /api/frame-check (functions/api/frame-check.js)
+     before rendering the iframe: null = asking, false = refused -> the dated capture. ponytail: if the check itself
+     fails (dev server, function down, 4 s timeout) the iframe renders as before; that is the only path left to a
+     blank, and scripts/preview-gate.mjs fails on it. */
+  const [live, setLive] = useState<boolean | null>(item.embed ? null : false);
+  useEffect(() => {
+    if (!item.embed) return;
+    const ac = new AbortController();
+    const t = setTimeout(() => ac.abort(), 4000);
+    fetch(`/api/frame-check?slug=${encodeURIComponent(item.slug)}`, { signal: ac.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((b: { allowed?: boolean }) => setLive(b.allowed !== false))
+      .catch(() => setLive(true))
+      .finally(() => clearTimeout(t));
+    return () => { clearTimeout(t); ac.abort(); };
+  }, [item]);
+  const shotDate = new Date(`${item.shot}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
   useEffect(() => {
     const d = ref.current;
@@ -76,7 +94,7 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
           </button>
         </div>
       </div>
-      {item.embed ? (
+      {live !== false ? (
         <div
           className="wk-frame-wrap"
           data-loading="Loading the live site…"
@@ -85,7 +103,7 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
              only the website-development pages paint it (wd-page.css), elsewhere the var is unused. */
           style={{ ["--cap" as string]: `image-set(url("/work/${item.slug}-card.avif?v=${item.shot}") type("image/avif"), url("/work/${item.slug}-card.webp?v=${item.shot}") type("image/webp"))` } as React.CSSProperties}
         >
-        <iframe
+        {live && <iframe
           className="wk-frame"
           onLoad={(e) => e.currentTarget.parentElement?.setAttribute("data-loaded", "")}
           src={item.url}
@@ -98,12 +116,13 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
              target=_top inside the frame cannot carry the visitor off
              onealgorithm.com. Reviewer finding, 2026-08-25. */
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-        />
+        />}
         </div>
       ) : (
         <div className="wk-modal-scroll">
           {/* Full-page capture. Scrolls inside the modal, so the visitor can
               read the whole site without loading it. */}
+          <p className="wk-capture-note">Full-page screenshot from {shotDate}. This site blocks in-page previews; the button above opens it live.</p>
           <img
             src={`/work/${item.slug}-full.webp?v=${item.shot}`}
             alt={`Full page of the ${item.name} website`}
