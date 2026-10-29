@@ -26,6 +26,9 @@ describe("frameAllowed", () => {
   it("XFO alone", () => {
     expect(frameAllowed(h({ "x-frame-options": "deny" }), OA).allowed).toBe(false);
     expect(frameAllowed(h({ "x-frame-options": "ALLOW-FROM https://onealgorithm.com" }), OA).allowed).toBe(true);
+    // Two stacked headers (CDN + app): browsers block, the first version of this said "allowed".
+    expect(frameAllowed(h({ "x-frame-options": "ALLOW-FROM https://onealgorithm.com, SAMEORIGIN" }), OA).allowed).toBe(false);
+    expect(frameAllowed(h({ "x-frame-options": "allowall, deny" }), OA).allowed).toBe(false);
   });
   it("wildcards, schemes, ports", () => {
     const ok = (fa, origin = OA) => frameAllowed(h({ "content-security-policy": `frame-ancestors ${fa}` }), origin).allowed;
@@ -37,6 +40,8 @@ describe("frameAllowed", () => {
     expect(ok("http://onealgorithm.com")).toBe(true); // http source matches the https upgrade
     expect(ok("https://onealgorithm.com:8443")).toBe(false);
     expect(ok("https://evilonealgorithm.com")).toBe(false);
+    expect(ok("https://onealgorithm.com/only-this")).toBe(false);
+    expect(ok("https://onealgorithm.com/")).toBe(true);
   });
   it("two CSP headers: any blocking policy blocks", () => {
     expect(frameAllowed(h({ "content-security-policy": "frame-ancestors *, frame-ancestors 'self'" }), OA).allowed).toBe(false);

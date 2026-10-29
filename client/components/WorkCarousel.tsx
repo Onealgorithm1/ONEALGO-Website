@@ -38,20 +38,22 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
   const ref = useRef<HTMLDialogElement>(null);
   /* `embed` in work.ts is what curl said on the day it was set; a client can add security headers any day after
      (Phantom did, 2026-10-29, and its Preview went blank). So ask /api/frame-check (functions/api/frame-check.js)
-     before rendering the iframe: null = asking, false = refused -> the dated capture. ponytail: if the check itself
-     fails (dev server, function down, 4 s timeout) the iframe renders as before; that is the only path left to a
-     blank, and scripts/preview-gate.mjs fails on it. */
+     before rendering the iframe: null = asking, false = refused -> the dated capture. Fails CLOSED: if the check
+     itself fails (function down, 4 s timeout, `vite` dev server with no functions) the capture shows, because every
+     listed site has one and a capture is never blank. */
   const [live, setLive] = useState<boolean | null>(item.embed ? null : false);
   useEffect(() => {
+    setLive(item.embed ? null : false);
     if (!item.embed) return;
+    let cancelled = false;
     const ac = new AbortController();
     const t = setTimeout(() => ac.abort(), 4000);
     fetch(`/api/frame-check?slug=${encodeURIComponent(item.slug)}`, { signal: ac.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((b: { allowed?: boolean }) => setLive(b.allowed !== false))
-      .catch(() => setLive(true))
+      .then((b: { allowed?: boolean }) => { if (!cancelled) setLive(b.allowed === true); })
+      .catch(() => { if (!cancelled) setLive(false); })
       .finally(() => clearTimeout(t));
-    return () => { clearTimeout(t); ac.abort(); };
+    return () => { cancelled = true; clearTimeout(t); ac.abort(); };
   }, [item]);
   const shotDate = new Date(`${item.shot}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
@@ -97,7 +99,7 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
       {live !== false ? (
         <div
           className="wk-frame-wrap"
-          data-loading="Loading the live site…"
+          data-loading="Loading preview…"
           data-host={siteHost(item.url)}
           /* The card capture (already in cache from the window) is the frame's backdrop while the live site loads;
              only the website-development pages paint it (wd-page.css), elsewhere the var is unused. */
@@ -122,7 +124,7 @@ export function Preview({ item, onClose, opener }: { item: WorkItem; onClose: ()
         <div className="wk-modal-scroll">
           {/* Full-page capture. Scrolls inside the modal, so the visitor can
               read the whole site without loading it. */}
-          <p className="wk-capture-note">Full-page screenshot from {shotDate}. This site blocks in-page previews; the button above opens it live.</p>
+          <p className="wk-capture-note">Full-page screenshot from {shotDate}.</p>
           <img
             src={`/work/${item.slug}-full.webp?v=${item.shot}`}
             alt={`Full page of the ${item.name} website`}

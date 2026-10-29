@@ -8,8 +8,7 @@
  *
  * Used by functions/api/frame-check.js (live, per preview) and scripts/preview-gate.mjs (build-time drift check).
  * ponytail: host-source matching covers what real sites send (scheme, host, *.wildcard, port, '*', 'self', 'none');
- * paths in a source are ignored, which can only make it say "allowed" for a path-restricted source. No site we
- * frame uses one.
+ * `https://*` and `:80`-style edge cases answer "blocked", the safe direction (dated capture, never a blank).
  */
 export function frameAllowed(headers, parentOrigin) {
   const parent = new URL(parentOrigin);
@@ -23,10 +22,13 @@ export function frameAllowed(headers, parentOrigin) {
     }
     return { allowed: true, reason: fa.join(" | ") };
   }
-  const xfo = (headers.get("x-frame-options") || "").split(",")[0].trim().toUpperCase();
-  // SAMEORIGIN can never match: the client site and onealgorithm.com are different origins. Other values
-  // (ALLOW-FROM, typos) are ignored by Chrome and Safari, so they do not block.
-  if (xfo === "DENY" || xfo === "SAMEORIGIN") return { allowed: false, reason: `X-Frame-Options: ${xfo}` };
+  // HTML spec "check a navigation response's adherence to X-Frame-Options": several distinct values that include
+  // deny/sameorigin/allowall block; one value blocks if deny or sameorigin (SAMEORIGIN can never be us: different
+  // origins). Anything else (ALLOW-FROM, typos) is ignored by browsers.
+  const xfo = new Set((headers.get("x-frame-options") || "").split(",").map((v) => v.trim().toLowerCase()).filter(Boolean));
+  const strict = ["deny", "sameorigin", "allowall"].some((v) => xfo.has(v));
+  if ((xfo.size > 1 && strict) || xfo.has("deny") || (xfo.size === 1 && xfo.has("sameorigin")))
+    return { allowed: false, reason: `X-Frame-Options: ${[...xfo].join(", ").toUpperCase()}` };
   return { allowed: true, reason: "no framing headers" };
 }
 
@@ -34,9 +36,10 @@ function sourceMatches(src, parent) {
   const s = src.toLowerCase();
   if (s === "*") return true;
   if (s === "'none'" || s === "'self'") return false; // 'self' = the framed site's own origin, never ours
-  const m = s.match(/^(?:([a-z][a-z0-9+.-]*):)?(?:\/\/)?([^/:]*)?(?::(\d+|\*))?/);
+  const m = s.match(/^(?:([a-z][a-z0-9+.-]*):)?(?:\/\/)?([^/:]*)?(?::(\d+|\*))?(\/.*)?$/);
   if (!m) return false;
-  const [, scheme, host = "", port] = m;
+  const [, scheme, host = "", port, p] = m;
+  if (p && p !== "/") return false; // the parent is matched with path "/", so any narrower path blocks
   if (scheme && !host) return scheme + ":" === parent.protocol || (scheme === "http" && parent.protocol === "https:");
   if (scheme && scheme + ":" !== parent.protocol && !(scheme === "http" && parent.protocol === "https:")) return false;
   if (!scheme && parent.protocol !== "https:" && parent.protocol !== "http:") return false;

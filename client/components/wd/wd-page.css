@@ -95,7 +95,7 @@
    mono stamp while the live site loads; the frame fades in on load (instant under reduced motion) */
 .sfv2.wd .wk-modal { border-radius: 0; background: var(--night); }
 .sfv2.wd .wk-frame-wrap { background: var(--night) var(--cap) top / cover no-repeat; }
-.sfv2.wd .wk-frame-wrap::before { content: "Loading live site · " attr(data-host); place-items: end start; padding: 14px 16px; background: linear-gradient(to top, rgba(4, 24, 43, 0.9), rgba(4, 24, 43, 0) 35%); color: #fff; font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.sfv2.wd .wk-frame-wrap::before { content: "Loading preview · " attr(data-host); place-items: end start; padding: 14px 16px; background: linear-gradient(to top, rgba(4, 24, 43, 0.9), rgba(4, 24, 43, 0) 35%); color: #fff; font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
 .sfv2.wd .wk-frame-wrap .wk-frame { opacity: 0; }
 .sfv2.wd .wk-frame-wrap[data-loaded] .wk-frame { opacity: 1; }
 .sfv2.wd .wk-frame-wrap[data-loaded]::before { content: none; }

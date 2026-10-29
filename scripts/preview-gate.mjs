@@ -75,6 +75,27 @@ try {
         return (img && img.complete && img.naturalWidth > 0) || d?.querySelector(".wk-frame-wrap[data-loaded] iframe");
       }, { timeout: 20000 }).catch(() => {});
       const behind0 = await page.evaluate(() => scrollY);
+      /* Desktop: a real mouse wheel over the dialog body, twice, the second far past the end, so a scroll that
+         chains to the page behind fails the "page behind" assert. Phone: headless Chrome does not scroll on
+         synthesized touch (CDP synthesizeScrollGesture and touchscreen.touchMove both no-op, tested 2026-10-29), so
+         it scrolls programmatically and asserts the page lock instead. Real finger swipes: the Android emulator run
+         (~/scripts/android-emu, `adb shell input swipe`), done by hand before a release. */
+      const scrollDialog = async (sel) => {
+        assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY), "hidden", "page behind the open dialog is not locked (html overflow)");
+        if (view.viewport.hasTouch) {
+          const fh2 = await page.$("dialog.wk-modal[open] iframe");
+          if (fh2) await (await fh2.contentFrame()).evaluate(() => scrollBy(0, 600));
+          else await page.$eval(sel, (e) => e.scrollBy(0, 600));
+          await new Promise((r) => setTimeout(r, 500));
+          return;
+        }
+        const at = await page.$eval(sel, (e) => { const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height * 0.6) }; });
+        for (const dy of [700, 100000]) {
+          await page.mouse.move(at.x, at.y);
+          await page.mouse.wheel({ deltaY: dy });
+          await new Promise((r) => setTimeout(r, 700));
+        }
+      };
       await check(`${slug} #${i}: visible and scrolls`, async () => {
         const fh = await page.$("dialog.wk-modal[open] iframe");
         if (fh) {
@@ -85,27 +106,14 @@ try {
           const t = await fr.evaluate(() => ({ text: document.body?.innerText.length || 0, h: document.documentElement.scrollHeight, vh: innerHeight }));
           assert.ok(t.text > 50, `iframe has ${t.text} characters of text: blank`);
           assert.ok(t.h > t.vh, `framed page is ${t.h}px in a ${t.vh}px frame: nothing to scroll`);
-          if (!view.viewport.hasTouch) {
-            const box = await fh.boundingBox();
-            await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-            await page.mouse.wheel({ deltaY: 700 });
-            await new Promise((r) => setTimeout(r, 800));
-            const y = await fr.evaluate(() => scrollY);
-            assert.ok(y > 0, "wheel over the frame did not scroll it");
-          }
+          await scrollDialog("dialog.wk-modal[open] iframe");
+          assert.ok((await fr.evaluate(() => scrollY)) > 0, "the frame did not scroll");
         } else {
-          const r = await page.evaluate(async () => {
-            const box = document.querySelector("dialog.wk-modal[open] .wk-modal-scroll");
-            const img = box?.querySelector("img");
-            if (!img || !img.naturalWidth) return { ok: false, why: "capture image did not decode" };
-            box.scrollBy(0, 700); await new Promise((res) => setTimeout(res, 300));
-            return { ok: box.scrollTop > 0, why: `capture box scrollTop ${box.scrollTop}` };
-          });
-          assert.ok(r.ok, r.why);
-          if (!view.viewport.hasTouch) {
-            await page.mouse.wheel({ deltaY: 100000 }); // past the end: must not chain to the page behind
-            await new Promise((r) => setTimeout(r, 600));
-          }
+          const ok = await page.$eval("dialog.wk-modal[open] .wk-modal-scroll img", (img) => img.complete && img.naturalWidth > 0).catch(() => false);
+          assert.ok(ok, "capture image did not decode");
+          await scrollDialog("dialog.wk-modal[open] .wk-modal-scroll");
+          const top = await page.$eval("dialog.wk-modal[open] .wk-modal-scroll", (e) => e.scrollTop);
+          assert.ok(top > 0, `the capture did not scroll (scrollTop ${top})`);
         }
         assert.equal(Math.round(await page.evaluate(() => scrollY)), Math.round(behind0), "the page behind the dialog scrolled");
       });

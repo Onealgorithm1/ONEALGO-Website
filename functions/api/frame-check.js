@@ -14,11 +14,17 @@ export async function onRequestGet({ request }) {
   if (!item) return json({ allowed: false, reason: "unknown slug" }, 404);
   let body;
   try {
-    const r = await fetch(item.url, { redirect: "follow", headers: { "user-agent": "OneAlgorithm-frame-check/1" }, cf: { cacheTtl: 600 } });
+    // Ask the way a browser's iframe navigation asks, so a WAF or a Sec-Fetch-Dest rule answers us the same way.
+    const r = await fetch(item.url, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(3000),
+      headers: { "user-agent": request.headers.get("user-agent") || "Mozilla/5.0", "sec-fetch-dest": "iframe", "sec-fetch-mode": "navigate" },
+      cf: { cacheTtl: 600 },
+    });
     r.body?.cancel();
-    body = frameAllowed(r.headers, url.origin);
+    body = r.ok ? frameAllowed(r.headers, url.origin) : { allowed: false, reason: `HTTP ${r.status}` };
   } catch (e) {
-    body = { allowed: false, reason: "unreachable" }; // a site that does not answer would frame as blank too
+    body = { allowed: false, reason: "unreachable" }; // a site that does not answer in 3 s would frame as blank too
   }
   return json(body, 200);
 }

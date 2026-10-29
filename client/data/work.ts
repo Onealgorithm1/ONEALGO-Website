@@ -60,8 +60,9 @@ export const WORK: WorkItem[] = [
     note: "A configurator that prices the cabinet as you build it, and a page for every machine he has made.",
     url: "https://phantomarcades.com/",
     shot: "2026-09-01",
-    // Sends no X-Frame-Options and no CSP at all (curl, 2026-09-01), so
-    // onealgorithm.com may frame it.
+    // Sent no framing headers on 2026-09-01. Since 2026-10-29 it sends X-Frame-Options SAMEORIGIN +
+    // frame-ancestors 'self', so /api/frame-check answers "refused" and the Preview shows the capture. Left
+    // true so the live site comes back by itself once Phantom allows https://onealgorithm.com.
     embed: true,
     marker: "Phantom Arcades",
     review: {
