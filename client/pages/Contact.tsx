@@ -24,6 +24,7 @@ const SERVICES = [
   "Zendesk Implementation / Support",
   "Marketing Services",
   "Staff Augmentation",
+  "HR & Staffing Support",
   "Other",
 ];
 const SERVICE_LABEL: Record<string, string> = { "IT Consulting": "IT Consulting & Strategy" };
