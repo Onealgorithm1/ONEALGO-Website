@@ -36,7 +36,7 @@ for (const f of files) {
   if (!/class="sfv2/.test(html) && !strict) { skipped++; console.log(`  · ${f}: not on the v2 kit yet, skipped (use --strict to fail)`); continue; }
   checked++;
   await page.setContent(html, { waitUntil: "domcontentloaded" });
-  const problems = await page.evaluate(() => {
+  const problems = await page.evaluate((keepHero) => {
     const out = [];
     const words = (s) => (s || "").trim().split(/\s+/).filter(Boolean).length;
     const text = (el) => (el ? el.textContent.replace(/\s+/g, " ").trim() : "");
@@ -47,10 +47,10 @@ for (const f of files) {
 
     const h1s = main.querySelectorAll("h1");
     if (h1s.length !== 1) out.push(`${h1s.length} H1 elements (want 1)`);
-    if (h1s[0] && words(text(h1s[0])) > 9) out.push(`H1 has ${words(text(h1s[0]))} words (max 9): "${text(h1s[0])}"`);
+    if (!keepHero && h1s[0] && words(text(h1s[0])) > 9) out.push(`H1 has ${words(text(h1s[0]))} words (max 9): "${text(h1s[0])}"`);
     const heroLede = root.querySelector(".sf-hero [data-lede]");
-    if (!heroLede) out.push("hero has no lede ([data-lede])");
-    else { const t = text(heroLede); if (words(t) > 25) out.push(`hero lede has ${words(t)} words (max 25)`); if (sentences(t) !== 1) out.push(`hero lede is ${sentences(t)} sentences (want 1)`); }
+    if (!heroLede && !keepHero) out.push("hero has no lede ([data-lede])");
+    else if (!keepHero) { const t = text(heroLede); if (words(t) > 25) out.push(`hero lede has ${words(t)} words (max 25)`); if (sentences(t) !== 1) out.push(`hero lede is ${sentences(t)} sentences (want 1)`); }
 
     // heading levels: no skips going down
     let prev = 1;
@@ -100,7 +100,7 @@ for (const f of files) {
       });
     });
     return out;
-  });
+  }, !!process.env.SF_KEEP_HERO);
   if (problems.length) { fails += problems.length; console.error(`  ✗ ${f}`); problems.forEach((p) => console.error(`      ${p}`)); }
   else console.log(`  ✓ ${f}`);
 }

@@ -44,7 +44,7 @@ const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
   "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
-  "/services/it-consulting", "/services/operations-technology",
+  "/services/it-consulting",
   "/services/salesforce", "/services/zendesk",
   "/services/application-development",
   "/services/web-design-chester-county", "/services/web-design-philadelphia",
@@ -93,6 +93,7 @@ const TYPES = {
 };
 
 // Static server with SPA fallback so any route loads index.html.
+let SHELL = null;
 function serve(feed) {
   return http.createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split("?")[0]);
@@ -109,7 +110,9 @@ function serve(feed) {
     }
     // fallback → index.html (client routing takes over)
     res.writeHead(200, { "Content-Type": "text/html" });
-    fs.createReadStream(path.join(DIST, "index.html")).pipe(res);
+    // Serve the ORIGINAL shell, captured before any route is written: prerendering "/" overwrites dist/index.html with
+    // the home page (beasties-inlined CSS), and every later route would inherit that markup and its reveal rules.
+    res.end(SHELL);
   });
 }
 
@@ -141,6 +144,7 @@ async function main() {
      (website-development.hero-a.html / .hero-b.html) so ?hero=a|b hydrates cleanly and its LCP is measured as it would
      ship. Never set for a production build; the preview worker maps the query to the file. */
   if (process.env.OA_HERO_PROPOSALS) ROUTES.push("/services/website-development?hero=a", "/services/website-development?hero=b");
+  SHELL = fs.readFileSync(path.join(DIST, "index.html"));
   const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
