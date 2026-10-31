@@ -31,7 +31,6 @@
 - Zendesk implementation: https://onealgorithm.com/services/zendesk
 - MarTech integration: https://onealgorithm.com/services/martech
 - IT consulting: https://onealgorithm.com/services/it-consulting
-- Operations technology: https://onealgorithm.com/services/operations-technology
 - Staff augmentation: https://onealgorithm.com/services/staff-augmentation
 
 ## Salesforce
