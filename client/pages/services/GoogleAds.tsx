@@ -302,7 +302,7 @@ export default function GoogleAds() {
             <div className="sf-links"><Verify id="partner">What Google requires of a Partner</Verify></div>
           </SmartUnit>
           <LedgerRule as="aside" className="sf-c5" delay={0.08}>
-            <h3 className="sf-h3">What a badge does and does not tell you</h3>
+            <h3 className="sf-h3">What a Partner badge does not tell you</h3>
             <p style={{ marginTop: 10 }}>It shows the agency crossed Google's thresholds, not how your account will be run. Ask for method, tracking and ownership.</p>
           </LedgerRule>
         </SmartSection>

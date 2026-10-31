@@ -193,7 +193,8 @@ export default function ApplicationDevelopment() {
           </SmartUnit>
           <LedgerRule as="aside" className="sf-c5" delay={0.08}>
             <h3 className="sf-h3">Already have an app?</h3>
-            <p className="sf-measure">We review what exists and tell you where it stands: who controls the code and accounts, what the security exposure is, and what it would take to launch. You keep the findings either way.</p>
+            <p className="sf-measure">We review what exists and tell you where it stands. You keep the findings either way.</p>
+            <GoDeeper label="what the review covers"><p className="sf-rule">Who controls the code and accounts, what the security exposure is, and what it would take to launch.</p></GoDeeper>
           </LedgerRule>
         </SmartSection>
 
@@ -213,7 +214,8 @@ export default function ApplicationDevelopment() {
             </LedgerRule>
             <LedgerRule as="article" className="sf-c4" delay={0.16}>
               <h3 className="sf-h3">One Hub, our own platform</h3>
-              <p>A control plane that pulls accounting, CRM, search and advertising into one place and surfaces what changed. We built it ourselves, run it, and it is not licensed or sold.</p>
+              <p>A control plane for our own operations. We built it ourselves and run it.</p>
+              <GoDeeper label="what it is"><p className="sf-rule">It pulls accounting, CRM, search and advertising into one place and surfaces what changed. It is not licensed or sold.</p></GoDeeper>
             </LedgerRule>
           </div>
           <p className="sf-mono" style={{ marginTop: 32 }}>

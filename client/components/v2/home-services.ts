@@ -20,13 +20,13 @@ export const SERVICE_GROUPS: HomeServiceGroup[] = [
     items: [
       { to: "/services/seo", title: "SEO services", lede: "Technical SEO, content structure and a measured result." },
       { to: "/services/seo-chester-county", title: "SEO, Chester County", lede: "Local SEO: your Google Business Profile, reviews and service pages." },
-      { to: "/services/seo-philadelphia", title: "SEO, Philadelphia", lede: "Search work for Philadelphia businesses." },
-      { to: "/services/ai-seo", title: "AI search optimization", lede: "How AI assistants find and cite a business." },
+      // ponytail: add back when /services/seo-philadelphia ships
+      // ponytail: add back when /services/ai-seo ships
       { to: "/services/google-ads", title: "Google Ads management", lede: "Conversion tracking counted once, the account in your name." },
       { to: "/services/google-ads-philadelphia", title: "Google Ads, Philadelphia", lede: "Paid search from the team that builds the landing pages." },
       { to: "/services/marketing", title: "Marketing and social media", lede: "Management of the Facebook and Instagram accounts you own." },
       { to: "/services/martech", title: "MarTech", lede: "Marketing platforms selected, connected and configured." },
-      { to: "/services/marketing-automation-consulting", title: "Marketing automation consulting", lede: "Journeys and data that your team can run itself." },
+      // ponytail: add back when /services/marketing-automation-consulting ships
     ],
   },
   {

@@ -244,7 +244,8 @@ export default function Seo() {
             <LedgerRule as="article" key={s.t} className={s.c} delay={(i % 3) * 0.08}>
               <p className="sf-kicker">Step {i + 1}</p>
               <h3 className="sf-h3">{s.t}</h3>
-              <p>{s.d}</p>
+              <p>{s.d.split(/(?<=\.)\s/)[0]}</p>
+              {s.d.includes(". ") && <GoDeeper label="more on this step"><p className="sf-rule">{s.d.split(/(?<=\.)\s/).slice(1).join(" ")}</p></GoDeeper>}
             </LedgerRule>
           ))}
         </SmartSection>

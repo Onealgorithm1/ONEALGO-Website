@@ -60,7 +60,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Why does a local Google Ads account waste money?", a: "In a local account the biggest leak is usually not the bidding. It is a service area nobody set deliberately, a missing negative keyword list, and phone calls that never get counted as conversions." },
   { q: "Do you manage Google Ads outside Philadelphia?", a: "Yes. From our Malvern office we manage Google Ads for businesses across the Philadelphia area: Philadelphia, Bucks, Chester, Delaware and Montgomery counties, and New Castle County, Delaware." },
   { q: "Do you have an office in Philadelphia?", a: "Our office is in Malvern, PA, a short drive from Center City. The work is done from there, and the Google Ads account lives in your name wherever your business is." },
-  { q: "Should a Philadelphia business use ads or local SEO?", a: "Ads show while you pay for them and give quick, trackable data. Local SEO takes longer and keeps working without a per-click cost. Many Philadelphia businesses need both, and the first audit shows where ads are earning their keep.", link: { to: "/services/seo-philadelphia", label: "SEO for Philadelphia businesses" } },
+  { q: "Should a Philadelphia business use ads or local SEO?", a: "Ads show while you pay for them and give quick, trackable data. Local SEO takes longer and keeps working without a per-click cost. Many Philadelphia businesses need both, and the first audit shows where ads are earning their keep." /* ponytail: add back when /services/seo-philadelphia ships: link to it */ },
   { q: "How often do you work on the account and report?", a: "There is a weekly pass on the account, and the report leads with cost per acquisition and spend. Impressions are in there somewhere, near the bottom." },
   { q: "Do I have to hire you after the audit?", a: "No. You get a prioritized list of what to fix, including where the budget goes by search term, whether the geography matches where you serve, and whether conversions count once. You can act on it yourself or with us." },
   { q: "How are calls counted in a local account?", a: "Google can count calls from ads, calls to the number on your site and taps on a mobile number as conversions. We set that up and check it first, so the account optimizes toward real leads.", link: { to: "/services/google-ads", label: "How we run Google Ads accounts" } },
@@ -258,7 +258,7 @@ export default function GoogleAdsPhiladelphia() {
             lede="Ads work best next to a site and a search presence that convert the visit."
           >
             <ul className="sf-links" style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: "12px 28px" }}>
-              <li><Link className="sf-link" to="/services/seo-philadelphia">SEO for Philadelphia businesses</Link></li>
+              {/* ponytail: add back when /services/seo-philadelphia ships */}
               <li><Link className="sf-link" to="/services/web-design-philadelphia">Web design in Philadelphia</Link></li>
               <li><Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultant in Philadelphia</Link></li>
               <li><Link className="sf-link" to="/services/google-ads">Google Ads management, all areas</Link></li>

@@ -197,7 +197,7 @@ export default function SeoChesterCounty() {
             <LedgerRule as="article" key={s.t} className="sf-c4" delay={(i % 3) * 0.08}>
               <p className="sf-kicker">Step {i + 1}</p>
               <h3 className="sf-h3">{s.t}</h3>
-              <p>{s.d}</p>
+              <GoDeeper label="what this step involves"><p className="sf-rule">{s.d}</p></GoDeeper>
             </LedgerRule>
           ))}
         </SmartSection>
@@ -222,7 +222,8 @@ export default function SeoChesterCounty() {
           <LedgerRule as="aside" className="sf-c5" delay={0.08}>
             <p className="sf-kicker">A result we can show</p>
             <h3 className="sf-h3" id="h-result">Phantom Arcades</h3>
-            <p>Google clicks up 92% and non-brand clicks up 231% year over year after a rebuild for search. It is a national result, not a Chester County one.</p>
+            <p>Google clicks up 92% and non-brand clicks up 231% year over year after a rebuild for search.</p>
+            <GoDeeper label="the scope of this result"><p className="sf-rule">It is a national result, not a Chester County one.</p></GoDeeper>
             <div className="sf-links"><Link className="sf-link" to={CASE}>Read the SEO case study</Link></div>
           </LedgerRule>
         </SmartSection>

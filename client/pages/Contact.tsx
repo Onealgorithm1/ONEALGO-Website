@@ -24,6 +24,11 @@ const SERVICES = [
   "Staff Augmentation",
   "HR & Staffing Support",
   "Other",
+  "SEO",
+  "Google Ads",
+  "Application Development",
+  "MarTech",
+  "Operational Transformation",
 ];
 const SERVICE_LABEL: Record<string, string> = { "IT Consulting": "IT Consulting & Strategy" };
 const OFFICES = [
@@ -94,6 +99,14 @@ export default function Contact() {
     if (q.get("need") === "website") {
       setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Website Development" }));
     }
+    const NEED: Record<string, string> = {
+      seo: "SEO", "google-ads": "Google Ads", "app-development": "Application Development", marketing: "Marketing Services",
+      martech: "MarTech", "it-consulting": "IT Consulting", "staff-augmentation": "Staff Augmentation",
+      zendesk: "Zendesk Implementation / Support", "operational-transformation": "Operational Transformation",
+      construction: "Other", manufacturing: "Other", government: "Other", services: "Other", contact: "Other",
+    };
+    const want = NEED[q.get("need") || ""];
+    if (want) setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: want }));
     setTopic((q.get("topic") || "").slice(0, 60));
     const f = q.get("from") || "";
     setFrom(/^\/[^\s]*$/.test(f) ? f.slice(0, 200) : "");
