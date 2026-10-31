@@ -14,8 +14,7 @@
 - **Phone**: 1 (610) 890-9711
 - **Website**: https://onealgorithm.com
 - **Contact**: https://onealgorithm.com/contact
-- **Certifications**: SBA-certified WOSB and EDWOSB; WBENC; NMSDC. Verify at
-  https://search.certifications.sba.gov/profile/W8DYK38MEKP3/14G18
+- **Certifications**: WBENC Certified WBE; NMSDC Certified MBE; Salesforce Consulting Partner (AppExchange listing a0N3A00000EV7SwUAL). Details: https://onealgorithm.com/capabilities
 - **Identifiers**: UEI W8DYK38MEKP3 · CAGE 14G18 · D-U-N-S 118835343
 
 ## Services
@@ -24,14 +23,17 @@
 - [How much does a website cost](https://onealgorithm.com/services/website-cost): what sets the price of a custom website, with the scope and price in writing before work starts.
 - [Small business website design](https://onealgorithm.com/services/small-business-website-design): websites for owner-led businesses, built to be found, explain the service and take the call, booking or order.
 - [Website redesign](https://onealgorithm.com/services/website-redesign): a new design and code on your existing domain, with every old address redirected so rankings carry over.
-- SEO: https://onealgorithm.com/services/seo
-- Google Ads management: https://onealgorithm.com/services/google-ads
-- Marketing & social media: https://onealgorithm.com/services/marketing
+- [All services](https://onealgorithm.com/services): every service OneAlgorithm sells, with links to each page.
+- [SEO services](https://onealgorithm.com/services/seo): SEO and AI-search visibility for small businesses, with the method and a measured case study.
+- [Google Ads management](https://onealgorithm.com/services/google-ads): Google Ads management that starts with an audit, with the account kept in the client's name.
+- [Marketing and social media](https://onealgorithm.com/services/marketing): social media and marketing management on accounts the client owns.
+- [Custom application development](https://onealgorithm.com/services/application-development): portals, internal tools and web applications, with the code and cloud accounts in the client's name from day one.
+- [MarTech integration](https://onealgorithm.com/services/martech): marketing technology integration between campaign tools, CRM and analytics.
+- [IT consulting](https://onealgorithm.com/services/it-consulting): IT consulting for small and mid-size companies.
+- [Staff augmentation](https://onealgorithm.com/services/staff-augmentation): contract engineers, including Salesforce staff augmentation.
+- [Zendesk implementation](https://onealgorithm.com/services/zendesk): Zendesk setup and integration with Salesforce.
+- [Operational transformation consulting](https://onealgorithm.com/services/operational-transformation-consulting): fix the process first, then the systems: Salesforce, IT and MarTech built around how work runs.
 - Salesforce consulting: see the Salesforce section below
-- Zendesk implementation: https://onealgorithm.com/services/zendesk
-- MarTech integration: https://onealgorithm.com/services/martech
-- IT consulting: https://onealgorithm.com/services/it-consulting
-- Staff augmentation: https://onealgorithm.com/services/staff-augmentation
 
 ## Salesforce
 
@@ -137,22 +139,32 @@ one-week Salesforce health check.
 
 - [Web design for Philadelphia businesses](https://onealgorithm.com/services/web-design-philadelphia): custom websites for Philadelphia companies, from our Malvern office 25 miles west of Center City.
 - [Chester County web design](https://onealgorithm.com/services/web-design-chester-county): custom-built websites for Chester County businesses, from our office on Swedesford Road, Malvern.
-- SEO, Chester County: https://onealgorithm.com/services/seo-chester-county
-- Google Ads, Philadelphia: https://onealgorithm.com/services/google-ads-philadelphia
+- [SEO services in Chester County](https://onealgorithm.com/services/seo-chester-county): local SEO for Chester County businesses from our Malvern office.
+- [Google Ads management in Philadelphia](https://onealgorithm.com/services/google-ads-philadelphia): Google Ads management for Philadelphia businesses.
 
 ## Industries
 
-Construction, manufacturing, e-commerce, and marketing teams:
-https://onealgorithm.com/industries
-Government work is eligibility only — no contract has been awarded yet, and we
-say so plainly: https://onealgorithm.com/industries/government
+- [Industries we serve](https://onealgorithm.com/industries): what we have and have not done in each sector.
+- [Construction](https://onealgorithm.com/industries/construction): systems integration, Salesforce, job reporting and web work for construction firms.
+- [Manufacturing](https://onealgorithm.com/industries/manufacturing): ERP, data and systems integration for manufacturers; the page states what we have not done on the plant floor.
+- [E-commerce](https://onealgorithm.com/industries/ecommerce): WooCommerce and custom e-commerce builds, with integrations to stock, payments, the ledger and Zendesk.
+- [Marketing teams](https://onealgorithm.com/industries/marketing): social media on accounts you own, MarTech integration between campaign tools and CRM, and the analytics under it.
+- [Government](https://onealgorithm.com/industries/government): eligibility only: SBA WOSB/EDWOSB certification, SAM registration (UEI W8DYK38MEKP3, CAGE 14G18); no contract awarded yet, and we say so.
 
 ## Key pages
 
-- Capabilities statement (federal): https://onealgorithm.com/capabilities
-- About the team: https://onealgorithm.com/about
-- Blog: https://onealgorithm.com/blog
-- How we use AI, and this file's purpose: https://onealgorithm.com/ai-info
+- [About](https://onealgorithm.com/about): the company and the people behind it.
+- [Capabilities and certifications](https://onealgorithm.com/capabilities): capability statement, certifications and registrations with verification links.
+- [Blog](https://onealgorithm.com/blog): case notes and measured results from our Salesforce, website and SEO work.
+- [Phantom Arcades SEO case study](https://onealgorithm.com/blog/seo-case-study-phantom-arcades): Google sent Phantom Arcades 2,130 clicks in the 68 days after we took over its search, up from 1,112 a year earlier (+92%).
+- [Product configurator case study](https://onealgorithm.com/blog/product-configurator-case-study-phantom-arcades): what a 3D product configurator is for: turning a browsing session into a written specification the business can quote from.
+- [Home inspector website design](https://onealgorithm.com/blog/home-inspector-website-design): why home inspector sites fail to bring in work, and what to name on the page.
+- [Careers](https://onealgorithm.com/careers): open roles at OneAlgorithm in Malvern, PA.
+- [Senior Business Systems Engineer](https://onealgorithm.com/careers/senior-business-systems-engineer): open role, Malvern, PA.
+- [AI information](https://onealgorithm.com/ai-info): how we use AI, and this file's purpose.
+- [Contact](https://onealgorithm.com/contact): phone, address and the contact form.
+- [Privacy policy](https://onealgorithm.com/privacy): how we handle personal data.
+- [Terms and conditions](https://onealgorithm.com/terms): terms of use.
 
 Every fact in this file is checkable; figures that could not be verified were
-left out rather than estimated. Updated 2026-10-23 (Salesforce section).
+left out rather than estimated. Updated 2026-10-31.

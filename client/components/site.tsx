@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { siteConfig } from "../../shared/companyProfile";
+import { RailSeenContext } from "./StructuredData";
 import { SF_PHONE } from "../data/salesforceShared";
 
 /* ---------------------------------------------------------------------------
@@ -686,6 +687,8 @@ function crumbsFor(path: string): Crumb[] {
  */
 export function HeroRail({ crumbs, dark, width }: { crumbs: Crumb[]; dark: boolean; width?: Frame }) {
   const frame = useFrame(width);
+  const railSeen = React.useContext(RailSeenContext);
+  if (railSeen) railSeen.seen = true; // ponytail: render-phase flag; SfPage reads it later in the same pass
   /* The same crumbs, for machines.
      BreadcrumbList is one of the few structured-data types still earning a rich
      result in Google's current gallery -- FAQPage and HowTo both stopped
