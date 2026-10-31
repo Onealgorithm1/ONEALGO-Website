@@ -157,6 +157,7 @@ export default function Martech() {
         <SmartSection id="what" labelledBy="h-what"
           heading={{ id: "h-what", kicker: "Capabilities", title: "What we build, and what we connect", lede: "Six things, and every one happens inside a platform you already license." }}>
           <HoverCards cols={3} numbered items={CAPABILITIES} />
+          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> A stack with a seventh tool in it is rarely the answer.</p>
         </SmartSection>
 
         {/* 4 · why us: night band */}
@@ -215,9 +216,7 @@ export default function Martech() {
             ]} title="Diagram of the five steps of a MarTech engagement" desc="A rail runs through five stations: audit, plan, build, document, hand over."
               stamp="How an engagement runs" caption="You see the scope and the order of work first, so nothing is built on a guess." />
           </div>
-          <GoDeeper label="the five steps in detail">
-            <MarketingLedger items={STEPS} />
-          </GoDeeper>
+          <MarketingLedger items={STEPS} label="How an engagement runs" />
           <div className="sf-links" style={{ marginTop: 24 }}>
             <Link className="sf-link" to="/services/marketing">Marketing and social media management</Link>
             <Link className="sf-link" to="/services/seo">SEO services</Link>
