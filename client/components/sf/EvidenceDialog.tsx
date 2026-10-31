@@ -133,7 +133,6 @@ export function AppExchangeEvidence() {
         { th: "Partner tier", td: SF_PARTNER_TIER },
         { th: "Salesforce-certified people", td: SF_CERTIFIED_PEOPLE },
         { th: "Certifications held", td: SF_CERTIFICATIONS },
-        { th: "On the Platform competency", td: SF_PLATFORM_CERTS },
         { th: "Listing", td: SF_LISTING_ID },
         { th: "Read on", td: SF_VERIFIED_LABEL },
         { th: "Source", td: "appexchange.salesforce.com" },

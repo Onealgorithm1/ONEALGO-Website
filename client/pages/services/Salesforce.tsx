@@ -100,7 +100,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is OneAlgorithm really a Salesforce partner?",
-    a: `Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing ${SF_LISTING_ID}. Salesforce publishes the detail itself: ${SF_CERTIFIED_PEOPLE} certified people holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them on the Platform competency. You can open the listing and check it before you call us.`,
+    a: `Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing ${SF_LISTING_ID}. Salesforce publishes the detail itself: ${SF_CERTIFIED_PEOPLE} certified people holding ${SF_CERTIFICATIONS} certifications. You can open the listing and check it before you call us.`,
     link: { to: "#record", label: "Check our record" },
   },
   {
@@ -214,7 +214,7 @@ export default function Salesforce() {
             kicker="Already on Salesforce"
             title="Your team works around Salesforce"
             lede="People still do by hand what the platform was bought to automate."
-            lead={<>{SF_PLATFORM_CERTS} of our {SF_CERTIFICATIONS} certifications sit on the Platform competency: the Flow, permissions and integration work that takes those steps off your team.</>}
+            lead={<>Our Platform work is the Flow, permissions and integration work that takes those steps off your team.</>}
             points={["The weekly manual steps, handed to Flow", "Pipeline, cases and queues set up around your process", "Integrations that fail quietly, found and alerted on"]}
             measure={false}
           >
@@ -285,7 +285,7 @@ export default function Salesforce() {
           </SmartUnit>
           <SmartUnit level={3} className="sf-c4" delay={0.08} title="Flow, Apex and platform development" lede="The manual steps your team repeats every week, handed to Flow; Apex where clicks can't do the job." measure={false}>
             <GoDeeper label="the platform work: Flow, Apex, permissions, integrations">
-              <p className="sf-rule">Permissions rebuilt so the right people see the right records, and integrations that tell someone when they fail. {SF_PLATFORM_CERTS} of our {SF_CERTIFICATIONS} certifications are on the Platform competency (Salesforce's AppExchange record, read {SF_VERIFIED_LABEL}).</p>
+              <p className="sf-rule">Permissions rebuilt so the right people see the right records, and integrations that tell someone when they fail. Salesforce's AppExchange record lists {SF_CERTIFICATIONS} certifications (read {SF_VERIFIED_LABEL}).</p>
               <div className="sf-links"><Link className="sf-link" to={MS}>Weekly Salesforce development</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -322,7 +322,7 @@ export default function Salesforce() {
           heading={{
             id: "h-record",
             title: "A Salesforce consulting partner you can check",
-            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</>,
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</>,
           }}
         >
           <Readouts />
@@ -341,7 +341,7 @@ export default function Salesforce() {
               <DeliveredLedger />
               <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
               <GoDeeper label="the competency rows and how to check any partner">
-                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency: {SF_PLATFORM_CERTS} Platform and 7 Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
                 <div className="sf-links"><Link className="sf-link" to={PA}>How to check any Salesforce partner</Link></div>
               </GoDeeper>
             </SmartUnit>

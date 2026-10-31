@@ -535,7 +535,7 @@ export default function SalesforceIntegration() {
           heading={{
             id: "h-record",
             title: "Salesforce integration consultants who do the work",
-            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</>,
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</>,
           }}
         >
           <Readouts />

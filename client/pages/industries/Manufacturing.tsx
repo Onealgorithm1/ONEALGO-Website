@@ -72,7 +72,7 @@ const UNITS: IndUnit[] = [
     lead: "A plant manager should hear that from us, not discover it in a statement of work.",
     deepLabel: "what we are and are not",
     deep: (<>
-      <p className="sf-rule">We are not an MES or a quality-management product, and we do not resell one. We have published no manufacturing case study and will not imply one. The useful conversation is a specific one: which system, and what happens today when two of them disagree. Meet the four of us on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">We are not an MES or a quality-management product, and we do not resell one. We have published no manufacturing case study and will not imply one. The useful conversation is a specific one: which system, and what happens today when two of them disagree. Who you would work with is on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
@@ -85,7 +85,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Do you build manufacturing websites?", a: "We build websites and product sites with configurators, such as the Phantom Arcades build. We have not built a site for a manufacturing company and make no such claim. Tell us what the site must show and we will say whether we fit.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "Do you offer manufacturing marketing or industrial SEO?", a: "Not as a specialty, and specialist agencies own those searches. We offer SEO as a general service and can show one measured result, Phantom Arcades, where Google clicks rose 92 percent year on year. We have no manufacturing marketing proof.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. The Phantom Arcades build is our reference example, and its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
-  { q: "What drives the cost of an ERP integration?", a: "The number of systems, whether each has an API, the data quality, the volume to reconcile and how often the rules change. We scope it in writing before work starts and give no figure until we have seen the systems involved." },
+  { q: "What drives the cost of an ERP integration?", a: "The number of systems, whether each has an API, the data quality, the volume to reconcile and how often the rules change. You get a written scope before any work begins, and a number only after we have seen the systems on both sides involved." },
   { q: "How long does an integration take?", a: "It depends on the systems and the data, and we set a plan only after discovery. Tell us the two systems that disagree and we will say what we would check first, what could slow the work, and how we would report progress." },
   { q: "Can you add engineers during a go-live?", a: "Yes. Integration and platform engineers can work inside your team for the go-live or longer, so your own staff can keep the plant running. We agree the role, hours and end date in writing first. Your own staff keep the plant running while ours handle the integration work.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
 ];

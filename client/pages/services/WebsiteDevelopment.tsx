@@ -385,8 +385,8 @@ export default function WebsiteDevelopment() {
             </div>
             <address className="wd-nap">
               <h3 className="sf-h4">Where we are</h3>
-              <p>{NAP.name} · {NAP.l1}, {NAP.l2}</p>
-              <p><a href={NAP.phone.href}>{NAP.phone.display}</a> · {NAP.hours}</p>
+              <p>{NAP.name} · {NAP.l1}</p>
+              <p><a href={NAP.phone.href}>{NAP.phone.display}</a></p>
               <p className="sf-mono">{NAP.counties.join(" · ")}</p>
               <p className="sf-mono">Founded {GOOGLE_LISTING.founded} · PA entity {FOUNDED.paEntity} · <Verify id="founded" /></p>
               <p>{NAP.travel}</p>

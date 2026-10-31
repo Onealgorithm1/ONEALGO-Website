@@ -33,7 +33,7 @@ const SERVICES = [
 ];
 const SERVICE_LABEL: Record<string, string> = { "IT Consulting": "IT Consulting & Strategy" };
 const OFFICES = [
-  { k: "USA · Head office", lines: ["625 Swedesford Rd, Unit B", "Malvern, PA 19355", "1 (610) 890-9711"] },
+  { k: "USA · Head office", lines: ["Malvern, PA", "1 (610) 890-9711"] },
   { k: "India", lines: ["2nd Floor, Plot No. 536", "Madhapur, Hyderabad", "Telangana 500081, IN"] },
   { k: "UAE", lines: ["Building R118, Suite 201-A-42", "Al Suq Al Kabeer, Dubai"] },
   { k: "Canada", lines: ["120 Adelaide St W", "Toronto, ON M5H 1T1"] },
@@ -265,7 +265,7 @@ export default function Contact() {
                 </a>
               </div>
               <p className="sf-mono" style={{ marginTop: 20 }}>
-                OneAlgorithm · 625 Swedesford Rd, Unit B, Malvern, PA 19355 · Mon–Fri 9–5 ·{" "}
+                OneAlgorithm · Malvern, PA ·{" "}
                 <a className="sf-link" href={`mailto:${EMAIL}`} onClick={() => window.trackContactClick?.("email", "contact-hero")}>{EMAIL}</a>
               </p>
             </div>
@@ -300,7 +300,7 @@ export default function Contact() {
               </ul>
               <p style={{ marginTop: 32 }}>Prefer to talk it through?</p>
               <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="desk" onClick={() => window.trackContactClick?.("phone", "contact-desk")}>{SF_PHONE.display}</a>
-              <p className="sf-mono" style={{ marginTop: 16 }}>Mon–Fri 9–5 Eastern · {EMAIL}</p>
+              <p className="sf-mono" style={{ marginTop: 16 }}>{EMAIL}</p>
             </div>
             <div className="sf-c7">
               <div className="desk-card sf-desk-panel">

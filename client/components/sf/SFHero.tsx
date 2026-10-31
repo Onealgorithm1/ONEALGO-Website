@@ -83,7 +83,7 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
         )}
         {proof && (
           <p className="sf-proof sf-mono sf-hero-proof">
-            Salesforce's AppExchange record of us: <b>{SF_CERTIFIED_PEOPLE}</b> certified people · <b>{SF_CERTIFICATIONS}</b> certifications · <b>{SF_PLATFORM_CERTS}</b> Platform · read {SF_VERIFIED_LABEL}{" "}
+            Salesforce's AppExchange record of us: <b>{SF_CERTIFIED_PEOPLE}</b> certified people · <b>{SF_CERTIFICATIONS}</b> certifications · read {SF_VERIFIED_LABEL}{" "}
             <Verify id="appexchange" />
           </p>
         )}

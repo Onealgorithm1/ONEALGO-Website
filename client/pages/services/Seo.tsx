@@ -343,7 +343,7 @@ export default function Seo() {
             <article className="seo-lift" data-reveal="">
               <p className="sf-kicker">Nearby</p>
               <h3 className="sf-h3" id="h-nearby">Based in Malvern, PA</h3>
-              <p>Our office is on Swedesford Road, inside Chester County. We serve Philadelphia businesses from Malvern; we have no Philadelphia client result to show, and we do not claim one.</p>
+              <p>Our office is in Malvern, inside Chester County. We serve Philadelphia businesses from Malvern; we have no Philadelphia client result to show, and we do not claim one.</p>
               <div className="sf-links">
                 <Link className="sf-link" to="/services/seo-chester-county">SEO company in Chester County</Link>
                 <Link className="sf-link" to="/services/google-ads">Google Ads management</Link>

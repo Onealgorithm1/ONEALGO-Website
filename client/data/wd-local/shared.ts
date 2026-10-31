@@ -5,10 +5,9 @@ import type { Stage } from "../../components/sf/StageRail";
 /** One NAP everywhere (structure-spec.md §8.1). Hours: Mon-Fri 9-5 (StructuredData.tsx, GBP). */
 export const NAP = {
   name: "OneAlgorithm",
-  l1: "625 Swedesford Rd, Unit B",
-  l2: "Malvern, PA 19355",
+  l1: "Malvern, PA",
+  l2: "(610) 890-9711",
   phone: { display: "(610) 890-9711", href: "tel:+16108909711" },
-  hours: "Mon–Fri 9–5",
   map: "https://maps.app.goo.gl/kVEeTz9dCyB64CGk6",
 } as const;
 

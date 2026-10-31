@@ -8,7 +8,6 @@ import { PrimaryCTA } from "./site";
 const RECORD = [
   { figure: String(SF_CERTIFIED_PEOPLE), label: "Salesforce-certified people", short: "certified people" },
   { figure: String(SF_CERTIFICATIONS), label: "Salesforce certifications held", short: "certifications" },
-  { figure: String(SF_PLATFORM_CERTS), label: "of them on the Platform competency", short: "on Platform" },
 ];
 
 export function SalesforceRecordCard() {
@@ -87,8 +86,7 @@ export function RecordLine({ extra }: { extra?: React.ReactNode }) {
       </span>
       <Dot />
       <span>
-        <b className="font-medium tabular-nums text-oa-ink">{SF_CERTIFICATIONS}</b> certifications,{" "}
-        <b className="font-medium tabular-nums text-oa-ink">{SF_PLATFORM_CERTS}</b> Platform
+        <b className="font-medium tabular-nums text-oa-ink">{SF_CERTIFICATIONS}</b> certifications
       </span>
       <Dot />
       <span>listing {SF_LISTING_ID}</span>

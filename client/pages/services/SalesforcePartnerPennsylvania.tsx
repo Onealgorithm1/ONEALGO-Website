@@ -133,7 +133,7 @@ const CHECKS: Stage[] = [
     details: [
       "Salesforce groups certifications into competencies",
       "Each competency is rated on certifications, completed projects and customer satisfaction",
-      `Ours: ${SF_PLATFORM_CERTS} of ${SF_CERTIFICATIONS} certifications on the Platform competency, 7 on Agentforce`,
+      `Ours: ${SF_CERTIFICATIONS} certifications, 7 of them on Agentforce`,
     ],
   },
   {
@@ -386,7 +386,7 @@ export default function SalesforcePartnerPennsylvania() {
           heading={{
             id: "h-record",
             title: "What you will find when you check OneAlgorithm",
-            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a {SF_TIER} Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</>,
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a {SF_TIER} Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</>,
           }}
         >
           <Readouts withEvidence={false} />
@@ -405,7 +405,7 @@ export default function SalesforcePartnerPennsylvania() {
               <DeliveredLedger />
               <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
               <GoDeeper label="our listing, line by line">
-                <p className="sf-rule">Listed as a {SF_TIER} Consulting Partner in AppExchange Partner Finder, listing {SF_LISTING_ID}, with the office in Malvern, Chester County, Pennsylvania. Salesforce counts our people and certifications against its competencies: {SF_CERTIFICATIONS} certifications, including {SF_PLATFORM_CERTS} Platform, 7 Agentforce and 1 Data 360 (read {SF_VERIFIED_LABEL}).</p>
+                <p className="sf-rule">Listed as a {SF_TIER} Consulting Partner in AppExchange Partner Finder, listing {SF_LISTING_ID}, with the office in Malvern, Chester County, Pennsylvania. Salesforce counts our people and certifications against its competencies: {SF_CERTIFICATIONS} certifications, including 7 Agentforce and 1 Data 360 (read {SF_VERIFIED_LABEL}).</p>
                 <p>Open the listing and compare it line by line; the Verify buttons above show what we read and when.</p>
               </GoDeeper>
             </SmartUnit>
@@ -436,7 +436,7 @@ export default function SalesforcePartnerPennsylvania() {
           >
             <GoDeeper label="visits and the Malvern office">
               <p className="sf-rule">Salesforce work happens inside your org, so distance changes little. For larger projects elsewhere in Pennsylvania, on-site visits such as kickoff, go-live or training are planned into the project.</p>
-              <p>Our office: 625 Swedesford Rd, Unit B, Malvern, PA 19355, in Chester County.</p>
+              <p>Our office: Malvern, PA, in Chester County.</p>
             </GoDeeper>
           </SmartUnit>
           <LedgerRule as="aside" className="sf-c5" delay={0.08} aria-labelledby="h-pa-pages">
@@ -496,7 +496,6 @@ export default function SalesforcePartnerPennsylvania() {
             { th: "Partner tier", td: SF_TIER },
             { th: "Salesforce-certified people", td: SF_CERTIFIED_PEOPLE },
             { th: "Certifications held", td: SF_CERTIFICATIONS },
-            { th: "On the Platform competency", td: SF_PLATFORM_CERTS },
             { th: "Listing", td: SF_LISTING_ID },
             { th: "Read on", td: SF_VERIFIED_LABEL },
             { th: "Source", td: "appexchange.salesforce.com" },

@@ -193,7 +193,8 @@ async function main() {
          render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
          caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
          state (rules drawn, figures final, numbers real); the client replays from it. */
-      if (route.startsWith("/services/salesforce") || route === "/contact" || route.split("?")[0] === "/services/website-development" || route.startsWith("/services/web-design-") || WD_SERVICE.has(route)) { // /contact is on the v2 kit too (2026-10-23)
+      // 2026-10-31: every route, not just the v2 kit - staff augmentation printed "0" for its counters.
+      {
         await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
       }
 

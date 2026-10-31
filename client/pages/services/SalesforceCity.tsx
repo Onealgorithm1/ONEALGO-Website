@@ -180,7 +180,7 @@ function buildFaqs(c: City, who: string): CityFaqRow[] {
   return [
     {
       q: `Do you have an office in ${c.name}?`,
-      a: `No. We take on Salesforce work for ${who} remotely from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most of the work runs inside your org over video and screen-share; on larger projects, on-site visits for kickoff, go-live or training are planned into the project.`,
+      a: `No. We take on Salesforce work for ${who} remotely from our office in Malvern, PA. Most of the work runs inside your org over video and screen-share; on larger projects, on-site visits for kickoff, go-live or training are planned into the project.`,
       schema: false,
     },
     ...copy.faqs,
@@ -387,7 +387,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             points={copy.answer.points}
           >
             <GoDeeper label={`how a ${c.name} engagement runs remotely`}>
-              <p className="sf-rule">Salesforce work happens inside the org, not in a room, so we run {who.replace(/ (companies|organizations)$/, "")} projects from our office at 625 Swedesford Rd, Unit B, Malvern, PA, over video and screen-share.</p>
+              <p className="sf-rule">Salesforce work happens inside the org, not in a room, so we run {who.replace(/ (companies|organizations)$/, "")} projects from our office in Malvern, PA, over video and screen-share.</p>
               {copy.siblings.length > 0 && <p>The nearest of our other city pages is <Link className="sf-link" to={copy.siblings[0].to}>{copy.siblings[0].label}</Link>.</p>}
               <div className="sf-links">
                 <Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link>
@@ -422,7 +422,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             style={{ alignSelf: "start" }}
           >
             <GoDeeper label="our own record, checked the same way">
-              <p className="sf-rule">Ours is AppExchange listing {SF_LISTING_ID}, a Select Consulting Partner record: Salesforce lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</p>
+              <p className="sf-rule">Ours is AppExchange listing {SF_LISTING_ID}, a Select Consulting Partner record: Salesforce lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</p>
               <div className="sf-links">
                 <Verify id="appexchange">Check our AppExchange record</Verify>
                 <Link className="sf-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a Salesforce partner</Link>

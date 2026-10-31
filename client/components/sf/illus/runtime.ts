@@ -33,6 +33,7 @@ const fmt = (n: number, dec: number) => n.toLocaleString("en-US", { minimumFract
 
 /** Tween data-count from 0 to its value (power1.out by default); the element already shows the final value. */
 export function countUp(el: HTMLElement, o: { dur?: number; delay?: number; ease?: keyof typeof EASE } = {}) {
+  if ((window as { __oaPrerender?: boolean }).__oaPrerender) return; // prerender keeps the final value
   const to = +el.getAttribute("data-count")!, dec = +(el.getAttribute("data-dec") || 0), dur = o.dur || 900, delay = o.delay || 0, ease = EASE[o.ease || "out"];
   const root = el.closest<HTMLElement>(".illus"), scrub = root && root.getAttribute("data-scrub");
   if (root && root.getAttribute("data-counters") === "off") return;

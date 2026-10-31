@@ -80,7 +80,7 @@ const UNITS: IndUnit[] = [
     lead: "We work on WooCommerce and custom builds, and on the systems around the store.",
     deepLabel: "platforms we do and do not work on",
     deep: (<>
-      <p className="sf-rule">A page that implied a partnership would be easy to check. Sometimes a replatform is the right answer, and we will say so. Meet the four of us on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">A page that implied a partnership would be easy to check. Sometimes a replatform is the right answer, and we will say so. The team that would build it is introduced on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];

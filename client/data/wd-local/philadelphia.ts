@@ -123,7 +123,7 @@ export const PHILADELPHIA: LocalPlace = {
       kind: "office",
       id: "office",
       h2: "Our Malvern office, 25 miles from Center City",
-      lede: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City.",
+      lede: "Our office is in Malvern, PA, about 25 miles west of Center City.",
       leadIn: "The bottom line:",
       lead: "most work is remote, and in-person sessions are easiest across the Philadelphia region when the project calls for them.",
       question: {
@@ -135,7 +135,7 @@ export const PHILADELPHIA: LocalPlace = {
         label: "visits, calls and where the work happens",
         paras: [
           "Calls and screen-shares cover most of a build, and you review the work in your own browser between them. When a decision is easier in a room, such as a kickoff with several people or a content workshop, we plan the session into the schedule.",
-          "The office is open Monday to Friday, 9 to 5, and the phone rings there. One address and one number: calls are answered in that office, during those hours.",
+          "The phone rings in our Malvern office. One office and one number.",
         ],
       },
     },

@@ -854,7 +854,7 @@ export const PLACE: LocalPlace = {
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 2,099 programming firms here keep.",
    "question": {
     "q": "Where is your office?",
-    "a": "At 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most work runs remotely, and in-person sessions are easiest across the Philadelphia region when a project calls for them."
+    "a": "In Malvern, PA. Most work runs remotely, and in-person sessions are easiest across the Philadelphia region when a project calls for them."
    },
    "plateNote": "SIX COUNTIES IN OUR BUSINESS PROFILE",
    "deeper": {

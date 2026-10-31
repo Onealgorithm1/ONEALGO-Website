@@ -1284,7 +1284,7 @@ function Layout({ children }: LayoutProps) {
                 to="/capabilities#verify-credentials"
                 className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
               >
-                We participate in E-Verify
+                Our own employees are verified through E-Verify.
               </Link>
             </p>
 

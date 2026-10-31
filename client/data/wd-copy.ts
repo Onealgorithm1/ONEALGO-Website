@@ -205,10 +205,9 @@ export const LOCAL_LINKS = [
 /** U15: the NAP band (companyProfile / StructuredData values; the service area as Google has it). */
 export const NAP = {
   name: "OneAlgorithm",
-  l1: "625 Swedesford Rd, Unit B",
-  l2: "Malvern, PA 19355",
+  l1: "Malvern, PA",
+  l2: "(610) 890-9711",
   phone: { display: "(610) 890-9711", href: "tel:+16108909711" },
-  hours: "Mon–Fri 9–5",
   counties: ["Chester County, PA", "Delaware County, PA", "Montgomery County, PA", "Bucks County, PA", "Philadelphia County, PA", "New Castle County, DE"],
   travel: "Most work runs remotely; in-person sessions when the project calls for them, easiest across the Philadelphia region.",
 };

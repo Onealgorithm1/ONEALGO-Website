@@ -942,8 +942,7 @@ export function CTAProof({ tone = "dark", className = "" }: { tone?: "light" | "
         dark ? "border-white/10 text-oa-nightInk3" : "border-oa-hairline text-oa-ink3"
       } ${className}`}
     >
-      Listed Salesforce Consulting Partner · {SF_CERTIFIED_PEOPLE} certified people · {SF_CERTIFICATIONS} certifications (
-      {SF_PLATFORM_CERTS} Platform) · read {SF_VERIFIED_LABEL} ·{" "}
+      Listed Salesforce Consulting Partner · {SF_CERTIFIED_PEOPLE} certified people · {SF_CERTIFICATIONS} certifications · read {SF_VERIFIED_LABEL} ·{" "}
       <a className="oa-link -my-2.5 inline-flex min-h-11 items-center" href={SF_APPEXCHANGE_URL} target="_blank" rel="noopener noreferrer">
         Verify listing {SF_LISTING_ID} ↗
       </a>

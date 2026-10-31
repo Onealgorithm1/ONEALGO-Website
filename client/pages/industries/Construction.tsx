@@ -69,7 +69,7 @@ const UNITS: IndUnit[] = [
     lead: "We have published no construction case study; the nearest pattern is an unnamed SAP-to-Salesforce sync.",
     deepLabel: "what that means for you",
     deep: (<>
-      <p className="sf-rule">We do not sell construction software, and we will not imply a construction client. We are useful once a business already owns its tools and they do not work together, or when it needs something nobody sells. Meet the four of us on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">We do not sell construction software, and we will not imply a construction client. We are useful once a business already owns its tools and they do not work together, or when it needs something nobody sells. The four people who do the work are on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
@@ -80,7 +80,7 @@ const FAQS: SfFaqItem[] = [
   { q: "What does construction software implementation involve?", a: "It usually covers configuration, data migration, integration, training and support. We scope it after a short review of the systems you already own, so the plan names the records, the owners and the order of work rather than promising a platform swap." },
   { q: "Do you sell construction software?", a: "No. We do not sell or resell construction software. We connect the tools you already run and build custom pieces when nothing on the market fits, which keeps our advice independent of any vendor and your data in your own accounts." },
   { q: "Can Salesforce track bids and general contractors?", a: "Yes. Bid pipelines, owner and general contractor histories and proposal follow-up are standard Salesforce configuration. We are a Select Salesforce Consulting Partner, and we would connect it to your estimating tool so bids are entered once. Bid status, contractor history and follow-up dates would sit on one record per opportunity.", link: { to: "/services/salesforce", label: "Salesforce consulting" } },
-  { q: "What drives the cost of an integration?", a: "Four things: how many systems are involved, whether each has an API or only an export, how clean the data is, and how many records must be reconciled. We scope it in writing before work starts, and we give no figure until we have seen the systems." },
+  { q: "What drives the cost of an integration?", a: "Four things: how many systems are involved, whether each has an API or only an export, how clean the data is, and how many records must be reconciled. The scope is written down before work starts, and the price waits until we have looked at the systems involved." },
   { q: "How long does an integration take?", a: "It depends on both systems, and it is set only after discovery, once we have listed the systems and the fields that must sync. Name the two systems that disagree and we will tell you what we would check first and what could slow the work." },
   { q: "Who owns the integration afterwards?", a: "You do. The mapping, the documentation and the accounts are in your name from day one, and we hand them over. If you want us to keep running it, we can maintain it under our 24/7 support, but you are never locked in." },
   { q: "Can you add a developer to our team?", a: "Yes. A senior developer or integration engineer can work inside your team on your tools for a sprint or a year. We agree the role, the hours and the end date in writing first, and the same person stays on throughout.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },

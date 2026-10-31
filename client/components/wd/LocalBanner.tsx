@@ -25,7 +25,7 @@ export function LocalBanner({ place, photo }: { place: LocalPlace; photo?: Place
       <div className="sf-wrap wd-local-banner wd-local-banner-plate">
         <RegionPlate fig={1} counties={[place.name, "Malvern, PA"]} officeTile={1} office={{ l1: NAP.l1, l2: NAP.l2 }}
           stamp={`${place.name} and the office · schematic, not to scale`}
-          caption={`Schematic: ${place.name}, worked remotely from our office at ${NAP.l1}, ${NAP.l2}.`} />
+          caption={`Schematic: ${place.name}, worked remotely from our office in ${NAP.l1}.`} />
       </div>
     );
   }
