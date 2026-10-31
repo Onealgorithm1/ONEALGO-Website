@@ -104,7 +104,14 @@ export default function Industries() {
       <IndBody
         crumbs={[{ label: "Industries" }]}
         base={[{ label: "Home", to: "/" }]}
+        plate={{
+          title: "Diagram: Same work, six rooms",
+          left: ["Construction", "Manufacturing", "E-commerce and government"], hub: ["One consultancy", "Same work, six rooms"], right: ["Integration", "Platform work", "Web work"],
+          caption: "A diagram of the hub: the sectors on the left, the same kind of work on the right.", stamp: "Same work, six rooms",
+        }}
         units={UNITS}
+        childrenFirst
+        sources={[{ name: "Google Search Console, Phantom Arcades property", what: "Google clicks 1,112 to 2,130 (+92%) over 13 Aug to 19 Oct 2026 against the same 68 days in 2025; the client owns the property", read: "read 31 October 2026" }]}
         faqHeading="Industry questions buyers ask"
         faqs={FAQS}
         desk={{

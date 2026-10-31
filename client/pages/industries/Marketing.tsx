@@ -132,6 +132,11 @@ export default function Marketing() {
       <IndBody
         crumbs={[{ label: "Marketing" }]}
         base={[{ label: "Home", to: "/" }, { label: "Industries", to: "/industries" }]}
+        plate={{
+          title: "Diagram: Spend joined to results",
+          left: ["Social accounts", "Campaign platform", "CRM and analytics"], hub: ["What we do", "Spend joined to results"], right: ["Channels managed on your accounts", "One customer record", "Reports that join spend to revenue"],
+          caption: "A diagram of the work: the channels and tools a marketing team runs, joined so results can be read.", stamp: "Spend joined to results",
+        }}
         units={UNITS}
         facts={{
           heading: "Marketing firms by the numbers",

@@ -45,7 +45,7 @@ const IDENTIFIERS: [string, string][] = [
 const FEDERAL: [string, string][] = [
   ["SAM.gov", procurementRegistrations.federal.sam_gov],
   ["FedConnect", procurementRegistrations.federal.fedConnect],
-  ["GSA eBuy", procurementRegistrations.federal.gsa_ebuy],
+  ["GSA Schedule", "None"],
 ];
 
 const cell: React.CSSProperties = { textAlign: "left", verticalAlign: "top", padding: "12px 16px 12px 0", borderTop: "1px solid var(--hair-s)" };
@@ -97,7 +97,7 @@ const UNITS: IndUnit[] = [
     points: [`Teaming agreement with ${jointVenturePartner.name}`, `Bonding capacity ${complianceProfile.bondingCapacity}`, "Open to mentor-protégé and subcontract roles"],
     deepLabel: "the teaming agreement",
     deep: (<>
-      <p className="sf-rule">{jointVenturePartner.name} is a veteran-owned small business ({jointVenturePartner.cage}, {jointVenturePartner.uei}, SAM registration active). Ours is a teaming agreement, not a joint venture: there is no separate JV entity.</p>
+      <p className="sf-rule">{jointVenturePartner.name} is a veteran-owned small business, SAM registration active.</p>
       <div className="sf-links"><Link className={L} to="/capabilities">Capability statement</Link></div>
     </>),
   },
@@ -109,7 +109,7 @@ const FAQS: SfFaqItem[] = [
   { q: "What is a WOSB set-aside?", a: "A contract limited to certified women-owned small businesses. The statutory goal is 5 percent of prime dollars, and fiscal 2025 reached 4.52 percent." },
   { q: "What qualifies as a small business for government contracts?", a: "Size is set per NAICS code by the SBA. Check our primary code and size standard in SAM, using the UEI above." },
   { q: "Do you hold a security clearance?", a: "No. We have held no clearance; one is normally sponsored by an awarded contract." },
-  { q: "Which procurement vehicles are you on?", a: "SAM.gov and FedConnect, with GSA eBuy pending, plus the Pennsylvania DGS and other state registrations listed on this page." },
+  { q: "Which procurement vehicles are you on?", a: "SAM.gov and FedConnect, with no GSA Schedule, plus the Pennsylvania DGS and other state registrations listed on this page." },
   { q: "What do you deliver for government buyers?", a: "Salesforce configuration, IT modernization, data work and technical staffing. We list them as capabilities, not as past agency work." },
   { q: "How can a contracting officer verify you?", a: "Search SAM.gov by UEI W8DYK38MEKP3 or CAGE 14G18, or open the capability statement from the top of this page." },
 ];
@@ -162,6 +162,11 @@ export default function Government() {
       <IndBody
         crumbs={[{ label: "Government" }]}
         base={[{ label: "Home", to: "/" }, { label: "Industries", to: "/industries" }]}
+        plate={{
+          title: "Diagram: Registered and eligible",
+          left: ["SAM.gov registration", "SBA certification", "NAICS codes"], hub: ["What you can verify", "Registered and eligible"], right: ["Identifiers a buyer looks up", "Capabilities, as capabilities", "Teaming and subcontract roles"],
+          caption: "A diagram of the page: registries outside this company, and what a buyer can check in each.", stamp: "Registered and eligible",
+        }}
         units={UNITS}
         facts={{
           heading: "Federal small business goals",
@@ -172,6 +177,12 @@ export default function Government() {
             { label: "Service-disabled veteran-owned: goal / actual", value: "5% / 5.01%" },
             { label: "HUBZone: goal / actual", value: "3% / 2.66%" },
           ],
+          bars: { aLabel: "Statutory goal", bLabel: "FY2025 actual", rows: [
+            { label: "Small business", a: 23, b: 27.58 },
+            { label: "Women-owned small business", a: 5, b: 4.52 },
+            { label: "Service-disabled veteran-owned", a: 5, b: 5.01 },
+            { label: "HUBZone", a: 3, b: 2.66 },
+          ] },
           read: "CRS In Focus IN12018 quoting SBA, read 31 October 2026",
           sources: [{ name: "Congressional Research Service, In Focus IN12018 (30 June 2026), quoting the SBA FY2025 scorecard", what: "Statutory prime contracting goals and FY2025 results. The SBA scorecard page itself was not opened; the figures are as quoted by CRS.", read: "read 31 October 2026", page: "https://www.everycrsreport.com/files/2026-06-30_IN12018_6f51fa7436a86cc7af2612ae5a6aeea0ce180c18.html" }],
         }}
@@ -203,23 +214,20 @@ export default function Government() {
               <tbody>{FEDERAL.map(([k, v]) => <tr key={k}><th scope="row" style={{ ...cell, fontWeight: 400, color: "var(--ink2)" }}>{k}</th><td style={{ ...cell, fontWeight: 600 }}>{v}</td></tr>)}</tbody>
             </table>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c8" delay={0.08} measure={false} title="State, local and cooperative" lede="State and cooperative registrations, with a Pennsylvania DGS supplier number (35896) and Virginia SWaM certification.">
+          <SmartUnit level={3} className="sf-c8" delay={0.08} measure={false} title="State, local and cooperative" lede="State and cooperative registrations, with a Pennsylvania DGS registration and Virginia SWaM certification.">
             <GoDeeper label="all state, local and cooperative registrations">
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <caption className="sr-only">State, local and cooperative registrations</caption>
-                <tbody>{procurementRegistrations.stateAndLocal.map((r) => <tr key={r.label}><th scope="row" style={{ ...cell, fontWeight: 400, color: "var(--ink2)" }}>{r.label}</th><td style={{ ...cell, fontWeight: 600, wordBreak: "break-word" }}>{r.value}</td></tr>)}</tbody>
+                <tbody>{procurementRegistrations.stateAndLocal.filter((r) => !/OhioBuys|BidNet|eProcure|COMMBUYS/i.test(r.label)).map(((r) => (/DGS/i.test(r.label) ? { ...r, value: "0000561511" } : r)) as (r: any) => any).map((r) => <tr key={r.label}><th scope="row" style={{ ...cell, fontWeight: 400, color: "var(--ink2)" }}>{r.label}</th><td style={{ ...cell, fontWeight: 600, wordBreak: "break-word" }}>{r.value}</td></tr>)}</tbody>
               </table>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
 
-        <SmartSection id="codes" tone="surface" grid heading={{ id: "h-codes", title: "Registered NAICS and PSC codes", lede: `${siteConfig.codes.naics.length} NAICS and ${siteConfig.codes.psc.length} PSC codes, read from our SAM record.` }}>
+        <SmartSection id="codes" tone="surface" grid heading={{ id: "h-codes", title: "Registered NAICS codes", lede: `${siteConfig.codes.naics.length} NAICS and ${siteConfig.codes.psc.length} PSC codes, read from our SAM record.` }}>
           <SmartUnit level={3} className="sf-c6" measure={false} title="NAICS codes" lede="The primary codes, with titles.">
             <ul className="sf-points sf-mono">{NAICS_PRIMARY.map((c) => <li key={c}>{c} — {NAICS_TITLES[c]}</li>)}</ul>
             {NAICS_OTHER.length > 0 && <p>Also registered: {NAICS_OTHER.join(", ")}</p>}
-          </SmartUnit>
-          <SmartUnit level={3} className="sf-c6" delay={0.08} measure={false} title="PSC codes" lede="Product and service codes.">
-            <ul className="sf-points sf-mono">{siteConfig.codes.psc.map((c) => <li key={c}>{c}</li>)}</ul>
           </SmartUnit>
         </SmartSection>
       </IndBody>

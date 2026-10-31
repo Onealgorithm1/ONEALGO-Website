@@ -110,8 +110,6 @@ export default function Manufacturing() {
         panel={{
           title: "What that means in practice",
           items: [
-            "SCADA and industrial IoT integration",
-            "OT-to-IT network and security work",
             "Production reporting from real sources",
             "Maintenance systems, scoped honestly",
             "Engineers added to your team",
@@ -128,6 +126,11 @@ export default function Manufacturing() {
       <IndBody
         crumbs={[{ label: "Manufacturing" }]}
         base={[{ label: "Home", to: "/" }, { label: "Industries", to: "/industries" }]}
+        plate={{
+          title: "Diagram: One place the number is read",
+          left: ["ERP and back office", "Equipment data source", "Reporting tools"], hub: ["What we do", "One place the number is read"], right: ["Integration between systems", "Production reports from real sources", "Engineers on your team"],
+          caption: "A diagram of the work: the systems behind a plant, joined at one agreed place for each number.", stamp: "One place the number is read",
+        }}
         units={UNITS}
         facts={{
           heading: "Manufacturing by the numbers",

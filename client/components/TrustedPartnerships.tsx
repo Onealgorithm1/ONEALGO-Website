@@ -117,7 +117,6 @@ const PLATFORMS: Mark[] = [
 /* Worked on, but shown as type: no official mark exists from a citable source,
    and an approximated one is worse than an honest word. */
 const NO_MARK = [
-  "MuleSoft",
   "Aircall",
   "Hootsuite",
   "Metricool",

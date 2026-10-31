@@ -137,6 +137,11 @@ export default function ECommerce() {
       <IndBody
         crumbs={[{ label: "E-Commerce" }]}
         base={[{ label: "Home", to: "/" }, { label: "Industries", to: "/industries" }]}
+        plate={{
+          title: "Diagram: One source of truth per record",
+          left: ["Store", "Stock and payments", "Ledger and help desk"], hub: ["What we do", "One source of truth per record"], right: ["Orders flow after checkout", "Payments reconciled", "Tickets that see the order"],
+          caption: "A diagram of the work: the store and the systems behind it, joined by one source of truth per record.", stamp: "One source of truth per record",
+        }}
         units={UNITS}
         facts={{
           heading: "E-commerce by the numbers",
@@ -146,6 +151,12 @@ export default function ECommerce() {
             { label: "Share of total retail sales", value: "17.1%" },
             { label: "Change from Q2 2025", value: "+12.2%" },
             { label: "Electronic shopping and mail-order houses (NAICS 4541), 2023", value: "54,707 establishments" },
+          ],
+          band: [
+            { num: "$340.2", label: "billion: US retail e-commerce, Q2 2026 (seasonally adjusted)" },
+            { num: "17.1%", label: "Share of total retail sales" },
+            { num: "+12.2%", label: "Change from Q2 2025" },
+            { num: "54,707", label: "Online-only retail establishments (NAICS 4541), 2023" },
           ],
           read: "U.S. Census Bureau, read 31 October 2026",
           note: "The 54,707 count covers only retailers classed as online-only; most online sales come from stores classed elsewhere.",

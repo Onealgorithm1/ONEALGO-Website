@@ -137,6 +137,11 @@ export default function Construction() {
       <IndBody
         crumbs={[{ label: "Construction" }]}
         base={[{ label: "Home", to: "/" }, { label: "Industries", to: "/industries" }]}
+        plate={{
+          title: "Diagram: One agreed job record",
+          left: ["Field app", "Estimating tool", "Accounting package"], hub: ["What we do", "One agreed job record"], right: ["One job number everywhere", "Cost codes that match", "Reports across systems"],
+          caption: "A diagram of the work: the systems a firm already owns, joined by an agreed record of the job.", stamp: "One agreed job record",
+        }}
         units={UNITS}
         facts={{
           heading: "Construction by the numbers",

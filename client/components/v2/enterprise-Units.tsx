@@ -14,8 +14,8 @@ export type EUnit = {
   leadIn?: LeadIn;
   points?: string[];
   /** Completes "Go deeper: ..." */
-  label: string;
-  deep: React.ReactNode;
+  label?: string;
+  deep?: React.ReactNode;
 };
 
 export function EnterpriseRow({ id, tone = "paper", units, heading, cols }: { id: string; tone?: Tone; units: EUnit[]; heading?: { id: string; title: string; lede: string }; cols?: "sf-c3" | "sf-c4" | "sf-c6" | "sf-c8" }) {
@@ -37,7 +37,7 @@ export function EnterpriseRow({ id, tone = "paper", units, heading, cols }: { id
           leadIn={u.leadIn}
           points={u.points}
         >
-          <GoDeeper label={u.label}>{u.deep}</GoDeeper>
+          {u.deep && u.label && <GoDeeper label={u.label}>{u.deep}</GoDeeper>}
         </SmartUnit>
       ))}
     </SmartSection>
