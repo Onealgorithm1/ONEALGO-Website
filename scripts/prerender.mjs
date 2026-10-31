@@ -393,12 +393,17 @@ async function main() {
         );
       }
 
-      const hiddenOpacity = (html.match(/opacity:\s*0(?![.\d])/g) || []).length;
-      const hiddenShift = (html.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
+      // ponytail: scan element markup only. <style> blocks hold CSS-only scroll animations (animation-timeline: view(),
+      // gated by prefers-reduced-motion) whose keyframes legitimately contain opacity:0 / translateY / scale(0); the bug this
+      // guard exists for is JS-written INLINE styles captured mid-reveal. Ceiling: a <style> rule that hides content
+      // without any animation would pass; the brevity/visual gates are the backstop.
+      const markup = html.replace(/<style[^>]*>[\s\S]*?<\/style>/g, "");
+      const hiddenOpacity = (markup.match(/opacity:\s*0(?![.\d])/g) || []).length;
+      const hiddenShift = (markup.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
       // 2026-10-23, Salesforce plate system: rails and nodes grow from
       // scale(0). They are CSS-only (no inline style), so this must stay 0; an
       // inline scale(0) in the static HTML means something was captured mid-grow.
-      const hiddenScale = (html.match(/transform:\s*scale[XY]?\(\s*0\s*\)/g) || []).length;
+      const hiddenScale = (markup.match(/transform:\s*scale[XY]?\(\s*0\s*\)/g) || []).length;
       if (hiddenOpacity || hiddenShift || hiddenScale) {
         throw new Error(
           `ships content hidden without JS (opacity:0 ×${hiddenOpacity}, translateY ×${hiddenShift}, scale(0) ×${hiddenScale}) — ` +
