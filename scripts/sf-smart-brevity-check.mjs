@@ -23,7 +23,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist", "spa", "services");
 const strict = process.argv.includes("--strict");
 if (!fs.existsSync(dist)) { console.error("sf-smart-brevity-check: dist/spa/services not found: run the build + prerender first"); process.exit(1); }
-const files = fs.readdirSync(dist).filter((f) => /^salesforce.*\.html$/.test(f)).sort();
+// SF_PAGES: regex over dist/spa/services file names (default: the Salesforce pages). Site-wide v2 pages pass their own, e.g. SF_PAGES='^(seo|google-ads)\.html$'.
+const files = fs.readdirSync(dist).filter((f) => new RegExp(process.env.SF_PAGES || "^salesforce.*\\.html$").test(f)).sort();
 
 const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
 const page = await browser.newPage();
