@@ -257,7 +257,7 @@ function build(pg) {
   const description = C.meta;
   const areaServed = P.kind === "state" ? { "@type": "State", name: P.display, containedInPlace: { "@type": "Country", name: "United States" } } : { "@type": "City", name: P.display === "Washington, DC" ? "Washington" : P.display, containedInPlace: P.st === "DC" ? { "@type": "AdministrativeArea", name: "District of Columbia" } : { "@type": "State", name: P.state } };
   return {
-    slug: pg.id, name: P.display, path: pg.path, kind: P.kind, photo: P.slug,
+    slug: pg.id, name: P.display, path: pg.path, kind: P.kind, photo: WD_SLUG_OF[P.key] ?? P.slug,
     service: { key: S.key, label: S.label, hub: S.hub, hubLabel: S.hubLabel, need: S.need, serviceType: S.serviceType, ogAlt: `${S.og} ${P.display}` },
     ...(F.links.state ? { parent: { label: F.links.state.title.replace(`${S.label} in `, ""), to: F.links.state.to } } : {}),
     seo: { title, description, dateModified: TODAY, ogImage: `/og/places/${pg.id}.jpg` },
@@ -401,7 +401,7 @@ export const SVC_PLACES: SvcPlaceRow[] = ${JSON.stringify(have.map((p) => ({ id:
     let bad = 0;
     for (const pg of built) {
       const out = `${REPO}/public/og/places/${pg.id}.jpg`;
-      const photo = `${REPO}/public/places/${pg.P.slug}-og.jpg`;
+      const photo = `${REPO}/public/places/${WD_SLUG_OF[pg.P.key] ?? pg.P.slug}-og.jpg`;
       const band = Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#04182b" stop-opacity="0"/><stop offset="1" stop-color="#04182b" stop-opacity="0.92"/></linearGradient></defs><rect x="0" y="300" width="1200" height="330" fill="url(#g)"/><rect x="64" y="470" width="56" height="4" fill="#f26a21"/><text x="64" y="540" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" fill="#ffffff">${esc(`${pg.S.og} ${pg.P.display}`)}</text><text x="64" y="586" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#d7e3ef">${esc(pg.S.ogSub)}</text></svg>`);
       const base = fs.existsSync(photo) ? sharp(photo).resize(1200, 630, { fit: "cover" }) : sharp(Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#04182b"/><text x="64" y="140" font-family="Courier New, monospace" font-size="22" fill="#9fb4c8">${esc(`${fmt(pg.P.c.all)} business establishments · Census CBP 2023`)}</text></svg>`));
       await base.composite([{ input: band, left: 0, top: 0 }]).jpeg({ quality: 80, mozjpeg: true, progressive: true }).toFile(out);
