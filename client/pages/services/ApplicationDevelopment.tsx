@@ -13,6 +13,7 @@ import { CaseCard } from "../../components/v2/shared-CaseCard";
 import { OwnershipPlate, ConfiguratorPlate, DecisionPlate } from "../../components/v2/app-dev-Plates";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
+import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 /* /services/application-development. Rebuilt 2026-10-31 in the sf v2 kit (sitewide SEO run, group app-dev);
  * revision round 2 (critic.md): shorter, visual-led, story order sections -> proof -> FAQ -> one Sources line -> CTA last.
@@ -279,6 +280,7 @@ export default function ApplicationDevelopment() {
           </GoDeeper>
         </SmartSection>
 
+        <ServiceCities svc="app-development" title="App development by city and state" lede="App development pages for the places with the most search demand, each built from that place's own Census and search data." />
         <SmartSection id="faq" grid labelledBy="h-faq">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">Custom software questions</h2>

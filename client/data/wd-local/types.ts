@@ -99,6 +99,8 @@ export type LocalPlace = {
   kind?: "city" | "county" | "metro" | "state";
   photo?: string;
   parent?: { label: string; to: string };
+  /** Nationwide service place pages (scripts/svc-local-gen.mjs): which service the page sells. Absent = web design. */
+  service?: { key: string; label: string; hub: string; hubLabel: string; need: string; serviceType: string; ogAlt: string };
   seo: { title: string; description: string; dateModified: string; /** Per-page 1200x630 image (public path); default public/og/<slug>.jpg. */ ogImage?: string };
   hero: { kicker: string; h1: string; lede: string };
   /** Service.areaServed (JSON-LD), e.g. { "@type": "City", name: "Philadelphia", containedInPlace: {...} }. */

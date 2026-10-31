@@ -15,7 +15,8 @@ import type { PlacePhoto } from "../../data/wd-local/photos";
  */
 // import.meta.glob, not a static import: the page still builds while photos.ts is missing (the photo agent writes it).
 const mods = import.meta.glob<{ PLACE_PHOTOS: Record<string, PlacePhoto> }>("../../data/wd-local/photos.ts", { eager: true });
-const PHOTOS: Record<string, PlacePhoto> = Object.values(mods)[0]?.PLACE_PHOTOS ?? {};
+const nw = import.meta.glob<{ PLACE_PHOTOS_NW: Record<string, PlacePhoto> }>("../../data/wd-local/photos-nw.ts", { eager: true });
+const PHOTOS: Record<string, PlacePhoto> = { ...(Object.values(mods)[0]?.PLACE_PHOTOS ?? {}), ...(Object.values(nw)[0]?.PLACE_PHOTOS_NW ?? {}) };
 
 export const placePhoto = (place: LocalPlace): PlacePhoto | undefined => (place.photo ? PHOTOS[place.photo] : undefined);
 

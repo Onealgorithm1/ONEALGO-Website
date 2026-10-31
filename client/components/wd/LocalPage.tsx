@@ -14,6 +14,7 @@ import { CensusSourcesDialog, SearchSourcesDialog } from "./LocalSources";
 import { PhotoCreditDialog, PhotoCreditsLine } from "../sf/PhotoCredit";
 import { Preview } from "../WorkCarousel";
 import { WORK, type WorkItem } from "../../data/work";
+import { SVC_PLACES } from "../../data/svc-local/index";
 import { NAP, COUNTIES, LISTING, STAGES, CENSUS_SOURCES } from "../../data/wd-local/shared";
 import type { LocalPlace, LocalSection, LocalUnitCopy, LocalCard } from "../../data/wd-local/types";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
@@ -253,7 +254,10 @@ export function LocalPage({ place }: { place: LocalPlace }) {
   const [open, setOpen] = React.useState<{ item: WorkItem; opener: HTMLElement } | null>(null);
   const onPreview = React.useCallback((item: WorkItem, opener: HTMLElement) => setOpen({ item, opener }), []);
   const close = React.useCallback(() => setOpen(null), []);
-  const cta = contactHref(`Website · ${place.name}`, place.path, "website");
+  // Nationwide service pages carry `service`; web-design pages keep their original wiring.
+  const sv = place.service ?? { key: "website", label: "Website", hub: "/services/website-development", hubLabel: "Website development", need: "website", serviceType: "Website design and development", ogAlt: `Web design for ${place.name}` };
+  const topicSlug = place.path.split("/").pop()!.replace(/^web-design-/, "");
+  const cta = contactHref(`${sv.label} · ${place.name}`, place.path, sv.need);
   const faq = place.sections.find((s) => s.kind === "faq");
 
   useSEO({
@@ -265,7 +269,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
     ogUrl: getCanonicalUrl(place.path),
     ogImage: OG.url,
     ogImageSize: [OG.width, OG.height],
-    ogImageAlt: place.seo.ogImage ? `Web design for ${place.name}: ${photo?.alt ?? "OneAlgorithm, custom websites built remotely"}` : "OneAlgorithm, web design and development from Malvern, PA",
+    ogImageAlt: place.seo.ogImage ? `${sv.ogAlt}: ${photo?.alt ?? "OneAlgorithm, delivered remotely from Malvern, PA"}` : "OneAlgorithm, web design and development from Malvern, PA",
     twitterTitle: place.seo.title,
     twitterDescription: place.seo.description,
     twitterImage: OG.url,
@@ -278,7 +282,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
   delete lb.priceRange;
   lb.sameAs = [...(lb.sameAs as string[]), NAP.map];
   const service = {
-    "@context": "https://schema.org", "@type": "Service", name: place.hero.h1, serviceType: "Website design and development",
+    "@context": "https://schema.org", "@type": "Service", name: place.hero.h1, serviceType: sv.serviceType,
     description: place.seo.description, url, provider: { "@id": `${SITE}/#org` }, areaServed: place.areaServed,
   };
   const webPage = {
@@ -302,7 +306,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
       <StructuredData data={webPage} />
       {faqLd && <StructuredData data={faqLd} />}
 
-      <SfPage crumbs={[{ label: "Website development", to: "/services/website-development" }, ...(place.parent ? [place.parent] : []), { label: place.name }]} className="wd wd-local">
+      <SfPage crumbs={[{ label: sv.hubLabel, to: sv.hub }, ...(place.parent ? [place.parent] : []), { label: place.name }]} className="wd wd-local">
         <div className="wd-progress" aria-hidden="true" />
 
         <section className="sf-hero sf-hero-wide" aria-labelledby="h1">
@@ -326,8 +330,15 @@ export function LocalPage({ place }: { place: LocalPlace }) {
           return <Block key={s.id} s={s} place={place} tone={tone} onPreview={onPreview} />;
         })}
 
+        {!place.service && (() => {
+          // "Services in this place" strip on the web-design pages: the nationwide SEO / marketing / app / Ads pages for the same place.
+          const st = (place.areaServed as { containedInPlace?: { name?: string } }).containedInPlace?.name;
+          const rows = SVC_PLACES.filter((r) => r.name === place.name && (place.kind === "state" ? r.kind === "state" : r.state === st));
+          return rows.length ? <Block s={{ kind: "routes", id: "services-here", h2: `More services in ${place.name}`, lede: "", items: rows.map((r) => ({ to: r.path, title: r.title, tag: "Same place" })) }} place={place} tone="surface" onPreview={onPreview} /> : null;
+        })()}
+
         <DeskCTA
-          form={{ need: "website", topic: `website-${place.path.split("web-design-")[1]}`, topicLabel: `Website · ${place.name}`, heading: "Start a project", prompt: place.desk.prompt, submitLabel: "Start a project" }}
+          form={{ need: sv.need, topic: place.service ? topicSlug : `website-${topicSlug}`, topicLabel: `${sv.label} · ${place.name}`, heading: "Start a project", prompt: place.desk.prompt, submitLabel: "Start a project" }}
           heading={place.desk.h2}
           lede={place.desk.lede}
           covers={place.desk.covers}

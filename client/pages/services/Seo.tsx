@@ -11,6 +11,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 import { OfferBand } from "../../components/v2/shared-OfferBand";
 import { ProofStrip } from "../../components/v2/shared-ProofStrip";
 import { CaseCard } from "../../components/v2/shared-CaseCard";
+import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 /* /services/seo, v2 body (2026-10-31 site-wide rebuild). THE HERO IS KEPT EXACTLY (same PageHero, same text);
  * everything below it is the sf kit.
@@ -355,6 +356,7 @@ export default function Seo() {
         </SmartSection>
 
         {/* FAQ */}
+        <ServiceCities svc="seo" title="SEO by city and state" lede="SEO pages for the places with the most search demand, each built from that place's own Census and search data." />
         <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">SEO services questions</h2>

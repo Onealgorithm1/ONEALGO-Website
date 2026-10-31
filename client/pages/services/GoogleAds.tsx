@@ -15,6 +15,7 @@ import { CaseCard } from "../../components/v2/shared-CaseCard";
 import { SF_PHONE } from "../../data/salesforceShared";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
+import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 /* /services/google-ads, round 3 (2026-10-31): SEO spec A section 3 + seo-audit + maturity-plan applied on the sf kit.
  *
@@ -317,6 +318,7 @@ export default function GoogleAds() {
         </SmartSection>
 
         {/* FAQ. */}
+        <ServiceCities svc="google-ads" title="Google Ads management by city" lede="Google Ads pages for the metros with the most search demand, each built from that metro's own Census and search data." />
         <SmartSection id="faq" grid labelledBy="h-faq">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">Google Ads questions, answered</h2>

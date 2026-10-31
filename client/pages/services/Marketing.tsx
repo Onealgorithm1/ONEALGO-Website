@@ -12,6 +12,7 @@ import { OfferBand } from "../../components/v2/shared-OfferBand";
 import { ProofStrip } from "../../components/v2/shared-ProofStrip";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
+import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 /* Marketing & Social Media - site-wide v2 rebuild 2026-10-31 (sf kit body, hero kept).
  *
@@ -251,6 +252,7 @@ export default function Marketing() {
           <div style={{ marginTop: 24 }}><SfButton to={CONTACT} cta="related">Tell us what your marketing should do</SfButton></div>
         </SmartSection>
 
+        <ServiceCities svc="marketing" title="Digital marketing by city and state" lede="Marketing pages for the places with the most search demand, each built from that place's own Census and search data." />
         <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">Social media management questions</h2>

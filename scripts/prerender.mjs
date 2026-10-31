@@ -17,7 +17,7 @@ import Beasties from "beasties";
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
 /* The three website-development service pages (2026-10-24) are on the same v2 kit as the hub and the place pages. */
 const WD_SERVICE = new Set(["/services/website-cost", "/services/small-business-website-design", "/services/website-redesign"]);
-const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || WD_SERVICE.has(r);
+const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || SVC_PATHS.has(r) || WD_SERVICE.has(r);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
@@ -81,6 +81,12 @@ const ROUTES = [
 {
   const src = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "client", "data", "wd-local", "places.ts"), "utf8");
   for (const p of JSON.parse(src.slice(src.indexOf("= [") + 2, src.lastIndexOf("];") + 1))) ROUTES.push(p.path);
+}
+/* Nationwide service place pages (scripts/svc-local-gen.mjs): client/data/svc-local/index.ts, the same index App.tsx maps. */
+var SVC_PATHS = new Set();
+{
+  const src = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "client", "data", "svc-local", "index.ts"), "utf8");
+  for (const p of JSON.parse(src.slice(src.indexOf("= [") + 2, src.lastIndexOf("];") + 1))) { ROUTES.push(p.path); SVC_PATHS.add(p.path); }
 }
 
 const TYPES = {
