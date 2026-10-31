@@ -47,7 +47,7 @@ const UNITS: IndUnit[] = [
     deep: (<>
       <p className="sf-rule">A page that implies work we have not done is easy to check and embarrassing to be caught at. So each industry page lists what we do and what we do not.</p>
       <p>Phantom Arcades is the one measured result we print, with its method on the case study.</p>
-      <div className="sf-links"><Link className="sf-link" to="/blog/seo-case-study-phantom-arcades/">Phantom Arcades SEO case study</Link><Link className="sf-link" to="/about">About us</Link></div>
+      <div className="sf-links"><Link className="sf-link" to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className="sf-link" to="/about">About us</Link></div>
     </>),
   },
 ];
@@ -55,7 +55,7 @@ const UNITS: IndUnit[] = [
 const FAQS: SfFaqItem[] = [
   { q: "Which industries do you serve?", a: "We have five industry pages: construction, manufacturing, ecommerce and government, plus one for marketing teams. The same four-person team does the integration, platform and web work in each. If your sector is not listed, the systems are usually the same, so start from the problem on our services page.", link: { to: "/services", label: "All services" } },
   { q: "Are you a construction or manufacturing specialist?", a: "No. We are a small IT consultancy that connects systems, builds websites and implements Salesforce. The construction and manufacturing pages say where that work lands and, just as plainly, what we have not done there. Tell us the two systems that disagree and we will say whether we fit." },
-  { q: "Do you have industry case studies?", a: "One measured result: for Phantom Arcades, an ecommerce store we built, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, read from Search Console. We have no construction or manufacturing case study, and we say so rather than imply one.", link: { to: "/blog/seo-case-study-phantom-arcades/", label: "Phantom Arcades case study" } },
+  { q: "Do you have industry case studies?", a: "One measured result: for Phantom Arcades, an ecommerce store we built, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, read from Search Console. We have no construction or manufacturing case study, and we say so rather than imply one.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
   { q: "Can you work with government agencies?", a: "We are registered in SAM.gov and certified by the SBA, which makes us eligible for set-aside work. We have not been awarded a government contract and hold no security clearance. The government page lists every identifier a contracting officer can check.", link: { to: "/industries/government", label: "Government IT services" } },
   { q: "Do you build ecommerce stores?", a: "Yes, on WooCommerce and custom builds, joined to stock, payments and your accounting system. We have not built a Shopify store and hold no Shopify partnership, so if Shopify is the plan we will tell you early that we are not the right team.", link: { to: "/industries/ecommerce", label: "Ecommerce website development" } },
   { q: "Where are you based?", a: "We are based in Malvern, Pennsylvania, and you can reach us on (610) 890-9711. Most work is remote across the United States, with in-person sessions when a project calls for them. The office address and hours are on the contact page.", link: { to: "/contact", label: "Contact us" } },
@@ -125,7 +125,7 @@ export default function Industries() {
             <CaseBand id="work" tone={tone()} heading="Work we can show by sector"
               lede="Construction and government have no client work to show, and we say so. These are sites we built."
               cases={[
-                { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator, with a measured search result.", result: "Google clicks +92% year on year (Search Console)", to: "/blog/seo-case-study-phantom-arcades/", linkLabel: "Read the SEO case study" },
+                { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator, with a measured search result.", result: "Google clicks +92% year on year (Search Console)", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
                 { title: "Atlas Peptides", built: "A client site we built. We make no further claim about it here." },
                 { title: "The Boards Professor", built: "A site we built for a tutoring business. No results claimed." },
                 { title: "Gorband", built: "A client site we built, with social media managed on the accounts the client owns." },

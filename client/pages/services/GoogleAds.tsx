@@ -311,7 +311,7 @@ export default function GoogleAds() {
         >
           <div className="sf-grid" style={{ marginTop: 32 }}>
             <div className="sf-c5">
-              <CaseCard title="Phantom Arcades" built="Local SEO, measured in Search Console" result="+92% clicks year over year; non-brand clicks +231%" to="/blog/seo-case-study-phantom-arcades/" linkLabel="Read the case study" />
+              <CaseCard title="Phantom Arcades" built="Local SEO, measured in Search Console" result="+92% clicks year over year; non-brand clicks +231%" to="/blog/seo-case-study-phantom-arcades" linkLabel="Read the case study" />
             </div>
           </div>
         </SmartSection>

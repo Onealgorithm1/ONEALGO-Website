@@ -39,7 +39,7 @@ const UNITS: IndUnit[] = [
     deep: (<>
       <p className="sf-rule">For Phantom Arcades we built the WooCommerce store and its arcade configurator. In Google Search Console, clicks rose 92 percent year on year and non-brand clicks 231 percent. The result is clicks, not sales; we report no revenue.</p>
       <p>Atlas Peptides is a client site we built. We make no further claim about it here.</p>
-      <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades/">Phantom Arcades SEO case study</Link><Link className={L} to="/blog/product-configurator-case-study-phantom-arcades">3D product configurator case study</Link></div>
+      <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className={L} to="/blog/product-configurator-case-study-phantom-arcades">3D product configurator case study</Link></div>
     </>),
   },
   {
@@ -152,7 +152,7 @@ export default function ECommerce() {
             <CaseBand id="work" tone={tone()} heading="Work we can show"
               lede="Two stores we built. One has a measured search result, and we print no revenue."
               cases={[
-                { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator.", result: "Google clicks +92%, non-brand +231% (Search Console)", to: "/blog/seo-case-study-phantom-arcades/", linkLabel: "Read the SEO case study" },
+                { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator.", result: "Google clicks +92%, non-brand +231% (Search Console)", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
                 { title: "Atlas Peptides", built: "A client site we built. We make no further claim about it here." },
               ]} />
           ),

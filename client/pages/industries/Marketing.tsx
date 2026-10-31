@@ -65,7 +65,7 @@ const UNITS: IndUnit[] = [
     deepLabel: "the Phantom Arcades result",
     deep: (<>
       <p className="sf-rule">The figures are Google Search Console clicks for the Phantom Arcades site: clicks up 92 percent and non-brand clicks up 231 percent, 13 August to 19 October 2026 against the same 68 days a year earlier. We do not report revenue.</p>
-      <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades/">Phantom Arcades SEO case study</Link><Link className={L} to="/services/seo">SEO services</Link></div>
+      <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className={L} to="/services/seo">SEO services</Link></div>
     </>),
   },
   {
@@ -83,7 +83,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Do you offer white-label web development for agencies?", a: "No. We do not sell white-label web development, and we have no agency-partner program. We work under our own name with the clients we serve directly. If you are an agency with a specific integration need, send the detail and we will say honestly whether it fits." },
   { q: "Do you manage social media for businesses?", a: "Yes. We manage Facebook Pages and Instagram business accounts, always on accounts you own. Gorband is a client site we built. We publish no social media results, so we will not quote a number, but we will report what each channel delivered.", link: { to: "/services/marketing", label: "Social media management services" } },
   { q: "Can you connect our campaign platform to our CRM?", a: "Yes, in principle. Our pattern is Salesforce Marketing Cloud, with about 18 months of recurring support for one client we do not name. We agree which system owns each field, build the sync and report its failures. We do not work on HubSpot.", link: { to: "/services/martech", label: "MarTech consulting" } },
-  { q: "Can you show marketing results?", a: "One: for Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. It is one result, not a pattern, and we claim no revenue. We publish no other client marketing results. The Search Console figures are the source, and the case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades/", label: "Phantom Arcades case study" } },
+  { q: "Can you show marketing results?", a: "One: for Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. It is one result, not a pattern, and we claim no revenue. We publish no other client marketing results. The Search Console figures are the source, and the case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
   { q: "Do you run paid search or social ads?", a: "We offer a method and an audit for Google Ads, explained on our paid media page. We have no ad-account results to show, so we make no claim about them. If you want a review of an account, we will say what we would check.", link: { to: "/services/google-ads", label: "Google Ads management" } },
   { q: "What drives the cost of a MarTech integration?", a: "The number of tools, whether each has an API, how much data moves, the rate limits and who owns each account. Nothing starts without a written scope, and we quote only once we have seen the tools involved." },
   { q: "Who owns the accounts and the data?", a: "You do. Accounts stay in your name from the first day, and integrations are documented and handed over. We work inside your accounts as a partner, and nothing is held in ours that you would need to get back. Ad accounts, analytics properties and CRM records all remain yours if we part ways." },
@@ -143,7 +143,7 @@ export default function Marketing() {
             <CaseBand id="work" tone={tone()} heading="Marketing work we can show"
               lede="One measured search result and one site we built. No other client results are published."
               cases={[
-                { title: "An arcade manufacturer in Florida", built: "Organic search for a store we built, measured in Google Search Console.", result: "Google clicks +92%, non-brand +231%", to: "/blog/seo-case-study-phantom-arcades/", linkLabel: "Read the SEO case study" },
+                { title: "An arcade manufacturer in Florida", built: "Organic search for a store we built, measured in Google Search Console.", result: "Google clicks +92%, non-brand +231%", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
                 { title: "Gorband", built: "A client site we built, with social media managed on accounts the client owns." },
               ]} />
           ),

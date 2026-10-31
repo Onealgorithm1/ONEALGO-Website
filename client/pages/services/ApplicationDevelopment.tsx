@@ -34,7 +34,7 @@ const DESCRIPTION =
   "Portals, internal tools and web apps where the code and cloud accounts are in your name from day one. Built from Malvern, PA. Talk to us: (610) 890-9711.";
 const OG = "https://onealgorithm.com/og-image.jpg";
 const READ = "read 31 October 2026";
-const CONFIGURATOR = "/blog/product-configurator-case-study-phantom-arcades/";
+const CONFIGURATOR = "/blog/product-configurator-case-study-phantom-arcades";
 
 /* ONE consolidated sources dialog for the page. */
 const SOURCES: SfSource[] = [

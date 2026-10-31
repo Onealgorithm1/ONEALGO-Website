@@ -34,7 +34,7 @@ const TITLE = "SEO Company in Chester County, PA | Malvern | OneAlgorithm";
 const DESCRIPTION = "SEO company in Chester County, PA: Business Profile, reviews and technical fixes from our Malvern office. Book an SEO audit: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
-const CASE = "/blog/seo-case-study-phantom-arcades/";
+const CASE = "/blog/seo-case-study-phantom-arcades";
 
 const SOURCES: SfSource[] = [
   { name: "Google Business Profile Help", what: "Local results rest on relevance, distance and prominence; there is no way to request or pay for a better local ranking.", read: `read ${READ_ON}`, page: "https://support.google.com/business/answer/7091" },

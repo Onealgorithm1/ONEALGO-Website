@@ -29,7 +29,7 @@ const TITLE = "SEO Services for Small Business | OneAlgorithm";
 const DESCRIPTION = "SEO services for small business: an audit first, then fixes, content and links you never buy. Search Console reporting. Book an SEO audit: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
-const CASE = "/blog/seo-case-study-phantom-arcades/";
+const CASE = "/blog/seo-case-study-phantom-arcades";
 
 const SOURCES: SfSource[] = [
   { name: "Google Search Central, SEO Starter Guide", what: "Timing of changes (hours to several months); no guarantee a page is indexed; hiring a professional.", read: `read ${READ_ON}`, page: "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },

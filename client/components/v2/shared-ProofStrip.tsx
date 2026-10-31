@@ -42,7 +42,7 @@ export function ProofStrip({ variant = "all", className = "" }: { variant?: "all
               <div className="ps-bar"><i style={{ width: "100%" }} /><span>+231%</span></div>
             </div>
             <p className="sf-mono">Clicks / non-brand clicks</p>
-            <Link className="sf-link ps-link" to="/blog/seo-case-study-phantom-arcades/">Read the case study</Link>
+            <Link className="sf-link ps-link" to="/blog/seo-case-study-phantom-arcades">Read the case study</Link>
           </li>
         )}
         {has("reviews") && (

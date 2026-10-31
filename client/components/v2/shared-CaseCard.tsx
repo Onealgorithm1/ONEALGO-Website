@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 /* Project / case card. Pass `result` only when sourced.
- *   <CaseCard title="Phantom Arcades" built="New site and local SEO" result="+92% clicks (Search Console)" to="/blog/seo-case-study-phantom-arcades/" /> */
+ *   <CaseCard title="Phantom Arcades" built="New site and local SEO" result="+92% clicks (Search Console)" to="/blog/seo-case-study-phantom-arcades" /> */
 const CSS = `
 .sfv2 .cc{position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--surface);border:1px solid var(--hair-s);transition:transform .25s var(--arrive),box-shadow .25s var(--arrive),border-color .25s}
 .sfv2 .cc::before{content:"";position:absolute;left:20px;right:20px;top:-1px;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--draw)}

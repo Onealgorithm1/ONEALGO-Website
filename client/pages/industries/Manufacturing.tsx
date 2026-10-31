@@ -63,7 +63,7 @@ const UNITS: IndUnit[] = [
     deep: (<>
       <p className="sf-rule">Phantom Arcades is a client of ours. Organic clicks rose 92 percent year on year and non-brand clicks 231 percent, read from Google Search Console. We report no revenue.</p>
       <p>A manufacturer with a configurable product has the same problem: the choices have to become a clean order.</p>
-      <div className="sf-links"><Link className={L} to="/blog/product-configurator-case-study-phantom-arcades">3D product configurator case study</Link><Link className={L} to="/blog/seo-case-study-phantom-arcades/">Phantom Arcades SEO case study</Link></div>
+      <div className="sf-links"><Link className={L} to="/blog/product-configurator-case-study-phantom-arcades">3D product configurator case study</Link><Link className={L} to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link></div>
     </>),
   },
   {
@@ -144,7 +144,7 @@ export default function Manufacturing() {
               lede="One product-configuration build, with the result we are allowed to print."
               cases={[
                 { title: "Arcade configurator", built: "A 3D product configurator on WooCommerce that turns choices into an order.", to: "/blog/product-configurator-case-study-phantom-arcades", linkLabel: "Read the configurator case study" },
-                { title: "Arcade manufacturer, Florida: search", built: "Organic search, measured in Google Search Console.", result: "Google clicks +92%, non-brand +231% (Search Console)", to: "/blog/seo-case-study-phantom-arcades/", linkLabel: "Read the SEO case study" },
+                { title: "Arcade manufacturer, Florida: search", built: "Organic search, measured in Google Search Console.", result: "Google clicks +92%, non-brand +231% (Search Console)", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
               ]} />
           ),
         }}
