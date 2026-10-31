@@ -24,7 +24,7 @@ const OFFERS: [string, Offer][] = [
   ["/services/it-consulting", o("Talk to a consultant", "enterprise", CONSULT)],
   ["/services/staff-augmentation", o("Talk to a consultant", "enterprise", CONSULT)],
   ["/services/operational-transformation", o("Talk to a consultant", "enterprise", CONSULT)],
-  ["/industries", o("Talk to a consultant", "enterprise", CONSULT)],
+  ["/industries", o("Talk to us about your industry", "industries", "Tell us what you run; a person replies.")],
 ];
 const DEFAULT = o("Talk to us", "general", "Tell us what you need; a person replies.");
 

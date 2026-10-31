@@ -23,6 +23,7 @@ const SERVICES = [
   "Marketing Services",
   "Staff Augmentation",
   "HR & Staffing Support",
+  "Industry project",
   "Other",
   "SEO",
   "Google Ads",
@@ -103,7 +104,7 @@ export default function Contact() {
       seo: "SEO", "google-ads": "Google Ads", "app-development": "Application Development", marketing: "Marketing Services",
       martech: "MarTech", "it-consulting": "IT Consulting", "staff-augmentation": "Staff Augmentation",
       zendesk: "Zendesk Implementation / Support", "operational-transformation": "Operational Transformation",
-      construction: "Other", manufacturing: "Other", government: "Other", services: "Other", contact: "Other",
+      industries: "Industry project", construction: "Other", manufacturing: "Other", government: "Other", services: "Other", contact: "Other",
     };
     const want = NEED[q.get("need") || ""];
     if (want) setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: want }));
