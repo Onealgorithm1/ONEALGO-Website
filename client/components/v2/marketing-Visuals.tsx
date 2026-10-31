@@ -196,7 +196,7 @@ export function StackPlate({ fig }: { fig: number }) {
   return (
     <Plate fig={fig} title="Diagram: five separate marketing tools on the left, the same tools connected through one customer record on the right"
       desc="On the left, CRM, email, ads, analytics and website each hold their own list and a person exports spreadsheets between them. On the right the same tools read and write one customer record, with duplicates resolved."
-      stamp="From five lists to one record" caption="What a MarTech engagement changes: the tools stay, the wiring between them is built and written down." d={{ vb: [1200, 320], node: d }} m={{ vb: [400, 430], node: m }} />
+      stamp="From five lists to one record" caption="What a MarTech engagement changes: the tools stay, the wiring between them is built and written down." d={{ vb: [1200, 320], node: d }} m={{ vb: [400, 480], node: m }} />
   );
 }
 

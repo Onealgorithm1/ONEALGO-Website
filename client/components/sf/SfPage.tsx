@@ -30,8 +30,8 @@ export function SfPage({ crumbs, children, className = "", base = [{ label: "Hom
   const trail = [...base, ...crumbs];
   return (
     <div ref={ref} className={`sfv2 ${className}`}>
-      <StructuredData data={createBreadcrumbSchema(trail)} />
-      <nav className="sf-crumbs" aria-label="Breadcrumb">
+      {trail.length > 0 && <StructuredData data={createBreadcrumbSchema(trail)} />}
+      {trail.length > 0 && <nav className="sf-crumbs" aria-label="Breadcrumb">
         <div className="sf-wrap">
           <ol className="sf-mono">
             {trail.map((c, i) =>
@@ -43,7 +43,7 @@ export function SfPage({ crumbs, children, className = "", base = [{ label: "Hom
             )}
           </ol>
         </div>
-      </nav>
+      </nav>}
       {children}
     </div>
   );
