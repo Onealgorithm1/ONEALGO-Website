@@ -1,83 +1,36 @@
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
-import { Zap, Database, User2, Megaphone, Target, Plug } from "lucide-react";
+import { PageHero } from "../../components/site";
 import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  CheckList,
-  Split,
-  PrimaryCTA,
-  CTABand,
-  Reveal,
-} from "../../components/site";
+  SfPage, SfButton, SmartSection, SmartUnit, GoDeeper, EvidenceDialog, Verify, DeskCTA, FAQ,
+  type SfFaqItem,
+} from "../../components/sf";
+import { contactHref } from "../../components/sf/DeskCTA";
+import { MarketingLedger } from "../../components/v2/marketing-Ledger";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import {
-  StructuredData,
-  createServiceSchema,
-  createFAQSchema,
-} from "../../components/StructuredData";
+import { StructuredData, createServiceSchema } from "../../components/StructuredData";
 
-/* MarTech services - 2026 refresh.
+/* MarTech services - site-wide v2 rebuild 2026-10-31 (sf kit body, hero kept).
  *
- * Converted onto the shared primitives in components/site.tsx.
- *
- *  1. The closing "MarTech Success Stories" section is DELETED. A heading that
- *     announces its own absent content ("available on request") reads as "we
- *     have none", and it sat exactly where a buyer looks for evidence. Nothing
- *     was invented in its place. See REDESIGN-NOTES.md.
- *  2. The bouncing alert glyph above the H1 is gone, along with the orange
- *     card borders and drop shadows.
- *  3. This page argues first and lists second - the case for us opens, the
- *     stack capabilities follow on the dark ground, and the audit offer is its
- *     own band. That is deliberately not the order used on /services/seo or
- *     /services/google-ads, which were clones of this same template.
- *
- * COPY REWRITE 2026-08-12. The body copy was NOT carried over unchanged this
- * time. "End-to-end MarTech solutions - automation, customer data,
- * personalization, paid media, and integrations that deliver measurable ROI"
- * was the section lede, and it describes every agency on earth.
- *
- * The replacement names the tools (HubSpot, Salesforce, Google, Meta,
- * LinkedIn), the actual tasks (UTM discipline, list hygiene, suppression rules,
- * deduplication) and the failure it prevents (the same person existing three
- * times in three systems). No client, number or outcome was added - none exists
- * in this repository to add.
- */
+ * HERO KEPT: PageHero is unchanged (same component, text and panel). Only its two buttons now carry ?need=martech.
+ * This is the target page for "marketing automation consultant" / "marketing automation consulting" (GSC: the home
+ * page shows at position 7.8 for it). A separate marketing-automation page may come later and is NOT created here.
+ * Proof, and only this: about 18 months of recurring Marketing Cloud support for one client (never named), behind
+ * an in-site pop-up; our own Salesforce email outreach platform (ours, not a client result).
+ * HubSpot is named only as a platform we connect. No partner, tier or delivery claim. No prices, no years. */
+
+const PAGE_PATH = "/services/martech";
+const MC = "/services/salesforce-marketing-cloud-consulting";
+const CONTACT = contactHref("MarTech", PAGE_PATH, "martech");
+const AUDIT = contactHref("MarTech audit", PAGE_PATH, "martech");
 
 const CAPABILITIES = [
-  {
-    icon: Zap,
-    title: "Marketing Automation",
-    body: "Journeys and lead nurture built inside the tool you already pay for — HubSpot, Salesforce, or whatever came with the CRM — triggered by what someone did rather than by a send date.",
-  },
-  {
-    icon: Database,
-    title: "Customer Data & Insights",
-    body: "One customer record assembled from the CRM, the website, the email tool and the ad platforms, with duplicates resolved rather than counted three times.",
-  },
-  {
-    icon: User2,
-    title: "Personalization & CX",
-    body: "Content and offers that change based on what someone has already done. We start with the two or three rules that matter, not a matrix nobody will maintain.",
-  },
-  {
-    icon: Megaphone,
-    title: "Digital Advertising & Media",
-    body: "Campaign setup and optimization on Google, Meta and LinkedIn, wired to conversion tracking that reports the same numbers your CRM does.",
-  },
-  {
-    icon: Target,
-    title: "Campaign Management",
-    body: "Planning, building and running multi-channel campaigns — including the unglamorous parts: UTM discipline, list hygiene, suppression rules.",
-  },
-  {
-    icon: Plug,
-    title: "Integration & Enablement",
-    body: "APIs and middleware between marketing, CRM, e-commerce and support systems, plus written documentation so your team can run it after we go.",
-  },
+  { title: "Marketing Automation", body: "Journeys and lead nurture built inside the tool you already pay for — HubSpot, Salesforce, or whatever came with the CRM — triggered by what someone did rather than by a send date." },
+  { title: "Customer Data & Insights", body: "One customer record assembled from the CRM, the website, the email tool and the ad platforms, with duplicates resolved rather than counted three times." },
+  { title: "Personalization & CX", body: "Content and offers that change based on what someone has already done. We start with the two or three rules that matter, not a matrix nobody will maintain." },
+  { title: "Digital Advertising & Media", body: "Campaign setup and optimization on Google, Meta and LinkedIn, wired to conversion tracking that reports the same numbers your CRM does." },
+  { title: "Campaign Management", body: "Planning, building and running multi-channel campaigns — including the unglamorous parts: UTM discipline, list hygiene, suppression rules." },
+  { title: "Integration & Enablement", body: "APIs and middleware between marketing, CRM, e-commerce and support systems, plus written documentation so your team can run it after we go." },
 ];
 
 const WHY_US = [
@@ -87,158 +40,219 @@ const WHY_US = [
   "Reporting that reconciles with the CRM, including the months when the CRM number is the worse one.",
 ];
 
-/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
-   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
-   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
-const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
+const AUDIT_ROWS = [
+  { title: "Inventory", body: "What you own: every marketing tool, who uses it and which plan you are on." },
+  { title: "Cost against use", body: "What each tool costs, set against what your team actually uses it for." },
+  { title: "Integration map", body: "What is actually connected, what is duplicated, and where a lead's history breaks." },
+  { title: "Cancel list", body: "A prioritized list, usually including a tool or two you can cancel." },
+];
+
+const STEPS = [
+  { num: "01", title: "Audit", body: "We map what you own, what it costs, what is connected and what is duplicated." },
+  { num: "02", title: "Plan", body: "A prioritized list of fixes, agreed with you before anything is built." },
+  { num: "03", title: "Build", body: "Automation and integrations built inside platforms you already license." },
+  { num: "04", title: "Document", body: "Written documentation, so your team can run it after we go." },
+  { num: "05", title: "Hand over", body: "Your team takes it on, and our support stays available if something breaks." },
+];
+
+const FAQS: SfFaqItem[] = [
+  { q: "What is a marketing technology stack?", a: "A marketing technology stack is the set of tools that capture, nurture and measure your leads: the CRM, email, ad platforms, analytics and website. It works when they share one customer record instead of five separate lists." },
   { q: "What is MarTech consulting?", a: "Most marketing stacks are five tools that do not talk to each other and one person exporting spreadsheets between them. We connect them, including the CRM, email, ads, analytics and the website, so a lead's history follows it and the reporting adds up." },
+  { q: "What does a MarTech audit include?", a: "We map what you own, what it costs, what is actually connected and what is duplicated. You get a prioritized list, usually including a tool or two you can cancel." },
+  { q: "What does MarTech consulting cost?", a: "It depends on how many tools are in the stack and how many integrations need building or repairing. We start with the audit, agree the scope with you, and quote the build against that list." },
+  { q: "Does Salesforce have marketing automation?", a: "Yes. Salesforce Marketing Cloud is its marketing automation and email product, and we have supported a Marketing Cloud account for about 18 months. We also build automation inside the CRM and email tool you already own.", link: { to: MC, label: "Salesforce Marketing Cloud consulting" } },
+  { q: "How do you connect a CRM to marketing automation?", a: "We build the APIs and middleware between the two, agree which system owns each record, and resolve duplicates so one person is one contact. Journeys then trigger on what someone did, and the reporting reconciles with the CRM." },
+  { q: "How long does it take to fix a marketing stack?", a: "It depends on the number of tools and integrations. The audit comes first and produces a prioritized plan, so you know the scope and the order of work before any build starts." },
+  { q: "Can you connect HubSpot to the rest of the stack?", a: "HubSpot is one of the platforms we connect, alongside Salesforce, Google, Meta and LinkedIn, with the CRM, email, ads and analytics wired together. The work is the wiring between them, not a replacement for any of them." },
   { q: "Will I need to buy another marketing tool?", a: "Usually not. Everything we build happens inside a platform you already license, because a stack with a seventh tool in it is rarely the answer." },
-  { q: "What does a MarTech audit include?", a: "We map what you own, what it costs, what is actually connected and what is duplicated. You get a prioritised list, usually including a tool or two you can cancel." },
   { q: "Can my team run the integrations after you finish?", a: "Yes. We build the APIs and middleware between marketing, CRM, e-commerce and support systems, plus written documentation so your team can run it after we go." },
 ];
 
+const TITLE = "MarTech Consulting & Marketing Automation | OneAlgorithm";
+const DESCRIPTION = "MarTech consulting and marketing automation consultant services: connect your CRM, email, ads and analytics, audit your stack, and make the reporting reconcile.";
+
 export default function Martech() {
   useSEO({
-    title: "MarTech Consulting Services & Stack Integration | OneAlgorithm",
-    description:
-      "MarTech consulting services: connecting your CRM, email, ad platforms, analytics and website so customer data lives in one place and the reporting reconciles.",
-    canonical: getCanonicalUrl("/services/martech"),
-    keywords:
-      "MarTech, marketing technology, marketing automation, customer data platform, personalization, digital advertising, campaign management, marketing integration",
-    ogTitle: "MarTech Consulting Services & Stack Integration | OneAlgorithm",
-    ogDescription:
-      "Connect your CRM, email, ad platforms and analytics so customer data lives in one place, follow-up is automated, and the reporting reconciles with the CRM.",
-    ogUrl: getCanonicalUrl("/services/martech"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "MarTech Consulting Services — OneAlgorithm",
-    twitterDescription:
-      "Connecting the CRM, email, ad platforms and analytics you already own, so the customer data is in one place and the reporting adds up.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PAGE_PATH),
+    keywords: "marketing automation consultant, marketing automation consulting, MarTech consulting, marketing technology stack, martech stack audit, CRM integration, marketing integration, customer data",
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
+    ogUrl: getCanonicalUrl(PAGE_PATH),
+    ogImage: "https://onealgorithm.com/og-image.jpg",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (
     <Layout>
-      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "MarTech Services",
-          "Marketing technology services: integrating CRM, email, advertising, analytics and e-commerce systems, unifying customer records, automating campaigns and lead nurture, and reporting that reconciles with the CRM.",
+          "Marketing technology services: marketing automation consulting, integrating CRM, email, advertising, analytics and e-commerce systems, unifying customer records, and reporting that reconciles with the CRM.",
           "Marketing",
           "https://onealgorithm.com/services/martech",
         )}
       />
 
+      {/* HERO KEPT: same component, same text, same panel. */}
       <PageHero
         eyebrow="MarTech"
         title={
           <>
             MarTech consulting services —{" "}
-            <span className="text-oa-orange">
-              the wiring between your marketing tools
-            </span>
+            <span className="text-oa-orange">the wiring between your marketing tools</span>
           </>
         }
         lede="Most marketing stacks are five tools that don't talk to each other and one person exporting spreadsheets between them. We connect them — CRM, email, ads, analytics, the website — so a lead's history follows it and the reporting adds up."
-        // Panel items are the CAPABILITIES card titles from further down this
-        // page, verbatim. No hero bullets existed here and nothing new was
-        // written. No platform credential exists for MarTech, so the footer
-        // carries only the company-wide SBA line.
         panel={{
           title: "What we deliver",
-          items: [
-            "Marketing Automation",
-            "Customer Data & Insights",
-            "Personalization & CX",
-            "Digital Advertising & Media",
-            "Integration & Enablement",
-          ],
-          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
-             "on all our commercial pages, we don't need to state woman owned.
-             It's not a selling point." It sat in this panel on 19 commercial
-             pages at once. It stays on /capabilities and
-             /industries/government, where a buyer is actively looking for it. */
+          items: ["Marketing Automation", "Customer Data & Insights", "Personalization & CX", "Digital Advertising & Media", "Integration & Enablement"],
         }}
-        primary={{ label: "Request a MarTech Consultation", to: "/contact" }}
+        primary={{ label: "Request a MarTech Consultation", to: CONTACT }}
         secondary={{ label: "View Services", to: "/services" }}
       />
 
-      {/* Argument first: heading on the left, the claims on the right, so the
-          page opens with a position rather than another icon grid. */}
-      <Section tone="paper">
-        <Split
-          left={
-            <SectionHeading
-              eyebrow="Why OneAlgorithm"
-              title="Why OneAlgorithm for MarTech?"
-            />
-          }
-          right={<CheckList items={WHY_US} />}
-        />
-      </Section>
+      <SfPage crumbs={[{ label: "MarTech" }]}>
+        {/* 1 · why us */}
+        <SmartSection id="why" grid labelledBy="h-why">
+          <SmartUnit className="sf-c12" headingId="h-why" title="Why OneAlgorithm for MarTech?"
+            lede="We do the engineering as well as the strategy, so your stack ends up wired together and documented."
+            lead="An integration that becomes somebody else's ticket is an integration that never gets finished."
+            points={["Engineering and strategy from one team, so no integration becomes a ticket", WHY_US[1], "Automation for the manual steps: uploads, assignment, the Monday report"]}>
+            <GoDeeper label="the fourth reason, and how we report">
+              <p className="sf-rule">{WHY_US[3]}</p>
+              <p>That matters most in the months when the CRM figure is the lower one: a report you can only trust when it flatters you is not a report.</p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      <Section tone="night" grid>
-        <SectionHeading
-          tone="dark"
-          eyebrow="What we do"
-          title="What we build, and what we connect it to"
-          lede="Six things. Every one of them happens inside a platform you already license, because a stack with a seventh tool in it is rarely the answer."
-        />
-        <CardGrid columns={3} className="mt-12">
-          {CAPABILITIES.map((c) => (
-            <Card
-              key={c.title}
-              tone="dark"
-              icon={c.icon}
-              title={c.title}
-              body={c.body}
-            />
-          ))}
-        </CardGrid>
-      </Section>
+        {/* 2 · what is a stack (definition, ~100 words) */}
+        <SmartSection id="stack" tone="surface" grid labelledBy="h-stack">
+          <SmartUnit className="sf-c7" headingId="h-stack" title="What is a marketing technology stack?"
+            lede="A marketing technology stack is every tool that captures, nurtures and measures your leads, from CRM to ads."
+            lead="The stack only works when those tools share one customer record instead of five separate lists."
+            points={["CRM, email, ad platforms, analytics and the website", "One record per person, with duplicates resolved", "Reporting that reconciles with the CRM"]}>
+            <GoDeeper label="what is in a typical stack and how it breaks">
+              <p className="sf-rule">Most small-business stacks grow one tool at a time: a CRM here, an email platform there, ad accounts, an analytics property, a website form. Each works on its own. Together they leave the same person as three contacts in three systems, with no history following the lead from first click to sale.</p>
+              <p>MarTech consulting is the work of connecting them: agreeing which system owns each record, wiring the integrations, and writing it down. A marketing technology stack audit is the first step.</p>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      {/* Low-commitment second CTA, given its own band rather than a boxed
-          card, so it does not read as a third capability. */}
-      <Section tone="surface" bordered>
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <div className="max-w-2xl">
-            <h2 className="text-h3 font-semibold text-oa-ink">
-              Get a MarTech Audit
-            </h2>
-            <p className="mt-4 leading-relaxed text-oa-ink2">
-              We map what you own, what it costs, what is actually connected and
-              what is duplicated. You get a prioritized list — usually including
-              a tool or two you can cancel.
-            </p>
-          </div>
-          <PrimaryCTA to="/contact">Request Audit</PrimaryCTA>
-        </div>
-      </Section>
-
-      <Section tone="paper" compact bordered>
-        <SocialShare />
-      </Section>
-
-      <Section tone="paper" bordered>
-        <SectionHeading eyebrow="Questions" title="What people ask about MarTech" />
-        <div className="mt-12 space-y-10">
-          {FAQS.map((f) => (
-            <Reveal key={f.q}>
-              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
-                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
-                <div className="mt-3 md:mt-0">
-                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
-                </div>
+        {/* 3 · marketing automation consultant (target query) */}
+        <SmartSection id="automation" grid labelledBy="h-auto">
+          <SmartUnit className="sf-c7" headingId="h-auto" title="Marketing automation consultant for your existing tools"
+            lede="As your marketing automation consultant, we build journeys and lead nurture inside the platform you already pay for."
+            lead="Automation fails on the manual steps around it, so we automate those first: list uploads, assignment, the weekly report."
+            points={["Journeys triggered by what someone did, not a send date", "Follow-up that stops the moment someone replies", "Automation wired to the CRM record, not beside it"]}>
+            <p className="sf-mono">Proof · About 18 months of recurring Marketing Cloud support · <Verify id="mc-pattern">What this covers</Verify></p>
+            <GoDeeper label="where the experience comes from">
+              <p className="sf-rule">We supported one client&rsquo;s Salesforce Marketing Cloud account on a recurring basis for about 18 months. The client is not named. The work was the steady kind: new journeys, changes to who counts as an active customer, and automations that needed to be switched off.</p>
+              <p>We also built and run our own Salesforce email outreach platform, with a send governor and reply matching. It is our own platform, not a client result.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to={MC}>Salesforce Marketing Cloud consulting</Link>
+                <Link className="sf-link" to="/services/salesforce-integration">Salesforce integration services</Link>
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+            </GoDeeper>
+          </SmartUnit>
+        </SmartSection>
 
-      <CTABand
-        secondary={{ label: "Explore marketing", to: "/services/marketing" }}
-      />
+        {/* 4 · capabilities */}
+        <SmartSection id="what" tone="surface" grid labelledBy="h-what">
+          <SmartUnit className="sf-c12" headingId="h-what" title="What we build, and what we connect"
+            lede="Six things, and every one happens inside a platform you already license."
+            lead="A stack with a seventh tool in it is rarely the answer.">
+            <MarketingLedger items={CAPABILITIES} label="MarTech capabilities" />
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 4b · three capabilities as units of their own */}
+        <SmartSection id="connect" grid labelledBy="h-record">
+          <SmartUnit className="sf-c4" headingId="h-record" title="One customer record"
+            lede="One record assembled from the CRM, the website, the email tool and the ad platforms."
+            lead="Duplicates are resolved rather than counted three times."
+            points={["CRM, website, email and ads in one view", "Duplicates merged, not counted twice"]} />
+          <SmartUnit className="sf-c4" headingId="h-ads" title="Ads wired to your CRM" delay={0.08}
+            lede="Campaign setup and optimization on Google, Meta and LinkedIn, wired to conversion tracking."
+            lead="The ad platform and your CRM then report the same numbers."
+            points={["Conversion tracking that matches the CRM", "UTM discipline, list hygiene, suppression rules"]} />
+          <SmartUnit className="sf-c4" headingId="h-api" title="Integrations your team can run" delay={0.16}
+            lede="APIs and middleware between marketing, CRM, e-commerce and support systems, with written documentation."
+            lead="Your team can run it after we go, and HubSpot is one of the platforms we connect."
+            points={["Marketing, CRM, e-commerce and support linked", "Documentation written for the people who inherit it"]} />
+        </SmartSection>
+
+        {/* 5 · audit */}
+        <SmartSection id="audit" grid labelledBy="h-audit">
+          <SmartUnit className="sf-c7" headingId="h-audit" title="MarTech audit: what you get"
+            lede="We map what you own, what it costs, what is actually connected and what is duplicated."
+            lead="You get a prioritized list, usually including a tool or two you can cancel."
+            points={["Inventory of every marketing tool you own", "Cost set against actual use", "An integration map and a cancel list"]}>
+            <GoDeeper label="the four parts of the audit">
+              <MarketingLedger items={AUDIT_ROWS} />
+            </GoDeeper>
+            <div style={{ marginTop: 24 }}><SfButton to={AUDIT} cta="audit">Request a MarTech audit</SfButton></div>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 6 · engagement */}
+        <SmartSection id="engagement" tone="surface" grid labelledBy="h-engagement">
+          <SmartUnit className="sf-c12" headingId="h-engagement" title="How an engagement runs"
+            lede="Five steps, from audit to hand over, with the plan agreed before any build starts."
+            lead="You see the scope and the order of work first, so nothing is built on a guess.">
+            <MarketingLedger items={STEPS} label="How an engagement runs" />
+          </SmartUnit>
+        </SmartSection>
+
+        {/* 7 · related */}
+        <SmartSection id="related" grid labelledBy="h-related">
+          <SmartUnit className="sf-c12" headingId="h-related" title="Related services"
+            lede="Campaign work, search and Salesforce sit on their own pages."
+            lead="Pick the page that matches the job you need done.">
+            <div className="sf-links">
+              <Link className="sf-link" to="/services/marketing">Marketing and social media management</Link>
+              <Link className="sf-link" to={MC}>Salesforce Marketing Cloud consulting</Link>
+              <Link className="sf-link" to="/services/salesforce-integration">Salesforce integration services</Link>
+              <Link className="sf-link" to="/services/seo">SEO services</Link>
+              <Link className="sf-link" to="/services/website-development">Website development</Link>
+            </div>
+          </SmartUnit>
+        </SmartSection>
+
+        <DeskCTA
+          form={{ topic: "martech", topicLabel: "MarTech", need: "martech", heading: "Tell us about your stack", prompt: "Which tools do you own, and which of them should talk to each other?", submitLabel: "Request a MarTech consultation" }}
+          heading="Tell us about your marketing stack"
+          lede="Name the tools you own, and we will tell you what we would connect first."
+          coversLabel="What to have ready"
+          covers={["The CRM, email and ad platforms you use", "Where leads and customer records live today", "The report you do not trust"]}
+          next={["Send the short note on the contact page.", "A person at OneAlgorithm reads it and replies.", "If it fits, we start with the audit."]}
+          hcLink={false}
+        />
+
+        <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">MarTech and automation questions</h2>
+          </div>
+          <div className="sf-c7 sf-faq-col">
+            <FAQ items={FAQS} />
+          </div>
+        </SmartSection>
+
+        <EvidenceDialog
+          id="mc-pattern"
+          title="Marketing Cloud support, about 18 months"
+          intro="One client's Salesforce Marketing Cloud account, supported on a recurring basis. The client is not named."
+          rows={[
+            { th: "Work", td: "Recurring Marketing Cloud support" },
+            { th: "Length", td: "About 18 months" },
+            { th: "Source", td: "OneAlgorithm's own paid-invoice records, read 31 October 2026" },
+          ]}
+          primary={{ href: "#start", label: "Talk to us about your stack" }}
+        />
+      </SfPage>
     </Layout>
   );
 }

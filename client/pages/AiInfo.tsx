@@ -31,7 +31,7 @@ export default function AiInfo() {
       "OneAlgorithm is a Malvern, PA IT consulting, web development and digital marketing company serving construction, manufacturing and e-commerce.",
     canonical: getCanonicalUrl("/ai-info"),
     keywords:
-      "OneAlgorithm, IT consulting Malvern PA, website development, operations technology, staff augmentation, digital marketing",
+      "OneAlgorithm, IT consulting Malvern PA, website development, Salesforce consulting, staff augmentation, digital marketing",
     ogTitle: "About OneAlgorithm — AI & Search Information",
     ogDescription:
       "OneAlgorithm is a Malvern, PA-based technology company specializing in IT consulting, website development, and business automation.",
@@ -83,11 +83,6 @@ export default function AiInfo() {
                 <strong>Website Development</strong> — Custom websites,
                 e-commerce storefronts, web applications, and landing pages
                 built for performance and conversion.
-              </li>
-              <li>
-                <strong>Operations Technology</strong> — Workflow automation,
-                ERP and CRM integration, production dashboards, and process
-                optimization to reduce manual work.
               </li>
               <li>
                 <strong>Staff Augmentation</strong> — On-demand developers, IT
@@ -184,14 +179,6 @@ export default function AiInfo() {
                   className={LINK}
                 >
                   Website Development
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/operations-technology"
-                  className={LINK}
-                >
-                  Operations Technology
                 </Link>
               </li>
               <li>

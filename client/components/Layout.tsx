@@ -114,7 +114,7 @@ const mobileSubLinkNested =
  * approved positioning, plus Application Development.
  *
  * THE ENTERPRISE PAGES ARE NOT DELETED. Zendesk, IT Consulting,
- * Operations Technology, MarTech and Staff Augmentation are still sold, still
+ * MarTech and Staff Augmentation are still sold, still
  * live at their own URLs, and still linked from the /services index and from
  * the sibling wire under every service hero - so no URL breaks and no ranking
  * is lost. They are simply no longer the first thing a local business reads.
@@ -1185,7 +1185,6 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/zendesk">Zendesk</FooterLink>
               <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
               <FooterLink to="/services/it-consulting">IT Consulting</FooterLink>
-              <FooterLink to="/services/operations-technology">Operations Technology</FooterLink>
               <FooterLink to="/services/operational-transformation-consulting">Operational Transformation Consulting</FooterLink>
             </FooterSection>
 

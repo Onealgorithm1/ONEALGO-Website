@@ -19,7 +19,6 @@ const SERVICES = [
   "Salesforce / CRM",
   "IT Consulting",
   "Website Development",
-  "Operations Technology",
   "Zendesk Implementation / Support",
   "Marketing Services",
   "Staff Augmentation",
@@ -422,15 +421,13 @@ export default function Contact() {
             <ul className="sf-points">
               <li>IT consulting and strategy; cloud and process work</li>
               <li>Websites, SEO and marketing technology</li>
-              <li>Salesforce, Zendesk, operations technology, staff augmentation</li>
+              <li>Salesforce, Zendesk, staff augmentation</li>
             </ul>
             <GoDeeper label="what each service covers">
               <h4>IT consulting and strategic planning</h4>
               <p>Technology audits, digital transformation plans, cybersecurity assessments, cloud migration planning and process optimization.</p>
               <h4>Website development and design</h4>
               <p>Custom sites, responsive design, e-commerce, SEO, content management and performance work.</p>
-              <h4>Operations technology</h4>
-              <p>Industrial automation, SCADA, IoT integration, equipment monitoring and predictive maintenance.</p>
               <h4>Staff augmentation</h4>
               <p>Developers, IT specialists, project managers and subject-matter experts for short or long engagements.</p>
               <h4>Marketing technology and automation</h4>

@@ -1,204 +1,154 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
-import {
-  Cloud,
-  Users,
-  Clock,
-  Target,
-  CheckCircle,
-  Code,
-  Database,
-  Smartphone,
-  Globe,
-  Shield,
-  Zap,
-} from "lucide-react";
-import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  CheckList,
-  ProcessSteps,
-  CTABand,
-} from "../../components/site";
+import { PageHero } from "../../components/site";
+import { SfPage, DeskCTA, type SfFaqItem } from "../../components/sf";
+import { EnterpriseRow, EnterpriseTable, EnterpriseFaq, type EUnit } from "../../components/v2/enterprise-Units";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import {
-  StructuredData,
-  createServiceSchema,
-} from "../../components/StructuredData";
+import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
 
-/* Staff augmentation - 2026 refresh, copy rewritten 2026-08-12.
+/* Staff augmentation. Copy rewritten 2026-08-12; body rebuilt 2026-10-31 in the Salesforce-v2 look (sf kit). The hero
+ * is unchanged.
  *
- * This is one of the two services actually producing revenue (see the homepage
- * ordering note), and it was described in lines like "Flexible staffing for
- * exceptional outcomes" and "Our professionals integrate seamlessly with your
- * existing team and workflows" - true of every staffing firm that has ever
- * existed, and therefore evidence of nothing.
- *
- * NO NUMBERS WERE INVENTED. The obvious things to write here - time to first
- * candidate, bench size, average tenure, fill rate - are exactly the figures a
- * buyer wants and exactly the ones this repository does not contain. Where a
- * number would have carried a sentence, the sentence is hedged instead
- * ("usually", "faster than a hiring process") or cut.
- *
- * TKTK - if any of these are ever measured, the "You need the person now" card
- * and the placement process are where they belong: typical days to first
- * CV, how many practitioners are available, how often a replacement is needed.
- *
- * The SKILLS list is untouched. It is already concrete - named stacks, no
- * adjectives - and it is the one thing on the page a technical buyer scans for.
- */
+ * ⛔ NO NUMBERS WERE INVENTED: no time-to-candidate, bench size, tenure or fill rate; no price or rate.
+ * ⛔ PROOF: "ongoing Salesforce development for a lending company since April 2026". The client is never named,
+ *    no figures. Only Salesforce roles have delivery evidence, so the old Full-Stack / Mobile / Data / DevOps /
+ *    Security / AI tiles are gone; other roles are "on request".
+ * ⛔ E-VERIFY covers OUR OWN EMPLOYEES only (the account is "Verify Its Own Employees"); subcontractors are not
+ *    covered, so nothing here says "everyone we place". No enrollment ID is printed.
+ * ⛔ "We replace the person" and "not a rotating bench" are not claimed in the body (no bench evidence). The frozen
+ *    hero panel still carries the bench line; flagged in the build report. */
 
-const SKILLS = [
-  /* Louis 2026-10-22: "We have Salesforce staff augmentation" — added, no client specifics. */
+const PATH = "/services/staff-augmentation";
+const URL_ = "https://onealgorithm.com" + PATH;
+const TITLE = "IT staff augmentation services | One Algorithm";
+const DESCRIPTION = "Salesforce and IT staff augmentation: dedicated, fixed-scope or hourly. We tell you where each candidate is light.";
+
+const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link>;
+
+const WHAT: EUnit[] = [
   {
-    icon: Cloud,
-    name: "Salesforce",
-    description: "Admins, Developers, Consultants, Architects",
+    id: "h-what", title: "What staff augmentation is",
+    lede: "Staff augmentation adds outside specialists to your team, working in your tools under your lead, for as long as the work lasts.",
+    lead: "You keep control of the work; we carry the employment and the paperwork.",
+    points: ["They join your standups and your ticket queue", "Your lead sets their priorities", "We handle employment and paperwork"],
+    label: "the model in plain terms",
+    deep: (<>
+      <p className="sf-rule">Staff augmentation is a way to add skills without hiring. The person works inside your repository, your board and your review process, so there is no second team to manage on the side. It differs from outsourcing, where a vendor takes the work and the management of it.</p>
+      <p>It is also different from {L("/services/it-consulting", "IT consulting")}: a consultant delivers a recommendation or a build; an augmented specialist delivers hours of skilled work under your direction.</p>
+    </>),
   },
   {
-    icon: Code,
-    name: "Full-Stack Development",
-    description: "React, Node.js, Python, .NET",
-  },
-  {
-    icon: Smartphone,
-    name: "Mobile Development",
-    description: "iOS, Android, React Native",
-  },
-  {
-    icon: Database,
-    name: "Data Engineering",
-    description: "SQL, NoSQL, Big Data, Analytics",
-  },
-  {
-    icon: Globe,
-    name: "DevOps & Cloud",
-    description: "AWS, Azure, Docker, Kubernetes",
-  },
-  {
-    icon: Shield,
-    name: "Cybersecurity",
-    description: "Security Audits, Compliance",
-  },
-  {
-    icon: Zap,
-    name: "AI & Machine Learning",
-    description: "Python, TensorFlow, Data Science",
+    id: "h-beats", title: "When staff augmentation beats hiring",
+    lede: "Hiring takes months and commits you for years; four situations make renting the skill the better call.",
+    lead: "Often hiring is still right, and we will say so.",
+    leadIn: "Yes, but:",
+    points: ["You need the person now", "You need one skill, not one head", "The role may not outlast the project"],
+    label: "the four cases",
+    deep: (<>
+      <p className="sf-rule">Recruiting a permanent engineer takes months you may not have: advertising, screening, notice periods. A Salesforce integration specialist for a few weeks is not a job you can advertise for, but it is something you can rent for exactly as long as the work lasts.</p>
+      <p>If the work has an end date, the contract should too. You are not carrying a seat, a license and a laptop after the thing ships. And our people use your tools and process, so a fourth reason stands: your lead keeps one team, not two.</p>
+    </>),
   },
 ];
 
-const BENEFITS = [
+const ROLES: EUnit[] = [
   {
-    icon: Clock,
-    title: "You need the person now",
-    description:
-      "Recruiting a permanent engineer takes months you may not have — advertising, screening, notice periods. We can usually put candidates in front of you faster than a hiring process can.",
+    id: "h-roles", title: "Roles we place",
+    lede: "Salesforce administrators, developers and architects first; other technical roles are available on request.",
+    lead: "If what you need is not on this list, we will say so rather than send someone who read the documentation last week.",
+    points: ["Salesforce administrator", "Salesforce developer", "Salesforce architect"],
+    label: "how we handle other roles",
+    deep: (<>
+      <p className="sf-rule">Salesforce is where our delivery evidence is, so it is where we lead. Other technical roles are considered on request, case by case, and we state plainly whether we have the right person before you spend an hour interviewing.</p>
+      <p>For the Salesforce side of the work, see {L("/services/salesforce", "Salesforce consulting services")} and {L("/services/salesforce-managed-services", "Salesforce managed services")}.</p>
+    </>),
   },
   {
-    icon: Target,
-    title: "You need one skill, not one head",
-    description:
-      "A Salesforce integration specialist for a few weeks isn't a job you can advertise for. It is something you can rent for exactly as long as the work lasts.",
-  },
-  {
-    icon: CheckCircle,
-    title: "The role might not outlast the project",
-    description:
-      "If the work has an end date, the contract should too. You're not carrying a seat, a licence and a laptop after the thing ships.",
-  },
-  {
-    icon: Users,
-    title: "They work inside your process",
-    description:
-      "Our people use your repo, your board and your review process, and your lead sets their priorities. Anything else turns into a second team you have to manage separately.",
-  },
-];
-
-const ENGAGEMENT_MODELS = [
-  {
-    title: "Dedicated team",
-    description:
-      "People assigned to you full time and to nobody else. You run them day to day. Best when the work is ongoing and the domain takes a while to learn.",
-    features: [
-      "Full time, assigned to one client",
-      "They learn your domain and keep it",
-      "You set priorities week to week",
-      "Direct access, no account manager in between",
-    ],
-  },
-  {
-    title: "Fixed scope",
-    description:
-      "A defined deliverable with a date on it. This works when you can write down what finished means. Where you can't, hourly is honestly the cheaper option.",
-    features: [
-      "Scope agreed in writing before we start",
-      "Milestones you sign off",
-      "Specialists brought in for the phase that needs them",
-      "A date, and what we do when it moves",
-    ],
-  },
-  {
-    title: "Hourly",
-    description:
-      "For a code review, a second opinion on an architecture, or an outage nobody can explain. No commitment past the hours you use.",
-    features: [
-      "Billed by the hour, no retainer",
-      "Code and architecture review",
-      "A second opinion on somebody else's estimate",
-      "Useful when you don't yet know the size of the problem",
-    ],
+    id: "h-sf", title: "Salesforce staff augmentation",
+    lede: "We provide ongoing Salesforce development for a lending company, and have done since April 2026.",
+    lead: "That engagement is staff augmentation in practice: our developer, their org, their priorities.",
+    leadIn: "What we do:",
+    points: ["Development inside the client's org and process", "Ongoing since April 2026", "Client name kept private"],
+    label: "what Salesforce augmentation looks like",
+    deep: (<>
+      <p className="sf-rule">The client is a lending company and stays unnamed; we publish no figures from the work. What we can describe is the shape: a developer embedded for the long term, working to the client's backlog, with one of us staying involved so the ramp-up is not their lead's second job.</p>
+      <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce practice")} also holds Salesforce's AppExchange record of 16 people and 53 certifications.</p>
+    </>),
   },
 ];
 
-const PROCESS = [
+const MODELS: EUnit[] = [
   {
-    title: "What you actually need",
-    body: "Not the job description — the work. Which system, which stack, who they'd report to, and what will block them in week one.",
+    id: "m1", title: "Dedicated team", lede: "People assigned to you full time and to nobody else, run by you day to day.", label: "dedicated team",
+    deep: <p className="sf-rule">Best when the work is ongoing and the domain takes a while to learn. They learn your domain and keep it, you set priorities week to week, and you have direct access with no account manager in between.</p>,
   },
   {
-    title: "Candidates, with the gaps stated",
-    body: "You interview them. We tell you where each one is light before you find it out yourself in week three.",
+    id: "m2", title: "Fixed scope", lede: "A defined deliverable with a date on it, agreed in writing before we start.", label: "fixed scope",
+    deep: <p className="sf-rule">This works when you can write down what finished means. You sign off milestones, and specialists join for the phase that needs them. Where you cannot define the work, hourly is honestly the cheaper option.</p>,
   },
   {
-    /* E-Verify earns its place on THIS page rather than only on /capabilities:
-       it is the one credential that does commercial work, because a client
-       taking on contract staff is the person who actually carries the risk.
-       ⛔ The wording is deliberately limited to our own employees — the
-       company's E-Verify account is configured to "Verify Its Own Employees",
-       and we do engage subcontractors, who are their own employers' hires.
-       "Everyone we place is E-Verified" would be false. Do not widen it. */
-    title: "Onboarding",
-    body: "Access, accounts, environment, context. One of us stays involved through the first weeks so the ramp-up isn't your lead's second job. Our own employees have their work authorisation confirmed through E-Verify — we have been enrolled since 2024.",
+    id: "m3", title: "Hourly", lede: "For a code review, a second opinion or an outage nobody can explain, with no commitment past the hours used.", label: "hourly",
+    deep: <p className="sf-rule">No retainer. Useful when you do not yet know the size of the problem, or want a second opinion on somebody else's estimate.</p>,
+  },
+];
+
+const STEPS: EUnit[] = [
+  { id: "p1", title: "What you actually need", lede: "Not the job description but the work: which system, which stack, who they report to.", label: "step one", deep: <p className="sf-rule">We also ask what will block them in week one, because access and environments are where most ramp-ups stall.</p> },
+  { id: "p2", title: "Candidates, gaps stated", lede: "You interview them, and we tell you where each one is light before you find out in week three.", label: "step two", deep: <p className="sf-rule">This is the step that is usually won or lost. A candidate described honestly saves you a bad month.</p> },
+  { id: "p3", title: "Onboarding", lede: "Access, accounts, environment and context, with one of us involved through the first weeks.", label: "step three", deep: <p className="sf-rule">The ramp-up should not become your lead's second job.</p> },
+  { id: "p4", title: "While they are with you", lede: "We check in with you, not only with them, and raise problems early.", label: "step four", deep: <p className="sf-rule">If the fit is wrong we talk about it with you first and change it.</p> },
+];
+
+const COMPLIANCE: EUnit[] = [
+  {
+    id: "h-compliance", title: "Compliance and E-Verify for our employees",
+    lede: "Our own employees have their work authorization confirmed through E-Verify, and we have been enrolled since 2024.",
+    lead: "That covers our employees only, not subcontractors, who are their own employers' hires.",
+    leadIn: "Yes, but:",
+    points: ["E-Verify: our own employees only", "Woman- and minority-owned business certified", "Registered in the federal SAM system"],
+    label: "what we do and do not claim",
+    deep: (<>
+      <p className="sf-rule">A client taking on contract staff carries real risk, so we state the limit: the E-Verify account is configured to verify our own employees. We do not say everyone we place is covered, because subcontractors are not.</p>
+      <p>We hold WBE and MBE certifications and an active SAM registration. See our {L("/capabilities", "capabilities page")} for the company record.</p>
+    </>),
   },
   {
-    title: "While they're with you",
-    body: "We check in with you, not only with them. If it isn't working we replace the person — that part is what you're paying us for.",
+    id: "h-cost", title: "What staff augmentation costs",
+    lede: "Cost follows the role, the engagement model and how long you need the person.",
+    lead: "We quote in writing once we know the work, and publish no rate card.",
+    points: ["Role and seniority required", "Dedicated, fixed scope or hourly", "Length of the engagement"],
+    label: "what to expect in a quote",
+    deep: <p className="sf-rule">Tell us the system, the stack and the timeframe, and we will say whether we have the right person and how the engagement would be scoped. If hourly fits better than fixed scope, we say that too.</p>,
   },
+];
+
+const FAQS: SfFaqItem[] = [
+  { q: "What is staff augmentation?", a: "Staff augmentation adds outside specialists to your team for as long as you need them. They work in your tools, follow your process and take direction from your lead, while the staffing firm handles employment and paperwork." },
+  { q: "Is staff augmentation outsourcing?", a: "No. In outsourcing the vendor takes the work and manages it. In staff augmentation you keep the management and the priorities, and the specialist works as part of your team." },
+  { q: "How fast can someone start?", a: "It depends on the role and on how quickly your access and environment are ready. We tell you honestly whether we have the right person before you spend time interviewing, and we do not quote a standard time to start." },
+  { q: "Who manages the people you place?", a: "You do. Your lead sets their priorities and they work in your repository and ticket queue. One of us stays involved through the first weeks so the ramp-up does not become your lead's second job." },
+  { q: "What engagement models do you offer?", a: "Three: a dedicated team assigned to you full time, a fixed scope with a date and milestones, and hourly work for reviews, second opinions and unexplained outages.", link: { to: "#m1", label: "The three models" } },
+  { q: "How is staff augmentation different from managed services?", a: "Managed services means we run a function for you and are accountable for the outcome, such as Salesforce administration. Staff augmentation puts a person in your team under your direction.", link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" } },
+  { q: "How is staff augmentation different from consulting?", a: "A consultant delivers a recommendation or a build and is accountable for it. An augmented specialist delivers skilled hours that you direct.", link: { to: "/services/it-consulting", label: "IT consulting" } },
+  { q: "What is Salesforce staff augmentation?", a: "It is placing a Salesforce administrator, developer or architect inside your team. We provide ongoing Salesforce development for a lending company, and have since April 2026." },
+  { q: "What is in a staff augmentation contract?", a: "The role, the engagement model, the term and how either side ends it, written before work starts. Our own employees are verified through E-Verify; the contract states who employs the person placed." },
 ];
 
 export default function StaffAugmentation() {
   useSEO({
-    title: "IT Staff Augmentation Services | OneAlgorithm",
-    description:
-      "Staff augmentation services: senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
-    canonical: getCanonicalUrl("/services/staff-augmentation"),
-    keywords:
-      "staff augmentation, IT staffing, software developers, technical talent, team scaling, remote developers, IT specialists, talent solutions",
-    ogTitle: "IT Staff Augmentation Services | OneAlgorithm",
-    ogDescription:
-      "Senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead. Dedicated, fixed-scope or hourly.",
-    ogUrl: getCanonicalUrl("/services/staff-augmentation"),
-    ogImage:
-      "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Staff Augmentation - OneAlgorithm",
-    twitterDescription:
-      "Senior developers, data and cloud engineers and security specialists who join your team, use your tools and report to your lead.",
-    twitterImage:
-      "https://onealgorithm.com/og-image.jpg",
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PATH),
+    keywords: "staff augmentation, IT staff augmentation, Salesforce staff augmentation, IT staffing, dedicated developers",
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
+    ogUrl: getCanonicalUrl(PATH),
+    ogImage: "https://onealgorithm.com/og-image.jpg",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
+    twitterImage: "https://onealgorithm.com/og-image.jpg",
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
   return (
@@ -206,11 +156,12 @@ export default function StaffAugmentation() {
       <StructuredData
         data={createServiceSchema(
           "Staff Augmentation Services",
-          "Senior developers, data and cloud engineers, and security specialists embedded in your team, working on your tools and reporting to your lead. Dedicated, fixed-scope and hourly engagements.",
+          "Salesforce and IT staff augmentation: specialists embedded in your team, working on your tools and reporting to your lead, as a dedicated team, a fixed scope or hourly work.",
           "Staff Augmentation",
-          "https://onealgorithm.com/services/staff-augmentation",
+          URL_,
         )}
       />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-10-31" })} />
 
       <PageHero
         eyebrow="Staff Augmentation"
@@ -229,92 +180,40 @@ export default function StaffAugmentation() {
             "Dedicated, fixed scope, or hourly",
             "We carry the employment and the paperwork",
           ],
-          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
-             "on all our commercial pages, we don't need to state woman owned.
-             It's not a selling point." It sat in this panel on 19 commercial
-             pages at once. It stays on /capabilities and
-             /industries/government, where a buyer is actively looking for it. */
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
       />
 
-      <Section tone="paper">
-        <SectionHeading
-          eyebrow="Why it works"
-          title="When this beats hiring"
-          lede="Hiring takes months and commits you for years. Often that's the right call. These are the four cases where staff augmentation services are the better one."
+      <SfPage crumbs={[{ label: "Staff augmentation" }]}>
+        <EnterpriseRow id="what" tone="surface" units={WHAT} />
+        <EnterpriseRow id="roles" units={ROLES} />
+        <EnterpriseRow id="models" tone="night" heading={{ id: "h-models", title: "Dedicated, fixed scope or hourly", lede: "The real difference is who carries the risk on scope, so pick the model that matches how well you can define the work." }} cols="sf-c4" units={MODELS} />
+        <EnterpriseRow id="steps" tone="surface" heading={{ id: "h-steps", title: "How we place someone", lede: "Four steps, and the second one is where this is usually won or lost." }} cols="sf-c3" units={STEPS} />
+        <EnterpriseTable
+          id="compare"
+          tone="paper"
+          title="Staff augmentation vs outsourcing vs consulting"
+          lede="The three differ in who manages the work and who is accountable for the result."
+          caption="Staff augmentation compared with outsourcing and consulting"
+          head={["Model", "Who manages the work", "You get"]}
+          rows={[
+            ["Staff augmentation", "You do", "A specialist inside your team"],
+            ["Outsourcing", "The vendor does", "A function or project run for you"],
+            ["Consulting", "Shared, with us accountable for the output", "A recommendation or a build"],
+          ]}
         />
-        <CardGrid columns={4} className="mt-12">
-          {BENEFITS.map((b) => (
-            <Card
-              key={b.title}
-              icon={b.icon}
-              title={b.title}
-              body={b.description}
-            />
-          ))}
-        </CardGrid>
-      </Section>
-
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Capabilities"
-          title="The stacks our people work in"
-          lede="If what you need isn't on this list, say so. We'd rather tell you we don't have it than send you someone who read the documentation last week."
+        <EnterpriseRow id="compliance" tone="surface" units={COMPLIANCE} />
+        <DeskCTA
+          heading="Tell us about the role you cannot fill"
+          lede="The skill you need for three months, the seat open too long, or the deadline that needs two more pairs of hands."
+          covers={["The system, the stack and who they report to", "How long you need the person", "Which engagement model fits", "Whether we have the right person"]}
+          coversLabel="What to have ready"
+          next={["Send the short form on the contact page, or call.", "A person at OneAlgorithm reads it and replies.", "We tell you whether we have the person."]}
+          hcLink={false}
+          form={{ topic: "staff-augmentation", topicLabel: "Staff augmentation", need: "staff-augmentation", heading: "Talk to an expert", prompt: "What is the role, and how long do you need it?", submitLabel: "Talk to an expert" }}
         />
-        <CardGrid columns={3} className="mt-12">
-          {SKILLS.map((s) => (
-            <Card
-              key={s.name}
-              icon={s.icon}
-              title={s.name}
-              body={s.description}
-            />
-          ))}
-        </CardGrid>
-      </Section>
-
-      <Section tone="paper">
-        <SectionHeading
-          eyebrow="How we engage"
-          title="Three ways to buy this"
-          lede="The real difference between them is who carries the risk on scope. Pick the one that matches how well you can define the work today."
-        />
-        <CardGrid columns={3} className="mt-12">
-          {ENGAGEMENT_MODELS.map((m) => (
-            <Card key={m.title} title={m.title} body={m.description}>
-              <div className="mt-6">
-                <CheckList items={m.features} />
-              </div>
-            </Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Process"
-          title="How we place someone"
-          lede="Four steps, and the second one is where this is usually won or lost."
-        />
-        <div className="mt-12">
-          <ProcessSteps steps={PROCESS} />
-        </div>
-      </Section>
-
-      <CTABand
-        title="Tell us about the role you can't fill"
-        body="The skill you need for three months, the seat that has been open too long, or the deadline that needs two more pairs of hands. Tell us what the work is and we'll tell you whether we have the person."
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{ label: "View All Services", to: "/services" }}
-      />
-
-      <Section tone="paper" compact>
-        <SocialShare
-          title="Staff Augmentation - Dedicated Development Teams - OneAlgorithm"
-          className="justify-center"
-        />
-      </Section>
+        <EnterpriseFaq title="Staff augmentation questions" items={FAQS} />
+      </SfPage>
     </Layout>
   );
 }

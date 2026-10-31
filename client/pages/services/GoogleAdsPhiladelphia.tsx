@@ -1,150 +1,108 @@
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
-import { MapPinned, Filter, Receipt, PhoneCall, LineChart, KeyRound } from "lucide-react";
+import { PageHero } from "../../components/site";
 import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  CheckList,
-  Split,
-  PrimaryCTA,
-  CTABand,
-  Reveal,
-} from "../../components/site";
+  SfPage, SmartSection, SmartUnit, LedgerRule, GoDeeper, Verify, EvidenceDialog, DeskCTA, FAQ,
+} from "../../components/sf";
+import type { SfFaqItem } from "../../components/sf";
+import { contactHref } from "../../components/sf/DeskCTA";
+import { GoogleHelpDialog } from "../../components/v2/google-ads-GoogleHelp";
+import { SF_PHONE } from "../../data/salesforceShared";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
   createServiceSchema,
   createLocalBusinessSchema,
-  createFAQSchema,
+  createWebPageSchema,
 } from "../../components/StructuredData";
 
-/* Google Ads — Philadelphia. Added 2026-08-30. Third of three local pages.
+/* /services/google-ads-philadelphia, rebuilt 2026-10-31 on the sf kit (sitewide v2). Spec: onealgo-icm-oa/areas/sales/
+ * runs/2026-10-31_sitewide-seo/google-ads/google-ads.md + data-report.md section 3.2.
  *
- * ⛔ NO GOOGLE PARTNER CLAIM. There is no Google Partner status anywhere in this
- * repository and none is asserted here — same rule as /services/google-ads.
- * ⛔ NO SPEND, CPA, ROAS OR CLIENT-COUNT FIGURES. We have no published local
- * campaign results, so none appear. The argument is the failure modes we can
- * name, which is the only credential available without inventing numbers.
+ * TARGET: "google ads management philadelphia" (GSC 253 impressions, position 17.7), with "ppc management" and
+ * "ppc agency philadelphia" in the meta and body. The main page /services/google-ads never uses the city in its
+ * title, H1 or headings, so the two do not compete.
  *
- * The angle that makes this page different from /services/google-ads rather than
- * a keyword-swapped clone: geography is the biggest source of wasted spend in a
- * local account, and it is specific to this market — a 25-mile radius from
- * Center City spends money in three states.
+ * HERO: same PageHero, panel and lede. Only the H1 changed, to carry the target phrase (owner brief 2026-10-31);
+ * the old H1 ran 11 words, so the tail was shortened to keep the H1 at 9.
  *
- * See WebDesignChesterCounty.tsx for why these three pages exist.
- */
+ * ⛔ NO Google Partner claim, NO client result, ROAS, CPA, testimonial, count or fee. Service area = the Google
+ *    Business Profile service areas (read via the GBP API 2026-10-09). Office is in Malvern; no Philadelphia office
+ *    is claimed. Google facts sit behind pop-ups (components/v2/google-ads-GoogleHelp.tsx, accessed 2026-10-31). */
+
+const PATH = "/services/google-ads-philadelphia";
+const URL_ = "https://onealgorithm.com/services/google-ads-philadelphia";
+const TITLE = "Google Ads Management in Philadelphia, PA | One Algorithm";
+const DESCRIPTION = "Google Ads management in Philadelphia from our Malvern office: the right radius, call tracking that counts once, negatives first, weekly reporting. PPC management, no guarantees.";
+const CONTACT = contactHref("Google Ads audit, Philadelphia", PATH, "google-ads");
 
 const LOCAL_FAILURES = [
-  {
-    icon: MapPinned,
-    title: "A radius that spends in three states",
-    body: "Set a 25-mile ring around Center City and you are paying for clicks in New Jersey and Delaware. Sometimes that is right. Usually nobody chose it — it was the default, and it has been running ever since.",
-  },
-  {
-    icon: Filter,
-    title: "Broad match with no negative list",
-    body: "The single most common reason a small account leaks money. We start from the search terms report and cut what is not converting before adding anything new.",
-  },
-  {
-    icon: Receipt,
-    title: "Conversions counted more than once",
-    body: "A thank-you page that fires on reload, a call tracker and a form both claiming the same lead. A confident report on bad data is worse than no report, so tracking gets verified first.",
-  },
-  {
-    icon: PhoneCall,
-    title: "Calls that nobody counts",
-    body: "For most local businesses the conversion is a phone call, not a form. If calls are not tracked, the account is optimising toward the wrong thing and the numbers will look fine while the phone stays quiet.",
-  },
-  {
-    icon: LineChart,
-    title: "A landing page nobody has touched",
-    body: "A lot of what limits an account happens after the click. We test the page as part of the account, one variable at a time, left running long enough to mean something.",
-  },
-  {
-    icon: KeyRound,
-    title: "An account you do not own",
-    body: "You keep ownership of the Google Ads account. If you stop working with us, the history, the conversion data and the learning go with you.",
-  },
+  { title: "A radius that spends in three states", body: "A 25-mile ring around Center City pays for clicks in New Jersey and Delaware. Sometimes that is right. Usually nobody chose it." },
+  { title: "Broad match with no negative list", body: "The most common reason a small account leaks money. We start from the search terms report and cut what is not converting." },
+  { title: "Conversions counted more than once", body: "A thank-you page that fires on reload, or a call tracker and a form both claiming one lead. Tracking gets verified first." },
+  { title: "Calls that nobody counts", body: "For most local businesses the conversion is a phone call. If calls go uncounted, the account optimizes toward the wrong thing." },
+  { title: "A landing page nobody has touched", body: "A lot of what limits an account happens after the click. We test the page as part of the account, one variable at a time." },
+  { title: "An account you do not own", body: "You keep ownership of the Google Ads account. If you leave, the history, conversion data and learning go with you." },
 ];
 
-/* Added 2026-10-09 for "google ads management philadelphia / pennsylvania".
-   ⛔ Every step restates what /services/google-ads or this page already says we do.
-   No fee, minimum budget or result is stated because none is published on the site.
-   Service area = the Google Business Profile service areas (Philadelphia, Bucks, Chester, Delaware, Montgomery counties; New Castle DE), read via the GBP API 2026-10-09. */
-const STEPS: { title: string; body: string }[] = [
-  { title: "Account audit", body: "Where the budget is going by search term, whether the geography matches where you can actually serve, whether conversions are counted once, and what the landing page does with the click. You get a prioritised list." },
-  { title: "Conversion tracking", body: "Tracking is set up and verified first: each lead counted once, phone calls included, and offline imports that match your CRM." },
-  { title: "Search terms and negatives", body: "We read the search terms report, cut the spend that is not converting and build the negative keyword list before adding anything new." },
+const STEPS = [
+  { title: "Account audit", body: "Where the budget goes by search term, whether the geography matches where you can serve, and what the landing page does." },
+  { title: "Conversion tracking", body: "Set up and verified first: each lead counted once, phone calls included, offline imports that match your CRM." },
+  { title: "Search terms and negatives", body: "We cut the spend that is not converting and build the negative keyword list before adding anything new." },
   { title: "Geography and structure", body: "Targeting matched to your real service area, and campaigns grouped so the budget splits where you mean it to." },
   { title: "Landing pages", body: "Ad copy and landing page tests run one variable at a time and left running long enough to mean something." },
-  { title: "Bidding", body: "Smart Bidding where there is enough conversion data to feed it, manual control where there isn't. We tell you which case your account is in before switching anything." },
+  { title: "Bidding", body: "Smart Bidding where there is enough conversion data, manual control where there is not. We tell you which first." },
   { title: "Reporting cadence", body: "A weekly pass on the account, and a report that leads with cost per acquisition and spend." },
 ];
 
-const HOW_WE_START = [
-  "Read the search terms report and cut the spend that is not converting.",
-  "Verify conversion tracking counts each lead once, including phone calls.",
-  "Check the geography actually matches where you can profitably serve.",
-  "Then, and only then, look at bids, budgets and new keywords.",
-];
-
-/* FAQ added 2026-10-03. ⛔ Every answer is built from sentences already on this page, so nothing new is claimed.
-   Google stopped showing FAQ rich results on 7 May 2026 (see /services/seo), so this section earns its place for
-   visitors and long-tail questions, not for a search feature. No question here is repeated on another page. */
-const FAQS: { q: string; a: string; to?: string; label?: string }[] = [
-  { q: "What do you check first in a Google Ads account?", a: "Geographic targeting against your real service area, the search terms report and the negative keyword list, call and form conversion tracking, and the landing pages. We subtract before adding: read the search terms report and cut the spend that is not converting, then verify tracking, then look at bids, budgets and new keywords." },
+const FAQS: SfFaqItem[] = [
+  { q: "What do you check first in a Google Ads account?", a: "Geographic targeting against your real service area, the search terms report and the negative keyword list, call and form conversion tracking, and the landing pages. We subtract before adding: cut the spend that is not converting, verify tracking, then look at bids, budgets and new keywords." },
   { q: "Why does a local Google Ads account waste money?", a: "In a local account the biggest leak is usually not the bidding. It is a service area nobody set deliberately, a missing negative keyword list, and phone calls that never get counted as conversions." },
-  { q: "Do I keep ownership of my Google Ads account?", a: "Yes. You keep ownership of the account. If you stop working with us, the history, the conversion data and the learning go with you." },
   { q: "Do you manage Google Ads outside Philadelphia?", a: "Yes. From our Malvern office we manage Google Ads for businesses across the Philadelphia area: Philadelphia, Bucks, Chester, Delaware and Montgomery counties, and New Castle County, Delaware." },
+  { q: "Do you have an office in Philadelphia?", a: "Our office is in Malvern, PA, a short drive from Center City. The work is done from there, and the Google Ads account lives in your name wherever your business is." },
+  { q: "Should a Philadelphia business use ads or local SEO?", a: "Ads show while you pay for them and give quick, trackable data. Local SEO takes longer and keeps working without a per-click cost. Many Philadelphia businesses need both, and the first audit shows where ads are earning their keep.", link: { to: "/services/seo-philadelphia", label: "SEO for Philadelphia businesses" } },
   { q: "How often do you work on the account and report?", a: "There is a weekly pass on the account, and the report leads with cost per acquisition and spend. Impressions are in there somewhere, near the bottom." },
-  { q: "What do I get from a Google Ads audit?", a: "We look at where the budget is going by search term, whether the geography matches where you can actually serve, whether conversions are counted once, and what the landing page does with the click. You get a prioritised list, and you do not have to hire us to act on it." },
+  { q: "Do I have to hire you after the audit?", a: "No. You get a prioritized list of what to fix, including where the budget goes by search term, whether the geography matches where you serve, and whether conversions count once. You can act on it yourself or with us." },
+  { q: "How are calls counted in a local account?", a: "Google can count calls from ads, calls to the number on your site and taps on a mobile number as conversions. We set that up and check it first, so the account optimizes toward real leads.", link: { to: "/services/google-ads", label: "How we run Google Ads accounts" } },
 ];
 
 export default function GoogleAdsPhiladelphia() {
   useSEO({
-    title: "Google Ads Management in Philadelphia | OneAlgorithm",
-    description:
-      "Google Ads management in Philadelphia and the surrounding counties: account audit, call tracking that counts once, negatives, landing pages, weekly reporting.",
-    canonical: getCanonicalUrl("/services/google-ads-philadelphia"),
-    ogTitle: "Google Ads Management in Philadelphia | OneAlgorithm",
-    ogDescription:
-      "Google Ads for Philadelphia-area businesses: the right radius, a real negative list, call tracking that counts once, and an account that stays yours.",
-    ogUrl: getCanonicalUrl("/services/google-ads-philadelphia"),
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PATH),
+    keywords: "Google Ads management Philadelphia, PPC management Philadelphia, PPC agency Philadelphia, Google Ads agency Philadelphia, Google Ads audit",
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
+    ogUrl: getCanonicalUrl(PATH),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Google Ads Management in Philadelphia | OneAlgorithm",
-    twitterDescription:
-      "Google Ads for Philadelphia-area businesses. The right radius, a real negative list, and an account that stays yours.",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (
     <Layout>
-      <StructuredData data={createFAQSchema(FAQS)} />
       <StructuredData
         data={createServiceSchema(
           "Google Ads Management in Philadelphia, Pennsylvania",
           "Google Ads and paid search management for businesses in Philadelphia and the surrounding counties: geographic targeting matched to the service area, negative keyword management, call and form conversion tracking, landing page testing, and client ownership of the advertising account.",
           "Marketing",
-          "https://onealgorithm.com/services/google-ads-philadelphia",
+          URL_,
+          { providerId: "https://onealgorithm.com/#localbusiness" },
         )}
       />
-
-      {/* Google's Local Business structured-data doc: a page targeting a
-          locality should carry the business itself — address, geo, hours,
-          areaServed — not only the Service. Same helper the homepage,
-          /services/salesforce and /services/website-development already use, so
-          the entity stays consistent rather than becoming a second business. */}
       <StructuredData data={createLocalBusinessSchema()} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-10-31" })} />
 
+      {/* Hero kept (panel and lede unchanged); the H1 now carries the target phrase. */}
       <PageHero
         eyebrow="Google Ads · Philadelphia and the surrounding counties"
         title={
           <>
-            Google Ads in Philadelphia —{" "}
-            <span className="text-oa-orange">stop paying for the wrong map</span>
+            Google Ads management in Philadelphia,{" "}
+            <span className="text-oa-orange">on the right map</span>
           </>
         }
         lede="We run Google Ads accounts for businesses around Philadelphia from an office in Malvern. In a local account the biggest leak is usually not the bidding — it is a service area nobody set deliberately, a missing negative list, and phone calls that never get counted as conversions."
@@ -157,113 +115,197 @@ export default function GoogleAdsPhiladelphia() {
             "Landing pages, tested one variable at a time",
             "Account ownership, kept with you",
           ],
-          /* ⛔ "SBA Certified WOSB / EDWOSB" removed 2026-09-01. Louis:
-             "on all our commercial pages, we don't need to state woman owned.
-             It's not a selling point." It sat in this panel on 19 commercial
-             pages at once. It stays on /capabilities and
-             /industries/government, where a buyer is actively looking for it. */
         }}
-        primary={{ label: "Request a Google Ads audit", to: "/contact" }}
+        primary={{ label: "Request a Google Ads audit", to: CONTACT }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="What goes wrong locally"
-          title="Where a local account usually leaks"
-          lede="These are the failure modes we find most often. None of them is exotic, and all of them are cheaper to fix than to out-bid."
-        />
-        <CardGrid columns={2} className="mt-12">
-          {LOCAL_FAILURES.map((c) => (
-            <Card key={c.title} icon={c.icon} title={c.title} body={c.body} />
+      <SfPage crumbs={[{ label: "Google Ads", to: "/services/google-ads" }, { label: "Philadelphia" }]}>
+        {/* Where a local account leaks. */}
+        <SmartSection
+          id="leaks"
+          tone="surface"
+          grid
+          heading={{
+            title: "Where a Philadelphia account leaks",
+            id: "h-leaks",
+            lede: "These are the failure modes we find most often, and each one is cheaper to fix than to out-bid.",
+          }}
+        >
+          {LOCAL_FAILURES.map((c, i) => (
+            <LedgerRule key={c.title} as="article" className="sf-c4" delay={(i % 3) * 0.06}>
+              <h3 className="sf-h3">{c.title}</h3>
+              <p style={{ marginTop: 10 }}>{c.body}</p>
+            </LedgerRule>
           ))}
-        </CardGrid>
-      </Section>
+        </SmartSection>
 
-      <Section tone="paper" bordered>
-        <SectionHeading
-          eyebrow="The work, step by step"
-          title="What Google Ads management in Philadelphia includes"
-          lede="How we work on an account, in Philadelphia or the surrounding counties. Tracking comes first if it is not set up."
-        />
-        <ol className="mt-12 grid gap-8 md:grid-cols-2">
+        {/* Service area. */}
+        <SmartSection id="area" grid labelledBy="h-area">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-area"
+            title="Serving Philadelphia from Malvern"
+            lede="We manage Google Ads for businesses in Philadelphia, Bucks, Chester, Delaware and Montgomery counties, and New Castle County, Delaware."
+            lead="The geography is chosen on purpose from where you can profitably serve, not left at a default."
+            points={[
+              "Targeting matched to the area you actually serve",
+              "Radius and state-line choices made deliberately",
+              "Calls and forms counted once, so the area is judged fairly",
+            ]}
+          >
+            <GoDeeper label="how we set the geography">
+              <p>A ring around Center City is easy to set and easy to forget. It crosses into New Jersey and Delaware, and into suburbs you may not serve. We start from where your customers are and where you can show up, then check the search terms report to see where the clicks land.</p>
+              <p>If you serve several counties, we look at whether they belong in one campaign or several, so the budget follows the places that produce leads.</p>
+              <div className="sf-links"><Verify id="service-area">Where the service area comes from</Verify></div>
+            </GoDeeper>
+          </SmartUnit>
+          <LedgerRule as="aside" className="sf-c5" delay={0.08}>
+            <h3 className="sf-h3">Our service area</h3>
+            <ul className="sf-covers" style={{ marginTop: 12 }}>
+              <li>Philadelphia County, PA</li>
+              <li>Bucks, Chester, Delaware and Montgomery counties, PA</li>
+              <li>New Castle County, DE</li>
+            </ul>
+            <p className="sf-mono" style={{ marginTop: 12 }}>OneAlgorithm · 625 Swedesford Rd, Unit B, Malvern, PA 19355</p>
+          </LedgerRule>
+        </SmartSection>
+
+        {/* What management includes. */}
+        <SmartSection
+          id="includes"
+          tone="surface"
+          grid
+          heading={{
+            title: "What management in Philadelphia includes",
+            id: "h-includes",
+            lede: "How we work on an account in Philadelphia or the surrounding counties, with tracking first if it is not set up.",
+          }}
+        >
           {STEPS.map((st, i) => (
-            <li key={st.title} className="border-t border-oa-hairlineStrong pt-6">
-              <h3 className="text-lg font-semibold text-oa-ink">
-                {i + 1}. {st.title}
-              </h3>
-              <p className="mt-2 leading-relaxed text-oa-ink2">{st.body}</p>
-            </li>
+            <LedgerRule key={st.title} as="article" className="sf-c3" delay={(i % 4) * 0.06}>
+              <p className="sf-mono">{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="sf-h3" style={{ marginTop: 6 }}>{st.title}</h3>
+              <p style={{ marginTop: 10 }}>{st.body}</p>
+            </LedgerRule>
           ))}
-        </ol>
-      </Section>
+        </SmartSection>
 
-      <Section tone="night" grid>
-        <Split
-          left={
-            <>
-              <SectionHeading
-                tone="dark"
-                eyebrow="How we start"
-                title="Subtract before adding"
-              />
-              <div className="mt-8">
-                <CheckList items={HOW_WE_START} tone="dark" />
+        {/* Calls. */}
+        <SmartSection id="calls" grid labelledBy="h-calls">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-calls"
+            title="Count phone calls as conversions"
+            lede="For many local businesses the lead is a phone call, and Google can count calls from ads, from your site number and from mobile taps."
+            lead="Uncounted calls push the account to optimize toward the wrong thing while the numbers look fine."
+            points={[
+              "Calls from ads, from your site number and from mobile taps",
+              "Form leads and calls kept from claiming the same lead twice",
+              "Offline imports that match your CRM",
+            ]}
+          >
+            <div className="sf-links"><Verify id="conversion-tracking">What Google can count as a conversion</Verify></div>
+          </SmartUnit>
+          <LedgerRule as="aside" className="sf-c5" delay={0.08}>
+            <h3 className="sf-h3">Subtract before adding</h3>
+            <ol style={{ marginTop: 12, display: "grid", gap: 8 }}>
+              {[
+                "Read the search terms report and cut the spend that is not converting.",
+                "Verify conversion tracking counts each lead once, including phone calls.",
+                "Check the geography matches where you can profitably serve.",
+                "Then look at bids, budgets and new keywords.",
+              ].map((t, i) => (
+                <li key={t} style={{ display: "flex", gap: 12 }}>
+                  <span className="sf-mono" style={{ color: "var(--orange)", paddingTop: 2 }}>{String(i + 1).padStart(2, "0")}</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ol>
+          </LedgerRule>
+        </SmartSection>
+
+        {/* Subtract. */}
+        <SmartSection id="subtract" tone="night" grid labelledBy="h-subtract">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-subtract"
+            title="Spend less in the wrong places first"
+            lede="Most accounts we inherit improve by spending less in the wrong places before a single new keyword goes in."
+            leadIn="The bottom line:"
+            lead="It is the least impressive-sounding first month, and usually the one that changes the numbers most."
+          >
+            <GoDeeper label="what the first month looks like">
+              <p>Week one is reading, not building: the search terms report, the tracking, the geography and the pages. Week two is cutting. New keywords, new ads and bid changes come after that, one change at a time, so each result can be read.</p>
+              <div className="sf-links">
+                <Link className="sf-link" to="/services/google-ads">How we run Google Ads accounts</Link>
               </div>
-              <p className="mt-8 max-w-xl leading-relaxed text-oa-nightInk2">
-                Most accounts we inherit can be improved by spending less in the
-                wrong places before a single new keyword goes in. It is the
-                least impressive-sounding first month and usually the one that
-                changes the numbers most.
-              </p>
-            </>
-          }
-          right={
-            <Card tone="dark">
-              <h3 className="text-h3 font-semibold text-oa-nightInk">
-                Get an account audit
-              </h3>
-              <p className="mt-4 leading-relaxed text-oa-nightInk2">
-                We look at where the budget is going by search term, whether the
-                geography matches where you can actually serve, whether
-                conversions are counted once, and what the landing page does
-                with the click. You get a prioritised list, and you do not have
-                to hire us to act on it.
-              </p>
-              <div className="mt-7">
-                <PrimaryCTA to="/contact">Request audit</PrimaryCTA>
-              </div>
-            </Card>
-          }
+            </GoDeeper>
+          </SmartUnit>
+          <LedgerRule as="aside" className="sf-c5" delay={0.08}>
+            <h3 className="sf-h3">Get an account audit</h3>
+            <p style={{ marginTop: 10 }}>You get a prioritized list, and you do not have to hire us to act on it.</p>
+            <p style={{ marginTop: 14 }}>Call <a className="sf-phone" href={SF_PHONE.href} data-cta="audit">{SF_PHONE.display}</a> or use the request below.</p>
+          </LedgerRule>
+        </SmartSection>
+
+        {/* Related Philadelphia pages. */}
+        <SmartSection id="related" compact grid labelledBy="h-related">
+          <SmartUnit
+            className="sf-c12"
+            headingId="h-related"
+            title="More for Philadelphia businesses"
+            lede="Ads work best next to a site and a search presence that convert the visit."
+          >
+            <ul className="sf-links" style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: "12px 28px" }}>
+              <li><Link className="sf-link" to="/services/seo-philadelphia">SEO for Philadelphia businesses</Link></li>
+              <li><Link className="sf-link" to="/services/web-design-philadelphia">Web design in Philadelphia</Link></li>
+              <li><Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultant in Philadelphia</Link></li>
+              <li><Link className="sf-link" to="/services/google-ads">Google Ads management, all areas</Link></li>
+            </ul>
+          </SmartUnit>
+        </SmartSection>
+
+        {/* FAQ. */}
+        <SmartSection id="faq" tone="surface" grid labelledBy="h-faq">
+          <div className="sf-c4">
+            <h2 className="sf-h2" id="h-faq">Philadelphia Google Ads questions</h2>
+            <p style={{ marginTop: 12 }}>Not answered here? Call the office: <a className="sf-phone" href={SF_PHONE.href} data-cta="faq">{SF_PHONE.display}</a></p>
+          </div>
+          <div className="sf-c7 sf-faq-col"><FAQ items={FAQS} /></div>
+        </SmartSection>
+
+        <DeskCTA
+          form={{ topic: "google-ads-philadelphia", topicLabel: "Google Ads audit, Philadelphia", heading: "Request a Google Ads audit", prompt: "What is your Philadelphia-area account doing wrong?", submitLabel: "Request a Google Ads audit", need: "google-ads" }}
+          heading="Start with a Google Ads audit"
+          lede="You get a prioritized list of what to fix, and you do not have to hire us to act on it."
+          coversLabel="What the audit covers"
+          covers={[
+            "Search terms by spend, and the negative list",
+            "Geography against your real service area",
+            "Call and form conversion tracking",
+            "Landing pages behind the click",
+          ]}
+          next={[
+            "Call, or send the form on the contact page.",
+            "A person at OneAlgorithm reads it and replies.",
+            "If it fits, the audit starts from your account, which stays in your name.",
+          ]}
+          hcLink={false}
         />
-      </Section>
 
-      <Section tone="paper" compact bordered>
-        <SocialShare />
-      </Section>
-
-      <Section tone="paper" bordered>
-        <SectionHeading eyebrow="Questions" title="What Philadelphia-area businesses ask about Google Ads" />
-        <div className="mt-12 space-y-10">
-          {FAQS.map((f) => (
-            <Reveal key={f.q}>
-              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
-                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
-                <div className="mt-3 md:mt-0">
-                  <p className="leading-relaxed text-oa-ink2">{f.a}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <CTABand
-        secondary={{
-          label: "Google Ads management",
-          to: "/services/google-ads",
-        }}
-      />
+        <GoogleHelpDialog id="conversion-tracking" />
+        <EvidenceDialog
+          id="service-area"
+          title="Where our service area comes from"
+          intro="The areas listed on this page are the service areas on OneAlgorithm's Google Business Profile."
+          rows={[
+            { th: "Areas", td: "Philadelphia, Bucks, Chester, Delaware and Montgomery counties, PA; New Castle County, DE" },
+            { th: "Source", td: "OneAlgorithm's Google Business Profile, read through Google's Business Profile API" },
+            { th: "Read", td: "9 October 2026" },
+          ]}
+        />
+      </SfPage>
     </Layout>
   );
 }

@@ -23,6 +23,7 @@ import {
 import { JSONLDScript } from "../components/JSONLDScript";
 import SystemCanvas from "../components/SystemCanvas";
 import { IdentifierRail } from "../components/site";
+import { HomeBody } from "../components/v2/home-Body";
 
 /* ---------------------------------------------------------------------------
    Homepage - 2026 refresh.
@@ -42,7 +43,7 @@ import { IdentifierRail } from "../components/site";
       SEO, Google Ads and CRM lead the capability grid; Marketing heads the
       list beneath. Staff augmentation still produces revenue today and is
       deliberately NOT deleted - it sits at the top of that list, one click
-      away. IT Consulting, Operations Technology and Zendesk
+      away. IT Consulting and Zendesk
       remain as secondary pages: the positioning changed, the capability
       did not. Before this, /services/seo, /services/google-ads and
       /services/marketing existed and were routed but had ZERO links from
@@ -207,15 +208,10 @@ const CAPABILITIES: {
     body: "Strategy, architecture and modernization roadmaps.",
     href: "/services/it-consulting",
   },
-  {
-    title: "Operations Technology",
-    body: "Automation, IoT and process integration on the plant floor.",
-    href: "/services/operations-technology",
-  },
 ];
 
 /** Engagement model. Drawn from the four-step process already described on the
- *  IT Consulting, Operations Technology service pages. */
+ *  IT Consulting service pages. */
 const PROCESS = [
   {
     step: "01",
@@ -302,7 +298,7 @@ const FAQS = [
   },
   {
     q: "What services does OneAlgorithm provide?",
-    a: "Staff augmentation, website and web application development, Salesforce implementation, system and API integration, operations technology, marketing technology and SEO, and Zendesk implementation.",
+    a: "Staff augmentation, website and web application development, Salesforce implementation, system and API integration, marketing technology and SEO, and Zendesk implementation.",
   },
   {
     q: "Do you offer support after launch?",
@@ -369,7 +365,6 @@ export default function Index() {
       {/* The same FAQS the section below renders. Google requires marked-up
           FAQ content to be visible on the page, so the schema is generated
           from the array rather than kept as a second copy that can drift. */}
-      <JSONLDScript data={createFAQSchema(FAQS)} />
       <JSONLDScript data={createLocalBusinessSchema()} />
 
       {/* ================= HERO =================
@@ -512,368 +507,7 @@ export default function Index() {
           twice on one page made the second copy read as filler. The canonical
           list lives in CERTIFICATIONS in components/site.tsx. */}
 
-      {/* ================= CAPABILITIES =================
-          ONE structure, two weights. Rebuilt 2026-08-28.
-
-          It was four bordered cards over seven divided rows: two different
-          shapes carrying the same kind of content, and the cards were mostly
-          air -- 236px each to hold a title, one sentence and a "Learn more"
-          that repeated four times when the whole tile was already the link.
-
-          The hierarchy that split them was real and is kept, but it is carried
-          by SCALE AND ORDER inside a single list now instead of by a box. The
-          four the business leads with come first, at a larger title, with their
-          sentence. The seven it also does follow at body size, name only.
-
-          ⛔ THE SEVEN LOST THEIR DESCRIPTIONS ON THIS PAGE. That is a content
-          decision, not an oversight: "Strategy, architecture and modernization
-          roadmaps" under a link that already says IT Consulting was the least
-          load-bearing copy in the band, and each name links to a page that
-          explains it properly. If someone wants that copy back, put it on the
-          four leads' pages, not here.
-
-          Measured: 1,160px -> ~580px desktop, 2,168px -> ~890px mobile, for the
-          same eleven services and the same eleven links.
-          =============================================== */}
-      <section className="bg-oa-paper">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 pt-14 md:pt-20 pb-12 md:pb-16">
-          <h2 className="max-w-3xl text-h2 font-semibold text-oa-ink">
-            What we build, and what we keep running
-          </h2>
-
-          {/* The four the front door leads with - the same four the Google
-              Business Profile and the Apple place card name, so the listings
-              and the site agree. */}
-          <ul className="mt-8 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-12">
-            {CAPABILITIES.filter((c) => c.feature).map((c) => (
-              <li key={c.title} className="border-b border-oa-hairline">
-                <Link
-                  to={c.href}
-                  className="group flex items-baseline gap-4 py-4 transition-colors hover:bg-oa-surface"
-                >
-                  <span className="flex-1">
-                    <span className="flex items-center gap-2.5 text-lg font-semibold leading-snug text-oa-ink">
-                      {/* aria-hidden + empty alt: the platform name is right
-                          next to it, so announcing the mark too would just
-                          repeat the word. */}
-                      {c.logo && (
-                        <img
-                          src={`/media/logos/${c.logo}.svg`}
-                          alt=""
-                          aria-hidden="true"
-                          width={18}
-                          height={18}
-                          className="h-[18px] w-[18px] shrink-0"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      )}
-                      {c.title}
-                    </span>
-                    <span className="mt-1 block text-sm leading-relaxed text-oa-ink2">
-                      {c.body}
-                    </span>
-                  </span>
-                  <ArrowRight
-                    className="h-4 w-4 shrink-0 text-oa-blue transition-transform duration-200 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Name only, three across. These are "we also do this" - the name is
-              the whole message and the page behind it does the explaining. */}
-          <ul className="mt-8 grid border-t border-oa-hairlineStrong sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-3">
-            {CAPABILITIES.filter((c) => !c.feature).map((c) => (
-              <li key={c.title} className="border-b border-oa-hairline">
-                <Link
-                  to={c.href}
-                  className="group flex items-center justify-between gap-4 py-3 text-oa-ink transition-colors hover:bg-oa-surface"
-                >
-                  <span className="flex items-center gap-2.5 font-medium">
-                    {c.logo && (
-                      <img
-                        src={`/media/logos/${c.logo}.svg`}
-                        alt=""
-                        aria-hidden="true"
-                        width={16}
-                        height={16}
-                        className="h-4 w-4 shrink-0"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    {c.title}
-                  </span>
-                  <ArrowRight
-                    className="h-4 w-4 shrink-0 text-oa-blue transition-transform duration-200 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ================= SIGNAL PATH =================
-          The page had no moment. Nine bands of type and rules explained the
-          work and none of them showed it, which is the whole of the "this does
-          not make me believe you can execute" problem: a firm that sells
-          system integration was describing integration in prose.
-
-          This is the one visual on the site, and it is deliberately the only
-          one -- it is placed here, after the services are named, so it reads as
-          "and this is what that means" rather than as decoration. It is SVG
-          and SMIL: no WebGL, no new dependency, ~5.6KB gzipped, and it does
-          nothing at all until it scrolls into view.
-
-          It is labelled ILLUSTRATIVE - NOT LIVE DATA inside the frame, because
-          it is a diagram of how these integrations are built and not a
-          telemetry feed, and a diagram that lets someone believe otherwise is
-          the same lie as an invented statistic.
-          ============================================== */}
-      <section className="border-t border-oa-hairline bg-oa-paper">
-        <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-h2 font-semibold text-oa-ink">
-              What &ldquo;integration&rdquo; actually means
-            </h2>
-            <p className="mt-5 text-lede leading-relaxed text-oa-ink2">
-              Most of the work is not at either end. It is the layer in the
-              middle that authenticates, maps one system&rsquo;s fields onto
-              another&rsquo;s, checks the record before it lands, and decides
-              what happens to the ones that fail. This is the shape of it.
-            </p>
-          </div>
-          <SystemCanvas className="mt-12" />
-        </div>
-      </section>
-
-      {/* ================= HOW WE WORK ================= */}
-      <section className="border-y border-oa-hairline bg-oa-surface">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
-              Four steps, and we stay for the fourth
-            </h2>
-          </div>
-
-          <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((p) => (
-              <li key={p.step} className="border-t border-oa-hairlineStrong pt-6">
-                <span className="font-mono text-sm text-oa-orangeText">{p.step}</span>
-                <h3 className="mt-3 text-lg font-semibold text-oa-ink">{p.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-oa-ink2">{p.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ================= WHY US ================= */}
-      <section className="relative overflow-hidden bg-oa-night">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={GRAIN}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <h2 className="mt-4 text-h2 font-semibold text-oa-nightInk">
-              Built around how you actually work
-            </h2>
-          </div>
-
-          {/* Four boxes on the dark ground became four hairline-divided
-              columns. A translucent card on a dark section is a box drawn
-              around text that was already grouped by the section itself --
-              double containment, and it was the fourth 2x2 card grid in a row
-              down this page. The rules do the same job with no enclosure, and
-              the orange index numerals give the band a shape nothing else on
-              the page has. */}
-          <ol className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
-            {DIFFERENTIATORS.map(({ title, body }, i) => (
-              <li key={title} className="border-t border-white/15 pt-6">
-                <span className="font-mono text-sm text-oa-orange">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold text-oa-nightInk">
-                  {title}
-                </h3>
-                <p className="mt-2.5 leading-relaxed text-oa-nightInk2">{body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ================= INDUSTRIES ================= */}
-      <section className="bg-oa-paper">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <h2 className="mt-4 text-h2 font-semibold text-oa-ink">Industries we serve</h2>
-          </div>
-
-          {/* Full-width divided rows, not a 4-up card grid.
-              Every other band on this page was a grid of equal bordered
-              rectangles, so the page had one shape repeated nine times and
-              nothing to remember. This band is deliberately the widest and the
-              least dense on the page: four rows, the industry name at heading
-              scale, the detail set beside it rather than under it. The icons
-              are gone -- four different glyphs at the top of four identical
-              boxes was decoration standing in for hierarchy. */}
-          <ul className="mt-12 border-t border-oa-hairlineStrong">
-            {INDUSTRIES.map(({ name, href, body }) => (
-              <li key={name} className="border-b border-oa-hairline">
-                <Link
-                  to={href}
-                  className="group flex flex-col gap-2 py-7 transition-colors hover:bg-oa-surface md:flex-row md:items-baseline md:gap-10 md:px-4"
-                >
-                  <h3 className="text-h3 font-semibold text-oa-ink md:w-[38%] md:shrink-0">
-                    {name}
-                  </h3>
-                  <p className="flex-1 leading-relaxed text-oa-ink2">{body}</p>
-                  <ArrowRight
-                    className="mt-1 h-5 w-5 shrink-0 text-oa-blue transition-transform duration-200 group-hover:translate-x-1 md:mt-0"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ================= GOVERNMENT =================
-          Framed strictly as eligibility and registration. The firm has not yet
-          been awarded a government contract, so nothing here implies past
-          federal performance. */}
-      {/* A full-bleed band on the surface tone, not a rounded card floating on
-          paper. The card was the ninth bordered rectangle on the page and the
-          largest, so it read as one more tile rather than as the procurement
-          note it is. Asymmetric split: the statement holds the left, the two
-          documents sit right, which is a column arrangement nothing else on
-          this page uses.
-
-          The identifier table that used to fill the right half was a
-          byte-for-byte repeat of the strip under the hero. The strip won - it
-          is above the fold and a buyer meets it first. The two facts the table
-          carried that the strip does not (the code counts) are in the
-          paragraph; the full lists live on /capabilities. */}
-      <section className="border-y border-oa-hairline bg-oa-surface">
-        <div className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 md:py-20 lg:px-8">
-          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16">
-            <div>
-              <h2 className="text-h3 font-semibold text-oa-ink">
-                Buying for government? That has its own page.
-              </h2>
-              <p className="mt-5 max-w-[68ch] leading-relaxed text-oa-ink2">
-                Registrations, eligibility, codes and the capability statement
-                are all on the government page — everything a contracting
-                officer needs, kept out of everyone else&rsquo;s way.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 md:items-start md:justify-center">
-              <Button
-                asChild
-                className="w-full bg-oa-blue font-semibold text-white hover:bg-oa-blue600 sm:w-auto"
-              >
-                <Link to="/capabilities">View capability statement</Link>
-              </Button>
-              {/* Opens the statement, it does not download it.
-                  The `download` attribute was forcing a save: a buyer who
-                  tapped this on a phone got a file in a downloads folder and no
-                  page, which on iOS in particular means they have to go and
-                  find it before they can read a word. Every browser renders PDF
-                  inline now, so the plain link shows it and the viewer's own
-                  share/save control is right there if they want a copy. Named
-                  for what it does. */}
-              <Button
-                asChild
-                variant="outline"
-                className="w-full border-oa-hairlineStrong sm:w-auto"
-              >
-                <a
-                  href="/docs/capability-statement.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open the PDF
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= FAQ =================
-          The page already emitted FAQPage structured data with no visible
-          content behind it. This gives the schema something real to describe. */}
-      <section className="border-t border-oa-hairline bg-oa-surface">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid gap-12 lg:grid-cols-[22rem_1fr]">
-            <div>
-              <h2 className="mt-4 text-h2 font-semibold text-oa-ink">
-                Before you get in touch
-              </h2>
-            </div>
-
-            <dl className="divide-y divide-oa-hairline border-t border-oa-hairline">
-              {FAQS.map(({ q, a }) => (
-                <div key={q} className="py-7">
-                  <dt className="text-lg font-semibold text-oa-ink">{q}</dt>
-                  <dd className="mt-2.5 max-w-[68ch] leading-relaxed text-oa-ink2">
-                    {a}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CLOSING CTA ================= */}
-      <section className="relative overflow-hidden bg-oa-night">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={GRAIN}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <h2 className="text-h2 font-semibold text-oa-nightInk">
-              Tell us what you are trying to fix
-            </h2>
-            <p className="mt-5 text-lede text-oa-nightInk2">
-              Bring us the system that is slowing you down, or the role you
-              cannot fill. We will tell you what it would take to put it right.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-oa-orange text-oa-ink hover:bg-[#ffb757] font-semibold px-7"
-              >
-                <Link to="/contact">
-                  Talk to an Expert
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/25 bg-white/5 text-oa-nightInk hover:bg-white/10 hover:text-oa-nightInk px-7"
-              >
-                <Link to="/services">Explore services</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeBody />
     </Layout>
   );
 }

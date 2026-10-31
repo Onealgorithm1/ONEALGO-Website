@@ -414,7 +414,7 @@ export function createContactPageSchema(): ContactPageSchema {
     type: "ContactPage",
     name: "Contact OneAlgorithm",
     description:
-      "Contact OneAlgorithm for expert IT consulting, website development, operations technology, and staff augmentation services.",
+      "Contact OneAlgorithm for expert IT consulting, website development, Salesforce, SEO, Google Ads and staff augmentation services.",
     url: "https://onealgorithm.com/contact",
     mainEntity: {
       type: "Organization",
