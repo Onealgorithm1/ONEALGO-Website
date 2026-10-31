@@ -19,7 +19,7 @@ export const CHESTER_COUNTY: LocalPlace = {
   hero: {
     kicker: "Custom web design and development",
     h1: "Chester County web design, custom-built in Malvern",
-    lede: "We are a website development company that designs and builds custom websites for Chester County businesses from our office in Malvern, with scope and price in writing first.",
+    lede: "We are a website development company that designs and builds custom websites for Chester County businesses from our Swedesford Road office in Malvern, with scope and price in writing first.",
   },
   areaServed: { "@type": "AdministrativeArea", name: "Chester County, PA" },
   facts: {
@@ -148,8 +148,8 @@ export const CHESTER_COUNTY: LocalPlace = {
     {
       kind: "office",
       id: "office",
-      h2: "Our office in Malvern",
-      lede: "Our office is in Malvern, PA, inside the county.",
+      h2: "Our office on Swedesford Road, Malvern",
+      lede: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, inside the county, open Monday to Friday 9-5.",
       leadIn: "The bottom line:",
       lead: "most work runs remotely, and in-person sessions happen here or at your office when the project calls for them.",
       question: {
@@ -160,7 +160,7 @@ export const CHESTER_COUNTY: LocalPlace = {
         label: "what an in-person session is for",
         paras: [
           "A first conversation across a table, a content workshop with several people from your side, or a launch walkthrough: the sessions where a room beats a screen. Everything else runs over calls, with the work reviewed in your own browser.",
-          "Malvern is our only office, and the phone number on this page rings in that office. Sessions are booked by appointment.",
+          "Swedesford Road is our only address, and the phone number on this page rings in that office. Sessions are booked inside office hours.",
         ],
       },
     },

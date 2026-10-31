@@ -294,7 +294,7 @@ const INDUSTRIES = [
 const FAQS = [
   {
     q: "Where is OneAlgorithm located?",
-    a: "Our headquarters is in Malvern, PA. We serve clients across the United States, Canada, India and the United Arab Emirates.",
+    a: "Our headquarters is at 625 Swedesford Rd, Unit B, Malvern, PA 19355. We serve clients across the United States, Canada, India and the United Arab Emirates.",
   },
   {
     q: "What services does OneAlgorithm provide?",

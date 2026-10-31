@@ -80,6 +80,8 @@ const PLATFORMS: Mark[] = [
   { name: "Microsoft Dynamics 365", file: "dynamics-365", h: 18.5, w: 53.3 },
   { name: "ServiceNow", file: "servicenow", h: 10, w: 67.7 },
   { name: "Zendesk", file: "zendesk", h: 22, w: 31 },
+  { name: "HubSpot", file: "hubspot", h: 14.1, w: 48 },
+  { name: "Shopify", file: "shopify", h: 14.6, w: 46.7 },
   { name: "Zoho", file: "zoho", h: 17.2, w: 39.3 },
   { name: "monday.com", file: "monday", h: 10.5, w: 107 },
   { name: "QuickBooks", file: "quickbooks", h: 14.5, w: 57.3 },

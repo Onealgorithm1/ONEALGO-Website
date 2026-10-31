@@ -49,7 +49,7 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-location",
     q: "Where are you based, and do you work remotely?",
-    a: "Our office is in Malvern, Pennsylvania. Most work runs remotely, with in-person sessions when the project calls for them, easiest across the Philadelphia region. You review the site in your own browser as it is built.",
+    a: "Our office is at 625 Swedesford Road, Unit B, Malvern, Pennsylvania. Most work runs remotely, with in-person sessions when the project calls for them, easiest across the Philadelphia region. You review the site in your own browser as it is built.",
     links: [
       { to: "/services/web-design-philadelphia", label: "Web design for Philadelphia businesses" },
       { to: "/services/web-design-chester-county", label: "Web design for Chester County businesses" },

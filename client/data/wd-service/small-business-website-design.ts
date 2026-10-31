@@ -259,7 +259,7 @@ export const SMALL_BUSINESS: ServicePageData = {
     {
       kind: "office", id: "where",
       h2: "Where we are, and where we work",
-      lede: "OneAlgorithm is a web design and development company in Malvern, PA, founded in 2020 and rated 5.0 from 6 Google reviews.",
+      lede: "OneAlgorithm is a web design and development company at 625 Swedesford Road in Malvern, PA, founded in 2020 and rated 5.0 from 6 Google reviews.",
       leadIn: "Why it matters:",
       lead: "we take on website work for businesses nationwide, remotely from Malvern, PA; the three sites are in New York, Massachusetts and Pennsylvania.",
       question: { q: "Do you meet small business owners in person?", a: "When the project calls for it, yes, and most easily across the Philadelphia region: Chester, Delaware, Montgomery, Bucks and Philadelphia counties and New Castle County, Delaware. Most work runs remotely, with each screen reviewed in your own browser as it is built, and that is how the three sites on this page were made." },

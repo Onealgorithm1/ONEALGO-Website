@@ -99,7 +99,7 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
             <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
             <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="desk">{SF_PHONE.display}</a>
             <p className="sf-mono" style={{ marginTop: 16 }}>
-              OneAlgorithm · Malvern, PA · (610) 890-9711
+              OneAlgorithm · 625 Swedesford Rd, Unit B, Malvern, PA 19355 · Mon–Fri 9–5
             </p>
           </div>
         </div>

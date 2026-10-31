@@ -332,6 +332,22 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
       "Philadelphia County, PA",
       "New Castle County, DE",
     ],
+    // Corrected 2026-08-12. This said Mon-Fri 09:00-18:00 while the site sells
+    // 24/7 support (Index.tsx:207, :269) -- and 24/7 is real, not marketing.
+    //
+    // The cost of the contradiction was concrete: Google renders these hours as
+    // "Closed" beside the listing, so someone searching at 7pm with a system
+    // down -- the highest-intent visitor this business ever gets -- was told the
+    // company was shut, on the strength of a field nobody had revisited.
+    //
+    // `opens 00:00 / closes 23:59` across all seven days is the schema.org
+    // convention for always-open.
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
     sameAs: NAP.sameAs,
   };
   // Salesforce pages (structure-spec §9): the node mirrors the visible NAP band, so no email or

@@ -173,8 +173,9 @@ function NapBand({ updated }: { updated: string }) {
   return (
     <address className="wd-nap">
       <span className="wd-nap-name">{NAP.name}</span>
-      <span>{NAP.l1}</span>
+      <span>{NAP.l1}, {NAP.l2}</span>
       <a className="sf-phone" href={NAP.phone.href} data-cta="nap">{NAP.phone.display}</a>
+      <span className="sf-mono">{NAP.hours}</span>
       <span className="sf-mono wd-nap-row">
         Google Business Profile: {LISTING.rating} from {LISTING.reviews} reviews, read {LISTING.readShort} <Verify id="listing">Verify</Verify>
       </span>
