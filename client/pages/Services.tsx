@@ -29,9 +29,9 @@ import {
 } from "../components/site";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
 import { ServicesIndexBody } from "../components/v2/home-ServicesIndex";
+import { SERVICE_GROUPS } from "../components/v2/home-services";
 import {
   StructuredData,
-  createWebPageSchema,
 } from "../components/StructuredData";
 
 /* Services hub - 2026 refresh.
@@ -49,6 +49,9 @@ import {
  * it was a proof-shaped box containing no proof, and it sat where a buyer looks
  * for evidence. See REDESIGN-NOTES.md.
  */
+
+const TITLE = "IT and marketing services for small business | OneAlgorithm";
+const DESCRIPTION = "IT and marketing services from a four-person team in Malvern, PA: web development, SEO, Google Ads, Salesforce, IT consulting. Call (610) 890-9711.";
 
 const APPROACH = [
   {
@@ -71,32 +74,36 @@ const APPROACH = [
 
 export default function Services() {
   useSEO({
-    title: "Websites, SEO, Google Ads & Salesforce Services | OneAlgorithm",
-    description:
-      "Web development, SEO, Google Ads, Salesforce, IT consulting and staff augmentation. A consultancy in Malvern, Pennsylvania.",
+    title: TITLE,
+    description: DESCRIPTION,
     canonical: getCanonicalUrl("/services"),
     keywords:
-      "technology services, staff augmentation, IT consulting services, website development services, Salesforce consulting, marketing services, business technology solutions",
-    ogTitle: "Websites, SEO, Google Ads & Salesforce Services | OneAlgorithm",
-    ogDescription:
-      "Staff augmentation, website development, IT consulting, Salesforce and marketing solutions.",
+      "IT and marketing services, technology consulting, IT consulting services, website development services, SEO services, Salesforce consulting, staff augmentation, small business",
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl("/services"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle:
-      "Technology Services - OneAlgorithm | IT Consulting, Website Development, Salesforce & More",
-    twitterDescription:
-      "Staff augmentation, website development, IT consulting, Salesforce and marketing solutions.",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (
     <Layout>
+      {/* Hub = CollectionPage + ItemList of the service families (seo-spec-b 4.2); child pages carry the Service nodes. */}
       <StructuredData
-        data={createWebPageSchema(
-          "Technology Services - OneAlgorithm | IT Consulting, Website Development & More",
-          "Comprehensive technology services including website development, IT consulting, Salesforce, staff augmentation, and marketing solutions.",
-          "https://onealgorithm.com/services",
-        )}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: TITLE,
+          description: DESCRIPTION,
+          url: "https://onealgorithm.com/services",
+          dateModified: "2026-10-31",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: SERVICE_GROUPS.flatMap((g) => g.items).map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x.title, url: `https://onealgorithm.com${x.to}` })),
+          },
+        }}
       />
 
       <PageHero

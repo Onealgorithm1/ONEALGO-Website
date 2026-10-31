@@ -6,6 +6,9 @@ import {
   type SfFaqItem, type SfSource, type Station,
 } from "../../components/sf";
 import { SeoStyles, SeoCards, ProfilePlate, CountyBars, SeoPullQuote } from "../../components/v2/seo-Plates";
+import { OfferBand } from "../../components/v2/shared-OfferBand";
+import { ProofStrip } from "../../components/v2/shared-ProofStrip";
+import { CaseCard } from "../../components/v2/shared-CaseCard";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import {
   StructuredData,
@@ -28,7 +31,7 @@ import {
 const PAGE_PATH = "/services/seo-chester-county";
 const PAGE_URL = "https://onealgorithm.com/services/seo-chester-county";
 const TITLE = "SEO Company in Chester County, PA | Malvern | OneAlgorithm";
-const DESCRIPTION = "SEO services for Chester County, PA businesses, from a Malvern office. Google Business Profile, reviews and technical fixes. See what we fix first.";
+const DESCRIPTION = "SEO company in Chester County, PA: Business Profile, reviews and technical fixes from our Malvern office. Book an SEO audit: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
 const CASE = "/blog/seo-case-study-phantom-arcades/";
@@ -43,22 +46,24 @@ const SOURCES: SfSource[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "What does local SEO cover?", a: "Your Google Business Profile set up properly, the right primary category and service area, reviews asked for and answered, one clear page per service, and reporting from your own accounts." },
-  { q: "Should I show my address if customers do not come to me?", a: "No. A business that works at the customer's site should hide its address and set a service area instead. That is Google's rule for service-area businesses, and Google can suspend a profile that breaks its guidelines." },
-  { q: "Is there an SEO company in Malvern, PA?", a: "Yes. Our office is on Swedesford Road in Malvern, and we do local SEO for Chester County businesses." },
-  { q: "Do you do SEO for businesses in Chester Springs?", a: "Yes. Chester Springs is a short drive from our Malvern office. For a business that works at the customer's property, the first fix is usually the Business Profile: a service area instead of a street address, and the right primary category." },
-  { q: "How long does local SEO take, and what does it cost?", a: "Google says some changes register within hours and others take months, and suggests waiting a few weeks before judging any of it. We do not publish a price, because it depends on what the audit finds." },
-  { q: "Do you work outside Chester County?", a: "Yes: next door in the neighboring counties, and anywhere in the US remotely, which is how most SEO work runs anyway." },
-  { q: "Can you guarantee a spot in the Google map results?", a: "No. Google says there is no way to request or pay for a better local ranking, so anyone promising one is guessing. We make the profile accurate, complete and reviewed, and show you the numbers.", link: { to: "/services/seo", label: "How we work on SEO" } },
-  { q: "Do I need a Business Profile if I already have a website?", a: "Yes, if you want to appear in the map results. The website is read for the ordinary listings, and the profile feeds the map." },
+  { q: "What does local SEO cover?", a: "Local SEO covers your Google Business Profile, the primary category, hours, services and photos, a service area if you work at the customer's site, reviews asked for and answered, and a clear page for each service. Google ranks local results on relevance, distance and prominence, so each part works on one of those." },
+  { q: "Is there an SEO company in Malvern, PA?", a: "Yes. Our office is on Swedesford Road in Malvern, inside Chester County. We take on Chester County businesses and serve neighboring counties from the same office. Call (610) 890-9711 to book an SEO audit, and see our Google Business Profile for the address and hours." },
+  { q: "Do you do SEO for businesses in Chester Springs?", a: "Yes. We cover Chester Springs, Landenberg and the rest of Chester County from our Malvern office. The work starts with the same audit: your Business Profile, your service pages and what is stopping Google from showing you to people nearby. Nothing is promised in advance." },
+  { q: "How long does local SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. A corrected Business Profile can move first; reviews and service pages build over a quarter or more. We report from your own Search Console, so you can see which change moved which number." },
+  { q: "How much does local SEO cost?", a: "We scope local SEO in writing after the audit, because the work depends on your Business Profile, your service pages and how many competing businesses sit near you. We do not print a price list. The full explanation of what drives the cost is on our SEO services page.", link: { to: "/services/seo", label: "SEO services for small business" } },
+  { q: "Is local SEO worth it for a small business?", a: "It is when people nearby search for what you sell. Google's local results use relevance, distance and prominence, so a complete Business Profile, honest reviews and a clear page per service put a small business in front of those searchers. No one can promise a map position; we show you what moved." },
+  { q: "Should I show my address if customers do not come to me?", a: "Not if you work at the customer's site. Set a service area on your Business Profile instead of showing a street address, and keep the same business details everywhere they appear. We check which setting suits your business before changing anything on the profile." },
+  { q: "Do I need a Business Profile if I already have a website?", a: "Yes, for map results. The local results come from your Business Profile, and Google says they rest on relevance, distance and prominence. Your website still matters, because it supplies the page for each service you want to be found for. The two work together." },
+  { q: "Can you guarantee a spot in the Google map results?", a: "No. Google says there is no way to request or pay for a better local ranking, so anyone selling a guaranteed map position is guessing. We can set up the profile properly, collect and answer reviews and build clear service pages, then show you what moved.", link: { to: "/services/seo", label: "How we work on SEO" } },
+  { q: "Do you work outside Chester County?", a: "Yes. Our office is in Malvern, and most SEO work runs remotely. Our Business Profile lists Bucks, Chester, Delaware and Montgomery counties, Philadelphia, and New Castle County, Delaware as the service area. For the national method, see our SEO services page." },
 ];
 
 const LOCAL_CARDS = [
   { id: "profile", k: "Map results", t: "Your Business Profile, set up properly", lede: "For a local business the map results come from the profile, so we set it up before anything else.", lead: "Its reviews and details are often worth more than anything on the website itself.", deep: "Hours, services, photos and a description that says what you do. Google ranks local results on relevance, distance and prominence, and says there is no way to request or pay for a better local ranking." },
-  { id: "category", k: "First check", t: "The right primary category", lede: "Google uses your primary category to match you to searches, so it is the first thing we check.", lead: "Google's guidance is as few categories as possible, describing the core business.", deep: "Choose the category that names the core business, not every service you offer. Extra categories dilute the match instead of widening it." },
-  { id: "service-area", k: "Service-area businesses", t: "If customers do not come to you", lede: "A business that works at the customer's site should hide its address and set a service area.", lead: "A profile that breaks Google's rule for service-area businesses can be suspended.", deep: "If your van, crew or consultant goes to the customer, show where you serve rather than a street address. If customers visit you, show the address." },
-  { id: "reviews", k: "Reviews", t: "Reviews where they count", lede: "We set up a simple way to ask every customer for a Google review, and a short, specific reply to each.", lead: "Google does not show star ratings in search for review markup a business adds to its own site.", deep: "Reviews on your Business Profile are a different property from reviews on your own pages, and for most local firms they are worth more. Ask at the moment the customer is happiest, and reply by name to what they said." },
-  { id: "pages", k: "Pages", t: "Pages for what you actually sell", lede: "One plain page per service people search for, and a place page only where you really serve that area.", lead: "Never a block of place names in the footer; Google calls that keyword stuffing.", deep: "A place page earns its slot only when it has something specific to say about that area. Near-identical pages for each town are what Google's scaled content abuse policy targets." },
+  { id: "category", k: "First check", t: "The right primary category", lede: "Google uses your primary category to match you to searches, so it is the first thing we check.", lead: "Choosing it well is the first job on the profile.", deep: "Choose the category that names the core business, not every service you offer." },
+  { id: "service-area", k: "Service-area businesses", t: "If customers do not come to you", lede: "A business that works at the customer's site should hide its address and set a service area.", lead: "We check which setting suits your business before changing anything.", deep: "If your van, crew or consultant goes to the customer, show where you serve rather than a street address. If customers visit you, show the address." },
+  { id: "reviews", k: "Reviews", t: "Reviews where they count", lede: "We set up a simple way to ask every customer for a Google review, and a short, specific reply to each.", lead: "Honest reviews, answered by name, are what we set up.", deep: "Ask at the moment the customer is happiest, and reply by name to what they said." },
+  { id: "pages", k: "Pages", t: "Pages for what you actually sell", lede: "One plain page per service people search for, and a place page only where you really serve that area.", lead: "Never a block of place names in the footer.", deep: "A place page earns its slot only when it has something specific to say about that area. Near-identical pages for each town are what Google's scaled content abuse policy targets." },
   { id: "details", k: "Consistency", t: "Consistent details everywhere", lede: "The same name, address and phone number on your site, your profile and the main directories.", lead: "Nobody should find an old number or a wrong address for your business.", deep: "We check the site, the Business Profile and the main directories against one written version of your name, address and phone number, and correct the ones that drift." },
 ];
 
@@ -72,7 +77,7 @@ const STATIONS: Station[] = [
 ];
 
 const STEP_TEXT = [
-  ["Check what Google can see", "Before proposing anything we look in Search Console: has Google crawled the page, crawled it and chosen not to index it, or indexed it and ranked it too low to see? Two of those make content work pointless until they are sorted."],
+  ["Check what Google can see", "Before proposing anything we look in Search Console: has Google crawled the page, crawled it and chosen not to index it, or indexed it and ranked it too low to see? Content work waits until Google can crawl and index the page."],
   ["Audit the site and the profile", "A crawl of your site, what you rank for now, a look at your Business Profile, and a prioritized list of fixes. The first few are usually things you can do without us."],
   ["Fix the Business Profile", "The primary category, your hours, services, photos and description, and a service area instead of an address if you work at the customer's site."],
   ["Write one page per service", "A plain page for each thing people search for, and a place page only where you really serve that area and have something specific to say about it."],
@@ -103,9 +108,10 @@ export default function SeoChesterCounty() {
           "Local search engine optimization for businesses in Chester County, Pennsylvania, from an office in Malvern: Google Business Profile setup, review requests, service pages, consistent business details and technical fixes, reported from the client's own Search Console.",
           "Search Engine Optimization",
           PAGE_URL,
+          { areaServed: ["Chester County, PA", "Bucks County, PA", "Delaware County, PA", "Montgomery County, PA", "Philadelphia, PA", "New Castle County, DE"].map((n) => ({ "@type": "AdministrativeArea", name: n })) },
         )}
       />
-      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL)} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: "2026-10-31" })} />
       <StructuredData data={createLocalBusinessSchema()} />
 
       {/* HERO KEPT EXACTLY AS BEFORE (H1 and phrases are what ranks). */}
@@ -113,7 +119,7 @@ export default function SeoChesterCounty() {
         eyebrow="Chester County · Malvern, PA"
         title={
           <>
-            SEO in Chester County —{" "}
+            SEO company in Chester County —{" "}
             <span className="text-oa-orange">found by the people nearby</span>
           </>
         }
@@ -146,17 +152,21 @@ export default function SeoChesterCounty() {
           }}
         >
           <ProfilePlate />
+          <div style={{ marginTop: 28 }}><ProofStrip variant="local" /></div>
+          <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
           <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Being inside the county means we know the area and can be at your door, not driving in.</p>
           <GoDeeper label="what local SEO means here">
             <p className="sf-rule">
               Local SEO is the part of SEO that depends on being local: the Business Profile, reviews, service area and a clear page for each thing you sell. The technical work (crawl errors, slow pages, duplicate titles) is the same anywhere, and it is covered on our main SEO page.
             </p>
             <div className="sf-links">
-              <Link className="sf-link" to="/services/seo">SEO services</Link>
-              <Link className="sf-link" to="/services/web-design-chester-county">Web design in Chester County</Link>
+              <Link className="sf-link" to="/services/seo">SEO services for small business</Link>
+              <Link className="sf-link" to="/services/web-design-chester-county">web design in Chester County</Link>
             </div>
           </GoDeeper>
         </SmartSection>
+
+        <OfferBand heading="Want your Business Profile checked?" line="Tell us your business and where you serve." label="Book an SEO audit" />
 
         {/* 2 THE LOCAL HALF: lift cards */}
         <SmartSection
@@ -205,7 +215,12 @@ export default function SeoChesterCounty() {
           <GoDeeper label="what happens in each step">
             <ol className="sf-rule">{STEP_TEXT.map(([t, d]) => <li key={t} style={{ marginTop: 8 }}><strong>{t}.</strong> {d}</li>)}</ol>
           </GoDeeper>
+          <h3 className="sf-h3" id="h-measured" style={{ marginTop: 32 }}>What we have measured: Phantom Arcades</h3>
+          <p className="sf-measure" style={{ marginBottom: 16 }}>On a client site we rebuilt for search, Google clicks rose 92% and non-brand clicks 231% over the same 68 days a year earlier.</p>
+          <div style={{ maxWidth: 420 }}><CaseCard title="Phantom Arcades" built="A rebuild for search, on a client site" result="Clicks +92%, non-brand +231% (Search Console)" to={CASE} linkLabel="Phantom Arcades SEO case study" /></div>
         </SmartSection>
+
+        <OfferBand heading="Ready for the audit?" line="A person at OneAlgorithm reads it and replies." label="Book an SEO audit" />
 
         {/* 4 MARKET: chart + proof */}
         <SmartSection id="market" tone="paper" grid labelledBy="h-market">
@@ -218,7 +233,7 @@ export default function SeoChesterCounty() {
             lead="Small businesses compete on the map results and a clear page per service, which is exactly what local SEO works on."
           >
             <GoDeeper label="what the number means for you">
-              <p className="sf-rule">Most firms in the county are small, so the competition for a local search is often another small firm with a profile and a few reviews. A complete, accurate profile and a plain page per service is enough to compete. Google also says some changes take effect in a few hours and others take months, so judge the work after weeks, not days.</p>
+              <p className="sf-rule">Most firms in the county are small, so the competition for a local search is often another small firm with a profile and a few reviews. A complete, accurate profile and a plain page per service is enough to compete. Google says some changes take effect in a few hours and others take several months.</p>
             </GoDeeper>
           </SmartUnit>
           <CountyBars />
@@ -231,15 +246,27 @@ export default function SeoChesterCounty() {
             <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">We work across Chester County, in the neighboring counties and remotely anywhere in the US.</p>
           </div>
           <SeoPullQuote
-            statement="Google clicks up 92%, non-brand clicks up 231%."
-            chips={["Phantom Arcades, after a rebuild for search", "Year over year, a national result", "Chester County, in person or remote", "Delaware, Montgomery, Bucks and Philadelphia counties", "New Castle County, Delaware"]}
+            statement="Chester County in person, next door and remote."
+            chips={["Bucks County", "Delaware County", "Montgomery County", "Philadelphia", "New Castle County, Delaware"]}
           />
           <div style={{ gridColumn: "1 / -1", marginTop: 28 }} className="sf-links">
-            <Link className="sf-link" to={CASE}>Read the SEO case study</Link>
-            <Link className="sf-link" to="/services/seo">SEO services</Link>
-            <Link className="sf-link" to="/services/google-ads-philadelphia">Google Ads in Philadelphia</Link>
+            <Link className="sf-link" to="/services/seo">SEO services for small business</Link>
+            <Link className="sf-link" to="/services/google-ads-philadelphia">Google Ads management in Philadelphia</Link>
+            <Link className="sf-link" to="/services/web-design-chester-county">web design in Chester County</Link>
           </div>
-          <p className="sf-mono" style={{ gridColumn: "1 / -1" }}>Our office: 625 Swedesford Rd, Unit B, Malvern, PA 19355. Mon–Fri 9–5. Google Business Profile: 5.0 from 6 Google reviews.</p>
+        </SmartSection>
+
+        {/* OFFICE */}
+        <SmartSection
+          id="office"
+          tone="surface"
+          heading={{ id: "h-office", title: "Our Malvern office", lede: "Our office is on Swedesford Road in Malvern, inside Chester County." }}
+        >
+          <address className="sf-measure" style={{ fontStyle: "normal" }}>
+            <p><strong>OneAlgorithm</strong><br />Malvern, PA<br /><a href="tel:+16108909711">(610) 890-9711</a></p>
+            <p><a className="sf-link" href="tel:+16108909711" style={{ minHeight: 44, display: "inline-flex", alignItems: "center" }}>(610) 890-9711</a></p>
+          </address>
+          <p className="sf-mono">5.0 from 6 Google reviews, read {READ_ON}.</p>
         </SmartSection>
 
         {/* FAQ */}

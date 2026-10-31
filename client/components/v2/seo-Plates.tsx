@@ -210,9 +210,9 @@ export function PhantomChart() {
 /** The three hard requirements, and the three reasons a page is missing from Google. */
 export function GooglePipeline() {
   return (
-    <Plate id="seo-pipe" stamp="FIG. · Diagram · Why a page is missing" caption="URL Inspection in Search Console tells you which reason applies in about a minute.">
+    <Plate id="seo-pipe" stamp="FIG. · Diagram · Where a page gets stuck" caption="Google says it does not guarantee that a page you submit gets indexed.">
       <div style={{ padding: 18 }}>
-        <p className="seo-k" style={{ color: "#5B6B7C", marginTop: 0 }}>Three reasons a page is missing</p>
+        <p className="seo-k" style={{ color: "#5B6B7C", marginTop: 0 }}>Where a page can get stuck</p>
         <ol className="seo-flow" style={{ marginTop: 10 }}>
           <li><b>A</b>Never crawled<span>Google has not seen it.</span></li>
           <li><b>B</b>Crawled, not indexed<span>Seen, and left out.</span></li>

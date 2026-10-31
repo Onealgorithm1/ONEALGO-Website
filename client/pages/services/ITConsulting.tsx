@@ -5,6 +5,8 @@ import { PageHero } from "../../components/site";
 import { SfPage, SmartSection, GoDeeper, Readouts, SourcesDialog, DeskCTA, type SfFaqItem, type SfSource } from "../../components/sf";
 import { EnterpriseRow, EnterpriseTable, EnterpriseFaq, type EUnit } from "../../components/v2/enterprise-Units";
 import { EVStyles, BridgePlate, HoverCards, StepRail, Statement, EnterpriseSources } from "../../components/v2/enterprise-Visuals";
+import { OfferBand } from "../../components/v2/shared-OfferBand";
+import { ProofStrip } from "../../components/v2/shared-ProofStrip";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
 
@@ -21,7 +23,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 const PATH = "/services/it-consulting";
 const URL_ = "https://onealgorithm.com" + PATH;
 const TITLE = "IT consulting services | Philadelphia and Malvern, PA";
-const DESCRIPTION = "Security review, cloud sizing and tool selection for small organizations. Honest about what we can and cannot show.";
+const DESCRIPTION = "IT consulting services for small organizations: security review, cloud sizing, tool selection and 24/7 support. Call (610) 890-9711.";
 const READ = "read 31 October 2026";
 
 const SOURCES: SfSource[] = [
@@ -31,7 +33,7 @@ const SOURCES: SfSource[] = [
 
 const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link>;
 
-const DOES_COST: EUnit[] = [
+const DOES: EUnit[] = [
   {
     id: "h-does", title: "What an IT consultant does",
     lede: "An IT consultant reads what your systems actually report, ranks the risks and tells you what to fix first and what to leave alone.",
@@ -39,23 +41,37 @@ const DOES_COST: EUnit[] = [
     leadIn: "What we do:",
     points: ["Inventory servers, licenses and the spreadsheet holding a process together", "Name single points of failure in week one", "Say so when the fix is a setting"],
   },
+];
+
+const COST_CHOOSE: EUnit[] = [
   {
     id: "h-cost", title: "What IT consulting costs",
     lede: "Cost follows scope: how many systems, how much has to be inspected, and whether we advise or also build.",
     lead: "Every engagement is scoped in writing before work starts, and we publish no rate card.",
     points: ["Number of systems and sites in scope", "Advice only, or advice plus delivery", "How much documentation already exists"],
   },
+  {
+    id: "h-choose", title: "How to choose an IT consulting firm",
+    lede: "Choose the firm that puts scope in writing, names who does the work and hands you the keys to your own accounts.",
+    lead: "Ask each firm the same four questions and compare the answers.",
+    leadIn: "Yes, but:",
+    points: ["Is the scope in writing?", "Who does the work, by name?", "Who owns the accounts and the documentation?"],
+    label: "the fourth question, and what to expect from us",
+    deep: <p className="sf-rule">The fourth question is what happens at 2 a.m. when something breaks. Ask who answers, how fast they say they will, and whether that is written down. We answer with 24/7 support and hypercare after go-live. We name no competitor here; the same questions work on any firm, including us.</p>,
+  },
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "What does an IT consultant do?", a: "An IT consultant inventories the systems you run, finds the risks and waste, and tells you what to fix first. At OneAlgorithm that means a written plan with an order, an owner and a rough cost for each step, and we can build it or advise your team while they do." },
-  { q: "What is IT consulting?", a: "IT consulting is outside advice, and sometimes delivery, on how a business plans, secures, buys and runs its technology. It covers technology planning, security review, cloud migration, performance and cost review, and choosing tools." },
-  { q: "How much does IT consulting cost?", a: "It depends on scope: how many systems, how much must be inspected, and whether we advise or also build. We scope the work in writing before it starts and do not publish a rate card.", link: { to: "#h-cost", label: "What moves the cost" } },
-  { q: "What is the difference between an IT consultant and a managed service provider?", a: "A consultant decides what should change and why. A managed service provider runs day-to-day help desk, monitoring and patching. Many organizations need the decision first and the operator second." },
-  { q: "How is IT consulting different from IT staff augmentation?", a: "Consulting delivers a recommendation or a build that we are accountable for. Staff augmentation places a person inside your team, under your lead, for a sprint or a year.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
-  { q: "Do you offer 24/7 support?", a: "Yes. After go-live we provide hypercare first, then ongoing support, 24/7 across the time zones you operate in." },
-  { q: "Do you work with small businesses?", a: "Yes. We are a small firm of four people, and small and mid-sized organizations are who the work is built for. The person who scopes it stays on it through delivery." },
-  { q: "Where do you work?", a: "We are based in Malvern, Pennsylvania, in Chester County, and serve Philadelphia and the surrounding area. Most work is remote, with in-person sessions when the project calls for them." },
+  { q: "What is IT consulting?", a: "IT consulting is outside advice, and sometimes hands-on delivery, on how an organization plans, secures, buys and runs its technology. It covers security review, cloud sizing, tool selection and roadmaps. The goal is a written plan with an owner and an order, so you know what to fix first.", link: { to: "/services", label: "Services" } },
+  { q: "How is IT consulting different from IT staff augmentation?", a: "Consulting delivers a plan or a build that we are accountable for. IT staff augmentation places a person inside your team, under your lead, for a sprint or a year. Choose consulting when the problem is a decision, and staff augmentation when you know the work and need more hands.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
+  { q: "Do you offer 24/7 support?", a: "Yes. After go-live we provide hypercare first, while real users find the cases nobody tested, then ongoing 24/7 support for what we delivered. We support the systems we built or advised on; we are not a managed service provider running your help desk every day." },
+  { q: "Do you work with small businesses?", a: "Yes. We are four people, and small organizations are who the engagements are sized for. The person who scopes the work stays on it through delivery, so you are not handed to a different team after the first conversation. Tell us the problem and we will say whether we fit.", link: { to: "/contact?need=enterprise", label: "Talk to a consultant" } },
+  { q: "Where do you work?", a: "Our office is in Malvern, PA, in Chester County. We meet clients in Philadelphia and Chester County in person by arrangement, and we work remotely with organizations across the United States, using video and shared screens for most sessions." },
+  { q: "When should a small company hire an IT consultant?", a: "Hire one when nobody owns security, the cloud bill is unclear, or several tools overlap and nobody can say which one wins. Those are decisions, not tickets. A consultant inventories what you run, ranks the risks, and tells you what to fix first and what to leave alone." },
+  { q: "Is technology consulting the same as IT consulting?", a: "Technology consulting is the broader term and also covers software, marketing systems and business process. IT consulting is the narrower part about infrastructure, security, cloud and tools. This page covers the IT side; the services page lists the rest of what we do.", link: { to: "/services", label: "All services" } },
+  { q: "Can you manage our systems day to day?", a: "No. We are not a managed service provider, and we say so plainly. We decide what should change, build it or advise your team while they do, and support what we deliver around the clock. If you need a vendor to patch servers and answer tickets, we can help you choose one." },
+  { q: "What do you need from us to start?", a: "Three things: a list of the accounts and access we may need, the tools you run today, and the problem in one paragraph. You do not need a finished brief. We read what the systems report, interview the people doing the work, and come back with a written plan." },
+  { q: "Do you work with Salesforce and Zendesk?", a: "Yes. We are a Select Salesforce Consulting Partner, and we signed a Zendesk partner agreement in 2026. Both are other companies' records, not ours to certify. See our Salesforce consulting pages and our Zendesk implementation page for how we work with each.", link: { to: "/services/zendesk", label: "Zendesk implementation" } },
 ];
 
 export default function ITConsulting() {
@@ -80,7 +96,7 @@ export default function ITConsulting() {
         data={createServiceSchema(
           "IT Consulting Services",
           "IT consulting covering technology planning, security review, modernization roadmaps, cloud migration sizing, performance and cost review, and tool and vendor selection, from a small firm in Malvern, Pennsylvania serving Philadelphia and Chester County.",
-          "IT Consulting",
+          "IT consulting",
           URL_,
         )}
       />
@@ -113,7 +129,7 @@ export default function ITConsulting() {
         <BridgePlate
           id="covers"
           fig={1}
-          heading={{ id: "h-covers", title: "What IT consulting covers", lede: "Six jobs: technology planning, security review, modernization, cloud migration, performance and cost review, and tool selection." }}
+          heading={{ id: "h-covers", title: "What IT consulting services cover", lede: "IT consulting services give a company without an IT department advice on security, cloud and tools, plus the build when you want it." }}
           title="From what you run to what to fix first"
           desc="Four boxes joined by arrows: inventory what you run, rank the risks, plan the order with an owner and a rough cost, then fix it or advise your team."
           stamp="How an assessment runs"
@@ -125,13 +141,14 @@ export default function ITConsulting() {
             { num: "04", title: "Fix or advise", sub: "we build, or coach your team", hl: true },
           ]}
         >
+          <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
           <GoDeeper label="the six services in plain terms">
             <p className="sf-rule">Technology planning writes down what you run, what each piece costs and what breaks, then orders the replacing or keeping of each one over two or three years. Modernization roadmaps are mostly sequencing: what moves first, what runs in parallel, and which data has to reconcile before you can switch.</p>
             <p>Performance and cost review finds where time and money go when a system is slow or a cloud bill keeps climbing: queries, indexes, oversized instances and licenses nobody uses.</p>
           </GoDeeper>
         </BridgePlate>
 
-        <SmartSection id="pillars" tone="night" heading={{ id: "h-pillars", title: "Security review, cloud sizing, tool selection", lede: "The three requests we hear most, each with a defined output." }}>
+        <SmartSection id="pillars" tone="night" labelledBy="h-covers">
           <HoverCards
             items={[
               { glyph: "shield", kicker: "Output: a ranked list", title: "Security review", body: "Accounts and access, backup and restore, patching and what your vendors can reach, ranked into a list of gaps." },
@@ -141,10 +158,19 @@ export default function ITConsulting() {
           />
         </SmartSection>
 
+        <SmartSection id="proof" compact labelledBy="proof-l">
+          <h2 className="sf-h3" id="proof-l">Who you would work with</h2>
+          <div style={{ marginTop: 20 }}><ProofStrip variant="local" /></div>
+        </SmartSection>
+
+        <OfferBand heading="Not sure what is broken?" line="Describe it in a few lines. We tell you what we would check first." label="Talk to a consultant" />
+
+        <EnterpriseRow id="does" units={DOES} />
+
         <StepRail
           id="run"
           tone="surface"
-          heading={{ id: "h-run", title: "How an engagement runs", lede: "The same four steps whether the job is two weeks or two years." }}
+          heading={{ id: "h-run", title: "How an IT consulting engagement runs", lede: "The same four steps whether the job is two weeks or two years." }}
           fig={2}
           stations={[
             { k: "s1", num: "01", title: "Assessment", sub: "interviews · inventory · logs" },
@@ -156,7 +182,7 @@ export default function ITConsulting() {
             { k: "s1", num: "01", title: "Assessment", line: "We sit with the people doing the work and read what the systems report." },
             { k: "s2", num: "02", title: "Plan", line: "A written sequence: what changes, in what order, who owns each piece, what it costs." },
             { k: "s3", num: "03", title: "Delivery", line: "We build it, or advise the team you already have while they build it." },
-            { k: "s4", num: "04", title: "Support", line: "Hypercare first, then ongoing support, 24/7 across your time zones." },
+            { k: "s4", num: "04", title: "Support", line: "Hypercare first, then ongoing support, 24/7." },
           ]}
           title="Four-step rail: assessment, plan, delivery, support"
           desc="A rail with four stations: assessment, plan, delivery and support."
@@ -164,11 +190,9 @@ export default function ITConsulting() {
           caption="The fourth step is the one most consulting skips. We stay for it."
         />
 
-        <EnterpriseRow id="does" units={DOES_COST} />
-
         <EnterpriseTable
           id="msp"
-          tone="surface"
+          tone="paper"
           title="IT consultant or managed service provider?"
           lede="A consultant decides what to change and why; a managed provider runs the day-to-day."
           caption="IT consultant compared with a managed service provider"
@@ -180,7 +204,11 @@ export default function ITConsulting() {
           ]}
         />
 
-        <SmartSection id="local" tone="night" heading={{ id: "h-local", title: "IT consulting in Philadelphia and Chester County", lede: "We work from Malvern, PA, mostly remote, with in-person sessions when the project calls for them." }}>
+        <EnterpriseRow id="cost" tone="surface" units={COST_CHOOSE} />
+
+        <OfferBand heading="Ready for a plain answer?" line="Send the problem in one paragraph. A person at OneAlgorithm replies." label="Talk to a consultant" />
+
+        <SmartSection id="local" tone="paper" heading={{ id: "h-local", title: "IT consulting in Philadelphia and Chester County", lede: "We work from Malvern, PA, mostly remote, with in-person sessions when the project calls for them." }}>
           <Readouts
             withEvidence={false}
             items={[
@@ -192,11 +220,11 @@ export default function ITConsulting() {
           <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Buyers here have choices, so we compete on a small team that stays on the work.</p>
           <GoDeeper label="working with us locally, and support after go-live">
             <p className="sf-rule">Malvern sits in Chester County, a short drive from Center City Philadelphia, King of Prussia and Wilmington. We have no separate Philadelphia office. Organizations further away work with us over video and shared screens, and we travel for workshops, cutovers and anything better done in the room.</p>
-            <p>After go-live we stay: hypercare first, while real users find the cases nobody tested, then ongoing support, 24/7 across the time zones you operate in.</p>
+            <p>After go-live we stay: hypercare first, while real users find the cases nobody tested, then ongoing support, 24/7.</p>
           </GoDeeper>
         </SmartSection>
 
-        <SmartSection id="show" grid heading={{ id: "h-show", title: "What we can and cannot show", lede: "We have not published client names, testimonials or outcome figures, and we will not invent any." }}>
+        <SmartSection id="show" tone="surface" grid heading={{ id: "h-show", title: "What we can and cannot show", lede: "We have not published client names, testimonials or outcome figures, and we will not invent any." }}>
           <Statement>Four named people you can question about work you care about.</Statement>
           <ul className="sf-points sf-c5">
             <li>No case studies on this site</li>
@@ -206,14 +234,14 @@ export default function ITConsulting() {
           <div className="sf-c12">
             <GoDeeper label="experience, partner status and related services">
               <p className="sf-rule">Between us the team has worked in healthcare, finance, {L("/industries/manufacturing", "manufacturing")}, {L("/industries/construction", "construction")} and {L("/industries/ecommerce", "e-commerce")}. That experience was earned inside those organizations, as employees, before this firm existed, and we say so rather than letting it read as company past performance.</p>
-              <p>We are a listed Salesforce Consulting Partner and a Zendesk partner. Both are somebody else's record, not ours; {L("/about", "the links to check them")} are on our about page.</p>
-              <p className="sf-links">{L("/services/zendesk", "Zendesk setup")} {L("/services/staff-augmentation", "IT staff augmentation")} {L("/services/operational-transformation-consulting", "Operational transformation")} {L("/services/martech", "MarTech consulting")} {L("/services", "All services")}</p>
+              <p>We are a Select Salesforce Consulting Partner and a Zendesk partner. Both are somebody else's record, not ours; {L("/about", "the links to check them")} are on our about page.</p>
+              <p className="sf-links">{L("/services/zendesk", "Zendesk implementation")} {L("/services/staff-augmentation", "IT staff augmentation")} {L("/services/operational-transformation-consulting", "operational transformation consulting")} {L("/services/martech", "MarTech consulting")} {L("/services/salesforce", "Salesforce consulting")} {L("/services", "Services")}</p>
             </GoDeeper>
           </div>
         </SmartSection>
 
         <EnterpriseFaq title="IT consulting questions" items={FAQS} />
-        <EnterpriseSources id="bls" text="Bureau of Labor Statistics, read 31 October 2026." />
+        <EnterpriseSources id="bls" text="Bureau of Labor Statistics, read October 31, 2026." />
         <SourcesDialog id="bls" title="Where these figures come from" intro="Every figure on this page is from the U.S. Bureau of Labor Statistics, read by a person at OneAlgorithm on 31 October 2026." sources={SOURCES} />
         <DeskCTA
           heading="Tell us what is actually broken"

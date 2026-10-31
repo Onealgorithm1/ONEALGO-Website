@@ -8,8 +8,10 @@ import {
 import { contactHref } from "../../components/sf/DeskCTA";
 import { MarketingLedger } from "../../components/v2/marketing-Ledger";
 import { VisualStyles, HoverCards, StatBand, BarPlate, AccessPlate } from "../../components/v2/marketing-Visuals";
+import { OfferBand } from "../../components/v2/shared-OfferBand";
+import { ProofStrip } from "../../components/v2/shared-ProofStrip";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import { StructuredData, createServiceSchema } from "../../components/StructuredData";
+import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
 
 /* Marketing & Social Media - site-wide v2 rebuild 2026-10-31 (sf kit body, hero kept).
  *
@@ -24,7 +26,6 @@ import { StructuredData, createServiceSchema } from "../../components/Structured
 
 const PAGE_PATH = "/services/marketing";
 const MARTECH = "/services/martech";
-const SEO_CASE = "/blog/seo-case-study-phantom-arcades/";
 const CONTACT = contactHref("Marketing", PAGE_PATH, "marketing");
 
 const SOURCES: SfSource[] = [
@@ -33,12 +34,12 @@ const SOURCES: SfSource[] = [
 ];
 
 const FEATURES = [
-  { title: "Campaign Management", body: "Campaign calendars, builds and launches across email, social and paid — planned far enough ahead that nothing ships the morning it is due." },
-  { title: "AI-Driven Insights", body: "We use AI on the analysis side: clustering what an audience responds to, drafting variants worth testing. It suggests; a person decides what actually goes out." },
+  { title: "Campaign Management", body: "Campaign calendars, builds and launches for the channels you ask us to run, planned far enough ahead that nothing ships the morning it is due." },
+  { title: "AI-Driven Insights", body: "A plain-language read of what your numbers show and what to try next month. A person decides what actually goes out." },
   { title: "Customer Journeys", body: "The sequence someone sees from first click to enquiry, written down and built in your CRM rather than held in one person's head." },
   { title: "ROI Tracking", body: "Spend, leads and cost per lead in one place, tied back to the CRM record — so the numbers hold up when somebody disputes them." },
   { title: "Lead Nurturing", body: "Automated follow-up that stops the moment someone replies. Most nurture sequences fail on exactly that detail." },
-  { title: "Marketing Automation", body: <>The repetitive work — list uploads, tagging, assignment, the weekly report — handed to the tool instead of to a person on Friday afternoon. <Link className="sf-link" to={MARTECH}>Marketing automation consulting</Link></> },
+  { title: "Marketing Automation", body: <>The repetitive work — list uploads, tagging, assignment, the weekly report — handed to the tool instead of to a person on Friday afternoon. <Link className="sf-link" to={MARTECH}>MarTech consulting</Link></> },
 ];
 
 /* Compliance wording, verbatim. */
@@ -64,18 +65,19 @@ const BENEFITS = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "What does social media management include?", a: "It covers planning and publishing content, keeping profiles current, and reporting on what each channel delivers. We work inside the Facebook Pages and Instagram business accounts you own, with nothing published without your approval." },
-  { q: "How much does social media management cost?", a: "The price follows the scope: how many accounts and channels, how much content is planned and published, and how much reporting you want. We scope it with you after a short conversation, so the figure matches the work instead of a package." },
-  { q: "Is social media management worth it?", a: "It is worth it when a content calendar keeps going unfilled or the reporting is something nobody trusts. We have not published client marketing results, so ask what we would run in your first ninety days and judge the answer." },
-  { q: "Do I keep ownership of my accounts?", a: "Yes. Your Pages, profiles and ad accounts stay yours throughout. You add One Algorithm as a partner on your own business account and can withdraw that access at any time, including the day we stop working together." },
-  { q: "Do you need my passwords?", a: "No. You grant access as a partner on your own business account, so you never hand over a login. Our access ends when the engagement ends." },
-  { q: "Do you manage both Facebook and Instagram?", a: "Yes. We manage Facebook Pages and Instagram business accounts that our clients connect to us, kept consistent with their brand, alongside any other channel a client asks us to run." },
-  { q: "Are paid ads included in management?", a: "Paid ads are a separate piece of work unless we agree otherwise in writing. Campaign management across email, social and paid is something we plan with you, and the ad accounts stay yours." },
-  { q: "How do you report on results?", a: "One report covers every channel: follower growth, reach and engagement collected from each connected account, plus leads and spend tied back to your CRM where one exists. It is written in plain language, not as dashboard screenshots." },
+  { q: "How much does social media management cost?", a: "Social media management is priced by scope: the accounts, channels and content you need decide the work. We scope it in writing and print no price list. For comparison, the U.S. Bureau of Labor Statistics puts an average in-house marketing specialist salary at $89,490 and a marketing manager at $177,770, salary only.", link: { to: "#cost", label: "What it costs, and why it varies" } },
+  { q: "Is social media management worth it?", a: "It is when your customers use Facebook or Instagram and nobody on your team has time to plan, publish and report. We measure in plain numbers and promise no growth figure. We show no case study on this page, because we would rather say so than invent one." },
+  { q: "Do I keep ownership of my accounts?", a: "Yes. Your Facebook and Instagram business accounts stay in your name. You grant us access through Meta's business tools, we manage and measure, and you can remove that access whenever you choose. We never need your personal password, and you can see everything we do." },
+  { q: "Do you need my passwords?", a: "No. You add us to your business assets with the access level you choose, so we never hold your login. That keeps the accounts yours and lets you see exactly what we can do. We walk you through the steps when you start." },
+  { q: "Do you manage both Facebook and Instagram?", a: "Yes. We manage Facebook and Instagram business accounts together, with one content plan, one publishing schedule and one report. Other channels are scoped separately, and we say so before we agree the work, so you are never billed for a channel nobody discussed." },
+  { q: "Are paid ads included in management?", a: "Not unless agreed. Management covers planning, publishing and reporting. Paid ads are scoped separately, and the ad budget is paid to the platform, not to us. If you want ads, we set the goal and the tracking first, so spend is judged on enquiries, not on clicks.", link: { to: "/services/google-ads", label: "Google Ads management" } },
+  { q: "How do you report on results?", a: "In plain numbers you can check: what was published, who it reached and what they did next. We name what changed and what we will do next month. We do not report vanity figures as results, and growth that comes from people who already knew you is labelled as brand." },
+  { q: "What does a digital marketing agency do for a small business?", a: "It plans and runs the channels that bring in customers: search, ads, social, email and the tracking that ties them together. We cover social media management on this page, with SEO, Google Ads and MarTech on their own pages, and we tell you which channel to start with.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "How do I choose a digital marketing agency?", a: "Ask who does the work, whether you own every account and how results are reported. Walk away from guaranteed rankings or follower counts, agencies that hold your logins, and reports that show only brand-name growth. We are four people in Malvern, so you talk to the people doing the work." },
 ];
 
 const TITLE = "Social Media Management Services | OneAlgorithm";
-const DESCRIPTION = "Social media management and marketing services for small business: Facebook and Instagram business accounts you own, campaigns, lead follow-up and plain-number reporting.";
+const DESCRIPTION = "Social media management services for small business: Facebook and Instagram accounts you own and plain-number reports. Book a call: (610) 890-9711.";
 
 export default function Marketing() {
   useSEO({
@@ -97,19 +99,21 @@ export default function Marketing() {
       <StructuredData
         data={createServiceSchema(
           "Marketing & Social Media Management Services",
-          "Social media management for client-owned Facebook Pages and Instagram business accounts — content planning, publishing and performance reporting — alongside campaign management, AI-driven insights and customer journey optimization.",
-          "Marketing",
+          "Social media management for client-owned Facebook Pages and Instagram business accounts: content planning, publishing and performance reporting, alongside campaign management and customer journey work.",
+          "Social media management",
           "https://onealgorithm.com/services/marketing",
+          { areaServed: { "@type": "Country", name: "United States" } },
         )}
       />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, "https://onealgorithm.com/services/marketing", { dateModified: "2026-10-31" })} />
 
       {/* HERO KEPT: same component, same text, same panel. */}
       <PageHero
         eyebrow="Marketing & Social Media"
         title={
           <>
-            Marketing services &amp;{" "}
-            <span className="text-oa-orange">social media management</span>
+            <span className="text-oa-orange">Social media management services</span>{" "}
+            &amp; marketing
           </>
         }
         lede="We manage social media accounts for our clients and build campaigns that adapt to customer behavior — with AI-driven insights, automated lead nurturing, and reporting that shows what their marketing is actually doing."
@@ -125,22 +129,42 @@ export default function Marketing() {
 
         {/* 1 · HERO HAND-OFF: the access plate, then the compliance capability rows (verbatim) */}
         <SmartSection id="social-media-management" labelledBy="h-social" className="scroll-mt-24"
-          heading={{ id: "h-social", kicker: "Facebook and Instagram", title: "Social Media Management", lede: "We run the Facebook Pages and Instagram business accounts you own, and report on what each one delivers." }}>
+          heading={{ id: "h-social", kicker: "Facebook and Instagram", title: "Social media management services", lede: "We run the Facebook Pages and Instagram business accounts you own, and report on what each one delivers." }}>
           <div style={{ marginTop: 40 }}><AccessPlate fig={1} /></div>
           <MarketingLedger items={SOCIAL_CAPABILITIES} label="Social media management capabilities" />
-          <GoDeeper label="what social media management covers and includes">
-            <p className="sf-rule">We manage the Facebook Pages and Instagram business accounts our clients own — planning and publishing content, keeping profiles current, and reporting on what each channel is delivering.</p>
-            <p>A month contains a campaign calendar, the scheduled posts and launches on it, upkeep of the profiles, and one report you can read without logging into five tools. Paid advertising is not part of management unless we agree it in writing, nothing is published to your account without your approval, and search engine work is a separate service.</p>
-            <div className="sf-links">
-              <Link className="sf-link" to="/services/seo">SEO services</Link>
+          <GoDeeper label="what social media management covers">
+            <p className="sf-rule">We manage the Facebook Pages and Instagram business accounts our clients own: planning and publishing content, keeping profiles current, and reporting on what each channel is delivering. Nothing is published to your account without your approval.</p>
+          </GoDeeper>
+        </SmartSection>
+
+        <OfferBand />
+
+        <SmartSection id="proof-strip" tone="surface" compact labelledBy="h-proof-strip">
+          <h2 className="sf-h3" id="h-proof-strip" style={{ marginBottom: 20 }}>Who you are hiring</h2>
+          <ProofStrip variant="local" />
+        </SmartSection>
+
+        {/* 1b · NEW: what a month contains / what is not included */}
+        <SmartSection id="includes" grid labelledBy="h-includes">
+          <SmartUnit className="sf-c7" headingId="h-includes" title="What social media management includes"
+            lede="A month of management contains a content plan, scheduled posts and one report."
+            lead="You know what you are paying for before the month starts, and what stays out of scope."
+            points={["A campaign calendar and the posts scheduled on it", "Upkeep of your Facebook and Instagram profiles", "One plain-number report across every channel"]}>
+            <h3 className="sf-h3" style={{ marginTop: 24 }}>What a month contains</h3>
+            <p>Content planning and publishing, then performance reporting: the two jobs behind every month, with your approval before anything goes live.</p>
+          </SmartUnit>
+          <div className="sf-c5">
+            <div style={{ padding: 24, background: "var(--surface)", border: "1px solid var(--hair-s)" }}>
+              <h3 className="sf-h3" style={{ margin: 0 }}>What is not included</h3>
+              <p>Paid ads, unless we agree them in writing. The ad budget is paid to the platform, not to us. Search engine work is a separate service.</p>
               <Link className="sf-link" to="/services/google-ads">Google Ads management</Link>
             </div>
-          </GoDeeper>
+          </div>
         </SmartSection>
 
         {/* 2 · what we run: hover cards */}
         <SmartSection id="what" tone="surface" labelledBy="h-what"
-          heading={{ id: "h-what", kicker: "Campaigns", title: "What we run beyond the posting", lede: "Six jobs, and all of them happen inside platforms you already own." }}>
+          heading={{ id: "h-what", kicker: "Campaigns", title: "What we run beyond the posting", lede: "Six kinds of work, and all of it happens inside platforms you already own." }}>
           <HoverCards cols={3} items={FEATURES} />
         </SmartSection>
 
@@ -162,9 +186,26 @@ export default function Marketing() {
           </SmartUnit>
         </SmartSection>
 
+        {/* 4b · NEW: where SEO, ads and MarTech fit */}
+        <SmartSection id="fit" labelledBy="h-fit"
+          heading={{ id: "h-fit", kicker: "Other channels", title: "Where SEO, ads and MarTech fit", lede: "Social is one channel. Search, ads and the tools behind them have their own pages." }}>
+          <div className="mk-table-wrap" style={{ marginTop: 40 }}>
+            <table className="mk-table">
+              <thead><tr><th scope="col">The job</th><th scope="col">Where it lives</th></tr></thead>
+              <tbody>
+                <tr><td data-th="The job">Be found when people search</td><td data-th="Where it lives"><Link className="sf-link" to="/services/seo">SEO services</Link></td></tr>
+                <tr><td data-th="The job">Pay for clicks, and track them</td><td data-th="Where it lives"><Link className="sf-link" to="/services/google-ads">Google Ads management</Link></td></tr>
+                <tr><td data-th="The job">Connect the tools behind it all</td><td data-th="Where it lives"><Link className="sf-link" to={MARTECH}>MarTech consulting</Link></td></tr>
+                <tr><td data-th="The job">Send people somewhere that converts</td><td data-th="Where it lives"><Link className="sf-link" to="/services/website-development">Website development</Link></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> We tell you which channel to start with, so you do not pay for five at once.</p>
+        </SmartSection>
+
         {/* 5 · who this suits: stat band */}
         <SmartSection id="suits" labelledBy="h-suits"
-          heading={{ id: "h-suits", kicker: "Who it is for", title: "Who this suits", lede: "Digital marketing for small business suits teams that do not have a person for every channel." }}>
+          heading={{ id: "h-suits", kicker: "Who it is for", title: "Small business marketing services: who this suits", lede: "Digital marketing for small business suits teams that do not have a person for every channel." }}>
           <StatBand items={[
             { num: "84.7%", label: "of Chester County employer businesses have under 20 employees", src: "U.S. Census Bureau, 2023" },
             { num: "84.0%", label: "of Philadelphia County employer businesses have under 20 employees", src: "U.S. Census Bureau, 2023" },
@@ -197,15 +238,15 @@ export default function Marketing() {
           </GoDeeper>
         </SmartSection>
 
+        <OfferBand heading="Not sure what to hand off?" line="Tell us the goal; we say what we would run first." label="Talk to a marketing specialist" />
+
         {/* 7 · what this is, and what it isn't (verbatim) */}
         <SmartSection id="why" labelledBy="h-why"
           heading={{ id: "h-why", kicker: "Straight talk", title: "What this is, and what it isn't", lede: "Four plain statements about how we work, including the case studies we do not have." }}>
           <HoverCards cols={2} items={BENEFITS} />
           <div className="sf-links" style={{ marginTop: 32 }}>
-            <Link className="sf-link" to={MARTECH}>Marketing automation consulting and MarTech</Link>
-            <Link className="sf-link" to="/services/website-development">Website development</Link>
             <Link className="sf-link" to="/services/salesforce-marketing-cloud-consulting">Salesforce Marketing Cloud consulting</Link>
-            <Link className="sf-link" to={SEO_CASE}>Phantom Arcades SEO case study</Link>
+            <Link className="sf-link" to="/industries/marketing">Marketing industry page</Link>
           </div>
           <div style={{ marginTop: 24 }}><SfButton to={CONTACT} cta="related">Tell us what your marketing should do</SfButton></div>
         </SmartSection>
@@ -220,7 +261,7 @@ export default function Marketing() {
         </SmartSection>
 
         <SmartSection id="sources" compact labelledBy="h-sources">
-          <p className="sf-mono" id="h-sources">Every figure on this page names its publisher and read date. <Verify id="mkt-sources">Sources</Verify></p>
+          <p className="sf-mono" id="h-sources">Updated <time dateTime="2026-10-31">October 31, 2026</time>. Every figure on this page names its publisher and read date. <Verify id="mkt-sources">Sources</Verify></p>
         </SmartSection>
         <SourcesDialog id="mkt-sources" title="Sources for this page" intro="Every figure on this page names its publisher and the date a person at OneAlgorithm read it. The source pages are listed here." sources={SOURCES} />
 

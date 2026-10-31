@@ -114,7 +114,7 @@ export function GaTrio({ items }: { items: { label: string; big: string; body: s
 }
 
 /** The ledger rows (H3 left, sentence right), reusing the kit's sf-ledger styles. */
-export function GaLedger({ items }: { items: { title: string; body: string }[] }) {
+export function GaLedger({ items }: { items: { title: string; body: React.ReactNode }[] }) {
   return (
     <div className="sf-ledger" style={{ marginTop: 0 }}>
       {items.map((it) => (
@@ -309,6 +309,42 @@ export function AreaPlate({ fig }: { fig: number }) {
 
 /* ---------------------------------------------------------------------------------------------------------- */
 
+/** FIG: a sample monthly report layout. Labels only, no figures: it shows the order of the page, not results. */
+export function ReportPlate({ fig }: { fig: number }) {
+  const rows = [
+    { h: "Spend", s: "What was spent, and where", w: 250 },
+    { h: "Leads counted once", s: "Calls and forms, no double counting", w: 190 },
+    { h: "What we changed", s: "Each change, with the reason", w: 300 },
+    { h: "What is next", s: "The one change we test next", w: 150 },
+  ];
+  return (
+    <Frame fig={fig} kind="Sample report" stamp="Layout only, no client data"
+      caption="The order of a monthly report: spend, leads counted once, what changed, what is next. This is a layout, not a result.">
+      <svg viewBox="0 0 480 400" role="img" aria-labelledby={`ga${fig}-t ga${fig}-d`}>
+        <title id={`ga${fig}-t`}>Sample monthly report layout</title>
+        <desc id={`ga${fig}-d`}>Four labelled blocks in order: spend, leads counted once, what we changed, what is next. No figures are shown.</desc>
+        <rect width="480" height="400" fill="#F6F7F9" />
+        <g className="ga-par-b" aria-hidden="true"><circle cx="440" cy="40" r="80" fill="none" stroke="#C9D3DF" strokeWidth="1.5" /></g>
+        <text x="20" y="30" fontFamily={F.mono} fontSize="12" fill="#5B6B7C" letterSpacing=".08em">MONTHLY REPORT</text>
+        <rect x="360" y="14" width="100" height="22" fill="#fff" stroke="#C9D3DF" />
+        <text x="410" y="29" textAnchor="middle" fontFamily={F.mono} fontSize="11" fill="#3A4B5E" letterSpacing=".06em">SAMPLE</text>
+        <path d="M20 48 H460" stroke="#00366B" strokeWidth="2" />
+        {rows.map((r, i) => {
+          const y = 66 + i * 80;
+          return (
+            <g key={r.h} fontFamily={F.body}>
+              <text x="20" y={y + 18} fontSize="17" fontWeight="600" fill="#0F1E2E">{i + 1}. {r.h}</text>
+              <text x="20" y={y + 38} fontSize="13" fill="#3A4B5E">{r.s}</text>
+              <rect x="20" y={y + 50} width="420" height="10" fill="#E6EBF1" />
+              <rect className="ga-bar" x="20" y={y + 50} width={r.w} height="10" fill={i === 1 ? "#FFAD33" : "#00366B"} />
+            </g>
+          );
+        })}
+      </svg>
+    </Frame>
+  );
+}
+
 const READ = "read 31 October 2026";
 const HELP = "Google Ads Help";
 export const GOOGLE_SOURCES: SfSource[] = [
@@ -320,6 +356,7 @@ export const GOOGLE_SOURCES: SfSource[] = [
   { name: `${HELP}: conversion types`, what: "Website, app, phone call and offline conversions", read: READ, page: "https://support.google.com/google-ads/answer/1722022" },
 ];
 export const PHILLY_SOURCES: SfSource[] = [
+  { name: "U.S. Census Bureau, County Business Patterns 2023", what: "Philadelphia County: 29,460 establishments; 24,751 (84.0%) have fewer than 20 employees", read: READ, page: "https://www2.census.gov/programs-surveys/cbp/datasets/2023/cbp23co.zip" },
   { name: `${HELP}: conversion types`, what: "Calls from ads, calls to a number on your site, taps on a mobile number", read: READ, page: "https://support.google.com/google-ads/answer/1722022" },
   { name: "OneAlgorithm's Google Business Profile", what: "Service areas: Philadelphia, Bucks, Chester, Delaware and Montgomery counties, PA; New Castle County, DE", read: "read 9 October 2026 through Google's Business Profile API" },
 ];

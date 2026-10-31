@@ -3,6 +3,9 @@ import {
   SfPage, SmartSection, SmartUnit, GoDeeper, SourcesDialog, Verify, FAQ, DeskCTA, StageRail, type SfFaqItem, type SfSource, type Tone,
 } from "../sf";
 import { IndStyles, GhostNum, LiftCards, FigBand, PairBars, SystemsPlate, type Fig, type BarRow } from "./industries-Visuals";
+import { OfferBand } from "./shared-OfferBand";
+import { ProofStrip } from "./shared-ProofStrip";
+import { CaseCard } from "./shared-CaseCard";
 
 /* Shared body for the industries group (hub + five industry pages), everything below the existing hero.
    Round 2 (critic.md): hero hand-off plate, then units laid out four different ways in rotation (split text + lift cards,
@@ -21,6 +24,10 @@ export type IndFacts = {
   bars?: { rows: BarRow[]; aLabel: string; bLabel: string };
 };
 export type IndDesk = { topicLabel: string; need: string; heading: string; lede: string; covers: string[]; next?: string[] };
+export type IndOffer = { heading?: string; line?: string; label?: string };
+export type IndCase = { title: string; built: string; result?: string; to?: string; linkLabel?: string };
+export type IndProof = "all" | "seo" | "salesforce" | "local";
+export const UPDATED = "Updated October 31, 2026";
 export type IndPlate = { title: string; left: string[]; hub: [string, string]; right: string[]; caption: string; stamp: string };
 
 const STATIONS = [
@@ -39,7 +46,34 @@ const autoBand = (rows: { label: string; value: string }[]): Fig[] =>
 type Lay = "split" | "split-r" | "band" | "quote" | "plain";
 const cycle: Lay[] = ["split", "band", "split-r", "quote"];
 
-export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, children, faqTone, plate, sources, railFig = 2, childrenFirst }: {
+/** A row of CaseCards under its own H2. Pass `result` only when sourced. */
+export function CaseBand({ id, heading, lede, cases, tone = "paper" }: { id: string; heading: string; lede: string; cases: IndCase[]; tone?: Tone }) {
+  return (
+    <SmartSection id={id} tone={tone} heading={{ id: `h-${id}`, title: heading, lede }}>
+      <div style={{ marginTop: 32, display: "grid", gap: 20, gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,260px),1fr))" }}>
+        {cases.map((c) => <CaseCard key={c.title} {...c} />)}
+      </div>
+    </SmartSection>
+  );
+}
+
+/** A small comparison table under its own H2 (scrolls inside its box on a phone, never the page). */
+export function PatternTable({ id, heading, lede, head, rows, tone = "surface" }: { id: string; heading: string; lede: string; head: string[]; rows: string[][]; tone?: Tone }) {
+  const cell: React.CSSProperties = { textAlign: "left", verticalAlign: "top", padding: "12px 16px 12px 0", borderTop: "1px solid var(--hair-s)" };
+  return (
+    <SmartSection id={id} tone={tone} heading={{ id: `h-${id}`, title: heading, lede }}>
+      <div style={{ marginTop: 32, overflowX: "auto", maxWidth: "100%" }}>
+        <table style={{ width: "100%", minWidth: 560, borderCollapse: "collapse" }}>
+          <caption className="sr-only">{heading}</caption>
+          <thead><tr>{head.map((h) => <th key={h} scope="col" className="sf-mono" style={{ ...cell, borderTop: 0, fontSize: 12, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--ink3)" }}>{h}</th>)}</tr></thead>
+          <tbody>{rows.map((r) => <tr key={r[0]}>{r.map((c, i) => i === 0 ? <th key={i} scope="row" style={{ ...cell, fontWeight: 600 }}>{c}</th> : <td key={i} style={{ ...cell, color: "var(--ink2)" }}>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    </SmartSection>
+  );
+}
+
+export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, children, faqTone, plate, sources, railFig = 2, childrenFirst, proof, offer1, offer2, after }: {
   crumbs: { label: string; to?: string }[];
   base?: { label: string; to: string }[];
   faqTone?: Tone;
@@ -53,6 +87,13 @@ export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, ch
   railFig?: number;
   /** Place `children` right after the plate (hub cards). */
   childrenFirst?: boolean;
+  /** ProofStrip variant, placed right under the hand-off plate (top third of the page). */
+  proof?: IndProof;
+  /** OfferBand after the first section, and again before "How the work runs". */
+  offer1?: IndOffer;
+  offer2?: IndOffer;
+  /** Extra sections placed straight after the unit with that id; a function receives the page's tone alternator. */
+  after?: Record<string, React.ReactNode | ((tone: () => Tone) => React.ReactNode)>;
 }) {
   let n = 0;
   const tone = (): Tone => (n++ % 2 ? "surface" : "paper");
@@ -65,16 +106,7 @@ export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, ch
     return l;
   };
 
-  return (
-    <SfPage crumbs={crumbs} base={base}>
-      <IndStyles />
-      <SmartSection id="plate" tone={tone()} compact>
-        <SystemsPlate fig={1} title={plate.title} left={plate.left} hub={plate.hub} right={plate.right} caption={plate.caption} stamp={plate.stamp} />
-      </SmartSection>
-
-      {childrenFirst && children}
-
-      {units.map((u, i) => {
+  const renderUnit = (u: IndUnit, i: number) => {
         const l = pick(u, i);
         const hid = `h-${u.id}`;
         const text = (cls: string, withPoints: boolean) => (
@@ -123,7 +155,37 @@ export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, ch
             </div>
           </SmartSection>
         );
+  };
+
+  return (
+    <SfPage crumbs={crumbs} base={base}>
+      <IndStyles />
+      <SmartSection id="plate" tone={tone()} compact>
+        <SystemsPlate fig={1} title={plate.title} left={plate.left} hub={plate.hub} right={plate.right} caption={plate.caption} stamp={plate.stamp} />
+      </SmartSection>
+
+      {proof && (
+        <SmartSection id="proof-strip" tone={tone()} compact>
+          <ProofStrip variant={proof} />
+        </SmartSection>
+      )}
+
+      {childrenFirst && children}
+      {childrenFirst && <OfferBand {...offer1} />}
+
+      {units.map((u, i) => {
+        const node = renderUnit(u, i);
+        const extra = after?.[u.id];
+        return (
+          <React.Fragment key={u.id}>
+            {node}
+            {typeof extra === "function" ? extra(tone) : extra}
+            {i === 0 && !childrenFirst && <OfferBand {...offer1} />}
+          </React.Fragment>
+        );
       })}
+
+      <OfferBand {...offer2} />
 
       <SmartSection id="how" tone={tone()} heading={{ id: "h-how", title: "How the work runs", lede: "Four stages, and the same people in each." }}>
         <StageRail className="sf-mt" fig={railFig} stations={STATIONS} sample={false}
@@ -154,7 +216,7 @@ export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, ch
       {allSources && (
         <SmartSection id="sources" tone="paper" compact>
           <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 12px" }}>
-            Sources for this page: <Verify id="facts">Open the list</Verify>
+            Sources for this page: <Verify id="facts">Open the list</Verify> <span>{UPDATED}</span>
           </p>
         </SmartSection>
       )}

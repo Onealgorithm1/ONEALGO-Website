@@ -8,6 +8,9 @@ import {
 import { SeoStyles, SeoAuditPlate, SeoCards, PhantomChart, GooglePipeline, ProviderTable, SeoPullQuote } from "../../components/v2/seo-Plates";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
 import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
+import { OfferBand } from "../../components/v2/shared-OfferBand";
+import { ProofStrip } from "../../components/v2/shared-ProofStrip";
+import { CaseCard } from "../../components/v2/shared-CaseCard";
 
 /* /services/seo, v2 body (2026-10-31 site-wide rebuild). THE HERO IS KEPT EXACTLY (same PageHero, same text);
  * everything below it is the sf kit.
@@ -22,8 +25,8 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PAGE_PATH = "/services/seo";
 const PAGE_URL = "https://onealgorithm.com/services/seo";
-const TITLE = "SEO services for small businesses | One Algorithm";
-const DESCRIPTION = "Audit first, then fixes, content and links you do not buy. Search Console reporting, no ranking guarantees. Malvern, PA.";
+const TITLE = "SEO Services for Small Business | OneAlgorithm";
+const DESCRIPTION = "SEO services for small business: an audit first, then fixes, content and links you never buy. Search Console reporting. Book an SEO audit: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
 const CASE = "/blog/seo-case-study-phantom-arcades/";
@@ -38,22 +41,25 @@ const SOURCES: SfSource[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the price follows what the audit finds: how many pages, how much is broken, and how competitive your searches are. We do not print a price list.", link: { to: "#start", label: "Ask for the audit" } },
-  { q: "How long does SEO take?", a: "Google says some changes take effect in a few hours and others take several months. Technical fixes usually move first; new pages on a young site take a quarter or more." },
-  { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants.", link: { to: "#jobs", label: "See the six jobs" } },
-  { q: "What is the difference between local SEO and SEO?", a: "Local SEO is the part tied to place: your Google Business Profile, reviews, service area and map results. SEO is everything on the site that decides whether Google can find and trust it.", link: { to: "/services/seo-chester-county", label: "Local SEO in Chester County" } },
-  { q: "What is the difference between SEO and Google Ads?", a: "Ads buy a position now and stop when you stop paying. SEO builds slowly and keeps working.", link: { to: "/services/google-ads", label: "Google Ads management" } },
-  { q: "Can I do SEO myself?", a: "Yes, much of it. The first items on an audit are usually things your own developer can do. Pay for help when the list is long or the site is hard to crawl." },
-  { q: "How will I know it is working?", a: "Reporting comes from your own Search Console and GA4, so you can check every number. We look at non-brand clicks, because brand clicks only show people already knew you." },
-  { q: "Do you guarantee a number-one ranking?", a: "No. Nobody can, and Google will not even guarantee that a page you submit gets indexed. We promise the work: faults fixed, pages written, every number visible to you." },
-  { q: "Do you do SEO outside Chester County?", a: "Yes. Our office is in Malvern, and most SEO work runs remotely anyway. Philadelphia, Delaware, Montgomery and Bucks counties and New Castle County, Delaware, are next door." },
+  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want. We do not print a price list, and a quote given before anyone has looked at the site is a guess.", link: { to: "/contact?need=seo", label: "Ask for the audit" } },
+  { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first; new pages on a young site often take a quarter or more. We report non-brand clicks monthly from your own Search Console, so you see movement as it happens." },
+  { q: "Is SEO worth it?", a: "It is worth it when people search for what you sell and your site can realistically beat the pages that rank. The audit tells you which. We measure non-brand clicks, because brand clicks only show people who already knew you. For Phantom Arcades they rose 231% over the same 68 days a year earlier. We guarantee nothing.", link: { to: CASE, label: "Phantom Arcades SEO case study" } },
+  { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants. Each job is separate in the report, so you can see which change moved which number. We start with an audit and fix technical faults before writing new pages.", link: { to: "#jobs", label: "See the six jobs" } },
+  { q: "What is the difference between local SEO and SEO?", a: "Local SEO is the part tied to place: your Google Business Profile, reviews, service area and map results. SEO is everything on the site that decides whether Google can find and trust it. Google says local results rest on relevance, distance and prominence, and that you cannot pay for a better local ranking.", link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" } },
+  { q: "What is the difference between SEO and Google Ads?", a: "Ads buy a position now and stop when you stop paying. SEO builds slowly and keeps working once pages are indexed and trusted. Many small businesses need both at different times: ads for a launch or a slow quarter, SEO for steady demand. We run both and will tell you which to start with.", link: { to: "/services/google-ads", label: "Google Ads management" } },
+  { q: "Can I do SEO myself?", a: "Yes, much of it. The first items on an audit are usually things your own developer can do, such as redirects, titles and a stray noindex. Pay for help when the list is long, the site is hard to crawl or nobody has time to write and measure pages. Ask us for the audit either way." },
+  { q: "How will I know it is working?", a: "Reporting comes from your own Search Console and GA4, so you can check every number. We put non-brand clicks on their own line, because brand clicks only show people who already knew your name. Each monthly report names what changed, what moved and what we are doing next." },
+  { q: "Do you guarantee a number-one ranking?", a: "No. Nobody can, and Google will not even guarantee that a page you submit gets indexed. We promise the work: faults fixed, pages written, no bought links and every number visible to you. Be wary of any provider who guarantees a first-page or number-one ranking." },
+  { q: "How do I choose an SEO company?", a: "Pick the one that shows its method, gives you read access to Search Console and refuses to guarantee rankings. Ask how links are earned and whether non-brand clicks are reported apart from brand. Walk away from bought links, brand clicks presented as growth, and a fixed number of new pages each month." },
+  { q: "Does SEO still matter with AI search?", a: "Yes. AI assistants answer from pages they can crawl and trust, so crawl access, clear answer-first copy and accurate structured data still decide whether your site is used. We track sessions from AI assistants in GA4 as their own line. We cannot promise a citation from any assistant." },
+  { q: "Does Google offer SEO services?", a: "Google publishes guidance, including its SEO Starter Guide, and its Business Profile help says there is no way to request or pay for a better local ranking. The guide adds that you might consider hiring a professional. Google does not sell you a ranking; we do the audit, the fixes and the reporting." },
 ];
 
 const JOBS = [
   { id: "technical", t: "Technical SEO", k: "Crawl, index, speed", lede: "Technical SEO makes sure Google can reach, read and index every page worth ranking.", lead: "Content on a site search engines struggle to crawl is wasted work, so this comes first.",
-    deep: "Crawl and index coverage, redirect chains, canonical tags, sitemaps, duplicate titles and Core Web Vitals, and page speed on real visitors." },
+    deep: "Crawl and index coverage, redirect chains, canonical tags, sitemaps, duplicate titles and Core Web Vitals, measured on real visitors." },
   { id: "content", t: "Content and keywords", k: "Winnable first", lede: "We map what people search near what you sell, then check whether you can beat the pages that rank.", lead: "Sometimes the honest answer is no, and we say so instead of billing you to chase it.",
-    deep: "One page per thing people search for, written plainly. Google states no minimum or maximum length exists, so we do not pad. Many near-identical pages is what the scaled content abuse policy targets." },
+    deep: "One page per thing people search for, written plainly. Many near-identical pages is what the scaled content abuse policy targets." },
   { id: "links", t: "Links without buying them", k: "Earned only", lede: "We ask for links a person would plausibly click, from sites that have a reason to mention you.", lead: "Buying or selling links for ranking is link spam in Google's own policy.",
     deep: "No bought links, no private blog networks, nothing that risks a manual action. If a proposal promises a fixed number of links a month, ask where they come from." },
   { id: "local", t: "Local SEO", k: "Map results", lede: "For a local business the map results come from your Google Business Profile, so we set that up properly.", lead: "Google says there is no way to request or pay for a better local ranking.",
@@ -74,7 +80,7 @@ const STATIONS: Station[] = [
 
 const STEP_TEXT = [
   ["Audit", "A crawl, what you rank for now, Core Web Vitals and your Business Profile, then a prioritized list of fixes."],
-  ["Fix", "Technical faults first: indexing, redirects, titles, speed. Two of the three reasons a page is missing from Google make content work pointless until they are sorted."],
+  ["Fix", "Technical faults first: indexing, redirects, titles, speed. Content work is pointless until Google can crawl and index the page."],
   ["Content", "One plain page per thing people search for, checked against the keywords you can actually win."],
   ["Links", "Outreach for links worth clicking. Nothing bought, nothing from a network built to manipulate rankings."],
   ["Report", "Monthly numbers from your own Search Console and GA4, with non-brand clicks on their own line and next month's work named."],
@@ -118,9 +124,10 @@ export default function Seo() {
           "SEO for small businesses from an office in Malvern, Pennsylvania: technical audits (crawl and index coverage, redirects, canonicals, sitemaps, Core Web Vitals), keyword and content strategy, links earned rather than bought, local search and Google Business Profile, Search Console and GA4 reporting, and visibility in AI assistants. No ranking guarantees.",
           "Search Engine Optimization",
           PAGE_URL,
+          { areaServed: { "@type": "Country", name: "United States" }, catalog: { name: "SEO services", urls: ["https://onealgorithm.com/services/seo-chester-county"] } },
         )}
       />
-      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL)} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: "2026-10-31" })} />
 
       {/* HERO KEPT EXACTLY AS BEFORE. */}
       <PageHero
@@ -149,7 +156,7 @@ export default function Seo() {
       <SfPage crumbs={[{ label: "SEO services" }]}>
         <SeoStyles />
 
-        {/* 1 HAND-OFF: visual band (sample audit plate) */}
+        {/* 1 HAND-OFF: proof band + definition */}
         <SmartSection
           id="what"
           tone="surface"
@@ -159,14 +166,14 @@ export default function Seo() {
             lede: "SEO services make a website easy for search engines to find, read and trust, so the right people reach it without paid ads.",
           }}
         >
-          <SeoAuditPlate />
-          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Most of the work is fixing what blocks Google, not writing more pages. No ranking guarantees, no bought links.</p>
-          <GoDeeper label="what an SEO engagement covers">
-            <p className="sf-rule">
-              An engagement runs in a fixed order: technical fixes, then content, then links, with reporting throughout. Google itself says you might consider hiring a professional, and that some changes take effect in a few hours while others take several months.
-            </p>
-          </GoDeeper>
+          <ProofStrip variant="seo" />
+          <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
+          <h3 className="sf-h3" id="h-whatis" style={{ marginTop: 28 }}>What is SEO, and how does it work?</h3>
+          <p className="sf-measure">SEO, search engine optimization, is the work of making a site easy for Google to crawl, index and understand, then giving it pages worth ranking. It works in a fixed order: technical fixes first, then content, then links, with reporting throughout.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 16 }}><span className="sf-lead-in">Why it matters:</span> Most of the work is fixing what blocks Google, not writing more pages. No ranking guarantees, no bought links.</p>
         </SmartSection>
+
+        <OfferBand heading="Not sure what is holding your site back?" line="Send the address. We tell you what we would check first." label="Book an SEO audit" />
 
         {/* 2 SIX JOBS: lift cards */}
         <SmartSection
@@ -201,19 +208,35 @@ export default function Seo() {
             lede="After we rebuilt Phantom Arcades for search, its Google clicks rose 92% over the same 68 days a year earlier."
             lead="Non-brand clicks, from people who did not already know the name, rose 231%."
             points={[
-              "One page per game system, with its own title",
-              "More than 80 redirects from the old URLs",
-              "Product structured data on every product",
+              "Clicks: 1,112 to 2,130 over 68 days",
+              "Non-brand clicks: 95 to 314",
+              "Impressions up 63%, to 52,226",
             ]}
           >
             <GoDeeper label="what we changed and what we are not claiming">
-              <p className="sf-rule">We gave every game system its own page and wrote product titles. The 68 days before the window were flat, with clicks down 6%, so the lift is not a trend that was already running.</p>
+              <p className="sf-rule">The window is 13 August to 19 October 2026, against the same dates in 2025. The 68 days before it were flat, with clicks down 6%, so the lift is not a trend that was already running.</p>
               <p>We do not quote revenue. This is one client, and it is the only SEO result we publish.</p>
-              <div className="sf-links"><Link className="sf-link" to={CASE}>Read the Phantom Arcades SEO case study</Link></div>
+              <div className="sf-links"><Link className="sf-link" to={CASE}>Phantom Arcades SEO case study</Link></div>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c7"><PhantomChart /></div>
         </SmartSection>
+
+        {/* 3b SEO AUDIT: sample plate */}
+        <SmartSection
+          id="audit"
+          tone="paper"
+          heading={{
+            id: "h-audit",
+            title: "SEO audit: what we check first",
+            lede: "An SEO audit ranks what is stopping Google from showing your site, in the order to fix it.",
+          }}
+        >
+          <SeoAuditPlate />
+          <p className="sf-lead sf-measure" style={{ marginTop: 24 }}><span className="sf-lead-in">Why it matters:</span> We check five things first: crawl and index, redirects, titles, speed on real visitors and your Business Profile. Sample data, not a client audit.</p>
+        </SmartSection>
+
+        <OfferBand heading="Want this list for your site?" line="Send the address and the searches you want to be found for." label="Get an SEO audit" />
 
         {/* 4 PROCESS: stage rail */}
         <SmartSection
@@ -241,6 +264,27 @@ export default function Seo() {
           </GoDeeper>
         </SmartSection>
 
+        {/* 4b WHY US */}
+        <SmartSection
+          id="why"
+          tone="paper"
+          heading={{
+            id: "h-why",
+            title: "Why OneAlgorithm for SEO",
+            lede: "Four people in Malvern who report from accounts you own and say so when a keyword is not worth chasing.",
+          }}
+        >
+          <div className="seo-grid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))" }}>
+            <CaseCard title="Phantom Arcades" built="A rebuild for search" result="Clicks +92%, non-brand clicks +231% (Search Console)" to={CASE} linkLabel="Phantom Arcades SEO case study" />
+            <article className="seo-lift" data-reveal="">
+              <p className="sf-kicker">The team</p>
+              <h3 className="sf-h3">Four of us, starting with what is broken</h3>
+              <p>24/7 support and hypercare after launch. 5.0 from 6 Google reviews, read {READ_ON}.</p>
+              <p className="sf-mono">We make no ranking claim for our own site: our Search Console clicks are almost all brand so far.</p>
+            </article>
+          </div>
+        </SmartSection>
+
         {/* 5 GOOGLE REQUIRES: split plate */}
         <SmartSection id="google" tone="paper" grid labelledBy="h-google">
           <SmartUnit
@@ -263,6 +307,7 @@ export default function Seo() {
             <h2 className="sf-h2" id="h-cost">What SEO costs</h2>
             <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">We set the scope in writing after the audit, because what an audit finds decides the work.</p>
           </div>
+          <h3 className="sf-h3" id="h-drivers" style={{ gridColumn: "1 / -1", color: "#fff" }}>What drives the cost of SEO</h3>
           <SeoPullQuote
             statement="A price quoted before anyone has looked at the site is a guess."
             chips={["How many pages and how much is broken", "How competitive your searches are", "How much ongoing content and reporting you want"]}
@@ -279,6 +324,7 @@ export default function Seo() {
             lede: "Pick the provider who shows you their method, gives you access to the numbers and refuses to guarantee rankings.",
           }}
         >
+          <h3 className="sf-h3" id="h-flags" style={{ marginTop: 24 }}>Red flags when hiring an SEO company</h3>
           <ProviderTable rows={CHOOSE} />
         </SmartSection>
 
@@ -295,19 +341,14 @@ export default function Seo() {
           <Readouts items={LOCAL_READOUTS} withEvidence={false} />
           <div className="seo-grid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))" }}>
             <article className="seo-lift" data-reveal="">
-              <p className="sf-kicker">Why OneAlgorithm</p>
-              <h3 className="sf-h3" id="h-why">Four people, starting with what is broken</h3>
-              <p>We are four people in Malvern who report from accounts you own. They will tell you when a keyword is not worth chasing. 24/7 support and hypercare after launch.</p>
-              <p className="sf-mono">5.0 from 6 Google reviews, read {READ_ON}. We make no ranking claim for our own site: our Search Console clicks are almost all brand so far.</p>
-            </article>
-            <article className="seo-lift" data-reveal="">
               <p className="sf-kicker">Nearby</p>
               <h3 className="sf-h3" id="h-nearby">Based in Malvern, PA</h3>
               <p>Our office is on Swedesford Road, inside Chester County. We serve Philadelphia businesses from Malvern; we have no Philadelphia client result to show, and we do not claim one.</p>
               <div className="sf-links">
                 <Link className="sf-link" to="/services/seo-chester-county">SEO company in Chester County</Link>
-                <Link className="sf-link" to="/services/google-ads-philadelphia">Google Ads in Philadelphia</Link>
-                <Link className="sf-link" to="/services/website-development">Website development</Link>
+                <Link className="sf-link" to="/services/google-ads">Google Ads management</Link>
+                <Link className="sf-link" to="/services/website-development">website development</Link>
+                <Link className="sf-link" to="/services/marketing">marketing services</Link>
               </div>
             </article>
           </div>

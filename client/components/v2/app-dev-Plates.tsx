@@ -22,7 +22,7 @@ export function OwnershipPlate({ fig }: { fig: number }) {
   const rows: [string, string, string, string][] = [
     ["Source code", "a developer's personal repository", "your company's repository", "01"],
     ["Cloud accounts", "the contractor's billing and login", "your name, your billing", "02"],
-    ["Store accounts", "whoever registered first", "your company, signing keys with you", "03"],
+    ["Domain and database", "registered in a contractor's name", "your company, your login", "03"],
   ];
   const d = (
     <g fontFamily={F.body}>
@@ -45,8 +45,8 @@ export function OwnershipPlate({ fig }: { fig: number }) {
     </g>
   );
   return (
-    <Plate fig={fig} title="Diagram: who holds the code, cloud accounts and store accounts, when ownership is left to the end versus set up on day one"
-      desc="Two columns. On the left the source code, cloud accounts and store accounts sit with a contractor and each is marked with a question mark. On the right the same three sit in the client company's name, each ticked, with a written runbook underneath."
+    <Plate fig={fig} title="Diagram: who holds the code, cloud accounts and domain and database, when ownership is left to the end versus set up on day one"
+      desc="Two columns. On the left the source code, cloud accounts and domain and database sit with a contractor and each is marked with a question mark. On the right the same three sit in the client company's name, each ticked, with a written runbook underneath."
       stamp="Who holds the keys" caption="The five things you hold at handover are listed under Go deeper. Handover is a non-event when they were yours from the first commit." d={{ vb: [1200, 364], node: d }} m={{ vb: [400, 570], node: m }} />
   );
 }
