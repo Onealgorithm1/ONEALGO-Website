@@ -1,0 +1,15 @@
+[
+ {"slug": "birmingham-al", "name": "Birmingham, Alabama", "title": "File:Birmingham, Alabama Skyline.jpg", "fx": 0.5, "fy": 0.4, "alt": "The downtown Birmingham, Alabama, skyline above the city's brick neighbourhoods on a clear day."},
+ {"slug": "tucson", "name": "Tucson", "title": "File:View of Tucson from Sentinel Peak 2.jpg", "fx": 0.5, "fy": 0.4, "alt": "Downtown Tucson, Arizona, seen from Sentinel Peak, with the Santa Catalina Mountains behind."},
+ {"slug": "san-jose", "name": "San Jose", "title": "File:San Jose, California, USA.jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown San Jose, California, above the trees with the Santa Cruz Mountains behind."},
+ {"slug": "rochester-ny", "name": "Rochester", "title": "File:Skyline Rochester, NY.jpg", "fx": 0.5, "fy": 0.5, "alt": "The Rochester, New York, skyline and the Frederick Douglass–Susan B. Anthony Memorial Bridge over the Genesee River."},
+ {"slug": "boise", "name": "Boise", "title": "File:Boise, Idaho 2021.jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown Boise, Idaho, and the State Capitol in golden evening light, with the Boise foothills behind."},
+ {"slug": "grand-rapids", "name": "Grand Rapids", "title": "File:Grand Rapids April 2022.jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown Grand Rapids, Michigan, and its towers along the Grand River."},
+ {"slug": "durham-nc", "name": "Durham", "title": "File:SKYL015 Downtown Durham Skyline DiscoverDurham.jpg", "fx": 0.5, "fy": 0.5, "alt": "The downtown Durham, North Carolina, skyline above green trees under a blue sky."},
+ {"slug": "baton-rouge", "name": "Baton Rouge", "title": "File:Baton Rouge skyline 2013.jpg", "fx": 0.5, "fy": 0.5, "alt": "The Baton Rouge skyline and Louisiana State Capitol across the Mississippi River."},
+ {"slug": "fort-myers", "name": "Fort Myers", "title": "File:Fort Myers FL US 41 Edison Bridge east01.jpg", "fx": 0.5, "fy": 0.5, "alt": "The Edison Bridge crossing the blue Caloosahatchee River in Fort Myers, Florida."},
+ {"slug": "albuquerque", "name": "Albuquerque", "title": "File:Abqdowntown.jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown Albuquerque, New Mexico, office towers under a blue sky with white clouds."},
+ {"slug": "colorado-springs", "name": "Colorado Springs", "title": "File:CC COSPRINGS.jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown Colorado Springs, Colorado, at the foot of the Rocky Mountain front range."},
+ {"slug": "spokane", "name": "Spokane", "title": "File:View from Sumner (21640549470).jpg", "fx": 0.5, "fy": 0.5, "alt": "Downtown Spokane, Washington, seen from the South Hill under a blue sky."},
+ {"slug": "charleston-sc", "name": "Charleston", "title": "File:Vendue Wharf, Charleston SC, Southwest view 20160704 1.jpg", "fx": 0.5, "fy": 0.5, "alt": "Vendue Wharf and the Charleston, South Carolina, waterfront under summer clouds."}
+]
