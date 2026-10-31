@@ -1151,9 +1151,12 @@ function Layout({ children }: LayoutProps) {
               </div>
 
               {/* A contact block was removed here earlier at the client's
-                  request. Louis 2026-10-09 asked for phone + town back; no
-                  street address, and no email because the site publishes none. */}
+                  request. Louis 2026-10-09 asked for phone + town back; 2026-10-31
+                  reversed it for local SEO: the full NAP must match the Google
+                  Business Profile exactly. No email: the site publishes none. */}
               <p className="mt-4 text-sm text-oa-nightInk2">
+                OneAlgorithm, 625 Swedesford Rd, Unit B, Malvern, PA 19355
+                <span aria-hidden="true"> · </span>
                 <a
                   href="tel:+16108909711"
                   className="inline-block py-3 md:py-0 hover:text-oa-nightInk transition-colors"
@@ -1161,7 +1164,7 @@ function Layout({ children }: LayoutProps) {
                   (610) 890-9711
                 </a>
                 <span aria-hidden="true"> · </span>
-                Malvern, PA
+                Mon–Fri 9–5
               </p>
 
               {/* Certifications. SBA WOSB/EDWOSB, PA COSTARS and Virginia SWaM

@@ -218,7 +218,7 @@ const FAQS: SfFaqItem[] = [
     /* Owner 2026-10-23 ~19:05 (travel/visits): most work is remote; in-person sessions when the project calls
        for them, easiest across the Philadelphia region. ⛔ Never a standing visit promise. */
     q: "Can we meet in person near Exton, Downingtown or West Chester?",
-    a: `Yes, when the project calls for it. Our office is in Malvern, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org; in-person sessions are easiest across the Philadelphia region.`,
+    a: `Yes, when the project calls for it. Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org; in-person sessions are easiest across the Philadelphia region.`,
   },
 ];
 
@@ -526,10 +526,10 @@ export default function SalesforceConsultantChesterCounty() {
             className="sf-c7"
             headingId="h-malvern"
             title="A Salesforce consultant in Malvern, PA"
-            lede="Our office is in Malvern, PA, inside Chester County."
+            lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, inside Chester County."
             lead="Most work runs remotely inside your org; in-person sessions, when the project calls for them, are easiest across the Philadelphia region."
             points={[
-              <>Call <a className="sf-link" href={SF_PHONE.href} data-cta="local">{SF_PHONE.display}</a></>,
+              <>Call <a className="sf-link" href={SF_PHONE.href} data-cta="local">{SF_PHONE.display}</a>, Monday to Friday, 9 to 5</>,
               `Exton about ${mi("ex")} miles away, West Chester ${mi("wc")}, Downingtown ${mi("dt")}, in a straight line`,
             ]}
           >

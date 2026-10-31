@@ -341,7 +341,8 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
     // company was shut, on the strength of a field nobody had revisited.
     //
     // `opens 00:00 / closes 23:59` across all seven days is the schema.org
-    // convention for always-open.
+    // convention for always-open. 2026-10-31: confirmed against the Business
+    // Profile regularHours (Mon-Fri 09:00-17:00), which is what is set below.
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

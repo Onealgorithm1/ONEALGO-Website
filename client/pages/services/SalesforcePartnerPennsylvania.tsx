@@ -436,7 +436,7 @@ export default function SalesforcePartnerPennsylvania() {
           >
             <GoDeeper label="visits and the Malvern office">
               <p className="sf-rule">Salesforce work happens inside your org, so distance changes little. For larger projects elsewhere in Pennsylvania, on-site visits such as kickoff, go-live or training are planned into the project.</p>
-              <p>Our office: Malvern, PA, in Chester County.</p>
+              <p>Our office: 625 Swedesford Rd, Unit B, Malvern, PA 19355, in Chester County.</p>
             </GoDeeper>
           </SmartUnit>
           <LedgerRule as="aside" className="sf-c5" delay={0.08} aria-labelledby="h-pa-pages">

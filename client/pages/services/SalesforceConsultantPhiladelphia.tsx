@@ -197,7 +197,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is your office in Philadelphia?",
-    a: "Our office is in Malvern, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
+    a: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
   },
   {
     q: "Do you work with companies on the Main Line, in King of Prussia and in South Jersey?",
@@ -530,7 +530,7 @@ export default function SalesforceConsultantPhiladelphia() {
             className="lg:[grid-column:1/6]"
             headingId="h-office"
             title="Our Malvern office, 25 miles from Center City"
-            lede="Our office is in Malvern, Chester County, about 25 miles by road west of Center City."
+            lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, in Chester County, about 25 miles by road west of Center City."
             leadIn="The bottom line:"
             lead="Most Salesforce work runs remotely inside your org; in-person sessions happen when the project calls for them, easiest across the Philadelphia region."
             measure={false}
