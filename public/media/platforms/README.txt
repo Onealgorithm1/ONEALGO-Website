@@ -18,7 +18,6 @@ NOT AVAILABLE (no official mark found -- do NOT invent one): MuleSoft, Aircall,
 Hootsuite, Metricool, Oneflow.
 
 salesforce           Public domain    Salesforce.com logo.svg
-oracle               Public domain    Oracle logo.svg
 servicenow           Public domain    ServiceNow logo.svg
 microsoft            Public domain    Microsoft logo (2012).svg
 dynamics-365         Public domain    Microsoft Dynamics 365 Logo (2021–present).svg

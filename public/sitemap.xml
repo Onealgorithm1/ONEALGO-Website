@@ -122,12 +122,6 @@
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://onealgorithm.com/services/oracle-erp</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <url>
     <loc>https://onealgorithm.com/services/salesforce</loc>

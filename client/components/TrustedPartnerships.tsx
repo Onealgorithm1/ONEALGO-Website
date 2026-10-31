@@ -10,7 +10,7 @@ import React from "react";
  *
  * WHY IT WAS TYPE BEFORE: every SVG in public/media/logos/ except four is a
  * PLACEHOLDER -- some are literally the company name typed in Inter -- so
- * shipping them would have put fake Salesforce, Oracle and Microsoft marks on
+ * shipping them would have put fake Salesforce and Microsoft marks on
  * the site. The marks used here were pulled from Wikimedia Commons, rendered,
  * and checked by eye against each company's current official mark before being
  * allowed in. Provenance per file is in public/media/platforms/README.txt, and
@@ -76,7 +76,6 @@ type Mark = { name: string; file: string; h: number; w: number; ownGround?: bool
 const PLATFORMS: Mark[] = [
   // Enterprise platforms and CRM
   { name: "Salesforce", file: "salesforce", h: 21.7, w: 31 },
-  { name: "Oracle", file: "oracle", h: 9.4, w: 72 },
   { name: "Microsoft", file: "microsoft", h: 12, w: 56.3 },
   { name: "Microsoft Dynamics 365", file: "dynamics-365", h: 18.5, w: 53.3 },
   { name: "ServiceNow", file: "servicenow", h: 10, w: 67.7 },

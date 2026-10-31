@@ -60,7 +60,7 @@ const INDUSTRIES = [
   {
     icon: Factory,
     title: "Manufacturing",
-    body: "Operations technology on the plant floor — SCADA, industrial IoT, OT security — and the Oracle ERP work behind it.",
+    body: "Operations technology on the plant floor — SCADA, industrial IoT, OT security — and the integration work behind it.",
     to: "/industries/manufacturing",
   },
   {

@@ -96,7 +96,7 @@ const SERVICES = [
   },
   {
     title: "IT modernization",
-    body: "Moving systems off ageing infrastructure and into cloud environments, in stages, without a cutover weekend nobody can survive. This is the same work described on our IT consulting and Oracle ERP pages.",
+    body: "Moving systems off ageing infrastructure and into cloud environments, in stages, without a cutover weekend nobody can survive. This is the same work described on our IT consulting page.",
     items: [
       "Cloud migration and infrastructure automation",
       "Application refactoring and platform upgrades",
@@ -119,7 +119,7 @@ const SERVICES = [
     body: "Named practitioners embedded in a program team on contract, contract-to-hire or project terms. We make no claim about cleared staff on this page — a clearance is normally sponsored by an awarded contract, and we have not held one.",
     items: [
       "Developers, integration engineers and program managers",
-      "Salesforce, Oracle and data specialists",
+      "Salesforce and data specialists",
       "Contract, contract-to-hire and project-based terms",
       "Named people, not a rotating bench",
     ],

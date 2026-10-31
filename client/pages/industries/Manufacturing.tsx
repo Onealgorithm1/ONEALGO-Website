@@ -36,13 +36,12 @@ import {
  *
  * Of the four commercial industry pages this one has the strongest claim: the
  * Operations Technology service is genuinely plant-facing (SCADA, industrial
- * IoT, OT security, maintenance systems) and Oracle ERP is genuinely a
+ * IoT, OT security, maintenance systems) and integration is what links it to a
  * manufacturer's back office. So the page now describes those two services
  * where they meet, and says outright that predictive maintenance is a data
  * question before it is a product.
  *
- * Every capability named below maps to /services/operations-technology or
- * /services/oracle-erp. Nothing new was invented, and the outcome claims are
+ * Every capability named below maps to /services/operations-technology. Nothing new was invented, and the outcome claims are
  * gone rather than rewritten.
  */
 
@@ -56,11 +55,6 @@ const WORK = [
     icon: ShieldCheck,
     title: "The boundary between OT and IT",
     body: "Plant networks and business systems have different uptime rules, different security models and often different owners. We work both sides, and we treat the boundary as the actual project rather than a wiring detail.",
-  },
-  {
-    icon: Database,
-    title: "Oracle ERP, full lifecycle",
-    body: "Finance, supply chain and operations: readiness assessment, configuration, data migration, go-live, and the hypercare and support that follow it.",
   },
   {
     icon: Cpu,
@@ -81,13 +75,13 @@ const WORK = [
 
 export default function Manufacturing() {
   useSEO({
-    title: "Manufacturing Technology, OT and ERP — OneAlgorithm",
+    title: "Manufacturing Technology and OT Integration — OneAlgorithm",
     description:
-      "Operations technology and ERP work for manufacturers: SCADA, industrial IoT, OT security, and full-lifecycle Oracle ERP. A small IT consultancy in Malvern, PA.",
+      "Operations technology and ERP work for manufacturers: SCADA, industrial IoT and OT security. A small IT consultancy in Malvern, PA.",
     canonical: getCanonicalUrl("/industries/manufacturing"),
     keywords:
-      "manufacturing technology consulting, operations technology, SCADA integration, industrial IoT, OT security, Oracle ERP for manufacturers, plant floor systems integration",
-    ogTitle: "Manufacturing Technology, OT and ERP — OneAlgorithm",
+      "manufacturing technology consulting, operations technology, SCADA integration, industrial IoT, OT security, plant floor systems integration",
+    ogTitle: "Manufacturing Technology and OT Integration — OneAlgorithm",
     ogDescription:
       "Plant-floor operations technology and the ERP work behind it — and a plain account of what we have not done.",
     ogUrl: getCanonicalUrl("/industries/manufacturing"),
@@ -110,7 +104,6 @@ export default function Manufacturing() {
           items: [
             "SCADA and industrial IoT integration",
             "OT-to-IT network and security work",
-            "Oracle ERP implementation and support",
             "Production reporting from real sources",
             "Maintenance systems, scoped honestly",
             "Engineers added to your team",
@@ -127,7 +120,7 @@ export default function Manufacturing() {
 
       <Section tone="paper">
         <SectionHeading
-          title="Six things we get called about"
+          title="Five things we get called about"
           lede="Each is a service on this site. What changes in a plant is what sits on the other end: a PLC, a historian, a line that cannot be stopped for a migration."
         />
         <CardGrid columns={3} className="mt-12">
@@ -137,19 +130,12 @@ export default function Manufacturing() {
         </CardGrid>
 
         <p className="mt-10 max-w-[68ch] text-oa-ink2">
-          The full descriptions live on{" "}
+          The full description lives on{" "}
           <Link
             className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
             to="/services/operations-technology"
           >
             operations technology
-          </Link>{" "}
-          and{" "}
-          <Link
-            className="font-medium text-oa-blue underline underline-offset-2 hover:text-oa-blue700"
-            to="/services/oracle-erp"
-          >
-            Oracle ERP
           </Link>
           .
         </p>

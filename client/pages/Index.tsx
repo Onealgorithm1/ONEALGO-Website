@@ -42,7 +42,7 @@ import { IdentifierRail } from "../components/site";
       SEO, Google Ads and CRM lead the capability grid; Marketing heads the
       list beneath. Staff augmentation still produces revenue today and is
       deliberately NOT deleted - it sits at the top of that list, one click
-      away. Oracle ERP, IT Consulting, Operations Technology and Zendesk
+      away. IT Consulting, Operations Technology and Zendesk
       remain as secondary pages: the positioning changed, the capability
       did not. Before this, /services/seo, /services/google-ads and
       /services/marketing existed and were routed but had ZERO links from
@@ -131,15 +131,15 @@ const HERO_SCRIM: React.CSSProperties = {
  *  until 2026-08-26 the homepage linked to none of /services/seo,
  *  /services/google-ads or /services/marketing, so the three services the
  *  business now leads with were orphaned from the front door. */
-/* ORDER IS LOAD-BearING in the secondary list. Oracle ERP and Zendesk sit
-   together because they are the only two rows there that carry a mark, and at
+/* ORDER IS LOAD-BearING in the secondary list. Zendesk is the only
+   row there that carries a mark, and at
    three columns they were previously two grid rows apart with unmarked rows
    between -- which made the logos read as sprinkled rather than deliberate.
    Adjacent, they land side by side on desktop and stacked on mobile, so the
    marks read as a set. Marketing and Social still heads the list.
 
    `logo` names a file in public/media/logos/ and is set ONLY where the service
-   IS a named platform -- Salesforce, Google Ads, Oracle, Zendesk. It is absent
+   IS a named platform -- Salesforce, Google Ads, Zendesk. It is absent
    from the other seven because there is no platform to name, and a mark
    invented for "IT Consulting" would be decoration.
 
@@ -197,12 +197,6 @@ const CAPABILITIES: {
     href: "/services/martech",
   },
   {
-    title: "Oracle ERP",
-    body: "Implementation and transformation across finance, supply chain and operations.",
-    href: "/services/oracle-erp",
-    logo: "oracle",
-  },
-  {
     title: "Zendesk",
     body: "Support-desk implementation and ongoing optimization.",
     href: "/services/zendesk",
@@ -221,7 +215,7 @@ const CAPABILITIES: {
 ];
 
 /** Engagement model. Drawn from the four-step process already described on the
- *  IT Consulting, Operations Technology and Oracle ERP service pages. */
+ *  IT Consulting, Operations Technology service pages. */
 const PROCESS = [
   {
     step: "01",
@@ -261,7 +255,7 @@ const DIFFERENTIATORS = [
   {
     icon: Boxes,
     title: "Platform-agnostic",
-    body: "Oracle, Salesforce, Zendesk, HubSpot, QuickBooks and custom APIs. We connect what you already own rather than replacing it by default.",
+    body: "Salesforce, Zendesk, HubSpot, QuickBooks and custom APIs. We connect what you already own rather than replacing it by default.",
   },
   {
     icon: RouteIcon,
@@ -308,7 +302,7 @@ const FAQS = [
   },
   {
     q: "What services does OneAlgorithm provide?",
-    a: "Staff augmentation, website and web application development, Oracle ERP and Salesforce implementation, system and API integration, operations technology, marketing technology and SEO, and Zendesk implementation.",
+    a: "Staff augmentation, website and web application development, Salesforce implementation, system and API integration, operations technology, marketing technology and SEO, and Zendesk implementation.",
   },
   {
     q: "Do you offer support after launch?",
@@ -316,7 +310,7 @@ const FAQS = [
   },
   {
     q: "Can you work with our existing systems?",
-    a: "Usually, yes. We connect the platforms you already own — Oracle, Salesforce, Zendesk, HubSpot, QuickBooks and custom APIs — rather than assuming a replacement is required.",
+    a: "Usually, yes. We connect the platforms you already own — Salesforce, Zendesk, HubSpot, QuickBooks and custom APIs — rather than assuming a replacement is required.",
   },
 ];
 

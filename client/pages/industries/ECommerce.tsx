@@ -160,7 +160,7 @@ export default function ECommerce() {
                 the systems around the store and on custom builds.
               </p>
               <p>
-                We connect what you already own — Oracle, Salesforce, Zendesk,
+                We connect what you already own — Salesforce, Zendesk,
                 HubSpot, QuickBooks and custom APIs — rather than assuming a
                 replacement is required. Sometimes a replacement is required,
                 and we will say so.

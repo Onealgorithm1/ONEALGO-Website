@@ -149,12 +149,6 @@ const SERVICES = [
     to: "/services/application-development",
   },
   {
-    icon: Database,
-    title: "Oracle ERP Implementation",
-    body: "Full-lifecycle Oracle Cloud ERP implementation services from strategic consulting through post-implementation support.",
-    to: "/services/oracle-erp",
-  },
-  {
     icon: Cloud,
     title: "Salesforce",
     body: "Sales, Service and Marketing Cloud implementation and consulting, delivered by a listed Salesforce Consulting Partner.",
@@ -225,21 +219,21 @@ const APPROACH = [
 
 export default function Services() {
   useSEO({
-    title: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
+    title: "Websites, SEO, Google Ads & Salesforce Services | OneAlgorithm",
     description:
-      "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A consultancy in Malvern, Pennsylvania.",
+      "Web development, SEO, Google Ads, Salesforce, IT consulting and staff augmentation. A consultancy in Malvern, Pennsylvania.",
     canonical: getCanonicalUrl("/services"),
     keywords:
-      "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
-    ogTitle: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
+      "technology services, staff augmentation, IT consulting services, website development services, operations technology, Salesforce consulting, marketing services, business technology solutions",
+    ogTitle: "Websites, SEO, Google Ads & Salesforce Services | OneAlgorithm",
     ogDescription:
-      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
+      "Staff augmentation, website development, IT consulting, Salesforce, operations technology and marketing solutions.",
     ogUrl: getCanonicalUrl("/services"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle:
-      "Technology Services - OneAlgorithm | IT Consulting, Website Development, Oracle ERP & More",
+      "Technology Services - OneAlgorithm | IT Consulting, Website Development, Salesforce & More",
     twitterDescription:
-      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
+      "Staff augmentation, website development, IT consulting, Salesforce, operations technology and marketing solutions.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 

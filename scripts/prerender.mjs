@@ -45,7 +45,7 @@ const ROUTES = [
   "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
   "/services/it-consulting", "/services/operations-technology",
-  "/services/oracle-erp", "/services/salesforce", "/services/zendesk",
+  "/services/salesforce", "/services/zendesk",
   "/services/application-development",
   "/services/web-design-chester-county", "/services/web-design-philadelphia",
   "/services/seo-chester-county",

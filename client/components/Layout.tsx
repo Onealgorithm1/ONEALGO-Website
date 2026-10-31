@@ -108,12 +108,12 @@ const mobileSubLinkNested =
  *
  * WHY ONLY SIX. The homepage was repositioned on 2026-08-26 to "websites, SEO,
  * Google Ads, marketing and CRM for small business in Chester County and the
- * Philadelphia area", but the navigation still led with Oracle ERP, Zendesk and
+ * Philadelphia area", but the navigation still led with Zendesk and
  * Staff Augmentation - so a small-business visitor opened the menu and found an
  * enterprise IT firm. This list is now exactly the five services named in that
  * approved positioning, plus Application Development.
  *
- * THE ENTERPRISE PAGES ARE NOT DELETED. Oracle ERP, Zendesk, IT Consulting,
+ * THE ENTERPRISE PAGES ARE NOT DELETED. Zendesk, IT Consulting,
  * Operations Technology, MarTech and Staff Augmentation are still sold, still
  * live at their own URLs, and still linked from the /services index and from
  * the sibling wire under every service hero - so no URL breaks and no ranking
@@ -1183,7 +1183,6 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/marketing">Marketing</FooterLink>
               <FooterLink to="/services/salesforce">Salesforce</FooterLink>
               <FooterLink to="/services/zendesk">Zendesk</FooterLink>
-              <FooterLink to="/services/oracle-erp">Oracle ERP</FooterLink>
               <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
               <FooterLink to="/services/it-consulting">IT Consulting</FooterLink>
               <FooterLink to="/services/operations-technology">Operations Technology</FooterLink>

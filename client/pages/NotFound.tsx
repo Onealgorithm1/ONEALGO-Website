@@ -43,11 +43,6 @@ const LIKELY_DESTINATIONS = [
     to: "/services/website-development",
   },
   {
-    title: "Oracle ERP Implementation",
-    body: "Full-lifecycle Oracle Cloud ERP implementation services from strategic consulting through post-implementation support.",
-    to: "/services/oracle-erp",
-  },
-  {
     title: "Salesforce",
     body: "Sales, Service and Marketing Cloud implementation and consulting, delivered by a listed Salesforce Consulting Partner.",
     to: "/services/salesforce",

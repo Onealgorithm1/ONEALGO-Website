@@ -102,7 +102,7 @@ const BENEFITS = [
     icon: Target,
     title: "You need one skill, not one head",
     description:
-      "An Oracle Integration Cloud specialist for a few weeks isn't a job you can advertise for. It is something you can rent for exactly as long as the work lasts.",
+      "A Salesforce integration specialist for a few weeks isn't a job you can advertise for. It is something you can rent for exactly as long as the work lasts.",
   },
   {
     icon: CheckCircle,

@@ -4,8 +4,8 @@
 > Malvern, Pennsylvania (Chester County, Philadelphia metro), working with
 > clients across the United States. We build and market websites for small
 > businesses — web development, SEO, Google Ads, marketing and CRM. As a listed
-> Salesforce Consulting Partner we also deliver Salesforce, Oracle ERP, systems
-> integration and staff augmentation nationally.
+> Salesforce Consulting Partner we also deliver Salesforce, systems integration
+> and staff augmentation nationally.
 
 ## About
 
@@ -28,7 +28,6 @@
 - Google Ads management: https://onealgorithm.com/services/google-ads
 - Marketing & social media: https://onealgorithm.com/services/marketing
 - Salesforce consulting: see the Salesforce section below
-- Oracle ERP implementation: https://onealgorithm.com/services/oracle-erp
 - Zendesk implementation: https://onealgorithm.com/services/zendesk
 - MarTech integration: https://onealgorithm.com/services/martech
 - IT consulting: https://onealgorithm.com/services/it-consulting

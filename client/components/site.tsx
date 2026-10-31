@@ -547,7 +547,6 @@ const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
   ["/services/staff-augmentation", "Staffing"],
   ["/services/website-development", "Websites"],
   ["/services/application-development", "App Development"],
-  ["/services/oracle-erp", "Oracle ERP"],
   ["/services/salesforce", "Salesforce"],
   ["/services/it-consulting", "IT Consulting"],
   ["/services/operations-technology", "Operations Tech"],

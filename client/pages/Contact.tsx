@@ -17,7 +17,6 @@ declare global {
 const EMAIL = "service@onealgorithm.com";
 const SERVICES = [
   "Salesforce / CRM",
-  "Oracle ERP Implementation",
   "IT Consulting",
   "Website Development",
   "Operations Technology",
@@ -423,7 +422,7 @@ export default function Contact() {
             <ul className="sf-points">
               <li>IT consulting and strategy; cloud and process work</li>
               <li>Websites, SEO and marketing technology</li>
-              <li>Salesforce, Zendesk, Oracle ERP, operations technology, staff augmentation</li>
+              <li>Salesforce, Zendesk, operations technology, staff augmentation</li>
             </ul>
             <GoDeeper label="what each service covers">
               <h4>IT consulting and strategic planning</h4>
