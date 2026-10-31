@@ -1,7 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
+import { offerFor } from "./v2/shared-offers";
+import { StickyCallBar } from "./v2/shared-StickyCallBar";
 import { FRAME, FrameContext, PrimaryCTA } from "./site";
+import { RailSeenContext, StructuredData, createBreadcrumbSchema } from "./StructuredData";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { SF_CITY_LINKS } from "../data/salesforceShared";
 import * as React from "react";
@@ -108,13 +111,13 @@ const mobileSubLinkNested =
  *
  * WHY ONLY SIX. The homepage was repositioned on 2026-08-26 to "websites, SEO,
  * Google Ads, marketing and CRM for small business in Chester County and the
- * Philadelphia area", but the navigation still led with Oracle ERP, Zendesk and
+ * Philadelphia area", but the navigation still led with Zendesk and
  * Staff Augmentation - so a small-business visitor opened the menu and found an
  * enterprise IT firm. This list is now exactly the five services named in that
  * approved positioning, plus Application Development.
  *
- * THE ENTERPRISE PAGES ARE NOT DELETED. Oracle ERP, Zendesk, IT Consulting,
- * Operations Technology, MarTech and Staff Augmentation are still sold, still
+ * THE ENTERPRISE PAGES ARE NOT DELETED. Zendesk, IT Consulting,
+ * MarTech and Staff Augmentation are still sold, still
  * live at their own URLs, and still linked from the /services index and from
  * the sibling wire under every service hero - so no URL breaks and no ranking
  * is lost. They are simply no longer the first thing a local business reads.
@@ -131,6 +134,51 @@ const SERVICE_ITEMS: { to: string; label: string }[] = [
   { to: "/services/google-ads", label: "Google Ads" },
   { to: "/services/marketing", label: "Marketing" },
   { to: "/services/salesforce", label: "Salesforce & CRM" },
+];
+
+/* NAV_GROUPS - one source for the header mega-menu and mobile drawer (spec 3).
+   Only live routes; add seo-philadelphia / ai-seo / marketing-automation-consulting the day each ships. */
+const NAV_GROUPS: { title: string; to: string; links: { to: string; label: string }[] }[] = [
+  { title: "Websites", to: "/services/website-development", links: [
+    { to: "/services/website-development", label: "Website Development" },
+    { to: "/services/small-business-website-design", label: "Small Business Website Design" },
+    { to: "/services/website-redesign", label: "Website Redesign" },
+    { to: "/services/website-cost", label: "What a Website Costs" },
+    { to: "/services/web-design-philadelphia", label: "Web Design Philadelphia" },
+    { to: "/services/web-design-chester-county", label: "Web Design Chester County" },
+  ] },
+  { title: "SEO, Ads and Marketing", to: "/services", links: [
+    { to: "/services/seo", label: "SEO Services" },
+    { to: "/services/seo-chester-county", label: "SEO Chester County" },
+    { to: "/services/google-ads", label: "Google Ads Management" },
+    { to: "/services/google-ads-philadelphia", label: "Google Ads Philadelphia" },
+    { to: "/services/marketing", label: "Marketing and Social Media" },
+  ] },
+  { title: "Salesforce and CRM", to: "/services/salesforce", links: [
+    { to: "/services/salesforce", label: "Salesforce Consulting" },
+    { to: "/services/salesforce-health-check", label: "Free Health Check" },
+    { to: "/services/salesforce-data-migration", label: "Data Migration" },
+    { to: "/services/salesforce-integration", label: "Integration" },
+    { to: "/services/salesforce-managed-services", label: "Managed Services" },
+    { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud" },
+    { to: "/services/salesforce-implementation-cost", label: "Implementation Cost" },
+    { to: "/services/zendesk", label: "Zendesk" },
+  ] },
+  { title: "Software, IT and Operations", to: "/services/application-development", links: [
+    { to: "/services/application-development", label: "Custom App Development" },
+    { to: "/services/martech", label: "MarTech" },
+    { to: "/services/it-consulting", label: "IT Consulting" },
+    { to: "/services/staff-augmentation", label: "Staff Augmentation" },
+    { to: "/services/operational-transformation-consulting", label: "Operational Transformation" },
+  ] },
+];
+const INDUSTRY_LINKS: { to: string; label: string }[] = [
+  { to: "/industries/construction", label: "Construction" },
+  { to: "/industries/manufacturing", label: "Manufacturing" },
+  { to: "/industries/ecommerce", label: "E-Commerce" },
+  { to: "/industries/government", label: "Government" },
+  { to: "/industries/marketing", label: "Marketing" },
+  { to: "/industries", label: "All industries" },
 ];
 
 interface LayoutProps {
@@ -150,9 +198,15 @@ function Layout({ children }: LayoutProps) {
   const mainRef = React.useRef<HTMLElement>(null);
   const firstRender = React.useRef(true);
   const location = useLocation();
+  // One BreadcrumbList per page: HeroRail flips `seen`, SfPage then stays quiet (see RailSeenContext).
+  const railSeen = React.useRef({ path: "", seen: false });
+  if (railSeen.current.path !== location.pathname) railSeen.current = { path: location.pathname, seen: false };
+  // Careers job page has no rail of its own: Home > Careers > role (title from the slug).
+  const jobSlug = /^\/careers\/([a-z0-9-]+)\/?$/i.exec(location.pathname)?.[1];
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  const pageOffer = offerFor(location.pathname);
   // v2-kit routes (Salesforce + website-development set) carry the AA "contrast" logo tone: orange-500 "One" is 1.86:1 on the white header.
   const contrastLogo = isSalesforce || location.pathname === "/services/website-development" || location.pathname.startsWith("/services/web-design-");
   // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
@@ -500,6 +554,7 @@ function Layout({ children }: LayoutProps) {
             <Link
               to="/"
               className="flex min-h-11 flex-shrink-0 items-center"
+              aria-label="OneAlgorithm home"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <OneAlgorithmText size="md" oneTone={contrastLogo ? "contrast" : "brand"} />
@@ -561,28 +616,55 @@ function Layout({ children }: LayoutProps) {
                   />
                 </button>
 
-                {servicesDropdownOpen && (
-                  <div
-                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                    id="services-menu"
-                  >
-                    <div className="py-2">
-                      {SERVICE_ITEMS.map((item) => (
+                {/* Always in the DOM (prerendered); `hidden` = display:none until opened. */}
+                <div
+                  hidden={!servicesDropdownOpen}
+                  className="absolute top-full left-0 z-50 mt-2 w-[44rem] max-w-[calc(100vw-2rem)] rounded-lg border border-gray-200 bg-white p-5 shadow-lg"
+                  id="services-menu"
+                >
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                    {NAV_GROUPS.map((g) => (
+                      <div key={g.title}>
                         <Link
-                          key={item.to}
-                          to={item.to}
-                          className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
+                          to={g.to}
+                          className="block text-xs font-semibold uppercase tracking-wide text-onealgo-blue-950 hover:underline"
                           onClick={() => {
                             setServicesDropdownOpen(false);
                             window.scrollTo({ top: 0, behavior: "smooth" });
                           }}
                         >
-                          {item.label}
+                          {g.title}
                         </Link>
-                      ))}
-                    </div>
+                        <ul className="mt-1">
+                          {g.links.map((item) => (
+                            <li key={item.to}>
+                              <Link
+                                to={item.to}
+                                className="block py-1.5 text-sm text-gray-700 transition-colors hover:text-onealgo-blue-950"
+                                onClick={() => {
+                                  setServicesDropdownOpen(false);
+                                  window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
-                )}
+                  <Link
+                    to="/services"
+                    className="mt-4 block border-t border-gray-100 pt-3 text-sm font-medium text-onealgo-blue-950 hover:underline"
+                    onClick={() => {
+                      setServicesDropdownOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    All services
+                  </Link>
+                </div>
               </div>
 
               {/* Industries Dropdown */}
@@ -603,72 +685,28 @@ function Layout({ children }: LayoutProps) {
                   />
                 </button>
 
-                {industriesDropdownOpen && (
-                  <div
-                    className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
-                    id="industries-menu"
-                  >
-                    <div className="py-2">
-                      <Link
-                        to="/industries/construction"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Construction
-                      </Link>
-                      <Link
-                        to="/industries/manufacturing"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Manufacturing
-                      </Link>
-                      <Link
-                        to="/industries/ecommerce"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        E-Commerce
-                      </Link>
-                      <Link
-                        to="/industries/government"
-                        className="block px-4 py-2 text-gray-700 hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Government
-                      </Link>
-                      {/*
-                        Capabilities sits under Government rather than in the
-                        top-level nav. A capability statement is a government
-                        contracting artefact — the people who look for one are
-                        already in this part of the site, and everyone else was
-                        being shown a term that means nothing to them.
-                      */}
-                      <Link
-                        to="/capabilities"
-                        className="block px-4 py-2 pl-8 text-gray-600 text-sm hover:bg-onealgo-light hover:text-onealgo-blue-950 transition-colors"
-                        onClick={() => {
-                          setIndustriesDropdownOpen(false);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                      >
-                        Capability Statement
-                      </Link>
-                    </div>
-                  </div>
-                )}
+                <div
+                  hidden={!industriesDropdownOpen}
+                  className="absolute top-full left-0 z-50 mt-2 w-56 rounded-lg border border-gray-200 bg-white shadow-lg"
+                  id="industries-menu"
+                >
+                  <ul className="py-2">
+                    {INDUSTRY_LINKS.map((item) => (
+                      <li key={item.to}>
+                        <Link
+                          to={item.to}
+                          className="block px-4 py-2 text-gray-700 transition-colors hover:bg-onealgo-light hover:text-onealgo-blue-950"
+                          onClick={() => {
+                            setIndustriesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               {/*
@@ -714,8 +752,8 @@ function Layout({ children }: LayoutProps) {
                   )}
                 </>
               ) : (
-                <PrimaryCTA to="/contact" className="h-10 px-5">
-                  Talk to an Expert
+                <PrimaryCTA to={pageOffer.href} cta="header" tone="light" className="h-10 px-5">
+                  {pageOffer.label}
                 </PrimaryCTA>
               )}
             </div>
@@ -855,24 +893,37 @@ function Layout({ children }: LayoutProps) {
                   />
                 </button>
 
-                {servicesDropdownOpen && (
-                  <div id="mobile-services" className="pl-4">
-                    {SERVICE_ITEMS.map((item) => (
+                <div id="mobile-services" hidden={!servicesDropdownOpen} className="pl-4">
+                  {NAV_GROUPS.map((g) => (
+                    <div key={g.title}>
                       <Link
-                        key={item.to}
-                        to={item.to}
-                        className={mobileSubLink}
+                        to={g.to}
+                        className="flex min-h-[44px] items-center px-3 pt-2 text-xs font-semibold uppercase tracking-wide text-onealgo-blue-950"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setServicesDropdownOpen(false);
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                       >
-                        {item.label}
+                        {g.title}
                       </Link>
-                    ))}
-                  </div>
-                )}
+                      {g.links.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className={mobileSubLink}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setServicesDropdownOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="mt-2 border-t border-gray-100 pt-2">
@@ -891,10 +942,11 @@ function Layout({ children }: LayoutProps) {
                   />
                 </button>
 
-                {industriesDropdownOpen && (
-                  <div id="mobile-industries" className="pl-4">
+                <div id="mobile-industries" hidden={!industriesDropdownOpen} className="pl-4">
+                  {INDUSTRY_LINKS.map((item) => (
                     <Link
-                      to="/industries/construction"
+                      key={item.to}
+                      to={item.to}
                       className={mobileSubLink}
                       onClick={() => {
                         setMobileMenuOpen(false);
@@ -902,55 +954,10 @@ function Layout({ children }: LayoutProps) {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
                     >
-                      Construction
+                      {item.label}
                     </Link>
-                    <Link
-                      to="/industries/manufacturing"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIndustriesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Manufacturing
-                    </Link>
-                    <Link
-                      to="/industries/ecommerce"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIndustriesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      E-Commerce
-                    </Link>
-                    <Link
-                      to="/industries/government"
-                      className={mobileSubLink}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIndustriesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Government
-                    </Link>
-                    {/* Same placement as the desktop menu. */}
-                    <Link
-                      to="/capabilities"
-                      className={mobileSubLinkNested}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setIndustriesDropdownOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                    >
-                      Capability Statement
-                    </Link>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
             </nav>
           </div>
@@ -991,12 +998,23 @@ function Layout({ children }: LayoutProps) {
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
-        <FrameContext.Provider value={frame}>{children}</FrameContext.Provider>
+        <RailSeenContext.Provider value={railSeen.current}>
+          {jobSlug && (
+            <StructuredData
+              data={createBreadcrumbSchema([
+                { label: "Home", to: "/" },
+                { label: "Careers", to: "/careers" },
+                { label: jobSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ") },
+              ])}
+            />
+          )}
+          <FrameContext.Provider value={frame}>{children}</FrameContext.Provider>
+        </RailSeenContext.Provider>
       </main>
 
       {/* Footer */}
       <footer
-        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 lg:pb-0" : ""}`}
+        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 lg:pb-0" : location.pathname !== "/contact" ? " pb-[calc(72px+env(safe-area-inset-bottom))] md:pb-0" : ""}`}
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
@@ -1014,7 +1032,7 @@ function Layout({ children }: LayoutProps) {
               every href is unchanged. Mobile: brand, contact and
               certifications stay visible; the three link groups are native
               <details> disclosures (see FooterSection). */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:grid-cols-[1.4fr_repeat(5,1fr)] lg:gap-6">
             {/* Brand, contact, certifications */}
             <div className="mb-6 md:mb-0">
               <OneAlgorithmText size="md" className="text-white mb-3" />
@@ -1133,9 +1151,12 @@ function Layout({ children }: LayoutProps) {
               </div>
 
               {/* A contact block was removed here earlier at the client's
-                  request. Louis 2026-10-09 asked for phone + town back; no
-                  street address, and no email because the site publishes none. */}
+                  request. Louis 2026-10-09 asked for phone + town back; 2026-10-31
+                  reversed it for local SEO: the full NAP must match the Google
+                  Business Profile exactly. No email: the site publishes none. */}
               <p className="mt-4 text-sm text-oa-nightInk2">
+                OneAlgorithm, 625 Swedesford Rd, Unit B, Malvern, PA 19355
+                <span aria-hidden="true"> · </span>
                 <a
                   href="tel:+16108909711"
                   className="inline-block py-3 md:py-0 hover:text-oa-nightInk transition-colors"
@@ -1143,7 +1164,7 @@ function Layout({ children }: LayoutProps) {
                   (610) 890-9711
                 </a>
                 <span aria-hidden="true"> · </span>
-                Malvern, PA
+                Mon–Fri 9–5
               </p>
 
               {/* Certifications. SBA WOSB/EDWOSB, PA COSTARS and Virginia SWaM
@@ -1154,91 +1175,93 @@ function Layout({ children }: LayoutProps) {
               <h3 className="mt-4 mb-1 md:mt-6 md:mb-3 text-xs font-semibold uppercase tracking-wide text-oa-nightInk3">
                 Partners &amp; certifications
               </h3>
-              <div className="flex flex-wrap gap-x-5 md:block md:space-y-1.5">
+              <p className="text-sm text-oa-nightInk2">
                 <a
                   href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL"
                   target="_blank"
                   rel="noopener"
-                  className={footerLink}
+                  className="inline-flex min-h-11 items-center hover:text-oa-nightInk md:min-h-0"
                 >
                   Salesforce Consulting Partner{extMark}
                 </a>
-                <Link to="/capabilities" className={footerLink}>
+                <span aria-hidden="true"> · </span>
+                <Link to="/capabilities" className="inline-flex min-h-11 items-center hover:text-oa-nightInk md:min-h-0">
                   WBENC Certified WBE
                 </Link>
-                <Link to="/capabilities" className={footerLink}>
+                <span aria-hidden="true"> · </span>
+                <Link to="/capabilities" className="inline-flex min-h-11 items-center hover:text-oa-nightInk md:min-h-0">
                   NMSDC Certified MBE
                 </Link>
-              </div>
+              </p>
             </div>
 
-            {/* "All services" carries the /services link the old heading had:
-                /services was an orphan until the footer linked it. */}
+            {/* Footer per site-architecture spec 2.3: one heading per service family, keyword anchors. */}
             <FooterSection title="Services">
               <FooterLink to="/services">All services</FooterLink>
-              <FooterLink to="/services/martech">MarTech</FooterLink>
               <FooterLink to="/services/website-development">Website Development</FooterLink>
               <FooterLink to="/services/seo">SEO Services</FooterLink>
-              <FooterLink to="/services/google-ads">Google Ads</FooterLink>
-              <FooterLink to="/services/marketing">Marketing</FooterLink>
-              <FooterLink to="/services/salesforce">Salesforce</FooterLink>
-              <FooterLink to="/services/zendesk">Zendesk</FooterLink>
-              <FooterLink to="/services/oracle-erp">Oracle ERP</FooterLink>
-              <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
+              <FooterLink to="/services/google-ads">Google Ads Management</FooterLink>
+              <FooterLink to="/services/marketing">Marketing and Social Media</FooterLink>
+              <FooterLink to="/services/application-development">Custom App Development</FooterLink>
+              <FooterLink to="/services/martech">MarTech and Marketing Automation</FooterLink>
               <FooterLink to="/services/it-consulting">IT Consulting</FooterLink>
-              <FooterLink to="/services/operations-technology">Operations Technology</FooterLink>
+              <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
               <FooterLink to="/services/operational-transformation-consulting">Operational Transformation Consulting</FooterLink>
+              <FooterLink to="/services/zendesk">Zendesk Implementation</FooterLink>
             </FooterSection>
 
-            {/* Local pages. The footer is the one place every page links
-                from, which keeps these out of orphan territory. */}
-            <FooterSection title="Philadelphia & Chester County">
+            <FooterSection title="Websites and locations">
               <FooterLink to="/services/web-design-philadelphia">Web Design Philadelphia</FooterLink>
               <FooterLink to="/services/web-design-chester-county">Web Design Chester County</FooterLink>
+              <FooterLink to="/services/small-business-website-design">Small Business Website Design</FooterLink>
+              <FooterLink to="/services/website-redesign">Website Redesign</FooterLink>
+              <FooterLink to="/services/website-cost">How Much Does a Website Cost</FooterLink>
               <FooterLink to="/services/seo-chester-county">Chester County SEO</FooterLink>
               <FooterLink to="/services/google-ads-philadelphia">Google Ads Philadelphia</FooterLink>
+              <FooterLink to="/services/website-development#locations">Web Design by City and State</FooterLink>
             </FooterSection>
 
-            {/* Every Salesforce page in one column (fix round L5): hub first, then services, the cost
-                guide and the local pages. The 13 city pages are NOT here on every page (a blind review
-                on 2026-10-22 read 13 city links site-wide as stuffing); on Salesforce pages they get
-                their own row below (SEO-14). */}
+            {/* The 13 city pages are NOT here (a blind review on 2026-10-22 read city links site-wide
+                as stuffing); on Salesforce pages they get their own row below. */}
             <FooterSection title="Salesforce">
               <FooterLink to="/services/salesforce">Salesforce Consulting</FooterLink>
-              <FooterLink to="/services/salesforce-health-check">Salesforce Health Check</FooterLink>
+              <FooterLink to="/services/salesforce-health-check">Free Salesforce Health Check</FooterLink>
               <FooterLink to="/services/salesforce-data-migration">Salesforce Data Migration</FooterLink>
               <FooterLink to="/services/salesforce-integration">Salesforce Integration</FooterLink>
               <FooterLink to="/services/salesforce-managed-services">Salesforce Managed Services</FooterLink>
               <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
               <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
-              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner Pennsylvania</FooterLink>
               <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
-              <FooterLink to="/services/salesforce-consultant-chester-county">Salesforce Consultant Chester County</FooterLink>
+              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner in Pennsylvania</FooterLink>
+            </FooterSection>
+
+            <FooterSection title="Industries">
+              <FooterLink to="/industries/construction">Construction Software Integration</FooterLink>
+              <FooterLink to="/industries/manufacturing">Manufacturing ERP Integration</FooterLink>
+              <FooterLink to="/industries/ecommerce">E-Commerce Website Development</FooterLink>
+              <FooterLink to="/industries/government">Government IT Services</FooterLink>
+              <FooterLink to="/industries/marketing">Marketing Agencies and Teams</FooterLink>
             </FooterSection>
 
             <FooterSection title="Company">
-              <FooterLink to="/">Home</FooterLink>
-              <FooterLink to="/about">About</FooterLink>
-              <FooterLink to="/capabilities">Capabilities</FooterLink>
-              <FooterLink to="/industries">Industries We Serve</FooterLink>
+              <FooterLink to="/about">About OneAlgorithm</FooterLink>
+              <FooterLink to="/capabilities">Capabilities and Certifications</FooterLink>
               {/* Ghost at /blog - not an SPA route, so a plain <a>. */}
               <a href="/blog" className={footerLink}>
                 Blog
               </a>
+              <a href="/careers" className={footerLink}>
+                Careers
+              </a>
               <FooterLink to="/contact">Contact</FooterLink>
-              {/* Firm's own GBP listing (place ID ChIJnQw01SfzxokRJhcvpzCljCE).
-                  Louis 2026-08-25: "add our google business review link". */}
+              {/* Firm's own GBP listing. Louis 2026-08-25: "add our google business review link". */}
               <a
                 href="https://search.google.com/local/writereview?placeid=ChIJnQw01SfzxokRJhcvpzCljCE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={footerLink}
               >
-                Review us on Google{extMark}
-              </a>
-              {/* /careers is a real page again (jobs come from the Blogger feed, label "Careers"). */}
-              <a href="/careers" className={footerLink}>
-                Careers
+                Review Us on Google{extMark}
               </a>
               <FooterLink to="/ai-info">AI Information</FooterLink>
             </FooterSection>
@@ -1259,12 +1282,12 @@ function Layout({ children }: LayoutProps) {
                 links to a federal site hand that site the authority instead of
                 earning us any. */}
             <p className="text-xs text-oa-nightInk3">
-              © {new Date().getFullYear()} OneAlgorithm. All rights reserved. ·{" "}
+              © {new Date().getFullYear()} OneAlgorithm LLC. All rights reserved. ·{" "}
               <Link
                 to="/capabilities#verify-credentials"
-                className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
+                className="inline-block py-3 underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
               >
-                We participate in E-Verify
+                Our own employees are verified through E-Verify.
               </Link>
             </p>
 
@@ -1283,6 +1306,12 @@ function Layout({ children }: LayoutProps) {
               >
                 Terms &amp; Conditions
               </Link>
+              <a
+                href="/sitemap.xml"
+                className="inline-flex min-h-11 items-center text-xs text-oa-nightInk2 transition-colors hover:text-oa-nightInk"
+              >
+                Sitemap
+              </a>
             </div>
           </div>
 
@@ -1323,6 +1352,7 @@ function Layout({ children }: LayoutProps) {
           </p>
         </div>
       </footer>
+      {!isSalesforce && location.pathname !== "/contact" && <StickyCallBar />}
       {/* Fixed, so it overlays rather than renders below the footer; the
           footer's own pb-20 on these pages keeps its last line clear of it. */}
       {isSalesforce && (

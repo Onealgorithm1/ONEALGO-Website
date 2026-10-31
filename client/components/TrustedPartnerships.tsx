@@ -10,7 +10,7 @@ import React from "react";
  *
  * WHY IT WAS TYPE BEFORE: every SVG in public/media/logos/ except four is a
  * PLACEHOLDER -- some are literally the company name typed in Inter -- so
- * shipping them would have put fake Salesforce, Oracle and Microsoft marks on
+ * shipping them would have put fake Salesforce and Microsoft marks on
  * the site. The marks used here were pulled from Wikimedia Commons, rendered,
  * and checked by eye against each company's current official mark before being
  * allowed in. Provenance per file is in public/media/platforms/README.txt, and
@@ -76,12 +76,12 @@ type Mark = { name: string; file: string; h: number; w: number; ownGround?: bool
 const PLATFORMS: Mark[] = [
   // Enterprise platforms and CRM
   { name: "Salesforce", file: "salesforce", h: 21.7, w: 31 },
-  { name: "Oracle", file: "oracle", h: 9.4, w: 72 },
   { name: "Microsoft", file: "microsoft", h: 12, w: 56.3 },
   { name: "Microsoft Dynamics 365", file: "dynamics-365", h: 18.5, w: 53.3 },
   { name: "ServiceNow", file: "servicenow", h: 10, w: 67.7 },
   { name: "Zendesk", file: "zendesk", h: 22, w: 31 },
   { name: "HubSpot", file: "hubspot", h: 14.1, w: 48 },
+  { name: "Shopify", file: "shopify", h: 14.6, w: 46.7 },
   { name: "Zoho", file: "zoho", h: 17.2, w: 39.3 },
   { name: "monday.com", file: "monday", h: 10.5, w: 107 },
   { name: "QuickBooks", file: "quickbooks", h: 14.5, w: 57.3 },
@@ -98,7 +98,6 @@ const PLATFORMS: Mark[] = [
   // Build, commerce and infrastructure
   { name: "Cloudflare", file: "cloudflare", h: 16.5, w: 50.3 },
   { name: "WordPress", file: "wordpress", h: 26, w: 26 },
-  { name: "Shopify", file: "shopify", h: 14.6, w: 46.7 },
   { name: "Stripe", file: "stripe", h: 16.8, w: 40 },
   { name: "GitHub", file: "github", h: 11, w: 38.7 },
   { name: "Notion", file: "notion", h: 22, w: 22, ownGround: true },
@@ -118,7 +117,6 @@ const PLATFORMS: Mark[] = [
 /* Worked on, but shown as type: no official mark exists from a citable source,
    and an approximated one is worse than an honest word. */
 const NO_MARK = [
-  "MuleSoft",
   "Aircall",
   "Hootsuite",
   "Metricool",

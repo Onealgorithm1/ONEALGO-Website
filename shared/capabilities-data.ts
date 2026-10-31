@@ -457,6 +457,6 @@ export const procurementRegistrations = {
     { label: "BidNet", value: "3063593" },
     { label: "Cal eProcure", value: "BID126344" },
     { label: "COMMBUYS", value: "ID 00085083" },
-    { label: "Jaggaer", value: "0000561511" },
+    { label: "Pennsylvania supplier number (PA Supplier Portal)", value: "0000561511" },
   ],
 };

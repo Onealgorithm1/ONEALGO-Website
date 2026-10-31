@@ -17,7 +17,7 @@ import Beasties from "beasties";
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
 /* The three website-development service pages (2026-10-24) are on the same v2 kit as the hub and the place pages. */
 const WD_SERVICE = new Set(["/services/website-cost", "/services/small-business-website-design", "/services/website-redesign"]);
-const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || WD_SERVICE.has(r);
+const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || SVC_PATHS.has(r) || WD_SERVICE.has(r);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
@@ -44,8 +44,8 @@ const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
   "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
   "/services/martech", "/services/google-ads", "/services/staff-augmentation",
-  "/services/it-consulting", "/services/operations-technology",
-  "/services/oracle-erp", "/services/salesforce", "/services/zendesk",
+  "/services/it-consulting",
+  "/services/salesforce", "/services/zendesk",
   "/services/application-development",
   "/services/web-design-chester-county", "/services/web-design-philadelphia",
   "/services/seo-chester-county",
@@ -82,6 +82,12 @@ const ROUTES = [
   const src = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "client", "data", "wd-local", "places.ts"), "utf8");
   for (const p of JSON.parse(src.slice(src.indexOf("= [") + 2, src.lastIndexOf("];") + 1))) ROUTES.push(p.path);
 }
+/* Nationwide service place pages (scripts/svc-local-gen.mjs): client/data/svc-local/index.ts, the same index App.tsx maps. */
+var SVC_PATHS = new Set();
+{
+  const src = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "client", "data", "svc-local", "index.ts"), "utf8");
+  for (const p of JSON.parse(src.slice(src.indexOf("= [") + 2, src.lastIndexOf("];") + 1))) { ROUTES.push(p.path); SVC_PATHS.add(p.path); }
+}
 
 const TYPES = {
   ".html": "text/html", ".js": "text/javascript", ".mjs": "text/javascript",
@@ -93,6 +99,7 @@ const TYPES = {
 };
 
 // Static server with SPA fallback so any route loads index.html.
+let SHELL = null;
 function serve(feed) {
   return http.createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split("?")[0]);
@@ -109,7 +116,9 @@ function serve(feed) {
     }
     // fallback → index.html (client routing takes over)
     res.writeHead(200, { "Content-Type": "text/html" });
-    fs.createReadStream(path.join(DIST, "index.html")).pipe(res);
+    // Serve the ORIGINAL shell, captured before any route is written: prerendering "/" overwrites dist/index.html with
+    // the home page (beasties-inlined CSS), and every later route would inherit that markup and its reveal rules.
+    res.end(SHELL);
   });
 }
 
@@ -141,6 +150,7 @@ async function main() {
      (website-development.hero-a.html / .hero-b.html) so ?hero=a|b hydrates cleanly and its LCP is measured as it would
      ship. Never set for a production build; the preview worker maps the query to the file. */
   if (process.env.OA_HERO_PROPOSALS) ROUTES.push("/services/website-development?hero=a", "/services/website-development?hero=b");
+  SHELL = fs.readFileSync(path.join(DIST, "index.html"));
   const server = serve(feed);
   await new Promise((r) => server.listen(PORT, r));
   const port = server.address().port;
@@ -189,7 +199,8 @@ async function main() {
          render output: no `.in` / `.js` classes, no GSAP inline transforms, no counter
          caught mid-tween and baked in as a wrong number. The static HTML IS the no-JS
          state (rules drawn, figures final, numbers real); the client replays from it. */
-      if (route.startsWith("/services/salesforce") || route === "/contact" || route.split("?")[0] === "/services/website-development" || route.startsWith("/services/web-design-") || WD_SERVICE.has(route)) { // /contact is on the v2 kit too (2026-10-23)
+      // 2026-10-31: every route, not just the v2 kit - staff augmentation printed "0" for its counters.
+      {
         await page.evaluateOnNewDocument(() => { window.__oaPrerender = true; });
       }
 
@@ -389,12 +400,17 @@ async function main() {
         );
       }
 
-      const hiddenOpacity = (html.match(/opacity:\s*0(?![.\d])/g) || []).length;
-      const hiddenShift = (html.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
+      // ponytail: scan element markup only. <style> blocks hold CSS-only scroll animations (animation-timeline: view(),
+      // gated by prefers-reduced-motion) whose keyframes legitimately contain opacity:0 / translateY / scale(0); the bug this
+      // guard exists for is JS-written INLINE styles captured mid-reveal. Ceiling: a <style> rule that hides content
+      // without any animation would pass; the brevity/visual gates are the backstop.
+      const markup = html.replace(/<style[^>]*>[\s\S]*?<\/style>/g, "");
+      const hiddenOpacity = (markup.match(/opacity:\s*0(?![.\d])/g) || []).length;
+      const hiddenShift = (markup.match(/transform:\s*translateY\(\s*[1-9]\d*px/g) || []).length;
       // 2026-10-23, Salesforce plate system: rails and nodes grow from
       // scale(0). They are CSS-only (no inline style), so this must stay 0; an
       // inline scale(0) in the static HTML means something was captured mid-grow.
-      const hiddenScale = (html.match(/transform:\s*scale[XY]?\(\s*0\s*\)/g) || []).length;
+      const hiddenScale = (markup.match(/transform:\s*scale[XY]?\(\s*0\s*\)/g) || []).length;
       if (hiddenOpacity || hiddenShift || hiddenScale) {
         throw new Error(
           `ships content hidden without JS (opacity:0 ×${hiddenOpacity}, translateY ×${hiddenShift}, scale(0) ×${hiddenScale}) — ` +

@@ -65,7 +65,7 @@ export const siteConfig: CompanyConfig = {
   /* Same wording as the Organization description in index.html (2026-10-23 fix round: the old
    * federal-flavoured text carried claims the site no longer makes). */
   description:
-    "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and a listed Salesforce Consulting Partner delivering Salesforce, Oracle ERP, integration and staff augmentation nationally.",
+    "OneAlgorithm builds and markets websites for small businesses around Malvern, Pennsylvania: web development, SEO, Google Ads, marketing and CRM. Woman-owned and SBA-certified WOSB/EDWOSB, and a listed Salesforce Consulting Partner delivering Salesforce, integration and staff augmentation nationally.",
   certifications: [],
   address: {
     street: "625 Swedesford Rd",

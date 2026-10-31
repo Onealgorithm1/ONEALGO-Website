@@ -218,7 +218,7 @@ const FAQS: SfFaqItem[] = [
     /* Owner 2026-10-23 ~19:05 (travel/visits): most work is remote; in-person sessions when the project calls
        for them, easiest across the Philadelphia region. ⛔ Never a standing visit promise. */
     q: "Can we meet in person near Exton, Downingtown or West Chester?",
-    a: `Yes, when the project calls for it. Our office is at 625 Swedesford Rd in Malvern, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org; in-person sessions are easiest across the Philadelphia region.`,
+    a: `Yes, when the project calls for it. Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org; in-person sessions are easiest across the Philadelphia region.`,
   },
 ];
 
@@ -490,7 +490,7 @@ export default function SalesforceConsultantChesterCounty() {
             <DeliveredLedger />
             <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
             <GoDeeper label="Salesforce's record of us and how to check any partner">
-              <p className="sf-rule">Salesforce's AppExchange record lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them on the Platform competency (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+              <p className="sf-rule">Salesforce's AppExchange record lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
             </GoDeeper>
           </SmartUnit>

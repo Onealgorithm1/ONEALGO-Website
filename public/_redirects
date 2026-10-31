@@ -1,3 +1,10 @@
+# Oracle ERP service retired 2026-10-31 (Louis: remove Oracle site-wide). Old URL -> services index.
+/services/oracle-erp /services 301
+# Operations Technology retired 2026-10-31 (Louis: no demand, no delivery) -> Operational Transformation.
+/services/operations-technology /services/operational-transformation-consulting 301
+/services/operations-technology/ /services/operational-transformation-consulting 301
+/services/oracle-erp/ /services 301
+
 # NOTHING for /blog here. The blog is now served AT onealgorithm.com/blog by the
 # oa-blog-debrand worker, which proxies Ghost (url=https://onealgorithm.com/blog).
 #

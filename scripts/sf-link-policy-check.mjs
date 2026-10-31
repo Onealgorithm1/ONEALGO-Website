@@ -34,7 +34,8 @@ const KILLED = [/\/services\/salesforce-consultant-houston\b/];
 const PRIMARY_CTA = /^(hero|header|desk|bar)$/;
 
 if (!fs.existsSync(dist)) { console.error("sf-link-policy-check: dist/spa/services not found: run the build + prerender first"); process.exit(1); }
-const files = fs.readdirSync(dist).filter((f) => /^salesforce.*\.html$/.test(f)).sort();
+// SF_PAGES: regex over dist/spa/services file names (default: the Salesforce pages). Site-wide v2 pages pass their own, e.g. SF_PAGES='^(seo|google-ads)\.html$'.
+const files = fs.readdirSync(dist).filter((f) => new RegExp(process.env.SF_PAGES || "^salesforce.*\\.html$").test(f)).sort();
 if (!files.length) { console.error("sf-link-policy-check: no salesforce*.html in dist"); process.exit(1); }
 
 let fails = 0, skipped = 0, checked = 0;
@@ -75,11 +76,11 @@ for (const f of files) {
       if (isPrimary && !/^(#|\/|tel:|mailto:)/.test(href) && !/^https?:\/\/(www\.)?onealgorithm\.com/.test(href)) fail(f, `primary CTA is not an in-site target: ${href}`);
       // Owner 2026-10-23: the desk CTA goes to the contact page with need/topic/from in the query (Contact.tsx reads them);
       // that is the one internal link allowed to carry parameters.
-      if (/^\//.test(href) && /\?/.test(href) && !/^\/contact\?need=salesforce&amp;topic=[^&]+&amp;from=/.test(href)) fail(f, `internal link carries a query string: ${href}`);
+      if (/^\//.test(href) && /\?/.test(href) && !/^\/contact\?need=[a-z-]+(&amp;topic=[^&]+&amp;from=[^&"]+)?$/.test(href)) fail(f, `internal link carries a query string: ${href}`);
     }
   }
   // the hero's primary button exists and stays on site
-  if (!/data-cta="hero"[^>]*data-primary|data-primary[^>]*data-cta="hero"/.test(main)) fail(f, "no primary hero CTA (SfButton with cta=\"hero\") found");
+  if (!process.env.SF_KEEP_HERO && !/data-cta="hero"[^>]*data-primary|data-primary[^>]*data-cta="hero"/.test(main)) fail(f, "no primary hero CTA (SfButton with cta=\"hero\") found");
 }
 console.log(`sf-link-policy-check: ${checked} page(s) checked, ${skipped} skipped, ${fails} failure(s)`);
 process.exit(fails ? 1 : 0);

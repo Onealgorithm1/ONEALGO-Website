@@ -15,11 +15,10 @@ export type Readout = {
 
 const shortDate = new Date(`${SF_VERIFIED_ON}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }); // "23 Oct 2026"
 
-/** The AppExchange trio: 16 people / 53 certifications / 38 Platform, with the as-of date and Verify. */
+/** The AppExchange trio: 16 people / 53 certifications, with the as-of date and Verify. */
 export const APPEXCHANGE_READOUTS: Readout[] = [
   { value: SF_CERTIFIED_PEOPLE, label: "Salesforce-certified people", source: <>AppExchange listing {SF_LISTING_ID} · read {shortDate}</> },
   { value: SF_CERTIFICATIONS, label: "Salesforce certifications", source: <>Salesforce's figure, not ours · <Verify id="appexchange" /></> },
-  { value: SF_PLATFORM_CERTS, label: "On the Platform competency", source: <>Flow, permissions, integration work</> },
 ];
 
 /**

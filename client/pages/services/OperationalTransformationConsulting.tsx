@@ -1,171 +1,89 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import SocialShare from "../../components/SocialShare";
-import { Users, Workflow, Plug, ClipboardCheck, Compass, Layers } from "lucide-react";
-import {
-  PageHero,
-  Section,
-  SectionHeading,
-  Card,
-  CardGrid,
-  CheckList,
-  Split,
-  ProcessSteps,
-  CTABand,
-  Reveal,
-} from "../../components/site";
+import { PageHero } from "../../components/site";
+import { SfPage, SmartSection, SmartUnit, GoDeeper, Readouts, SourcesDialog, DeskCTA, type SfFaqItem, type SfSource } from "../../components/sf";
+import { EnterpriseRow, EnterpriseTable, EnterpriseFaq, type EUnit } from "../../components/v2/enterprise-Units";
+import { EVStyles, BridgePlate, HoverCards, StepRail, EnterpriseSources } from "../../components/v2/enterprise-Visuals";
+import { OfferBand } from "../../components/v2/shared-OfferBand";
+import { ProofStrip } from "../../components/v2/shared-ProofStrip";
 import { useSEO, getCanonicalUrl } from "../../hooks/use-seo";
-import {
-  StructuredData,
-  createServiceSchema,
-  createLocalBusinessSchema,
-  createFAQSchema,
-} from "../../components/StructuredData";
+import { StructuredData, createServiceSchema, createWebPageSchema } from "../../components/StructuredData";
 
-/* Operational transformation consulting. Added 2026-10-03.
+/* Operational transformation consulting. Added 2026-10-03; body rebuilt 2026-10-31 in the Salesforce-v2 look (sf kit);
+ * round 3 (SEO spec B 4.7): framework H2, "Operational vs digital" H2 + H3, BLS context folded into the cost section,
+ * "Connecting operations data to Salesforce", OfferBand x2, ProofStrip, ten FAQs at 40-60 words.
  *
- * WHY THIS PAGE EXISTS. Search Console: the query "operational transformation
- * consulting" had 29 impressions at position 85 and the site had no page that
- * matched it; the nearest, /services/operations-technology, is about plant-floor
- * equipment (SCADA, sensors), a different thing that happens to share a word.
- * Louis, 2026-10-03: "Operational transformation consulting is what we do. This
- * is actually my specialty. I am a small business consultant and startup
- * consultant." That statement is the only source for who this is for.
+ * Louis, 2026-10-03: "Operational transformation consulting is what we do. This is actually my specialty. I am a
+ * small business consultant and startup consultant."
  *
- * PATTERN COPIED (structure only, read live 2026-10-03): the pages that rank
- * and convert in this space name the audience in the first screen, show a short
- * staged method, say how they differ from the neighbouring service, and answer
- * cost without inventing a rate.
- *
- * ⛔ WHAT THIS PAGE DOES NOT SAY, ON PURPOSE. No client results, percentages,
- * time savings, case studies, logos or guarantees: none exist that we can
- * publish. No rate: Louis said every business is different. The only price on
- * the page is one published market band, named and labelled "not our quote".
- *
- * ⛔ TO CONFIRM WITH LOUIS: the four stages in STEPS are STANDARD consulting
- * framing, written from the About page and the Salesforce pages, not from a
- * documented OneAlgorithm method. If he works differently, change STEPS.
- *
- * ⛔ Everything about the firm is taken from /about: four named people, the
- * scoper stays on the work through delivery, Salesforce / ERP / integration /
- * marketing operations in house, Malvern, WBE and MBE certified.
- */
+ * ⛔ No client results, percentages, time savings, case studies, logos or guarantees. No price or fee range anywhere:
+ *    the third-party dollar ranges (hourly consulting range, COO salary range) are gone and BLS wages are not printed.
+ * ⛔ No OT claims; no link to /services/operations-technology. The data-connection unit is method only, with one
+ *    unnamed SAP-to-Salesforce sync as the only delivery pattern. LocalBusiness schema removed (spec 7).
+ * ⛔ No "free one-week health check" here: that offer is Salesforce's only.
+ * ⛔ The four steps are standard consulting framing, not a documented OneAlgorithm method (confirm with Louis).
+ * ⛔ Facts: BLS only (management analysts), behind the one Sources pop-up (id "bls-ma"). */
+
+const PATH = "/services/operational-transformation-consulting";
+const URL_ = "https://onealgorithm.com" + PATH;
+const TITLE = "Operational transformation consulting | OneAlgorithm";
+const DESCRIPTION = "Fix the process, then the systems: Salesforce, IT and MarTech built around how work runs. For small businesses and startups. Call (610) 890-9711.";
+const READ = "read 31 October 2026";
+
+const SOURCES: SfSource[] = [
+  { name: "U.S. Bureau of Labor Statistics: Occupational Employment and Wage Statistics", what: "Management analysts (13-1111), May 2025: 898,280 employed nationally; 15,460 in the Philadelphia-Camden-Wilmington area", read: READ, page: "https://www.bls.gov/oes/current/oes131111.htm" },
+  { name: "U.S. Bureau of Labor Statistics: Occupational Outlook Handbook", what: "Management analysts: 1,077,100 jobs in 2025, projected +10% from 2025 to 2035, much faster than average (page modified 27 August 2026)", read: READ, page: "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm" },
+];
+
+const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link>;
 
 const SIGNS = [
-  "The work depends on one person, and nothing moves when they are away",
-  "The same information is typed into more than one place",
-  "Sales, operations and finance each have a different number for the same thing",
-  "Tools keep getting added and nobody owns how they fit together",
-  "More volume would mean more hiring, not more output",
+  "The work depends on one person, and nothing moves when they are away.",
+  "The same information is typed into more than one place.",
+  "Sales, operations and finance each have a different number for the same thing.",
+  "Tools keep getting added and nobody owns how they fit together.",
+  "More volume would mean more hiring, not more output.",
 ];
 
-const STEPS = [
+const CONNECT: EUnit[] = [
   {
-    title: "Diagnose",
-    body: "We map how work actually moves: who touches it, where it waits and which numbers get typed twice.",
-  },
-  {
-    title: "Design",
-    body: "Agree who owns which decisions, which processes change and which measures will show it worked.",
-  },
-  {
-    title: "Build and connect",
-    body: "Set up and connect the systems that carry the new way of working, through our Salesforce, integration and marketing technology teams.",
-  },
-  {
-    title: "Hand over",
-    body: "Your people run it. We check that it holds and train whoever needs it.",
+    id: "h-connect", title: "Connecting operations data to Salesforce",
+    lede: "When the same figures are typed into two systems, we map where each one starts, decide which system owns it and connect the two.",
+    lead: "This is integration work, not control-system work.",
+    leadIn: "Yes, but:",
+    points: ["Order, inventory and shipment data in one place", "Reports sales and finance both trust", "No control-system programming"],
+    label: "what we do and do not do",
+    deep: <p className="sf-rule">The one delivery pattern we describe is an unnamed SAP-to-Salesforce sync. Manufacturers and distributors often re-key order and inventory figures between the ERP, spreadsheets and the CRM; that is the problem it addresses. See {L("/industries/manufacturing", "manufacturing")} and {L("/services/salesforce-integration", "Salesforce integration")}. We do not program control systems or safety systems.</p>,
   },
 ];
 
-const ARMS = [
-  {
-    icon: Users,
-    title: "Sales and customer systems",
-    body: "Salesforce implementation and cleanup, so the customer record lives in one place.",
-    to: "/services/salesforce",
-  },
-  {
-    icon: Plug,
-    title: "Systems that have to agree",
-    body: "IT consulting and integration between the tools your business already runs on.",
-    to: "/services/it-consulting",
-  },
-  {
-    icon: Layers,
-    title: "Marketing operations",
-    body: "MarTech consulting and stack integration, so marketing data reaches the people who use it.",
-    to: "/services/martech",
-  },
-  {
-    icon: Workflow,
-    title: "Plant-floor systems",
-    body: "A different thing from this service: controllers, SCADA and sensors for manufacturers. Our operations technology page covers it.",
-    to: "/services/operations-technology",
-  },
-];
-
-const FOR_WHO = [
-  "Small businesses that have outgrown the way they started out",
-  "Startups whose processes depend on the founder",
-  "Teams adding tools faster than anyone can manage them",
-];
-
-const NOT_FOR = [
-  "A one-off website or ad campaign. Start on our websites or Google Ads pages",
-  "Setting up one tool and nothing else. The Salesforce, Zendesk or IT consulting pages are the better start",
-];
-
-const FAQS = [
-  {
-    q: "What is operational transformation consulting?",
-    a: "It is changing how a business actually operates, not only the software it runs on: how work moves between people, who owns each decision and which systems hold the data. The tools come after the way of working is clear, not before.",
-  },
-  {
-    q: "How is it different from management consulting?",
-    a: "Management consulting is usually about direction and advice. Operational transformation is the work of making a new way of working real: agreeing roles and decision rights, then setting up and connecting the systems that carry them. We can do that systems work ourselves, because Salesforce, ERP, integration and marketing technology are what the firm builds.",
-  },
-  {
-    q: "Do you work with startups?",
-    a: "Yes. Small businesses and startups are who this service is for.",
-  },
-  {
-    q: "How long does an engagement take?",
-    a: "It depends on how much has to change. We give you an estimate after a first conversation, not a number from a web page.",
-  },
-  {
-    q: "What does operational transformation consulting cost?",
-    a: "Every business is different, so we do not publish a rate. For context, one published guide, ScaleUpExec's operational efficiency guide, puts traditional consultants at $125 to $600 an hour and a full-time chief operating officer at $200,000 to $400,000 or more a year. That is the market, not our quote. We scope the work after a conversation.",
-  },
-  {
-    q: "Is this the same as your operations technology service?",
-    a: "No. Operations technology is the plant-floor side: controllers, SCADA and sensors. Operational transformation is about how the business runs, including who does what and which systems carry the work.",
-  },
-  {
-    q: "Do we have to buy new software?",
-    a: "Not necessarily. Often the first step is finding out whether the tools you already pay for are being used. That is how our free Salesforce org review starts: licences against actual use.",
-  },
-  {
-    q: "Who actually does the work?",
-    a: "The person who scopes your work stays on it through delivery. Four people run the firm, and their names and profiles are on our about page.",
-  },
+const FAQS: SfFaqItem[] = [
+  { q: "What is business transformation?", a: "Business transformation is a fundamental change in how a business operates, covering its processes, roles, decisions and the systems that carry them. Operational transformation is the part focused on how the work runs day to day. It changes the way of working, not only the tools." },
+  { q: "What is process transformation?", a: "Process transformation redesigns the steps work follows through a business, then changes roles and systems to match. It starts by mapping how the work really moves, not how a diagram says it does. Tools come after the steps are clear, so they carry a better process instead of automating a confused one." },
+  { q: "What are the benefits of operational transformation?", a: "Typical benefits are fewer re-keyed numbers, clearer ownership of decisions and the ability to take on more volume without matching headcount. We make no promise of a percentage. We agree two or three measures at the start so you can judge the result yourself.", link: { to: "#h-steps", label: "Our framework" } },
+  { q: "What are the challenges of operational transformation?", a: "The hard parts are agreeing who owns which decisions, getting people to change habits, and not buying tools before the way of working is clear. Tool sprawl and data that disagrees across teams make it harder. That is why our four steps put design before build." },
+  { q: "How long does an engagement take?", a: "It depends on how much has to change, so we do not quote weeks from a web page. We diagnose first. A plan with dates follows, and it says what changes, in what order and who owns each piece. You can stop after the diagnosis if the plan is enough." },
+  { q: "Do we have to buy new software?", a: "Often not. The first step is finding out whether the tools you already pay for are used, and used the way they were set up. We start with what you already run, and we recommend new software only when the way of working needs something the current tools cannot do." },
+  { q: "What does an operational transformation consultant do?", a: "An operational transformation consultant maps how the work moves, finds where it breaks, designs the fix with named owners and measures, then builds the systems side or hands the plan to your team. The aim is a business that no longer needs the consultant for this." },
+  { q: "Is operational transformation only for large companies?", a: "No. This page is aimed at small businesses and startups, where the process often lives in the founder's head. The Bureau of Labor Statistics shows management analysis is a large and growing field, but you do not need a large company to benefit from a clear owner and one set of numbers.", link: { to: "#h-cost", label: "The field in numbers" } },
+  { q: "How do you measure whether it worked?", a: "We agree two or three operational measures at the start, such as how often a figure is typed twice or how long work waits for one person. We review them at hand-over. We publish no client results, so the measures are the ones you choose for your own business." },
+  { q: "Where do you work?", a: "Our office is in Malvern, PA, in Chester County. We work remotely with businesses across the United States and meet in person by arrangement. The person who scopes your work stays on it through delivery.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
 ];
 
 export default function OperationalTransformationConsulting() {
   useSEO({
-    /* Query-first, brand last. 63 characters is too long, so: 58. */
-    title: "Operational Transformation Consulting | OneAlgorithm",
-    description:
-      "Operational transformation consulting for small businesses and startups: fix how the work runs, then connect the systems that carry it. Malvern, Pennsylvania.",
-    canonical: getCanonicalUrl("/services/operational-transformation-consulting"),
-    ogTitle: "Operational Transformation Consulting — OneAlgorithm",
-    ogDescription:
-      "Operational transformation consulting for small businesses and startups, from a small firm in Malvern, Pennsylvania.",
-    ogUrl: getCanonicalUrl("/services/operational-transformation-consulting"),
+    title: TITLE,
+    description: DESCRIPTION,
+    canonical: getCanonicalUrl(PATH),
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
+    ogUrl: getCanonicalUrl(PATH),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "Operational Transformation Consulting — OneAlgorithm",
-    twitterDescription:
-      "Operational transformation consulting for small businesses and startups. Fix how the work runs, then connect the systems.",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
     twitterImage: "https://onealgorithm.com/og-image.jpg",
+    preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
   });
 
   return (
@@ -174,12 +92,11 @@ export default function OperationalTransformationConsulting() {
         data={createServiceSchema(
           "Operational Transformation Consulting",
           "Operational transformation consulting for small businesses and startups: diagnosing how work actually moves, redesigning roles and decision rights, and setting up and connecting the systems that carry the new way of working, delivered by a small firm in Malvern, Pennsylvania.",
-          "Business Consulting",
-          "https://onealgorithm.com/services/operational-transformation-consulting",
+          "Operational transformation consulting",
+          URL_,
         )}
       />
-      <StructuredData data={createLocalBusinessSchema()} />
-      <StructuredData data={createFAQSchema(FAQS)} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-10-31" })} />
 
       <PageHero
         eyebrow="Operational transformation"
@@ -195,8 +112,8 @@ export default function OperationalTransformationConsulting() {
           items: [
             "Built for small businesses and startups",
             "The person who scopes your work stays on it through delivery",
-            "Salesforce, ERP, integration and marketing systems in house",
-            "Malvern, Pennsylvania. WBE and MBE certified",
+            "Salesforce, integration and marketing systems in house",
+            "Malvern, Pennsylvania",
           ],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
@@ -204,95 +121,151 @@ export default function OperationalTransformationConsulting() {
         siblings={false}
       />
 
-      <Section tone="surface" bordered>
-        <Split
-          left={
-            <>
-              <SectionHeading
-                eyebrow="Signs it is time"
-                title="What it looks like from the inside"
-                lede="Most businesses that call us would not use the phrase operational transformation. They describe one of these."
-              />
-            </>
-          }
-          right={<CheckList items={SIGNS} />}
-        />
-      </Section>
+      <SfPage crumbs={[{ label: "Operational transformation" }]}>
+        <EVStyles />
+        <BridgePlate
+          id="what"
+          fig={1}
+          tone="surface"
+          heading={{ id: "h-what", title: "What is operational transformation consulting?", lede: "Operational transformation consulting changes how a business actually operates: how work moves, who owns each decision and which systems hold the data." }}
+          title="Process first, then systems"
+          desc="Three boxes joined by arrows: how work moves between people, who owns each decision, and which system holds which data."
+          stamp="Process first, then systems"
+          caption="The tools come after the way of working is clear, not before."
+          nodes={[
+            { num: "01", title: "How work moves", sub: "who touches it, where it waits" },
+            { num: "02", title: "Who decides", sub: "one owner per decision" },
+            { num: "03", title: "Where data lives", sub: "typed once, read everywhere", hl: true },
+          ]}
+        >
+          <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
+          <GoDeeper label="business process transformation, defined">
+            <p className="sf-rule">Business process transformation is the same idea seen from the process side: redesigning the steps work takes, then changing the roles and systems to match. Tools added before the way of working is clear can end up automating the confusion.</p>
+            <p>We work with small businesses and startups, where the process often lives in the founder's head. Growth shows you how the business really runs, and that is when this work starts.</p>
+          </GoDeeper>
+        </BridgePlate>
 
-      <Section tone="paper" bordered>
-        <SectionHeading
-          eyebrow="How an engagement runs"
-          title="Four stages, in this order"
-          lede="The order matters. Tools added before the way of working is clear can end up automating the confusion."
-        />
-        <div className="mt-12">
-          <ProcessSteps steps={STEPS} />
-        </div>
-      </Section>
+        <OfferBand heading="Where does the work get stuck?" line="Describe it in a few lines. We tell you what we would look at first." label="Talk to a consultant" />
 
-      <Section tone="night" grid>
-        <SectionHeading
-          tone="dark"
-          eyebrow="Where the work lands"
-          title="The teams that deliver it"
-          lede="Operational transformation changes how the business runs. These are the places in the firm where the systems side gets built."
-        />
-        <CardGrid columns={2} className="mt-12">
-          {ARMS.map((a) => (
-            <Card key={a.title} tone="dark" icon={a.icon} title={a.title} body={a.body} to={a.to} />
-          ))}
-        </CardGrid>
-      </Section>
+        <SmartSection id="proof" compact labelledBy="proof-l">
+          <h2 className="sf-h3" id="proof-l">Who you would work with</h2>
+          <div style={{ marginTop: 20 }}><ProofStrip variant="local" /></div>
+        </SmartSection>
 
-      <Section tone="paper">
-        <CardGrid columns={2}>
-          <Card icon={Compass} title="Who this is for">
-            <div className="mt-4">
-              <CheckList items={FOR_WHO} />
+        <SmartSection id="signs" labelledBy="h-signs">
+          <div className="sf-grid" style={{ rowGap: 0 }}>
+            <div className="sf-c7">
+              <h2 className="sf-h2" id="h-signs">Signs you need operational transformation</h2>
+              <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">Most businesses that call us would not use the phrase; they describe one of five symptoms.</p>
             </div>
-          </Card>
-          <Card icon={ClipboardCheck} title="Who it is not for">
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-oa-ink2">
-              {NOT_FOR.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </Card>
-        </CardGrid>
-        <Reveal>
-          <p className="mt-10 max-w-3xl leading-relaxed text-oa-ink2">
-            <strong className="font-semibold text-oa-ink">What it costs.</strong>{" "}
-            Every business is different, so we do not publish a rate. We scope the
-            work after a conversation. There is more context in the questions
-            below.
-          </p>
-        </Reveal>
-      </Section>
-
-      <Section tone="paper" bordered>
-        <SectionHeading eyebrow="Questions" title="What people ask first" />
-        <div className="mt-12 space-y-10">
-          {FAQS.map((f) => (
-            <Reveal key={f.q}>
-              <div className="border-t border-oa-hairlineStrong pt-7 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
-                <h3 className="text-lg font-semibold text-oa-ink">{f.q}</h3>
-                <p className="mt-3 leading-relaxed text-oa-ink2 md:mt-0">{f.a}</p>
+          </div>
+          <div className="sf-ledger">
+            {SIGNS.map((s, i) => (
+              <div className="sf-lrow" key={s}>
+                <h3 className="sf-h4">{s}</h3>
+                <span className="sf-mono">Sign {i + 1} of 5</span>
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+            ))}
+          </div>
+          <p className="sf-lead sf-measure" style={{ marginTop: 24 }}><span className="sf-lead-in">Why it matters:</span> If two of these sound familiar, the process, not the software, is the problem.</p>
+        </SmartSection>
 
-      <Section tone="paper" compact bordered>
-        <SocialShare />
-      </Section>
+        <StepRail
+          id="steps"
+          tone="surface"
+          heading={{ id: "h-steps", title: "Operational transformation framework: four steps", lede: "The order matters: tools added before the way of working is clear can automate the confusion." }}
+          fig={2}
+          stations={[
+            { k: "s1", num: "01", title: "Diagnose", sub: "how work really moves" },
+            { k: "s2", num: "02", title: "Design", sub: "owners and measures" },
+            { k: "s3", num: "03", title: "Build and connect", sub: "the systems that carry it" },
+            { k: "s4", num: "04", title: "Hand over", sub: "your people run it" },
+          ]}
+          steps={[
+            { k: "s1", num: "01", title: "Diagnose", line: "We map how work actually moves: who touches it, where it waits and which numbers get typed twice." },
+            { k: "s2", num: "02", title: "Design", line: "Agree who owns which decisions, which processes change and which measures will show it worked." },
+            { k: "s3", num: "03", title: "Build and connect", line: "Set up and connect the systems that carry the new way of working, through our own Salesforce, integration and MarTech work." },
+            { k: "s4", num: "04", title: "Hand over", line: "Your people run it; we check that it holds and train whoever needs it." },
+          ]}
+          title="Four-step rail: diagnose, design, build and connect, hand over"
+          desc="A rail with four stations: diagnose, design, build and connect, hand over."
+          stamp="Our four steps"
+          caption="The aim is a business that no longer needs us for this."
+        />
 
-      <CTABand
-        title="Tell us where the work gets stuck"
-        body="Describe what depends on one person, or which numbers do not agree. We will tell you what we would look at first."
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{ label: "See all services", to: "/services" }}
-      />
+        <EnterpriseTable
+          id="compare"
+          tone="paper"
+          title="Operational vs digital transformation"
+          lede="The three overlap, but each has a different center of gravity."
+          caption="Operational, management and digital transformation compared"
+          head={["Approach", "Centers on", "Output"]}
+          rows={[
+            ["Operational transformation", "How the work runs and who owns decisions", "A new way of working, with the systems that carry it"],
+            ["Management consulting", "Direction, strategy and advice", "Recommendations"],
+            ["Digital transformation", "Technology and tooling", "New or replaced systems"],
+          ]}
+        />
+
+        <SmartSection id="bpc" tone="paper" grid labelledBy="h-bpc">
+          <SmartUnit
+            className="sf-c8"
+            level={3}
+            headingId="h-bpc"
+            title="Operations and business process consulting"
+            lede="Operations consulting, business process consulting and operational excellence all ask the same question: where does the work wait, and who owns the fix?"
+            lead="We answer it with a map of the work before any tool is chosen."
+            measure
+          />
+        </SmartSection>
+
+        <SmartSection id="systems" tone="night" heading={{ id: "h-systems", title: "Where the systems get built", lede: "Operational transformation changes how the business runs; these are the places in the firm where the systems side gets built." }}>
+          <HoverCards
+            cols={4}
+            items={[
+              { glyph: "link", kicker: "Sales and customer", title: "Salesforce", body: "Implementation and cleanup, so the customer record lives in one place.", to: "/services/salesforce", cta: "Salesforce consulting" },
+              { glyph: "gear", kicker: "Systems that agree", title: "IT consulting", body: "Integration between the tools your business already runs on, in a sensible order.", to: "/services/it-consulting", cta: "IT consulting services" },
+              { glyph: "bars", kicker: "Marketing operations", title: "MarTech", body: "Stack integration, so marketing data reaches the people who use it.", to: "/services/martech", cta: "MarTech consulting" },
+              { glyph: "ticket", kicker: "Customer support", title: "Zendesk", body: "Implementation and Salesforce integration, so a ticket never sits unowned.", to: "/services/zendesk", cta: "Zendesk implementation" },
+            ]}
+          />
+        </SmartSection>
+
+        <SmartSection id="cost" tone="paper" heading={{ id: "h-cost", title: "What operational transformation costs", lede: "Cost follows the number of processes, teams and systems involved and how much has to be built." }}>
+          <p className="sf-lead sf-measure"><span className="sf-lead-in">Why it matters:</span> Every business is different, so we publish no rate and scope the work in writing after a conversation.</p>
+          <ul className="sf-points" style={{ marginTop: 16 }}>
+            <li>Processes and teams in scope</li>
+            <li>Systems to set up or connect</li>
+            <li>How much your people can run themselves</li>
+          </ul>
+          <p className="sf-lede sf-measure" style={{ marginTop: 32 }} data-lede="">Advising on how businesses run is a large and growing occupation; these are the Bureau of Labor Statistics' figures, not claims about us.</p>
+          <Readouts
+            withEvidence={false}
+            items={[
+              { value: 15460, label: "management analysts in the Philadelphia area, May 2025", source: <>Bureau of Labor Statistics</> },
+              { value: 898280, label: "management analysts across the United States, May 2025", source: <>Bureau of Labor Statistics</> },
+              { value: 10, label: "percent projected US growth, 2025 to 2035, much faster than average", source: <>Bureau of Labor Statistics</> },
+            ]}
+          />
+        </SmartSection>
+
+        <OfferBand heading="Ready to look at how work runs?" line="A short call to see whether we fit." label="Talk to a consultant" />
+
+        <EnterpriseRow id="connect" tone="surface" units={CONNECT} />
+
+        <EnterpriseFaq title="Operational transformation questions" items={FAQS} />
+        <EnterpriseSources id="bls-ma" text="Bureau of Labor Statistics, read October 31, 2026." />
+        <SourcesDialog id="bls-ma" title="Where these figures come from" intro="Every figure on this page is from the U.S. Bureau of Labor Statistics, read by a person at OneAlgorithm on 31 October 2026." sources={SOURCES} />
+        <DeskCTA
+          heading="Tell us where the work gets stuck"
+          lede="Describe what depends on one person, or which numbers do not agree, and we will say what we would look at first."
+          covers={["Where work waits or gets typed twice", "Who owns which decision", "Which systems have to agree", "What we would look at first"]}
+          coversLabel="What the first conversation covers"
+          next={["Send the short form on the contact page, or call.", "A person at OneAlgorithm reads it and replies.", "We tell you what we would look at first."]}
+          hcLink={false}
+          form={{ topic: "operational-transformation", topicLabel: "Operational transformation", need: "operational-transformation", heading: "Talk to an expert", prompt: "Where does the work get stuck?", submitLabel: "Talk to an expert" }}
+        />
+      </SfPage>
     </Layout>
   );
 }

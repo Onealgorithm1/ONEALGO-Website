@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { siteConfig } from "../../shared/companyProfile";
+import { RailSeenContext } from "./StructuredData";
 import { SF_PHONE } from "../data/salesforceShared";
 
 /* ---------------------------------------------------------------------------
@@ -547,10 +548,8 @@ const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
   ["/services/staff-augmentation", "Staffing"],
   ["/services/website-development", "Websites"],
   ["/services/application-development", "App Development"],
-  ["/services/oracle-erp", "Oracle ERP"],
   ["/services/salesforce", "Salesforce"],
   ["/services/it-consulting", "IT Consulting"],
-  ["/services/operations-technology", "Operations Tech"],
   ["/services/marketing", "Marketing"],
   ["/services/martech", "MarTech"],
   ["/services/google-ads", "Google Ads"],
@@ -688,6 +687,8 @@ function crumbsFor(path: string): Crumb[] {
  */
 export function HeroRail({ crumbs, dark, width }: { crumbs: Crumb[]; dark: boolean; width?: Frame }) {
   const frame = useFrame(width);
+  const railSeen = React.useContext(RailSeenContext);
+  if (railSeen) railSeen.seen = true; // ponytail: render-phase flag; SfPage reads it later in the same pass
   /* The same crumbs, for machines.
      BreadcrumbList is one of the few structured-data types still earning a rich
      result in Google's current gallery -- FAQPage and HowTo both stopped
@@ -815,7 +816,7 @@ function SiblingWire({
               <li key={to} className="shrink-0">
                 <Link
                   to={to}
-                  className="inline-flex min-h-11 items-center whitespace-nowrap text-sm text-oa-nightInk2 transition-colors hover:text-oa-orange"
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center whitespace-nowrap text-sm text-oa-nightInk2 transition-colors hover:text-oa-orange"
                 >
                   {name}
                 </Link>

@@ -182,12 +182,12 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Which Salesforce certifications does your team hold?",
-    a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications, ${SF_PLATFORM_CERTS} of them on the Platform competency (read ${SF_VERIFIED_LABEL}). ${SREENIVAS.statement} ${SWAPNA.statement}`,
+    a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications (read ${SF_VERIFIED_LABEL}). ${SREENIVAS.statement} ${SWAPNA.statement}`,
     link: { to: "#record", label: "Who leads your Salesforce work" },
   },
   {
     q: "We already have a Salesforce admin. What would you add?",
-    a: `Specialist depth, not a replacement. Your admin keeps the org running day to day. We take the Platform work that needs more time or a different skill: Flow that replaces manual steps, permission sets doing a profile's job, integrations that fail silently. ${SF_PLATFORM_CERTS} of our ${SF_CERTIFICATIONS} Salesforce certifications are on the Platform competency, and your admin keeps ownership of the org.`,
+    a: `Specialist depth, not a replacement. Your admin keeps the org running day to day. We take the Platform work that needs more time or a different skill: Flow that replaces manual steps, permission sets doing a profile's job, integrations that fail silently. Salesforce lists ${SF_CERTIFICATIONS} certifications for us, and your admin keeps ownership of the org.`,
     link: { to: MS, label: "Salesforce managed services and development" },
   },
   {
@@ -197,7 +197,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is your office in Philadelphia?",
-    a: "Our office is on Swedesford Road in Malvern, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
+    a: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
   },
   {
     q: "Do you work with companies on the Main Line, in King of Prussia and in South Jersey?",
@@ -508,7 +508,7 @@ export default function SalesforceConsultantPhiladelphia() {
             <DeliveredLedger />
             <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
             <GoDeeper label="the competency rows and how to check any partner">
-              <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency: {SF_PLATFORM_CERTS} Platform and 7 Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+              <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -530,7 +530,7 @@ export default function SalesforceConsultantPhiladelphia() {
             className="lg:[grid-column:1/6]"
             headingId="h-office"
             title="Our Malvern office, 25 miles from Center City"
-            lede="Our office is at 625 Swedesford Rd, Unit B, in Malvern, Chester County, about 25 miles by road west of Center City."
+            lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, in Chester County, about 25 miles by road west of Center City."
             leadIn="The bottom line:"
             lead="Most Salesforce work runs remotely inside your org; in-person sessions happen when the project calls for them, easiest across the Philadelphia region."
             measure={false}

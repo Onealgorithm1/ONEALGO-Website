@@ -1,6 +1,7 @@
 // StructuredData: injects JSON-LD into <head> for the page that renders it, and
 // takes it back out again when that page goes away.
 import React from "react";
+import { useInRouterContext, useLocation } from "react-router-dom";
 
 import { siteConfig } from "../lib/siteConfig";
 
@@ -35,6 +36,7 @@ const NAP = {
     siteConfig.social.instagram,
     siteConfig.social.youtube,
     siteConfig.social.tiktok,
+    "https://maps.app.goo.gl/kVEeTz9dCyB64CGk6", // Google Business Profile
     "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL",
     "https://clutch.co/profile/one-algorithm",
   ],
@@ -143,7 +145,65 @@ interface StructuredDataProps {
   data: SchemaType;
 }
 
-export function StructuredData({ data }: StructuredDataProps) {
+/* One BreadcrumbList per page (spec 5). Layout provides this holder per route; HeroRail marks it `seen`
+   while rendering; SfPage (rendered after the hero) then skips its own trail and schema, so the 18 pages
+   that mount both emit a single list without the pages being edited. */
+export const RailSeenContext = React.createContext<{ path: string; seen: boolean } | null>(null);
+
+/* Site-architecture spec 7.2: ONE full LocalBusiness node, on the pages that show the Malvern office
+   (home, contact, about, and the Chester County / Philadelphia local pages). Everywhere else the node is
+   not emitted and `{"@id": ".../#localbusiness"}` references fall back to the Organization (#org), so a
+   remote place page never repeats the address. Pages keep calling createLocalBusinessSchema(); this is the gate. */
+const LB_ID = "https://onealgorithm.com/#localbusiness";
+const ORG_ID = "https://onealgorithm.com/#org";
+const LB_PATHS = new Set([
+  "/",
+  "/contact",
+  "/about",
+  "/services/web-design-chester-county",
+  "/services/web-design-philadelphia",
+  "/services/seo-chester-county",
+  "/services/google-ads-philadelphia",
+  "/services/salesforce-consultant-philadelphia",
+  "/services/salesforce-consultant-chester-county",
+]);
+/** Service.areaServed on the local pages: the county or city, not "United States". */
+const LOCAL_AREA: Record<string, string> = {
+  "/services/web-design-chester-county": "Chester County, PA",
+  "/services/seo-chester-county": "Chester County, PA",
+  "/services/salesforce-consultant-chester-county": "Chester County, PA",
+  "/services/web-design-philadelphia": "Philadelphia, PA",
+  "/services/google-ads-philadelphia": "Philadelphia, PA",
+  "/services/salesforce-consultant-philadelphia": "Philadelphia, PA",
+};
+const normPath = (p: string) => {
+  const q = p.toLowerCase().replace(/\/+$/, "");
+  return q === "" ? "/" : q;
+};
+
+function gateForPath(data: any, path: string): any | null {
+  if (!path) return data;
+  if (data?.["@id"] === LB_ID && !LB_PATHS.has(path)) return null;
+  const json = JSON.stringify(data, (_k, v) =>
+    v && typeof v === "object" && !Array.isArray(v) && v["@id"] === LB_ID && Object.keys(v).length === 1 && !LB_PATHS.has(path)
+      ? { "@id": ORG_ID }
+      : v,
+  );
+  const out = JSON.parse(json);
+  const area = LOCAL_AREA[path];
+  if (area && (out.type === "Service" || out["@type"] === "Service") && out.areaServed === "United States") out.areaServed = area;
+  return out;
+}
+
+export function StructuredData({ data: rawData }: StructuredDataProps) {
+  const inRouter = useInRouterContext();
+  // Constant per mount (a component is either inside the router or not), so the hook order is stable.
+  const pathname = inRouter ? normPath(useLocation().pathname) : "";
+  const data = gateForPath(rawData, pathname);
+  return data ? <JsonLdInjector data={data} /> : null;
+}
+
+function JsonLdInjector({ data }: StructuredDataProps) {
   // An effect, not a bare setTimeout during render. The previous version fired an
   // uncancellable timer on every render and deliberately never cleaned up, which
   // caused two problems: a slow route change could apply an older page's schema
@@ -281,7 +341,8 @@ export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalS
     // company was shut, on the strength of a field nobody had revisited.
     //
     // `opens 00:00 / closes 23:59` across all seven days is the schema.org
-    // convention for always-open.
+    // convention for always-open. 2026-10-31: confirmed against the Business
+    // Profile regularHours (Mon-Fri 09:00-17:00), which is what is set below.
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -414,7 +475,7 @@ export function createContactPageSchema(): ContactPageSchema {
     type: "ContactPage",
     name: "Contact OneAlgorithm",
     description:
-      "Contact OneAlgorithm for expert IT consulting, website development, operations technology, and staff augmentation services.",
+      "Contact OneAlgorithm for expert IT consulting, website development, Salesforce, SEO, Google Ads and staff augmentation services.",
     url: "https://onealgorithm.com/contact",
     mainEntity: {
       type: "Organization",

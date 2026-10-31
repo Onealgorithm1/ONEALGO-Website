@@ -17,15 +17,19 @@ declare global {
 const EMAIL = "service@onealgorithm.com";
 const SERVICES = [
   "Salesforce / CRM",
-  "Oracle ERP Implementation",
   "IT Consulting",
   "Website Development",
-  "Operations Technology",
   "Zendesk Implementation / Support",
   "Marketing Services",
   "Staff Augmentation",
   "HR & Staffing Support",
+  "Industry project",
   "Other",
+  "SEO",
+  "Google Ads",
+  "Application Development",
+  "MarTech",
+  "Operational Transformation",
 ];
 const SERVICE_LABEL: Record<string, string> = { "IT Consulting": "IT Consulting & Strategy" };
 const OFFICES = [
@@ -96,6 +100,14 @@ export default function Contact() {
     if (q.get("need") === "website") {
       setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Website Development" }));
     }
+    const NEED: Record<string, string> = {
+      seo: "SEO", "google-ads": "Google Ads", "app-development": "Application Development", marketing: "Marketing Services",
+      martech: "MarTech", "it-consulting": "IT Consulting", "staff-augmentation": "Staff Augmentation",
+      zendesk: "Zendesk Implementation / Support", "operational-transformation": "Operational Transformation",
+      industries: "Industry project", construction: "Other", manufacturing: "Other", government: "Other", services: "Other", contact: "Other",
+    };
+    const want = NEED[q.get("need") || ""];
+    if (want) setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: want }));
     setTopic((q.get("topic") || "").slice(0, 60));
     const f = q.get("from") || "";
     setFrom(/^\/[^\s]*$/.test(f) ? f.slice(0, 200) : "");
@@ -423,15 +435,13 @@ export default function Contact() {
             <ul className="sf-points">
               <li>IT consulting and strategy; cloud and process work</li>
               <li>Websites, SEO and marketing technology</li>
-              <li>Salesforce, Zendesk, Oracle ERP, operations technology, staff augmentation</li>
+              <li>Salesforce, Zendesk, staff augmentation</li>
             </ul>
             <GoDeeper label="what each service covers">
               <h4>IT consulting and strategic planning</h4>
               <p>Technology audits, digital transformation plans, cybersecurity assessments, cloud migration planning and process optimization.</p>
               <h4>Website development and design</h4>
               <p>Custom sites, responsive design, e-commerce, SEO, content management and performance work.</p>
-              <h4>Operations technology</h4>
-              <p>Industrial automation, SCADA, IoT integration, equipment monitoring and predictive maintenance.</p>
               <h4>Staff augmentation</h4>
               <p>Developers, IT specialists, project managers and subject-matter experts for short or long engagements.</p>
               <h4>Marketing technology and automation</h4>

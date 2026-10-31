@@ -54,6 +54,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 import Index from "./pages/Index";
 import { PLACES } from "./data/wd-local/places";
+import { SVC_PLACES } from "./data/svc-local/index";
 const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
@@ -93,6 +94,7 @@ const WebsiteCost = lazy(() => import("./pages/services/WebsiteCost"));
 const SmallBusinessWebsiteDesign = lazy(() => import("./pages/services/SmallBusinessWebsiteDesign"));
 const WebsiteRedesign = lazy(() => import("./pages/services/WebsiteRedesign"));
 const WebDesignPlace = lazy(() => import("./components/wd/LocalRoute"));
+const ServicePlace = lazy(() => import("./components/wd/SvcLocalRoute"));
 const GoogleAdsPhiladelphia = lazy(
   () => import("./pages/services/GoogleAdsPhiladelphia"),
 );
@@ -126,10 +128,6 @@ const StaffAugmentation = lazy(
   () => import("./pages/services/StaffAugmentation"),
 );
 const ITConsulting = lazy(() => import("./pages/services/ITConsulting"));
-const OperationsTechnology = lazy(
-  () => import("./pages/services/OperationsTechnology"),
-);
-const OracleERP = lazy(() => import("./pages/services/OracleERP"));
 const Salesforce = lazy(() => import("./pages/services/Salesforce"));
 const Zendesk = lazy(() => import("./pages/services/Zendesk"));
 const Capabilities = lazy(() => import("./pages/Capabilities"));
@@ -211,6 +209,9 @@ const App = () => (
               <Route path="/services/website-redesign" element={<WebsiteRedesign />} />
               {PLACES.map((p) => (
                 <Route key={p.slug} path={p.path} element={<WebDesignPlace slug={p.slug} />} />
+              ))}
+              {SVC_PLACES.map((p) => (
+                <Route key={p.id} path={p.path} element={<ServicePlace id={p.id} />} />
               ))}
               <Route
                 path="/services/google-ads-philadelphia"
@@ -303,11 +304,6 @@ const App = () => (
                 path="/services/it-consulting"
                 element={<ITConsulting />}
               />
-              <Route
-                path="/services/operations-technology"
-                element={<OperationsTechnology />}
-              />
-              <Route path="/services/oracle-erp" element={<OracleERP />} />
               <Route path="/services/salesforce" element={<Salesforce />} />
               <Route path="/services/zendesk" element={<Zendesk />} />
               <Route path="/industries" element={<Industries />} />

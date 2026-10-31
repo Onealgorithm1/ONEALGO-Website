@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/sf.css";
 import { initSfMotion } from "../../lib/sfMotion";
-import { StructuredData, createBreadcrumbSchema } from "../StructuredData";
+import { StructuredData, createBreadcrumbSchema, RailSeenContext } from "../StructuredData";
 
 /**
  * Root of every Salesforce page body (inside <Layout>). Renders the `.sfv2` scope that client/styles/sf.css
@@ -27,11 +27,13 @@ export function SfPage({ crumbs, children, className = "", base = [{ label: "Hom
     if (!ref.current) return;
     return initSfMotion(ref.current);
   }, []);
-  const trail = [...base, ...crumbs];
+  // A HeroRail earlier on the page already draws and emits the trail: keep exactly one.
+  const railSeen = React.useContext(RailSeenContext);
+  const trail = railSeen?.seen ? [] : [...base, ...crumbs];
   return (
     <div ref={ref} className={`sfv2 ${className}`}>
-      <StructuredData data={createBreadcrumbSchema(trail)} />
-      <nav className="sf-crumbs" aria-label="Breadcrumb">
+      {trail.length > 0 && <StructuredData data={createBreadcrumbSchema(trail)} />}
+      {trail.length > 0 && <nav className="sf-crumbs" aria-label="Breadcrumb">
         <div className="sf-wrap">
           <ol className="sf-mono">
             {trail.map((c, i) =>
@@ -43,7 +45,7 @@ export function SfPage({ crumbs, children, className = "", base = [{ label: "Hom
             )}
           </ol>
         </div>
-      </nav>
+      </nav>}
       {children}
     </div>
   );

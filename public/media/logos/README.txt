@@ -4,7 +4,6 @@ Platform logos.
 
 REAL (official marks, added 2026-08-28) — safe to display:
   salesforce.svg   #00A1E0
-  oracle.svg       #F80000
   zendesk.svg      #03363D
   google-ads.svg   #4285F4
 

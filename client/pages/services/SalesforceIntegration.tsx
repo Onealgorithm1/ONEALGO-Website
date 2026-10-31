@@ -369,9 +369,9 @@ export default function SalesforceIntegration() {
             level={3}
             className="sf-c4"
             delay={0.16}
-            kicker="Oracle ERP · Microsoft"
-            title="Oracle and Dynamics 365"
-            lede="Oracle ERP and Microsoft Dynamics 365 get the same approach: agree which system owns customers, orders and invoices, then pick the lightest route."
+            kicker="Microsoft"
+            title="Microsoft Dynamics 365"
+            lede="Microsoft Dynamics 365 gets the same approach: agree which system owns customers, orders and invoices, then pick the lightest route."
             leadIn="The bottom line:"
             lead="The system shapes the route; ownership, timing and failure handling stay the same."
           />
@@ -535,7 +535,7 @@ export default function SalesforceIntegration() {
           heading={{
             id: "h-record",
             title: "Salesforce integration consultants who do the work",
-            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, {SF_PLATFORM_CERTS} of them Platform, read {SF_VERIFIED_LABEL}.</>,
+            lede: <>Salesforce's AppExchange record lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</>,
           }}
         >
           <Readouts />

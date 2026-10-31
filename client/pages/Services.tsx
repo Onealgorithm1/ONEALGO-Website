@@ -28,9 +28,10 @@ import {
   CTABand,
 } from "../components/site";
 import { useSEO, getCanonicalUrl } from "../hooks/use-seo";
+import { ServicesIndexBody } from "../components/v2/home-ServicesIndex";
+import { SERVICE_GROUPS } from "../components/v2/home-services";
 import {
   StructuredData,
-  createWebPageSchema,
 } from "../components/StructuredData";
 
 /* Services hub - 2026 refresh.
@@ -49,160 +50,8 @@ import {
  * for evidence. See REDESIGN-NOTES.md.
  */
 
-const SERVICES = [
-  // The three local pages lead the grid deliberately: they are the pages this
-  // site most needs Google to find, and until 2026-08-31 they had exactly one
-  // internal link each, sitewide.
-  {
-    icon: MapPin,
-    title: "Web Design — Philadelphia",
-    body: "Website design and development for Philadelphia businesses, from the team in Malvern — sites built to be found and to bring in work.",
-    to: "/services/web-design-philadelphia",
-  },
-  {
-    icon: MapPin,
-    title: "Web Design — Chester County",
-    body: "Local web design for Chester County businesses: Malvern, West Chester, Exton and the towns between. We are based here.",
-    to: "/services/web-design-chester-county",
-  },
-  {
-    icon: MapPin,
-    title: "SEO — Chester County",
-    body: "Local SEO for Chester County businesses: your Google Business Profile, reviews and service pages, from the office in Malvern.",
-    to: "/services/seo-chester-county",
-  },
-  {
-    icon: MapPin,
-    title: "Google Ads — Philadelphia",
-    body: "Google Ads management for Philadelphia-area businesses — campaigns run by the same team that builds the landing pages.",
-    to: "/services/google-ads-philadelphia",
-  },
-  /* Salesforce local trio, added 2026-09-01. Same reasoning as the three
-     above: a local page with one inbound link sitewide is close to orphaned,
-     and these are the pages the site most needs found. Each targets a
-     different BUYER, not just a different place name — see the header of
-     SalesforceConsultantPhiladelphia.tsx. */
-  {
-    icon: MapPin,
-    title: "Salesforce Consultant — Philadelphia",
-    body: "For Philadelphia companies that already own Salesforce and suspect it is not earning its keep. Free one-week review of the org you have.",
-    to: "/services/salesforce-consultant-philadelphia",
-  },
-  {
-    icon: MapPin,
-    title: "Salesforce Consultant — Chester County",
-    body: "For businesses still choosing: which edition you actually need, what the licences cost, and a count before you sign. We are in Malvern.",
-    to: "/services/salesforce-consultant-chester-county",
-  },
-  {
-    icon: MapPin,
-    title: "Salesforce Partner — Pennsylvania",
-    body: "What a Salesforce Consulting Partner actually is, and how to check any partner's record on the AppExchange before you hire one.",
-    to: "/services/salesforce-consulting-partner-pennsylvania",
-  },
-  {
-    icon: Calculator,
-    title: "Salesforce Implementation Cost",
-    body: "What a Salesforce implementation costs: published market ranges by company size, Salesforce's own list prices, and the costs most buyers miss.",
-    to: "/services/salesforce-implementation-cost",
-  },
-  {
-    icon: Compass,
-    title: "Operational Transformation Consulting",
-    body: "For small businesses and startups: fix how the work runs, then connect the systems that carry it.",
-    to: "/services/operational-transformation-consulting",
-  },
-  {
-    icon: Users,
-    title: "Staff Augmentation",
-    body: "Scale your team with expert developers and technical professionals. Flexible engagement models to meet your project needs.",
-    to: "/services/staff-augmentation",
-  },
-  {
-    icon: Code,
-    title: "Website Development",
-    body: "Modern, responsive websites built for performance and user experience. From corporate sites to complex web applications.",
-    to: "/services/website-development",
-  },
-  {
-    icon: Code,
-    title: "Website Cost",
-    body: "What sets the price of a website: pages, content, integrations and whether it sells, books or logs people in, with the scope in writing first.",
-    to: "/services/website-cost",
-  },
-  {
-    icon: Code,
-    title: "Small Business Website Design",
-    body: "Websites for owner-led businesses, sized to three jobs: be found, explain the service, and turn a visit into a call, booking or order.",
-    to: "/services/small-business-website-design",
-  },
-  {
-    icon: Code,
-    title: "Website Redesign",
-    body: "A new design and new code on the domain you already have, with every old address mapped and redirected so rankings carry over.",
-    to: "/services/website-redesign",
-  },
-  {
-    icon: Boxes,
-    title: "Application Development",
-    body: "Internal control panels, iOS and Android apps, customer portals and Salesforce applications — built so your company owns the code, the cloud accounts and the signing keys.",
-    to: "/services/application-development",
-  },
-  {
-    icon: Database,
-    title: "Oracle ERP Implementation",
-    body: "Full-lifecycle Oracle Cloud ERP implementation services from strategic consulting through post-implementation support.",
-    to: "/services/oracle-erp",
-  },
-  {
-    icon: Cloud,
-    title: "Salesforce",
-    body: "Sales, Service and Marketing Cloud implementation and consulting, delivered by a listed Salesforce Consulting Partner.",
-    to: "/services/salesforce",
-  },
-  {
-    icon: Brain,
-    title: "IT Consulting",
-    body: "Strategic technology planning and expert guidance for digital transformation. Optimize your IT infrastructure and processes.",
-    to: "/services/it-consulting",
-  },
-  {
-    icon: Cpu,
-    title: "Operations Technology",
-    body: "Industrial automation, SCADA systems, and IoT integration. Optimize operations with smart technology solutions.",
-    to: "/services/operations-technology",
-  },
-  {
-    icon: Megaphone,
-    title: "Marketing & Social Media",
-    body: "Social media management for the Facebook Pages and Instagram business accounts our clients own, plus campaigns that adapt to customer behavior.",
-    to: "/services/marketing",
-  },
-  {
-    icon: Layers,
-    title: "MarTech",
-    body: "Marketing platforms selected, connected and configured so campaign data lands where your team can act on it.",
-    to: "/services/martech",
-  },
-  {
-    icon: Search,
-    title: "SEO Services",
-    body: "Technical SEO, content structure and search visibility work aimed at sustainable organic growth.",
-    to: "/services/seo",
-  },
-  {
-    icon: BarChart3,
-    title: "Google Ads",
-    body: "Paid search management focused on qualified traffic and measurable cost per acquisition.",
-    to: "/services/google-ads",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Zendesk",
-    body: "Support-desk implementation, migration and ongoing optimization for teams that live in their ticket queue.",
-    to: "/services/zendesk",
-  },
-];
+const TITLE = "IT and marketing services for small business | OneAlgorithm";
+const DESCRIPTION = "IT and marketing services from a four-person team in Malvern, PA: web development, SEO, Google Ads, Salesforce, IT consulting. Call (610) 890-9711.";
 
 const APPROACH = [
   {
@@ -225,32 +74,36 @@ const APPROACH = [
 
 export default function Services() {
   useSEO({
-    title: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
-    description:
-      "Web development, SEO, Google Ads, Salesforce, Oracle ERP, IT consulting and staff augmentation. A consultancy in Malvern, Pennsylvania.",
+    title: TITLE,
+    description: DESCRIPTION,
     canonical: getCanonicalUrl("/services"),
     keywords:
-      "technology services, staff augmentation, IT consulting services, website development services, operations technology, Oracle ERP implementation, Salesforce consulting, marketing services, business technology solutions",
-    ogTitle: "Websites, SEO, Salesforce & Oracle ERP Services | OneAlgorithm",
-    ogDescription:
-      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
+      "IT and marketing services, technology consulting, IT consulting services, website development services, SEO services, Salesforce consulting, staff augmentation, small business",
+    ogTitle: TITLE,
+    ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl("/services"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle:
-      "Technology Services - OneAlgorithm | IT Consulting, Website Development, Oracle ERP & More",
-    twitterDescription:
-      "Staff augmentation, website development, IT consulting, Oracle ERP, Salesforce, operations technology and marketing solutions.",
+    twitterTitle: TITLE,
+    twitterDescription: DESCRIPTION,
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
 
   return (
     <Layout>
+      {/* Hub = CollectionPage + ItemList of the service families (seo-spec-b 4.2); child pages carry the Service nodes. */}
       <StructuredData
-        data={createWebPageSchema(
-          "Technology Services - OneAlgorithm | IT Consulting, Website Development & More",
-          "Comprehensive technology services including website development, IT consulting, operations technology, staff augmentation, and marketing solutions.",
-          "https://onealgorithm.com/services",
-        )}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: TITLE,
+          description: DESCRIPTION,
+          url: "https://onealgorithm.com/services",
+          dateModified: "2026-10-31",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: SERVICE_GROUPS.flatMap((g) => g.items).map((x, i) => ({ "@type": "ListItem", position: i + 1, name: x.title, url: `https://onealgorithm.com${x.to}` })),
+          },
+        }}
       />
 
       <PageHero
@@ -266,7 +119,7 @@ export default function Services() {
           <>
             From strategy through execution and beyond. We deliver expert
             consulting and implementation across website development, IT
-            consulting, operations technology and enterprise systems —
+            consulting, Salesforce and enterprise systems —
             specialized for{" "}
             <Link
               to="/industries/construction"
@@ -316,43 +169,7 @@ export default function Services() {
         secondary={{ label: "Learn about our approach", to: "/about" }}
       />
 
-      <Section tone="paper">
-        <SectionHeading
-          eyebrow="What we do"
-          title="Our core services"
-          lede="Full-stack technology delivery across eleven service areas. Whether you need to modernize operations, implement enterprise systems, or add senior people to your team — not sure which you need? Talk to us and we will tell you."
-        />
-
-        <CardGrid columns={3} className="mt-12">
-          {SERVICES.map((s) => (
-            <Card
-              key={s.title}
-              icon={s.icon}
-              title={s.title}
-              body={s.body}
-              to={s.to}
-            />
-          ))}
-        </CardGrid>
-      </Section>
-
-      <Section tone="surface" bordered>
-        <SectionHeading
-          eyebrow="Why OneAlgorithm"
-          title="Technical depth, and people who stay"
-          lede="We combine technical expertise with business acumen to deliver solutions that drive real results."
-        />
-        <div className="mt-12">
-          <ProcessSteps steps={APPROACH} />
-        </div>
-      </Section>
-
-      <CTABand
-        title="Ready to get started?"
-        body="Let's discuss how our services can help accelerate your business goals and digital transformation."
-        primary={{ label: "Talk to an Expert", to: "/contact" }}
-        secondary={{ label: "View capabilities", to: "/capabilities" }}
-      />
+      <ServicesIndexBody />
     </Layout>
   );
 }
