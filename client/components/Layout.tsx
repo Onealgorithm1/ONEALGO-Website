@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import OneAlgorithmText from "./OneAlgorithmText";
 import TrustedPartnerships from "./TrustedPartnerships";
+import { offerFor } from "./v2/shared-offers";
+import { StickyCallBar } from "./v2/shared-StickyCallBar";
 import { FRAME, FrameContext, PrimaryCTA } from "./site";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { SF_CITY_LINKS } from "../data/salesforceShared";
@@ -153,6 +155,7 @@ function Layout({ children }: LayoutProps) {
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  const pageOffer = offerFor(location.pathname);
   // v2-kit routes (Salesforce + website-development set) carry the AA "contrast" logo tone: orange-500 "One" is 1.86:1 on the white header.
   const contrastLogo = isSalesforce || location.pathname === "/services/website-development" || location.pathname.startsWith("/services/web-design-");
   // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
@@ -714,8 +717,8 @@ function Layout({ children }: LayoutProps) {
                   )}
                 </>
               ) : (
-                <PrimaryCTA to="/contact" className="h-10 px-5">
-                  Talk to an Expert
+                <PrimaryCTA to={pageOffer.href} cta="header" tone="light" className="h-10 px-5">
+                  {pageOffer.label}
                 </PrimaryCTA>
               )}
             </div>
@@ -1321,6 +1324,7 @@ function Layout({ children }: LayoutProps) {
           </p>
         </div>
       </footer>
+      {!isSalesforce && location.pathname !== "/contact" && <StickyCallBar />}
       {/* Fixed, so it overlays rather than renders below the footer; the
           footer's own pb-20 on these pages keeps its last line clear of it. */}
       {isSalesforce && (
