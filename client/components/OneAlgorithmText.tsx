@@ -51,7 +51,7 @@ export default function OneAlgorithmText({
       <span
         className={`logo font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
       >
-        <span className={`logo-one ${oneTone === "contrast" ? "text-onealgo-orange-600" : "text-onealgo-orange-500"}`}>One</span>
+        <span className={`logo-one text-[#a85a00]`}>One</span>
         <span className="logo-algorithm text-onealgo-blue-950">Alg</span>
         {showGlobe ? (
           <BinaryGlobeSVG

@@ -2,8 +2,7 @@ import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { offerFor } from "./shared-offers";
 
-/* Mobile-only (<768px) bottom bar: phone + the page offer. Fixed, with an in-flow spacer so the footer is never
- * covered and nothing shifts. Slides away (transform only) while the footer is in view.
+/* Mobile-only (<768px) bottom bar: phone + the page offer. Fixed, ; the footer reserves its space with padding-bottom (nothing renders below the footer). Slides away (transform only) while the footer is in view.
  * Phone taps are counted by the delegated tel: listener in index.html (cta_placement = data-cta="sticky").
  * Layout decides where it mounts (not /contact, not Salesforce pages, which have their own bar). Props: none. */
 function track(label: string) {
@@ -26,7 +25,6 @@ export function StickyCallBar() {
   const inert = (hidden ? { inert: "" } : {}) as React.HTMLAttributes<HTMLElement>;
   return (
     <div className="md:hidden">
-      <div aria-hidden="true" style={{ height: "calc(72px + env(safe-area-inset-bottom))" }} />
       <nav
         aria-label="Call or contact us"
         aria-hidden={hidden}
@@ -34,10 +32,10 @@ export function StickyCallBar() {
         className={`fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur transition-transform duration-200 motion-reduce:transition-none ${hidden ? "translate-y-full" : "translate-y-0"}`}
         style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
       >
-        <a href="tel:+16108909711" data-cta="sticky" aria-label="Call OneAlgorithm at (610) 890-9711" className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk">
+        <a href="tel:+16108909711" data-cta="sticky" aria-label="Call (610) 890-9711" className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk">
           Call (610) 890-9711
         </a>
-        <Link to={offer.href} data-cta="sticky" aria-label={offer.label} onClick={() => track(offer.label)} className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange px-2 text-center text-sm font-semibold leading-tight text-oa-ink">
+        <Link to={offer.href} data-cta="sticky" onClick={() => track(offer.label)} className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange px-2 text-center text-sm font-semibold leading-tight text-oa-ink">
           {offer.label}
         </Link>
       </nav>

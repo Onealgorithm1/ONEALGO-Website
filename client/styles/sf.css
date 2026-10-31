@@ -831,3 +831,7 @@
 @media (max-width: 639px) { .sfv2 .sf-marquee-row img { height: 60px; } .sfv2 .sf-marquee-row { gap: 24px; } }
 @keyframes sf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .sfv2 .sf-marquee-track { animation: none; width: auto; overflow-x: auto; } .sfv2 .sf-marquee-row[aria-hidden] { display: none; } }
+
+/* Tap targets >= 44px for inline links: the hit area grows by padding, the negative margin cancels it so layout and text size stay the same. */
+.sfv2 .sf-link, .sfv2 main a[href^="tel:"] { display: inline-block; padding-block: 11px; margin-block: -11px; }
+.sfv2 .sf-links a.sf-link, .sfv2 .ob-tel { padding-block: 0; margin-block: 0; }

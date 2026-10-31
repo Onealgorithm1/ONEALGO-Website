@@ -50,7 +50,7 @@ const PARTS = [
 
 const STAGES: Stage[] = [
   { k: "s1", num: "01", title: "Audit the account", sub: "search terms · geography · pages", line: "Where the budget goes, what the geography covers, what the page does with the click.", details: ["Search terms sorted by spend and outcome", "The landing page behind each ad group"] },
-  { k: "s2", num: "02", title: "Fix the tracking", sub: "forms · calls · offline imports", line: "Each lead counted once. Nothing else is trusted until this is.", details: ["Phone calls included", "Offline imports that match your CRM"] },
+  { k: "s2", num: "02", title: "Fix the tracking", sub: "forms · calls · offline imports", line: "Each lead is counted once, and nothing else is trusted until it is.", details: ["Phone calls included", "Offline imports that match your CRM"] },
   { k: "s3", num: "03", title: "Subtract", sub: "negatives before keywords", line: "Cut the spend that is not converting before adding a single keyword.", details: ["The negative list, written from real searches", "Geography trimmed to where you can serve"] },
   { k: "s4", num: "04", title: "Build and test", sub: "one variable at a time", line: "New structure, bids and ads, with a plain report you can check.", details: ["Tests run long enough to mean something", "A report that shows spend and leads counted once"] },
 ];

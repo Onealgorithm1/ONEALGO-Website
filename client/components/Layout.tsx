@@ -1014,7 +1014,7 @@ function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer
-        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 lg:pb-0" : ""}`}
+        className={`bg-oa-night text-oa-nightInk${isSalesforce ? " pb-20 lg:pb-0" : location.pathname !== "/contact" ? " pb-[calc(72px+env(safe-area-inset-bottom))] md:pb-0" : ""}`}
         aria-hidden={mobileMenuOpen}
         {...backgroundInert}
       >
@@ -1285,7 +1285,7 @@ function Layout({ children }: LayoutProps) {
               © {new Date().getFullYear()} OneAlgorithm LLC. All rights reserved. ·{" "}
               <Link
                 to="/capabilities#verify-credentials"
-                className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
+                className="inline-block py-3 underline decoration-white/25 underline-offset-2 transition-colors hover:text-oa-nightInk"
               >
                 Our own employees are verified through E-Verify.
               </Link>

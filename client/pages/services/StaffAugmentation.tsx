@@ -54,7 +54,7 @@ const COST_COMPLIANCE: EUnit[] = [
   },
   {
     id: "h-compliance", title: "Compliance and E-Verify for our employees",
-    lede: "Our E-Verify account verifies our own employees; it does not cover subcontractors. We have been enrolled since 2024.",
+    lede: "Our E-Verify account, enrolled since 2024, verifies our own employees and does not cover subcontractors.",
     lead: "A client taking on contract staff carries real risk, so we state the limit.",
     leadIn: "Yes, but:",
     points: ["E-Verify: our own employees only", "Registered in the federal SAM system", "Not a claim about subcontractors"],

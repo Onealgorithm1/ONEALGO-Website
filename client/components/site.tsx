@@ -816,7 +816,7 @@ function SiblingWire({
               <li key={to} className="shrink-0">
                 <Link
                   to={to}
-                  className="inline-flex min-h-11 items-center whitespace-nowrap text-sm text-oa-nightInk2 transition-colors hover:text-oa-orange"
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center whitespace-nowrap text-sm text-oa-nightInk2 transition-colors hover:text-oa-orange"
                 >
                   {name}
                 </Link>
