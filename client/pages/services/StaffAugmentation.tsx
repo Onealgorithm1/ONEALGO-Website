@@ -28,7 +28,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 const PATH = "/services/staff-augmentation";
 const URL_ = "https://onealgorithm.com" + PATH;
 const TITLE = "IT Staff Augmentation Services | OneAlgorithm";
-const DESCRIPTION = "IT staff augmentation, including Salesforce admins, developers and architects. We say where each candidate is light. Call (610) 890-9711.";
+const DESCRIPTION = "IT staff augmentation services: specialists who work inside your team, under your lead. We say where each candidate is light. Call (610) 890-9711.";
 
 const SOURCES: SfSource[] = [
   { name: "U.S. Bureau of Labor Statistics: Occupational Employment and Wage Statistics", what: "Computer occupations, all other (15-1299), May 2025: 435,370 employed nationally; 7,360 in the Philadelphia-Camden-Wilmington area. BLS publishes no staff-augmentation series, so these counts are nearby context, not the size of the market", read: "read 31 October 2026", page: "https://www.bls.gov/oes/current/oes151299.htm" },

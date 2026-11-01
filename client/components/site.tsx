@@ -546,7 +546,6 @@ type HeroClass = "service" | "industry" | "company" | "utility";
    (scripts/orphan-check.mjs) catches the reverse case. */
 const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
   ["/services/staff-augmentation", "Staffing"],
-  ["/services/hire-salesforce-developers", "Hire Salesforce developers"],
   ["/services/website-development", "Websites"],
   ["/services/application-development", "App Development"],
   ["/services/salesforce", "Salesforce"],
@@ -591,6 +590,7 @@ const SECTION_LABEL: Record<string, string> = {
   "/services/salesforce-integration": "Integration",
   "/services/salesforce-managed-services": "Managed services",
   "/services/salesforce-health-check": "Health check",
+  "/services/hire-salesforce-developers": "Hire developers",
   "/services/salesforce-marketing-cloud-consulting": "Marketing Cloud",
   "/services/salesforce-consultant-new-york": "New York",
   "/services/salesforce-consultant-washington-dc": "Washington, DC",

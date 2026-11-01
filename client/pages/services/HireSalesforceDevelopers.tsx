@@ -34,11 +34,11 @@ const FAQS: SfFaqItem[] = [
   { q: "How do I hire a Salesforce developer through you?", a: "Tell us the org, the work and who the developer would report to. We say whether we have the right person and where they are light, you interview them, and once you agree they join your team and work to your backlog under your lead." },
   { q: "Who manages the Salesforce developer day to day?", a: "You do. Your lead sets the priorities, and the developer works in your org, your sandboxes, your ticket queue and your standups. We stay in touch with you and with the developer, and raise problems early rather than at a review." },
   { q: "Which Salesforce roles can you place?", a: "Salesforce developers, administrators and architects. Salesforce is where our delivery record is, so it is the only area where we lead. If the role you need is outside what we can stand behind, we say so before you spend time interviewing." },
-  { q: "Are your Salesforce developers certified?", a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications (read ${SF_VERIFIED_LABEL}). You can open the listing and check it yourself, and look up any person we put forward on their Trailblazer profile.` },
+  { q: "Are your Salesforce developers certified?", a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications (read ${SF_VERIFIED_LABEL}). You can open the listing and check it yourself; ask who will do your work and look them up on Trailblazer.` },
   { q: "What does it cost to hire a Salesforce developer this way?", a: "It follows the role, the seniority, how long you need the person and the hours. We quote in writing once we know the work, and we publish no rate card. For published market ranges on Salesforce projects, see our cost guide.", link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" } },
   { q: "Staff augmentation or managed services: which do I need?", a: "If you want a Salesforce person working to your own backlog under your lead, that is staff augmentation, and it is this page. If you want us to run the org week by week and be accountable for it, that is managed services.", link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" } },
-  { q: "Do you work with companies outside Pennsylvania?", a: "Yes. Our office is in Malvern, Pennsylvania, and Salesforce work happens inside your org, so it runs remotely with teams across the United States. In-person sessions happen when the project calls for them, easiest around Philadelphia." },
-  { q: "Do you E-Verify the people you place?", a: "Our E-Verify account covers our own employees only. It does not cover subcontractors, so we do not claim that everyone placed on your team is verified. Ask us who employs the person, and we will tell you in writing." },
+  { q: "Can the Salesforce developer work remotely with our team?", a: "Yes. Salesforce work happens inside your org, so it runs remotely from our Malvern, Pennsylvania office with teams across the United States. In-person sessions happen when the project calls for them, easiest around Philadelphia." },
+  { q: "Who employs the Salesforce developer you place?", a: "We tell you in writing before work starts. Our E-Verify account covers our own employees only and does not cover subcontractors, so we never claim that everyone placed on your team is verified." },
 ];
 
 export default function HireSalesforceDevelopers() {
@@ -122,13 +122,13 @@ export default function HireSalesforceDevelopers() {
           <HoverCards
             cols={4}
             items={[
-              { glyph: "clock", kicker: "Speed", title: "The release will not wait", body: "The deadline is closer than a hiring cycle." },
-              { glyph: "gear", kicker: "Skill", title: "You need one Salesforce skill", body: "Flow, Apex, an integration or a migration, for this project." },
-              { glyph: "flag", kicker: "Duration", title: "The role may not last", body: "The work may not outlast the project." },
-              { glyph: "team", kicker: "Capacity", title: "Your admin is at the limit", body: "More hands on the backlog, directed by your lead." },
+              { glyph: "clock", kicker: "Release", title: "A Salesforce release is due", body: "Go-live is closer than a hiring cycle for a certified developer." },
+              { glyph: "gear", kicker: "Depth", title: "Flow, Apex or an integration", body: "One piece of Platform work nobody on staff has built." },
+              { glyph: "flag", kicker: "Migration", title: "A one-off data move", body: "QuickBase, Kissflow or another CRM, then back to normal." },
+              { glyph: "team", kicker: "Admin", title: "Your admin is at the limit", body: "The org keeps its owner; the backlog gets more hands." },
             ]}
           />
-          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Yes, but:</span> often a full-time hire is still right, and we will say so.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Yes, but:</span> if the org needs a Salesforce person every week for years, hire one, and we will say so.</p>
         </SmartSection>
 
         <SmartSection id="record" tone="surface" heading={{ id: "h-record", title: "Salesforce's record of our team", lede: `Salesforce's AppExchange listing shows ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications.` }}>
@@ -143,28 +143,28 @@ export default function HireSalesforceDevelopers() {
           heading={{ id: "h-steps", title: "How we place a Salesforce developer", lede: "Four steps, and the second one is where this is usually won or lost." }}
           fig={2}
           stations={[
-            { k: "s1", num: "01", title: "What you need", sub: "the org, not the job ad" },
+            { k: "s1", num: "01", title: "The org", sub: "clouds, backlog, lead" },
             { k: "s2", num: "02", title: "Candidates", sub: "gaps stated up front" },
-            { k: "s3", num: "03", title: "Onboarding", sub: "access, sandboxes, context" },
-            { k: "s4", num: "04", title: "While they stay", sub: "check-ins with you" },
+            { k: "s3", num: "03", title: "Access", sub: "user, sandboxes, releases" },
+            { k: "s4", num: "04", title: "Releases", sub: "check-ins with your lead" },
           ]}
           steps={[
-            { k: "s1", num: "01", title: "What you actually need", line: "Not the job description but the work: which org, which clouds, which integrations, who they report to." },
-            { k: "s2", num: "02", title: "Candidates, gaps stated", line: "You interview them, and we tell you where each one is light before you find out in week three." },
-            { k: "s3", num: "03", title: "Onboarding", line: "Org access, sandboxes, the release process and context, agreed with your lead before day one." },
-            { k: "s4", num: "04", title: "While they are with you", line: "We check in with you, not only with the developer, and raise problems early." },
+            { k: "s1", num: "01", title: "The org and the work", line: "Which clouds, which automation and integrations, what is in the backlog, and who the developer reports to." },
+            { k: "s2", num: "02", title: "Candidates, gaps stated", line: "You interview them, and we say which parts of your org each one has not worked on before you find out in a sprint." },
+            { k: "s3", num: "03", title: "Access and sandboxes", line: "A user, a permission set, sandbox access and your release process, agreed with your lead before day one." },
+            { k: "s4", num: "04", title: "Every release after", line: "We check in with your lead, not only with the developer, and raise problems before a deployment rather than after." },
           ]}
-          title="Four-step rail: need, candidates, onboarding, while they stay"
-          desc="A rail with four stations: what you need, candidates with gaps stated, onboarding, and check-ins while the developer is with you."
+          title="Four-step rail: the org, candidates, access, releases"
+          desc="A rail with four stations: the org and the work, candidates with gaps stated, access and sandboxes, and check-ins at every release."
           stamp="How we place a Salesforce developer"
-          caption="A candidate described honestly saves you a bad month."
+          caption="The gaps are stated before the interview, not discovered in a sprint."
         />
 
         <SmartSection id="delivered" tone="night" grid heading={{ id: "h-delivered", title: "Salesforce work we have delivered", lede: "We provide ongoing Salesforce development for a lending company, and have done since April 2026." }}>
           <div className="sf-c5">
             <CaseCard title="Salesforce development for a lending company" built="Ongoing since April 2026. Development inside the client's org and process. Client name kept private." />
           </div>
-          <Statement className="sf-c7">Our developer, their org, their priorities.</Statement>
+          <Statement className="sf-c7">Their backlog, their release calendar, our Salesforce developer.</Statement>
           <div className="sf-c12" style={{ marginTop: 28 }}>
             <DeliveredLedger />
           </div>

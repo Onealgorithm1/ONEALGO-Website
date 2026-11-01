@@ -59,7 +59,7 @@ const DM = "/services/salesforce-data-migration";
 const INT = "/services/salesforce-integration";
 const MS = "/services/salesforce-managed-services";
 const MC = "/services/salesforce-marketing-cloud-consulting";
-const SA = "/services/staff-augmentation";
+const SA = "/services/hire-salesforce-developers"; // 2026-11-01: the Salesforce staff augmentation page
 const PA = "/services/salesforce-consultant-philadelphia#record"; // 2026-11-01: the Pennsylvania partner page was 301d into Philadelphia; its #record section shows how to check a partner
 
 const usd = (n: number) => "$" + n.toLocaleString("en-US");

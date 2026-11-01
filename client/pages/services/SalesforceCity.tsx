@@ -482,7 +482,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
                   return <li key={r}><b className="sf-lead-in">{r}:</b> {ROLE_DOES[r]}.</li>;
                 })}
               </ul>
-              <p>Need one of these roles inside your team rather than a project? <Link className="sf-link" to="/services/staff-augmentation">Salesforce staff augmentation</Link></p>
+              <p>Need one of these roles inside your team rather than a project? <Link className="sf-link" to="/services/hire-salesforce-developers">Salesforce staff augmentation</Link></p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>

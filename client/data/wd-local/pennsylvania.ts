@@ -14,7 +14,7 @@ export const PLACE: LocalPlace = {
  "seo": {
   "title": "Web Design Pennsylvania: Custom Websites | OneAlgorithm",
   "description": "Web design for Pennsylvania businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-pennsylvania.jpg"
  },
  "hero": {

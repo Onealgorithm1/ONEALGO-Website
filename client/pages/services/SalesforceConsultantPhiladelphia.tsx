@@ -372,7 +372,7 @@ export default function SalesforceConsultantPhiladelphia() {
               </p>
               <p>Need people inside your team rather than a project? Staff augmentation adds Salesforce people for as long as you need them.</p>
               <div className="sf-links">
-                <Link className="sf-link" to="/services/staff-augmentation">Salesforce staff augmentation</Link>
+                <Link className="sf-link" to={HIRE}>Salesforce staff augmentation</Link>
                 <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
               </div>
             </GoDeeper>
