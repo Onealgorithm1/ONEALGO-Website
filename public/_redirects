@@ -16,13 +16,6 @@
 /blog/newsletter-delivery-test       /blog  301
 /blog/newsletter-delivery-test/      /blog  301
 
-# Salesforce Chester County + Pennsylvania partner pages retired 2026-11-01 (0 search demand, never crawled by
-# Google; Philadelphia already ranks #1 for "salesforce consultant chester county").
-/services/salesforce-consultant-chester-county         /services/salesforce-consultant-philadelphia  301
-/services/salesforce-consultant-chester-county/        /services/salesforce-consultant-philadelphia  301
-/services/salesforce-consulting-partner-pennsylvania   /services/salesforce-consultant-philadelphia  301
-/services/salesforce-consulting-partner-pennsylvania/  /services/salesforce-consultant-philadelphia  301
-
 # (Historical, before 2026-10-22:) NOTHING for /blog here. The blog was served AT onealgorithm.com/blog by the
 # oa-blog-debrand worker, which proxies Ghost (url=https://onealgorithm.com/blog).
 #

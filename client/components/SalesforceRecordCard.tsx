@@ -73,7 +73,7 @@ export function SalesforceRecordCard() {
 /**
  * Light, compact registry strip (spec 2.4). Static figures, never animated.
  *   <RecordLine />
- *   <RecordLine extra={<Link className="oa-link" to="/services/salesforce-consultant-philadelphia#record">How to check a Salesforce partner</Link>} />
+ *   <RecordLine extra={<Link className="oa-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a Salesforce partner</Link>} />
  */
 export function RecordLine({ extra }: { extra?: React.ReactNode }) {
   const Dot = () => <span aria-hidden="true">·</span>;

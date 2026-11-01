@@ -99,8 +99,7 @@ const routes = [...new Set([...prerender.matchAll(/"(\/services\/salesforce[a-z-
 const llms = fs.readFileSync(path.join(root, 'public/llms.txt'), 'utf8')
 for (const r of routes.filter((r) => !r.endsWith('-houston'))) if ( // Houston: gated (structure-spec D9), not listed until it ships
   !llms.includes(`https://onealgorithm.com${r}\n`) && !llms.includes(`https://onealgorithm.com${r}\r\n`)) fail(`public/llms.txt does not list ${r}`)
-// 21 since 2026-11-01: the Chester County and Pennsylvania partner pages 301 to Philadelphia.
-if (routes.length < 21) fail(`expected 21 Salesforce routes in prerender.mjs, found ${routes.length}`)
+if (routes.length < 22) fail(`expected 22 Salesforce routes in prerender.mjs, found ${routes.length}`)
 
 // 6. Plate data stays out of the shared chunk.
 for (const f of ['client/components/site.tsx', 'client/components/Layout.tsx', 'client/components/salesforce.tsx']) {

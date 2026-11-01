@@ -47,7 +47,7 @@ const COST = "/services/salesforce-implementation-cost";
 const INT = "/services/salesforce-integration";
 const DM = "/services/salesforce-data-migration";
 const MC = "/services/salesforce-marketing-cloud-consulting";
-const PA = "/services/salesforce-consultant-philadelphia#record"; // 2026-11-01: the Pennsylvania partner page was 301d into Philadelphia; its #record section shows how to check a partner
+const PA = "/services/salesforce-consulting-partner-pennsylvania";
 const SA = "/services/hire-salesforce-developers"; // 2026-11-01: the Salesforce-only staff augmentation page
 
 /* The engagement rail (FIG. 2): the four verified steps from the page at ef1a8f0 (free week → who handles what →

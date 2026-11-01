@@ -425,7 +425,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
               <p className="sf-rule">Ours is AppExchange listing {SF_LISTING_ID}, a Select Consulting Partner record: Salesforce lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}.</p>
               <div className="sf-links">
                 <Verify id="appexchange">Check our AppExchange record</Verify>
-                <Link className="sf-link" to="/services/salesforce-consultant-philadelphia#record">How to check a Salesforce partner</Link>
+                <Link className="sf-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a Salesforce partner</Link>
               </div>
             </GoDeeper>
           </SmartUnit>

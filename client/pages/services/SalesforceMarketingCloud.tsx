@@ -48,7 +48,7 @@ const COST = "/services/salesforce-implementation-cost";
 const MS = "/services/salesforce-managed-services";
 const INT = "/services/salesforce-integration";
 const DM = "/services/salesforce-data-migration";
-const PA = "/services/salesforce-consultant-philadelphia#record"; // 2026-11-01: the Pennsylvania partner page was 301d into Philadelphia; its #record section shows how to check a partner
+const PA = "/services/salesforce-consulting-partner-pennsylvania";
 
 /* Salesforce's own documentation, each page read 23 October 2026, paraphrased on the page (never quoted: Salesforce's
    trademark guidelines bar reusing their text). Listed in the "mc-docs" pop-up; no body link leaves the site. */

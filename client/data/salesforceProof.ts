@@ -36,7 +36,7 @@ export const SF_DELIVERED = [
 ] as const;
 export type SfDeliveredId = (typeof SF_DELIVERED)[number]["id"];
 
-export type SfPageKey = "hc" | "dm" | "int" | "ms" | "mc" | "sa" | "cost" | "phl";
+export type SfPageKey = "hc" | "dm" | "int" | "ms" | "mc" | "sa" | "cost" | "phl" | "che" | "pa";
 
 /** One list of the Salesforce routes. Feeds RouteBoard, DeliveredLedger's self-check and llms.txt.
  *  Service bodies are the hub's EXISTING one-liners, verbatim; local bodies are each page's own meta
@@ -56,7 +56,8 @@ export const SF_PAGES = {
   ],
   local: [
     { key: "phl", to: "/services/salesforce-consultant-philadelphia", title: "Salesforce consultants for Philadelphia companies", body: "Salesforce consulting for Philadelphia companies from a listed Consulting Partner in Malvern." },
-    // 2026-11-01: Chester County and Pennsylvania partner pages 301 to Philadelphia (0 search demand, never crawled).
+    { key: "che", to: "/services/salesforce-consultant-chester-county", title: "Salesforce consultant for Chester County businesses", body: "Which edition you actually need, what it costs, and a license count before you sign." },
+    { key: "pa", to: "/services/salesforce-consulting-partner-pennsylvania", title: "Salesforce Consulting Partner in Pennsylvania", body: "How to check any partner's record on the AppExchange before you hire one." },
   ],
   cities: SF_CITY_LINKS,
 } as const;

@@ -206,7 +206,7 @@ export const CHESTER_COUNTY: LocalPlace = {
       lede: "The same office runs search, CRM and web work, so the pieces are planned together.",
       items: [
         { to: "/services/seo-chester-county", title: "SEO in Chester County", tag: "Local search" },
-        { to: "/services/salesforce-consultant-philadelphia", title: "Salesforce consulting", tag: "CRM behind the site" },
+        { to: "/services/salesforce-consultant-chester-county", title: "Salesforce consulting", tag: "CRM behind the site" },
         { to: "/services/web-design-pennsylvania", title: "Web design across Pennsylvania", tag: "Statewide" },
         { to: "/services/web-design-philadelphia", title: "Web design in Philadelphia", tag: "Nearby" },
       ],

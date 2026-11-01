@@ -50,6 +50,8 @@ one-week Salesforce health check.
 - Salesforce managed services: weekly administration and development, with hours reported every week: https://onealgorithm.com/services/salesforce-managed-services
 - Marketing Cloud consulting: support for Marketing Cloud accounts already running: https://onealgorithm.com/services/salesforce-marketing-cloud-consulting
 - Salesforce consultants for Philadelphia and Chester County companies: https://onealgorithm.com/services/salesforce-consultant-philadelphia
+- Salesforce consultant for Chester County businesses: which edition you need, what it costs, and a license count before you sign: https://onealgorithm.com/services/salesforce-consultant-chester-county
+- Salesforce Consulting Partner in Pennsylvania, and how to check any partner's record on AppExchange: https://onealgorithm.com/services/salesforce-consulting-partner-pennsylvania
 - Hire Salesforce developers (Salesforce staff augmentation): Salesforce developers, admins and architects working inside your team, under your lead: https://onealgorithm.com/services/hire-salesforce-developers
 - Salesforce consultant for New York companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-new-york
 - Salesforce consultant for Washington, DC companies, delivered remotely from Malvern, PA: https://onealgorithm.com/services/salesforce-consultant-washington-dc

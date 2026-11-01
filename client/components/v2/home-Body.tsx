@@ -117,7 +117,7 @@ export function HomeBody() {
             lead="Salesforce's AppExchange record holds both figures below, read 23 October 2026.">
             <p className="sf-links" style={{ marginTop: 14 }}>
               <Link className="sf-link" to="/services/salesforce">Salesforce consulting</Link>{" "}
-              <Link className="sf-link" to="/services/salesforce-consultant-philadelphia#record">How to check a partner</Link>
+              <Link className="sf-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check a partner</Link>
             </p>
           </SmartUnit>
         </div>

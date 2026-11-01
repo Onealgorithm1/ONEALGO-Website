@@ -44,6 +44,8 @@ export const SERVICE_GROUPS: HomeServiceGroup[] = [
       { to: "/services/salesforce-managed-services", title: "Salesforce managed services", lede: "Weekly administration and development, hours reported." },
       { to: "/services/salesforce-marketing-cloud-consulting", title: "Marketing Cloud consulting", lede: "Support for Marketing Cloud accounts already running." },
       { to: "/services/salesforce-consultant-philadelphia", title: "Salesforce consultant, Philadelphia", lede: "A review of the org you already own." },
+      { to: "/services/salesforce-consultant-chester-county", title: "Salesforce consultant, Chester County", lede: "For businesses still choosing, from Malvern." },
+      { to: "/services/salesforce-consulting-partner-pennsylvania", title: "Salesforce partner, Pennsylvania", lede: "How to check any partner's record before you hire." },
       { to: "/services/hire-salesforce-developers", title: "Hire Salesforce developers", lede: "Salesforce developers, admins and architects inside your team." },
       { to: "/services/salesforce-implementation-cost", title: "Salesforce implementation cost", lede: "What drives the cost, with published sources." },
     ],
