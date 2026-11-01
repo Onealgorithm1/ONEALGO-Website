@@ -1232,6 +1232,7 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
               <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
               <FooterLink to="/services/salesforce-consultant-philadelphia">Salesforce Consultant Philadelphia</FooterLink>
+              <FooterLink to="/services/salesforce-consulting-partner-pennsylvania">Salesforce Partner in Pennsylvania</FooterLink>
               <FooterLink to="/services/hire-salesforce-developers">Hire Salesforce developers</FooterLink>
             </FooterSection>
 

@@ -56,7 +56,7 @@ export type CityCopy = {
   /** The answer unit under "Do you provide Salesforce consulting in {City}?": the "What we do:" sentence + 3 points. */
   answer: { lead: string; points: [string, string, string] };
   /** Service cards after the health check, in this city's order (its own emphasis first), and the section lede. */
-  services: { order: Exclude<SfPageKey, "hc" | "phl">[]; lede: string };
+  services: { order: Exclude<SfPageKey, "hc" | "phl" | "che" | "pa">[]; lede: string };
   /** The city-only H2 (structure-spec D3b) and its two H3 units. */
   local: { h2: string; lede: string; units: [CityUnit, CityUnit] };
   /** City-only FAQs (D3c); the template adds the office, jobs, migration, budget and after-go-live questions. */

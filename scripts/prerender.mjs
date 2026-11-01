@@ -56,6 +56,8 @@ const ROUTES = [
   "/services/seo-chester-county",
   "/services/google-ads-philadelphia",
   "/services/salesforce-consultant-philadelphia",
+  "/services/salesforce-consultant-chester-county",
+  "/services/salesforce-consulting-partner-pennsylvania",
   "/services/salesforce-implementation-cost",
   "/services/salesforce-data-migration",
   "/services/salesforce-integration",

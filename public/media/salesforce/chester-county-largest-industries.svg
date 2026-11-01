@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 393" width="800" height="393" role="img" font-family="IBM Plex Sans, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Largest industry groups in Chester County, PA</title>
+<desc>Bar chart of the eight largest industry groups in Chester County, Pennsylvania, by paid employees in 2023: health care and social assistance 39,721, finance and insurance 30,962, retail trade 27,318, professional, scientific and technical services 26,727, accommodation and food services 17,006, management of companies 15,810, administrative and waste services 15,694, manufacturing 15,036. All industries: 262,454 paid employees at 15,102 establishments. Source: US Census Bureau, County Business Patterns 2023.</desc>
+<rect width="800" height="393" fill="#ffffff"/>
+<rect x="386" y="99" width="300" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="682" y="103" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="135" width="233.84607638276975" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="615.8460763827698" y="139" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="171" width="206.32411067193675" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="588.3241106719368" y="175" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="207" width="201.86047682586036" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="583.8604768258604" y="211" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="243" width="128.4408751038493" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="510.4408751038493" y="247" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="279" width="119.40786989250017" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="501.4078698925002" y="283" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="315" width="118.53175901915864" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="500.53175901915864" y="319" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<rect x="386" y="351" width="113.5620956169281" height="16" fill="#e3e8ef" stroke="none" stroke-width="1"/>
+<rect x="495.5620956169281" y="355" width="8" height="8" fill="#5a6b7d" stroke="none" stroke-width="1"/>
+<path d="M386 107 L686 107" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 143 L619.8 143" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 179 L592.3 179" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 215 L587.9 215" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 251 L514.4 251" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 287 L505.4 287" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 323 L504.5 323" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<path d="M386 359 L499.6 359" fill="none" stroke="#7d8da0" stroke-width="1.5" stroke-linecap="square"/>
+<rect x="32" y="20" width="736" height="49" fill="#ffffff" stroke="#5a6b7d" stroke-width="1"/>
+<text x="372" y="112" font-size="15" text-anchor="end" fill="#35485c">Health care and social assistance</text>
+<text x="698" y="112" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">39,721</text>
+<text x="372" y="148" font-size="15" text-anchor="end" fill="#35485c">Finance and insurance</text>
+<text x="631.8460763827698" y="148" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">30,962</text>
+<text x="372" y="184" font-size="15" text-anchor="end" fill="#35485c">Retail trade</text>
+<text x="604.3241106719368" y="184" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">27,318</text>
+<text x="372" y="220" font-size="15" text-anchor="end" fill="#35485c">Professional, scientific and technical</text>
+<text x="599.8604768258604" y="220" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">26,727</text>
+<text x="372" y="256" font-size="15" text-anchor="end" fill="#35485c">Accommodation and food services</text>
+<text x="526.4408751038493" y="256" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">17,006</text>
+<text x="372" y="292" font-size="15" text-anchor="end" fill="#35485c">Management of companies</text>
+<text x="517.4078698925002" y="292" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">15,810</text>
+<text x="372" y="328" font-size="15" text-anchor="end" fill="#35485c">Administrative and waste services</text>
+<text x="516.5317590191587" y="328" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">15,694</text>
+<text x="372" y="364" font-size="15" text-anchor="end" fill="#35485c">Manufacturing</text>
+<text x="511.5620956169281" y="364" font-size="14" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#0d1b2a">15,036</text>
+<text x="48" y="48" font-size="12" font-family="JetBrains Mono, Consolas, Menlo, monospace" fill="#35485c">ALL INDUSTRIES · 262,454 PAID EMPLOYEES · 15,102 ESTABLISHMENTS · 2023</text>
+</svg>
