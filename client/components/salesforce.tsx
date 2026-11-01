@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import type { LucideIcon } from "lucide-react";
-import { BadgeCheck, Cable, Calculator, DatabaseZap, LifeBuoy, Mail, MapPin, Stethoscope, Users } from "lucide-react";
+import { Cable, Calculator, DatabaseZap, LifeBuoy, Mail, MapPin, Stethoscope, Users } from "lucide-react";
 import {
   Card,
   CardGrid,
@@ -861,8 +861,6 @@ const SF_ICONS: Record<SfPageKey, LucideIcon> = {
   sa: Users,
   cost: Calculator,
   phl: MapPin,
-  che: MapPin,
-  pa: BadgeCheck,
 };
 
 /**

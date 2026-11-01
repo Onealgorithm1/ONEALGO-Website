@@ -484,7 +484,7 @@ export default function SalesforceHealthCheck() {
               <DeliveredLedger />
               <GoDeeper label="how to check us before you book">
                 <p className="sf-rule">Open Salesforce's AppExchange listing {SF_LISTING_ID} and read its stat box: certified people, certifications and the competencies they sit under. Then look up the people who will do the work on their Trailblazer profiles. The Verify buttons on this page show what we read and when.</p>
-                <div className="sf-links"><Link className="sf-link" to="/services/salesforce-consulting-partner-pennsylvania">How to check any Salesforce partner</Link></div>
+                <div className="sf-links"><Link className="sf-link" to="/services/salesforce-consultant-philadelphia#record">How to check any Salesforce partner</Link></div>
               </GoDeeper>
             </SmartUnit>
             <LedgerRule as="aside" className="sf-c5 sf-lead-block" delay={0.08} aria-labelledby="h-lead">

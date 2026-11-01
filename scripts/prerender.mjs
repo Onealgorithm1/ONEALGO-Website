@@ -48,7 +48,7 @@ const PORT = 0;
 const ROUTES = [
   "/", "/about", "/services", "/industries", "/contact", "/capabilities",
   "/ai-info", "/privacy", "/terms", "/services/website-development", "/services/marketing", "/services/seo",
-  "/services/martech", "/services/google-ads", "/services/staff-augmentation",
+  "/services/martech", "/services/google-ads", "/services/staff-augmentation", "/services/hire-salesforce-developers",
   "/services/it-consulting",
   "/services/salesforce", "/services/zendesk",
   "/services/application-development",
@@ -56,8 +56,6 @@ const ROUTES = [
   "/services/seo-chester-county",
   "/services/google-ads-philadelphia",
   "/services/salesforce-consultant-philadelphia",
-  "/services/salesforce-consultant-chester-county",
-  "/services/salesforce-consulting-partner-pennsylvania",
   "/services/salesforce-implementation-cost",
   "/services/salesforce-data-migration",
   "/services/salesforce-integration",

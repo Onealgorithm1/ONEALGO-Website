@@ -45,7 +45,7 @@ const OG_ALT =
 const HC = "/services/salesforce-health-check";
 const COST = "/services/salesforce-implementation-cost";
 const MS = "/services/salesforce-managed-services";
-const PA = "/services/salesforce-consulting-partner-pennsylvania";
+const PA = "/services/salesforce-consultant-philadelphia#record"; // 2026-11-01: the Pennsylvania partner page was 301d into Philadelphia; its #record section shows how to check a partner
 
 /* FAQ: the hub's question bank (questions/questions-by-page.md). One owner page per question across the 23
    pages: none of these may appear on another Salesforce page. The array renders AND feeds FAQPage schema. */
@@ -96,7 +96,7 @@ const FAQS: SfFaqItem[] = [
   {
     q: "Do you work with small businesses?",
     a: "Yes. A small team gets the same people and the same free one-week health check. For a small company the first question is usually the edition: Starter Suite and Pro Suite exist for smaller teams, and we tell you whether one of them does the job before you buy more.",
-    link: { to: "/services/salesforce-consultant-chester-county", label: "What Salesforce costs a small company" },
+    link: { to: "/services/salesforce-implementation-cost", label: "What Salesforce costs a small company" },
   },
   {
     q: "Is OneAlgorithm really a Salesforce partner?",

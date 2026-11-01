@@ -18,7 +18,7 @@ const NAP = {
   // this site says "OneAlgorithm"; to a search engine those can read as two companies.
   // alternateName is the field that says they are one. Found 2026-09-07 when an AI could
   // not connect us to a client site we built.
-  alternateName: [siteConfig.name, "One Algorithm"],
+  alternateName: [siteConfig.name, "One Algorithm", "One Algorithm LLC"],
   telephone: siteConfig.contact.phonePrimary,
   telephoneE164: "+16108909711",
   email: siteConfig.contact.emailPrimary,
@@ -165,13 +165,11 @@ const LB_PATHS = new Set([
   "/services/seo-chester-county",
   "/services/google-ads-philadelphia",
   "/services/salesforce-consultant-philadelphia",
-  "/services/salesforce-consultant-chester-county",
 ]);
 /** Service.areaServed on the local pages: the county or city, not "United States". */
 const LOCAL_AREA: Record<string, string> = {
   "/services/web-design-chester-county": "Chester County, PA",
   "/services/seo-chester-county": "Chester County, PA",
-  "/services/salesforce-consultant-chester-county": "Chester County, PA",
   "/services/web-design-philadelphia": "Philadelphia, PA",
   "/services/google-ads-philadelphia": "Philadelphia, PA",
   "/services/salesforce-consultant-philadelphia": "Philadelphia, PA",

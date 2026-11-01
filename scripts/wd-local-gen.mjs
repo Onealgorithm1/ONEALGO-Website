@@ -369,7 +369,7 @@ function build(name, all) {
       paras: [
         `${cap(s1.label)} alone holds ${r1((s1.emp / EMP23) * 100)}% of the ${fmt(EMP23)} paid employees counted in ${area} in 2023.`,
         inPhilly
-          ? ({ "Pennsylvania": "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them.", "New Jersey": "Most of a build runs remotely; South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.", "Delaware": "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them." })[name]
+          ? ({ "Pennsylvania": "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them. For a business in Chester County, where our office is, see [web design in Chester County](/services/web-design-chester-county).", "New Jersey": "Most of a build runs remotely; South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.", "Delaware": "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them." })[name]
           : `${cap(s2.label)} adds ${r1((s2.emp / EMP23) * 100)}% and ${s3.label} ${r1((s3.emp / EMP23) * 100)}%, so three sectors hold ${r1(((s1.emp + s2.emp + s3.emp) / EMP23) * 100)}% of the payroll count.`,
         `The three cards above are the three largest of the ${sectors.length} sectors we read for ${area}, by paid employees: ${s1.label}, ${s2.label} and ${s3.label}.`,
         `${SHORT[s4.code]} is fourth, with ${fmt(s4.emp)} paid employees in ${fmt(s4.est)} establishments.`,
@@ -672,7 +672,8 @@ function build(name, all) {
     slug, name, path: `/services/web-design-${slug}`, kind: isState ? "state" : "metro", photo: slug,
     ...(statePage ? { parent: { label: statePage, to: `/services/web-design-${slugOf(statePage)}` } } : {}),
     seo: { title, description, dateModified: TODAY, ogImage: `/og/places/web-design-${slug}.jpg` },
-    hero: { kicker: "Web design and development", h1: `Web design for ${P} businesses`, lede: `We design and build custom websites for ${P} businesses remotely from Malvern, PA, with the scope, price and schedule in writing first.` },
+    // 2026-11-01: Pennsylvania's lede says "statewide" so it stops competing with the Chester County page (552 overlapping impressions).
+    hero: { kicker: "Web design and development", h1: `Web design for ${P} businesses`, lede: name === "Pennsylvania" ? `We design and build custom websites for businesses across Pennsylvania, statewide and remotely from Malvern, PA, with the scope, price and schedule in writing first.` : `We design and build custom websites for ${P} businesses remotely from Malvern, PA, with the scope, price and schedule in writing first.` },
     areaServed,
     facts: { rows: factRows, geoName, pulled: F.pulled },
     search: { rows: [...S.own, ...(isState ? S.folded.flatMap((f) => f.phrases.slice(0, 1)) : [])].map((x) => ({ phrase: x.phrase, volume: x.volume, cpc: x.cpc, kd: x.kd })), pulled: S.pulled, autocomplete: extraPhrasings, autocompleteRead: "24 October 2026", rank: S.rank, of: S.of },

@@ -24,7 +24,7 @@ import {
  * size-band guides; Salesforce's Sales Cloud page now lists Free Suite $0, Starter Suite $25, Pro Suite $100, Core
  * $195, Advanced $395, Max $550 (on 1 September it listed Enterprise $175 / Unlimited $350 / Agentforce 1 $550);
  * Premier Success is "included with Core, Advanced and Max"; sandboxes are listed per edition with no percentage.
- * SalesforceConsultantChesterCounty.tsx still carries the 1 September prices (another page owner; reported).
+ * (The Chester County Salesforce page that carried the 1 September prices was retired 2026-11-01.)
  * NOT added, because no dated Salesforce read exists in the verified notes: the Shield and Agentforce price lines
  * the spec asks for in "Salesforce costs beyond licenses" (requests-cost.md).
  *
@@ -59,9 +59,8 @@ const DM = "/services/salesforce-data-migration";
 const INT = "/services/salesforce-integration";
 const MS = "/services/salesforce-managed-services";
 const MC = "/services/salesforce-marketing-cloud-consulting";
-const SA = "/services/staff-augmentation";
-const PA = "/services/salesforce-consulting-partner-pennsylvania";
-const CHE = "/services/salesforce-consultant-chester-county";
+const SA = "/services/hire-salesforce-developers"; // 2026-11-01: the Salesforce staff augmentation page
+const PA = "/services/salesforce-consultant-philadelphia#record"; // 2026-11-01: the Pennsylvania partner page was 301d into Philadelphia; its #record section shows how to check a partner
 
 const usd = (n: number) => "$" + n.toLocaleString("en-US");
 
@@ -468,7 +467,6 @@ export default function SalesforceImplementationCost() {
             <GoDeeper label="choosing an edition for a small company">
               <p className="sf-rule">For a small company the first question is usually the edition, then the license count. We give you both before you sign, with a rough cost for the setup work.</p>
               <div className="sf-links">
-                <Link className="sf-link" to={CHE}>Salesforce consultant for Chester County businesses</Link>
                 <a className="sf-link" href="#licenses">Salesforce pricing per user per month</a>
               </div>
             </GoDeeper>
@@ -875,7 +873,7 @@ export default function SalesforceImplementationCost() {
           />
           <p style={{ marginTop: 28 }}>
             Buying for a small company near Malvern?{" "}
-            <Link className="sf-link" to={CHE}>Salesforce consultant for Chester County businesses</Link>
+            <Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultants for Philadelphia and Chester County</Link>
           </p>
           <SourcesDialog id="sources" sources={SOURCES} />
         </SmartSection>

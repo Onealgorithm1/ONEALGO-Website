@@ -21,12 +21,14 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
  *    Only Salesforce roles have delivery evidence; other roles are "on request".
  * ⛔ E-VERIFY covers OUR OWN EMPLOYEES only; subcontractors are not covered. No enrollment ID is printed.
  * ⛔ No WBE/MBE badges on this commercial page (spec 2). The frozen hero panel still carries "not a rotating bench";
- *    flagged in the build report. */
+ *    flagged in the build report.
+ * 2026-11-01 (SEO round 2): H1 carries "IT staff augmentation" (2,900/mo, KD 6); the Salesforce phrases moved to
+ *    /services/hire-salesforce-developers, linked from the Salesforce section. */
 
 const PATH = "/services/staff-augmentation";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "IT staff augmentation services | OneAlgorithm";
-const DESCRIPTION = "IT staff augmentation, including Salesforce admins, developers and architects. We say where each candidate is light. Call (610) 890-9711.";
+const TITLE = "IT Staff Augmentation Services | OneAlgorithm";
+const DESCRIPTION = "IT staff augmentation services: specialists who work inside your team, under your lead. We say where each candidate is light. Call (610) 890-9711.";
 
 const SOURCES: SfSource[] = [
   { name: "U.S. Bureau of Labor Statistics: Occupational Employment and Wage Statistics", what: "Computer occupations, all other (15-1299), May 2025: 435,370 employed nationally; 7,360 in the Philadelphia-Camden-Wilmington area. BLS publishes no staff-augmentation series, so these counts are nearby context, not the size of the market", read: "read 31 October 2026", page: "https://www.bls.gov/oes/current/oes151299.htm" },
@@ -81,7 +83,7 @@ export default function StaffAugmentation() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PATH),
-    keywords: "IT staff augmentation, staff augmentation services, Salesforce staff augmentation, contract developers, staff augmentation vs consulting",
+    keywords: "IT staff augmentation, IT staff augmentation services, staff augmentation services, contract developers, staff augmentation vs consulting",
     ogTitle: TITLE,
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PATH),
@@ -102,13 +104,13 @@ export default function StaffAugmentation() {
           URL_,
         )}
       />
-      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-10-31" })} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-11-01" })} />
 
       <PageHero
         eyebrow="Staff Augmentation"
         title={
           <>
-            Staff <span className="text-oa-orange">augmentation services</span>{" "}
+            IT staff <span className="text-oa-orange">augmentation services</span>{" "}
             — our people, inside your team
           </>
         }
@@ -209,12 +211,13 @@ export default function StaffAugmentation() {
           ]}
         />
 
-        <SmartSection id="sf" tone="night" grid heading={{ id: "h-sf", title: "Salesforce staff augmentation", lede: "We provide ongoing Salesforce development for a lending company, and have done since April 2026." }}>
+        <SmartSection id="sf" tone="night" grid heading={{ id: "h-sf", title: "Salesforce roles, where our record is", lede: "We provide ongoing Salesforce development for a lending company, and have done since April 2026." }}>
           <div className="sf-c5">
             <CaseCard title="Salesforce development for a lending company" built="Ongoing since April 2026. Development inside the client's org and process. Client name kept private." />
           </div>
           <Statement className="sf-c7">Our developer, their org, their priorities.</Statement>
           <div className="sf-c12">
+            <div className="sf-links">{L("/services/hire-salesforce-developers", "Hire Salesforce developers, admins and architects")}</div>
             <GoDeeper label="what Salesforce augmentation looks like">
               <p className="sf-rule">The client is a lending company and stays unnamed; we publish no figures from the work. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
               <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce consulting")} practice also holds Salesforce's AppExchange record of 16 people and 53 certifications.</p>

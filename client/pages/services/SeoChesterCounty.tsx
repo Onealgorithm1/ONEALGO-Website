@@ -30,8 +30,8 @@ import {
 
 const PAGE_PATH = "/services/seo-chester-county";
 const PAGE_URL = "https://onealgorithm.com/services/seo-chester-county";
-const TITLE = "SEO Company in Chester County, PA | Malvern | OneAlgorithm";
-const DESCRIPTION = "SEO company in Chester County, PA: Business Profile, reviews and technical fixes from our Malvern office. Book an SEO audit: (610) 890-9711.";
+const TITLE = "SEO Company in Chester County, PA | SEO Services, Malvern";
+const DESCRIPTION = "SEO company in Chester County, PA. Local SEO services from our Malvern office for Chester, Montgomery and Delaware County businesses. Call (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
 const CASE = "/blog/seo-case-study-phantom-arcades";
@@ -55,7 +55,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Should I show my address if customers do not come to me?", a: "Not if you work at the customer's site. Set a service area on your Business Profile instead of showing a street address, and keep the same business details everywhere they appear. We check which setting suits your business before changing anything on the profile." },
   { q: "Do I need a Business Profile if I already have a website?", a: "Yes, for map results. The local results come from your Business Profile, and Google says they rest on relevance, distance and prominence. Your website still matters, because it supplies the page for each service you want to be found for. The two work together." },
   { q: "Can you guarantee a spot in the Google map results?", a: "No. Google says there is no way to request or pay for a better local ranking, so anyone selling a guaranteed map position is guessing. We can set up the profile properly, collect and answer reviews and build clear service pages, then show you what moved.", link: { to: "/services/seo", label: "How we work on SEO" } },
-  { q: "Do you work outside Chester County?", a: "Yes. Our office is in Malvern, and most SEO work runs remotely. Our Business Profile lists Bucks, Chester, Delaware and Montgomery counties, Philadelphia, and New Castle County, Delaware as the service area. For the national method, see our SEO services page." },
+  { q: "Do you do SEO in Montgomery County and Delaware County?", a: "Yes. Both border Chester County, and our Business Profile lists Bucks, Chester, Delaware and Montgomery counties, Philadelphia, and New Castle County, Delaware as the service area. Our office is in Malvern and most SEO work runs remotely. For the national method, see our SEO services page." },
 ];
 
 const LOCAL_CARDS = [
@@ -111,19 +111,20 @@ export default function SeoChesterCounty() {
           { areaServed: ["Chester County, PA", "Bucks County, PA", "Delaware County, PA", "Montgomery County, PA", "Philadelphia, PA", "New Castle County, DE"].map((n) => ({ "@type": "AdministrativeArea", name: n })) },
         )}
       />
-      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: "2026-10-31" })} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, PAGE_URL, { dateModified: "2026-11-01" })} />
       <StructuredData data={createLocalBusinessSchema()} />
 
-      {/* HERO KEPT EXACTLY AS BEFORE (H1 and phrases are what ranks). */}
+      {/* HERO: 2026-11-01 (SEO round 2) the H1 keeps "SEO company in Chester County" and adds ", PA" + "SEO services";
+          the lede names Montgomery and Delaware County (GBP service area). GSC Oct: 33 queries at positions 4-20. */}
       <PageHero
         eyebrow="Chester County · Malvern, PA"
         title={
           <>
-            SEO company in Chester County —{" "}
-            <span className="text-oa-orange">found by the people nearby</span>
+            SEO company in Chester County, PA —{" "}
+            <span className="text-oa-orange">SEO services from Malvern</span>
           </>
         }
-        lede="SEO for Chester County businesses, from our office on Swedesford Road in Malvern. For a local business, being found on Google means the map results as well as the ordinary listings, and the map results come from your Business Profile. We work on both: the profile, your reviews, and pages that say plainly what you do."
+        lede="SEO services for businesses in Chester County and neighboring Montgomery and Delaware County, from our office on Swedesford Road in Malvern. For a local business, being found on Google means the map results as well as the ordinary listings, and the map results come from your Business Profile. We work on both: the profile, your reviews, and pages that say plainly what you do."
         panel={{
           title: "What local SEO covers",
           items: [
@@ -243,7 +244,7 @@ export default function SeoChesterCounty() {
         <SmartSection id="where" tone="night" grid labelledBy="h-where">
           <div style={{ gridColumn: "1 / -1" }}>
             <h2 className="sf-h2" id="h-where">Across Chester County and next door</h2>
-            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">We work across Chester County, in the neighboring counties and remotely anywhere in the US.</p>
+            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">We work across Chester County, in neighboring Montgomery and Delaware County, and remotely anywhere in the US.</p>
           </div>
           <SeoPullQuote
             statement="Chester County in person, next door and remote."

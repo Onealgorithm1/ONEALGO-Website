@@ -5,7 +5,25 @@
 /services/operations-technology/ /services/operational-transformation-consulting 301
 /services/oracle-erp/ /services 301
 
-# NOTHING for /blog here. The blog is now served AT onealgorithm.com/blog by the
+# Three Ghost-era posts that no longer exist (GSC Pages report, audit 2026-10-30 row 29):
+# blog.onealgorithm.com/<slug>/ 301s to onealgorithm.com/blog/<slug>/, which 404'd. Since 2026-10-22 /blog is
+# prerendered by Pages (Blogger feed; checked 2026-11-01: the 404 body is our own 404.html, no worker in front),
+# so the fix lives here. No live post is closer than the blog index. Exact slugs only, both slash forms.
+/blog/ai-agent-four-questions        /blog  301
+/blog/ai-agent-four-questions/       /blog  301
+/blog/ai-hours-back-sales-teams      /blog  301
+/blog/ai-hours-back-sales-teams/     /blog  301
+/blog/newsletter-delivery-test       /blog  301
+/blog/newsletter-delivery-test/      /blog  301
+
+# Salesforce Chester County + Pennsylvania partner pages retired 2026-11-01 (0 search demand, never crawled by
+# Google; Philadelphia already ranks #1 for "salesforce consultant chester county").
+/services/salesforce-consultant-chester-county         /services/salesforce-consultant-philadelphia  301
+/services/salesforce-consultant-chester-county/        /services/salesforce-consultant-philadelphia  301
+/services/salesforce-consulting-partner-pennsylvania   /services/salesforce-consultant-philadelphia  301
+/services/salesforce-consulting-partner-pennsylvania/  /services/salesforce-consultant-philadelphia  301
+
+# (Historical, before 2026-10-22:) NOTHING for /blog here. The blog was served AT onealgorithm.com/blog by the
 # oa-blog-debrand worker, which proxies Ghost (url=https://onealgorithm.com/blog).
 #
 # A rule here would fight that route and win intermittently: while both existed,

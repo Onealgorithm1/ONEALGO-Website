@@ -338,7 +338,8 @@ export default function Index() {
 
   useSEO({
     // Louis 2026-10-21: add Salesforce (decision-log #12, hypothesis — measure brand + SF impressions at 2 and 4 weeks).
-    title: "Salesforce Consulting, Websites, SEO & Google Ads | OneAlgorithm",
+    // 2026-11-01: brand spelled "One Algorithm" (with the space) once, the way most brand searches type it (GSC: 480 vs 380 impr).
+    title: "Salesforce Consulting, Websites, SEO & Google Ads | One Algorithm",
     description:
       "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Based in Malvern PA.",
     canonical: getCanonicalUrl("/"),
@@ -348,7 +349,7 @@ export default function Index() {
     preloadImage: "/media/hero-poster.webp",
     keywords:
       "small business website development, local SEO, Google Ads management, CRM setup, Salesforce consulting partner, marketing agency Malvern PA, Chester County web design",
-    ogTitle: "Salesforce Consulting, Websites, SEO & Google Ads | OneAlgorithm",
+    ogTitle: "Salesforce Consulting, Websites, SEO & Google Ads | One Algorithm",
     ogDescription:
       "Websites, SEO, Google Ads, marketing and CRM for small businesses around Malvern and Philadelphia.",
     ogUrl: getCanonicalUrl("/"),

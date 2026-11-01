@@ -36,7 +36,7 @@ export const SF_DELIVERED = [
 ] as const;
 export type SfDeliveredId = (typeof SF_DELIVERED)[number]["id"];
 
-export type SfPageKey = "hc" | "dm" | "int" | "ms" | "mc" | "sa" | "cost" | "phl" | "che" | "pa";
+export type SfPageKey = "hc" | "dm" | "int" | "ms" | "mc" | "sa" | "cost" | "phl";
 
 /** One list of the Salesforce routes. Feeds RouteBoard, DeliveredLedger's self-check and llms.txt.
  *  Service bodies are the hub's EXISTING one-liners, verbatim; local bodies are each page's own meta
@@ -51,13 +51,12 @@ export const SF_PAGES = {
     { key: "int", to: "/services/salesforce-integration", title: "Salesforce integration with SAP and ERP", body: "Which system owns each record, agreed before anything is built." },
     { key: "ms", to: "/services/salesforce-managed-services", title: "Salesforce managed services", body: "Weekly administration and development, with hours reported every week." },
     { key: "mc", to: "/services/salesforce-marketing-cloud-consulting", title: "Marketing Cloud consulting", body: "Support for Marketing Cloud accounts already running." },
-    { key: "sa", to: "/services/staff-augmentation", title: "Salesforce staff augmentation", body: "Salesforce people added to your team for as long as you need them." },
+    { key: "sa", to: "/services/hire-salesforce-developers", title: "Hire Salesforce developers", body: "Salesforce people added to your team for as long as you need them." },
     { key: "cost", to: "/services/salesforce-implementation-cost", title: "Salesforce implementation cost guide", body: "Published market ranges, named and dated, before licenses." },
   ],
   local: [
     { key: "phl", to: "/services/salesforce-consultant-philadelphia", title: "Salesforce consultants for Philadelphia companies", body: "Salesforce consulting for Philadelphia companies from a listed Consulting Partner in Malvern." },
-    { key: "che", to: "/services/salesforce-consultant-chester-county", title: "Salesforce consultant for Chester County businesses", body: "Which edition you actually need, what it costs, and a license count before you sign." },
-    { key: "pa", to: "/services/salesforce-consulting-partner-pennsylvania", title: "Salesforce Consulting Partner in Pennsylvania", body: "How to check any partner's record on the AppExchange before you hire one." },
+    // 2026-11-01: Chester County and Pennsylvania partner pages 301 to Philadelphia (0 search demand, never crawled).
   ],
   cities: SF_CITY_LINKS,
 } as const;
