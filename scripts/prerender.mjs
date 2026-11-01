@@ -17,11 +17,16 @@ import Beasties from "beasties";
 /* Routes written with React hydration markers (client/App.tsx hydrateRoot): Salesforce + website-development set. */
 /* The three website-development service pages (2026-10-24) are on the same v2 kit as the hub and the place pages. */
 const WD_SERVICE = new Set(["/services/website-cost", "/services/small-business-website-design", "/services/website-redesign"]);
-const hydrated = (r) => r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || SVC_PATHS.has(r) || WD_SERVICE.has(r);
+/* 2026-10-31: every route hydrates (was Salesforce/web-design/place pages only). createRoot threw the painted
+   page away and rebuilt it, so Lighthouse timed the hero at the rebuild (mobile LCP ~4.1s on /services/seo
+   vs 0.9s first paint). HYDRATE_ALL=0 restores the old list if a route shows hydration errors. */
+/* Not hydrated: their first client render differs from the snapshot by design (live careers/blog feed, Turnstile). */
+const LIVE_DATA = (r) => r === "/contact" || r === "/blog" || r.startsWith("/blog/") || r === "/careers" || r.startsWith("/careers/");
+const hydrated = (r) => (process.env.HYDRATE_ALL !== "0" && !LIVE_DATA(r)) || r.startsWith("/services/salesforce") || r.split("?")[0] === "/services/website-development" || r.startsWith("/services/web-design-") || SVC_PATHS.has(r) || WD_SERVICE.has(r);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // OA_DIST lets a gate run prerender a build that lives outside the repo (vite build --outDir X; OA_DIST=X).
 const DIST = process.env.OA_DIST ? path.resolve(process.env.OA_DIST) : path.join(__dirname, "..", "dist", "spa");
-const beasties = new Beasties({ path: DIST, publicPath: "/", preload: "swap", pruneSource: false, logLevel: "warn" });
+const beasties = new Beasties({ path: DIST, publicPath: "/", preload: "swap", pruneSource: false, reduceInlineStyles: false, mergeStylesheets: false, logLevel: "warn" });
 // Beasties drops the metric-matched fallback @font-face rules (no src url), so text first paints in
 // plain Arial and jumps when IBM Plex arrives (preview CLS up to 0.17). Re-inline them: CLS 0.
 let fontFallbacks = null;

@@ -30,12 +30,13 @@ export function LocalBanner({ place, photo }: { place: LocalPlace; photo?: Place
       </div>
     );
   }
+  // 800w files (2026-10-31) sit next to every -1600 file in public/places; phones were fetching the 1600w as LCP.
   const credit = photo.credit.replace(/^Photo: /, "").split(" / ")[0];
   return (
     <figure className="sf-wrap wd-local-banner" style={{ "--fx": `${photo.focal.x}%`, "--fy": `${photo.focal.y}%` } as React.CSSProperties}>
       <picture>
-        <source type="image/avif" srcSet={`${photo.avif1600} 1600w, ${photo.avif2400} 2400w`} sizes="(min-width: 1440px) 1376px, 100vw" />
-        <source type="image/webp" srcSet={`${photo.webp1600} 1600w, ${photo.webp2400} 2400w`} sizes="(min-width: 1440px) 1376px, 100vw" />
+        <source type="image/avif" srcSet={`${photo.avif1600.replace("-1600.", "-800.")} 800w, ${photo.avif1600} 1600w, ${photo.avif2400} 2400w`} sizes="(min-width: 1440px) 1376px, 100vw" />
+        <source type="image/webp" srcSet={`${photo.webp1600.replace("-1600.", "-800.")} 800w, ${photo.webp1600} 1600w, ${photo.webp2400} 2400w`} sizes="(min-width: 1440px) 1376px, 100vw" />
         <img src={photo.webp1600} alt={photo.alt} width={photo.width} height={photo.height} loading="eager" decoding="async" {...({ fetchpriority: "high" } as Record<string, string>)} />
       </picture>
       <figcaption className="wd-local-credit">
