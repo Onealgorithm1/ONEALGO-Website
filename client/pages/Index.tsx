@@ -383,6 +383,12 @@ export default function Index() {
             frame (LCP 2,561ms), while a duplicate <img> behind it became a
             larger LCP candidate whose paint hydration long-tasks deferred to
             5,582ms — 3s worse. The poster attribute IS the fast path. */}
+        {/* 2026-10-31: poster <img> restored now that "/" hydrates (prerender.mjs): it paints with the static
+            HTML at first paint, so the later video frame is no longer the LCP (PSI 7.5s, frame paint ~1.1s late).
+            The 08-31 note above measured the createRoot era, when hydration long tasks deferred this paint. */}
+        <img src="/media/hero-poster.webp" alt="" aria-hidden="true" width={1200} height={500}
+          className="absolute inset-0 h-full w-full object-cover" loading="eager" decoding="async"
+          {...({ fetchpriority: "high" } as Record<string, string>)} />
         <video
           ref={heroVideoRef}
           className="absolute inset-0 h-full w-full object-cover"
