@@ -43,10 +43,10 @@ import {
 
 const PATH = "/services/salesforce-consultant-philadelphia";
 const PAGE_URL = `https://onealgorithm.com${PATH}`;
-const PAGE_UPDATED = "2026-10-23";
+const PAGE_UPDATED = "2026-11-01";
 const TITLE = "Salesforce Consultant Philadelphia, PA | OneAlgorithm";
 const DESCRIPTION =
-  "Salesforce consultants for Philadelphia companies, from a listed Consulting Partner in Malvern. Free one-week health check. Call (610) 890-9711.";
+  "Salesforce consultants for Philadelphia and Chester County companies, from a listed Consulting Partner in Malvern, PA. Free health check: (610) 890-9711.";
 const PHOTO = SF_CITY_HEROES.philadelphia;
 const FILES = sfCityFiles("philadelphia");
 const OG_IMAGE = `https://onealgorithm.com${FILES.og}`;
@@ -55,8 +55,10 @@ const HC = "/services/salesforce-health-check";
 const COST = "/services/salesforce-implementation-cost";
 const MS = "/services/salesforce-managed-services";
 const INT = "/services/salesforce-integration";
-const PA = "/services/salesforce-consulting-partner-pennsylvania";
-const CHE = "/services/salesforce-consultant-chester-county";
+/* 2026-11-01 (SEO round 2): /services/salesforce-consultant-chester-county and /services/salesforce-consulting-partner-pennsylvania
+ * 301 here (0 search demand, never crawled; this page already ranks #1 for "salesforce consultant chester county").
+ * Chester County, Malvern and Pennsylvania are named where true: the office FAQ, the meta and the office unit. */
+const HIRE = "/services/hire-salesforce-developers";
 
 /* The fields this page reads from the generated city file. Assigning (not casting) makes tsc fail if the
    generator ever drops or renames one. */
@@ -178,7 +180,7 @@ const FAQS: SfFaqItem[] = [
   {
     q: "Who are the best Salesforce consultants in Philadelphia?",
     a: `The ones whose record you can check before you call. Open the firm's AppExchange listing, where Salesforce publishes its certified people and certifications; ask what it has delivered that looks like your problem; and ask who will do the work. Ours is listing ${SF_LISTING_ID}: ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications on Salesforce's record, and Sreenivas Amirisetti leads our Salesforce practice.`,
-    link: { to: PA, label: "How to check a Salesforce partner" },
+    link: { to: "#record", label: "How to check a Salesforce partner" },
   },
   {
     q: "Which Salesforce certifications does your team hold?",
@@ -198,6 +200,10 @@ const FAQS: SfFaqItem[] = [
   {
     q: "Is your office in Philadelphia?",
     a: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
+  },
+  {
+    q: "Do you work with Chester County and other Pennsylvania companies?",
+    a: "Yes. Our office is in Malvern, in Chester County, so Chester County companies are the shortest drive of all. We take on Salesforce work across Pennsylvania and the rest of the US remotely, inside your org, with in-person sessions when the project calls for them.",
   },
   {
     q: "Do you work with companies on the Main Line, in King of Prussia and in South Jersey?",
@@ -509,7 +515,6 @@ export default function SalesforceConsultantPhiladelphia() {
             <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
             <GoDeeper label="the competency rows and how to check any partner">
               <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
-              <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
             </GoDeeper>
           </SmartUnit>
             <p className="sf-kicker" style={{ marginTop: 56 }}>Salesforce's AppExchange record of us</p>
@@ -541,7 +546,6 @@ export default function SalesforceConsultantPhiladelphia() {
           >
             <GoDeeper label="how the work runs from Malvern">
               <p className="sf-rule">Salesforce work happens inside your org, so it runs remotely from the first day of the health check, with the people doing the work. In-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.</p>
-              <div className="sf-links"><Link className="sf-link" to={CHE}>Salesforce consultant for Chester County businesses</Link></div>
             </GoDeeper>
           </SmartUnit>
           <figure className="sf-stage lg:[grid-column:6/13] lg:[grid-row:1/3] lg:self-start" aria-labelledby="fig3-cap">
@@ -586,8 +590,8 @@ export default function SalesforceConsultantPhiladelphia() {
             <p className="sf-kicker">Still deciding</p>
             <ul className="sf-links" style={{ marginTop: 8 }}>
               <li><Link className="sf-link" to="/services/salesforce">Salesforce consulting services</Link></li>
-              <li><Link className="sf-link" to={CHE}>Choosing an edition: Salesforce for Chester County businesses</Link></li>
-              <li><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></li>
+              <li><Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link></li>
+              <li><Link className="sf-link" to={HIRE}>Hire Salesforce developers for your team</Link></li>
               <li><Link className="sf-link" to="/services/web-design-philadelphia">Web design for Philadelphia companies</Link></li>
             </ul>
             <p className="sf-kicker" style={{ marginTop: 24 }}>Salesforce consulting in other cities</p>

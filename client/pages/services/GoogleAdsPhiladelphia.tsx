@@ -31,6 +31,8 @@ import {
  * Philadelphia" -> "We set up and manage Google Ads accounts for businesses around Philadelphia" (fact-check: unsourced
  * we-do claim). No reporting cadence is stated (the "weekly" lines were flagged unsourced).
  *
+ * 2026-11-01 (SEO round 2): title = exact "google ads management philadelphia" (GSC 209 impr, pos 14.2) + "PPC agency";
+ *    H1 tail now says "a PPC agency". This is the ONE page for the Philadelphia phrases; /services/google-ads links here.
  * HERO: same PageHero, panel and lede. Only the H1 changed, to carry the target phrase (owner brief 2026-10-31);
  * the old H1 ran 11 words, so the tail was shortened to keep the H1 at 9.
  *
@@ -41,7 +43,7 @@ import {
 
 const PATH = "/services/google-ads-philadelphia";
 const URL_ = "https://onealgorithm.com/services/google-ads-philadelphia";
-const TITLE = "Google Ads Management in Philadelphia, PA | OneAlgorithm";
+const TITLE = "Google Ads Management Philadelphia | PPC Agency | OneAlgorithm";
 const DESCRIPTION = "PPC agency for Philadelphia, from our Malvern office: the right radius, calls counted once, negatives first. Request a Google Ads audit: (610) 890-9711.";
 const CONTACT = contactHref("Google Ads audit, Philadelphia", PATH, "google-ads");
 
@@ -103,15 +105,15 @@ export default function GoogleAdsPhiladelphia() {
         )}
       />
       <StructuredData data={createLocalBusinessSchema()} />
-      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-10-31" })} />
+      <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-11-01" })} />
 
       {/* Hero kept (panel and lede unchanged); the H1 now carries the target phrase. */}
       <PageHero
         eyebrow="Google Ads · Philadelphia and the surrounding counties"
         title={
           <>
-            Google Ads management in Philadelphia,{" "}
-            <span className="text-oa-orange">on the right map</span>
+            Google Ads management in Philadelphia —{" "}
+            <span className="text-oa-orange">a PPC agency on the right map</span>
           </>
         }
         lede="We set up and manage Google Ads accounts for businesses around Philadelphia from an office in Malvern. In a local account the biggest leak is usually not the bidding — it is a service area nobody set deliberately, a missing negative list, and phone calls that never get counted as conversions."

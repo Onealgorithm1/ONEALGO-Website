@@ -546,6 +546,7 @@ type HeroClass = "service" | "industry" | "company" | "utility";
    (scripts/orphan-check.mjs) catches the reverse case. */
 const SERVICE_PAGES: ReadonlyArray<readonly [string, string]> = [
   ["/services/staff-augmentation", "Staffing"],
+  ["/services/hire-salesforce-developers", "Hire Salesforce developers"],
   ["/services/website-development", "Websites"],
   ["/services/application-development", "App Development"],
   ["/services/salesforce", "Salesforce"],
@@ -584,8 +585,6 @@ const SECTION_LABEL: Record<string, string> = {
      ⛔ These are NOT in SERVICE_PAGES deliberately — that array drives the
      sibling rail on every other service page, and it was trimmed on purpose. */
   "/services/salesforce-consultant-philadelphia": "Philadelphia",
-  "/services/salesforce-consultant-chester-county": "Chester County",
-  "/services/salesforce-consulting-partner-pennsylvania": "Pennsylvania",
   "/services/salesforce-implementation-cost": "Cost guide",
   /* Salesforce services + wave-2 city pages, 2026-10-22. Same short-label rule as above. */
   "/services/salesforce-data-migration": "Data migration",

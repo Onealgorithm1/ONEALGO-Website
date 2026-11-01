@@ -3,7 +3,10 @@
  * Montgomery and Delaware counties) is the one local site, under the 2026-10-01 listing rule (claims-and-assets.md
  * §A row 5, §F; missing.md #9 asks Louis). "WordPress" appears only as a choice we explain, never as a delivery
  * claim (claims-and-assets.md §B2: no delivered WordPress site on file). The SEO queries stay on
- * /services/seo-chester-county: one link, no SEO heading. */
+ * /services/seo-chester-county: one link, no SEO heading.
+ * 2026-11-01 (SEO round 2): title/H1 retargeted to "web design chester county" + "custom website design(ers)" (GSC pos 6-8);
+ * no SEO-service phrase in title/H1/meta (515 impressions overlapped the SEO page); county vs state split with
+ * /services/web-design-pennsylvania (552 overlapping impressions), cross-linked both ways. */
 import type { LocalPlace } from "./types";
 
 const HUB = "/services/website-development";
@@ -12,13 +15,13 @@ export const CHESTER_COUNTY: LocalPlace = {
   path: "/services/web-design-chester-county",
   name: "Chester County",
   seo: {
-    title: "Website Development Company in Chester County, PA | OneAlgorithm",
-    description: "Custom website designers in Chester County, PA, based in Malvern: sites you own outright, built for how your business runs. Written scope: (610) 890-9711.",
-    dateModified: "2026-10-26",
+    title: "Web Design Chester County, PA | Custom Website Designers",
+    description: "Custom website designers in Chester County, PA: custom website design and development from our Malvern office, on sites you own outright. (610) 890-9711.",
+    dateModified: "2026-11-01",
   },
   hero: {
     kicker: "Custom web design and development",
-    h1: "Chester County web design, custom-built in Malvern",
+    h1: "Web design in Chester County, PA: custom websites built in Malvern",
     lede: "We are a website development company that designs and builds custom websites for Chester County businesses from our Swedesford Road office in Malvern, with scope and price in writing first.",
   },
   areaServed: { "@type": "AdministrativeArea", name: "Chester County, PA" },
@@ -116,6 +119,7 @@ export const CHESTER_COUNTY: LocalPlace = {
         label: "the service area as Google lists it",
         paras: [
           "The service area on our Google Business Profile is set county by county, and the same list sits in this page's structured data, so search engines and visitors read one answer.",
+          "For a business elsewhere in the state, the statewide page covers how a remote build runs: [web design across Pennsylvania](/services/web-design-pennsylvania).",
           "Distance changes how easy a first meeting is, not what gets built: the pages, the code and the handover are the same wherever the business sits. A firm two towns over and a firm across the state line get the same written scope, the same stages and the same accounts in their own name at the end.",
         ],
       },
@@ -189,9 +193,9 @@ export const CHESTER_COUNTY: LocalPlace = {
           link: { to: `${HUB}#ownership`, label: "What we build with, and what you keep" },
         },
         {
-          q: "Do you also do local SEO?",
-          a: "Yes. Local search work for the county is a separate service with its own page, and the site build lays the groundwork it needs.",
-          link: { to: "/services/seo-chester-county", label: "Local SEO services" },
+          q: "Can you help the site get found once it is live?",
+          a: "Yes, as a separate service with its own page. The site build lays the groundwork: page structure, titles, headings and schema.",
+          link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" },
         },
       ],
     },
@@ -202,7 +206,8 @@ export const CHESTER_COUNTY: LocalPlace = {
       lede: "The same office runs search, CRM and web work, so the pieces are planned together.",
       items: [
         { to: "/services/seo-chester-county", title: "SEO in Chester County", tag: "Local search" },
-        { to: "/services/salesforce-consultant-chester-county", title: "Salesforce consulting", tag: "CRM behind the site" },
+        { to: "/services/salesforce-consultant-philadelphia", title: "Salesforce consulting", tag: "CRM behind the site" },
+        { to: "/services/web-design-pennsylvania", title: "Web design across Pennsylvania", tag: "Statewide" },
         { to: "/services/web-design-philadelphia", title: "Web design in Philadelphia", tag: "Nearby" },
       ],
     },

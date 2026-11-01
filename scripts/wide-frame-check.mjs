@@ -29,8 +29,6 @@ const SF = [
   "/services/salesforce-managed-services",
   "/services/salesforce-marketing-cloud-consulting",
   "/services/salesforce-consultant-philadelphia",
-  "/services/salesforce-consultant-chester-county",
-  "/services/salesforce-consulting-partner-pennsylvania",
   "/services/salesforce-consultant-boston",
   "/services/salesforce-consultant-houston",
 ];
