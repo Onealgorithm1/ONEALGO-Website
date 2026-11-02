@@ -478,7 +478,7 @@ export const PLACE: LocalPlace = {
     "label": "What we did and what changed",
     "paras": [
      "We designed and rebuilt their website for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects so nothing earned was lost in the move.",
-     "Over a 68-day window compared with the same dates a year earlier, clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal stretch before that window was flat. The full story is in the [Phantom Arcades case study](/blog/seo-case-study-phantom-arcades/), and it is the same order we recommend to Chicago firms: site and message first, then search."
+     "Over a 68-day window compared with the same dates a year earlier, clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal stretch before that window was flat. The full story is in the [Phantom Arcades case study](/blog/seo-case-study-phantom-arcades), and it is the same order we recommend to Chicago firms: site and message first, then search."
     ]
    },
    "cards": [
