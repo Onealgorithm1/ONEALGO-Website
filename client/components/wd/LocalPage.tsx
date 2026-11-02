@@ -275,14 +275,6 @@ export function LocalPage({ place }: { place: LocalPlace }) {
     twitterDescription: place.seo.description,
     twitterImage: OG.url,
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
-    // Audit F-65 (2026-11-01): the place photo is the mobile LCP and was discovered only when the parser reached the
-    // banner. Same AVIF srcset/sizes as LocalBanner's <source>, so the preload is the file the phone then paints.
-    ...(photo ? {
-      preloadImage: photo.avif1600,
-      preloadImageSrcset: `${photo.avif1600.replace("-1600.", "-800.")} 800w, ${photo.avif1600} 1600w, ${photo.avif2400} 2400w`,
-      preloadImageSizes: "(min-width: 1440px) 1376px, 100vw",
-      preloadImageType: "image/avif",
-    } : {}),
   });
 
   // LocalBusiness mirrors the NAP band: no email or priceRange (neither is shown), hasMap = the Business Profile.
