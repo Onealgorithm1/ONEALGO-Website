@@ -100,7 +100,9 @@ function externalizeLinks(html: string): string {
     } catch {
       return whole;
     }
-    if (host === "onealgorithm.com" || host === "www.onealgorithm.com") return whole;
+    // Our own post links drop a trailing slash: /blog/<slug>/ 308-redirects to /blog/<slug> (hub SEO crawl 2026-11-02:
+    // "internal link to a redirect" from the migrated Ghost posts and marketing-chicago).
+    if (host === "onealgorithm.com" || host === "www.onealgorithm.com") return whole.replace(/(href="(?:https?:\/\/(?:www\.)?onealgorithm\.com)?\/blog\/[a-z0-9-]+)\/"/i, '$1"');
     const attrs = before + after;
     const target = /\btarget=/i.test(attrs) ? "" : ' target="_blank"';
     const rel = /\brel=/i.test(attrs) ? "" : ' rel="noopener noreferrer"';
