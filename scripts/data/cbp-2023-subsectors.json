@@ -1,0 +1,1775 @@
+{
+ "source": "Census County Business Patterns 2023 (api.census.gov/data/2023/cbp, LFO=001, EMPSZES=001; key removed). LQ = (subsector paid employees / all-industry paid employees in the area) / (same share for the US). Subsectors with >= 1,000 and >= 0.5% of area employees and LQ >= 1.3; NAICS 111, 112, 491, 525, 551, 813, 921, 999 skipped. Pulled 2026-11-01.",
+ "us_query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1",
+ "us_total_emp": 139831742,
+ "geos": {
+  "county:42:029": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=county:029&in=state:42",
+   "total_emp": 262454,
+   "top": [
+    {
+     "code": "523",
+     "label": "Securities, commodity contracts, and other financial investments and related activities",
+     "emp": 20839,
+     "estab": 319,
+     "lq": 10.65
+    },
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 2630,
+     "estab": 67,
+     "lq": 2.23
+    },
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 1855,
+     "estab": 29,
+     "lq": 2.15
+    }
+   ]
+  },
+  "msa:12060": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060",
+   "total_emp": 2692513,
+   "top": [
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 52162,
+     "estab": 86,
+     "lq": 4.72
+    },
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 67772,
+     "estab": 602,
+     "lq": 2.13
+    },
+    {
+     "code": "517",
+     "label": "Telecommunications",
+     "emp": 31160,
+     "estab": 1228,
+     "lq": 1.77
+    }
+   ]
+  },
+  "msa:12420": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420",
+   "total_emp": 1042004,
+   "top": [
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 13043,
+     "estab": 232,
+     "lq": 4.28
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 32078,
+     "estab": 571,
+     "lq": 3.41
+    },
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 9606,
+     "estab": 291,
+     "lq": 2.05
+    }
+   ]
+  },
+  "msa:12580": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580",
+   "total_emp": 1220618,
+   "top": [
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 19572,
+     "estab": 553,
+     "lq": 2.02
+    },
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 14267,
+     "estab": 80,
+     "lq": 2.0
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 63323,
+     "estab": 1137,
+     "lq": 1.85
+    }
+   ]
+  },
+  "msa:14460": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460",
+   "total_emp": 2681704,
+   "top": [
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 44866,
+     "estab": 490,
+     "lq": 2.87
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 68261,
+     "estab": 945,
+     "lq": 2.82
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 187158,
+     "estab": 2589,
+     "lq": 2.49
+    }
+   ]
+  },
+  "msa:16740": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740",
+   "total_emp": 1238884,
+   "top": [
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 14547,
+     "estab": 25,
+     "lq": 2.86
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 69948,
+     "estab": 1447,
+     "lq": 2.67
+    },
+    {
+     "code": "517",
+     "label": "Telecommunications",
+     "emp": 14369,
+     "estab": 471,
+     "lq": 1.78
+    }
+   ]
+  },
+  "msa:16980": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980",
+   "total_emp": 4285971,
+   "top": [
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 22116,
+     "estab": 149,
+     "lq": 2.03
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 32043,
+     "estab": 165,
+     "lq": 1.82
+    },
+    {
+     "code": "523",
+     "label": "Securities, commodity contracts, and other financial investments and related activities",
+     "emp": 57745,
+     "estab": 4159,
+     "lq": 1.81
+    }
+   ]
+  },
+  "msa:17140": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140",
+   "total_emp": 1030698,
+   "top": [
+    {
+     "code": "322",
+     "label": "Paper manufacturing",
+     "emp": 5360,
+     "estab": 72,
+     "lq": 2.07
+    },
+    {
+     "code": "323",
+     "label": "Printing and related support activities",
+     "emp": 5596,
+     "estab": 211,
+     "lq": 1.97
+    },
+    {
+     "code": "325",
+     "label": "Chemical manufacturing",
+     "emp": 11678,
+     "estab": 134,
+     "lq": 1.74
+    }
+   ]
+  },
+  "msa:17410": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17410",
+   "total_emp": 971092,
+   "top": [
+    {
+     "code": "332",
+     "label": "Fabricated metal product manufacturing",
+     "emp": 27373,
+     "estab": 881,
+     "lq": 2.73
+    },
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 6682,
+     "estab": 76,
+     "lq": 2.71
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 17124,
+     "estab": 339,
+     "lq": 2.27
+    }
+   ]
+  },
+  "msa:18140": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:18140",
+   "total_emp": 985064,
+   "top": [
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 53258,
+     "estab": 319,
+     "lq": 4.59
+    },
+    {
+     "code": "327",
+     "label": "Nonmetallic mineral product manufacturing",
+     "emp": 5219,
+     "estab": 95,
+     "lq": 1.8
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 37274,
+     "estab": 987,
+     "lq": 1.79
+    }
+   ]
+  },
+  "msa:19100": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100",
+   "total_emp": 3594749,
+   "top": [
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 46625,
+     "estab": 144,
+     "lq": 3.16
+    },
+    {
+     "code": "488",
+     "label": "Support activities for transportation",
+     "emp": 39474,
+     "estab": 1246,
+     "lq": 1.8
+    },
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 37386,
+     "estab": 284,
+     "lq": 1.78
+    }
+   ]
+  },
+  "msa:19740": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740",
+   "total_emp": 1419833,
+   "top": [
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 25091,
+     "estab": 62,
+     "lq": 4.31
+    },
+    {
+     "code": "517",
+     "label": "Telecommunications",
+     "emp": 25541,
+     "estab": 690,
+     "lq": 2.76
+    },
+    {
+     "code": "237",
+     "label": "Heavy and civil engineering construction",
+     "emp": 20712,
+     "estab": 398,
+     "lq": 1.94
+    }
+   ]
+  },
+  "msa:19820": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820",
+   "total_emp": 1846717,
+   "top": [
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 106566,
+     "estab": 537,
+     "lq": 4.79
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 30789,
+     "estab": 848,
+     "lq": 2.15
+    },
+    {
+     "code": "332",
+     "label": "Fabricated metal product manufacturing",
+     "emp": 30678,
+     "estab": 1320,
+     "lq": 1.61
+    }
+   ]
+  },
+  "msa:26420": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420",
+   "total_emp": 2863143,
+   "top": [
+    {
+     "code": "211",
+     "label": "Oil and gas extraction",
+     "emp": 15750,
+     "estab": 363,
+     "lq": 8.46
+    },
+    {
+     "code": "213",
+     "label": "Support activities for mining",
+     "emp": 29995,
+     "estab": 805,
+     "lq": 5.08
+    },
+    {
+     "code": "237",
+     "label": "Heavy and civil engineering construction",
+     "emp": 60061,
+     "estab": 996,
+     "lq": 2.79
+    }
+   ]
+  },
+  "msa:26900": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900",
+   "total_emp": 982448,
+   "top": [
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 19700,
+     "estab": 480,
+     "lq": 2.53
+    },
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 28899,
+     "estab": 262,
+     "lq": 2.49
+    },
+    {
+     "code": "492",
+     "label": "Couriers and messengers",
+     "emp": 18075,
+     "estab": 131,
+     "lq": 2.17
+    }
+   ]
+  },
+  "msa:27260": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260",
+   "total_emp": 664343,
+   "top": [
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 11548,
+     "estab": 90,
+     "lq": 3.86
+    },
+    {
+     "code": "488",
+     "label": "Support activities for transportation",
+     "emp": 10312,
+     "estab": 402,
+     "lq": 2.54
+    },
+    {
+     "code": "492",
+     "label": "Couriers and messengers",
+     "emp": 13545,
+     "estab": 93,
+     "lq": 2.4
+    }
+   ]
+  },
+  "msa:28140": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140",
+   "total_emp": 1016941,
+   "top": [
+    {
+     "code": "424",
+     "label": "Merchant wholesalers, nondurable goods",
+     "emp": 32179,
+     "estab": 678,
+     "lq": 1.88
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 14584,
+     "estab": 135,
+     "lq": 1.85
+    },
+    {
+     "code": "492",
+     "label": "Couriers and messengers",
+     "emp": 13277,
+     "estab": 94,
+     "lq": 1.54
+    }
+   ]
+  },
+  "msa:29820": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820",
+   "total_emp": 974603,
+   "top": [
+    {
+     "code": "721",
+     "label": "Accommodation",
+     "emp": 142290,
+     "estab": 323,
+     "lq": 10.4
+    },
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 8107,
+     "estab": 150,
+     "lq": 2.53
+    },
+    {
+     "code": "711",
+     "label": "Performing arts, spectator sports, and related industries",
+     "emp": 9330,
+     "estab": 895,
+     "lq": 2.47
+    }
+   ]
+  },
+  "msa:31080": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080",
+   "total_emp": 5568514,
+   "top": [
+    {
+     "code": "512",
+     "label": "Motion picture and sound recording industries",
+     "emp": 125824,
+     "estab": 8672,
+     "lq": 9.49
+    },
+    {
+     "code": "515",
+     "label": "Broadcasting (except internet)",
+     "emp": 28636,
+     "estab": 368,
+     "lq": 2.74
+    },
+    {
+     "code": "711",
+     "label": "Performing arts, spectator sports, and related industries",
+     "emp": 58404,
+     "estab": 19990,
+     "lq": 2.71
+    }
+   ]
+  },
+  "msa:31140": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140",
+   "total_emp": 648726,
+   "top": [
+    {
+     "code": "492",
+     "label": "Couriers and messengers",
+     "emp": 38655,
+     "estab": 84,
+     "lq": 7.03
+    },
+    {
+     "code": "312",
+     "label": "Beverage and tobacco product manufacturing",
+     "emp": 6114,
+     "estab": 74,
+     "lq": 4.53
+    },
+    {
+     "code": "335",
+     "label": "Electrical equipment, appliance, and component manufacturing",
+     "emp": 6933,
+     "estab": 21,
+     "lq": 4.04
+    }
+   ]
+  },
+  "msa:33100": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100",
+   "total_emp": 2428299,
+   "top": [
+    {
+     "code": "483",
+     "label": "Water transportation",
+     "emp": 12182,
+     "estab": 232,
+     "lq": 11.17
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 29050,
+     "estab": 358,
+     "lq": 2.92
+    },
+    {
+     "code": "488",
+     "label": "Support activities for transportation",
+     "emp": 39409,
+     "estab": 2645,
+     "lq": 2.66
+    }
+   ]
+  },
+  "msa:33340": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340",
+   "total_emp": 775828,
+   "top": [
+    {
+     "code": "335",
+     "label": "Electrical equipment, appliance, and component manufacturing",
+     "emp": 9545,
+     "estab": 72,
+     "lq": 4.66
+    },
+    {
+     "code": "323",
+     "label": "Printing and related support activities",
+     "emp": 7554,
+     "estab": 181,
+     "lq": 3.52
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 18437,
+     "estab": 333,
+     "lq": 3.06
+    }
+   ]
+  },
+  "msa:33460": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33460",
+   "total_emp": 1885126,
+   "top": [
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 36064,
+     "estab": 240,
+     "lq": 3.28
+    },
+    {
+     "code": "339",
+     "label": "Miscellaneous manufacturing",
+     "emp": 23634,
+     "estab": 476,
+     "lq": 3.14
+    },
+    {
+     "code": "323",
+     "label": "Printing and related support activities",
+     "emp": 12632,
+     "estab": 377,
+     "lq": 2.43
+    }
+   ]
+  },
+  "msa:34980": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980",
+   "total_emp": 1012689,
+   "top": [
+    {
+     "code": "711",
+     "label": "Performing arts, spectator sports, and related industries",
+     "emp": 9834,
+     "estab": 1187,
+     "lq": 2.5
+    },
+    {
+     "code": "335",
+     "label": "Electrical equipment, appliance, and component manufacturing",
+     "emp": 5803,
+     "estab": 32,
+     "lq": 2.17
+    },
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 21729,
+     "estab": 208,
+     "lq": 1.82
+    }
+   ]
+  },
+  "msa:35380": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380",
+   "total_emp": 413445,
+   "top": [
+    {
+     "code": "483",
+     "label": "Water transportation",
+     "emp": 3982,
+     "estab": 100,
+     "lq": 21.44
+    },
+    {
+     "code": "324",
+     "label": "Petroleum and coal products manufacturing",
+     "emp": 3159,
+     "estab": 13,
+     "lq": 10.59
+    },
+    {
+     "code": "711",
+     "label": "Performing arts, spectator sports, and related industries",
+     "emp": 5811,
+     "estab": 221,
+     "lq": 3.63
+    }
+   ]
+  },
+  "msa:35620": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35620",
+   "total_emp": 8559248,
+   "top": [
+    {
+     "code": "515",
+     "label": "Broadcasting (except internet)",
+     "emp": 61188,
+     "estab": 352,
+     "lq": 3.81
+    },
+    {
+     "code": "523",
+     "label": "Securities, commodity contracts, and other financial investments and related activities",
+     "emp": 219209,
+     "estab": 8107,
+     "lq": 3.44
+    },
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 63106,
+     "estab": 1133,
+     "lq": 2.52
+    }
+   ]
+  },
+  "msa:36540": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540",
+   "total_emp": 455764,
+   "top": [
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 5832,
+     "estab": 65,
+     "lq": 2.84
+    },
+    {
+     "code": "311",
+     "label": "Food manufacturing",
+     "emp": 14245,
+     "estab": 102,
+     "lq": 2.56
+    },
+    {
+     "code": "524",
+     "label": "Insurance carriers and related activities",
+     "emp": 16821,
+     "estab": 804,
+     "lq": 1.74
+    }
+   ]
+  },
+  "msa:36740": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740",
+   "total_emp": 1232903,
+   "top": [
+    {
+     "code": "713",
+     "label": "Amusement, gambling, and recreation industries",
+     "emp": 71680,
+     "estab": 711,
+     "lq": 4.53
+    },
+    {
+     "code": "721",
+     "label": "Accommodation",
+     "emp": 55773,
+     "estab": 590,
+     "lq": 3.22
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 10438,
+     "estab": 52,
+     "lq": 2.06
+    }
+   ]
+  },
+  "msa:37980": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:37980",
+   "total_emp": 2873871,
+   "top": [
+    {
+     "code": "523",
+     "label": "Securities, commodity contracts, and other financial investments and related activities",
+     "emp": 47302,
+     "estab": 2442,
+     "lq": 2.21
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 150476,
+     "estab": 2632,
+     "lq": 1.86
+    },
+    {
+     "code": "624",
+     "label": "Social assistance",
+     "emp": 132309,
+     "estab": 4798,
+     "lq": 1.72
+    }
+   ]
+  },
+  "msa:38060": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060",
+   "total_emp": 2080244,
+   "top": [
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 31549,
+     "estab": 1524,
+     "lq": 1.91
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 80492,
+     "estab": 2471,
+     "lq": 1.83
+    },
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 21839,
+     "estab": 184,
+     "lq": 1.8
+    }
+   ]
+  },
+  "msa:38300": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300",
+   "total_emp": 1122366,
+   "top": [
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 12109,
+     "estab": 95,
+     "lq": 4.25
+    },
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 7841,
+     "estab": 183,
+     "lq": 2.13
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 61414,
+     "estab": 812,
+     "lq": 1.95
+    }
+   ]
+  },
+  "msa:38900": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900",
+   "total_emp": 1111602,
+   "top": [
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 32071,
+     "estab": 192,
+     "lq": 4.95
+    },
+    {
+     "code": "236",
+     "label": "Construction of buildings",
+     "emp": 20359,
+     "estab": 3228,
+     "lq": 1.58
+    },
+    {
+     "code": "453",
+     "label": "Miscellaneous store retailers",
+     "emp": 9570,
+     "estab": 1052,
+     "lq": 1.45
+    }
+   ]
+  },
+  "msa:39580": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580",
+   "total_emp": 617511,
+   "top": [
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 13294,
+     "estab": 221,
+     "lq": 2.38
+    },
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 6014,
+     "estab": 120,
+     "lq": 2.16
+    },
+    {
+     "code": "325",
+     "label": "Chemical manufacturing",
+     "emp": 7477,
+     "estab": 37,
+     "lq": 1.86
+    }
+   ]
+  },
+  "msa:40060": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40060",
+   "total_emp": 575588,
+   "top": [
+    {
+     "code": "521",
+     "label": "Monetary authorities - central bank",
+     "emp": 3016,
+     "estab": 5,
+     "lq": 33.29
+    },
+    {
+     "code": "312",
+     "label": "Beverage and tobacco product manufacturing",
+     "emp": 2969,
+     "estab": 51,
+     "lq": 2.48
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 28362,
+     "estab": 632,
+     "lq": 2.33
+    }
+   ]
+  },
+  "msa:40900": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900",
+   "total_emp": 825511,
+   "top": [
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 19250,
+     "estab": 126,
+     "lq": 1.98
+    },
+    {
+     "code": "236",
+     "label": "Construction of buildings",
+     "emp": 17111,
+     "estab": 2003,
+     "lq": 1.79
+    },
+    {
+     "code": "713",
+     "label": "Amusement, gambling, and recreation industries",
+     "emp": 16664,
+     "estab": 621,
+     "lq": 1.57
+    }
+   ]
+  },
+  "msa:41180": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180",
+   "total_emp": 1263674,
+   "top": [
+    {
+     "code": "425",
+     "label": "Wholesale electronic markets and agents and brokers",
+     "emp": 6368,
+     "estab": 383,
+     "lq": 2.89
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 61187,
+     "estab": 924,
+     "lq": 1.72
+    },
+    {
+     "code": "517",
+     "label": "Telecommunications",
+     "emp": 13818,
+     "estab": 534,
+     "lq": 1.68
+    }
+   ]
+  },
+  "msa:41620": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620",
+   "total_emp": 707823,
+   "top": [
+    {
+     "code": "339",
+     "label": "Miscellaneous manufacturing",
+     "emp": 12724,
+     "estab": 186,
+     "lq": 4.51
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 10517,
+     "estab": 21,
+     "lq": 3.62
+    },
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 14020,
+     "estab": 609,
+     "lq": 2.5
+    }
+   ]
+  },
+  "msa:41700": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700",
+   "total_emp": 980355,
+   "top": [
+    {
+     "code": "213",
+     "label": "Support activities for mining",
+     "emp": 6783,
+     "estab": 198,
+     "lq": 3.36
+    },
+    {
+     "code": "237",
+     "label": "Heavy and civil engineering construction",
+     "emp": 22108,
+     "estab": 326,
+     "lq": 3.0
+    },
+    {
+     "code": "493",
+     "label": "Warehousing and storage",
+     "emp": 22686,
+     "estab": 133,
+     "lq": 1.96
+    }
+   ]
+  },
+  "msa:41740": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41740",
+   "total_emp": 1391721,
+   "top": [
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 21812,
+     "estab": 304,
+     "lq": 2.69
+    },
+    {
+     "code": "721",
+     "label": "Accommodation",
+     "emp": 37100,
+     "estab": 619,
+     "lq": 1.9
+    },
+    {
+     "code": "541",
+     "label": "Professional, scientific, and technical services",
+     "emp": 178885,
+     "estab": 16216,
+     "lq": 1.73
+    }
+   ]
+  },
+  "msa:41860": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860",
+   "total_emp": 2417363,
+   "top": [
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 97780,
+     "estab": 478,
+     "lq": 13.82
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 116278,
+     "estab": 1758,
+     "lq": 5.33
+    },
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 57459,
+     "estab": 744,
+     "lq": 5.28
+    }
+   ]
+  },
+  "msa:42660": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660",
+   "total_emp": 1884361,
+   "top": [
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 96547,
+     "estab": 815,
+     "lq": 5.68
+    },
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 75001,
+     "estab": 194,
+     "lq": 3.31
+    },
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 15315,
+     "estab": 268,
+     "lq": 2.78
+    }
+   ]
+  },
+  "msa:45300": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300",
+   "total_emp": 1288208,
+   "top": [
+    {
+     "code": "524",
+     "label": "Insurance carriers and related activities",
+     "emp": 58712,
+     "estab": 2675,
+     "lq": 2.15
+    },
+    {
+     "code": "711",
+     "label": "Performing arts, spectator sports, and related industries",
+     "emp": 8829,
+     "estab": 617,
+     "lq": 1.77
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 42677,
+     "estab": 1742,
+     "lq": 1.57
+    }
+   ]
+  },
+  "msa:46140": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140",
+   "total_emp": 402255,
+   "top": [
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 11368,
+     "estab": 131,
+     "lq": 3.64
+    },
+    {
+     "code": "332",
+     "label": "Fabricated metal product manufacturing",
+     "emp": 12938,
+     "estab": 390,
+     "lq": 3.12
+    },
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 2297,
+     "estab": 20,
+     "lq": 2.25
+    }
+   ]
+  },
+  "msa:47900": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900",
+   "total_emp": 2863486,
+   "top": [
+    {
+     "code": "541",
+     "label": "Professional, scientific, and technical services",
+     "emp": 633277,
+     "estab": 34327,
+     "lq": 2.97
+    },
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 36988,
+     "estab": 717,
+     "lq": 2.87
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 39622,
+     "estab": 880,
+     "lq": 1.53
+    }
+   ]
+  },
+  "state:04": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04",
+   "total_emp": 2890429,
+   "top": [
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 41985,
+     "estab": 2078,
+     "lq": 1.83
+    },
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 92896,
+     "estab": 3407,
+     "lq": 1.52
+    },
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 24337,
+     "estab": 245,
+     "lq": 1.44
+    }
+   ]
+  },
+  "state:05": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05",
+   "total_emp": 1120356,
+   "top": [
+    {
+     "code": "311",
+     "label": "Food manufacturing",
+     "emp": 47987,
+     "estab": 269,
+     "lq": 3.51
+    },
+    {
+     "code": "322",
+     "label": "Paper manufacturing",
+     "emp": 8789,
+     "estab": 52,
+     "lq": 3.12
+    },
+    {
+     "code": "321",
+     "label": "Wood product manufacturing",
+     "emp": 10412,
+     "estab": 274,
+     "lq": 3.01
+    }
+   ]
+  },
+  "state:06": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06",
+   "total_emp": 16405436,
+   "top": [
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 182253,
+     "estab": 2202,
+     "lq": 3.8
+    },
+    {
+     "code": "512",
+     "label": "Motion picture and sound recording industries",
+     "emp": 145162,
+     "estab": 10496,
+     "lq": 3.72
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 318535,
+     "estab": 5344,
+     "lq": 2.15
+    }
+   ]
+  },
+  "state:08": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08",
+   "total_emp": 2566040,
+   "top": [
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 26174,
+     "estab": 109,
+     "lq": 2.49
+    },
+    {
+     "code": "517",
+     "label": "Telecommunications",
+     "emp": 39030,
+     "estab": 1315,
+     "lq": 2.33
+    },
+    {
+     "code": "237",
+     "label": "Heavy and civil engineering construction",
+     "emp": 36242,
+     "estab": 933,
+     "lq": 1.88
+    }
+   ]
+  },
+  "state:09": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09",
+   "total_emp": 1536698,
+   "top": [
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 14101,
+     "estab": 337,
+     "lq": 2.8
+    },
+    {
+     "code": "515",
+     "label": "Broadcasting (except internet)",
+     "emp": 7774,
+     "estab": 108,
+     "lq": 2.7
+    },
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 46823,
+     "estab": 146,
+     "lq": 2.53
+    }
+   ]
+  },
+  "state:10": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10",
+   "total_emp": 457635,
+   "top": [
+    {
+     "code": "522",
+     "label": "Credit intermediation and related activities",
+     "emp": 33039,
+     "estab": 738,
+     "lq": 3.42
+    },
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 9710,
+     "estab": 447,
+     "lq": 2.68
+    },
+    {
+     "code": "325",
+     "label": "Chemical manufacturing",
+     "emp": 6778,
+     "estab": 76,
+     "lq": 2.27
+    }
+   ]
+  },
+  "state:12": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12",
+   "total_emp": 9988508,
+   "top": [
+    {
+     "code": "561",
+     "label": "Administrative and support services",
+     "emp": 2338093,
+     "estab": 40795,
+     "lq": 2.53
+    },
+    {
+     "code": "713",
+     "label": "Amusement, gambling, and recreation industries",
+     "emp": 186974,
+     "estab": 5950,
+     "lq": 1.46
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 54191,
+     "estab": 623,
+     "lq": 1.32
+    }
+   ]
+  },
+  "state:15": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15",
+   "total_emp": 520043,
+   "top": [
+    {
+     "code": "487",
+     "label": "Scenic and sightseeing transportation",
+     "emp": 4189,
+     "estab": 247,
+     "lq": 41.52
+    },
+    {
+     "code": "721",
+     "label": "Accommodation",
+     "emp": 34801,
+     "estab": 341,
+     "lq": 4.77
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 9457,
+     "estab": 58,
+     "lq": 4.43
+    }
+   ]
+  },
+  "state:18": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18",
+   "total_emp": 2924989,
+   "top": [
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 38300,
+     "estab": 190,
+     "lq": 5.16
+    },
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 144469,
+     "estab": 626,
+     "lq": 4.1
+    },
+    {
+     "code": "337",
+     "label": "Furniture and related product manufacturing",
+     "emp": 22330,
+     "estab": 485,
+     "lq": 3.0
+    }
+   ]
+  },
+  "state:24": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:24",
+   "total_emp": 2468367,
+   "top": [
+    {
+     "code": "541",
+     "label": "Professional, scientific, and technical services",
+     "emp": 301509,
+     "estab": 21699,
+     "lq": 1.64
+    },
+    {
+     "code": "238",
+     "label": "Specialty trade contractors",
+     "emp": 118543,
+     "estab": 9065,
+     "lq": 1.35
+    }
+   ]
+  },
+  "state:26": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:26",
+   "total_emp": 4041074,
+   "top": [
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 180036,
+     "estab": 951,
+     "lq": 3.7
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 71564,
+     "estab": 1913,
+     "lq": 2.28
+    },
+    {
+     "code": "326",
+     "label": "Plastics and rubber products manufacturing",
+     "emp": 52263,
+     "estab": 598,
+     "lq": 2.22
+    }
+   ]
+  },
+  "state:27": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27",
+   "total_emp": 2803410,
+   "top": [
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 40444,
+     "estab": 293,
+     "lq": 2.47
+    },
+    {
+     "code": "339",
+     "label": "Miscellaneous manufacturing",
+     "emp": 27512,
+     "estab": 667,
+     "lq": 2.46
+    },
+    {
+     "code": "323",
+     "label": "Printing and related support activities",
+     "emp": 18788,
+     "estab": 550,
+     "lq": 2.43
+    }
+   ]
+  },
+  "state:34": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34",
+   "total_emp": 3945019,
+   "top": [
+    {
+     "code": "424",
+     "label": "Merchant wholesalers, nondurable goods",
+     "emp": 133210,
+     "estab": 4917,
+     "lq": 2.0
+    },
+    {
+     "code": "454",
+     "label": "Nonstore retailers",
+     "emp": 57566,
+     "estab": 2544,
+     "lq": 1.84
+    },
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 23539,
+     "estab": 957,
+     "lq": 1.82
+    }
+   ]
+  },
+  "state:36": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36",
+   "total_emp": 8767091,
+   "top": [
+    {
+     "code": "515",
+     "label": "Broadcasting (except internet)",
+     "emp": 59473,
+     "estab": 447,
+     "lq": 3.62
+    },
+    {
+     "code": "523",
+     "label": "Securities, commodity contracts, and other financial investments and related activities",
+     "emp": 192522,
+     "estab": 7483,
+     "lq": 2.95
+    },
+    {
+     "code": "519",
+     "label": "Other information services",
+     "emp": 65487,
+     "estab": 1439,
+     "lq": 2.55
+    }
+   ]
+  },
+  "state:37": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37",
+   "total_emp": 4279425,
+   "top": [
+    {
+     "code": "313",
+     "label": "Textile mills",
+     "emp": 23872,
+     "estab": 265,
+     "lq": 9.78
+    },
+    {
+     "code": "337",
+     "label": "Furniture and related product manufacturing",
+     "emp": 30962,
+     "estab": 682,
+     "lq": 2.85
+    },
+    {
+     "code": "321",
+     "label": "Wood product manufacturing",
+     "emp": 22989,
+     "estab": 558,
+     "lq": 1.74
+    }
+   ]
+  },
+  "state:39": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39",
+   "total_emp": 5081279,
+   "top": [
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 35162,
+     "estab": 329,
+     "lq": 2.73
+    },
+    {
+     "code": "326",
+     "label": "Plastics and rubber products manufacturing",
+     "emp": 67100,
+     "estab": 827,
+     "lq": 2.26
+    },
+    {
+     "code": "333",
+     "label": "Machinery manufacturing",
+     "emp": 77790,
+     "estab": 1369,
+     "lq": 1.97
+    }
+   ]
+  },
+  "state:42": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:42",
+   "total_emp": 5713846,
+   "top": [
+    {
+     "code": "331",
+     "label": "Primary metal manufacturing",
+     "emp": 32639,
+     "estab": 307,
+     "lq": 2.25
+    },
+    {
+     "code": "485",
+     "label": "Transit and ground passenger transportation",
+     "emp": 34443,
+     "estab": 1062,
+     "lq": 1.84
+    },
+    {
+     "code": "611",
+     "label": "Educational services",
+     "emp": 270201,
+     "estab": 4194,
+     "lq": 1.68
+    }
+   ]
+  },
+  "state:45": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45",
+   "total_emp": 2067143,
+   "top": [
+    {
+     "code": "313",
+     "label": "Textile mills",
+     "emp": 11455,
+     "estab": 121,
+     "lq": 9.71
+    },
+    {
+     "code": "335",
+     "label": "Electrical equipment, appliance, and component manufacturing",
+     "emp": 14191,
+     "estab": 90,
+     "lq": 2.6
+    },
+    {
+     "code": "336",
+     "label": "Transportation equipment manufacturing",
+     "emp": 55405,
+     "estab": 205,
+     "lq": 2.23
+    }
+   ]
+  },
+  "state:48": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48",
+   "total_emp": 12012629,
+   "top": [
+    {
+     "code": "213",
+     "label": "Support activities for mining",
+     "emp": 145078,
+     "estab": 4682,
+     "lq": 5.86
+    },
+    {
+     "code": "237",
+     "label": "Heavy and civil engineering construction",
+     "emp": 178438,
+     "estab": 4468,
+     "lq": 1.98
+    },
+    {
+     "code": "481",
+     "label": "Air transportation",
+     "emp": 74332,
+     "estab": 438,
+     "lq": 1.51
+    }
+   ]
+  },
+  "state:49": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49",
+   "total_emp": 1579974,
+   "top": [
+    {
+     "code": "339",
+     "label": "Miscellaneous manufacturing",
+     "emp": 17450,
+     "estab": 432,
+     "lq": 2.77
+    },
+    {
+     "code": "511",
+     "label": "Publishing industries (except internet)",
+     "emp": 32220,
+     "estab": 567,
+     "lq": 2.26
+    },
+    {
+     "code": "337",
+     "label": "Furniture and related product manufacturing",
+     "emp": 8048,
+     "estab": 290,
+     "lq": 2.0
+    }
+   ]
+  },
+  "state:50": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50",
+   "total_emp": 256460,
+   "top": [
+    {
+     "code": "721",
+     "label": "Accommodation",
+     "emp": 12227,
+     "estab": 418,
+     "lq": 3.4
+    },
+    {
+     "code": "334",
+     "label": "Computer and electronic product manufacturing",
+     "emp": 3830,
+     "estab": 28,
+     "lq": 2.56
+    },
+    {
+     "code": "312",
+     "label": "Beverage and tobacco product manufacturing",
+     "emp": 1350,
+     "estab": 87,
+     "lq": 2.53
+    }
+   ]
+  },
+  "state:51": {
+   "query": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51",
+   "total_emp": 3581650,
+   "top": [
+    {
+     "code": "518",
+     "label": "Data processing, hosting, and related services",
+     "emp": 33404,
+     "estab": 641,
+     "lq": 2.07
+    },
+    {
+     "code": "541",
+     "label": "Professional, scientific, and technical services",
+     "emp": 536441,
+     "estab": 32231,
+     "lq": 2.01
+    }
+   ]
+  }
+ }
+}

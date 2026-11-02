@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "washington-dc",
  "seo": {
-  "title": "Web Design Washington, DC: Custom Websites | OneAlgorithm",
+  "title": "Web Design Washington, DC: Custom Websites | One Algorithm",
   "description": "Web design for Washington, DC businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-washington-dc.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Professional, scientific and technical services employs 2.97 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Firms that sell expertise need case pages, credentials and an enquiry form that routes to the right person.",
+   "cards": [
+    {
+     "h3": "Professional, scientific and technical services",
+     "line": "633,277 paid employees in 34,327 establishments, 2.97 times the US share. Firms that sell expertise need case pages, credentials and an enquiry form that routes to the right person."
+    },
+    {
+     "h3": "Data processing and hosting",
+     "line": "36,988 paid employees in 717 establishments, 2.87 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    },
+    {
+     "h3": "Publishing",
+     "line": "39,622 paid employees in 880 establishments, 1.53 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Washington, DC businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,110, 38th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "DC's Basic Business License and its corporate filings both sit with DLCP.",
+   "leadIn": "Why it matters:",
+   "lead": "In DC the license and the corporate record both sit with DLCP, and the breach rule reaches the Attorney General at a low threshold.",
+   "cards": [
+    {
+     "h3": "A Basic Business License",
+     "line": "DLCP issues the Basic Business License; consultants paid for their services file under the General Business category, and licenses run for two or four years."
+    },
+    {
+     "h3": "Breach notice under D.C. Code § 28-3852",
+     "line": "Affected DC residents must be told promptly, and the Attorney General's office too when a breach reaches 50 or more residents."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business licensing FAQs” and “Notification of a security breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "DC Department of Licensing and Consumer Protection",
+     "what": "Business licensing FAQs",
+     "read": "read 1 November 2026",
+     "page": "https://dlcp.dc.gov/page/business-licensing-faqs"
+    },
+    {
+     "name": "Council of the District of Columbia, D.C. Code § 28-3852",
+     "what": "Notification of a security breach",
+     "read": "read 1 November 2026",
+     "page": "https://code.dccouncil.gov/us/dc/council/code/sections/28-3852"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -814,16 +894,19 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: rank of per511 among the 64 place pages",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: information establishments 2023 minus 2018",
   "16": "derived: finance and insurance employees per establishment, 2023",
   "18": "derived: NAICS 541511 paid employees per establishment, 2023",
   "20": "derived: rank of estab among the 64 place pages",
   "23": "Semrush keyword difficulty, \"web design washington dc\"",
   "25": "derived: manufacturing employees per establishment, 2023",
+  "28": "Council of the District of Columbia, D.C. Code § 28-3852: https://code.dccouncil.gov/us/dc/council/code/sections/28-3852",
   "38": "page-map-webdev.json national_ranking rank",
   "43": "derived: rank of estabChg among the 64 place pages",
   "47": "derived: rank of popChg among the 64 place pages",
   "49": "derived: rank of u20 among the 64 place pages",
+  "50": "Council of the District of Columbia, D.C. Code § 28-3852: https://code.dccouncil.gov/us/dc/council/code/sections/28-3852",
   "58": "derived: manufacturing establishments 2023 minus 2018",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "110": "Semrush US exact volume, \"website development washington dc\", pulled 2026-10-24 13:05-13:15 ET",
@@ -840,9 +923,12 @@ export const PLACE: LocalPlace = {
   "497": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "532": "derived: accommodation and food services establishments 2023 minus 2018",
   "663": "derived: retail trade establishments 2023 minus 2018",
+  "717": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
   "720": "Semrush US exact volume, \"web design washington dc\", pulled 2026-10-24 13:05-13:15 ET",
   "733": "derived: real estate, rental and leasing establishments 2023 minus 2018",
+  "880": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
   "927": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "3852": "Council of the District of Columbia, D.C. Code § 28-3852: https://code.dccouncil.gov/us/dc/council/code/sections/28-3852",
   "2,734,972": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "4.7": "derived: change in paid employees 2018-2023, percent",
   "15,724": "Census County Business Patterns 2023, establishments with 20-49 employees, 2023",
@@ -895,8 +981,8 @@ export const PLACE: LocalPlace = {
   "8,087": "Census County Business Patterns 2018, establishments, naics 53 real estate and rental and leasing, 2018",
   "6.6": "derived: real estate, rental and leasing employees per establishment, 2023",
   "9.1": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
-  "633,277": "Census County Business Patterns 2023, paid employees, naics 54 professional, scientific and technical services, 2023",
-  "34,327": "Census County Business Patterns 2023, establishments, naics 54 professional, scientific and technical services, 2023",
+  "633,277": "Census CBP 2023, NAICS 541 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
+  "34,327": "Census CBP 2023, NAICS 541 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
   "33,400": "Census County Business Patterns 2018, establishments, naics 54 professional, scientific and technical services, 2018",
   "18.4": "derived: professional, scientific and technical services employees per establishment, 2023",
   "2.8": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
@@ -944,7 +1030,14 @@ export const PLACE: LocalPlace = {
   "54.3": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "2.97": "derived: NAICS 541 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "36,988": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
+  "2.87": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "39,622": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:47900)",
+  "1.53": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

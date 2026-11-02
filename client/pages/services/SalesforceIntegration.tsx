@@ -31,7 +31,7 @@ import {
 const PAGE_PATH = "/services/salesforce-integration";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Salesforce Integration Services: SAP & ERP | OneAlgorithm";
+const TITLE = "Salesforce Integration Services: SAP & ERP | One Algorithm";
 const DESCRIPTION =
   "Salesforce integration services for SAP, ERP and finance systems. Start with a free one-week health check of your integrations. Call (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-sap-sync.jpg";

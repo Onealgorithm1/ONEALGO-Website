@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-colorado"
  },
  "seo": {
-  "title": "Web Design Denver, CO: Custom Websites | OneAlgorithm",
+  "title": "Web Design Denver, CO: Custom Websites | One Algorithm",
   "description": "Web design for Denver businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-denver.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Air transportation employs 4.31 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to airlines and airports sell on certifications, approvals and lead times.",
+   "cards": [
+    {
+     "h3": "Air transportation",
+     "line": "25,091 paid employees in 62 establishments, 4.31 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Telecommunications",
+     "line": "25,541 paid employees in 690 establishments, 2.76 times the US share. Carriers and installers need coverage lookups, plan pages and a sign-up that works on a phone."
+    },
+    {
+     "h3": "Heavy and civil construction",
+     "line": "20,712 paid employees in 398 establishments, 1.94 times the US share. Civil contractors are hired on past projects, bonding and prequalification, which a site can show in one place."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Denver businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,540, 9th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Denver licenses by business type and taxes work done in the city, and the Colorado Privacy Act shapes the site.",
+   "leadIn": "Why it matters:",
+   "lead": "Colorado's privacy act gives a covered business's site a privacy notice and opt-out requests to honor, both built into the front end.",
+   "cards": [
+    {
+     "h3": "Licenses by type, and the OPT",
+     "line": "Denver issues business licenses by type, a retail sales license to anyone selling taxable items, and registers businesses for the Occupational Privilege Tax when people work in the city."
+    },
+    {
+     "h3": "Breach notice under C.R.S. § 6-1-716",
+     "line": "The Attorney General's guidance sets the most expedient time possible, with a firm outer limit from the date a breach is determined."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business tax FAQ” and “Data protection laws”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City and County of Denver, Treasury",
+     "what": "Business tax FAQ",
+     "read": "read 1 November 2026",
+     "page": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Finance/Our-Divisions/Treasury/Business-Tax-Information/Business-Tax-FAQ"
+    },
+    {
+     "name": "Colorado Attorney General",
+     "what": "Data protection laws",
+     "read": "read 1 November 2026",
+     "page": "https://coag.gov/resources/data-protection-laws/"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,17 +898,20 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "6": "derived: construction establishments change 2018-2023, percent",
+  "1": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
+  "6": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
   "8": "derived: information establishments 2023 minus 2018",
   "9": "page-map-webdev.json national_ranking rank",
   "10": "derived: retail trade establishments 2023 minus 2018",
   "11": "derived: rank of per511 among the 64 place pages",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: rank of u20 among the 64 place pages",
   "30": "derived: rank of estabChg among the 64 place pages",
   "33": "derived: rank of estab among the 64 place pages",
   "45": "derived: rank of popChg among the 64 place pages",
   "46": "Semrush keyword difficulty, \"web design denver\"",
   "52": "derived: finance and insurance establishments 2023 minus 2018",
+  "62": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "derived: administrative and support services establishments 2023 minus 2018",
   "81": "derived: manufacturing establishments 2023 minus 2018",
@@ -843,9 +926,12 @@ export const PLACE: LocalPlace = {
   "307": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "308": "derived: wholesale trade establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design company denver\", pulled 2026-10-24 13:05-13:15 ET",
+  "398": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
   "521": "derived: construction establishments 2023 minus 2018",
   "590": "Semrush US exact volume, \"website development denver\", pulled 2026-10-24 13:05-13:15 ET",
   "595": "derived: accommodation and food services establishments 2023 minus 2018",
+  "690": "Census CBP 2023, NAICS 517 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
+  "716": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
   "824": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "909": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "1,315,258": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -951,7 +1037,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "25,091": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
+  "4.31": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "25,541": "Census CBP 2023, NAICS 517 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
+  "2.76": "derived: NAICS 517 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "20,712": "Census CBP 2023, NAICS 237 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19740)",
+  "1.94": "derived: NAICS 237 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

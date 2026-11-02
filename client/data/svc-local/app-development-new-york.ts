@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for New York"
  },
  "seo": {
-  "title": "App Development New York, NY: Custom Software | OneAlgorithm",
+  "title": "App Development New York: Custom Software | One Algorithm",
   "description": "App development for New York businesses: written scope, browser-reviewed design, tested code you own. Remote from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-new-york.jpg"

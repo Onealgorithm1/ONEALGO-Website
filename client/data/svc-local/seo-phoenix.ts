@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Phoenix"
  },
  "seo": {
-  "title": "SEO Phoenix, AZ: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Phoenix, AZ | One Algorithm",
   "description": "SEO for Phoenix businesses across the Valley: audits, pages planned from real searches, monthly Search Console reports. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-phoenix.jpg"

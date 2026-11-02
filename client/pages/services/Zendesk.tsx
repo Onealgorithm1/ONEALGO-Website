@@ -23,7 +23,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PATH = "/services/zendesk";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "Zendesk implementation with Salesforce | OneAlgorithm";
+const TITLE = "Zendesk implementation with Salesforce | One Algorithm";
 const DESCRIPTION = "Zendesk implementation, migration and integration with Salesforce. Zendesk partner agreement signed 2026. Call (610) 890-9711.";
 
 const SOURCES: SfSource[] = [
@@ -53,7 +53,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Is Zendesk a CRM?", a: "Not by itself. Zendesk handles support: tickets, queues, macros and a help center. The CRM role, with accounts, opportunities and pipeline, belongs to Salesforce or a similar system. Many teams run both and connect them, so an agent sees the account and a rep sees the open tickets.", link: { to: "#vs-h", label: "Zendesk or Salesforce Service Cloud?" } },
   { q: "Can Zendesk work with Microsoft 365?", a: "In principle, yes, through integrations. Shared mailboxes can route into Zendesk, and side conversations can go out to Outlook and Teams for people who are not agents. We scope it per tenant, because mailbox rules and permissions differ, and test it in a sandbox first." },
   { q: "How much does Zendesk cost?", a: "Zendesk sets and publishes its own plan prices, so check zendesk.com for the current plans. Our implementation work is scoped separately, in writing, once we know your channels, groups, automations and integrations. We publish no rate card, and we do not resell Zendesk plans." },
-  { q: "What do you need from us to start?", a: "Four things: your ticket volume, the channels you answer on, the help desk you use today and the systems that must connect. A paragraph is enough to begin. We come back with questions and a view of what we would change first.", link: { to: "/contact?need=enterprise", label: "Talk to a consultant" } },
+  { q: "What do you need from us to start?", a: "Four things: your ticket volume, the channels you answer on, the help desk you use today and the systems that must connect. A paragraph is enough to begin. We come back with questions and a view of what we would change first.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
   { q: "How do I choose a Zendesk consultant?", a: "Ask for named references, a written scope, the name of the person who does the work and who owns the configuration afterwards. Ask what the consultant has and has not done. We have a partner agreement and no past Zendesk client to cite, and we say so.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
 ];
 

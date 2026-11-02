@@ -29,7 +29,7 @@ import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 const PATH = "/services/google-ads";
 const URL_ = "https://onealgorithm.com/services/google-ads";
-const TITLE = "Google Ads Management Services You Can Audit | OneAlgorithm";
+const TITLE = "Google Ads Management Services You Can Audit | One Algorithm";
 const DESCRIPTION = "Google Ads management services: tracking counted once, negatives first, the account in your name. No guarantees. Request an audit: (610) 890-9711.";
 const CONTACT = contactHref("Google Ads audit", PATH, "google-ads");
 
@@ -104,7 +104,7 @@ export default function GoogleAds() {
           {
             providerId: "https://onealgorithm.com/#org",
             areaServed: { "@type": "Country", name: "United States" },
-            offers: { "@type": "Offer", name: "Google Ads audit", url: "https://onealgorithm.com/contact?need=google-ads" },
+            offers: { "@type": "Offer", name: "Google Ads audit", url: "https://onealgorithm.com/contact#need=google-ads" },
             catalog: { name: "Google Ads management", urls: ["https://onealgorithm.com/services/google-ads-philadelphia"] },
           },
         )}

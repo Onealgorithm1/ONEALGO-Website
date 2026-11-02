@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Nashville"
  },
  "seo": {
-  "title": "Google Ads Agency Nashville, TN | OneAlgorithm",
+  "title": "Google Ads Agency Nashville, TN | One Algorithm",
   "description": "Google Ads management for Nashville, TN: tracking set up before spend, data-led keywords and landing pages, run remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-nashville.jpg"

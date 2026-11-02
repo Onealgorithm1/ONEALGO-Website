@@ -74,7 +74,7 @@ export const SMALL_BUSINESS: ServicePageData = {
   path: LINKS.small,
   name: "Small business",
   seo: {
-    title: "Small Business Website Design & Development | OneAlgorithm",
+    title: "Small Business Website Design & Development | One Algorithm",
     description: "Small business website design from Malvern, PA for US businesses: be found, explain the service, turn visits into calls. Written scope: (610) 890-9711.",
     dateModified: "2026-10-24",
     ogAlt: "Three small business websites built by OneAlgorithm, framed as windows on a night-blue ground: a home inspector, a tutoring practice and an excavation contractor.",

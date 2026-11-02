@@ -54,7 +54,7 @@ const NotFound = () => {
   // page's description, canonical and social tags in place, so a mistyped URL
   // could be indexed wearing the homepage's metadata.
   useSEO({
-    title: "Page not found | OneAlgorithm",
+    title: "Page not found | One Algorithm",
     description: "This page could not be found.",
     noindex: true,
   });

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Atlanta"
  },
  "seo": {
-  "title": "Digital Marketing Agency Atlanta, GA | OneAlgorithm",
+  "title": "Digital Marketing Agency Atlanta, GA | One Algorithm",
   "description": "Digital marketing for Atlanta firms: message, website, SEO, email and automation in the right order. Call (610) 890-9711 and tell us your goal.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-atlanta.jpg"

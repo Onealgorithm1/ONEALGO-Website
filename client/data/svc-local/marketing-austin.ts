@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-texas"
  },
  "seo": {
-  "title": "Digital Marketing Agency Austin, TX | OneAlgorithm",
+  "title": "Digital Marketing Agency Austin, TX | One Algorithm",
   "description": "Digital marketing for Austin small businesses: message, website, search, email and automation from one remote team. Call (610) 890-9711 to plan yours.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-austin.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Boston"
  },
  "seo": {
-  "title": "Digital Marketing Agency Boston, MA | OneAlgorithm",
+  "title": "Digital Marketing Agency Boston, MA | One Algorithm",
   "description": "Digital marketing for Boston companies: website, content, social and automation, delivered remotely. Call (610) 890-9711 and ask for a plan.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-boston.jpg"

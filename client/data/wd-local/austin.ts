@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-texas"
  },
  "seo": {
-  "title": "Web Design Austin, TX: Custom Websites | OneAlgorithm",
+  "title": "Web Design Austin, TX: Custom Websites | One Algorithm",
   "description": "Web design for Austin businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-austin.jpg"
  },
  "hero": {
@@ -412,7 +412,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Austin business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Austin business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -494,6 +494,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 503,961 people, 48.4% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Other information services employs 4.28 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online platforms and search businesses live on page speed and sign-up flows that work.",
+   "cards": [
+    {
+     "h3": "Other information services",
+     "line": "13,043 paid employees in 232 establishments, 4.28 times the US share. Online platforms and search businesses live on page speed and sign-up flows that work."
+    },
+    {
+     "h3": "Publishing",
+     "line": "32,078 paid employees in 571 establishments, 3.41 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Data processing and hosting",
+     "line": "9,606 paid employees in 291 establishments, 2.05 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -655,9 +697,47 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Permits here follow the business type, and the Texas Comptroller treats web page creation as data processing.",
+   "leadIn": "Why it matters:",
+   "lead": "In Texas the state's own tax guidance names web pages as data processing, so the proposal should separate design, build and hosting.",
+   "cards": [
+    {
+     "h3": "Permits by business type",
+     "line": "The city notes that Texas requires no general business license, while most businesses there still need permits or licenses tied to their type and location."
+    },
+    {
+     "h3": "Web pages as data processing",
+     "line": "Comptroller Publication 94-127 lists creating a web page and providing server space as taxable data processing, so Texas build invoices carry a sales tax question."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Start a business” and “Data processing services”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Austin Economic Development",
+     "what": "Start a business",
+     "read": "read 1 November 2026",
+     "page": "https://www.austintexas.gov/economic-development/projects/start-business"
+    },
+    {
+     "name": "Texas Comptroller, Publication 94-127",
+     "what": "Data processing services",
+     "read": "read 1 November 2026",
+     "page": "https://comptroller.texas.gov/taxes/publications/94-127.php"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Austin web project runs",
+   "h2": "How an Austin web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -696,7 +776,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Austin business hire a remote web design team?",
+     "q": "Can an Austin business hire a remote web design team?",
      "a": "Yes. We take on website work for Austin businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Central hours, the clock the metro's 66,280 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -728,7 +808,7 @@ export const PLACE: LocalPlace = {
      }
     },
     {
-     "q": "Should a Austin business hire a freelancer or a web design firm?",
+     "q": "Should an Austin business hire a freelancer or a web design firm?",
      "a": "Either can work; what matters is live sites you can open, who owns the code and a written scope. The metro had 1,461 custom programming and 198 graphic design establishments in 2023, and a firm keeps the work moving when one person is away.",
      "from": "suggest-places: freelance web designer austin",
      "link": {
@@ -825,25 +905,31 @@ export const PLACE: LocalPlace = {
   "1": "derived: rank of estabChg among the 64 place pages",
   "4": "derived: rank of per511 among the 64 place pages",
   "11": "page-map-webdev.json national_ranking rank",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: health care and social assistance employees per establishment, 2023",
   "26": "derived: rank of u20 among the 64 place pages",
   "42": "derived: rank of estab among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush keyword difficulty, \"web design austin\"",
   "71": "derived: wholesale trade establishments 2023 minus 2018",
+  "94": "Texas Comptroller, Publication 94-127: https://comptroller.texas.gov/taxes/publications/94-127.php",
+  "127": "Texas Comptroller, Publication 94-127: https://comptroller.texas.gov/taxes/publications/94-127.php",
   "134": "page-map-webdev.json national_ranking length",
   "148": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "167": "derived: manufacturing establishments 2023 minus 2018",
   "198": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "208": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "228": "derived: finance and insurance establishments 2023 minus 2018",
+  "232": "Census CBP 2023, NAICS 519 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
   "251": "derived: educational services establishments 2023 minus 2018",
   "259": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "260": "Semrush US exact volume, \"website development austin\", pulled 2026-10-24 13:05-13:15 ET",
+  "291": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
   "320": "Semrush US exact volume, \"web developer austin\", pulled 2026-10-24 13:05-13:15 ET",
   "428": "derived: information establishments 2023 minus 2018",
   "453": "derived: retail trade establishments 2023 minus 2018",
   "480": "Semrush US exact volume, \"web design company austin\", pulled 2026-10-24 13:05-13:15 ET",
+  "571": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
   "708": "derived: administrative and support services establishments 2023 minus 2018",
   "798": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "875": "derived: accommodation and food services establishments 2023 minus 2018",
@@ -955,7 +1041,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "13,043": "Census CBP 2023, NAICS 519 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
+  "4.28": "derived: NAICS 519 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "32,078": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
+  "3.41": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "9,606": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12420)",
+  "2.05": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

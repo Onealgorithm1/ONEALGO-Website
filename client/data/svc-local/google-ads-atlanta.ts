@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Atlanta"
  },
  "seo": {
-  "title": "Google Ads Agency Atlanta, GA | OneAlgorithm",
+  "title": "Google Ads Agency Atlanta, GA | One Algorithm",
   "description": "Google Ads management for Atlanta: conversion tracking, search terms from data and plain monthly reports. Call (610) 890-9711 to plan your account.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-atlanta.jpg"

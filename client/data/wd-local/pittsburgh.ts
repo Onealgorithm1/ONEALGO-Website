@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-pennsylvania"
  },
  "seo": {
-  "title": "Web Design Pittsburgh, PA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Pittsburgh, PA: Custom Websites | One Algorithm",
   "description": "Web design for Pittsburgh businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-pittsburgh.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Primary metal manufacturing employs 4.25 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills and foundries sell on grades, certifications and capacity, which buyers check before they call.",
+   "cards": [
+    {
+     "h3": "Primary metal manufacturing",
+     "line": "12,109 paid employees in 95 establishments, 4.25 times the US share. Mills and foundries sell on grades, certifications and capacity, which buyers check before they call."
+    },
+    {
+     "h3": "Transit and ground passenger transport",
+     "line": "7,841 paid employees in 183 establishments, 2.13 times the US share. Charter and shuttle firms need online booking, fleet pages and quotes for groups."
+    },
+    {
+     "h3": "Educational services",
+     "line": "61,414 paid employees in 812 establishments, 1.95 times the US share. Schools and trainers need course pages, enrolment forms and a calendar people trust."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Pittsburgh businesses search for",
@@ -653,6 +695,51 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 660, 58th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Pittsburgh registers anyone who works in the city, and Pennsylvania now asks every entity for a yearly report.",
+   "leadIn": "Why it matters:",
+   "lead": "The state's annual report is new, so an entity record that lapsed since 2025 is worth checking before a site prints the legal name.",
+   "cards": [
+    {
+     "h3": "Register with the City Treasurer",
+     "line": "Anyone with a place of business who performs work in Pittsburgh, even partly and even from outside the city, registers with the Treasurer for a City ID number under Chapter 258."
+    },
+    {
+     "h3": "The 2005 breach notification act",
+     "line": "An entity that keeps computerized personal information must notify affected Pennsylvanians of a breach once it is determined, under the 2005 act as amended in 2022."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The new yearly report: Since 1 January 2025 every Pennsylvania entity files a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7.",
+     "The official pages behind these: “New business registration” and “Breach of Personal Information Notification Act”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Pittsburgh Department of Finance",
+     "what": "New business registration",
+     "read": "read 1 November 2026",
+     "page": "https://www.pittsburghpa.gov/City-Government/Finance-Budget/New-Business-Registration"
+    },
+    {
+     "name": "Pennsylvania General Assembly",
+     "what": "Breach of Personal Information Notification Act",
+     "read": "read 1 November 2026",
+     "page": "https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/2005/0/0094..HTM"
+    },
+    {
+     "name": "Pennsylvania Department of State",
+     "what": "Annual reports",
+     "read": "read 1 November 2026",
+     "page": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,13 +905,17 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "5": "derived: health care and social assistance establishments change 2018-2023, percent",
   "6": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "7": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "11": "derived: retail trade share of paid employees, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: administrative and support services employees per establishment, 2023",
   "18": "derived: finance and insurance employees per establishment, 2023",
   "24": "derived: information establishments 2023 minus 2018",
   "27": "derived: rank of popChg among the 64 place pages",
+  "30": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "40": "derived: rank of estabChg among the 64 place pages",
   "43": "derived: rank of per511 among the 64 place pages",
   "45": "derived: manufacturing establishments 2023 minus 2018",
@@ -836,6 +927,7 @@ export const PLACE: LocalPlace = {
   "71": "derived: educational services establishments 2023 minus 2018",
   "79": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "90": "Semrush US exact volume, \"web developer pittsburgh\", pulled 2026-10-24 13:05-13:15 ET",
+  "95": "Census CBP 2023, NAICS 331 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
   "98": "derived: retail trade establishments 2023 minus 2018",
   "111": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "122": "derived: accommodation and food services establishments 2023 minus 2018",
@@ -844,9 +936,11 @@ export const PLACE: LocalPlace = {
   "156": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "161": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "166": "derived: wholesale trade establishments 2023 minus 2018",
+  "183": "Census CBP 2023, NAICS 485 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
   "204": "derived: administrative and support services establishments 2023 minus 2018",
   "206": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "245": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "258": "City of Pittsburgh Department of Finance: https://www.pittsburghpa.gov/City-Government/Finance-Budget/New-Business-Registration",
   "263": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "384": "derived: construction establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design pittsburgh\", pulled 2026-10-24 13:05-13:15 ET",
@@ -856,8 +950,11 @@ export const PLACE: LocalPlace = {
   "534": "derived: NAICS 541511 + 541430 establishments, 2023",
   "660": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "741": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
-  "812": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
+  "812": "Census CBP 2023, NAICS 611 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
   "865": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
+  "2005": "Pennsylvania General Assembly: https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/2005/0/0094..HTM",
+  "2022": "Pennsylvania General Assembly: https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/2005/0/0094..HTM",
+  "2025": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "1,098,445": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "18.2": "derived: paid employees / establishments, 2023",
   "2.2": "derived: information establishments change 2018-2023, percent",
@@ -915,7 +1012,7 @@ export const PLACE: LocalPlace = {
   "3,219": "Census County Business Patterns 2023, establishments, naics 56 administrative and support services, 2023",
   "3,015": "Census County Business Patterns 2018, establishments, naics 56 administrative and support services, 2018",
   "6.8": "derived: administrative and support services establishments change 2018-2023, percent",
-  "61,414": "Census County Business Patterns 2023, paid employees, naics 61 educational services, 2023",
+  "61,414": "Census CBP 2023, NAICS 611 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
   "75.6": "derived: educational services employees per establishment, 2023",
   "9.6": "derived: educational services establishments change 2018-2023, percent",
   "217,914": "Census County Business Patterns 2023, paid employees, naics 62 health care and social assistance, 2023",
@@ -950,7 +1047,14 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "12,109": "Census CBP 2023, NAICS 331 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
+  "4.25": "derived: NAICS 331 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "7,841": "Census CBP 2023, NAICS 485 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38300)",
+  "2.13": "derived: NAICS 485 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.95": "derived: NAICS 611 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

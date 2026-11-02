@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "boston",
  "seo": {
-  "title": "Web Design Boston, MA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Boston, MA: Custom Websites | One Algorithm",
   "description": "Web design for Boston businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-boston.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Computer and electronic manufacturing employs 2.87 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product.",
+   "cards": [
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "44,866 paid employees in 490 establishments, 2.87 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    },
+    {
+     "h3": "Publishing",
+     "line": "68,261 paid employees in 945 establishments, 2.82 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Educational services",
+     "line": "187,158 paid employees in 2,589 establishments, 2.49 times the US share. Schools and trainers need course pages, enrolment forms and a calendar people trust."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Boston businesses search for",
@@ -651,6 +693,44 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Boston asks for a business certificate whenever the trading name differs from the legal one, which is the name a site shows.",
+   "leadIn": "Why it matters:",
+   "lead": "The Massachusetts breach law reaches anyone holding a resident's personal information, which includes the enquiries a site's forms collect.",
+   "cards": [
+    {
+     "h3": "The Boston Business Certificate",
+     "line": "A business trading in Boston under a name other than its legal name files a Business Certificate with the City Clerk, $65, renewed every four years."
+    },
+    {
+     "h3": "Breach notice under M.G.L. c. 93H",
+     "line": "Anyone holding personal information about a Massachusetts resident must give notice as soon as practicable and without unreasonable delay after a breach."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business certificate” and “Duty to report a breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Boston, Office of the City Clerk",
+     "what": "Business certificate",
+     "read": "read 1 November 2026",
+     "page": "https://www.boston.gov/permitting/permits/business-certificate"
+    },
+    {
+     "name": "Massachusetts Legislature, M.G.L. c. 93H, § 3",
+     "what": "Duty to report a breach",
+     "read": "read 1 November 2026",
+     "page": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93H/Section3"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
    "h2": "How a Boston web project runs",
@@ -808,6 +888,7 @@ export const PLACE: LocalPlace = {
   "1": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "4": "derived: retail trade establishments change 2018-2023, percent",
   "11": "derived: wholesale trade establishments change 2018-2023, percent",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "16": "derived: rank of per511 among the 64 place pages",
   "20": "derived: paid employees / establishments, 2023",
   "23": "derived: wholesale trade employees per establishment, 2023",
@@ -819,6 +900,8 @@ export const PLACE: LocalPlace = {
   "49": "derived: rank of estabChg among the 64 place pages",
   "54": "Semrush keyword difficulty, \"web design boston\"",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "65": "City of Boston, Office of the City Clerk: https://www.boston.gov/permitting/permits/business-certificate",
+  "93": "Massachusetts Legislature, M.G.L. c. 93H, § 3: https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93H/Section3",
   "131": "derived: information establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "149": "derived: educational services establishments 2023 minus 2018",
@@ -833,11 +916,13 @@ export const PLACE: LocalPlace = {
   "391": "derived: finance and insurance establishments 2023 minus 2018",
   "457": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "484": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "490": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
   "555": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "616": "derived: wholesale trade establishments 2023 minus 2018",
   "643": "derived: retail trade establishments 2023 minus 2018",
   "720": "Semrush US exact volume, \"web design boston\", pulled 2026-10-24 13:05-13:15 ET",
   "828": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
+  "945": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
   "2,542,993": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "5.5": "derived: change in paid employees 2018-2023, percent",
   "12,872": "Census County Business Patterns 2023, establishments with 20-49 employees, 2023",
@@ -898,8 +983,8 @@ export const PLACE: LocalPlace = {
   "7,991": "Census County Business Patterns 2018, establishments, naics 56 administrative and support services, 2018",
   "16.1": "derived: administrative and support services employees per establishment, 2023",
   "4.5": "derived: administrative and support services establishments change 2018-2023, percent",
-  "187,158": "Census County Business Patterns 2023, paid employees, naics 61 educational services, 2023",
-  "2,589": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
+  "187,158": "Census CBP 2023, NAICS 611 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
+  "2,589": "Census CBP 2023, NAICS 611 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
   "2,440": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "72.3": "derived: educational services employees per establishment, 2023",
   "6.1": "derived: educational services establishments change 2018-2023, percent",
@@ -940,7 +1025,14 @@ export const PLACE: LocalPlace = {
   "47.4": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "44,866": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
+  "2.87": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "68,261": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:14460)",
+  "2.82": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "2.49": "derived: NAICS 611 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

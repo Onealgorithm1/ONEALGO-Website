@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Detroit"
  },
  "seo": {
-  "title": "Digital Marketing Agency Detroit, MI | OneAlgorithm",
+  "title": "Digital Marketing Agency Detroit, MI | One Algorithm",
   "description": "Marketing for Detroit companies: clear message, website, SEO, content, email and automation, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-detroit.jpg"

@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/app-development-texas"
  },
  "seo": {
-  "title": "App Development Austin, TX: Custom Software | OneAlgorithm",
+  "title": "App Development Austin, TX: Custom Software | One Algorithm",
   "description": "Custom software and app development for Austin businesses: fixed written scope, staging previews, full code ownership. Call (610) 890-9711 to talk.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-austin.jpg"

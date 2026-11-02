@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Texas"
  },
  "seo": {
-  "title": "Digital Marketing Agency Texas | OneAlgorithm",
+  "title": "Digital Marketing Agency Texas | One Algorithm",
   "description": "Digital marketing for Texas companies: one plan for website, search, email, social posting and reviews across every city you serve. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-texas.jpg"

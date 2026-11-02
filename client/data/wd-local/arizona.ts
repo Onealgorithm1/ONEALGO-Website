@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "arizona",
  "seo": {
-  "title": "Web Design Arizona: Custom Websites | OneAlgorithm",
+  "title": "Web Design Arizona: Custom Websites | One Algorithm",
   "description": "Web design for Arizona businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-arizona.jpg"
  },
  "hero": {
@@ -402,7 +402,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Arizona business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Arizona business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -484,6 +484,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 1,422,827 people, 49.2% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nonstore retail employs 1.83 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online and catalogue sellers live on checkout speed, product search and order tracking.",
+   "cards": [
+    {
+     "h3": "Nonstore retail",
+     "line": "41,985 paid employees in 2,078 establishments, 1.83 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Banking and lending",
+     "line": "92,896 paid employees in 3,407 establishments, 1.52 times the US share. Lenders need secure applications, plain disclosures and a short path to a loan officer."
+    },
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "24,337 paid employees in 245 establishments, 1.44 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -639,9 +681,47 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its new portal is where a site's legal name should match.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "The Corporation Commission, not the SOS",
+     "line": "Arizona entities file with the Arizona Corporation Commission, whose Arizona Business Center portal went live on 12 January 2026; LLCs file no annual report there."
+    },
+    {
+     "h3": "Breach notice under A.R.S. § 18-552",
+     "line": "Once an investigation confirms a breach, the business that owns the data has a fixed window in the statute to notify the people affected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business services FAQs and the Arizona Business Center” and “Notification of a security system breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Arizona Corporation Commission",
+     "what": "Business services FAQs and the Arizona Business Center",
+     "read": "read 1 November 2026",
+     "page": "https://azcc.gov/faqs/BusinessServicesFAQs"
+    },
+    {
+     "name": "Arizona State Legislature, A.R.S. § 18-552",
+     "what": "Notification of a security system breach",
+     "read": "read 1 November 2026",
+     "page": "https://www.azleg.gov/ars/18/00552.htm"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Arizona web project runs",
+   "h2": "How an Arizona web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -680,7 +760,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Arizona business hire a remote web design team?",
+     "q": "Can an Arizona business hire a remote web design team?",
      "a": "Yes. We take on website work for Arizona businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Arizona hours, the clock the state's 162,845 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -798,9 +878,10 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "11": "derived: administrative and support services establishments change 2018-2023, percent",
+  "12": "Arizona Corporation Commission: https://azcc.gov/faqs/BusinessServicesFAQs",
   "14": "derived: rank of estabChg among the 64 place pages",
   "15": "derived: health care and social assistance share of paid employees, 2023",
-  "18": "derived: rank of estab among the 64 place pages",
+  "18": "Arizona State Legislature, A.R.S. § 18-552: https://www.azleg.gov/ars/18/00552.htm",
   "29": "derived: rank of u20 among the 64 place pages",
   "32": "derived: rank of popChg among the 64 place pages",
   "38": "Semrush keyword difficulty, \"web design arizona\"",
@@ -812,6 +893,7 @@ export const PLACE: LocalPlace = {
   "90": "Semrush US exact volume, \"website development arizona\", pulled 2026-10-24 13:05-13:15 ET",
   "134": "page-map-webdev.json national_ranking length",
   "210": "Semrush US exact volume, \"web design company arizona\", pulled 2026-10-24 13:05-13:15 ET",
+  "245": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
   "277": "derived: educational services establishments 2023 minus 2018",
   "280": "derived: retail trade establishments 2023 minus 2018",
   "301": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -819,9 +901,11 @@ export const PLACE: LocalPlace = {
   "418": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "468": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "535": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "552": "Arizona State Legislature, A.R.S. § 18-552: https://www.azleg.gov/ars/18/00552.htm",
   "590": "Semrush US exact volume, \"web design arizona\", pulled 2026-10-24 13:05-13:15 ET",
   "890": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "963": "derived: administrative and support services establishments 2023 minus 2018",
+  "2026": "Arizona Corporation Commission: https://azcc.gov/faqs/BusinessServicesFAQs",
   "2,549,128": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.7": "derived: paid employees / establishments, 2023",
   "13.4": "derived: construction employees per establishment, 2023",
@@ -924,7 +1008,17 @@ export const PLACE: LocalPlace = {
   "49.2": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "41,985": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
+  "2,078": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
+  "1.83": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "92,896": "Census CBP 2023, NAICS 522 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
+  "3,407": "Census CBP 2023, NAICS 522 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
+  "1.52": "derived: NAICS 522 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "24,337": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:04)",
+  "1.44": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

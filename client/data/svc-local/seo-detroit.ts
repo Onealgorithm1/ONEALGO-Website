@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Detroit"
  },
  "seo": {
-  "title": "SEO Detroit, MI: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Detroit, MI | One Algorithm",
   "description": "SEO for Detroit businesses: technical audits, pages built on real search demand and local authority, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-detroit.jpg"

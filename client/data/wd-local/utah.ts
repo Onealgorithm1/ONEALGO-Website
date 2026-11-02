@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "utah",
  "seo": {
-  "title": "Web Design Utah: Custom Websites | OneAlgorithm",
+  "title": "Web Design Utah: Custom Websites | One Algorithm",
   "description": "Web design for Utah businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-utah.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Miscellaneous manufacturing employs 2.77 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Specialist makers, from medical devices to signs, need a product catalogue and a sales enquiry that routes by line.",
+   "cards": [
+    {
+     "h3": "Miscellaneous manufacturing",
+     "line": "17,450 paid employees in 432 establishments, 2.77 times the US share. Specialist makers, from medical devices to signs, need a product catalogue and a sales enquiry that routes by line."
+    },
+    {
+     "h3": "Publishing",
+     "line": "32,220 paid employees in 567 establishments, 2.26 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Furniture manufacturing",
+     "line": "8,048 paid employees in 290 establishments, 2 times the US share. Furniture makers need a catalogue with finishes, dealer lookups and trade-account sign-up."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Utah businesses search for",
@@ -637,6 +679,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,500, 25th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Utah's revenue floor means most small firms sit outside its privacy act, while the breach statute covers every business that keeps personal data.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Utah Consumer Privacy Act",
+     "line": "Effective 31 December 2023, it applies to businesses with $25,000,000 or more in annual revenue that also handle data of 100,000 Utah consumers or mostly sell personal data."
+    },
+    {
+     "h3": "Utah's yearly renewal",
+     "line": "A Utah business entity renews with the Division of Corporations and Commercial Code one year after registration and every year after, online at businessregistration.utah.gov."
+    },
+    {
+     "h3": "Breach notice under § 13-44-202",
+     "line": "If an investigation finds that personal information was, or is reasonably likely to be, misused for identity theft or fraud, each affected Utah resident must be told."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Utah Consumer Privacy Act (UCPA)” and “How to renew a business” and “Personal information: notice of a breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Utah Division of Consumer Protection",
+     "what": "Utah Consumer Privacy Act (UCPA)",
+     "read": "read 1 November 2026",
+     "page": "https://commerce.utah.gov/dcp/ucpa/"
+    },
+    {
+     "name": "Utah Division of Corporations and Commercial Code",
+     "what": "How to renew a business",
+     "read": "read 1 November 2026",
+     "page": "https://commerce.utah.gov/corporations/faqs/how-to-renew-a-business/"
+    },
+    {
+     "name": "Utah State Legislature, § 13-44-202",
+     "what": "Personal information: notice of a breach",
+     "read": "read 1 November 2026",
+     "page": "https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -801,35 +891,42 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "2": "derived: NAICS 337 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "3": "derived: rank of estabChg among the 64 place pages",
   "7": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "9": "derived: rank of popChg among the 64 place pages",
-  "13": "derived: rank of u20 among the 64 place pages",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "13": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "15": "derived: finance and insurance employees per establishment, 2023",
   "17": "derived: health care and social assistance employees per establishment, 2023",
   "21": "derived: rank of per511 among the 64 place pages",
   "25": "page-map-webdev.json national_ranking rank",
-  "31": "derived: rank of estab among the 64 place pages",
+  "31": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
   "40": "derived: wholesale trade establishments 2023 minus 2018",
   "41": "Semrush keyword difficulty, \"web design utah\"",
-  "44": "derived: top-4 sectors' share of paid employees, 2023",
+  "44": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "134": "page-map-webdev.json national_ranking length",
   "169": "derived: NAICS 5415 establishments per 10,000 establishments, 2023",
   "191": "derived: information establishments 2023 minus 2018",
+  "202": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "220": "derived: retail trade establishments 2023 minus 2018",
   "231": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "240": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "243": "derived: educational services establishments 2023 minus 2018",
   "246": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
+  "290": "Census CBP 2023, NAICS 337 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
   "293": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "386": "derived: finance and insurance establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"website development utah\", pulled 2026-10-24 13:05-13:15 ET",
+  "432": "Census CBP 2023, NAICS 339 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
+  "567": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
   "720": "Semrush US exact volume, \"web design utah\", pulled 2026-10-24 13:05-13:15 ET",
   "876": "derived: administrative and support services establishments 2023 minus 2018",
   "880": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "940": "derived: accommodation and food services establishments 2023 minus 2018",
   "942": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
+  "2023": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
   "1,337,574": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.5": "derived: paid employees / establishments, 2023",
   "18.1": "derived: change in paid employees 2018-2023, percent",
@@ -931,7 +1028,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "25,000,000": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
+  "100,000": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
+  "17,450": "Census CBP 2023, NAICS 339 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
+  "2.77": "derived: NAICS 339 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "32,220": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
+  "2.26": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "8,048": "Census CBP 2023, NAICS 337 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

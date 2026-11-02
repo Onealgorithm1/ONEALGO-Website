@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Baltimore"
  },
  "seo": {
-  "title": "Digital Marketing Agency Baltimore, MD | OneAlgorithm",
+  "title": "Digital Marketing Agency Baltimore, MD | One Algorithm",
   "description": "Digital marketing for Baltimore companies, run remotely from Malvern, PA: site message, content, email, automation, then ads. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-baltimore.jpg"

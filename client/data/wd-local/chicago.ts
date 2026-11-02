@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "chicago",
  "seo": {
-  "title": "Web Design Chicago, IL: Custom Websites | OneAlgorithm",
+  "title": "Web Design Chicago, IL: Custom Websites | One Algorithm",
   "description": "Web design for Chicago businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-chicago.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Primary metal manufacturing employs 2.03 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills and foundries sell on grades, certifications and capacity, which buyers check before they call.",
+   "cards": [
+    {
+     "h3": "Primary metal manufacturing",
+     "line": "22,116 paid employees in 149 establishments, 2.03 times the US share. Mills and foundries sell on grades, certifications and capacity, which buyers check before they call."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "32,043 paid employees in 165 establishments, 1.82 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Securities and investments",
+     "line": "57,745 paid employees in 4,159 establishments, 1.81 times the US share. Advisers and funds need compliant disclosures, client portals and a short path to a call."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Chicago businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 4,550, 1st of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Chicago licenses most business activity through one department, and the Illinois breach act covers what a site collects.",
+   "leadIn": "Why it matters:",
+   "lead": "The Illinois Personal Information Protection Act makes any data collector notify residents of a breach, which covers what a site's forms gather.",
+   "cards": [
+    {
+     "h3": "A City of Chicago business license",
+     "line": "Most business activities in Chicago need a city business license from the Department of Business Affairs and Consumer Protection, with listed exemptions."
+    },
+    {
+     "h3": "Breach notice under 815 ILCS 530/10",
+     "line": "Any data collector holding an Illinois resident's personal information must notify that resident of a breach at no charge."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Applying for a business license” and “Notice of a breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Chicago Department of Business Affairs and Consumer Protection",
+     "what": "Applying for a business license",
+     "read": "read 1 November 2026",
+     "page": "https://www.chicago.gov/city/en/sites/chicago-business-licensing/home/applyingforabusinesslicense.html"
+    },
+    {
+     "name": "Illinois General Assembly, 815 ILCS 530/10",
+     "what": "Notice of a breach",
+     "read": "read 1 November 2026",
+     "page": "https://www.ilga.gov/Documents/legislation/ilcs/documents/081505300K10.htm"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -817,8 +897,9 @@ export const PLACE: LocalPlace = {
   "1": "page-map-webdev.json national_ranking rank",
   "7": "Semrush keyword difficulty, \"web design chicago\"",
   "8": "derived: information establishments change 2018-2023, percent",
-  "10": "derived: rank of estab among the 64 place pages",
+  "10": "Illinois General Assembly, 815 ILCS 530/10: https://www.ilga.gov/Documents/legislation/ilcs/documents/081505300K10.htm",
   "11": "derived: educational services establishments 2023 minus 2018",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: health care and social assistance share of paid employees, 2023",
   "20": "derived: rank of per511 among the 64 place pages",
   "23": "derived: rank of u20 among the 64 place pages",
@@ -827,11 +908,14 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "93": "derived: construction establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
+  "149": "Census CBP 2023, NAICS 331 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
+  "165": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
   "228": "derived: administrative and support services establishments 2023 minus 2018",
   "260": "Semrush US exact volume, \"web developer chicago\", pulled 2026-10-24 13:05-13:15 ET",
   "313": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "365": "derived: information establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"website development chicago\", pulled 2026-10-24 13:05-13:15 ET",
+  "530": "Illinois General Assembly, 815 ILCS 530/10: https://www.ilga.gov/Documents/legislation/ilcs/documents/081505300K10.htm",
   "595": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "604": "derived: total establishments 2023 minus 2018",
   "647": "derived: professional, scientific and technical services establishments 2023 minus 2018",
@@ -840,6 +924,7 @@ export const PLACE: LocalPlace = {
   "719": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "734": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "792": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "815": "Illinois General Assembly, 815 ILCS 530/10: https://www.ilga.gov/Documents/legislation/ilcs/documents/081505300K10.htm",
   "4,186,029": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.2": "derived: paid employees / establishments, 2023",
   "2.4": "derived: change in paid employees 2018-2023, percent",
@@ -933,7 +1018,7 @@ export const PLACE: LocalPlace = {
   "1,663": "derived: wholesale trade establishments 2023 minus 2018",
   "2,900": "Semrush US exact volume, \"web design chicago\", pulled 2026-10-24 13:05-13:15 ET",
   "7.42": "Semrush CPC (USD), \"web design chicago\"",
-  "1,000": "Semrush US exact volume, \"web design company chicago\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "12.92": "Semrush CPC (USD), \"web design company chicago\"",
   "10.04": "Semrush CPC (USD), \"website development chicago\"",
   "10.10": "Semrush CPC (USD), \"web developer chicago\"",
@@ -947,7 +1032,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "22,116": "Census CBP 2023, NAICS 331 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
+  "2.03": "derived: NAICS 331 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "32,043": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
+  "1.82": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "57,745": "Census CBP 2023, NAICS 523 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
+  "4,159": "Census CBP 2023, NAICS 523 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16980)",
+  "1.81": "derived: NAICS 523 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

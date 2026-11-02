@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "ohio",
  "seo": {
-  "title": "Web Design Ohio: Custom Websites | OneAlgorithm",
+  "title": "Web Design Ohio: Custom Websites | One Algorithm",
   "description": "Web design for Ohio businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-ohio.jpg"
  },
  "hero": {
@@ -402,7 +402,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Ohio business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Ohio business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -484,6 +484,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 2,630,027 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Primary metal manufacturing employs 2.73 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills and foundries sell on grades, certifications and capacity, which buyers check before they call.",
+   "cards": [
+    {
+     "h3": "Primary metal manufacturing",
+     "line": "35,162 paid employees in 329 establishments, 2.73 times the US share. Mills and foundries sell on grades, certifications and capacity, which buyers check before they call."
+    },
+    {
+     "h3": "Plastics and rubber products",
+     "line": "67,100 paid employees in 827 establishments, 2.26 times the US share. Molders and fabricators win RFQs with capability pages, tolerances and an upload for drawings."
+    },
+    {
+     "h3": "Machinery manufacturing",
+     "line": "77,790 paid employees in 1,369 establishments, 1.97 times the US share. Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -639,9 +681,47 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "In Ohio how the build is billed matters: the state's own taxability list ties the answer to billing it as a personal service.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Website creation and Ohio sales tax",
+     "line": "The Ohio Department of Taxation's taxability list says website creation is not taxable when it is billed as a personal service."
+    },
+    {
+     "h3": "Breach notice under R.C. 1349.19",
+     "line": "When a breach creates a material risk of identity theft or fraud, Ohio residents must be told in the most expedient time possible, within the statute's limit."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Sales and use tax: taxability list” and “Private disclosure of a security breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Ohio Department of Taxation",
+     "what": "Sales and use tax: taxability list",
+     "read": "read 1 November 2026",
+     "page": "https://tax.ohio.gov/business/sales-and-use-tax/taxability"
+    },
+    {
+     "name": "Ohio Laws and Administrative Rules, R.C. 1349.19",
+     "what": "Private disclosure of a security breach",
+     "read": "read 1 November 2026",
+     "page": "https://codes.ohio.gov/ohio-revised-code/section-1349.19"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Ohio web project runs",
+   "h2": "How an Ohio web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -680,7 +760,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Ohio business hire a remote web design team?",
+     "q": "Can an Ohio business hire a remote web design team?",
      "a": "Yes. We take on website work for Ohio businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Eastern hours, the clock the state's 255,049 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -804,6 +884,7 @@ export const PLACE: LocalPlace = {
   "4": "derived: administrative and support services establishments change 2018-2023, percent",
   "9": "derived: rank of estab among the 64 place pages",
   "11": "derived: retail trade share of paid employees, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "37": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "39": "page-map-webdev.json national_ranking rank",
   "42": "Semrush keyword difficulty, \"web design ohio\"",
@@ -816,6 +897,7 @@ export const PLACE: LocalPlace = {
   "134": "page-map-webdev.json national_ranking length",
   "166": "derived: educational services establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"website development ohio\", pulled 2026-10-24 13:05-13:15 ET",
+  "329": "Census CBP 2023, NAICS 331 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
   "429": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "442": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "541": "derived: administrative and support services establishments 2023 minus 2018",
@@ -823,6 +905,7 @@ export const PLACE: LocalPlace = {
   "631": "derived: retail trade establishments 2023 minus 2018",
   "720": "Semrush US exact volume, \"web design ohio\", pulled 2026-10-24 13:05-13:15 ET",
   "821": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
+  "827": "Census CBP 2023, NAICS 326 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
   "865": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "896": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "4,878,062": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -928,7 +1011,17 @@ export const PLACE: LocalPlace = {
   "2,630,027": "derived: top-4 sectors' paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "1349.19": "Ohio Laws and Administrative Rules, R.C. 1349.19: https://codes.ohio.gov/ohio-revised-code/section-1349.19",
+  "35,162": "Census CBP 2023, NAICS 331 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
+  "2.73": "derived: NAICS 331 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "67,100": "Census CBP 2023, NAICS 326 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
+  "2.26": "derived: NAICS 326 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "77,790": "Census CBP 2023, NAICS 333 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
+  "1,369": "Census CBP 2023, NAICS 333 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:39)",
+  "1.97": "derived: NAICS 333 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

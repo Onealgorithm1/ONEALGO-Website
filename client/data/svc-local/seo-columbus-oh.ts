@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Columbus"
  },
  "seo": {
-  "title": "SEO Columbus, OH: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Columbus, OH | One Algorithm",
   "description": "SEO for Columbus, Ohio businesses: technical fixes, pages planned from real search data and clear reporting. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-columbus-oh.jpg"

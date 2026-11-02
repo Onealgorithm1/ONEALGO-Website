@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for St. Louis"
  },
  "seo": {
-  "title": "Digital Marketing Agency St. Louis, MO | OneAlgorithm",
+  "title": "Digital Marketing Agency St. Louis, MO | One Algorithm",
   "description": "St. Louis digital marketing: message, website, email, SEO and review automation run as one plan. Call (610) 890-9711 and tell us what you sell.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-st-louis.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Florida"
  },
  "seo": {
-  "title": "Digital Marketing Agency Florida | OneAlgorithm",
+  "title": "Digital Marketing Agency Florida | One Algorithm",
   "description": "Digital marketing for Florida companies: message, content, email, reviews and automation that compound. Delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-florida.jpg"

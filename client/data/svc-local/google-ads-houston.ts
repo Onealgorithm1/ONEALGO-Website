@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Houston"
  },
  "seo": {
-  "title": "Google Ads Agency Houston, TX | OneAlgorithm",
+  "title": "Google Ads Agency Houston, TX | One Algorithm",
   "description": "Google Ads management for Houston businesses: tracking first, search terms from data, plain monthly reports. Remote. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-houston.jpg"

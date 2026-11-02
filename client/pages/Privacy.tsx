@@ -126,15 +126,15 @@ function Contents() {
 
 export default function Privacy() {
   useSEO({
-    title: "Privacy Policy — OneAlgorithm",
+    title: "Privacy Policy | One Algorithm",
     description:
       "Exactly what onealgorithm.com collects, who it goes to — Salesforce, Google Analytics, Cloudflare — how long we keep it, and how to get it deleted.",
     canonical: getCanonicalUrl("/privacy"),
-    ogTitle: "Privacy Policy — OneAlgorithm",
+    ogTitle: "Privacy Policy | One Algorithm",
     ogDescription:
       "What this website collects, who processes it, and how to exercise your rights.",
     ogUrl: getCanonicalUrl("/privacy"),
-    twitterTitle: "Privacy Policy — OneAlgorithm",
+    twitterTitle: "Privacy Policy | One Algorithm",
     twitterDescription:
       "What this website collects, who processes it, and how to exercise your rights.",
   });

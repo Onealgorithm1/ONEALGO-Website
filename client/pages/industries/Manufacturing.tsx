@@ -15,7 +15,7 @@ import { IndBody, CaseBand, CBP, type IndUnit } from "../../components/v2/indust
  * Phantom is WooCommerce (never "WordPress", FC). Facts: Census CBP 2023 NAICS 31-33. */
 
 const PAGE_PATH = "/industries/manufacturing";
-const TITLE = "Manufacturing ERP integration | OneAlgorithm";
+const TITLE = "Manufacturing ERP integration | One Algorithm";
 const DESCRIPTION = "ERP, data and systems integration for manufacturers, plus product sites with configurators. A small IT consultancy in Malvern, PA. (610) 890-9711.";
 const L = "sf-link";
 

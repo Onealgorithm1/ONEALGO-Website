@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-texas"
  },
  "seo": {
-  "title": "Digital Marketing Agency San Antonio, TX | OneAlgorithm",
+  "title": "Digital Marketing Agency San Antonio, TX | One Algorithm",
   "description": "Digital marketing for San Antonio, TX: website and message first, then search, content and automation, delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-san-antonio.jpg"

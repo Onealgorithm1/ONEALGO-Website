@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Minneapolis"
  },
  "seo": {
-  "title": "SEO Minneapolis, MN: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Minneapolis, MN | One Algorithm",
   "description": "SEO for Minneapolis and Twin Cities businesses: audits, demand-led pages and link building, delivered remotely. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-minneapolis.jpg"

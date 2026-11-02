@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-florida"
  },
  "seo": {
-  "title": "Web Design Tampa, FL: Custom Websites | OneAlgorithm",
+  "title": "Web Design Tampa, FL: Custom Websites | One Algorithm",
   "description": "Web design for Tampa businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-tampa.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Insurance carriers and agencies employs 2.15 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Insurers and agents need quote forms, claims routes and licensing details where buyers expect them.",
+   "cards": [
+    {
+     "h3": "Insurance carriers and agencies",
+     "line": "58,712 paid employees in 2,675 establishments, 2.15 times the US share. Insurers and agents need quote forms, claims routes and licensing details where buyers expect them."
+    },
+    {
+     "h3": "Performing arts and spectator sports",
+     "line": "8,829 paid employees in 617 establishments, 1.77 times the US share. Venues and teams live on event calendars and ticketing that work on a phone."
+    },
+    {
+     "h3": "Banking and lending",
+     "line": "42,677 paid employees in 1,742 establishments, 1.57 times the US share. Lenders need secure applications, plain disclosures and a short path to a loan officer."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Tampa businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,270, 13th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Tampa asks for two business tax receipts, one city and one county, before a business opens.",
+   "leadIn": "Why it matters:",
+   "lead": "For most Florida businesses the breach statute, not the billion-dollar privacy law, is the rule that governs what a site's forms collect.",
+   "cards": [
+    {
+     "h3": "Two Business Tax Receipts",
+     "line": "A business inside Tampa's city limits needs a City of Tampa Business Tax Receipt from the Business Tax Division and a Hillsborough County receipt from the Tax Collector."
+    },
+    {
+     "h3": "Florida's annual report on Sunbiz",
+     "line": "A Florida LLC files its annual report on Sunbiz between 1 January and 1 May for $138.75; after 1 May the Division of Corporations adds a $400 late fee."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business tax receipts” and “LLC annual report fees”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Tampa Business Tax Division",
+     "what": "Business tax receipts",
+     "read": "read 1 November 2026",
+     "page": "https://www.tampa.gov/business-tax"
+    },
+    {
+     "name": "Florida Division of Corporations (Sunbiz)",
+     "what": "LLC annual report fees",
+     "read": "read 1 November 2026",
+     "page": "https://efile.sunbiz.org/llc_ar_help.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,10 +898,11 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
   "4": "derived: real estate, rental and leasing employees per establishment, 2023",
   "7": "derived: rank of u20 among the 64 place pages",
   "10": "derived: rank of estabChg among the 64 place pages",
-  "12": "derived: change in paid employees 2018-2023, percent",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: retail trade share of paid employees, 2023",
   "15": "derived: rank of popChg among the 64 place pages",
   "16": "derived: NAICS 541511 paid employees per establishment, 2023",
@@ -844,7 +925,9 @@ export const PLACE: LocalPlace = {
   "211": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "252": "derived: educational services establishments 2023 minus 2018",
   "378": "derived: retail trade establishments 2023 minus 2018",
+  "400": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
   "590": "Semrush US exact volume, \"website development tampa\", pulled 2026-10-24 13:05-13:15 ET",
+  "617": "Census CBP 2023, NAICS 711 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
   "733": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "783": "derived: administrative and support services establishments 2023 minus 2018",
   "880": "Semrush US exact volume, \"web design tampa\", pulled 2026-10-24 13:05-13:15 ET",
@@ -950,7 +1033,18 @@ export const PLACE: LocalPlace = {
   "49.2": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "138.75": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
+  "58,712": "Census CBP 2023, NAICS 524 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
+  "2,675": "Census CBP 2023, NAICS 524 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
+  "2.15": "derived: NAICS 524 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "8,829": "Census CBP 2023, NAICS 711 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
+  "1.77": "derived: NAICS 711 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "42,677": "Census CBP 2023, NAICS 522 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
+  "1,742": "Census CBP 2023, NAICS 522 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:45300)",
+  "1.57": "derived: NAICS 522 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

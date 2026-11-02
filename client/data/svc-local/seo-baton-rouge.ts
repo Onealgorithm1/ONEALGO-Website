@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Baton Rouge"
  },
  "seo": {
-  "title": "SEO Baton Rouge, LA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Baton Rouge, LA | One Algorithm",
   "description": "SEO for Baton Rouge businesses: audits, local pages, Google profile fixes and authority work, delivered remotely. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-baton-rouge.jpg"

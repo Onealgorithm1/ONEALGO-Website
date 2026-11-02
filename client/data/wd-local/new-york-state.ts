@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "new-york-state",
  "seo": {
-  "title": "Web Design New York State: Custom Websites | OneAlgorithm",
+  "title": "Web Design New York State: Custom Websites | One Algorithm",
   "description": "Web design for New York State businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-new-york-state.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Broadcasting employs 3.62 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Broadcasters need schedules, streaming links and an advertiser enquiry route.",
+   "cards": [
+    {
+     "h3": "Broadcasting",
+     "line": "59,473 paid employees in 447 establishments, 3.62 times the US share. Broadcasters need schedules, streaming links and an advertiser enquiry route."
+    },
+    {
+     "h3": "Securities and investments",
+     "line": "192,522 paid employees in 7,483 establishments, 2.95 times the US share. Advisers and funds need compliant disclosures, client portals and a short path to a call."
+    },
+    {
+     "h3": "Other information services",
+     "line": "65,487 paid employees in 1,439 establishments, 2.55 times the US share. Online platforms and search businesses live on page speed and sign-up flows that work."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What New York State businesses search for",
@@ -637,6 +679,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 3,220, 4th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Outside the city, the state's own rules decide two things a site states: the LLC's published name and how the build is taxed.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Website development and sales tax",
+     "line": "Advisory Opinion TSB-A-20(70)S found that website development services are not among New York's enumerated taxable services; an opinion binds only the business that asked."
+    },
+    {
+     "h3": "New York's publication rule",
+     "line": "Under LLC Law § 206 a new New York LLC publishes its formation in two newspapers for six weeks, then files a certificate of publication with the Department of State for $50."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Advisory Opinion TSB-A-20(70)S” and “LLC articles of organization and publication”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "New York State Department of Taxation and Finance",
+     "what": "Advisory Opinion TSB-A-20(70)S",
+     "read": "read 1 November 2026",
+     "page": "https://www.tax.ny.gov/pdf/advisory_opinions/sales/a20-70s.pdf"
+    },
+    {
+     "name": "New York Department of State, Division of Corporations",
+     "what": "LLC articles of organization and publication",
+     "read": "read 1 November 2026",
+     "page": "https://dos.ny.gov/limited-liability-company-articles-organization"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -806,19 +886,23 @@ export const PLACE: LocalPlace = {
   "5": "derived: rank of u20 among the 64 place pages",
   "7": "derived: information establishments 2023 minus 2018",
   "11": "derived: wholesale trade establishments change 2018-2023, percent",
-  "12": "derived: retail trade employees per establishment, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "20": "New York State Department of Taxation and Finance: https://www.tax.ny.gov/pdf/advisory_opinions/sales/a20-70s.pdf",
   "46": "Semrush keyword difficulty, \"web design new york\"",
-  "50": "derived: rank of popChg among the 64 place pages",
+  "50": "New York Department of State, Division of Corporations: https://dos.ny.gov/limited-liability-company-articles-organization",
   "51": "derived: rank of per511 among the 64 place pages",
   "61": "derived: rank of estabChg among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "70": "New York State Department of Taxation and Finance: https://www.tax.ny.gov/pdf/advisory_opinions/sales/a20-70s.pdf",
   "88": "derived: establishments under 20 employees / total establishments, 2023",
   "134": "page-map-webdev.json national_ranking length",
   "137": "derived: administrative and support services establishments 2023 minus 2018",
+  "206": "New York Department of State, Division of Corporations: https://dos.ny.gov/limited-liability-company-articles-organization",
   "293": "derived: educational services establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"website development new york\", pulled 2026-10-24 13:05-13:15 ET",
   "362": "derived: accommodation and food services establishments 2023 minus 2018",
   "429": "derived: real estate, rental and leasing establishments 2023 minus 2018",
+  "447": "Census CBP 2023, NAICS 515 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
   "766": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "8,410,206": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.2": "derived: paid employees / establishments, 2023",
@@ -933,7 +1017,17 @@ export const PLACE: LocalPlace = {
   "49.7": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "59,473": "Census CBP 2023, NAICS 515 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
+  "3.62": "derived: NAICS 515 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "192,522": "Census CBP 2023, NAICS 523 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
+  "7,483": "Census CBP 2023, NAICS 523 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
+  "2.95": "derived: NAICS 523 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "65,487": "Census CBP 2023, NAICS 519 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
+  "1,439": "Census CBP 2023, NAICS 519 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:36)",
+  "2.55": "derived: NAICS 519 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

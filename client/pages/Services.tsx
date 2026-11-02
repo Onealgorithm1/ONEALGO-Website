@@ -50,7 +50,7 @@ import {
  * for evidence. See REDESIGN-NOTES.md.
  */
 
-const TITLE = "IT and marketing services for small business | OneAlgorithm";
+const TITLE = "IT and marketing services for small business | One Algorithm";
 const DESCRIPTION = "IT and marketing services from a four-person team in Malvern, PA: web development, SEO, Google Ads, Salesforce, IT consulting. Call (610) 890-9711.";
 
 const APPROACH = [

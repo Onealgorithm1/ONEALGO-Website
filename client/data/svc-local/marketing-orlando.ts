@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-florida"
  },
  "seo": {
-  "title": "Digital Marketing Agency Orlando, FL | OneAlgorithm",
+  "title": "Digital Marketing Agency Orlando, FL | One Algorithm",
   "description": "Digital marketing for Orlando businesses: website, message, SEO, email and social automation, in that order. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-orlando.jpg"

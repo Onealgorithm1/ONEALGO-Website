@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-florida"
  },
  "seo": {
-  "title": "Digital Marketing Agency Tampa, FL | OneAlgorithm",
+  "title": "Digital Marketing Agency Tampa, FL | One Algorithm",
   "description": "Digital marketing for Tampa companies: website, search, email and social automation, delivered remotely. Call (610) 890-9711 to get a plan.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-tampa.jpg"

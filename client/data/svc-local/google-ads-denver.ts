@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Denver"
  },
  "seo": {
-  "title": "Google Ads Agency Denver, CO | OneAlgorithm",
+  "title": "Google Ads Agency Denver, CO | One Algorithm",
   "description": "Google Ads management for Denver businesses, run remotely: tracking first, search terms from data, plain reports. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-denver.jpg"

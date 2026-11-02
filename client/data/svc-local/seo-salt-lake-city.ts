@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-utah"
  },
  "seo": {
-  "title": "SEO Salt Lake City, UT: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Salt Lake City, UT | One Algorithm",
   "description": "Salt Lake City SEO delivered remotely: audits, local pages, authority and plain reporting for Utah businesses. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-salt-lake-city.jpg"

@@ -135,7 +135,7 @@ export default function SeoChesterCounty() {
             "Reporting from your own accounts",
           ],
         }}
-        primary={{ label: "Talk to an Expert", to: "/contact?need=seo" }}
+        primary={{ label: "Talk to an Expert", to: "/contact#need=seo" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 
@@ -274,7 +274,7 @@ export default function SeoChesterCounty() {
         <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">Chester County local SEO questions</h2>
-            <p style={{ marginTop: 12 }}>Not here? <Link className="sf-link" to="/contact?need=seo">Ask us on the contact page</Link>.</p>
+            <p style={{ marginTop: 12 }}>Not here? <Link className="sf-link" to="/contact#need=seo">Ask us on the contact page</Link>.</p>
           </div>
           <div className="sf-c7 sf-faq-col">
             <FAQ items={FAQS} />

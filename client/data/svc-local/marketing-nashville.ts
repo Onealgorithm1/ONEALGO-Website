@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Nashville"
  },
  "seo": {
-  "title": "Digital Marketing Agency Nashville, TN | OneAlgorithm",
+  "title": "Digital Marketing Agency Nashville, TN | One Algorithm",
   "description": "Digital marketing for Nashville, TN: website message, search, content and automated social posts, run remotely. Call (610) 890-9711 to start a plan.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-nashville.jpg"

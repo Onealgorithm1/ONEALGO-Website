@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-florida"
  },
  "seo": {
-  "title": "Web Design Miami, FL: Custom Websites | OneAlgorithm",
+  "title": "Web Design Miami, FL: Custom Websites | One Algorithm",
   "description": "Web design for Miami businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-miami.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Water transportation employs 11.17 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Shipping and ferry operators need schedules, booking and cargo enquiries that work on a phone.",
+   "cards": [
+    {
+     "h3": "Water transportation",
+     "line": "12,182 paid employees in 232 establishments, 11.17 times the US share. Shipping and ferry operators need schedules, booking and cargo enquiries that work on a phone."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "29,050 paid employees in 358 establishments, 2.92 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Transportation support services",
+     "line": "39,409 paid employees in 2,645 establishments, 2.66 times the US share. Logistics support firms sell on coverage, certifications and fast quote requests."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Miami businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,820, 18th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Miami asks for two business tax receipts, one from the city and one from Miami-Dade County.",
+   "leadIn": "Why it matters:",
+   "lead": "For most Florida businesses the breach statute, not the billion-dollar privacy law, is the rule that governs what a site's forms collect.",
+   "cards": [
+    {
+     "h3": "City and county tax receipts",
+     "line": "Every business in the City of Miami needs a city Business Tax Receipt and a Miami-Dade County Local Business Tax Receipt, which runs from 1 October to 30 September."
+    },
+    {
+     "h3": "Breach notice under § 501.171",
+     "line": "Florida sets an outer limit for notice to each affected individual in the state, counted from the moment a breach is determined or suspected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Get a Business Tax Receipt” and “Security of confidential personal information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Miami",
+     "what": "Get a Business Tax Receipt",
+     "read": "read 1 November 2026",
+     "page": "https://www.miami.gov/Business-Licenses/Business-Licensing/Get-a-Business-Tax-Receipt-BTR"
+    },
+    {
+     "name": "Florida Legislature, § 501.171",
+     "what": "Security of confidential personal information",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,14 +898,15 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "derived: rank of u20 among the 64 place pages",
+  "1": "City of Miami: https://www.miami.gov/Business-Licenses/Business-Licensing/Get-a-Business-Tax-Receipt-BTR",
   "5": "derived: professional, scientific and technical services employees per establishment, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: rank of estab among the 64 place pages",
   "14": "derived: rank of estabChg among the 64 place pages",
   "18": "page-map-webdev.json national_ranking rank",
   "21": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "29": "derived: rank of popChg among the 64 place pages",
-  "30": "Semrush US exact volume, \"web developer miami\", pulled 2026-10-24 13:05-13:15 ET",
+  "30": "City of Miami: https://www.miami.gov/Business-Licenses/Business-Licensing/Get-a-Business-Tax-Receipt-BTR",
   "37": "derived: rank of per511 among the 64 place pages",
   "42": "Semrush keyword difficulty, \"web design miami\"",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
@@ -833,8 +914,10 @@ export const PLACE: LocalPlace = {
   "169": "derived: manufacturing establishments 2023 minus 2018",
   "170": "Semrush US exact volume, \"website development miami\", pulled 2026-10-24 13:05-13:15 ET",
   "229": "derived: information establishments 2023 minus 2018",
+  "232": "Census CBP 2023, NAICS 483 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
   "320": "Semrush US exact volume, \"web design company miami\", pulled 2026-10-24 13:05-13:15 ET",
   "336": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "358": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
   "361": "derived: retail trade establishments 2023 minus 2018",
   "429": "derived: wholesale trade establishments 2023 minus 2018",
   "542": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -950,7 +1033,17 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "501.171": "Florida Legislature, § 501.171: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html",
+  "12,182": "Census CBP 2023, NAICS 483 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
+  "11.17": "derived: NAICS 483 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "29,050": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
+  "2.92": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "39,409": "Census CBP 2023, NAICS 488 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
+  "2,645": "Census CBP 2023, NAICS 488 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33100)",
+  "2.66": "derived: NAICS 488 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

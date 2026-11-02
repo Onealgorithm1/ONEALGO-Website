@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-indiana"
  },
  "seo": {
-  "title": "Web Design Indianapolis, IN: Custom Websites | OneAlgorithm",
+  "title": "Web Design Indianapolis, IN: Custom Websites | One Algorithm",
   "description": "Web design for Indianapolis businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-indianapolis.jpg"
  },
  "hero": {
@@ -412,7 +412,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Indianapolis business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Indianapolis business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -494,6 +494,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 451,236 people, 45.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nonstore retail employs 2.53 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online and catalogue sellers live on checkout speed, product search and order tracking.",
+   "cards": [
+    {
+     "h3": "Nonstore retail",
+     "line": "19,700 paid employees in 480 establishments, 2.53 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Warehousing and storage",
+     "line": "28,899 paid employees in 262 establishments, 2.49 times the US share. 3PLs and warehouses sell on square footage, systems integration and a request for a rate."
+    },
+    {
+     "h3": "Couriers and messengers",
+     "line": "18,075 paid employees in 131 establishments, 2.17 times the US share. Delivery firms need tracking, service areas and an account sign-up for shippers."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -655,9 +697,54 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Indianapolis licenses by trade, and Indiana's privacy act began on 1 January 2026.",
+   "leadIn": "Why it matters:",
+   "lead": "Indiana's privacy act began in 2026, so a site built before then may need a new privacy notice and an opt-out route.",
+   "cards": [
+    {
+     "h3": "Licenses by business type",
+     "line": "Indianapolis's Department of Business and Neighborhood Services publishes license rules business type by business type rather than one general license."
+    },
+    {
+     "h3": "Breach notice under IC 24-4.9",
+     "line": "The Attorney General's guidance says affected consumers must be told without unreasonable delay once a breach is discovered."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "Indiana Consumer Data Protection Act: IC 24-15 applies from 1 January 2026 to businesses that handle data of 100,000 Indiana consumers, or 25,000 while earning over half their revenue from selling it.",
+     "The official pages behind these: “Business licenses” and “Security breach FAQs for businesses”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Indianapolis, Business and Neighborhood Services",
+     "what": "Business licenses",
+     "read": "read 1 November 2026",
+     "page": "https://www.indy.gov/activity/business-licenses"
+    },
+    {
+     "name": "Indiana Attorney General",
+     "what": "Security breach FAQs for businesses",
+     "read": "read 1 November 2026",
+     "page": "https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/"
+    },
+    {
+     "name": "Indiana General Assembly, IC 24-15",
+     "what": "Indiana Consumer Data Protection Act",
+     "read": "read 1 November 2026",
+     "page": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Indianapolis web project runs",
+   "h2": "How an Indianapolis web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -696,7 +783,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Indianapolis business hire a remote web design team?",
+     "q": "Can an Indianapolis business hire a remote web design team?",
      "a": "Yes. We take on website work for Indianapolis businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Eastern hours, the clock the metro's 51,076 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -733,7 +820,7 @@ export const PLACE: LocalPlace = {
      "from": "suggest-places: general physician web design indianapolis"
     },
     {
-     "q": "Can you build an online store for a Indianapolis business?",
+     "q": "Can you build an online store for an Indianapolis business?",
      "a": "Yes. That kind of site is scoped like any build of ours: a catalogue, stock that agrees with the counter and a checkout that works on a phone, each part priced in writing before work starts. The metro had 5,880 retail trade establishments in 2023, by County Business Patterns.",
      "from": "suggest-places: indianapolis ecommerce web design"
     },
@@ -814,10 +901,14 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "11": "derived: administrative and support services establishments change 2018-2023, percent",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: health care and social assistance establishments change 2018-2023, percent",
+  "15": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "17": "page-map-webdev.json national_ranking rank",
   "20": "derived: finance and insurance establishments 2023 minus 2018",
+  "24": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "27": "derived: rank of estabChg among the 64 place pages",
   "29": "derived: rank of popChg among the 64 place pages",
   "35": "derived: rank of per511 among the 64 place pages",
@@ -830,11 +921,13 @@ export const PLACE: LocalPlace = {
   "90": "derived: educational services establishments 2023 minus 2018",
   "104": "derived: retail trade establishments 2023 minus 2018",
   "127": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
+  "131": "Census CBP 2023, NAICS 492 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
   "134": "page-map-webdev.json national_ranking length",
   "160": "derived: wholesale trade establishments 2023 minus 2018",
   "171": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "181": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "210": "Semrush US exact volume, \"web design company indianapolis\", pulled 2026-10-24 13:05-13:15 ET",
+  "262": "Census CBP 2023, NAICS 493 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
   "303": "derived: administrative and support services establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"web developer indianapolis\", pulled 2026-10-24 13:05-13:15 ET",
   "374": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
@@ -844,6 +937,7 @@ export const PLACE: LocalPlace = {
   "413": "derived: construction establishments 2023 minus 2018",
   "416": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "432": "derived: real estate, rental and leasing establishments 2023 minus 2018",
+  "480": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
   "543": "derived: NAICS 541511 + 541430 establishments, 2023",
   "590": "Semrush US exact volume, \"website development indianapolis\", pulled 2026-10-24 13:05-13:15 ET",
   "637": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
@@ -853,6 +947,7 @@ export const PLACE: LocalPlace = {
   "864": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
   "904": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "916": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
+  "2026": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "913,334": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "19.2": "derived: paid employees / establishments, 2023",
   "7.6": "derived: change in total establishments 2018-2023, percent",
@@ -946,7 +1041,18 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "4.9": "Indiana Attorney General: https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/",
+  "100,000": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "25,000": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "19,700": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
+  "2.53": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "28,899": "Census CBP 2023, NAICS 493 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
+  "2.49": "derived: NAICS 493 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "18,075": "Census CBP 2023, NAICS 492 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26900)",
+  "2.17": "derived: NAICS 492 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-texas"
  },
  "seo": {
-  "title": "SEO Austin, TX: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Austin, TX | One Algorithm",
   "description": "SEO for Austin firms in one of the densest agency markets we track: technical fixes, niche pages, clear reporting. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-austin.jpg"

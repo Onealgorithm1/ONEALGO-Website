@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for San Francisco"
  },
  "seo": {
-  "title": "Digital Marketing Agency San Francisco, CA | OneAlgorithm",
+  "title": "Digital Marketing Agency San Francisco, CA | One Algorithm",
   "description": "Digital marketing for San Francisco companies: clear message, a site that converts, content and automation, delivered remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-san-francisco.jpg"

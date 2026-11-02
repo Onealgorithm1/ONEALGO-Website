@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Austin"
  },
  "seo": {
-  "title": "Google Ads Agency Austin, TX | OneAlgorithm",
+  "title": "Google Ads Agency Austin, TX | One Algorithm",
   "description": "Google Ads for Austin businesses: conversion tracking, tight keyword lists, matched landing pages and plain reports, run remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-austin.jpg"

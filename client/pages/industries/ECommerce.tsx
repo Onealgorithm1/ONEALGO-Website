@@ -14,7 +14,7 @@ import { IndBody, CaseBand, type IndUnit } from "../../components/v2/industries-
  * Hero text change (fact-check): panel "Zendesk set up and connected to your CRM" -> "A help desk, such as Zendesk, that sees the order". */
 
 const PAGE_PATH = "/industries/ecommerce";
-const TITLE = "Ecommerce website development | OneAlgorithm";
+const TITLE = "Ecommerce website development | One Algorithm";
 const DESCRIPTION = "Ecommerce website development on WooCommerce and custom builds, joined to stock, payments and your accounting. Malvern, PA. Call (610) 890-9711.";
 const L = "sf-link";
 

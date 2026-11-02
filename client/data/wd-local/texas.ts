@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "texas",
  "seo": {
-  "title": "Web Design Texas: Custom Websites | OneAlgorithm",
+  "title": "Web Design Texas: Custom Websites | One Algorithm",
   "description": "Web design for Texas businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-texas.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Mining support services employs 5.86 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Contractors to the field sell on safety records, equipment lists and response areas.",
+   "cards": [
+    {
+     "h3": "Mining support services",
+     "line": "145,078 paid employees in 4,682 establishments, 5.86 times the US share. Contractors to the field sell on safety records, equipment lists and response areas."
+    },
+    {
+     "h3": "Heavy and civil construction",
+     "line": "178,438 paid employees in 4,468 establishments, 1.98 times the US share. Civil contractors are hired on past projects, bonding and prequalification, which a site can show in one place."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "74,332 paid employees in 438 establishments, 1.51 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Texas businesses search for",
@@ -637,6 +679,61 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,150, 36th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "In Texas the state's own tax guidance names web pages as data processing, so the proposal should separate design, build and hosting.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Texas Data Privacy and Security Act",
+     "line": "In force since 1 July 2024, it exempts most businesses that meet the SBA's small-business definition, except that they must get consent before selling sensitive data."
+    },
+    {
+     "h3": "Web pages as data processing",
+     "line": "Comptroller Publication 94-127 lists creating a web page and providing server space as taxable data processing, so Texas build invoices carry a sales tax question."
+    },
+    {
+     "h3": "SOSPortal and the Comptroller",
+     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026; the yearly report goes to the Comptroller with the franchise tax, due May 15."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "Reporting a breach to the Attorney General: A breach affecting 250 or more Texans must be reported to the Office of the Attorney General as soon as practicable.",
+     "The official pages behind these: “Texas Data Privacy and Security Act” and “Data processing services” and “Business filings (SOSPortal) and franchise tax reports”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Office of the Texas Attorney General",
+     "what": "Texas Data Privacy and Security Act",
+     "read": "read 1 November 2026",
+     "page": "https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act"
+    },
+    {
+     "name": "Texas Comptroller, Publication 94-127",
+     "what": "Data processing services",
+     "read": "read 1 November 2026",
+     "page": "https://comptroller.texas.gov/taxes/publications/94-127.php"
+    },
+    {
+     "name": "Texas Secretary of State; Texas Comptroller",
+     "what": "Business filings (SOSPortal) and franchise tax reports",
+     "read": "read 1 November 2026",
+     "page": "https://www.sos.texas.gov/corp/index.shtml"
+    },
+    {
+     "name": "Office of the Texas Attorney General",
+     "what": "Data breach reporting",
+     "read": "read 1 November 2026",
+     "page": "https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -793,27 +890,36 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
   "2": "derived: rank of estab among the 64 place pages",
   "6": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "derived: rank of popChg among the 64 place pages",
-  "15": "derived: accommodation and food services establishments change 2018-2023, percent",
+  "15": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
   "17": "derived: wholesale trade employees per establishment, 2023",
   "18": "derived: rank of estabChg among the 64 place pages",
   "20": "derived: educational services establishments change 2018-2023, percent",
   "23": "derived: rank of per511 among the 64 place pages",
   "26": "derived: educational services employees per establishment, 2023",
+  "29": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
   "35": "derived: rank of u20 among the 64 place pages",
   "36": "page-map-webdev.json national_ranking rank",
   "39": "Semrush keyword difficulty, \"web design texas\"",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "94": "Texas Comptroller, Publication 94-127: https://comptroller.texas.gov/taxes/publications/94-127.php",
   "110": "Semrush US exact volume, \"website development texas\", pulled 2026-10-24 13:05-13:15 ET",
+  "127": "Texas Comptroller, Publication 94-127: https://comptroller.texas.gov/taxes/publications/94-127.php",
   "134": "page-map-webdev.json national_ranking length",
+  "250": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting",
   "306": "derived: wholesale trade establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"web design company texas\", pulled 2026-10-24 13:05-13:15 ET",
+  "438": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
   "720": "Semrush US exact volume, \"web design texas\", pulled 2026-10-24 13:05-13:15 ET",
   "857": "derived: information establishments 2023 minus 2018",
   "896": "derived: manufacturing establishments 2023 minus 2018",
   "914": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
+  "2024": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
+  "2026": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
   "10,794,596": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.9": "derived: paid employees / establishments, 2023",
   "11.3": "derived: accommodation and food services share of paid employees, 2023",
@@ -924,7 +1030,17 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "145,078": "Census CBP 2023, NAICS 213 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
+  "4,682": "Census CBP 2023, NAICS 213 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
+  "5.86": "derived: NAICS 213 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "178,438": "Census CBP 2023, NAICS 237 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
+  "4,468": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
+  "1.98": "derived: NAICS 237 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "74,332": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:48)",
+  "1.51": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

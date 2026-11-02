@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-michigan"
  },
  "seo": {
-  "title": "Web Design Detroit, MI: Custom Websites | OneAlgorithm",
+  "title": "Web Design Detroit, MI: Custom Websites | One Algorithm",
   "description": "Web design for Detroit businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-detroit.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Transportation equipment manufacturing employs 4.79 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists.",
+   "cards": [
+    {
+     "h3": "Transportation equipment manufacturing",
+     "line": "106,566 paid employees in 537 establishments, 4.79 times the US share. Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists."
+    },
+    {
+     "h3": "Machinery manufacturing",
+     "line": "30,789 paid employees in 848 establishments, 2.15 times the US share. Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech."
+    },
+    {
+     "h3": "Fabricated metal products",
+     "line": "30,678 paid employees in 1,320 establishments, 1.61 times the US share. Fabricators are found by capability: processes, tolerances, certifications and a drawing upload for quotes."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Detroit businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 680, 57th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Michigan's February statement and its breach statute are the state rules a site's footer details and contact forms answer to.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Breach notice under MCL 445.72",
+     "line": "Unless a breach is unlikely to cause substantial loss, injury or identity theft, each affected Michigan resident must be told without unreasonable delay."
+    },
+    {
+     "h3": "Michigan's annual statement",
+     "line": "A Michigan LLC files an annual statement with LARA's Corporations Division by February 15, for $25, through the MiBusiness Registry Portal."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Notice of a security breach” and “Annual reports and annual statements”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Michigan Legislature, MCL 445.72",
+     "what": "Notice of a security breach",
+     "read": "read 1 November 2026",
+     "page": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-445-72"
+    },
+    {
+     "name": "Michigan LARA, Corporations Division",
+     "what": "Annual reports and annual statements",
+     "read": "read 1 November 2026",
+     "page": "https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -824,9 +904,11 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "12": "derived: professional, scientific and technical services share of paid employees, 2023",
   "13": "derived: manufacturing share of paid employees, 2023",
+  "15": "Michigan LARA, Corporations Division: https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
   "17": "derived: information employees per establishment, 2023",
   "18": "derived: paid employees / establishments, 2023",
   "20": "Semrush US exact volume, \"web developer detroit\", pulled 2026-10-24 13:05-13:15 ET",
+  "25": "Michigan LARA, Corporations Division: https://www.michigan.gov/lara/bureau-list/cscl/corps/michigan-business-roadmap/annual-reports-and-annual-statements",
   "29": "derived: rank of estab among the 64 place pages",
   "30": "Semrush keyword difficulty, \"web design detroit\"",
   "33": "derived: rank of u20 among the 64 place pages",
@@ -849,6 +931,7 @@ export const PLACE: LocalPlace = {
   "329": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "387": "derived: wholesale trade establishments 2023 minus 2018",
   "396": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "537": "Census CBP 2023, NAICS 336 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
   "554": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "572": "derived: construction establishments 2023 minus 2018",
   "578": "derived: accommodation and food services establishments 2023 minus 2018",
@@ -858,6 +941,7 @@ export const PLACE: LocalPlace = {
   "737": "derived: health care and social assistance establishments 2023 minus 2018",
   "759": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "769": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
+  "848": "Census CBP 2023, NAICS 333 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
   "932": "derived: NAICS 541511 + 541430 establishments, 2023",
   "1,801,262": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "2.5": "derived: change in paid employees 2018-2023, percent",
@@ -947,7 +1031,17 @@ export const PLACE: LocalPlace = {
   "955,840": "derived: top-4 sectors' paid employees, 2023",
   "51.8": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
-  "5.2": "derived: median estabChg of the 64 place pages"
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "445.72": "Michigan Legislature, MCL 445.72: https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-445-72",
+  "106,566": "Census CBP 2023, NAICS 336 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
+  "4.79": "derived: NAICS 336 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "30,789": "Census CBP 2023, NAICS 333 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
+  "2.15": "derived: NAICS 333 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "30,678": "Census CBP 2023, NAICS 332 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
+  "1,320": "Census CBP 2023, NAICS 332 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19820)",
+  "1.61": "derived: NAICS 332 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "st-louis",
  "seo": {
-  "title": "Web Design St. Louis, MO: Custom Websites | OneAlgorithm",
+  "title": "Web Design St. Louis, MO: Custom Websites | One Algorithm",
   "description": "Web design for St. Louis businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-st-louis.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Wholesale agents and brokers employs 2.89 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Brokers sell on the lines they represent, so a line card and territory map lead.",
+   "cards": [
+    {
+     "h3": "Wholesale agents and brokers",
+     "line": "6,368 paid employees in 383 establishments, 2.89 times the US share. Brokers sell on the lines they represent, so a line card and territory map lead."
+    },
+    {
+     "h3": "Educational services",
+     "line": "61,187 paid employees in 924 establishments, 1.72 times the US share. Schools and trainers need course pages, enrolment forms and a calendar people trust."
+    },
+    {
+     "h3": "Telecommunications",
+     "line": "13,818 paid employees in 534 establishments, 1.68 times the US share. Carriers and installers need coverage lookups, plan pages and a sign-up that works on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What St. Louis businesses search for",
@@ -815,6 +857,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: educational services establishments 2023 minus 2018",
   "6": "derived: retail trade establishments change 2018-2023, percent",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "page-map-webdev.json national_ranking rank",
   "16": "derived: health care and social assistance establishments change 2018-2023, percent",
   "20": "derived: accommodation and food services employees per establishment, 2023",
@@ -842,14 +885,16 @@ export const PLACE: LocalPlace = {
   "303": "derived: finance and insurance establishments 2023 minus 2018",
   "342": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "367": "derived: wholesale trade establishments 2023 minus 2018",
+  "383": "Census CBP 2023, NAICS 425 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
   "452": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "459": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "519": "derived: retail trade establishments 2023 minus 2018",
+  "534": "Census CBP 2023, NAICS 517 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
   "579": "derived: NAICS 541511 + 541430 establishments, 2023",
   "720": "Semrush US exact volume, \"website development st louis\", pulled 2026-10-24 13:05-13:15 ET",
   "880": "Semrush US exact volume, \"web design st louis\", pulled 2026-10-24 13:05-13:15 ET",
   "923": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
-  "924": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
+  "924": "Census CBP 2023, NAICS 611 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
   "1,254,268": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "18.2": "derived: paid employees / establishments, 2023",
   "0.7": "derived: change in paid employees 2018-2023, percent",
@@ -912,7 +957,7 @@ export const PLACE: LocalPlace = {
   "3,816": "Census County Business Patterns 2018, establishments, naics 56 administrative and support services, 2018",
   "19.8": "derived: administrative and support services employees per establishment, 2023",
   "1.6": "derived: administrative and support services establishments change 2018-2023, percent",
-  "61,187": "Census County Business Patterns 2023, paid employees, naics 61 educational services, 2023",
+  "61,187": "Census CBP 2023, NAICS 611 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
   "66.2": "derived: educational services employees per establishment, 2023",
   "0.1": "derived: educational services establishments change 2018-2023, percent",
   "195,488": "Census County Business Patterns 2023, paid employees, naics 62 health care and social assistance, 2023",
@@ -945,7 +990,14 @@ export const PLACE: LocalPlace = {
   "45.2": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "6,368": "Census CBP 2023, NAICS 425 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
+  "2.89": "derived: NAICS 425 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.72": "derived: NAICS 611 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "13,818": "Census CBP 2023, NAICS 517 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41180)",
+  "1.68": "derived: NAICS 517 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

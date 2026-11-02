@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for New York"
  },
  "seo": {
-  "title": "Google Ads Agency New York, NY | OneAlgorithm",
+  "title": "Google Ads Agency New York, NY | One Algorithm",
   "description": "Google Ads management for New York businesses: tracking first, search terms from data, accounts you own. Remote from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-new-york.jpg"

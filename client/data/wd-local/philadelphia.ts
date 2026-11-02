@@ -9,7 +9,7 @@ export const PHILADELPHIA: LocalPlace = {
   path: "/services/web-design-philadelphia",
   name: "Philadelphia",
   seo: {
-    title: "Web Design Philadelphia, PA: Custom Websites | OneAlgorithm",
+    title: "Web Design Philadelphia, PA: Custom Websites | One Algorithm",
     description: "Web design for Philadelphia businesses from Malvern, 25 miles west of Center City: custom sites you own, built around what you run. (610) 890-9711.",
     dateModified: "2026-10-24",
   },

@@ -72,7 +72,7 @@ const C = (slug: string, label: string) => ({ to: `/services/salesforce-consulta
 
 export const CITY_COPY: Record<string, CityCopy> = {
   "new-york": {
-    title: "Salesforce Consulting NYC & New York, NY | OneAlgorithm",
+    title: "Salesforce Consulting NYC & New York, NY | One Algorithm",
     description: `Salesforce consulting for New York companies: migration, integration and weekly development. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "data migration, integration and weekly Salesforce development, scoped in writing after the free one-week health check.",
@@ -116,7 +116,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   "washington-dc": {
-    title: "Salesforce Consulting DC | Washington, DC | OneAlgorithm",
+    title: "Salesforce Consulting in Washington, DC | One Algorithm",
     description: `Salesforce consulting for Washington, DC organizations, from a SAM.gov-registered EDWOSB. Free one-week health check. ${PHONE}.`,
     noun: "organizations",
     answer: {
@@ -161,7 +161,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   dallas: {
-    title: "Salesforce Consulting in Dallas, TX | OneAlgorithm",
+    title: "Salesforce Consulting in Dallas, TX | One Algorithm",
     description: `Salesforce consulting for Dallas–Fort Worth companies: ERP and SAP integration, migration, support. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "ERP and SAP integration, data migration and support after go-live, scoped in writing after the free one-week health check.",
@@ -207,7 +207,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   denver: {
-    title: "Salesforce Implementation Partner in Denver, CO | OneAlgorithm",
+    title: "Salesforce Implementation Partner in Denver, CO | One Algorithm",
     description: `Salesforce implementation and consulting for Denver companies: setup, migration, integration, support. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "implementation from the license count to go-live, then data migration, integration and support, or any one stage on its own.",
@@ -249,7 +249,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   atlanta: {
-    title: "Salesforce Consulting Services Atlanta, GA | OneAlgorithm",
+    title: "Salesforce Consulting Services Atlanta, GA | One Algorithm",
     description: `Salesforce consulting services for Atlanta companies: data loads, integration, managed services. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "large data loads, integration and managed services, scoped in writing after the free one-week health check.",
@@ -294,7 +294,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   boston: {
-    title: "Salesforce Consultants in Boston, MA | OneAlgorithm",
+    title: "Salesforce Consultants in Boston, MA | One Algorithm",
     description: `Salesforce consultants for Boston companies: access and sharing, integration, migration. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "access and sharing, integration and data migration, scoped in writing after the free one-week health check.",
@@ -338,7 +338,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   seattle: {
-    title: "Salesforce Consultants in Seattle, WA | OneAlgorithm",
+    title: "Salesforce Consultants in Seattle, WA | One Algorithm",
     description: `Salesforce consultants for Seattle companies: platform design, Flow versus Apex, integration. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "platform design, Flow and Apex decisions and integration, scoped in writing after the free one-week health check.",
@@ -382,7 +382,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   "san-francisco": {
-    title: "Salesforce Consultant San Francisco, CA | OneAlgorithm",
+    title: "Salesforce Consultant San Francisco, CA | One Algorithm",
     description: `Salesforce consultants for San Francisco Bay Area companies: fixed-scope projects and handover. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "fixed-scope migrations, integrations and clean-ups with a written handover, scoped after the free one-week health check.",
@@ -426,7 +426,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   "los-angeles": {
-    title: "Salesforce Consultants in Los Angeles, CA | OneAlgorithm",
+    title: "Salesforce Consultants in Los Angeles, CA | One Algorithm",
     description: `Salesforce consultants for Los Angeles companies: ERP integration, Marketing Cloud, migration. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "ERP integration, Marketing Cloud support and data migration, scoped in writing after the free one-week health check.",
@@ -469,7 +469,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   austin: {
-    title: "Salesforce Consultants in Austin, TX | OneAlgorithm",
+    title: "Salesforce Consultants in Austin, TX | One Algorithm",
     description: `Salesforce consultants for Austin companies: org clean-up, Flow automation, weekly support. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "org clean-up, Flow automation and weekly support, scoped in writing after the free one-week health check.",
@@ -516,7 +516,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   miami: {
-    title: "Salesforce Consulting Services Miami, FL | OneAlgorithm",
+    title: "Salesforce Consulting Services Miami, FL | One Algorithm",
     description: `Salesforce CRM consulting for Miami and South Florida companies, delivered remotely. Free one-week health check. ${PHONE}.`,
     heroLede: "We take on Salesforce CRM consulting for Miami and South Florida companies remotely from Malvern, PA, starting with a free one-week health check.",
     answer: {
@@ -561,7 +561,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
   },
 
   chicago: {
-    title: "Salesforce Consulting in Chicago, IL | OneAlgorithm",
+    title: "Salesforce Consulting in Chicago, IL | One Algorithm",
     description: `Salesforce consulting for Chicago companies: ERP integration, takeovers, weekly development. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "ERP integration, org takeovers and weekly development, scoped in writing after the free one-week health check.",
@@ -608,7 +608,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     /* page-map-final-plan.md §3 (Houston): title exactly as planned, never "Company in Houston"; no ERP/SAP lead
      * (Dallas's angle); Census mix as context only, no energy, oil, port or medical-center claim tied to our work.
      * Gated: no other page links here until structure-spec D9 passes (sf-link-policy-check enforces it). */
-    title: "Salesforce Consultant Houston, TX | OneAlgorithm",
+    title: "Salesforce Consultant Houston, TX | One Algorithm",
     description: `Salesforce consulting for Houston companies: data migration, org merges and weekly support. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "data migration, org merges after an acquisition and weekly support, scoped in writing after the free one-week health check.",

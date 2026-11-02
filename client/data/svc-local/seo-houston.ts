@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-texas"
  },
  "seo": {
-  "title": "SEO Houston, TX: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Houston, TX | One Algorithm",
   "description": "SEO for Houston businesses: audits, local pages and content planned from real search data, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-houston.jpg"

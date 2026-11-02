@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "colorado",
  "seo": {
-  "title": "Web Design Colorado: Custom Websites | OneAlgorithm",
+  "title": "Web Design Colorado: Custom Websites | One Algorithm",
   "description": "Web design for Colorado businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-colorado.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Air transportation employs 2.49 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to airlines and airports sell on certifications, approvals and lead times.",
+   "cards": [
+    {
+     "h3": "Air transportation",
+     "line": "26,174 paid employees in 109 establishments, 2.49 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Telecommunications",
+     "line": "39,030 paid employees in 1,315 establishments, 2.33 times the US share. Carriers and installers need coverage lookups, plan pages and a sign-up that works on a phone."
+    },
+    {
+     "h3": "Heavy and civil construction",
+     "line": "36,242 paid employees in 933 establishments, 1.88 times the US share. Civil contractors are hired on past projects, bonding and prequalification, which a site can show in one place."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Colorado businesses search for",
@@ -637,6 +679,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 570, 61st of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Colorado's privacy act gives a covered business's site a privacy notice and opt-out requests to honor, both built into the front end.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Colorado Privacy Act",
+     "line": "In force since 1 July 2023, it covers businesses that process data of more than 100,000 Coloradans a year, or that profit from selling personal data."
+    },
+    {
+     "h3": "Colorado's periodic report",
+     "line": "Colorado entities file a periodic report online with the Secretary of State, from two months before to two months after their report month, for $25."
+    },
+    {
+     "h3": "Breach notice under C.R.S. § 6-1-716",
+     "line": "The Attorney General's guidance sets the most expedient time possible, with a firm outer limit from the date a breach is determined."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Colorado Privacy Act” and “Periodic report FAQs” and “Data protection laws”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Colorado Attorney General",
+     "what": "Colorado Privacy Act",
+     "read": "read 1 November 2026",
+     "page": "https://coag.gov/resources/colorado-privacy-act/"
+    },
+    {
+     "name": "Colorado Secretary of State",
+     "what": "Periodic report FAQs",
+     "read": "read 1 November 2026",
+     "page": "https://www.coloradosos.gov/pubs/business/FAQs/reports.html"
+    },
+    {
+     "name": "Colorado Attorney General",
+     "what": "Data protection laws",
+     "read": "read 1 November 2026",
+     "page": "https://coag.gov/resources/data-protection-laws/"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -801,10 +891,14 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
+  "6": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
   "8": "derived: rank of u20 among the 64 place pages",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: rank of per511 among the 64 place pages",
   "16": "derived: rank of estab among the 64 place pages",
   "19": "derived: educational services employees per establishment, 2023",
+  "25": "Colorado Secretary of State: https://www.coloradosos.gov/pubs/business/FAQs/reports.html",
   "26": "Semrush keyword difficulty, \"web design colorado\"",
   "29": "derived: NAICS 541430 establishments per 10,000, 2023",
   "31": "derived: rank of estabChg among the 64 place pages",
@@ -815,6 +909,7 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "90": "Semrush US exact volume, \"website development colorado\", pulled 2026-10-24 13:05-13:15 ET",
   "98": "derived: retail trade establishments 2023 minus 2018",
+  "109": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
   "124": "derived: manufacturing establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "170": "derived: finance and insurance establishments 2023 minus 2018",
@@ -827,6 +922,9 @@ export const PLACE: LocalPlace = {
   "404": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "529": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "570": "page-map-webdev.json national_ranking sum (state pages add folded places)",
+  "716": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
+  "933": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
+  "2023": "Colorado Attorney General: https://coag.gov/resources/colorado-privacy-act/",
   "2,423,817": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "14.1": "derived: paid employees / establishments, 2023",
   "5.9": "derived: change in paid employees 2018-2023, percent",
@@ -932,7 +1030,17 @@ export const PLACE: LocalPlace = {
   "46.5": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "100,000": "Colorado Attorney General: https://coag.gov/resources/colorado-privacy-act/",
+  "26,174": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
+  "2.49": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "39,030": "Census CBP 2023, NAICS 517 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
+  "1,315": "Census CBP 2023, NAICS 517 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
+  "2.33": "derived: NAICS 517 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "36,242": "Census CBP 2023, NAICS 237 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:08)",
+  "1.88": "derived: NAICS 237 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

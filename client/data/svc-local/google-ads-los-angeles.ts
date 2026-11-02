@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Los Angeles"
  },
  "seo": {
-  "title": "Google Ads Agency Los Angeles, CA | OneAlgorithm",
+  "title": "Google Ads Agency Los Angeles, CA | One Algorithm",
   "description": "Google Ads management for Los Angeles advertisers: tracking first, search terms from data, plain reports. Managed remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-los-angeles.jpg"

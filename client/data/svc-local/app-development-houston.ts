@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/app-development-texas"
  },
  "seo": {
-  "title": "App Development Houston, TX: Custom Software | OneAlgorithm",
+  "title": "App Development Houston, TX: Custom Software | One Algorithm",
   "description": "Custom app and software development for Houston teams: written scope, browser previews, code you own. Remote build. Call (610) 890-9711 to scope it.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-houston.jpg"

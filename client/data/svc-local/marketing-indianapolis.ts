@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Indianapolis"
  },
  "seo": {
-  "title": "Digital Marketing Agency Indianapolis, IN | OneAlgorithm",
+  "title": "Digital Marketing Agency Indianapolis, IN | One Algorithm",
   "description": "Digital marketing for Indianapolis companies: clear message, search, email, reviews and automation in one plan. Remote delivery. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-indianapolis.jpg"

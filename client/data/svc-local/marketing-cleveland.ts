@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Cleveland"
  },
  "seo": {
-  "title": "Digital Marketing Agency Cleveland, OH | OneAlgorithm",
+  "title": "Digital Marketing Agency Cleveland, OH | One Algorithm",
   "description": "Marketing for Cleveland businesses: one plan across website, search, email and social, run remotely from Malvern, PA. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-cleveland.jpg"

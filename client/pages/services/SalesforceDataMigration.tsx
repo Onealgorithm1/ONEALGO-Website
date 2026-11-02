@@ -32,7 +32,7 @@ const PAGE_PATH = "/services/salesforce-data-migration";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
 const READ_ON = "23 October 2026"; // the date a person read Salesforce's documentation below (fact-checked at ef1a8f0)
-const TITLE = "Salesforce Data Migration Services & Consultants | OneAlgorithm";
+const TITLE = "Salesforce Data Migration Services & Consultants | One Algorithm";
 const DESCRIPTION =
   "Salesforce data migration services from QuickBase, Kissflow, HubSpot or another org, reconciled before go-live. Free one-week health check: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-data-migration.jpg";
@@ -185,13 +185,13 @@ export default function SalesforceDataMigration() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PAGE_PATH),
-    ogTitle: "Salesforce data migration services, reconciled row by row | OneAlgorithm",
+    ogTitle: "Salesforce data migration services, reconciled row by row | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PAGE_PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: OG_ALT,
-    twitterTitle: "Salesforce data migration services, reconciled row by row | OneAlgorithm",
+    twitterTitle: "Salesforce data migration services, reconciled row by row | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],

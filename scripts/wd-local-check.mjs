@@ -12,7 +12,7 @@
 //   per-page 1200x630 JPEG < 300 KB · BreadcrumbList + Service(areaServed = place) + WebPage(dateModified) + the #org
 //   reference, FAQPage only when the data says schema · links: showcase units, 3 service pages, state page (where one
 //   exists), 3 sibling metros, all internal links routable · the remote-delivery sentence; in-person wording only on
-//   PA/NJ/DE · CTA button to /contact?need=website · place-name density <= 1.5% · banned phrases · every figure in the
+//   PA/NJ/DE · CTA button to /contact#need=website · place-name density <= 1.5% · banned phrases · every figure in the
 //   copy traceable (data `trace` or the allowlist) · every Census row verbatim in facts*.json with its key-free query.
 // Writes build-wave12/place-check.json (+ shots/ with --shots). Uses headless playwright from scripts/playwright-mcp.
 import fs from "node:fs";
@@ -20,7 +20,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 
-const REPO = "C:/Users/louis/oa-sf-redesign";
+const REPO = process.env.OA_REPO || "C:/Users/louis/oa-sf-redesign";
 const RUN = "C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo";
 const OUTDIR = `${RUN}/build-all`;
 const args = process.argv.slice(2);
@@ -101,7 +101,7 @@ async function extract(slug) {
       robots: meta('meta[name="robots"]'), og: { title: meta('meta[property="og:title"]'), description: meta('meta[property="og:description"]'), url: meta('meta[property="og:url"]'), image: meta('meta[property="og:image"]'), w: meta('meta[property="og:image:width"]'), h: meta('meta[property="og:image:height"]') },
       tw: { card: meta('meta[name="twitter:card"]'), image: meta('meta[name="twitter:image"]'), title: meta('meta[name="twitter:title"]') },
       hrefs: [...main.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")),
-      cta: [...main.querySelectorAll('a[href^="/contact?"]')].map((a) => a.getAttribute("href")),
+      cta: [...main.querySelectorAll('a[href^="/contact#"]')].map((a) => a.getAttribute("href")),
       readouts: [...document.querySelectorAll("#figures .sf-readout")].map((r) => ({ num: r.querySelector(".sf-readout-num")?.textContent, src: r.querySelector(".sf-readout-src")?.textContent, chip: !!r.querySelector('[data-evidence="figures-src"]') })),
       figDialog: document.querySelector("#ev-figures-src")?.textContent ?? "",
       search: { rows: document.querySelectorAll("#search table tbody tr").length, src: document.querySelector("#search .wd-table-src")?.textContent ?? "", dialog: document.querySelector("#ev-search-src")?.textContent ?? "" },
@@ -120,6 +120,8 @@ async function extract(slug) {
 
 const ROUTES = new Set([...fs.readFileSync(`${REPO}/client/App.tsx`, "utf8").matchAll(/path="([^"]+)"/g)].map((m) => m[1]));
 for (const r of INDEX) ROUTES.add(r.path);
+// The 115 nationwide service place pages (2026-10-31) route from svc-local/index.ts, not a literal path= in App.tsx.
+for (const m of fs.readFileSync(`${REPO}/client/data/svc-local/index.ts`, "utf8").matchAll(/"path": "([^"]+)"/g)) ROUTES.add(m[1]);
 const PENDING = new Set(["/services/small-business-website-design", "/services/website-cost", "/services/website-redesign"]); // services agent, same wave
 for (const p of PENDING) ROUTES.add(p);
 
@@ -223,14 +225,16 @@ for (const slug of SLUGS) {
   const svc = r.ld.find((x) => x["@type"] === "Service"), wp = r.ld.find((x) => x["@type"] === "WebPage");
   const ldStr = JSON.stringify(r.ld);
   const schemaIssues = [];
-  for (const t of ["BreadcrumbList", "Service", "WebPage", "LocalBusiness"]) if (!types.includes(t)) schemaIssues.push(`no ${t}`);
+  // The ProfessionalService node is emitted only on the office pages (StructuredData LB_PATHS); remote place pages
+  // reference #org instead (checked below), so it is not required here.
+  for (const t of ["BreadcrumbList", "Service", "WebPage"]) if (!types.includes(t)) schemaIssues.push(`no ${t}`);
   if (svc && !(String(svc.areaServed?.name) === (name === "Washington, DC" ? "Washington" : name))) schemaIssues.push(`areaServed ${JSON.stringify(svc?.areaServed)}`);
   if (svc && !String(svc.provider?.["@id"]).endsWith("/#org")) schemaIssues.push("provider @id");
   if (!r.ld.some((x) => String(x["@id"] ?? "").endsWith("/#org") || (x["@graph"] || []).some((g) => String(g["@id"]).endsWith("/#org")))) schemaIssues.push("no #org node on the page");
   if (wp && wp.dateModified !== d.seo.dateModified) schemaIssues.push("WebPage dateModified");
   const faqSec = d.sections.find((s) => s.kind === "faq");
   if (types.includes("FAQPage") !== !!faqSec?.schema) schemaIssues.push("FAQPage presence != data schema flag");
-  if (/priceRange|AggregateRating|"Review"|ProfessionalService|__bad/.test(ldStr)) schemaIssues.push("forbidden schema property");
+  if (/priceRange|AggregateRating|"Review"|__bad/.test(ldStr)) schemaIssues.push("forbidden schema property");
   const bc = r.ld.find((x) => x["@type"] === "BreadcrumbList");
   if (bc && !JSON.stringify(bc).includes(name)) schemaIssues.push("breadcrumb lacks the place");
   for (const i of schemaIssues) F(slug, `schema: ${i}`);
@@ -246,7 +250,7 @@ for (const slug of SLUGS) {
   if (d.parent && !paths.includes(d.parent.to)) F(slug, "no link to its state page");
   const off = r.offsite.filter((h) => !/phantomarcades|inspectthishome|theboardsprofessor|thegorband|starzibros|atlas|maps\.app\.goo\.gl|creativecommons/.test(h));
   if (off.length) F(slug, `off-site links: ${off.join(", ")}`);
-  if (!r.cta.some((h) => /need=website/.test(h) && /topic=/.test(h))) F(slug, "no CTA to /contact?need=website&topic=");
+  if (!r.cta.some((h) => /need=website/.test(h) && /topic=/.test(h))) F(slug, "no CTA to /contact#need=website&topic=");
   // relationship sentence
   const low = r.text.toLowerCase();
   if (!low.includes(`we take on website work for ${name.toLowerCase()} businesses remotely from malvern, pa`)) F(slug, "remote-delivery sentence missing");
@@ -261,9 +265,10 @@ for (const slug of SLUGS) {
   const cpcs = new Set(Object.keys(d.trace).filter((k) => /^\d+\.\d\d$/.test(k)));
   const scan = [r.text, r.title, r.description, JSON.stringify(r.ld.filter((x) => x["@type"] !== "Organization").map(({ sameAs, ...x }) => x))].join(" \n ").replace(/\$(\d+\.\d\d)/g, (m, v) => (cpcs.has(v) ? "" : m));
   const banned = [...new Set(scan.match(BANNED) || [])];
-  const price = scan.match(/\$\s?\d[\d,]*/g);
+  // 2026-11-01: a government fee quoted in the place-only rules section (traced to its official page URL) is not our price.
+  const price = (scan.match(/\$\s?\d[\d,]*(?:\.\d+)?/g) || []).filter((x) => !/:\/\//.test(d.trace[x.replace(/[$\s]/g, "").replace(/[.,]$/, "")] ?? "")).filter(Boolean);
   if (banned.length) F(slug, `banned: ${banned.join(", ")}`);
-  if (price) F(slug, `price-like figure: ${price.join(", ")}`);
+  if (price.length) F(slug, `price-like figure: ${price.join(", ")}`);
   // traceable numbers (main copy; dialogs and the NAP's own figures are allowlisted or traced)
   const dated = r.text.replace(/\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec) \d{4}\b/g, " ").replace(/CC[ -]BY(-SA)?[ -]\d\.\d/g, " ").replace(/\d{1,2}:\d{2}/g, " ").replace(/\b\d{4}-\d{2}-\d{2}\b/g, " ");
   const nums = (dated.match(/\d[\d,]*(?:\.\d+)?/g) || []).map((n) => n.replace(/,$/, "")).filter((n) => n.replace(/\D/g, "").length >= 2 || n.includes("."));

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for Chicago"
  },
  "seo": {
-  "title": "App Development Chicago, IL: Custom Software | OneAlgorithm",
+  "title": "App Development Chicago, IL: Custom Software | One Algorithm",
   "description": "App development and custom software for Chicago businesses, scoped in writing and built remotely from Malvern, PA. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-chicago.jpg"

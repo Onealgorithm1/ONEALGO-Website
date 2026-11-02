@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Chicago"
  },
  "seo": {
-  "title": "Google Ads Agency Chicago, IL | OneAlgorithm",
+  "title": "Google Ads Agency Chicago, IL | One Algorithm",
   "description": "Google Ads management for Chicago businesses: tracking first, search terms from data, an account you own. Remote from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-chicago.jpg"

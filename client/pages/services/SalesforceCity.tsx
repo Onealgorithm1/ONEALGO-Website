@@ -1,3 +1,4 @@
+import LOCAL_RULES from "../../data/local-rules.json";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
@@ -56,6 +57,8 @@ const fmtEvent = (d: string) => {
 const today = () => new Date().toISOString().slice(0, 10);
 /** For possessives: "DC's", "Dallas's". */
 const short = (c: City) => (c.slug === "washington-dc" ? "DC" : c.name);
+/** F-41: "an Atlanta", "an Austin" (template grammar, audit 2026-11-01). */
+const an = (w: string) => (/^[AEIO]/.test(w) ? "an" : "a");
 const jobsTotal = (c: City) => c.jobs.reduce((s, j) => s + j.count, 0);
 const msaName = (c: City) => c.msa.name.replace(/ Metro Area$/, " metro area");
 const roleName = (r: string) => r.replace(/^Salesforce /, "");
@@ -189,18 +192,18 @@ function buildFaqs(c: City, who: string): CityFaqRow[] {
       a: `On ${fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of ${c.name} showed ${roleCounts(c)}: ${n(jobsTotal(c))} across the four searches, ${ord(c.jobsRank.rank)} of the ${c.jobsRank.of} metro areas we checked. A listing can match more than one search, so read the total as demand rather than a head count.`,
     },
     {
-      q: `Can you move a ${c.name} company off an older database into Salesforce?`,
+      q: `Can you move ${an(c.name)} ${c.name} company off an older database into Salesforce?`,
       a: "Yes. We have migrated QuickBase and Kissflow systems into Salesforce with record counts and totals reconciled before go-live, and the free one-week health check shows the state of your data first, so the plan starts from facts.",
       link: { to: "/services/salesforce-data-migration", label: "Salesforce data migration services" },
       schema: false,
     },
     {
-      q: `What should a ${c.name} company budget for Salesforce consulting, and how long does it take?`,
+      q: `What should ${an(c.name)} ${c.name} company budget for Salesforce consulting, and how long does it take?`,
       a: `We scope and price ${c.name} work in writing after the free one-week health check. Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase), and Cynoteck puts a small project at 4 to 8 weeks; for comparison, one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
       link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
     },
     {
-      q: `After go-live, who looks after Salesforce for a ${short(c)} team?`,
+      q: `After go-live, who looks after Salesforce for ${an(short(c))} ${short(c)} team?`,
       a: "We can: our managed services run weekly administration and development with hours reported every week, and if your own admin takes over instead, the handover is written down.",
       link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" },
       schema: false,
@@ -219,6 +222,7 @@ function marketSources(c: City): SfSource[] {
   ];
   if (usesUsaspending(c)) out.push({ name: "USAspending.gov", what: "Federal contract awards mentioning Salesforce, fiscal years 2022 to 2026", read, page: "https://www.usaspending.gov/" });
   for (const s of CITY_COPY[c.slug].sources ?? []) out.push(s);
+  for (const s of rulesFor(c)?.sources ?? []) out.push(s);
   return out;
 }
 function communitySources(c: City, day?: string): SfSource[] {
@@ -263,6 +267,43 @@ function IndustriesFigure({ c, fig }: { c: City; fig: number }) {
 }
 
 /** One hand-written H3 unit of the city-only band (night). */
+/* 2026-11-01 (audit F-10): a third city-only unit from official pages (client/data/local-rules.json, read 1 Nov 2026):
+   the state's customer-data rules plus the city's own license or registration. Null where the state is not researched. */
+const STATE_NAME: Record<string, string> = { NY: "New York", DC: "District of Columbia", TX: "Texas", CO: "Colorado", GA: "Georgia", MA: "Massachusetts", WA: "Washington", CA: "California", FL: "Florida", IL: "Illinois", PA: "Pennsylvania" };
+type RuleCard = { h3: string; line: string; src: string };
+type RuleSrc = { name: string; what: string; page: string };
+const RULES = LOCAL_RULES as unknown as {
+  states: Record<string, { privacy?: RuleCard; breach?: RuleCard; filing?: RuleCard; crm?: string; crmLead?: string; sources: Record<string, RuleSrc> }>;
+  cities: Record<string, { license: RuleCard; sources: Record<string, RuleSrc> }>;
+};
+const RULE_CITY: Record<string, string> = { "new-york": "New York", "washington-dc": "Washington, DC" };
+function rulesFor(c: City): { unit: CityUnit; sources: SfSource[] } | null {
+  const stName = STATE_NAME[c.state];
+  const S = stName ? RULES.states[stName] : undefined;
+  if (!S?.crm || !S.crmLead) return null;
+  const cy = RULES.cities[RULE_CITY[c.slug] ?? c.name];
+  const law = [S.privacy, S.breach].filter(Boolean) as RuleCard[];
+  const read = "read 1 November 2026";
+  const sources: SfSource[] = [...law.map((r) => S.sources[r.src]), ...(cy ? [cy.sources[cy.license.src]] : [])]
+    .map((x) => ({ name: x.name, what: x.what, read, page: x.page }));
+  return {
+    unit: {
+      title: stName === "District of Columbia" ? "Customer-data rules in the District" : `Customer-data rules in ${stName}`,
+      lede: S.crm,
+      leadIn: "Why it matters:",
+      lead: S.crmLead,
+      points: ["Consent and opt-out fields where the law asks for them", "Field-level security on sensitive records", "Login and export history kept for audits"],
+      label: "the rules, as the official pages state them",
+      deeper: [
+        ...law.map((r) => `${r.h3}: ${r.line}`),
+        ...(cy ? [`${cy.license.h3}: ${cy.license.line}`] : []),
+        "Each line restates the agency's own page, read 1 November 2026; the sources pop-up lists every page.",
+      ],
+    },
+    sources,
+  };
+}
+
 function LocalUnit({ u, delay }: { u: CityUnit; delay?: number }) {
   return (
     <SmartUnit level={3} className="sf-c6" delay={delay} title={u.title} lede={u.lede} leadIn={u.leadIn} lead={u.lead} points={u.points} measure={false}>
@@ -278,6 +319,7 @@ function LocalUnit({ u, delay }: { u: CityUnit; delay?: number }) {
 export default function SalesforceCity({ slug }: { slug: string }) {
   const c = SALESFORCE_CITIES.find((x) => x.slug === slug)!;
   const copy = CITY_COPY[slug];
+  const rules = rulesFor(c);
   const photo = SF_CITY_HEROES[slug];
   const files = sfCityFiles(slug);
   const path = c.path;
@@ -296,7 +338,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
   const upcoming = upcomingEvents(c, day);
   const groups = c.community.groups;
   const shareImage = `https://onealgorithm.com${files.og}`;
-  const ogTitle = `${h1} | OneAlgorithm`;
+  const ogTitle = `${h1} | One Algorithm`;
   const heroLede = copy.heroLede ?? `We take on Salesforce work for ${who} remotely from Malvern, PA, starting with a free one-week health check.`;
   const indTotal = c.industries.reduce((t, i) => t + (i.employees ?? 0), 0);
   const cards = [HUB_SERVICE_CARDS[0], ...copy.services.order.map((k) => {
@@ -386,7 +428,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             lead={copy.answer.lead}
             points={copy.answer.points}
           >
-            <GoDeeper label={`how a ${c.name} engagement runs remotely`}>
+            <GoDeeper label={`how ${an(c.name)} ${c.name} engagement runs remotely`}>
               <p className="sf-rule">Salesforce work happens inside the org, not in a room, so we run {who.replace(/ (companies|organizations)$/, "")} projects from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355, over video and screen-share.</p>
               {copy.siblings.length > 0 && <p>The nearest of our other city pages is <Link className="sf-link" to={copy.siblings[0].to}>{copy.siblings[0].label}</Link>.</p>}
               <div className="sf-links">
@@ -407,6 +449,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
         <SmartSection id="local" tone="night" grid heading={{ id: "h-local", title: copy.local.h2, lede: copy.local.lede }}>
           <LocalUnit u={copy.local.units[0]} />
           <LocalUnit u={copy.local.units[1]} delay={0.08} />
+          {rules && <LocalUnit u={rules.unit} />}
         </SmartSection>
 
         {/* 5 CHOOSING (spec H2 3) beside HIRE, CONTRACT OR PARTNER (spec H2 4): the buyer's two decisions. */}
@@ -593,7 +636,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
           heading={{
             id: "h-process",
             title: "How a Salesforce engagement runs from Malvern",
-            lede: `A ${c.name} engagement starts with the free one-week health check and runs remotely from our Malvern office, in four steps.`,
+            lede: `${an(c.name) === "an" ? "An" : "A"} ${c.name} engagement starts with the free one-week health check and runs remotely from our Malvern office, in four steps.`,
           }}
         >
           <StageRail

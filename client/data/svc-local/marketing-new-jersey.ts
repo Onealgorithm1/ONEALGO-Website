@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for New Jersey"
  },
  "seo": {
-  "title": "Digital Marketing Agency New Jersey | OneAlgorithm",
+  "title": "Digital Marketing Agency New Jersey | One Algorithm",
   "description": "Digital marketing for New Jersey: website message, search, email and social automation, delivered remotely. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-new-jersey.jpg"

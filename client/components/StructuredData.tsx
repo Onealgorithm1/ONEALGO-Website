@@ -301,8 +301,8 @@ export function createFAQSchema(faqs: readonly { q: string; a: string }[]) {
 
 // LocalBusiness schema
 // ProfessionalService is a LocalBusiness subtype (PHL-11): more specific, same rich-result
-// eligibility. Salesforce pages pass it; every other page keeps the "LocalBusiness" it had.
-export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalService" = "LocalBusiness") {
+// eligibility. Since 2026-11-01 (audit A-62/S-13) it is the default for every page: one type, one @id.
+export function createLocalBusinessSchema(type: "LocalBusiness" | "ProfessionalService" = "ProfessionalService") {
   const node: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": type,
@@ -375,7 +375,7 @@ export function createServiceSchema(
     description: description,
     provider: {
       "@type": "Organization",
-      name: "OneAlgorithm",
+      name: "One Algorithm",
       url: "https://onealgorithm.com",
     },
     areaServed: "United States",
@@ -424,7 +424,7 @@ export function createWebPageSchema(
     description: description,
     url: url,
     publisher: {
-      name: "OneAlgorithm",
+      name: "One Algorithm",
       url: "https://onealgorithm.com",
     },
     ...(opts?.dateModified ? { dateModified: opts.dateModified } : {}),
@@ -462,7 +462,7 @@ export function createArticleSchema(
           }
         : author,
     publisher: {
-      name: "OneAlgorithm",
+      name: "One Algorithm",
       url: "https://onealgorithm.com",
     },
     image: image,

@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-texas"
  },
  "seo": {
-  "title": "SEO San Antonio, TX: SEO Company | OneAlgorithm",
+  "title": "SEO Company in San Antonio, TX | One Algorithm",
   "description": "SEO for San Antonio, TX businesses: audits, pages built from real searches and earned authority, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-san-antonio.jpg"

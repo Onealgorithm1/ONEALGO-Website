@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Tucson"
  },
  "seo": {
-  "title": "SEO Tucson, AZ: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Tucson, AZ | One Algorithm",
   "description": "SEO for Tucson, AZ businesses: audits, local pages and links built from real search data, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-tucson.jpg"

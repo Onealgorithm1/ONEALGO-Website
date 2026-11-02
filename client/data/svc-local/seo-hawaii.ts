@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Hawaii"
  },
  "seo": {
-  "title": "SEO Hawaii: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Hawaii | One Algorithm",
   "description": "SEO for Hawaii businesses on every island: audits, pages built from real search demand and authority work, delivered remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-hawaii.jpg"

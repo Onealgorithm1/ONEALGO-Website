@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for New York"
  },
  "seo": {
-  "title": "Digital Marketing Agency New York, NY | OneAlgorithm",
+  "title": "Digital Marketing Agency New York, NY | One Algorithm",
   "description": "Digital marketing for New York firms: website, search, content and automation, run remotely from Malvern, PA. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-new-york.jpg"

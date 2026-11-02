@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Virginia"
  },
  "seo": {
-  "title": "SEO Virginia: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Virginia | One Algorithm",
   "description": "SEO for Virginia businesses statewide: audits, demand-led pages and authority work, delivered remotely from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-virginia.jpg"

@@ -72,7 +72,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Do you work with HubSpot?", a: "Our MarTech work centres on Salesforce, including Marketing Cloud, and the CRM. We do not offer HubSpot implementation. If HubSpot sits in your stack, the audit will still inventory it and show how it connects to everything else; building inside HubSpot is outside what we sell." },
 ];
 
-const TITLE = "MarTech Consulting and Stack Audit | OneAlgorithm";
+const TITLE = "MarTech Consulting and Stack Audit | One Algorithm";
 const DESCRIPTION = "MarTech consulting: audit your marketing stack, connect CRM, email, ads and analytics, and make reporting reconcile. Book a stack audit: (610) 890-9711.";
 
 export default function Martech() {
@@ -270,7 +270,7 @@ export default function Martech() {
             { th: "Length", td: "About 18 months" },
             { th: "Source", td: "OneAlgorithm project records (two paid purchase orders)" },
           ]}
-          primary={{ href: "/contact?need=martech", label: "Talk to us about your stack" }}
+          primary={{ href: "/contact#need=martech", label: "Talk to us about your stack" }}
         />
 
         <DeskCTA

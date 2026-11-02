@@ -23,7 +23,7 @@ const INDUSTRIES = [
   { icon: Megaphone, title: "Marketing", h3: "Technology for marketing teams", body: "Not an industry, and the page says so. A short signpost to the social media, MarTech and SEO service pages.", to: "/industries/marketing" },
 ];
 
-const TITLE = "Industries we serve: IT and web by sector | OneAlgorithm";
+const TITLE = "Industries we serve: IT and web by sector | One Algorithm";
 const DESCRIPTION = "IT, integration and web work for construction, manufacturing, ecommerce and government firms, plus marketing teams. Malvern, PA. Call (610) 890-9711.";
 
 const UNITS: IndUnit[] = [

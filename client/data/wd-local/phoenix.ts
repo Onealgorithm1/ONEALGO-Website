@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-arizona"
  },
  "seo": {
-  "title": "Web Design Phoenix, AZ: Custom Websites | OneAlgorithm",
+  "title": "Web Design Phoenix, AZ: Custom Websites | One Algorithm",
   "description": "Web design for Phoenix businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-phoenix.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nonstore retail employs 1.91 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online and catalogue sellers live on checkout speed, product search and order tracking.",
+   "cards": [
+    {
+     "h3": "Nonstore retail",
+     "line": "31,549 paid employees in 1,524 establishments, 1.91 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Banking and lending",
+     "line": "80,492 paid employees in 2,471 establishments, 1.83 times the US share. Lenders need secure applications, plain disclosures and a short path to a loan officer."
+    },
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "21,839 paid employees in 184 establishments, 1.8 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Phoenix businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,360, 12th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Phoenix licenses through its transaction privilege tax, and Arizona's corporate record sits with the Corporation Commission.",
+   "leadIn": "Why it matters:",
+   "lead": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its new portal is where a site's legal name should match.",
+   "cards": [
+    {
+     "h3": "Phoenix privilege tax license",
+     "line": "A business with taxable activities in Phoenix needs a transaction privilege (sales) tax license from the city's Finance Department, $50 a year, renewed each January."
+    },
+    {
+     "h3": "Breach notice under A.R.S. § 18-552",
+     "line": "Once an investigation confirms a breach, the business that owns the data has a fixed window in the statute to notify the people affected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Privilege (sales) tax license and fees” and “Notification of a security system breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Phoenix Finance Department",
+     "what": "Privilege (sales) tax license and fees",
+     "read": "read 1 November 2026",
+     "page": "https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license.html"
+    },
+    {
+     "name": "Arizona State Legislature, A.R.S. § 18-552",
+     "what": "Notification of a security system breach",
+     "read": "read 1 November 2026",
+     "page": "https://www.azleg.gov/ars/18/00552.htm"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -821,6 +901,7 @@ export const PLACE: LocalPlace = {
   "7": "derived: rank of estabChg among the 64 place pages",
   "12": "page-map-webdev.json national_ranking rank",
   "14": "derived: educational services establishments change 2018-2023, percent",
+  "18": "Arizona State Legislature, A.R.S. § 18-552: https://www.azleg.gov/ars/18/00552.htm",
   "23": "derived: information employees per establishment, 2023",
   "25": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "26": "derived: rank of per511 among the 64 place pages",
@@ -829,9 +910,11 @@ export const PLACE: LocalPlace = {
   "41": "derived: rank of u20 among the 64 place pages",
   "43": "derived: wholesale trade establishments 2023 minus 2018",
   "47": "derived: manufacturing establishments 2023 minus 2018",
+  "50": "City of Phoenix Finance Department: https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license.html",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "90": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "134": "page-map-webdev.json national_ranking length",
+  "184": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
   "229": "derived: educational services establishments 2023 minus 2018",
   "230": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "236": "derived: finance and insurance establishments 2023 minus 2018",
@@ -842,6 +925,7 @@ export const PLACE: LocalPlace = {
   "389": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "422": "derived: retail trade establishments 2023 minus 2018",
   "480": "Semrush US exact volume, \"web design company phoenix\", pulled 2026-10-24 13:05-13:15 ET",
+  "552": "Arizona State Legislature, A.R.S. § 18-552: https://www.azleg.gov/ars/18/00552.htm",
   "736": "derived: administrative and support services establishments 2023 minus 2018",
   "917": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "1,800,506": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -949,7 +1033,17 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "31,549": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
+  "1,524": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
+  "1.91": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "80,492": "Census CBP 2023, NAICS 522 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
+  "2,471": "Census CBP 2023, NAICS 522 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
+  "1.83": "derived: NAICS 522 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "21,839": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38060)",
+  "1.8": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

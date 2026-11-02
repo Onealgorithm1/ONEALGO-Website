@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "seattle",
  "seo": {
-  "title": "Web Design Seattle, WA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Seattle, WA: Custom Websites | One Algorithm",
   "description": "Web design for Seattle businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-seattle.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Publishing employs 5.68 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Publishers need subscription paths, fast article pages and an archive search engines can crawl.",
+   "cards": [
+    {
+     "h3": "Publishing",
+     "line": "96,547 paid employees in 815 establishments, 5.68 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Transportation equipment manufacturing",
+     "line": "75,001 paid employees in 194 establishments, 3.31 times the US share. Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists."
+    },
+    {
+     "h3": "Other information services",
+     "line": "15,315 paid employees in 268 establishments, 2.78 times the US share. Online platforms and search businesses live on page speed and sign-up flows that work."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Seattle businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,660, 20th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Seattle licenses nearly every business through its tax certificate, and Washington now taxes website development.",
+   "leadIn": "Why it matters:",
+   "lead": "Washington now taxes website development itself, and its health data law reaches any site that collects health-related details.",
+   "cards": [
+    {
+     "h3": "The Seattle business license tax certificate",
+     "line": "Anyone doing business in Seattle needs a business license tax certificate, renewed yearly; from 2026 it is not needed with $4,000 or less of Seattle income and no place of business there."
+    },
+    {
+     "h3": "Breach notice under RCW 19.255",
+     "line": "Washington requires notice in the most expedient time possible after a breach, with a firm outer limit set in the statute."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business licenses” and “Washington's data breach notification laws”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Seattle, Office of City Finance",
+     "what": "Business licenses",
+     "read": "read 1 November 2026",
+     "page": "https://www.seattle.gov/city-finance/business-taxes-and-licenses/business-licenses"
+    },
+    {
+     "name": "Washington State Office of the Attorney General",
+     "what": "Washington's data breach notification laws",
+     "read": "read 1 November 2026",
+     "page": "https://www.atg.wa.gov/washington-s-data-breach-notification-laws"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -815,6 +895,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "2": "derived: finance and insurance establishments change 2018-2023, percent",
   "5": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "derived: rank of u20 among the 64 place pages",
   "15": "derived: health care and social assistance share of paid employees, 2023",
   "17": "derived: accommodation and food services employees per establishment, 2023",
@@ -831,9 +912,10 @@ export const PLACE: LocalPlace = {
   "134": "page-map-webdev.json national_ranking length",
   "135": "derived: administrative and support services establishments 2023 minus 2018",
   "140": "Semrush US exact volume, \"web developer seattle\", pulled 2026-10-24 13:05-13:15 ET",
-  "194": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "194": "Census CBP 2023, NAICS 336 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
   "260": "Semrush US exact volume, \"website development seattle\", pulled 2026-10-24 13:05-13:15 ET",
   "266": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
+  "268": "Census CBP 2023, NAICS 519 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
   "270": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "278": "derived: accommodation and food services establishments 2023 minus 2018",
   "323": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
@@ -842,8 +924,10 @@ export const PLACE: LocalPlace = {
   "627": "derived: wholesale trade establishments 2023 minus 2018",
   "664": "derived: retail trade establishments 2023 minus 2018",
   "694": "derived: real estate, rental and leasing establishments 2023 minus 2018",
+  "815": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
   "825": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "999": "derived: construction establishments 2023 minus 2018",
+  "2026": "City of Seattle, Office of City Finance: https://www.seattle.gov/city-finance/business-taxes-and-licenses/business-licenses",
   "1,773,052": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "6.3": "derived: change in paid employees 2018-2023, percent",
   "9,559": "Census County Business Patterns 2023, establishments with 20-49 employees, 2023",
@@ -927,7 +1011,7 @@ export const PLACE: LocalPlace = {
   "10,825": "Census County Business Patterns 2018, establishments, naics 44-45 retail trade, 2018",
   "6.1": "derived: retail trade establishments change 2018-2023, percent",
   "1,468": "derived: health care and social assistance establishments 2023 minus 2018",
-  "1,000": "Semrush US exact volume, \"web design seattle\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "8.60": "Semrush CPC (USD), \"web design seattle\"",
   "7.00": "Semrush CPC (USD), \"web design company seattle\"",
   "16.69": "Semrush CPC (USD), \"website development seattle\"",
@@ -940,7 +1024,16 @@ export const PLACE: LocalPlace = {
   "806,454": "derived: top-4 sectors' paid employees, 2023",
   "42.8": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "4,000": "City of Seattle, Office of City Finance: https://www.seattle.gov/city-finance/business-taxes-and-licenses/business-licenses",
+  "19.255": "Washington State Office of the Attorney General: https://www.atg.wa.gov/washington-s-data-breach-notification-laws",
+  "96,547": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
+  "5.68": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "75,001": "Census CBP 2023, NAICS 336 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
+  "3.31": "derived: NAICS 336 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "15,315": "Census CBP 2023, NAICS 519 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:42660)",
+  "2.78": "derived: NAICS 519 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

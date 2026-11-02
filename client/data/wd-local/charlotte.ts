@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-north-carolina"
  },
  "seo": {
-  "title": "Web Design Charlotte, NC: Custom Websites | OneAlgorithm",
+  "title": "Web Design Charlotte, NC: Custom Websites | One Algorithm",
   "description": "Web design for Charlotte businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-charlotte.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Air transportation employs 2.86 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to airlines and airports sell on certifications, approvals and lead times.",
+   "cards": [
+    {
+     "h3": "Air transportation",
+     "line": "14,547 paid employees in 25 establishments, 2.86 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Banking and lending",
+     "line": "69,948 paid employees in 1,447 establishments, 2.67 times the US share. Lenders need secure applications, plain disclosures and a short path to a loan officer."
+    },
+    {
+     "h3": "Telecommunications",
+     "line": "14,369 paid employees in 471 establishments, 1.78 times the US share. Carriers and installers need coverage lookups, plan pages and a sign-up that works on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Charlotte businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,540, 21st of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "North Carolina's breach statute covers personal information in any form, paper included, so forms and the inbox behind them both count.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "North Carolina's April 15 report",
+     "line": "A North Carolina LLC files its first annual report with the Secretary of State by April 15 of the year after it forms, and every April 15 after, for $200."
+    },
+    {
+     "h3": "Breach notice under G.S. 75-65",
+     "line": "Any business that owns or licenses North Carolinians' personal information, in any form, must give notice of a security breach without unreasonable delay."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Maintaining a business registration” and “Protection from security breaches”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "North Carolina Secretary of State",
+     "what": "Maintaining a business registration",
+     "read": "read 1 November 2026",
+     "page": "https://www.sosnc.gov/manual/launching_a_business/maintaining_registration"
+    },
+    {
+     "name": "North Carolina General Assembly, G.S. 75-65",
+     "what": "Protection from security breaches",
+     "read": "read 1 November 2026",
+     "page": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -821,7 +901,9 @@ export const PLACE: LocalPlace = {
   "6": "derived: retail trade establishments change 2018-2023, percent",
   "9": "derived: rank of estabChg among the 64 place pages",
   "12": "derived: health care and social assistance share of paid employees, 2023",
+  "15": "North Carolina Secretary of State: https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
   "21": "page-map-webdev.json national_ranking rank",
+  "25": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
   "27": "derived: manufacturing establishments 2023 minus 2018",
   "34": "derived: top-3 sectors' share of paid employees, 2023",
   "35": "derived: rank of u20 among the 64 place pages",
@@ -830,19 +912,22 @@ export const PLACE: LocalPlace = {
   "45": "derived: rank of per511 among the 64 place pages",
   "61": "derived: information establishments 2023 minus 2018",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "65": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
+  "75": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
   "110": "Semrush US exact volume, \"web developer charlotte\", pulled 2026-10-24 13:05-13:15 ET",
   "122": "derived: educational services establishments 2023 minus 2018",
   "126": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "130": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "134": "page-map-webdev.json national_ranking length",
   "174": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
-  "200": "derived: wholesale trade establishments 2023 minus 2018",
+  "200": "North Carolina Secretary of State: https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
   "223": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "232": "derived: finance and insurance establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"website development charlotte\", pulled 2026-10-24 13:05-13:15 ET",
   "390": "Semrush US exact volume, \"web design company charlotte\", pulled 2026-10-24 13:05-13:15 ET",
   "448": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "467": "derived: retail trade establishments 2023 minus 2018",
+  "471": "Census CBP 2023, NAICS 517 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
   "511": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "545": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "555": "derived: administrative and support services establishments 2023 minus 2018",
@@ -950,7 +1035,16 @@ export const PLACE: LocalPlace = {
   "42.9": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "14,547": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
+  "2.86": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "69,948": "Census CBP 2023, NAICS 522 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
+  "1,447": "Census CBP 2023, NAICS 522 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
+  "2.67": "derived: NAICS 522 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,369": "Census CBP 2023, NAICS 517 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:16740)",
+  "1.78": "derived: NAICS 517 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

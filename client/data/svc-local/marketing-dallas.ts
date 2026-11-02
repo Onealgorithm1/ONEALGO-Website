@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-texas"
  },
  "seo": {
-  "title": "Digital Marketing Agency Dallas, TX | OneAlgorithm",
+  "title": "Digital Marketing Agency Dallas, TX | One Algorithm",
   "description": "Digital marketing for Dallas businesses: website, search, content and automation in one plan, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-dallas.jpg"

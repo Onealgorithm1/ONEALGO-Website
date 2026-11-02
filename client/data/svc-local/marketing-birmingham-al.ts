@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Birmingham"
  },
  "seo": {
-  "title": "Digital Marketing Agency Birmingham, AL | OneAlgorithm",
+  "title": "Digital Marketing Agency Birmingham, AL | One Algorithm",
   "description": "Digital marketing for Birmingham, Alabama companies, delivered remotely: website, content, email, social automation, ads later. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-birmingham-al.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Boston"
  },
  "seo": {
-  "title": "SEO Boston, MA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Boston, MA | One Algorithm",
   "description": "SEO for Boston businesses, delivered remotely from Malvern, PA. Audits, page plans and honest reporting. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-boston.jpg"

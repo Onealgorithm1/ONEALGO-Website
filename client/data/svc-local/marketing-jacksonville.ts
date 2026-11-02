@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-florida"
  },
  "seo": {
-  "title": "Digital Marketing Agency Jacksonville, FL | OneAlgorithm",
+  "title": "Digital Marketing Agency Jacksonville, FL | One Algorithm",
   "description": "Digital marketing for Jacksonville, FL: a clear website, search, email, reviews and social in one plan. Remote. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-jacksonville.jpg"

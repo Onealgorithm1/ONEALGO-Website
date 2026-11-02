@@ -14,7 +14,7 @@ import { IndBody, CaseBand, CBP, type IndUnit } from "../../components/v2/indust
  * Does not compete for the brand query with home: non-brand title. Hero text unchanged. */
 
 const PAGE_PATH = "/industries/marketing";
-const TITLE = "Technology for marketing teams | OneAlgorithm";
+const TITLE = "Technology for marketing teams | One Algorithm";
 const DESCRIPTION = "What a marketing team gets from us: social media on accounts you own, MarTech integration between campaign tools and CRM, and the analytics under it.";
 const L = "sf-link";
 

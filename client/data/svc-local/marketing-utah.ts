@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Utah"
  },
  "seo": {
-  "title": "Digital Marketing Agency Utah | OneAlgorithm",
+  "title": "Digital Marketing Agency Utah | One Algorithm",
   "description": "Digital marketing across Utah: website message, content, email, social automation and reviews in one plan, run remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-utah.jpg"

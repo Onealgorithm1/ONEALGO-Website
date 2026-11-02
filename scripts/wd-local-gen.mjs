@@ -12,8 +12,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { rulesSection, economySection } from "./local-context.mjs";
 
-const REPO = "C:/Users/louis/oa-sf-redesign";
+const REPO = process.env.OA_REPO || "C:/Users/louis/oa-sf-redesign";
 const RUN = "C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo";
 const OUT = `${REPO}/client/data/wd-local`;
 const TODAY = "2026-10-24";
@@ -212,6 +213,7 @@ function build(name, all) {
   const isState = m.kind === "state";
   const P = name; // display name
   const Ps = P.endsWith("s") ? `${P}'` : `${P}'s`;
+  const aP = /^[AEIO]/.test(P) ? "an" : "a"; // F-41: "an Arizona", "an Ohio"; "a Utah" stays (yoo-)
   const area = isState ? "the state" : "the metro";
   const areaLong = isState ? P : `the ${m.metroWord ?? P} metro`;
   const F = factsFor(name);
@@ -290,6 +292,7 @@ function build(name, all) {
     return { code, fact, ...s, emp, est, est18, avg, chg, diff: est - est18 };
   }).sort((a, b) => b.emp - a.emp);
   for (const s of sectors) T(fmt(Math.abs(s.diff)), `derived: ${s.label} establishments 2023 minus 2018`);
+  T(String(sectors.length), "SECTORS: the two-digit CBP sectors in the pull"); // "the 12 sectors we read" (was untraced)
   const top = sectors.slice(0, 4);
   const growth = [...sectors].sort((a, b) => b.chg - a.chg);
   const fastest = growth[0], slowest = growth[growth.length - 1];
@@ -392,7 +395,7 @@ function build(name, all) {
         "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
         name === "Pennsylvania"
           ? "Starzi Brothers moved off Squarespace to a site with a page for each service and the quote form that lands in the office inbox; it is the one Pennsylvania business among the six."
-          : `None of the six is presented as a ${P} business; each one shows a job a site has to do, whatever the city.`,
+          : `None of the six is presented as ${aP} ${P} business; each one shows a job a site has to do, whatever the city.`,
         "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout.",
       ],
     },
@@ -538,7 +541,7 @@ function build(name, all) {
 
   const process = {
     kind: "process", id: "process",
-    h2: `How a ${P} web project runs`,
+    h2: `How ${aP} ${P} web project runs`,
     lede: "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
     leadIn: "What you get:",
     lead: "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -566,7 +569,7 @@ function build(name, all) {
       label: "calls, reviews and where the work happens",
       paras: [
         inPhilly
-          ? `Calls and screen-shares cover most of a ${P} build; when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule.`
+          ? `Calls and screen-shares cover most of ${aP} ${P} build; when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule.`
           : "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between.",
       ],
     },
@@ -575,7 +578,7 @@ function build(name, all) {
   /* ---------- FAQ (>= 6; every answer carries a fact of the place) ---------- */
   const faq = [];
   const add = (q, a, from, link) => faq.push({ q, a, from, ...(link ? { link } : {}) });
-  add(`Can a ${P} business hire a remote web design team?`,
+  add(`Can ${aP} ${P} business hire a remote web design team?`,
     `Yes. We take on website work for ${P} businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in ${m.tz === "ET" ? "Eastern" : m.tz === "AZ" ? "Arizona" : m.tz === "HT" ? "Hawaii" : tz.name} hours, the clock ${area}'s ${fmt(E23)} establishments keep.`,
     "suggest-base: can web design be outsourced / do web designers work from home");
   add(`How much does web design cost in ${P}?`,
@@ -596,14 +599,14 @@ function build(name, all) {
     health: { q: `Do you design websites for medical and dental practices in ${P}?`, sec: "62", needs: "online booking, intake forms and an accessible path for every patient" },
     trades: { q: `Do you design websites for contractors in ${P}?`, sec: "23", needs: "service-area pages, project photos and quote requests that land in the office inbox" },
     auto: { q: `Do you design websites for automotive businesses in ${P}?`, sec: "44-45", needs: "inventory or service pages, booking and directions that work on a phone" },
-    store: { q: `Can you build an online store for a ${P} business?`, sec: "44-45", needs: "a catalogue, stock that agrees with the counter and a checkout that works on a phone" },
+    store: { q: `Can you build an online store for ${aP} ${P} business?`, sec: "44-45", needs: "a catalogue, stock that agrees with the counter and a checkout that works on a phone" },
   };
   for (const h of sectorHits.slice(0, 2)) {
     const d = SECTOR_Q[h.id]; const s = sectors.find((x) => x.code === d.sec);
     add(d.q, `Yes. That kind of site is scoped like any build of ours: ${d.needs}, each part priced in writing before work starts. ${cap(area)} had ${fmt(s.est)} ${s.label} establishments in 2023, by County Business Patterns.`, `suggest-places: ${h.from}`);
   }
   const fl = hasWord(/freelanc/);
-  if (fl) add(`Should a ${P} business hire a freelancer or a web design firm?`,
+  if (fl) add(`Should ${aP} ${P} business hire a freelancer or a web design firm?`,
     `Either can work; what matters is live sites you can open, who owns the code and a written scope. ${cap(area)} had ${fmt(N511)} custom programming and ${fmt(N430)} graphic design establishments in 2023, and a firm keeps the work moving when one person is away.`,
     `suggest-places: ${fl}`, { to: `${HUB}#choose`, label: "How to choose a web design company" });
   const best = hasWord(/\b(best|top)\b/) || hasWord(/agenc|firm|compan/);
@@ -651,10 +654,14 @@ function build(name, all) {
     ],
   };
 
-  const sections = [intro, work, figures, industries, search, competition, growthSec, compare, process, office, { kind: "faq", id: "faq", h2: isState ? "Web design questions from the state" : "Web design questions from the metro", schema: false, items: faq }, routes];
+  // 2026-11-01 (audit F-10/F-21): two place-only sections, from official sources (scripts/local-context.mjs).
+  const RULE_CITY = { "Washington, DC": "Washington, DC", "New York": "New York" };
+  const rules = rulesSection({ P, state: m.state, city: isState ? null : (RULE_CITY[name] ?? name), isState, T, sib: NAMES.filter((n) => META[n].kind !== "state" && META[n].state === m.state).indexOf(name) });
+  const economy = economySection({ geo: F.geo, area, Ps, T, aOf: (w) => (/^[aeio]/i.test(w) ? "an" : "a") });
+  const sections = [intro, work, figures, industries, ...(economy ? [economy] : []), search, competition, growthSec, compare, ...(rules ? [rules] : []), process, office, { kind: "faq", id: "faq", h2: isState ? "Web design questions from the state" : "Web design questions from the metro", schema: false, items: faq }, routes];
 
   /* ---------- head ---------- */
-  const titles = [`Web Design ${P}${m.noSt || isState ? "" : `, ${m.st}`}: Custom Websites | OneAlgorithm`, `Web Design ${P}: Custom Websites | OneAlgorithm`, `Web Design ${P} | OneAlgorithm`];
+  const titles = [`Web Design ${P}${m.noSt || isState ? "" : `, ${m.st}`}: Custom Websites | One Algorithm`, `Web Design ${P}: Custom Websites | One Algorithm`, `Web Design ${P} | One Algorithm`];
   const title = titles.find((t) => t.length <= 60);
   const metas = [
     `Web design for ${P} businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.`,
@@ -671,7 +678,7 @@ function build(name, all) {
   return {
     slug, name, path: `/services/web-design-${slug}`, kind: isState ? "state" : "metro", photo: slug,
     ...(statePage ? { parent: { label: statePage, to: `/services/web-design-${slugOf(statePage)}` } } : {}),
-    seo: { title, description, dateModified: TODAY, ogImage: `/og/places/web-design-${slug}.jpg` },
+    seo: { title, description, dateModified: rules || economy || aP === "an" || name === "Pennsylvania" ? "2026-11-01" : TODAY, ogImage: `/og/places/web-design-${slug}.jpg` },
     // 2026-11-01: Pennsylvania's lede says "statewide" so it stops competing with the Chester County page (552 overlapping impressions).
     hero: { kicker: "Web design and development", h1: `Web design for ${P} businesses`, lede: name === "Pennsylvania" ? `We design and build custom websites for businesses across Pennsylvania, statewide and remotely from Malvern, PA, with the scope, price and schedule in writing first.` : `We design and build custom websites for ${P} businesses remotely from Malvern, PA, with the scope, price and schedule in writing first.` },
     areaServed,
@@ -711,7 +718,7 @@ const manifest = {
   routes: pages.map((p) => ({ slug: p.slug, path: p.path, component: "client/components/wd/LocalRoute.tsx", element: `<WebDesignPlace slug="${p.slug}" />`, data: `client/data/wd-local/${p.slug}.ts`, kind: p.kind, title: p.seo.title, meta: p.seo.description, h1: p.hero.h1, lastmod: TODAY, og: p.seo.ogImage, photo: `/places/${p.slug}-2400.avif`, near: p._meta.near, parent: p.parent?.to ?? null })),
 };
 fs.mkdirSync(`${RUN}/build-wave12`, { recursive: true });
-fs.writeFileSync(`${RUN}/build-wave12/routes-manifest.json`, JSON.stringify(manifest, null, 1));
+if (!process.env.OA_REPO) fs.writeFileSync(`${RUN}/build-wave12/routes-manifest.json`, JSON.stringify(manifest, null, 1)); // OA_REPO = a worktree run: leave the workspace run folder alone
 console.log(`wrote ${pages.length} place files, places.ts, routes-manifest.json`);
 
 /* ---------- OG images: photo (photo agent's 1200x630 crop) + a navy band with the page's words; else a plate ---------- */

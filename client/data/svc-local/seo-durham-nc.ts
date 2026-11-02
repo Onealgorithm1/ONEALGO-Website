@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Durham"
  },
  "seo": {
-  "title": "SEO Durham, NC: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Durham, NC | One Algorithm",
   "description": "SEO for Durham, NC businesses: technical fixes, pages built from real searches and earned authority, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-durham-nc.jpg"

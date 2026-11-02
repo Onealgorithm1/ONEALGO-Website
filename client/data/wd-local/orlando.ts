@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-florida"
  },
  "seo": {
-  "title": "Web Design Orlando, FL: Custom Websites | OneAlgorithm",
+  "title": "Web Design Orlando, FL: Custom Websites | One Algorithm",
   "description": "Web design for Orlando businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-orlando.jpg"
  },
  "hero": {
@@ -412,7 +412,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Orlando business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Orlando business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -494,6 +494,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 581,958 people, 47.2% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Amusement, gambling and recreation employs 4.53 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Attractions need hours, booking and offers that read fast on a phone.",
+   "cards": [
+    {
+     "h3": "Amusement, gambling and recreation",
+     "line": "71,680 paid employees in 711 establishments, 4.53 times the US share. Attractions need hours, booking and offers that read fast on a phone."
+    },
+    {
+     "h3": "Accommodation",
+     "line": "55,773 paid employees in 590 establishments, 3.22 times the US share. Hotels need direct booking, rate calendars and photos that load fast."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "10,438 paid employees in 52 establishments, 2.06 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -655,9 +697,47 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "For most Florida businesses the breach statute, not the billion-dollar privacy law, is the rule that governs what a site's forms collect.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Breach notice under § 501.171",
+     "line": "Florida sets an outer limit for notice to each affected individual in the state, counted from the moment a breach is determined or suspected."
+    },
+    {
+     "h3": "Florida's annual report on Sunbiz",
+     "line": "A Florida LLC files its annual report on Sunbiz between 1 January and 1 May for $138.75; after 1 May the Division of Corporations adds a $400 late fee."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Security of confidential personal information” and “LLC annual report fees”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Florida Legislature, § 501.171",
+     "what": "Security of confidential personal information",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html"
+    },
+    {
+     "name": "Florida Division of Corporations (Sunbiz)",
+     "what": "LLC annual report fees",
+     "read": "read 1 November 2026",
+     "page": "https://efile.sunbiz.org/llc_ar_help.html"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Orlando web project runs",
+   "h2": "How an Orlando web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -696,7 +776,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Orlando business hire a remote web design team?",
+     "q": "Can an Orlando business hire a remote web design team?",
      "a": "Yes. We take on website work for Orlando businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Eastern hours, the clock the metro's 77,951 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -822,11 +902,13 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
   "2": "derived: rank of estabChg among the 64 place pages",
   "3": "derived: rank of popChg among the 64 place pages",
   "5": "derived: retail trade establishments change 2018-2023, percent",
   "9": "derived: rank of u20 among the 64 place pages",
   "11": "derived: wholesale trade establishments 2023 minus 2018",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: health care and social assistance share of paid employees, 2023",
   "15": "derived: administrative and support services establishments change 2018-2023, percent",
   "17": "derived: retail trade employees per establishment, 2023",
@@ -837,6 +919,7 @@ export const PLACE: LocalPlace = {
   "35": "page-map-webdev.json national_ranking rank",
   "36": "derived: rank of estab among the 64 place pages",
   "40": "Semrush US exact volume, \"web developer orlando\", pulled 2026-10-24 13:05-13:15 ET",
+  "52": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "115": "derived: information establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
@@ -848,11 +931,14 @@ export const PLACE: LocalPlace = {
   "216": "derived: educational services establishments 2023 minus 2018",
   "220": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "260": "Semrush US exact volume, \"web design company orlando\", pulled 2026-10-24 13:05-13:15 ET",
+  "400": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
   "426": "derived: retail trade establishments 2023 minus 2018",
   "586": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
+  "590": "Census CBP 2023, NAICS 721 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
   "608": "derived: finance and insurance establishments 2023 minus 2018",
   "664": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "687": "derived: administrative and support services establishments 2023 minus 2018",
+  "711": "Census CBP 2023, NAICS 713 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
   "720": "Semrush US exact volume, \"web design orlando\", pulled 2026-10-24 13:05-13:15 ET",
   "802": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "852": "derived: NAICS 541511 + 541430 establishments, 2023",
@@ -954,7 +1040,17 @@ export const PLACE: LocalPlace = {
   "47.2": "derived: top-4 sectors' share of paid employees, 2023",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "501.171": "Florida Legislature, § 501.171: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html",
+  "138.75": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
+  "71,680": "Census CBP 2023, NAICS 713 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
+  "4.53": "derived: NAICS 713 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "55,773": "Census CBP 2023, NAICS 721 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
+  "3.22": "derived: NAICS 721 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "10,438": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36740)",
+  "2.06": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

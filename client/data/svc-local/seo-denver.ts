@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-colorado"
  },
  "seo": {
-  "title": "SEO Denver, CO: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Denver, CO | One Algorithm",
   "description": "SEO for Denver companies, delivered remotely: audits, pages planned from search data, Search Console reporting. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-denver.jpg"

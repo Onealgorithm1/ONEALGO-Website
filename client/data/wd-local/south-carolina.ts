@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "south-carolina",
  "seo": {
-  "title": "Web Design South Carolina: Custom Websites | OneAlgorithm",
+  "title": "Web Design South Carolina: Custom Websites | One Algorithm",
   "description": "Web design for South Carolina businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-south-carolina.jpg"
  },
  "hero": {
@@ -485,6 +485,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Textile mills employs 9.71 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills sell to buyers who want spec sheets, minimums and sample requests without a phone call.",
+   "cards": [
+    {
+     "h3": "Textile mills",
+     "line": "11,455 paid employees in 121 establishments, 9.71 times the US share. Mills sell to buyers who want spec sheets, minimums and sample requests without a phone call."
+    },
+    {
+     "h3": "Electrical equipment and appliances",
+     "line": "14,191 paid employees in 90 establishments, 2.6 times the US share. Equipment and appliance makers need product finders, manuals and registration or warranty forms."
+    },
+    {
+     "h3": "Transportation equipment manufacturing",
+     "line": "55,405 paid employees in 205 establishments, 2.23 times the US share. Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What South Carolina businesses search for",
@@ -796,6 +838,7 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: retail trade share of paid employees, 2023",
   "14": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "17": "derived: wholesale trade employees per establishment, 2023",
@@ -811,12 +854,15 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "66": "page-map-webdev.json national_ranking rank",
   "73": "derived: information establishments 2023 minus 2018",
+  "90": "Census CBP 2023, NAICS 335 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
+  "121": "Census CBP 2023, NAICS 313 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
   "134": "page-map-webdev.json national_ranking length",
   "147": "derived: manufacturing establishments 2023 minus 2018",
   "156": "derived: finance and insurance establishments 2023 minus 2018",
   "179": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "189": "derived: wholesale trade establishments 2023 minus 2018",
   "200": "derived: educational services establishments 2023 minus 2018",
+  "205": "Census CBP 2023, NAICS 336 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
   "303": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "314": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "464": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
@@ -923,7 +969,15 @@ export const PLACE: LocalPlace = {
   "53.1": "derived: top-4 sectors' share of paid employees, 2023",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "11,455": "Census CBP 2023, NAICS 313 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
+  "9.71": "derived: NAICS 313 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,191": "Census CBP 2023, NAICS 335 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
+  "2.6": "derived: NAICS 335 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "55,405": "Census CBP 2023, NAICS 336 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:45)",
+  "2.23": "derived: NAICS 336 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

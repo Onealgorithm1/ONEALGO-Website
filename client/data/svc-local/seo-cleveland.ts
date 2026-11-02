@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Cleveland"
  },
  "seo": {
-  "title": "SEO Cleveland, OH: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Cleveland, OH | One Algorithm",
   "description": "SEO for Cleveland, Ohio businesses: technical fixes, local pages and authority, run remotely on Eastern time. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-cleveland.jpg"

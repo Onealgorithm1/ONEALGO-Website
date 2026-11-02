@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Indianapolis"
  },
  "seo": {
-  "title": "SEO Indianapolis, IN: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Indianapolis, IN | One Algorithm",
   "description": "SEO for Indianapolis businesses: audits, local pages, technical fixes and authority, delivered remotely in your time zone. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-indianapolis.jpg"

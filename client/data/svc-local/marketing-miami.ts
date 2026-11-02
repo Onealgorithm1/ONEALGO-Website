@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-florida"
  },
  "seo": {
-  "title": "Digital Marketing Agency Miami, FL | OneAlgorithm",
+  "title": "Digital Marketing Agency Miami, FL | One Algorithm",
   "description": "Digital marketing for Miami: website, SEO, email, social and reviews in the right order, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-miami.jpg"

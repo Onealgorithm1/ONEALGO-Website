@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-florida"
  },
  "seo": {
-  "title": "SEO Jacksonville, FL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Jacksonville, FL | One Algorithm",
   "description": "SEO for Jacksonville, FL businesses: technical fixes, local pages and links that earn clicks, delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-jacksonville.jpg"
