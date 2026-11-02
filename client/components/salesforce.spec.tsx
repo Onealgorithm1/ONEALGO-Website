@@ -117,7 +117,7 @@ describe("Salesforce primitives", () => {
     );
     expect(html).toContain('id="start"');
     expect(html).toContain('id="start-title"');
-    expect(html).toContain('href="/contact?need=salesforce&amp;topic=Salesforce%20integration&amp;from=%2Fservices%2Fsalesforce-integration"');
+    expect(html).toContain('href="/contact#need=salesforce&amp;topic=Salesforce%20integration&amp;from=%2Fservices%2Fsalesforce-integration"');
     expect(html).toContain('href="tel:+16108909711"');
     expect(html).toContain("Topic · Salesforce integration");
     expect(html).toContain("What the free health check covers");

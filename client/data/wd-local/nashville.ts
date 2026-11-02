@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "nashville",
  "seo": {
-  "title": "Web Design Nashville, TN: Custom Websites | OneAlgorithm",
+  "title": "Web Design Nashville, TN: Custom Websites | One Algorithm",
   "description": "Web design for Nashville businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-nashville.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Performing arts and spectator sports employs 2.5 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Venues and teams live on event calendars and ticketing that work on a phone.",
+   "cards": [
+    {
+     "h3": "Performing arts and spectator sports",
+     "line": "9,834 paid employees in 1,187 establishments, 2.5 times the US share. Venues and teams live on event calendars and ticketing that work on a phone."
+    },
+    {
+     "h3": "Electrical equipment and appliances",
+     "line": "5,803 paid employees in 32 establishments, 2.17 times the US share. Equipment and appliance makers need product finders, manuals and registration or warranty forms."
+    },
+    {
+     "h3": "Warehousing and storage",
+     "line": "21,729 paid employees in 208 establishments, 1.82 times the US share. 3PLs and warehouses sell on square footage, systems integration and a request for a rate."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Nashville businesses search for",
@@ -820,6 +862,7 @@ export const PLACE: LocalPlace = {
   "15": "derived: manufacturing establishments 2023 minus 2018",
   "17": "derived: health care and social assistance share of paid employees, 2023",
   "31": "page-map-webdev.json national_ranking rank",
+  "32": "Census CBP 2023, NAICS 335 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
   "36": "Semrush keyword difficulty, \"web design nashville\"",
   "40": "derived: wholesale trade establishments 2023 minus 2018",
   "50": "derived: rank of estab among the 64 place pages",
@@ -835,6 +878,7 @@ export const PLACE: LocalPlace = {
   "163": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "170": "Semrush US exact volume, \"web developer nashville\", pulled 2026-10-24 13:05-13:15 ET",
   "178": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "208": "Census CBP 2023, NAICS 493 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
   "210": "Semrush US exact volume, \"web design company nashville\", pulled 2026-10-24 13:05-13:15 ET",
   "260": "Semrush US exact volume, \"website development nashville\", pulled 2026-10-24 13:05-13:15 ET",
   "262": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
@@ -947,7 +991,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "9,834": "Census CBP 2023, NAICS 711 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
+  "1,187": "Census CBP 2023, NAICS 711 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
+  "2.5": "derived: NAICS 711 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "5,803": "Census CBP 2023, NAICS 335 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
+  "2.17": "derived: NAICS 335 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "21,729": "Census CBP 2023, NAICS 493 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:34980)",
+  "1.82": "derived: NAICS 493 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

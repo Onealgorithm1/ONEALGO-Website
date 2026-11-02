@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Kansas City"
  },
  "seo": {
-  "title": "SEO Kansas City, MO: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Kansas City, MO | One Algorithm",
   "description": "SEO for Kansas City businesses in Missouri and Kansas: technical fixes, demand-led pages, Search Console reporting. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-kansas-city.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for New Orleans"
  },
  "seo": {
-  "title": "SEO New Orleans, LA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in New Orleans, LA | One Algorithm",
   "description": "New Orleans SEO done remotely: technical fixes, local pages, reviews and honest monthly reports for Louisiana businesses. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-new-orleans.jpg"

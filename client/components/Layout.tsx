@@ -235,7 +235,7 @@ function Layout({ children }: LayoutProps) {
 
   /* Salesforce plate system (spec 2.16, 2026-10-23). Every page gets one Desk
      (`#start`, the page's form). Until a page has been rebuilt with one, the
-     header CTA and the call bar keep pointing at /contact?need=salesforce, so
+     header CTA and the call bar keep pointing at /contact#need=salesforce, so
      no link ever lands on a missing anchor. The Desk mounts with the lazy route
      chunk, so it is looked for for ~1s rather than once. */
   const [hasDesk, setHasDesk] = React.useState(false);
@@ -463,7 +463,8 @@ function Layout({ children }: LayoutProps) {
       }
     };
 
-    if (!location.hash) {
+    // /contact#need=…&topic=… carries the form pre-fill (audit C-60: no ?need= URLs), not an anchor to seek.
+    if (!location.hash || location.hash.includes("=")) {
       toTop();
     } else {
       const id = decodeURIComponent(location.hash.slice(1));
@@ -746,7 +747,7 @@ function Layout({ children }: LayoutProps) {
                       Free health check
                     </PrimaryCTA>
                   ) : (
-                    <PrimaryCTA to="/contact?need=salesforce" cta="header" tone="light" className="h-10 px-5">
+                    <PrimaryCTA to="/contact#need=salesforce" cta="header" tone="light" className="h-10 px-5">
                       Free health check
                     </PrimaryCTA>
                   )}
@@ -1383,7 +1384,7 @@ function Layout({ children }: LayoutProps) {
             </a>
           ) : (
             <Link
-              to="/contact?need=salesforce"
+              to="/contact#need=salesforce"
               data-cta="bar"
               className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
             >

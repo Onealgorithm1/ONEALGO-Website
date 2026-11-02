@@ -118,7 +118,7 @@ export default function Careers() {
 
   const careersUrl = getCanonicalUrl(slug ? `/careers/${slug}` : "/careers");
   const share = job ? shareImage(job) : undefined;
-  const pageTitle = job ? `${job.title} — Careers at OneAlgorithm` : "Careers — OneAlgorithm";
+  const pageTitle = job ? `${job.title} — Careers at One Algorithm` : "Careers | One Algorithm";
   const pageDescription = job?.summary || "Open roles at OneAlgorithm in Malvern, Pennsylvania.";
   useSEO({
     title: pageTitle,

@@ -27,7 +27,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PATH = "/services/staff-augmentation";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "IT Staff Augmentation Services | OneAlgorithm";
+const TITLE = "IT Staff Augmentation Services | One Algorithm";
 const DESCRIPTION = "IT staff augmentation services: specialists who work inside your team, under your lead. We say where each candidate is light. Call (610) 890-9711.";
 
 const SOURCES: SfSource[] = [
@@ -74,7 +74,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Do you E-Verify the people you place?", a: "Our E-Verify account covers our own employees only, and we have been enrolled since 2024. It does not cover subcontractors, so we do not claim that everyone placed on your team is verified. Ask us who employs the person, and we will tell you in writing." },
   { q: "Can you place people outside Salesforce?", a: "Our delivery record is Salesforce, so that is where we lead. Other technical roles are discussed case by case, and we say where we are light before you interview anyone. If we are not the right fit, we tell you rather than send a candidate we cannot stand behind." },
   { q: "Do you work with companies outside Pennsylvania?", a: "Yes. Our office is in Malvern, Pennsylvania, and most placements work remotely with teams across the United States. Where a project needs people in the room, we plan it with you, in writing, before anyone travels." },
-  { q: "What do you need from us to start?", a: "Four things: the role, the stack, the team the person joins, and the window in which you need them to start. A paragraph is enough. We reply with whether we have the right person and what we would want to know next.", link: { to: "/contact?need=enterprise", label: "Talk to a consultant" } },
+  { q: "What do you need from us to start?", a: "Four things: the role, the stack, the team the person joins, and the window in which you need them to start. A paragraph is enough. We reply with whether we have the right person and what we would want to know next.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
   { q: "What is the difference between staff augmentation and a software development company?", a: "A software development company takes a product and is accountable for building it. Staff augmentation gives you skilled people to direct yourself. If you want a finished product, see our custom software development work; if you want hands on your own backlog, this is the page.", link: { to: "/services/application-development", label: "Custom software development" } },
 ];
 

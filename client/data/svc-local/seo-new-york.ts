@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for New York"
  },
  "seo": {
-  "title": "SEO New York, NY: SEO Company | OneAlgorithm",
+  "title": "SEO Company in New York, NY | One Algorithm",
   "description": "SEO for New York businesses: technical fixes, demand-led pages and earned authority, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-new-york.jpg"

@@ -1,8 +1,8 @@
 /* ONE config: route (or route prefix) -> the page's offer. Used by the header CTA, StickyCallBar, OfferBand.
- * Every href is /contact?need=<slug>. No prices. First match wins, so list specific prefixes before general ones. */
+ * Every href is /contact#need=<slug>. No prices. First match wins, so list specific prefixes before general ones. */
 export type Offer = { label: string; need: string; sub: string; href: string };
 
-const o = (label: string, need: string, sub: string): Offer => ({ label, need, sub, href: `/contact?need=${need}` });
+const o = (label: string, need: string, sub: string): Offer => ({ label, need, sub, href: `/contact#need=${need}` });
 
 const REVIEW = "We look at your site and tell you what is holding it back.";
 const CONSULT = "A short call to see whether we fit.";

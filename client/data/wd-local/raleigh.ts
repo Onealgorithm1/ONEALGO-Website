@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-north-carolina"
  },
  "seo": {
-  "title": "Web Design Raleigh, NC: Custom Websites | OneAlgorithm",
+  "title": "Web Design Raleigh, NC: Custom Websites | One Algorithm",
   "description": "Web design for Raleigh businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-raleigh.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Publishing employs 2.38 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Publishers need subscription paths, fast article pages and an archive search engines can crawl.",
+   "cards": [
+    {
+     "h3": "Publishing",
+     "line": "13,294 paid employees in 221 establishments, 2.38 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Data processing and hosting",
+     "line": "6,014 paid employees in 120 establishments, 2.16 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    },
+    {
+     "h3": "Chemical manufacturing",
+     "line": "7,477 paid employees in 37 establishments, 1.86 times the US share. Chemical buyers need safety data sheets, specifications and a gated technical enquiry."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Raleigh businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,920, 16th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Raleigh asks for no city business license, so North Carolina's April report is the yearly filing that counts.",
+   "leadIn": "Why it matters:",
+   "lead": "North Carolina's breach statute covers personal information in any form, paper included, so forms and the inbox behind them both count.",
+   "cards": [
+    {
+     "h3": "No Raleigh business license",
+     "line": "The City of Raleigh does not require a business license to operate within city limits; activity permits, such as for selling beer or wine, still apply."
+    },
+    {
+     "h3": "Breach notice under G.S. 75-65",
+     "line": "Any business that owns or licenses North Carolinians' personal information, in any form, must give notice of a security breach without unreasonable delay."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Permits and licenses” and “Protection from security breaches”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Raleigh",
+     "what": "Permits and licenses",
+     "read": "read 1 November 2026",
+     "page": "https://raleighnc.gov/doing-business/services/permits-and-licenses"
+    },
+    {
+     "name": "North Carolina General Assembly, G.S. 75-65",
+     "what": "Protection from security breaches",
+     "read": "read 1 November 2026",
+     "page": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -828,19 +908,24 @@ export const PLACE: LocalPlace = {
   "20": "derived: educational services employees per establishment, 2023",
   "29": "derived: rank of u20 among the 64 place pages",
   "32": "derived: manufacturing establishments 2023 minus 2018",
+  "37": "Census CBP 2023, NAICS 325 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
   "40": "Semrush US exact volume, \"web developer raleigh\", pulled 2026-10-24 13:05-13:15 ET",
   "54": "derived: information establishments 2023 minus 2018",
   "55": "derived: rank of estab among the 64 place pages",
   "60": "Semrush keyword difficulty, \"web design raleigh\"",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "65": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
   "68": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "74": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "75": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
   "82": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "101": "derived: educational services establishments 2023 minus 2018",
+  "120": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
   "127": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "134": "page-map-webdev.json national_ranking length",
   "144": "derived: finance and insurance establishments 2023 minus 2018",
   "214": "derived: retail trade establishments 2023 minus 2018",
+  "221": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
   "253": "derived: administrative and support services establishments 2023 minus 2018",
   "260": "Semrush US exact volume, \"web design company raleigh\", pulled 2026-10-24 13:05-13:15 ET",
   "320": "Semrush US exact volume, \"website development raleigh\", pulled 2026-10-24 13:05-13:15 ET",
@@ -946,7 +1031,15 @@ export const PLACE: LocalPlace = {
   "303,505": "derived: top-4 sectors' paid employees, 2023",
   "49.1": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "13,294": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
+  "2.38": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "6,014": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
+  "2.16": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "7,477": "Census CBP 2023, NAICS 325 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:39580)",
+  "1.86": "derived: NAICS 325 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

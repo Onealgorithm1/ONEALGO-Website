@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "atlanta",
  "seo": {
-  "title": "Web Design Atlanta, GA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Atlanta, GA: Custom Websites | One Algorithm",
   "description": "Web design for Atlanta businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-atlanta.jpg"
  },
  "hero": {
@@ -408,7 +408,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Atlanta business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Atlanta business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -490,6 +490,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 1,171,101 people, 43.5% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Air transportation employs 4.72 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to airlines and airports sell on certifications, approvals and lead times.",
+   "cards": [
+    {
+     "h3": "Air transportation",
+     "line": "52,162 paid employees in 86 establishments, 4.72 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Warehousing and storage",
+     "line": "67,772 paid employees in 602 establishments, 2.13 times the US share. 3PLs and warehouses sell on square footage, systems integration and a request for a rate."
+    },
+    {
+     "h3": "Telecommunications",
+     "line": "31,160 paid employees in 1,228 establishments, 1.77 times the US share. Carriers and installers need coverage lookups, plan pages and a sign-up that works on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -651,9 +693,47 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Atlanta requires an occupational tax certificate of every business in its limits, and Georgia renews entities each April.",
+   "leadIn": "Why it matters:",
+   "lead": "Georgia's April registration and its breach statute are the two state rules a site's legal name and its contact forms answer to.",
+   "cards": [
+    {
+     "h3": "Atlanta's Occupational Tax Certificate",
+     "line": "Every business operating within Atlanta's city limits needs an Occupational Tax Certificate from the Office of Revenue, applied for through the ATLBIZ portal; certificates cannot be transferred."
+    },
+    {
+     "h3": "Breach notice under O.C.G.A. § 10-1-912",
+     "line": "Businesses that keep unencrypted personal records must tell affected Georgians in the most expedient time possible and without unreasonable delay."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Apply for a new business occupational tax certificate” and “Getting notified following a data breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Atlanta Office of Revenue",
+     "what": "Apply for a new business occupational tax certificate",
+     "read": "read 1 November 2026",
+     "page": "https://www.atlantaga.gov/government/departments/finance/office-of-revenue/apply-for-a-new-business-occupational-tax-certificate"
+    },
+    {
+     "name": "Georgia Department of Law, Consumer Protection Division",
+     "what": "Getting notified following a data breach",
+     "read": "read 1 November 2026",
+     "page": "https://consumered.georgia.gov/ask-ed/2023-08-30/getting-notified-following-data-breach"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Atlanta web project runs",
+   "h2": "How an Atlanta web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -692,7 +772,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Atlanta business hire a remote web design team?",
+     "q": "Can an Atlanta business hire a remote web design team?",
      "a": "Yes. We take on website work for Atlanta businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Eastern hours, the clock the metro's 163,103 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -809,9 +889,11 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Georgia Department of Law, Consumer Protection Division: https://consumered.georgia.gov/ask-ed/2023-08-30/getting-notified-following-data-breach",
   "6": "derived: retail trade establishments change 2018-2023, percent",
   "7": "page-map-webdev.json national_ranking rank",
   "9": "derived: rank of per511 among the 64 place pages",
+  "10": "Georgia Department of Law, Consumer Protection Division: https://consumered.georgia.gov/ask-ed/2023-08-30/getting-notified-following-data-breach",
   "11": "derived: retail trade share of paid employees, 2023",
   "16": "derived: retail trade employees per establishment, 2023",
   "17": "derived: rank of estabChg among the 64 place pages",
@@ -821,6 +903,7 @@ export const PLACE: LocalPlace = {
   "27": "derived: educational services employees per establishment, 2023",
   "34": "derived: top-3 sectors' share of paid employees, 2023",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "86": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
   "95": "derived: information establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "138": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
@@ -835,6 +918,8 @@ export const PLACE: LocalPlace = {
   "485": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "493": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "520": "derived: wholesale trade establishments 2023 minus 2018",
+  "602": "Census CBP 2023, NAICS 493 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
+  "912": "Georgia Department of Law, Consumer Protection Division: https://consumered.georgia.gov/ask-ed/2023-08-30/getting-notified-following-data-breach",
   "923": "derived: administrative and support services establishments 2023 minus 2018",
   "2,418,086": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.5": "derived: paid employees / establishments, 2023",
@@ -940,7 +1025,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "52,162": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
+  "4.72": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "67,772": "Census CBP 2023, NAICS 493 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
+  "2.13": "derived: NAICS 493 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "31,160": "Census CBP 2023, NAICS 517 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
+  "1,228": "Census CBP 2023, NAICS 517 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12060)",
+  "1.77": "derived: NAICS 517 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

@@ -50,7 +50,7 @@ const PLACE_METROS = PLACES.filter((p) => p.kind === "metro").filter((p, i) => i
  *
  * LINKS: in-site only in the body; the client domain links stay plain crawlable <a> (the association is wanted);
  * the one off-site control per record is the secondary button inside its dialog (GATED #13: Google as salesforce.com).
- * CTA: a button to /contact?need=website&topic=Website&from=… (DeskCTA.contactHref), twice (U7, U17) + the frozen hero's.
+ * CTA: a button to /contact#need=website&topic=Website&from=… (DeskCTA.contactHref), twice (U7, U17) + the frozen hero's.
  *
  * GATED, rendered as company facts only until Louis answers (structure-spec.md §13): "Who leads website work"
  * (no H3), "customer portals" (U3), "backups" (U10), WordPress (U8/U11), the Atlas window. */

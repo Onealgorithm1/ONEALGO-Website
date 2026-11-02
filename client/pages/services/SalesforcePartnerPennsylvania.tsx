@@ -47,7 +47,7 @@ import {
 const PAGE_PATH = "/services/salesforce-consulting-partner-pennsylvania";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Salesforce Consulting Partner in Pennsylvania | OneAlgorithm";
+const TITLE = "Salesforce Partner in Pennsylvania | One Algorithm";
 const DESCRIPTION =
   "Salesforce Consulting Partner in Pennsylvania, listed on AppExchange, office in Malvern. Check any partner, then book a free health check: (610) 890-9711.";
 const PHOTO = SF_CITY_HEROES.pennsylvania;
@@ -62,6 +62,10 @@ const SF_TIER = "Select";
 
 /* Sources for the partner program and the comparison (pages only; never a data file or query). */
 const SOURCES: SfSource[] = [
+  /* 2026-11-01 (audit F-22): this page's own job is the state record; the Department of State facts below. */
+  { name: "Pennsylvania Department of State", what: "Annual reports: start date, deadlines by entity type, fee, and dissolution for reports not filed from 2027", read: "read 1 November 2026", page: "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports" },
+  { name: "Pennsylvania Department of State", what: "Register a business: the Business Filing Services portal", read: "read 1 November 2026", page: "https://www.pa.gov/services/dos/register-a-business" },
+  { name: "Pennsylvania General Assembly", what: "Breach of Personal Information Notification Act (2005, as amended)", read: "read 1 November 2026", page: "https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/2005/0/0094..HTM" },
   {
     name: "Salesforce News: the FY27 Salesforce Partner Program",
     what: "Points-based tiers retired and 28 Competencies introduced, announced 2 March 2026",
@@ -450,6 +454,26 @@ export default function SalesforcePartnerPennsylvania() {
               ))}
             </nav>
           </LedgerRule>
+        </SmartSection>
+
+        {/* 7b THE STATE RECORD (audit F-22, 2026-11-01): what only a statewide page covers. Chester County is the
+            in-person Malvern page and Philadelphia the city page; this one carries the Pennsylvania registration record. */}
+        <SmartSection id="pa-record" grid labelledBy="h-pa-record">
+          <SmartUnit
+            className="sf-c7"
+            headingId="h-pa-record"
+            title="Pennsylvania's business record and your accounts"
+            lede="Since 1 January 2025 most domestic and foreign filing associations in Pennsylvania file a yearly report with the Department of State through Business Filing Services."
+            leadIn="Why it matters:"
+            lead="From reports due in 2027, an entity that does not file can be dissolved six months after its deadline."
+            points={["Corporations file by June 30, LLCs by September 30", "Other associations file by December 31", "Business corporations pay $7; nonprofits pay nothing"]}
+          >
+            <GoDeeper label="what this means inside a Salesforce org">
+              <p className="sf-rule">A Pennsylvania org that sells to other businesses can hold each customer's legal name and Department of State status on the account, so a lapsed record shows up before an invoice or a contract does.</p>
+              <p>The state's breach notification act, amended in 2022, covers the computerized personal information an org keeps about Pennsylvanians, which is why access and export settings come first in our health check.</p>
+              <p className="sf-mono">Department of State and General Assembly pages, read 1 November 2026. <Verify id="sources">Sources</Verify></p>
+            </GoDeeper>
+          </SmartUnit>
         </SmartSection>
 
         {/* 8 CONCERNS: objection questions as H3, answers in Go deeper. Spec §7.1 row 10. */}

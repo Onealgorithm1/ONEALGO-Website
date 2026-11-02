@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Portland"
  },
  "seo": {
-  "title": "SEO Portland, OR: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Portland, OR | One Algorithm",
   "description": "SEO for Portland, Oregon businesses: technical audits, pages planned from search demand and authority work, delivered remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-portland-or.jpg"

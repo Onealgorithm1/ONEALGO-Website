@@ -147,6 +147,9 @@ async function main() {
   if (!parsedFeed.feed || !Array.isArray(parsedFeed.feed.entry ?? [])) {
     throw new Error("Blogger response is not a posts feed");
   }
+  // Audit C-69 (2026-11-01): the feed this build rendered from, as a static file. client/lib/blogger.ts falls back to
+  // it when /api/blog fails, so the 7 blog and careers pages never re-render empty over their prerendered content.
+  fs.writeFileSync(path.join(DIST, "blog-feed.json"), feed);
   // /blog/author/<slug> is a fixed route (client/lib/authors.ts), not
   // discovered from the feed — seed it so it prerenders and so the discovery
   // regex below recognises it as known, not a leak.
@@ -475,7 +478,7 @@ Retrying ${failed.length} route(s) serially: ${failed.join(", ")}`);
     return {
       modified: g(/"dateModified":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
       published: g(/"datePublished":"([^"]+)"/) || g(/"datePosted":"([^"]+)"/),
-      title: (g(/<title>([^<]*)<\/title>/) || route).replace(/ — OneAlgorithm.*$/, ""),
+      title: (g(/<title>([^<]*)<\/title>/) || route).replace(/ [|—] One ?Algorithm.*$/, ""),
       description: g(/<meta name="description" content="([^"]*)"/) || "",
     };
   };

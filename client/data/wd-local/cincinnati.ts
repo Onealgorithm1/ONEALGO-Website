@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-ohio"
  },
  "seo": {
-  "title": "Web Design Cincinnati, OH: Custom Websites | OneAlgorithm",
+  "title": "Web Design Cincinnati, OH: Custom Websites | One Algorithm",
   "description": "Web design for Cincinnati businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-cincinnati.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Paper manufacturing employs 2.07 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Paper and packaging buyers compare specs, certifications and lead times before they ask for a quote.",
+   "cards": [
+    {
+     "h3": "Paper manufacturing",
+     "line": "5,360 paid employees in 72 establishments, 2.07 times the US share. Paper and packaging buyers compare specs, certifications and lead times before they ask for a quote."
+    },
+    {
+     "h3": "Printing",
+     "line": "5,596 paid employees in 211 establishments, 1.97 times the US share. Printers need an upload path for files, clear specs and a quote request that captures the job."
+    },
+    {
+     "h3": "Chemical manufacturing",
+     "line": "11,678 paid employees in 134 establishments, 1.74 times the US share. Chemical buyers need safety data sheets, specifications and a gated technical enquiry."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Cincinnati businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,080, 41st of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "In Ohio how the build is billed matters: the state's own taxability list ties the answer to billing it as a personal service.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Website creation and Ohio sales tax",
+     "line": "The Ohio Department of Taxation's taxability list says website creation is not taxable when it is billed as a personal service."
+    },
+    {
+     "h3": "Breach notice under R.C. 1349.19",
+     "line": "When a breach creates a material risk of identity theft or fraud, Ohio residents must be told in the most expedient time possible, within the statute's limit."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Sales and use tax: taxability list” and “Private disclosure of a security breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Ohio Department of Taxation",
+     "what": "Sales and use tax: taxability list",
+     "read": "read 1 November 2026",
+     "page": "https://tax.ohio.gov/business/sales-and-use-tax/taxability"
+    },
+    {
+     "name": "Ohio Laws and Administrative Rules, R.C. 1349.19",
+     "what": "Private disclosure of a security breach",
+     "read": "read 1 November 2026",
+     "page": "https://codes.ohio.gov/ohio-revised-code/section-1349.19"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -829,6 +909,7 @@ export const PLACE: LocalPlace = {
   "51": "derived: rank of estab among the 64 place pages",
   "62": "derived: rank of u20 among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "72": "Census CBP 2023, NAICS 322 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
   "91": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "100": "derived: manufacturing establishments 2023 minus 2018",
   "106": "derived: information establishments 2023 minus 2018",
@@ -836,11 +917,12 @@ export const PLACE: LocalPlace = {
   "117": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "121": "derived: finance and insurance establishments 2023 minus 2018",
   "131": "derived: administrative and support services establishments 2023 minus 2018",
-  "134": "page-map-webdev.json national_ranking length",
+  "134": "Census CBP 2023, NAICS 325 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
   "154": "derived: NAICS 5415 establishments per 10,000 establishments, 2023",
   "170": "Semrush US exact volume, \"web design company cincinnati\", pulled 2026-10-24 13:05-13:15 ET",
   "194": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "210": "Semrush US exact volume, \"website development cincinnati\", pulled 2026-10-24 13:05-13:15 ET",
+  "211": "Census CBP 2023, NAICS 323 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
   "234": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "239": "derived: wholesale trade establishments 2023 minus 2018",
   "272": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
@@ -947,7 +1029,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "1349.19": "Ohio Laws and Administrative Rules, R.C. 1349.19: https://codes.ohio.gov/ohio-revised-code/section-1349.19",
+  "5,360": "Census CBP 2023, NAICS 322 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
+  "2.07": "derived: NAICS 322 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "5,596": "Census CBP 2023, NAICS 323 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
+  "1.97": "derived: NAICS 323 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "11,678": "Census CBP 2023, NAICS 325 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:17140)",
+  "1.74": "derived: NAICS 325 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

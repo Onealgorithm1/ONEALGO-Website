@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Raleigh"
  },
  "seo": {
-  "title": "SEO Raleigh, NC: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Raleigh, NC | One Algorithm",
   "description": "SEO for Raleigh, NC businesses: technical fixes, pages from search data and earned links, delivered remotely. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-raleigh.jpg"

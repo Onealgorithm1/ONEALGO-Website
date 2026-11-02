@@ -94,6 +94,7 @@ function splitHero(html: string): { html: string; heroImage?: string; heroAlt?: 
 // /services/seo has no host at all, so it's ours by definition.
 function externalizeLinks(html: string): string {
   return html.replace(/<a\s+([^>]*?)href="([^"]*)"([^>]*)>/gi, (whole, before, href, after) => {
+    if (/^(mailto|tel):/i.test(href)) return whole; // an email or phone link is not an external page: no new tab
     let host: string;
     try {
       host = new URL(href, "https://onealgorithm.com").host;
@@ -107,6 +108,15 @@ function externalizeLinks(html: string): string {
     const target = /\btarget=/i.test(attrs) ? "" : ' target="_blank"';
     const rel = /\brel=/i.test(attrs) ? "" : ' rel="noopener noreferrer"';
     return `<a ${before}href="${href}"${after}${target}${rel}>`;
+  });
+}
+
+// An <a> with no href around an email address (the careers post's "How to Apply" line came over from Ghost that
+// way, audit 2026-11-01) is not a link at all. Give it the mailto: it was written to be.
+export function mailtoBareEmails(html: string): string {
+  return html.replace(/<a(\s(?:(?!\bhref=)[^>])*)?>([\s\S]*?)<\/a>/gi, (whole, attrs = "", inner) => {
+    const email = inner.replace(/<[^>]+>/g, "").trim();
+    return /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(email) ? `<a href="mailto:${email}"${attrs}>${inner}</a>` : whole;
   });
 }
 
@@ -144,7 +154,7 @@ export function toPost(e: any): Post {
   // number inside parentheses does not come out as "( +92% )".
   const text = raw.replace(/<\/?(p|div|li|ul|ol|h[1-6]|br|tr|td|th|table|blockquote|figure)b[^>]*>/gi, " ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const hero = splitHero(raw);
-  const { html: withIds, toc } = withHeadingIds(externalizeLinks(hero.html));
+  const { html: withIds, toc } = withHeadingIds(externalizeLinks(mailtoBareEmails(hero.html)));
   const { lede, body } = promoteLede(withIds);
   return {
     slug: KEEP_URL[href.split("/").pop()!.replace(/\.html$/, "")] ?? href.split("/").pop()!.replace(/\.html$/, ""),
@@ -165,13 +175,21 @@ export function toPost(e: any): Post {
 
 let cache: Promise<Post[]> | null = null;
 
+const loadFeed = (url: string): Promise<Post[]> =>
+  fetch(url)
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((j) => {
+      if (!j?.feed || !Array.isArray(j.feed.entry ?? [])) throw new Error("not a posts feed");
+      return (j.feed.entry ?? []).map(toPost);
+    });
+
 export function usePosts() {
   const [posts, setPosts] = useState<Post[] | null>(null);
   const [error, setError] = useState("");
   useEffect(() => {
-    cache ??= fetch("/api/blog")
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((j) => (j.feed.entry ?? []).map(toPost));
+    cache ??= loadFeed("/api/blog")
+      // Audit C-69: if the live feed fails, the copy prerender.mjs wrote at build time keeps the page whole.
+      .catch((e) => loadFeed("/blog-feed.json").catch(() => Promise.reject(e)));
     cache.then(setPosts).catch((e) => {
       cache = null;
       setError(String(e));

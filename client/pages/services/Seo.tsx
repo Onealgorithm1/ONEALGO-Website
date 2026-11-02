@@ -26,7 +26,7 @@ import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 const PAGE_PATH = "/services/seo";
 const PAGE_URL = "https://onealgorithm.com/services/seo";
-const TITLE = "SEO Services for Small Business | OneAlgorithm";
+const TITLE = "SEO Services for Small Business | One Algorithm";
 const DESCRIPTION = "SEO services for small business: an audit first, then fixes, content and links you never buy. Search Console reporting. Book an SEO audit: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const READ_ON = "31 October 2026";
@@ -42,7 +42,7 @@ const SOURCES: SfSource[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want. We do not print a price list, and a quote given before anyone has looked at the site is a guess.", link: { to: "/contact?need=seo", label: "Ask for the audit" } },
+  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want. We do not print a price list, and a quote given before anyone has looked at the site is a guess.", link: { to: "/contact#need=seo", label: "Ask for the audit" } },
   { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first; new pages on a young site often take a quarter or more. We report non-brand clicks monthly from your own Search Console, so you see movement as it happens." },
   { q: "Is SEO worth it?", a: "It is worth it when people search for what you sell and your site can realistically beat the pages that rank. The audit tells you which. We measure non-brand clicks, because brand clicks only show people who already knew you. For Phantom Arcades they rose 231% over the same 68 days a year earlier. We guarantee nothing.", link: { to: CASE, label: "Phantom Arcades SEO case study" } },
   { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants. Each job is separate in the report, so you can see which change moved which number. We start with an audit and fix technical faults before writing new pages.", link: { to: "#jobs", label: "See the six jobs" } },
@@ -150,7 +150,7 @@ export default function Seo() {
             "Local & Enterprise SEO",
           ],
         }}
-        primary={{ label: "Talk to an Expert", to: "/contact?need=seo" }}
+        primary={{ label: "Talk to an Expert", to: "/contact#need=seo" }}
         secondary={{ label: "View Services", to: "/services" }}
       />
 
@@ -360,7 +360,7 @@ export default function Seo() {
         <SmartSection id="faq" grid labelledBy="h-faq" className="sf-faq-section">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">SEO services questions</h2>
-            <p style={{ marginTop: 12 }}>Not here? <Link className="sf-link" to="/contact?need=seo">Ask us on the contact page</Link>.</p>
+            <p style={{ marginTop: 12 }}>Not here? <Link className="sf-link" to="/contact#need=seo">Ask us on the contact page</Link>.</p>
           </div>
           <div className="sf-c7 sf-faq-col">
             <FAQ items={FAQS} />

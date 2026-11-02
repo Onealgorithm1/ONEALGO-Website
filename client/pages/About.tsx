@@ -115,16 +115,16 @@ const SEO_DESCRIPTION =
 
 export default function About() {
   useSEO({
-    title: "About OneAlgorithm — the people who run it",
+    title: "About One Algorithm: the people who run it",
     description: SEO_DESCRIPTION,
     canonical: getCanonicalUrl("/about"),
     keywords:
       "OneAlgorithm team, OneAlgorithm leadership, woman-owned IT consultancy, EDWOSB, Malvern Pennsylvania IT consulting, Salesforce Consulting Partner",
-    ogTitle: "About OneAlgorithm — the people who run it",
+    ogTitle: "About One Algorithm: the people who run it",
     ogDescription: SEO_DESCRIPTION,
     ogUrl: getCanonicalUrl("/about"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
-    twitterTitle: "About OneAlgorithm — the people who run it",
+    twitterTitle: "About One Algorithm: the people who run it",
     twitterDescription: SEO_DESCRIPTION,
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
@@ -152,7 +152,7 @@ export default function About() {
       />
       <StructuredData
         data={createWebPageSchema(
-          "About OneAlgorithm — the people who run it",
+          "About One Algorithm: the people who run it",
           SEO_DESCRIPTION,
           "https://onealgorithm.com/about",
         )}

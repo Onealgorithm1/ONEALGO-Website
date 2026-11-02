@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-california"
  },
  "seo": {
-  "title": "SEO Los Angeles, CA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Los Angeles, CA | One Algorithm",
   "description": "SEO for Los Angeles businesses: audits, pages built from real search demand and authority work, run remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-los-angeles.jpg"

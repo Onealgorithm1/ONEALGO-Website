@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for Texas"
  },
  "seo": {
-  "title": "App Development Texas: Custom Software | OneAlgorithm",
+  "title": "App Development Texas: Custom Software | One Algorithm",
   "description": "Custom app and software development for Texas businesses statewide: written scope, staging previews, code you own, built remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-texas.jpg"

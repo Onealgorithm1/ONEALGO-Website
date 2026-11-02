@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Atlanta"
  },
  "seo": {
-  "title": "SEO Atlanta, GA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Atlanta, GA | One Algorithm",
   "description": "SEO for Atlanta businesses: audits, pages planned from real search demand and plain Search Console reports. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-atlanta.jpg"

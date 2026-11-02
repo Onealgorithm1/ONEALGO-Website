@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Nashville"
  },
  "seo": {
-  "title": "SEO Nashville, TN: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Nashville, TN | One Algorithm",
   "description": "SEO for Nashville, TN businesses: pages planned from real search demand, technical fixes and authority, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-nashville.jpg"

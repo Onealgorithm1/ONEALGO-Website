@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-virginia"
  },
  "seo": {
-  "title": "SEO Richmond, VA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Richmond, VA | One Algorithm",
   "description": "SEO for Richmond, Virginia businesses: audits, local pages and authority from real search data, delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-richmond-va.jpg"

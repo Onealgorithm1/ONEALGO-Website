@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Albuquerque"
  },
  "seo": {
-  "title": "SEO Albuquerque, NM: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Albuquerque, NM | One Algorithm",
   "description": "SEO for Albuquerque businesses: audits, pages built from real searches, technical fixes and plain monthly reports, done remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-albuquerque.jpg"

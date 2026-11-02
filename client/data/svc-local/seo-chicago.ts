@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Chicago"
  },
  "seo": {
-  "title": "SEO Chicago, IL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Chicago, IL | One Algorithm",
   "description": "SEO for Chicago businesses: technical fixes, location pages and authority work, delivered remotely from Malvern, PA. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-chicago.jpg"

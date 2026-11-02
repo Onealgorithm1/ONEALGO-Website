@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "new-orleans",
  "seo": {
-  "title": "Web Design New Orleans, LA: Custom Websites | OneAlgorithm",
+  "title": "Web Design New Orleans, LA: Custom Websites | One Algorithm",
   "description": "Web design for New Orleans businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-new-orleans.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Water transportation employs 21.44 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Shipping and ferry operators need schedules, booking and cargo enquiries that work on a phone.",
+   "cards": [
+    {
+     "h3": "Water transportation",
+     "line": "3,982 paid employees in 100 establishments, 21.44 times the US share. Shipping and ferry operators need schedules, booking and cargo enquiries that work on a phone."
+    },
+    {
+     "h3": "Petroleum and coal products",
+     "line": "3,159 paid employees in 13 establishments, 10.59 times the US share. Refiners and suppliers sell on product data sheets and safety documentation."
+    },
+    {
+     "h3": "Performing arts and spectator sports",
+     "line": "5,811 paid employees in 221 establishments, 3.63 times the US share. Venues and teams live on event calendars and ticketing that work on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What New Orleans businesses search for",
@@ -814,7 +856,7 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "7": "derived: real estate, rental and leasing employees per establishment, 2023",
-  "13": "derived: construction employees per establishment, 2023",
+  "13": "Census CBP 2023, NAICS 324 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
   "20": "Semrush US exact volume, \"web developer new orleans\", pulled 2026-10-24 13:05-13:15 ET",
   "24": "derived: change in population 2019-2024 (ACS 1-year), percent",
   "30": "page-map-webdev.json national_ranking rank",
@@ -830,12 +872,14 @@ export const PLACE: LocalPlace = {
   "69": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "70": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "89": "derived: information establishments 2023 minus 2018",
+  "100": "Census CBP 2023, NAICS 483 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
   "122": "derived: NAICS 541511 + 541430 establishments, 2023",
   "134": "page-map-webdev.json national_ranking length",
   "136": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "143": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "168": "derived: manufacturing establishments 2023 minus 2018",
   "219": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
+  "221": "Census CBP 2023, NAICS 711 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
   "320": "Semrush US exact volume, \"web design company new orleans\", pulled 2026-10-24 13:05-13:15 ET",
   "332": "derived: administrative and support services establishments 2023 minus 2018",
   "391": "derived: wholesale trade establishments 2023 minus 2018",
@@ -926,7 +970,7 @@ export const PLACE: LocalPlace = {
   "4,391": "Census County Business Patterns 2018, establishments, naics 44-45 retail trade, 2018",
   "13.7": "derived: retail trade employees per establishment, 2023",
   "22.2": "derived: retail trade establishments change 2018-2023, percent",
-  "1,000": "Semrush US exact volume, \"web design new orleans\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "9.42": "Semrush CPC (USD), \"web design company new orleans\"",
   "8.10": "Semrush CPC (USD), \"website development new orleans\"",
   "1,370": "page-map-webdev.json national_ranking sum (state pages add folded places)",
@@ -941,7 +985,14 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "3,982": "Census CBP 2023, NAICS 483 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
+  "21.44": "derived: NAICS 483 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "3,159": "Census CBP 2023, NAICS 324 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
+  "10.59": "derived: NAICS 324 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "5,811": "Census CBP 2023, NAICS 711 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
+  "3.63": "derived: NAICS 711 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-florida"
  },
  "seo": {
-  "title": "Web Design Jacksonville, FL: Custom Websites | OneAlgorithm",
+  "title": "Web Design Jacksonville, FL: Custom Websites | One Algorithm",
   "description": "Web design for Jacksonville businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-jacksonville.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Data processing and hosting employs 3.86 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Data centre and hosting firms sell on compliance reports, uptime records and technical specs.",
+   "cards": [
+    {
+     "h3": "Data processing and hosting",
+     "line": "11,548 paid employees in 90 establishments, 3.86 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    },
+    {
+     "h3": "Transportation support services",
+     "line": "10,312 paid employees in 402 establishments, 2.54 times the US share. Logistics support firms sell on coverage, certifications and fast quote requests."
+    },
+    {
+     "h3": "Couriers and messengers",
+     "line": "13,545 paid employees in 93 establishments, 2.4 times the US share. Delivery firms need tracking, service areas and an account sign-up for shippers."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Jacksonville businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,450, 28th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "For most Florida businesses the breach statute, not the billion-dollar privacy law, is the rule that governs what a site's forms collect.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Florida Digital Bill of Rights",
+     "line": "Part V of chapter 501 covers only companies with over $1 billion in global revenue that meet one more test, such as earning half of it from online advertising."
+    },
+    {
+     "h3": "Breach notice under § 501.171",
+     "line": "Florida sets an outer limit for notice to each affected individual in the state, counted from the moment a breach is determined or suspected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Florida Digital Bill of Rights: who is a controller” and “Security of confidential personal information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Florida Legislature, § 501.702",
+     "what": "Florida Digital Bill of Rights: who is a controller",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.702.html"
+    },
+    {
+     "name": "Florida Legislature, § 501.171",
+     "what": "Security of confidential personal information",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,6 +898,7 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Florida Legislature, § 501.702: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.702.html",
   "2": "derived: rank of popChg among the 64 place pages",
   "3": "derived: finance and insurance establishments change 2018-2023, percent",
   "4": "derived: retail trade establishments change 2018-2023, percent",
@@ -838,7 +919,8 @@ export const PLACE: LocalPlace = {
   "69": "derived: finance and insurance establishments 2023 minus 2018",
   "76": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "78": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
-  "93": "derived: manufacturing establishments 2023 minus 2018",
+  "90": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
+  "93": "Census CBP 2023, NAICS 492 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
   "115": "derived: educational services establishments 2023 minus 2018",
   "116": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "122": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
@@ -850,7 +932,9 @@ export const PLACE: LocalPlace = {
   "343": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "374": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "396": "derived: accommodation and food services establishments 2023 minus 2018",
+  "402": "Census CBP 2023, NAICS 488 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
   "421": "derived: NAICS 541511 + 541430 establishments, 2023",
+  "501": "Florida Legislature, § 501.702: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.702.html",
   "543": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "633": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "658": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
@@ -950,7 +1034,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "501.171": "Florida Legislature, § 501.171: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html",
+  "11,548": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
+  "3.86": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "10,312": "Census CBP 2023, NAICS 488 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
+  "2.54": "derived: NAICS 488 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "13,545": "Census CBP 2023, NAICS 492 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:27260)",
+  "2.4": "derived: NAICS 492 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

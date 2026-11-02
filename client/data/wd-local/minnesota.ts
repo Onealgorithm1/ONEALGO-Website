@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "minnesota",
  "seo": {
-  "title": "Web Design Minnesota: Custom Websites | OneAlgorithm",
+  "title": "Web Design Minnesota: Custom Websites | One Algorithm",
   "description": "Web design for Minnesota businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-minnesota.jpg"
  },
  "hero": {
@@ -484,6 +484,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Computer and electronic manufacturing employs 2.47 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product.",
+   "cards": [
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "40,444 paid employees in 293 establishments, 2.47 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    },
+    {
+     "h3": "Miscellaneous manufacturing",
+     "line": "27,512 paid employees in 667 establishments, 2.46 times the US share. Specialist makers, from medical devices to signs, need a product catalogue and a sales enquiry that routes by line."
+    },
+    {
+     "h3": "Printing",
+     "line": "18,788 paid employees in 550 establishments, 2.43 times the US share. Printers need an upload path for files, clear specs and a quote request that captures the job."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Minnesota businesses search for",
@@ -635,6 +677,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 570, 62nd of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Minnesota's newest privacy law is the one most likely to change a site's privacy notice, cookie choices and opt-out link.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Minnesota Consumer Data Privacy Act",
+     "line": "Minnesota Statutes 325M.10 to 325M.21 took effect on 31 July 2025 for businesses handling data of 100,000 residents, or earning over 25% of revenue from selling data."
+    },
+    {
+     "h3": "Minnesota's annual renewal",
+     "line": "A LLC files its renewal with the Secretary of State by December 31 of each calendar year, and the statute sets no fee for it."
+    },
+    {
+     "h3": "Breach notice under § 325E.61",
+     "line": "A business that keeps Minnesotans' personal data must disclose a breach of its system after it discovers it or is told of it."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Minnesota Consumer Data Privacy Act takes effect” and “LLC annual renewal” and “Notice required for certain disclosures”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Office of the Minnesota Attorney General",
+     "what": "Minnesota Consumer Data Privacy Act takes effect",
+     "read": "read 1 November 2026",
+     "page": "https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp"
+    },
+    {
+     "name": "Minnesota Revisor of Statutes, § 322C.0208",
+     "what": "LLC annual renewal",
+     "read": "read 1 November 2026",
+     "page": "https://www.revisor.mn.gov/statutes/cite/322C.0208"
+    },
+    {
+     "name": "Minnesota Revisor of Statutes, § 325E.61",
+     "what": "Notice required for certain disclosures",
+     "read": "read 1 November 2026",
+     "page": "https://www.revisor.mn.gov/statutes/cite/325E.61"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -800,12 +890,17 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "3": "derived: administrative and support services establishments change 2018-2023, percent",
+  "10": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
   "12": "derived: professional, scientific and technical services employees per establishment, 2023",
   "14": "Semrush keyword difficulty, \"web design minnesota\"",
+  "21": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
   "22": "derived: rank of estab among the 64 place pages",
+  "25": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
   "29": "derived: rank of u20 among the 64 place pages",
+  "31": "Minnesota Revisor of Statutes, § 322C.0208: https://www.revisor.mn.gov/statutes/cite/322C.0208",
   "46": "derived: rank of popChg among the 64 place pages",
   "49": "derived: rank of estabChg among the 64 place pages",
+  "61": "Minnesota Revisor of Statutes, § 325E.61: https://www.revisor.mn.gov/statutes/cite/325E.61",
   "62": "page-map-webdev.json national_ranking rank",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush US exact volume, \"web design company minnesota\", pulled 2026-10-24 13:05-13:15 ET",
@@ -816,19 +911,23 @@ export const PLACE: LocalPlace = {
   "140": "derived: information establishments 2023 minus 2018",
   "147": "derived: finance and insurance establishments 2023 minus 2018",
   "228": "derived: administrative and support services establishments 2023 minus 2018",
-  "325": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "293": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
+  "325": "Minnesota Revisor of Statutes, § 325E.61: https://www.revisor.mn.gov/statutes/cite/325E.61",
   "351": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "362": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "385": "derived: accommodation and food services establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design minnesota\", pulled 2026-10-24 13:05-13:15 ET",
   "464": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "477": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "550": "Census CBP 2023, NAICS 323 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
   "563": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "570": "page-map-webdev.json national_ranking sum (state pages add folded places)",
+  "667": "Census CBP 2023, NAICS 339 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
   "776": "derived: wholesale trade establishments 2023 minus 2018",
   "787": "derived: construction establishments 2023 minus 2018",
   "797": "derived: retail trade establishments 2023 minus 2018",
   "897": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
+  "2025": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
   "2,729,492": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "18.2": "derived: paid employees / establishments, 2023",
   "2.7": "derived: change in population 2019-2024 (ACS 1-year), percent",
@@ -927,7 +1026,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "100,000": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
+  "40,444": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
+  "2.47": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "27,512": "Census CBP 2023, NAICS 339 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
+  "2.46": "derived: NAICS 339 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "18,788": "Census CBP 2023, NAICS 323 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:27)",
+  "2.43": "derived: NAICS 323 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

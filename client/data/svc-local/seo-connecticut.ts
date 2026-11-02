@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Connecticut"
  },
  "seo": {
-  "title": "SEO Connecticut: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Connecticut | One Algorithm",
   "description": "SEO across Connecticut: audits, town pages and authority building from real search data, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-connecticut.jpg"

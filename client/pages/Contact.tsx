@@ -57,11 +57,11 @@ const EMPTY = { firstName: "", lastName: "", email: "", phone: "", company: "", 
  */
 export default function Contact() {
   useSEO({
-    title: "Contact OneAlgorithm — Malvern, PA · (610) 890-9711",
+    title: "Contact One Algorithm: Malvern, PA · (610) 890-9711",
     description:
       "Call 1 (610) 890-9711 or send the form — a person replies within one business day. Websites, SEO, Google Ads and CRM from Malvern, PA.",
     canonical: getCanonicalUrl("/contact"),
-    ogTitle: "Contact OneAlgorithm — Malvern, PA · (610) 890-9711",
+    ogTitle: "Contact One Algorithm: Malvern, PA · (610) 890-9711",
     ogDescription: "Call 1 (610) 890-9711 or send the form — a person replies within one business day.",
     ogUrl: getCanonicalUrl("/contact"),
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],
@@ -89,11 +89,14 @@ export default function Contact() {
     if (widgetId.current !== null) window.turnstile?.reset(widgetId.current);
   };
 
-  // ?need=salesforce (every Salesforce page's CTA) pre-picks the service so the visitor is not asked to describe
-  // what they came for twice; ?topic= and ?from= say which page sent them. Read in an effect, not at render:
+  // #need=salesforce (every Salesforce page's CTA) pre-picks the service so the visitor is not asked to describe
+  // what they came for twice; #topic= and #from= say which page sent them. Read in an effect, not at render:
   // prerender.mjs serialises this page with no query string, so the static HTML stays the generic form.
+  // 2026-11-01 (audit C-60): the links carry these in the fragment, so ~490 internal links point at the one
+  // canonical /contact instead of ?need= variants. Old ?need= URLs (bookmarks, ads, emails) still pre-fill.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
+    new URLSearchParams(window.location.hash.slice(1)).forEach((v, k) => { if (!q.has(k)) q.set(k, v); });
     if (q.get("need") === "salesforce") {
       setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Salesforce / CRM" }));
     }

@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-california"
  },
  "seo": {
-  "title": "Web Design San Francisco, CA: Custom Websites | OneAlgorithm",
+  "title": "Web Design San Francisco: Custom Websites | One Algorithm",
   "description": "Web design for San Francisco businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-san-francisco.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Other information services employs 13.82 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online platforms and search businesses live on page speed and sign-up flows that work.",
+   "cards": [
+    {
+     "h3": "Other information services",
+     "line": "97,780 paid employees in 478 establishments, 13.82 times the US share. Online platforms and search businesses live on page speed and sign-up flows that work."
+    },
+    {
+     "h3": "Publishing",
+     "line": "116,278 paid employees in 1,758 establishments, 5.33 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    },
+    {
+     "h3": "Data processing and hosting",
+     "line": "57,459 paid employees in 744 establishments, 5.28 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What San Francisco businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,090, 40th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "San Francisco registers every business with the Treasurer each year, and California's privacy law covers the site above its thresholds.",
+   "leadIn": "Why it matters:",
+   "lead": "California is the state where a covered business's site most often needs a privacy notice, opt-out links and a record of each request.",
+   "cards": [
+    {
+     "h3": "San Francisco business registration",
+     "line": "San Francisco's code requires every person doing business in the city to register with the Treasurer and Tax Collector soon after starting, taxable or not, and to renew each year by the end of February."
+    },
+    {
+     "h3": "California's Statement of Information",
+     "line": "A California LLC files Form LLC-12 on bizfile Online with the Secretary of State soon after registering and every two years after, for $20."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Register a business” and “LLC Statement of Information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Office of the Treasurer & Tax Collector, San Francisco",
+     "what": "Register a business",
+     "read": "read 1 November 2026",
+     "page": "https://sftreasurer.org/business/register-business"
+    },
+    {
+     "name": "California Secretary of State",
+     "what": "LLC Statement of Information",
+     "read": "read 1 November 2026",
+     "page": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -824,7 +904,8 @@ export const PLACE: LocalPlace = {
   "1": "derived: information establishments change 2018-2023, percent",
   "3": "derived: rank of per511 among the 64 place pages",
   "6": "derived: construction establishments change 2018-2023, percent",
-  "20": "Semrush US exact volume, \"web developer san jose\", pulled 2026-10-24 13:05-13:15 ET",
+  "12": "California Secretary of State: https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information",
+  "20": "California Secretary of State: https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information",
   "21": "derived: educational services employees per establishment, 2023",
   "22": "derived: rank of u20 among the 64 place pages",
   "25": "derived: rank of estab among the 64 place pages",
@@ -847,12 +928,14 @@ export const PLACE: LocalPlace = {
   "387": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "416": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "431": "derived: manufacturing establishments 2023 minus 2018",
+  "478": "Census CBP 2023, NAICS 519 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
   "503": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "517": "derived: finance and insurance establishments 2023 minus 2018",
   "590": "Semrush US exact volume, \"web design san jose\", pulled 2026-10-24 13:05-13:15 ET",
   "610": "derived: construction establishments 2023 minus 2018",
   "676": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "720": "Semrush US exact volume, \"web design san francisco\", pulled 2026-10-24 13:05-13:15 ET",
+  "744": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
   "749": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "847": "derived: wholesale trade establishments 2023 minus 2018",
   "860": "sum of the folded places' Semrush exact sums",
@@ -957,7 +1040,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "97,780": "Census CBP 2023, NAICS 519 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
+  "13.82": "derived: NAICS 519 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "116,278": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
+  "1,758": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
+  "5.33": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "57,459": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41860)",
+  "5.28": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

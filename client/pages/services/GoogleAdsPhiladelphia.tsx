@@ -43,7 +43,7 @@ import {
 
 const PATH = "/services/google-ads-philadelphia";
 const URL_ = "https://onealgorithm.com/services/google-ads-philadelphia";
-const TITLE = "Google Ads Management Philadelphia | PPC Agency | OneAlgorithm";
+const TITLE = "Google Ads Management Philadelphia | PPC Agency | One Algorithm";
 const DESCRIPTION = "PPC agency for Philadelphia, from our Malvern office: the right radius, calls counted once, negatives first. Request a Google Ads audit: (610) 890-9711.";
 const CONTACT = contactHref("Google Ads audit, Philadelphia", PATH, "google-ads");
 

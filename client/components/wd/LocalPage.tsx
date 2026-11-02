@@ -35,7 +35,7 @@ import "./local.css";
  *
  * ⛔ Every proof action opens an in-site <dialog> (Verify → EvidenceDialog / SourcesDialog; Preview → WorkCarousel's
  *    dialog). The only off-site anchors are the client domains (crawlable association, WD-PF-04).
- * ⛔ One CTA: a button to /contact?need=website&topic=…&from=… (contactHref), plus tel: links. No form, no chat.
+ * ⛔ One CTA: a button to /contact#need=website&topic=…&from=… (contactHref), plus tel: links. No form, no chat.
  * ⛔ Schema mirrors what is visible: LocalBusiness (NAP band + hours shown), Service (areaServed per place), WebPage
  *    (dateModified = the visible "Updated" line), FAQPage (verbatim). Never priceRange, email, AggregateRating.
  */
@@ -141,6 +141,7 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
           </Unit>
           <div className="sf-c7">
             {s.cards && <Cards cards={s.cards} />}
+            {s.sources && <p className="sf-mono wd-table-src">{s.sources.length} official sources, read {s.sources[0].read.replace(/^read /, "")} · <Verify id={`${s.id}-src`}>Sources</Verify></p>}
             {s.table && (
               <table className="wd-table wd-local-table">
                 <caption className="sr-only">{s.table.caption}</caption>
@@ -163,7 +164,7 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
             fig={1}
             stations={STAGES}
             className="sf-c12 sf-rail-top"
-            title={`Diagram of the five stages of a ${place.name} web project`}
+            title={`Diagram of the five stages of ${/^[AEIO]/.test(place.name) ? "an" : "a"} ${place.name} web project`}
             desc="A rail runs through five stations: agree what the site is for; scope, price and schedule in writing; design in the browser; build and wire it up; launch, hand over and stay on."
             stamp="The five stages · in the order they run"
             caption="The five stages in order; the written scope, price and schedule come at stage two."
@@ -277,7 +278,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
   });
 
   // LocalBusiness mirrors the NAP band: no email or priceRange (neither is shown), hasMap = the Business Profile.
-  const lb: Record<string, unknown> = { ...createLocalBusinessSchema("LocalBusiness"), hasMap: NAP.map };
+  const lb: Record<string, unknown> = { ...createLocalBusinessSchema("ProfessionalService"), hasMap: NAP.map };
   delete lb.email;
   delete lb.priceRange;
   lb.sameAs = [...(lb.sameAs as string[]), NAP.map];
@@ -356,6 +357,11 @@ export function LocalPage({ place }: { place: LocalPlace }) {
           ]}
         />}
         {place.search && <SearchSourcesDialog place={place} />}
+        {place.sections.map((s) => s.kind === "text" && s.sources ? (
+          <SourcesDialog key={`${s.id}-src`} id={`${s.id}-src`} title={s.id === "economy" ? "Where the industry figures come from" : "Where these rules and figures come from"}
+            intro="Each line in this section restates a public page from the office or agency that publishes it. The pages are listed as text; nothing here links to a data endpoint."
+            sources={s.sources} />
+        ) : null)}
         {photo && <PhotoCreditDialog photo={photo as any} />}
         <EvidenceDialog
           id="listing"

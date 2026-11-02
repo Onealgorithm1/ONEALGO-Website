@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for Los Angeles"
  },
  "seo": {
-  "title": "App Development Los Angeles: Custom Software | OneAlgorithm",
+  "title": "App Development Los Angeles: Custom Software | One Algorithm",
   "description": "App development for Los Angeles companies: portals, dashboards and internal tools, scoped in writing and built remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-los-angeles.jpg"

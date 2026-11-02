@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Raleigh"
  },
  "seo": {
-  "title": "Digital Marketing Agency Raleigh, NC | OneAlgorithm",
+  "title": "Digital Marketing Agency Raleigh, NC | One Algorithm",
   "description": "Marketing for Raleigh, NC businesses: clear websites, search, email, social and review automation, delivered remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-raleigh.jpg"

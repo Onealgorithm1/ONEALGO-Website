@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Utah"
  },
  "seo": {
-  "title": "SEO Utah: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Utah | One Algorithm",
   "description": "SEO across Utah: audits, page plans from real search demand, technical fixes and authority for Utah businesses, done remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-utah.jpg"

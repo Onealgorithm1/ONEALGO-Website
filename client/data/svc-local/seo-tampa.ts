@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-florida"
  },
  "seo": {
-  "title": "SEO Tampa, FL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Tampa, FL | One Algorithm",
   "description": "SEO for Tampa Bay businesses: technical fixes, pages planned from search data and link building, done remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-tampa.jpg"

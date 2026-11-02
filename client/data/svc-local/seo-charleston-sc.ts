@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Charleston"
  },
  "seo": {
-  "title": "SEO Charleston, SC: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Charleston, SC | One Algorithm",
   "description": "SEO for Charleston, SC businesses: audits, local pages and earned authority from real search data, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-charleston-sc.jpg"

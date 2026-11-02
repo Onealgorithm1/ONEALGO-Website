@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Charlotte"
  },
  "seo": {
-  "title": "SEO Charlotte, NC: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Charlotte, NC | One Algorithm",
   "description": "SEO for Charlotte, NC businesses: technical fixes, pages built from local demand and map visibility. Delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-charlotte.jpg"

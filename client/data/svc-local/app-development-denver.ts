@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for Denver"
  },
  "seo": {
-  "title": "App Development Denver, CO: Custom Software | OneAlgorithm",
+  "title": "App Development Denver, CO: Custom Software | One Algorithm",
   "description": "Custom app development for Denver businesses, delivered remotely: written scope, browser prototypes, tested code you own. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-denver.jpg"

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { toPost } from "./blogger";
+import { toPost, mailtoBareEmails } from "./blogger";
 
 function entry(contentHtml: string) {
   return {
@@ -82,5 +82,16 @@ describe("splitSections", () => {
     expect(secs[0].html).toContain("Why it matters");
     expect(secs[1]).toMatchObject({ title: "By the numbers" });
     expect(secs[2].html).toContain("<li>2</li>");
+  });
+});
+
+describe("mailtoBareEmails", () => {
+  it("gives an href-less email anchor its mailto, and leaves real links alone", () => {
+    expect(mailtoBareEmails('<a rel="noopener"><strong>careers@onealgorithm.com</strong></a>')).toBe('<a href="mailto:careers@onealgorithm.com" rel="noopener"><strong>careers@onealgorithm.com</strong></a>');
+    expect(mailtoBareEmails('<a href="/contact">x@y.com</a>')).toBe('<a href="/contact">x@y.com</a>');
+    expect(mailtoBareEmails("<a>not an email</a>")).toBe("<a>not an email</a>");
+    const post = toPost(entry('<p>Apply:</p><p><a rel="noopener"><strong>careers@onealgorithm.com</strong></a></p>'));
+    expect(post.html).toContain('href="mailto:careers@onealgorithm.com"');
+    expect(post.html).not.toContain('target="_blank"');
   });
 });

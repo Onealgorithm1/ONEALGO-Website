@@ -62,13 +62,13 @@ const BY_SECTOR = [
 
 export default function WebsiteDevelopment() {
   useSEO({
-    title: "Website Development by Sector — OneAlgorithm",
+    title: "Website Development by Sector | One Algorithm",
     description:
       "The build is the same in every sector. What changes is what the site connects to, and which accessibility standard it is measured against.",
     canonical: getCanonicalUrl("/industries/website-development"),
     keywords:
       "website development by industry, accessible website development, WCAG AA website build, subcontractor portal development, public sector website accessibility",
-    ogTitle: "Website Development by Sector — OneAlgorithm",
+    ogTitle: "Website Development by Sector | One Algorithm",
     ogDescription:
       "What actually changes between sectors in a website project — and what does not.",
     ogUrl: getCanonicalUrl("/industries/website-development"),

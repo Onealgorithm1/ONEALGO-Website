@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-california"
  },
  "seo": {
-  "title": "SEO San Diego, CA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in San Diego, CA | One Algorithm",
   "description": "SEO for San Diego businesses, delivered remotely from Malvern, PA. Audits, pages built from search data, links. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-san-diego.jpg"

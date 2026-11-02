@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "connecticut",
  "seo": {
-  "title": "Web Design Connecticut: Custom Websites | OneAlgorithm",
+  "title": "Web Design Connecticut: Custom Websites | One Algorithm",
   "description": "Web design for Connecticut businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-connecticut.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Transit and ground passenger transport employs 2.8 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Charter and shuttle firms need online booking, fleet pages and quotes for groups.",
+   "cards": [
+    {
+     "h3": "Transit and ground passenger transport",
+     "line": "14,101 paid employees in 337 establishments, 2.8 times the US share. Charter and shuttle firms need online booking, fleet pages and quotes for groups."
+    },
+    {
+     "h3": "Broadcasting",
+     "line": "7,774 paid employees in 108 establishments, 2.7 times the US share. Broadcasters need schedules, streaming links and an advertiser enquiry route."
+    },
+    {
+     "h3": "Transportation equipment manufacturing",
+     "line": "46,823 paid employees in 146 establishments, 2.53 times the US share. Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Connecticut businesses search for",
@@ -817,8 +859,10 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "91": "derived: information establishments 2023 minus 2018",
   "104": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
+  "108": "Census CBP 2023, NAICS 515 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
   "134": "page-map-webdev.json national_ranking length",
   "141": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "146": "Census CBP 2023, NAICS 336 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
   "180": "derived: total establishments 2023 minus 2018",
   "187": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "200": "derived: finance and insurance establishments 2023 minus 2018",
@@ -829,6 +873,7 @@ export const PLACE: LocalPlace = {
   "230": "derived: manufacturing establishments 2023 minus 2018",
   "267": "derived: wholesale trade establishments 2023 minus 2018",
   "294": "derived: construction establishments 2023 minus 2018",
+  "337": "Census CBP 2023, NAICS 485 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
   "449": "derived: retail trade establishments 2023 minus 2018",
   "487": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "539": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
@@ -929,7 +974,15 @@ export const PLACE: LocalPlace = {
   "50.3": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "5.2": "derived: median estabChg of the 64 place pages"
+  "5.2": "derived: median estabChg of the 64 place pages",
+  "14,101": "Census CBP 2023, NAICS 485 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
+  "2.8": "derived: NAICS 485 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "7,774": "Census CBP 2023, NAICS 515 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
+  "2.7": "derived: NAICS 515 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "46,823": "Census CBP 2023, NAICS 336 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:09)",
+  "2.53": "derived: NAICS 336 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

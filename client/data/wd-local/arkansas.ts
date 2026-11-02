@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "arkansas",
  "seo": {
-  "title": "Web Design Arkansas: Custom Websites | OneAlgorithm",
+  "title": "Web Design Arkansas: Custom Websites | One Algorithm",
   "description": "Web design for Arkansas businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-arkansas.jpg"
  },
  "hero": {
@@ -400,7 +400,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Arkansas business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Arkansas business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -482,6 +482,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 617,444 people, 55.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Food manufacturing employs 3.51 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Food makers need spec sheets, certifications and a distributor or wholesale enquiry path.",
+   "cards": [
+    {
+     "h3": "Food manufacturing",
+     "line": "47,987 paid employees in 269 establishments, 3.51 times the US share. Food makers need spec sheets, certifications and a distributor or wholesale enquiry path."
+    },
+    {
+     "h3": "Paper manufacturing",
+     "line": "8,789 paid employees in 52 establishments, 3.12 times the US share. Paper and packaging buyers compare specs, certifications and lead times before they ask for a quote."
+    },
+    {
+     "h3": "Wood product manufacturing",
+     "line": "10,412 paid employees in 274 establishments, 3.01 times the US share. Wood products sell on species, grades and dealer lookups."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -638,7 +680,7 @@ export const PLACE: LocalPlace = {
   {
    "kind": "process",
    "id": "process",
-   "h2": "How a Arkansas web project runs",
+   "h2": "How an Arkansas web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -677,7 +719,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Arkansas business hire a remote web design team?",
+     "q": "Can an Arkansas business hire a remote web design team?",
      "a": "Yes. We take on website work for Arkansas businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Central hours, the clock the state's 70,452 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -804,6 +846,7 @@ export const PLACE: LocalPlace = {
   "39": "derived: rank of estab among the 64 place pages",
   "47": "derived: manufacturing establishments 2023 minus 2018",
   "48": "derived: rank of popChg among the 64 place pages",
+  "52": "Census CBP 2023, NAICS 322 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "65": "derived: manufacturing employees per establishment, 2023",
   "67": "page-map-webdev.json national_ranking rank",
@@ -817,6 +860,8 @@ export const PLACE: LocalPlace = {
   "242": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "246": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "257": "derived: professional, scientific and technical services establishments 2023 minus 2018",
+  "269": "Census CBP 2023, NAICS 311 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
+  "274": "Census CBP 2023, NAICS 321 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
   "311": "derived: NAICS 541511 + 541430 establishments, 2023",
   "320": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "357": "derived: administrative and support services establishments 2023 minus 2018",
@@ -917,7 +962,15 @@ export const PLACE: LocalPlace = {
   "55.1": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "47,987": "Census CBP 2023, NAICS 311 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
+  "3.51": "derived: NAICS 311 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "8,789": "Census CBP 2023, NAICS 322 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
+  "3.12": "derived: NAICS 322 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "10,412": "Census CBP 2023, NAICS 321 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:05)",
+  "3.01": "derived: NAICS 321 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

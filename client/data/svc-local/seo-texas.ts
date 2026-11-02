@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Texas"
  },
  "seo": {
-  "title": "SEO Texas: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Texas | One Algorithm",
   "description": "SEO for Texas businesses serving one city or many: statewide page plans, technical fixes and Search Console reporting, remote. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-texas.jpg"

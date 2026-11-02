@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Tulsa"
  },
  "seo": {
-  "title": "SEO Tulsa, OK: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Tulsa, OK | One Algorithm",
   "description": "Tulsa SEO with low-competition keywords, local pages and Search Console reporting you can check. Call (610) 890-9711 to book a crawl review.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-tulsa.jpg"

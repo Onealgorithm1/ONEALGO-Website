@@ -27,7 +27,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PATH = "/services/operational-transformation-consulting";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "Operational transformation consulting | OneAlgorithm";
+const TITLE = "Operational transformation consulting | One Algorithm";
 const DESCRIPTION = "Fix the process, then the systems: Salesforce, IT and MarTech built around how work runs. For small businesses and startups. Call (610) 890-9711.";
 const READ = "read 31 October 2026";
 

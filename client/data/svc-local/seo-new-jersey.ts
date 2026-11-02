@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for New Jersey"
  },
  "seo": {
-  "title": "SEO New Jersey: SEO Company | OneAlgorithm",
+  "title": "SEO Company in New Jersey | One Algorithm",
   "description": "SEO for New Jersey businesses statewide, run remotely from neighbouring Malvern, PA. Audits, local pages, links. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-new-jersey.jpg"

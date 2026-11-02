@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "milwaukee",
  "seo": {
-  "title": "Web Design Milwaukee, WI: Custom Websites | OneAlgorithm",
+  "title": "Web Design Milwaukee, WI: Custom Websites | One Algorithm",
   "description": "Web design for Milwaukee businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-milwaukee.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Electrical equipment and appliances employs 4.66 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Equipment and appliance makers need product finders, manuals and registration or warranty forms.",
+   "cards": [
+    {
+     "h3": "Electrical equipment and appliances",
+     "line": "9,545 paid employees in 72 establishments, 4.66 times the US share. Equipment and appliance makers need product finders, manuals and registration or warranty forms."
+    },
+    {
+     "h3": "Printing",
+     "line": "7,554 paid employees in 181 establishments, 3.52 times the US share. Printers need an upload path for files, clear specs and a quote request that captures the job."
+    },
+    {
+     "h3": "Machinery manufacturing",
+     "line": "18,437 paid employees in 333 establishments, 3.06 times the US share. Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Milwaukee businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 810, 52nd of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Milwaukee licenses trades rather than businesses, and Wisconsin keeps website design outside its sales tax.",
+   "leadIn": "Why it matters:",
+   "lead": "A Wisconsin site's proposal can price design apart from any logo or video, because the state's own guidance taxes them differently.",
+   "cards": [
+    {
+     "h3": "No general license, but an occupancy permit",
+     "line": "The City of Milwaukee issues no general business license, only licenses for particular trades, and every business that occupies premises in the city needs an occupancy permit."
+    },
+    {
+     "h3": "Breach notice under § 134.98",
+     "line": "When personal information is acquired without authorization, Wisconsin law has the business make reasonable efforts to notify each person it belongs to."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Licensing FAQ” and “Notice of unauthorized acquisition of personal information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Milwaukee License Division",
+     "what": "Licensing FAQ",
+     "read": "read 1 November 2026",
+     "page": "https://city.milwaukee.gov/cityclerk/license/FrequentlyAskedQuestions"
+    },
+    {
+     "name": "Wisconsin State Legislature, § 134.98",
+     "what": "Notice of unauthorized acquisition of personal information",
+     "read": "read 1 November 2026",
+     "page": "https://docs.legis.wisconsin.gov/statutes/statutes/134/98"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -822,6 +902,7 @@ export const PLACE: LocalPlace = {
   "58": "derived: rank of popChg among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "71": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
+  "72": "Census CBP 2023, NAICS 335 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
   "79": "derived: finance and insurance establishments 2023 minus 2018",
   "81": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "103": "derived: construction establishments 2023 minus 2018",
@@ -833,6 +914,7 @@ export const PLACE: LocalPlace = {
   "159": "derived: accommodation and food services establishments 2023 minus 2018",
   "170": "Semrush US exact volume, \"website development milwaukee\", pulled 2026-10-24 13:05-13:15 ET",
   "180": "derived: administrative and support services establishments 2023 minus 2018",
+  "181": "Census CBP 2023, NAICS 323 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
   "186": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "196": "derived: manufacturing establishments 2023 minus 2018",
   "211": "derived: wholesale trade establishments 2023 minus 2018",
@@ -840,6 +922,7 @@ export const PLACE: LocalPlace = {
   "260": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "289": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "331": "derived: NAICS 541511 + 541430 establishments, 2023",
+  "333": "Census CBP 2023, NAICS 333 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
   "480": "Semrush US exact volume, \"web design milwaukee\", pulled 2026-10-24 13:05-13:15 ET",
   "574": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "591": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
@@ -940,7 +1023,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "134.98": "Wisconsin State Legislature, § 134.98: https://docs.legis.wisconsin.gov/statutes/statutes/134/98",
+  "9,545": "Census CBP 2023, NAICS 335 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
+  "4.66": "derived: NAICS 335 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "7,554": "Census CBP 2023, NAICS 323 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
+  "3.52": "derived: NAICS 323 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "18,437": "Census CBP 2023, NAICS 333 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:33340)",
+  "3.06": "derived: NAICS 333 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

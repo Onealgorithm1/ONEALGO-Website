@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Charlotte"
  },
  "seo": {
-  "title": "Digital Marketing Agency Charlotte, NC | OneAlgorithm",
+  "title": "Digital Marketing Agency Charlotte, NC | One Algorithm",
   "description": "Digital marketing for Charlotte companies: message, website, content, email and automation in one program. Run remotely. Call (610) 890-9711 to talk.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-charlotte.jpg"

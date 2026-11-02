@@ -13,7 +13,7 @@ import { IndBody, PatternTable, CBP, type IndUnit } from "../../components/v2/in
  * approach, not delivery. */
 
 const PAGE_PATH = "/industries/construction";
-const TITLE = "Construction software integration | OneAlgorithm";
+const TITLE = "Construction software integration | One Algorithm";
 const DESCRIPTION = "How we connect estimating, field and accounting systems for construction firms, plus Salesforce for bids. Malvern, PA. Call (610) 890-9711.";
 const L = "sf-link";
 

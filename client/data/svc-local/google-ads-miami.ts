@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Miami"
  },
  "seo": {
-  "title": "Google Ads Agency Miami, FL | OneAlgorithm",
+  "title": "Google Ads Agency Miami, FL | One Algorithm",
   "description": "Google Ads management for Miami: tracking first, search terms from data, landing pages that convert. Remote. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-miami.jpg"

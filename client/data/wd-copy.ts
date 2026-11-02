@@ -24,7 +24,7 @@ export const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 /** The last real content edit = the visible "Updated" line = WebPage.dateModified. */
 export const PAGE_UPDATED = "2026-10-24";
 export const PAGE_UPDATED_LABEL = "24 October 2026";
-export const TITLE = "Custom Web Design & Development Services | OneAlgorithm";
+export const TITLE = "Custom Web Design & Development Services | One Algorithm";
 export const DESCRIPTION =
   "Custom web design and development for US businesses from Malvern, PA: accessible, built around what you run, owned outright. Written scope: (610) 890-9711.";
 export const OG_IMAGE = "https://onealgorithm.com/media/og-website-development.jpg";

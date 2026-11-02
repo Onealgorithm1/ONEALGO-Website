@@ -36,7 +36,7 @@ import {
 const PAGE_PATH = "/services/salesforce";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Salesforce Consulting Services & Implementation Partner | OneAlgorithm";
+const TITLE = "Salesforce Consulting Services & Implementation Partner | One Algorithm";
 const DESCRIPTION =
   "Salesforce consulting services and implementation from a listed Consulting Partner in Malvern, PA. Start with a free one-week health check: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-hub-composition.jpg";
@@ -126,13 +126,13 @@ export default function Salesforce() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PAGE_PATH),
-    ogTitle: "Salesforce consulting services and implementation | OneAlgorithm",
+    ogTitle: "Salesforce consulting services and implementation | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PAGE_PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: OG_ALT,
-    twitterTitle: "Salesforce consulting services and implementation | OneAlgorithm",
+    twitterTitle: "Salesforce consulting services and implementation | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],

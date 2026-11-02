@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Denver"
  },
  "seo": {
-  "title": "Digital Marketing Agency Denver, CO | OneAlgorithm",
+  "title": "Digital Marketing Agency Denver, CO | One Algorithm",
   "description": "Digital marketing for Denver businesses, run remotely: website, SEO, content, social automation, then ads. Call (610) 890-9711 for a plan.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-denver.jpg"

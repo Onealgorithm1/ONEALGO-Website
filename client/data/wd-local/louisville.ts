@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "louisville",
  "seo": {
-  "title": "Web Design Louisville, KY: Custom Websites | OneAlgorithm",
+  "title": "Web Design Louisville, KY: Custom Websites | One Algorithm",
   "description": "Web design for Louisville businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-louisville.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Couriers and messengers employs 7.03 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Delivery firms need tracking, service areas and an account sign-up for shippers.",
+   "cards": [
+    {
+     "h3": "Couriers and messengers",
+     "line": "38,655 paid employees in 84 establishments, 7.03 times the US share. Delivery firms need tracking, service areas and an account sign-up for shippers."
+    },
+    {
+     "h3": "Beverage and tobacco manufacturing",
+     "line": "6,114 paid employees in 74 establishments, 4.53 times the US share. Producers lean on brand pages, age gates where required and a trade enquiry route for distributors."
+    },
+    {
+     "h3": "Electrical equipment and appliances",
+     "line": "6,933 paid employees in 21 establishments, 4.04 times the US share. Equipment and appliance makers need product finders, manuals and registration or warranty forms."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Louisville businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 560, 63rd of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Louisville trades a city license for three registrations, and Kentucky's sales tax reaches website design itself.",
+   "leadIn": "Why it matters:",
+   "lead": "A Kentucky site that sells or takes enquiries meets all three: the tax line on the build, the privacy notice and the breach duty.",
+   "cards": [
+    {
+     "h3": "Register with the Revenue Commission",
+     "line": "Louisville requires no local business license, but a new business registers with the Louisville Metro Revenue Commission, the Jefferson County Clerk and the Commonwealth before it earns income."
+    },
+    {
+     "h3": "Breach notice under KRS 365.732",
+     "line": "A business must tell Kentucky residents when their unencrypted personal information is taken, or reasonably believed taken, in a breach of its systems."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Frequently asked questions: starting a new business” and “Notice of a security breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Louisville Metro Revenue Commission",
+     "what": "Frequently asked questions: starting a new business",
+     "read": "read 1 November 2026",
+     "page": "https://louisvilleky.gov/government/revenue-commission/frequently-asked-questions"
+    },
+    {
+     "name": "Kentucky General Assembly, KRS 365.732",
+     "what": "Notice of a security breach",
+     "read": "read 1 November 2026",
+     "page": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=43326"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -812,7 +892,7 @@ export const PLACE: LocalPlace = {
   "6": "derived: rank of popChg among the 64 place pages",
   "7": "derived: information establishments change 2018-2023, percent",
   "12": "derived: educational services establishments 2023 minus 2018",
-  "21": "derived: wholesale trade employees per establishment, 2023",
+  "21": "Census CBP 2023, NAICS 335 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
   "22": "derived: accommodation and food services employees per establishment, 2023",
   "29": "derived: rank of estabChg among the 64 place pages",
   "30": "Semrush US exact volume, \"website development louisville\", pulled 2026-10-24 13:05-13:15 ET",
@@ -827,7 +907,9 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush US exact volume, \"web developer louisville\", pulled 2026-10-24 13:05-13:15 ET",
   "72": "derived: finance and insurance establishments 2023 minus 2018",
+  "74": "Census CBP 2023, NAICS 312 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
   "77": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "84": "Census CBP 2023, NAICS 492 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
   "100": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "108": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "111": "derived: wholesale trade establishments 2023 minus 2018",
@@ -938,7 +1020,16 @@ export const PLACE: LocalPlace = {
   "49.6": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "365.732": "Kentucky General Assembly, KRS 365.732: https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=43326",
+  "38,655": "Census CBP 2023, NAICS 492 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
+  "7.03": "derived: NAICS 492 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "6,114": "Census CBP 2023, NAICS 312 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
+  "4.53": "derived: NAICS 312 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "6,933": "Census CBP 2023, NAICS 335 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
+  "4.04": "derived: NAICS 335 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

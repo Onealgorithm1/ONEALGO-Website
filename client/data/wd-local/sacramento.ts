@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-california"
  },
  "seo": {
-  "title": "Web Design Sacramento, CA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Sacramento, CA: Custom Websites | One Algorithm",
   "description": "Web design for Sacramento businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-sacramento.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Warehousing and storage employs 1.98 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "3PLs and warehouses sell on square footage, systems integration and a request for a rate.",
+   "cards": [
+    {
+     "h3": "Warehousing and storage",
+     "line": "19,250 paid employees in 126 establishments, 1.98 times the US share. 3PLs and warehouses sell on square footage, systems integration and a request for a rate."
+    },
+    {
+     "h3": "Building construction",
+     "line": "17,111 paid employees in 2,003 establishments, 1.79 times the US share. Builders win work with project galleries, trade credentials and a quote path that reaches the estimator."
+    },
+    {
+     "h3": "Amusement, gambling and recreation",
+     "line": "16,664 paid employees in 621 establishments, 1.57 times the US share. Attractions need hours, booking and offers that read fast on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Sacramento businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,540, 22nd of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "California is the state where a covered business's site most often needs a privacy notice, opt-out links and a record of each request.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "CCPA, as amended",
+     "line": "The California Privacy Protection Agency lists the tests: $26.625 million or more in revenue, data of 100,000 residents or households, or half of revenue from selling or sharing it."
+    },
+    {
+     "h3": "Breach notice under Civil Code § 1798.82",
+     "line": "A business must disclose a breach to affected Californians, and a notice that goes to more than 500 residents is also sent to the Attorney General."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Frequently asked questions: who the CCPA applies to” and “Disclosure of a data breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "California Privacy Protection Agency",
+     "what": "Frequently asked questions: who the CCPA applies to",
+     "read": "read 1 November 2026",
+     "page": "https://cppa.ca.gov/faq.html"
+    },
+    {
+     "name": "California Legislative Information, Civil Code § 1798.82",
+     "what": "Disclosure of a data breach",
+     "read": "read 1 November 2026",
+     "page": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -835,6 +915,7 @@ export const PLACE: LocalPlace = {
   "100": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "108": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "110": "Semrush US exact volume, \"website development sacramento\", pulled 2026-10-24 13:05-13:15 ET",
+  "126": "Census CBP 2023, NAICS 493 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
   "134": "page-map-webdev.json national_ranking length",
   "165": "derived: educational services establishments 2023 minus 2018",
   "170": "Semrush US exact volume, \"web developer sacramento\", pulled 2026-10-24 13:05-13:15 ET",
@@ -846,8 +927,10 @@ export const PLACE: LocalPlace = {
   "364": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "376": "derived: administrative and support services establishments 2023 minus 2018",
   "479": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
+  "500": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
   "525": "derived: accommodation and food services establishments 2023 minus 2018",
   "603": "derived: NAICS 541511 + 541430 establishments, 2023",
+  "621": "Census CBP 2023, NAICS 713 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
   "723": "derived: construction establishments 2023 minus 2018",
   "771": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "858": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
@@ -932,7 +1015,7 @@ export const PLACE: LocalPlace = {
   "16.7": "derived: retail trade employees per establishment, 2023",
   "1,050": "derived: health care and social assistance establishments 2023 minus 2018",
   "1,035": "derived: professional, scientific and technical services establishments 2023 minus 2018",
-  "1,000": "Semrush US exact volume, \"web design sacramento\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "8.58": "Semrush CPC (USD), \"web design sacramento\"",
   "8.25": "Semrush CPC (USD), \"web design company sacramento\"",
   "14.86": "Semrush CPC (USD), \"web developer sacramento\"",
@@ -946,7 +1029,18 @@ export const PLACE: LocalPlace = {
   "51.2": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "26.625": "California Privacy Protection Agency: https://cppa.ca.gov/faq.html",
+  "100,000": "California Privacy Protection Agency: https://cppa.ca.gov/faq.html",
+  "1798.82": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
+  "19,250": "Census CBP 2023, NAICS 493 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
+  "1.98": "derived: NAICS 493 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "17,111": "Census CBP 2023, NAICS 236 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
+  "2,003": "Census CBP 2023, NAICS 236 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
+  "1.79": "derived: NAICS 236 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "16,664": "Census CBP 2023, NAICS 713 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40900)",
+  "1.57": "derived: NAICS 713 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

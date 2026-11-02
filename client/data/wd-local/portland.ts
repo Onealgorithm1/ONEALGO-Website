@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "portland",
  "seo": {
-  "title": "Web Design Portland, OR: Custom Websites | OneAlgorithm",
+  "title": "Web Design Portland, OR: Custom Websites | One Algorithm",
   "description": "Web design for Portland businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-portland.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Computer and electronic manufacturing employs 4.95 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product.",
+   "cards": [
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "32,071 paid employees in 192 establishments, 4.95 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    },
+    {
+     "h3": "Building construction",
+     "line": "20,359 paid employees in 3,228 establishments, 1.58 times the US share. Builders win work with project galleries, trade credentials and a quote path that reaches the estimator."
+    },
+    {
+     "h3": "Miscellaneous store retail",
+     "line": "9,570 paid employees in 1,052 establishments, 1.45 times the US share. Specialty shops need hours, stock that matches the counter and a phone checkout."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Portland businesses search for",
@@ -649,6 +691,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,380, 29th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Portland asks for a tax account rather than a license, and Oregon's privacy act sets what the site must disclose.",
+   "leadIn": "Why it matters:",
+   "lead": "Oregon's privacy act asks a covered business for a clear privacy notice and an opt-out route, both of which live on the website.",
+   "cards": [
+    {
+     "h3": "Portland's Business License Tax account",
+     "line": "Businesses subject to the Portland Business License Tax register for a Revenue Division account, and the same registration covers the Multnomah County Business Income Tax."
+    },
+    {
+     "h3": "Breach notice in Oregon",
+     "line": "The Oregon Consumer Information Protection Act sets a firm outer limit for telling Oregon consumers about a breach of their personal information, counted from discovery."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Register for a tax account” and “Data breaches: the notice duty”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Portland Revenue Division",
+     "what": "Register for a tax account",
+     "read": "read 1 November 2026",
+     "page": "https://www.portland.gov/revenue/register-tax-account"
+    },
+    {
+     "name": "Oregon Department of Justice",
+     "what": "Data breaches: the notice duty",
+     "read": "read 1 November 2026",
+     "page": "https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/data-breaches/"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -831,6 +911,7 @@ export const PLACE: LocalPlace = {
   "155": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "165": "derived: manufacturing establishments 2023 minus 2018",
   "170": "Semrush US exact volume, \"web design company portland\", pulled 2026-10-24 13:05-13:15 ET",
+  "192": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
   "199": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "232": "derived: retail trade establishments 2023 minus 2018",
   "260": "derived: finance and insurance establishments 2023 minus 2018",
@@ -927,7 +1008,7 @@ export const PLACE: LocalPlace = {
   "17.3": "derived: retail trade employees per establishment, 2023",
   "3.2": "derived: retail trade establishments change 2018-2023, percent",
   "1,019": "derived: health care and social assistance establishments 2023 minus 2018",
-  "1,000": "Semrush US exact volume, \"web design portland\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "6.70": "Semrush CPC (USD), \"web design portland\"",
   "3.51": "Semrush CPC (USD), \"web design company portland\"",
   "6.62": "Semrush CPC (USD), \"website development portland\"",
@@ -943,7 +1024,16 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "32,071": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
+  "4.95": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "20,359": "Census CBP 2023, NAICS 236 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
+  "3,228": "Census CBP 2023, NAICS 236 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
+  "1.58": "derived: NAICS 236 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "9,570": "Census CBP 2023, NAICS 453 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
+  "1,052": "Census CBP 2023, NAICS 453 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:38900)",
+  "1.45": "derived: NAICS 453 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

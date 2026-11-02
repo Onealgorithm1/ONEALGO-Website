@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Seattle"
  },
  "seo": {
-  "title": "Digital Marketing Agency Seattle, WA | OneAlgorithm",
+  "title": "Digital Marketing Agency Seattle, WA | One Algorithm",
   "description": "Digital marketing for Seattle businesses: message, website, content, social and automation, done remotely. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-seattle.jpg"

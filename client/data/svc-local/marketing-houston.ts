@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/marketing-texas"
  },
  "seo": {
-  "title": "Digital Marketing Agency Houston, TX | OneAlgorithm",
+  "title": "Digital Marketing Agency Houston, TX | One Algorithm",
   "description": "Digital marketing for Houston companies: site, search, email and automated posting run by one remote team. Call (610) 890-9711 and book a review.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-houston.jpg"

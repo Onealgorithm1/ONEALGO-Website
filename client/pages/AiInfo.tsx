@@ -26,13 +26,13 @@ const LINK = "text-oa-blue underline underline-offset-4 hover:text-oa-blue700";
 
 export default function AiInfo() {
   useSEO({
-    title: "About OneAlgorithm — AI & Search Information",
+    title: "About One Algorithm: AI & Search Information",
     description:
       "OneAlgorithm is a Malvern, PA IT consulting, web development and digital marketing company serving construction, manufacturing and e-commerce.",
     canonical: getCanonicalUrl("/ai-info"),
     keywords:
       "OneAlgorithm, IT consulting Malvern PA, website development, Salesforce consulting, staff augmentation, digital marketing",
-    ogTitle: "About OneAlgorithm — AI & Search Information",
+    ogTitle: "About One Algorithm: AI & Search Information",
     ogDescription:
       "OneAlgorithm is a Malvern, PA-based technology company specializing in IT consulting, website development, and business automation.",
     ogUrl: getCanonicalUrl("/ai-info"),

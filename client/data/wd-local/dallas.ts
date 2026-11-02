@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-texas"
  },
  "seo": {
-  "title": "Web Design Dallas, TX: Custom Websites | OneAlgorithm",
+  "title": "Web Design Dallas, TX: Custom Websites | One Algorithm",
   "description": "Web design for Dallas businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-dallas.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Air transportation employs 3.16 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Suppliers to airlines and airports sell on certifications, approvals and lead times.",
+   "cards": [
+    {
+     "h3": "Air transportation",
+     "line": "46,625 paid employees in 144 establishments, 3.16 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Transportation support services",
+     "line": "39,474 paid employees in 1,246 establishments, 1.8 times the US share. Logistics support firms sell on coverage, certifications and fast quote requests."
+    },
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "37,386 paid employees in 284 establishments, 1.78 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Dallas businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 3,590, 2nd of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Dallas starts with a certificate of occupancy for the space, and Texas taxes web pages as data processing.",
+   "leadIn": "Why it matters:",
+   "lead": "In Texas the state's own tax guidance names web pages as data processing, so the proposal should separate design, build and hosting.",
+   "cards": [
+    {
+     "h3": "Certificate of Occupancy first",
+     "line": "The city's quick reference guide says most commercial businesses in Dallas may not open or occupy a space without a Certificate of Occupancy, which also flags the licenses needed."
+    },
+    {
+     "h3": "Reporting a breach to the Attorney General",
+     "line": "A breach affecting 250 or more Texans must be reported to the Office of the Attorney General as soon as practicable."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Small business quick reference guide” and “Data breach reporting”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Dallas Office of Economic Development",
+     "what": "Small business quick reference guide",
+     "read": "read 1 November 2026",
+     "page": "https://www.dallasecodev.org/DocumentCenter/View/1250/Small-Business-Quick-Reference-Guide-PDF?bidId="
+    },
+    {
+     "name": "Office of the Texas Attorney General",
+     "what": "Data breach reporting",
+     "read": "read 1 November 2026",
+     "page": "https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -827,8 +907,11 @@ export const PLACE: LocalPlace = {
   "103": "derived: wholesale trade establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "141": "derived: manufacturing establishments 2023 minus 2018",
+  "144": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
   "210": "Semrush US exact volume, \"website development fort worth\", pulled 2026-10-24 13:05-13:15 ET",
+  "250": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting",
   "260": "Semrush US exact volume, \"web design company fort worth\", pulled 2026-10-24 13:05-13:15 ET",
+  "284": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
   "312": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "452": "derived: finance and insurance establishments 2023 minus 2018",
   "462": "derived: educational services establishments 2023 minus 2018",
@@ -933,7 +1016,7 @@ export const PLACE: LocalPlace = {
   "1,916": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "1,900": "Semrush US exact volume, \"web design dallas\", pulled 2026-10-24 13:05-13:15 ET",
   "10.00": "Semrush CPC (USD), \"web design dallas\"",
-  "1,000": "Semrush US exact volume, \"web design company dallas\", pulled 2026-10-24 13:05-13:15 ET",
+  "1,000": "local-context.mjs listing floor (paid employees)",
   "9.09": "Semrush CPC (USD), \"web developer dallas\"",
   "9.31": "Semrush CPC (USD), \"web design fort worth\"",
   "11.83": "Semrush CPC (USD), \"web developer fort worth\"",
@@ -948,7 +1031,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "46,625": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
+  "3.16": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "39,474": "Census CBP 2023, NAICS 488 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
+  "1,246": "Census CBP 2023, NAICS 488 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
+  "1.8": "derived: NAICS 488 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "37,386": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:19100)",
+  "1.78": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

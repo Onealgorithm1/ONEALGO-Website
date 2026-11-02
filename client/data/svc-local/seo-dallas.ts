@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-texas"
  },
  "seo": {
-  "title": "SEO Dallas, TX: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Dallas, TX | One Algorithm",
   "description": "SEO for Dallas businesses: audits, pages built from real search demand and local authority. Delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-dallas.jpg"

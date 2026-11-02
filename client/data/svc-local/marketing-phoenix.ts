@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Phoenix"
  },
  "seo": {
-  "title": "Digital Marketing Agency Phoenix, AZ | OneAlgorithm",
+  "title": "Digital Marketing Agency Phoenix, AZ | One Algorithm",
   "description": "Digital marketing for Phoenix companies: sharper message, social, email, reviews and content that bring leads. Run remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-phoenix.jpg"

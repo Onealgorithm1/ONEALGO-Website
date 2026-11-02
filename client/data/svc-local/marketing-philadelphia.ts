@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Philadelphia"
  },
  "seo": {
-  "title": "Digital Marketing Agency Philadelphia, PA | OneAlgorithm",
+  "title": "Digital Marketing Agency Philadelphia, PA | One Algorithm",
   "description": "Digital marketing for Philadelphia companies: message, website, search, email and social, run remotely from Malvern. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-philadelphia.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for San Diego"
  },
  "seo": {
-  "title": "Digital Marketing Agency San Diego, CA | OneAlgorithm",
+  "title": "Digital Marketing Agency San Diego, CA | One Algorithm",
   "description": "Digital marketing for San Diego companies: site message, SEO, email and social, run remotely from Malvern, PA. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-san-diego.jpg"

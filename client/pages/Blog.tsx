@@ -219,11 +219,11 @@ function Index({ posts }: { posts: Post[] }) {
 function AuthorPage({ posts }: { posts: Post[] }) {
   const authorUrl = getCanonicalUrl(`/blog/author/${AUTHOR.slug}`);
   useSEO({
-    title: `${AUTHOR.name} — OneAlgorithm Blog`,
+    title: `${AUTHOR.name} | One Algorithm Blog`,
     description: AUTHOR.bio,
     canonical: authorUrl,
     ogUrl: authorUrl,
-    ogTitle: `${AUTHOR.name} — OneAlgorithm Blog`,
+    ogTitle: `${AUTHOR.name} | One Algorithm Blog`,
     ogDescription: AUTHOR.bio,
     ...(AUTHOR.photo && {
       ogImage: new URL(AUTHOR.photo, "https://onealgorithm.com").href,
@@ -435,9 +435,9 @@ const SERVICE_FOR_LABEL: Record<string, [string, string]> = {
 // line is something we actually do today (a free look at a site, a
 // Salesforce call); nothing is promised that the service page does not back.
 const OFFER_FOR_LABEL: Record<string, { ask: string; button: string; to: string }> = {
-  SEO: { ask: "Want to know what your own search numbers look like, and what would move them? Send us the address.", button: "Get a free search review", to: "/contact?from=blog-seo" },
-  Websites: { ask: "If your site is not bringing you work, we will look at it and tell you plainly what is wrong.", button: "Get a free site review", to: "/contact?from=blog-websites" },
-  Salesforce: { ask: "Bring us the Salesforce problem that is slowing your team down. We will tell you what it would take to fix.", button: "Talk to a Salesforce consultant", to: "/contact?from=blog-salesforce" },
+  SEO: { ask: "Want to know what your own search numbers look like, and what would move them? Send us the address.", button: "Get a free search review", to: "/contact#from=blog-seo" },
+  Websites: { ask: "If your site is not bringing you work, we will look at it and tell you plainly what is wrong.", button: "Get a free site review", to: "/contact#from=blog-websites" },
+  Salesforce: { ask: "Bring us the Salesforce problem that is slowing your team down. We will tell you what it would take to fix.", button: "Talk to a Salesforce consultant", to: "/contact#from=blog-salesforce" },
 };
 
 // One CTA, two placements, and a GA4 event per click that carries the
@@ -449,7 +449,7 @@ const OFFER_FOR_LABEL: Record<string, { ask: string; button: string; to: string 
 // by placement after 30 days and drop the loser.
 function PostCTA({ p, placement }: { p: Post; placement: "mid" | "end" }) {
   const label = p.labels.find((l) => OFFER_FOR_LABEL[l]);
-  const offer = label ? OFFER_FOR_LABEL[label] : { ask: "Tell us what you are trying to fix. We will tell you what it would take to put it right.", button: "Talk to an expert", to: "/contact?from=blog" };
+  const offer = label ? OFFER_FOR_LABEL[label] : { ask: "Tell us what you are trying to fix. We will tell you what it would take to put it right.", button: "Talk to an expert", to: "/contact#from=blog" };
   const track = () => {
     const g = (window as any).gtag;
     if (typeof g === "function") g("event", "cta_click", { placement, post: p.slug, topic: label ?? "general", page_location: location.href });
@@ -499,7 +499,7 @@ function Article({ p, related, older, newer }: { p: Post; related: Post[]; older
           "@type": "Person", name: AUTHOR.name, url: getCanonicalUrl(`/blog/author/${AUTHOR.slug}`),
           ...(AUTHOR.photo && { image: new URL(AUTHOR.photo, "https://onealgorithm.com").href }), sameAs: [AUTHOR.linkedin],
         },
-        publisher: { "@type": "Organization", name: "OneAlgorithm", url: "https://onealgorithm.com" },
+        publisher: { "@type": "Organization", "@id": "https://onealgorithm.com/#org", name: "One Algorithm", url: "https://onealgorithm.com" },
         mainEntityOfPage: url, ...(shareImage(p) && { image: shareImage(p)!.url }),
         keywords: p.labels.join(", "),
       }} />
@@ -636,7 +636,7 @@ export default function Blog() {
   const articles = posts?.filter((p) => !isJob(p));
   const post = slug ? articles?.find((p) => p.slug === slug) : undefined;
 
-  const pageTitle = post ? `${post.title} — OneAlgorithm` : "Blog — OneAlgorithm";
+  const pageTitle = post ? `${post.title} | One Algorithm` : "Blog | One Algorithm";
   const pageDescription = post ? metaDescription(post) : "Case notes, measured results and straight answers from OneAlgorithm's Salesforce, website and SEO projects.";
   const share = post ? shareImage(post) : undefined;
   const pageUrl = getCanonicalUrl(slug ? `/blog/${slug}` : "/blog");

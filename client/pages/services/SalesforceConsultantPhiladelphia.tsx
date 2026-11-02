@@ -44,7 +44,7 @@ import {
 const PATH = "/services/salesforce-consultant-philadelphia";
 const PAGE_URL = `https://onealgorithm.com${PATH}`;
 const PAGE_UPDATED = "2026-11-01";
-const TITLE = "Salesforce Consultant Philadelphia, PA | OneAlgorithm";
+const TITLE = "Salesforce Consultant Philadelphia, PA | One Algorithm";
 const DESCRIPTION =
   "Salesforce consultants for Philadelphia and Chester County companies, from a listed Consulting Partner in Malvern, PA. Free health check: (610) 890-9711.";
 const PHOTO = SF_CITY_HEROES.philadelphia;
@@ -230,13 +230,13 @@ export default function SalesforceConsultantPhiladelphia() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PATH),
-    ogTitle: "Salesforce consultants for Philadelphia companies | OneAlgorithm",
+    ogTitle: "Salesforce consultants for Philadelphia companies | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: PHOTO.alt,
-    twitterTitle: "Salesforce consultants for Philadelphia companies | OneAlgorithm",
+    twitterTitle: "Salesforce consultants for Philadelphia companies | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadImage: FILES.avif1600,

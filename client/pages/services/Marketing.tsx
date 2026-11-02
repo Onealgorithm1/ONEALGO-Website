@@ -77,7 +77,7 @@ const FAQS: SfFaqItem[] = [
   { q: "How do I choose a digital marketing agency?", a: "Ask who does the work, whether you own every account and how results are reported. Walk away from guaranteed rankings or follower counts, agencies that hold your logins, and reports that show only brand-name growth. We are four people in Malvern, so you talk to the people doing the work." },
 ];
 
-const TITLE = "Social Media Management Services | OneAlgorithm";
+const TITLE = "Social Media Management Services | One Algorithm";
 const DESCRIPTION = "Social media management services for small business: Facebook and Instagram accounts you own and plain-number reports. Book a call: (610) 890-9711.";
 
 export default function Marketing() {

@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-colorado"
  },
  "seo": {
-  "title": "SEO Colorado Springs, CO: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Colorado Springs, CO | One Algorithm",
   "description": "SEO for Colorado Springs businesses: technical audits, local and service pages, copy and authority work, delivered remotely. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-colorado-springs.jpg"

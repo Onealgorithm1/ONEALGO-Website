@@ -24,7 +24,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PATH = "/services/hire-salesforce-developers";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "Hire Salesforce Developers | Salesforce Staff Augmentation";
+const TITLE = "Hire Salesforce Developers | One Algorithm";
 const DESCRIPTION = "Hire Salesforce developers, admins and architects who work inside your team, from a listed Salesforce Consulting Partner in Malvern, PA. (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 
@@ -87,7 +87,7 @@ export default function HireSalesforceDevelopers() {
             "Certifications you can check on Salesforce's own record",
           ],
         }}
-        primary={{ label: "Talk to an Expert", to: "/contact?need=staff-augmentation" }}
+        primary={{ label: "Talk to an Expert", to: "/contact#need=staff-augmentation" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 

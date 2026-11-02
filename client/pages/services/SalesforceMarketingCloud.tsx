@@ -36,7 +36,7 @@ const PAGE_PATH = "/services/salesforce-marketing-cloud-consulting";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
 const READ_ON = "23 October 2026";
-const TITLE = "Salesforce Marketing Cloud Consultants | OneAlgorithm";
+const TITLE = "Salesforce Marketing Cloud Consultants | One Algorithm";
 const DESCRIPTION =
   "Salesforce Marketing Cloud consulting for running accounts: Connect sync, journeys, opt-outs. Free health check from a listed partner. Call (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-mc-journey.jpg";

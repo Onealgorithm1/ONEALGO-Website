@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "indiana",
  "seo": {
-  "title": "Web Design Indiana: Custom Websites | OneAlgorithm",
+  "title": "Web Design Indiana: Custom Websites | One Algorithm",
   "description": "Web design for Indiana businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-indiana.jpg"
  },
  "hero": {
@@ -402,7 +402,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Indiana business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Indiana business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -484,6 +484,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 1,618,406 people, 55.3% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Primary metal manufacturing employs 5.16 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills and foundries sell on grades, certifications and capacity, which buyers check before they call.",
+   "cards": [
+    {
+     "h3": "Primary metal manufacturing",
+     "line": "38,300 paid employees in 190 establishments, 5.16 times the US share. Mills and foundries sell on grades, certifications and capacity, which buyers check before they call."
+    },
+    {
+     "h3": "Transportation equipment manufacturing",
+     "line": "144,469 paid employees in 626 establishments, 4.1 times the US share. Suppliers to vehicle and aerospace makers sell on quality certifications and capability lists."
+    },
+    {
+     "h3": "Furniture manufacturing",
+     "line": "22,330 paid employees in 485 establishments, 3 times the US share. Furniture makers need a catalogue with finishes, dealer lookups and trade-account sign-up."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -639,9 +681,64 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Indiana's privacy act began in 2026, so a site built before then may need a new privacy notice and an opt-out route.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Indiana Consumer Data Protection Act",
+     "line": "IC 24-15 applies from 1 January 2026 to businesses that handle data of 100,000 consumers, or 25,000 while earning over half their revenue from selling it."
+    },
+    {
+     "h3": "Web design and Indiana sales tax",
+     "line": "'s Sales Tax Information Bulletin 8 treats web design as a service outside sales and use tax, as long as no tangible property changes hands, and hosting as well."
+    },
+    {
+     "h3": "Indiana's business entity report",
+     "line": "For-profit entities file a business entity report with the Secretary of State every other year, in the month they were formed, through INBiz: $31 online or $50 by mail."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "Breach notice under IC 24-4.9: The Attorney General's guidance says affected consumers must be told without unreasonable delay once a breach is discovered.",
+     "The official pages behind these: “Indiana Consumer Data Protection Act” and “Sales tax on computer services and web hosting” and “Business entity reports”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Indiana General Assembly, IC 24-15",
+     "what": "Indiana Consumer Data Protection Act",
+     "read": "read 1 November 2026",
+     "page": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf"
+    },
+    {
+     "name": "Indiana Department of Revenue, Bulletin 8",
+     "what": "Sales tax on computer services and web hosting",
+     "read": "read 1 November 2026",
+     "page": "https://www.in.gov/dor/files/sib08.pdf"
+    },
+    {
+     "name": "Indiana Secretary of State, Business Services Division",
+     "what": "Business entity reports",
+     "read": "read 1 November 2026",
+     "page": "https://www.in.gov/sos/business/business-entity-reports/"
+    },
+    {
+     "name": "Indiana Attorney General",
+     "what": "Security breach FAQs for businesses",
+     "read": "read 1 November 2026",
+     "page": "https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/"
+    }
+   ]
+  },
+  {
    "kind": "process",
    "id": "process",
-   "h2": "How a Indiana web project runs",
+   "h2": "How an Indiana web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -680,7 +777,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Indiana business hire a remote web design team?",
+     "q": "Can an Indiana business hire a remote web design team?",
      "a": "Yes. We take on website work for Indiana businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Eastern hours, the clock the state's 155,692 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -797,16 +894,23 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "3": "derived: NAICS 337 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "4": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "5": "derived: real estate, rental and leasing employees per establishment, 2023",
+  "8": "Indiana Department of Revenue, Bulletin 8: https://www.in.gov/dor/files/sib08.pdf",
   "11": "derived: health care and social assistance establishments change 2018-2023, percent",
+  "15": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "16": "derived: retail trade employees per establishment, 2023",
   "21": "derived: rank of estab among the 64 place pages",
   "22": "Semrush keyword difficulty, \"web design indiana\"",
+  "24": "Indiana Attorney General: https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/",
+  "31": "Indiana Secretary of State, Business Services Division: https://www.in.gov/sos/business/business-entity-reports/",
   "34": "derived: rank of estabChg among the 64 place pages",
   "37": "derived: finance and insurance establishments 2023 minus 2018",
   "44": "derived: rank of popChg among the 64 place pages",
   "47": "page-map-webdev.json national_ranking rank",
+  "50": "Indiana Secretary of State, Business Services Division: https://www.in.gov/sos/business/business-entity-reports/",
   "56": "derived: rank of u20 among the 64 place pages",
   "60": "derived: rank of per511 among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
@@ -817,20 +921,24 @@ export const PLACE: LocalPlace = {
   "130": "derived: educational services establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "170": "Semrush US exact volume, \"web design company indiana\", pulled 2026-10-24 13:05-13:15 ET",
+  "190": "Census CBP 2023, NAICS 331 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
   "203": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "252": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "260": "Semrush US exact volume, \"website development indiana\", pulled 2026-10-24 13:05-13:15 ET",
   "338": "derived: wholesale trade establishments 2023 minus 2018",
   "480": "Semrush US exact volume, \"web design indiana\", pulled 2026-10-24 13:05-13:15 ET",
+  "485": "Census CBP 2023, NAICS 337 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
   "510": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "519": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "527": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "605": "derived: administrative and support services establishments 2023 minus 2018",
+  "626": "Census CBP 2023, NAICS 336 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
   "682": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "751": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "770": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "842": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "910": "page-map-webdev.json national_ranking sum (state pages add folded places)",
+  "2026": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "2,816,081": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "18.8": "derived: paid employees / establishments, 2023",
   "3.9": "derived: change in paid employees 2018-2023, percent",
@@ -925,7 +1033,17 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "100,000": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "25,000": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "4.9": "Indiana Attorney General: https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/",
+  "38,300": "Census CBP 2023, NAICS 331 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
+  "5.16": "derived: NAICS 331 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "144,469": "Census CBP 2023, NAICS 336 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
+  "4.1": "derived: NAICS 336 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "22,330": "Census CBP 2023, NAICS 337 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:18)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

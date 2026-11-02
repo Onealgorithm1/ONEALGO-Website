@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "florida",
  "seo": {
-  "title": "Web Design Florida: Custom Websites | OneAlgorithm",
+  "title": "Web Design Florida: Custom Websites | One Algorithm",
   "description": "Web design for Florida businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-florida.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Administrative and support services employs 2.53 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Staffing and support firms need service pages, quote requests and a careers page that fills roles.",
+   "cards": [
+    {
+     "h3": "Administrative and support services",
+     "line": "2,338,093 paid employees in 40,795 establishments, 2.53 times the US share. Staffing and support firms need service pages, quote requests and a careers page that fills roles."
+    },
+    {
+     "h3": "Amusement, gambling and recreation",
+     "line": "186,974 paid employees in 5,950 establishments, 1.46 times the US share. Attractions need hours, booking and offers that read fast on a phone."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "54,191 paid employees in 623 establishments, 1.32 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Florida businesses search for",
@@ -637,6 +679,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,480, 26th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "For most Florida businesses the breach statute, not the billion-dollar privacy law, is the rule that governs what a site's forms collect.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Florida Digital Bill of Rights",
+     "line": "Part V of chapter 501 covers only companies with over $1 billion in global revenue that meet one more test, such as earning half of it from online advertising."
+    },
+    {
+     "h3": "Florida's annual report on Sunbiz",
+     "line": "A LLC files its annual report on Sunbiz between 1 January and 1 May for $138.75; after 1 May the Division of Corporations adds a $400 late fee."
+    },
+    {
+     "h3": "Breach notice under § 501.171",
+     "line": "Florida sets an outer limit for notice to each affected individual in the state, counted from the moment a breach is determined or suspected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Florida Digital Bill of Rights: who is a controller” and “LLC annual report fees” and “Security of confidential personal information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Florida Legislature, § 501.702",
+     "what": "Florida Digital Bill of Rights: who is a controller",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.702.html"
+    },
+    {
+     "name": "Florida Division of Corporations (Sunbiz)",
+     "what": "LLC annual report fees",
+     "read": "read 1 November 2026",
+     "page": "https://efile.sunbiz.org/llc_ar_help.html"
+    },
+    {
+     "name": "Florida Legislature, § 501.171",
+     "what": "Security of confidential personal information",
+     "read": "read 1 November 2026",
+     "page": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -793,6 +883,7 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
   "2": "derived: rank of u20 among the 64 place pages",
   "3": "derived: rank of estab among the 64 place pages",
   "11": "derived: rank of estabChg among the 64 place pages",
@@ -810,6 +901,9 @@ export const PLACE: LocalPlace = {
   "210": "Semrush US exact volume, \"website development florida\", pulled 2026-10-24 13:05-13:15 ET",
   "226": "derived: wholesale trade establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design company florida\", pulled 2026-10-24 13:05-13:15 ET",
+  "400": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
+  "501": "Florida Legislature, § 501.702: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.702.html",
+  "623": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
   "733": "derived: information establishments 2023 minus 2018",
   "880": "Semrush US exact volume, \"web design florida\", pulled 2026-10-24 13:05-13:15 ET",
   "916": "derived: manufacturing establishments 2023 minus 2018",
@@ -924,7 +1018,19 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "138.75": "Florida Division of Corporations (Sunbiz): https://efile.sunbiz.org/llc_ar_help.html",
+  "501.171": "Florida Legislature, § 501.171: http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0501/Sections/0501.171.html",
+  "2,338,093": "Census CBP 2023, NAICS 561 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
+  "40,795": "Census CBP 2023, NAICS 561 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
+  "2.53": "derived: NAICS 561 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "186,974": "Census CBP 2023, NAICS 713 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
+  "5,950": "Census CBP 2023, NAICS 713 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
+  "1.46": "derived: NAICS 713 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "54,191": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:12)",
+  "1.32": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

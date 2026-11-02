@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Las Vegas"
  },
  "seo": {
-  "title": "Digital Marketing Agency Las Vegas, NV | OneAlgorithm",
+  "title": "Digital Marketing Agency Las Vegas, NV | One Algorithm",
   "description": "Digital marketing for Las Vegas companies: message, search, email and social automation, run remotely. Call (610) 890-9711 to plan yours.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-las-vegas.jpg"

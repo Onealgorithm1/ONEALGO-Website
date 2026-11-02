@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-maryland"
  },
  "seo": {
-  "title": "Web Design Baltimore, MD: Custom Websites | OneAlgorithm",
+  "title": "Web Design Baltimore, MD: Custom Websites | One Algorithm",
   "description": "Web design for Baltimore businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-baltimore.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nonstore retail employs 2.02 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online and catalogue sellers live on checkout speed, product search and order tracking.",
+   "cards": [
+    {
+     "h3": "Nonstore retail",
+     "line": "19,572 paid employees in 553 establishments, 2.02 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "14,267 paid employees in 80 establishments, 2 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    },
+    {
+     "h3": "Educational services",
+     "line": "63,323 paid employees in 1,137 establishments, 1.85 times the US share. Schools and trainers need course pages, enrolment forms and a calendar people trust."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Baltimore businesses search for",
@@ -653,6 +695,51 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 710, 56th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Baltimore licenses start with a state SDAT number, and Maryland now taxes custom webpage design at 3%.",
+   "leadIn": "Why it matters:",
+   "lead": "Maryland changed twice in 2025: a 3% tax that names webpage design, and a privacy act that starts at 35,000 consumers.",
+   "cards": [
+    {
+     "h3": "Licenses by type, SDAT number first",
+     "line": "Baltimore's Business Licensing Division issues licenses by business type, and every applicant first needs a State Department of Assessments and Taxation number."
+    },
+    {
+     "h3": "Maryland's Personal Information Protection Act",
+     "line": "Com. Law § 14-3504 requires reasonable protection of Maryland consumers' personal information and notice when it is breached."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "Maryland Online Data Privacy Act: In force since 1 October 2025, it starts at data of 35,000 Maryland consumers, not counting payment-only data, or fewer when selling data drives revenue.",
+     "The official pages behind these: “Apply for a license” and “Guidelines for the Personal Information Protection Act”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Baltimore City Department of Consumer Protection and Business Licensing",
+     "what": "Apply for a license",
+     "read": "read 1 November 2026",
+     "page": "https://www.baltimorecity.gov/dcpbl/apply-for-a-license"
+    },
+    {
+     "name": "Office of the Maryland Attorney General",
+     "what": "Guidelines for the Personal Information Protection Act",
+     "read": "read 1 November 2026",
+     "page": "https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx"
+    },
+    {
+     "name": "Maryland General Assembly, Com. Law § 14-4702",
+     "what": "Maryland Online Data Privacy Act: applicability",
+     "read": "read 1 November 2026",
+     "page": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=True&archived=False"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -822,8 +909,12 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "Maryland General Assembly, Com. Law § 14-4702: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=True&archived=False",
+  "2": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "3": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "6": "derived: rank of per511 among the 64 place pages",
   "9": "derived: wholesale trade establishments change 2018-2023, percent",
+  "14": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "16": "derived: information establishments 2023 minus 2018",
   "20": "Semrush US exact volume, \"web developer baltimore\", pulled 2026-10-24 13:05-13:15 ET",
   "40": "Semrush US exact volume, \"website development baltimore\", pulled 2026-10-24 13:05-13:15 ET",
@@ -835,6 +926,7 @@ export const PLACE: LocalPlace = {
   "56": "page-map-webdev.json national_ranking rank",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "66": "derived: administrative and support services establishments 2023 minus 2018",
+  "80": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
   "87": "derived: manufacturing establishments 2023 minus 2018",
   "90": "derived: educational services establishments 2023 minus 2018",
   "108": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
@@ -851,9 +943,12 @@ export const PLACE: LocalPlace = {
   "314": "derived: real estate, rental and leasing establishments 2023 minus 2018",
   "351": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "480": "Semrush US exact volume, \"web design baltimore\", pulled 2026-10-24 13:05-13:15 ET",
+  "553": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
   "562": "derived: retail trade establishments 2023 minus 2018",
   "710": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "976": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
+  "2025": "Maryland General Assembly, Com. Law § 14-4702: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=True&archived=False",
+  "3504": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "1,195,841": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.7": "derived: paid employees / establishments, 2023",
   "2.1": "derived: change in population 2019-2024 (ACS 1-year), percent",
@@ -915,8 +1010,8 @@ export const PLACE: LocalPlace = {
   "4,029": "Census County Business Patterns 2018, establishments, naics 56 administrative and support services, 2018",
   "19.7": "derived: administrative and support services employees per establishment, 2023",
   "1.6": "derived: administrative and support services establishments change 2018-2023, percent",
-  "63,323": "Census County Business Patterns 2023, paid employees, naics 61 educational services, 2023",
-  "1,137": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
+  "63,323": "Census CBP 2023, NAICS 611 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
+  "1,137": "Census CBP 2023, NAICS 611 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
   "1,047": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "55.7": "derived: educational services employees per establishment, 2023",
   "8.6": "derived: educational services establishments change 2018-2023, percent",
@@ -953,7 +1048,14 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "35,000": "Maryland General Assembly, Com. Law § 14-4702: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=True&archived=False",
+  "19,572": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
+  "2.02": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,267": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:12580)",
+  "1.85": "derived: NAICS 611 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

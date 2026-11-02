@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-utah"
  },
  "seo": {
-  "title": "Web Design Salt Lake City: Custom Websites | OneAlgorithm",
+  "title": "Web Design Salt Lake City: Custom Websites | One Algorithm",
   "description": "Web design for Salt Lake City businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-salt-lake-city.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Miscellaneous manufacturing employs 4.51 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Specialist makers, from medical devices to signs, need a product catalogue and a sales enquiry that routes by line.",
+   "cards": [
+    {
+     "h3": "Miscellaneous manufacturing",
+     "line": "12,724 paid employees in 186 establishments, 4.51 times the US share. Specialist makers, from medical devices to signs, need a product catalogue and a sales enquiry that routes by line."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "10,517 paid employees in 21 establishments, 3.62 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    },
+    {
+     "h3": "Nonstore retail",
+     "line": "14,020 paid employees in 609 establishments, 2.5 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Salt Lake City businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 760, 54th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Salt Lake City licenses every business inside its limits, and Utah's privacy act starts at a revenue floor.",
+   "leadIn": "Why it matters:",
+   "lead": "Utah's revenue floor means most small firms sit outside its privacy act, while the breach statute covers every business that keeps personal data.",
+   "cards": [
+    {
+     "h3": "A Salt Lake City business license",
+     "line": "Anyone engaging in business in Salt Lake City, permanently or temporarily, needs a city business license from the Finance Department's Business Licensing office."
+    },
+    {
+     "h3": "Breach notice under § 13-44-202",
+     "line": "If an investigation finds that personal information was, or is reasonably likely to be, misused for identity theft or fraud, each affected Utah resident must be told."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business licensing” and “Personal information: notice of a breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Salt Lake City Business Licensing",
+     "what": "Business licensing",
+     "read": "read 1 November 2026",
+     "page": "https://www.slc.gov/Finance/business-licensing/"
+    },
+    {
+     "name": "Utah State Legislature, § 13-44-202",
+     "what": "Personal information: notice of a breach",
+     "read": "read 1 November 2026",
+     "page": "https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -823,13 +903,16 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "6": "derived: information establishments 2023 minus 2018",
+  "13": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "19": "Semrush keyword difficulty, \"web design salt lake city\"",
   "20": "Semrush US exact volume, \"web developer salt lake city\", pulled 2026-10-24 13:05-13:15 ET",
+  "21": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
   "23": "derived: rank of estabChg among the 64 place pages",
   "26": "derived: manufacturing establishments 2023 minus 2018",
   "28": "derived: rank of per511 among the 64 place pages",
   "35": "derived: rank of u20 among the 64 place pages",
   "38": "derived: educational services employees per establishment, 2023",
+  "44": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "54": "page-map-webdev.json national_ranking rank",
   "56": "derived: rank of estab among the 64 place pages",
   "60": "derived: retail trade establishments 2023 minus 2018",
@@ -844,6 +927,8 @@ export const PLACE: LocalPlace = {
   "140": "Semrush US exact volume, \"website development salt lake city\", pulled 2026-10-24 13:05-13:15 ET",
   "146": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "173": "derived: wholesale trade establishments 2023 minus 2018",
+  "186": "Census CBP 2023, NAICS 339 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
+  "202": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "207": "derived: administrative and support services establishments 2023 minus 2018",
   "210": "Semrush US exact volume, \"web design company salt lake city\", pulled 2026-10-24 13:05-13:15 ET",
   "260": "derived: accommodation and food services establishments 2023 minus 2018",
@@ -857,6 +942,7 @@ export const PLACE: LocalPlace = {
   "553": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "595": "derived: health care and social assistance establishments 2023 minus 2018",
   "597": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
+  "609": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
   "610": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "742": "derived: construction establishments 2023 minus 2018",
   "748": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
@@ -953,7 +1039,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "12,724": "Census CBP 2023, NAICS 339 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
+  "4.51": "derived: NAICS 339 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "10,517": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
+  "3.62": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,020": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41620)",
+  "2.5": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

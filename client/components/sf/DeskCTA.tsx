@@ -37,7 +37,7 @@ export type DeskForm = {
  *   from=<route>     → sent as the Lead's "Submitted on:" line and the GA4 `source`
  */
 export function contactHref(topicLabel: string, from: string, need = "salesforce") {
-  return `/contact?need=${encodeURIComponent(need)}&topic=${encodeURIComponent(topicLabel)}&from=${encodeURIComponent(from)}`;
+  return `/contact#need=${encodeURIComponent(need)}&topic=${encodeURIComponent(topicLabel)}&from=${encodeURIComponent(from)}`;
 }
 
 /**

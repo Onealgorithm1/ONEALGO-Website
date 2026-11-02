@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "delaware",
  "seo": {
-  "title": "Web Design Delaware: Custom Websites | OneAlgorithm",
+  "title": "Web Design Delaware: Custom Websites | One Algorithm",
   "description": "Web design for Delaware businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-delaware.jpg"
  },
  "hero": {
@@ -488,6 +488,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Banking and lending employs 3.42 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Lenders need secure applications, plain disclosures and a short path to a loan officer.",
+   "cards": [
+    {
+     "h3": "Banking and lending",
+     "line": "33,039 paid employees in 738 establishments, 3.42 times the US share. Lenders need secure applications, plain disclosures and a short path to a loan officer."
+    },
+    {
+     "h3": "Nonstore retail",
+     "line": "9,710 paid employees in 447 establishments, 2.68 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Chemical manufacturing",
+     "line": "6,778 paid employees in 76 establishments, 2.27 times the US share. Chemical buyers need safety data sheets, specifications and a gated technical enquiry."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Delaware businesses search for",
@@ -640,6 +682,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 740, 55th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Delaware's privacy act starts at 35,000 consumers, so even a mid-sized site's mailing list can bring a privacy notice and opt-out route into scope.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Delaware Personal Data Privacy Act",
+     "line": "In force since 1 January 2025, it starts at a lower bar than most: data of 35,000 consumers, or 10,000 when selling data is a large share of revenue."
+    },
+    {
+     "h3": "Delaware's LLC tax, not a report",
+     "line": " LLCs file no annual report; they pay the Division of Corporations a $400 annual tax on or before June 1, with a $200 penalty and interest if late."
+    },
+    {
+     "h3": "Breach notice under 6 Del. C. § 12B-102",
+     "line": "Affected Delawareans must be told without unreasonable delay, and the Attorney General as well when more than 500 residents are affected."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Personal Data Privacy Portal FAQ” and “Annual franchise tax instructions for LLCs” and “Notice of a breach of security”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Delaware Department of Justice",
+     "what": "Personal Data Privacy Portal FAQ",
+     "read": "read 1 November 2026",
+     "page": "https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/frequently-asked-questions/"
+    },
+    {
+     "name": "Delaware Division of Corporations",
+     "what": "Annual franchise tax instructions for LLCs",
+     "read": "read 1 November 2026",
+     "page": "https://corp.delaware.gov/alt-entitytaxinstructions/"
+    },
+    {
+     "name": "Delaware Code, Title 6, § 12B-102",
+     "what": "Notice of a breach of security",
+     "read": "read 1 November 2026",
+     "page": "https://delcode.delaware.gov/title6/c012b/index.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -816,12 +906,15 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "Semrush US exact volume, \"web developer wilmington de\", pulled 2026-10-24 13:05-13:15 ET",
+  "1": "Delaware Division of Corporations: https://corp.delaware.gov/alt-entitytaxinstructions/",
   "2": "derived: rank of per511 among the 64 place pages",
   "5": "derived: rank of estabChg among the 64 place pages",
+  "6": "Delaware Code, Title 6, § 12B-102: https://delcode.delaware.gov/title6/c012b/index.html",
   "8": "derived: change in population 2019-2024 (ACS 1-year), percent",
   "9": "derived: finance and insurance establishments 2023 minus 2018",
   "10": "derived: information employees per establishment, 2023",
   "11": "Semrush keyword difficulty, \"web design delaware\"",
+  "12": "Delaware Code, Title 6, § 12B-102: https://delcode.delaware.gov/title6/c012b/index.html",
   "13": "derived: rank of popChg among the 64 place pages",
   "17": "derived: rank of u20 among the 64 place pages",
   "25": "derived: health care and social assistance employees per establishment, 2023",
@@ -832,15 +925,18 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "72": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "76": "Census CBP 2023, NAICS 325 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
   "78": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "87": "derived: manufacturing establishments 2023 minus 2018",
   "99": "derived: educational services establishments 2023 minus 2018",
+  "102": "Delaware Code, Title 6, § 12B-102: https://delcode.delaware.gov/title6/c012b/index.html",
   "106": "derived: retail trade establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
   "140": "Semrush US exact volume, \"web design wilmington de\", pulled 2026-10-24 13:05-13:15 ET",
   "170": "Semrush US exact volume, \"website design delaware\", pulled 2026-10-24 13:05-13:15 ET",
   "180": "sum of the folded places' Semrush exact sums",
   "194": "derived: real estate, rental and leasing establishments 2023 minus 2018",
+  "200": "Delaware Division of Corporations: https://corp.delaware.gov/alt-entitytaxinstructions/",
   "204": "derived: accommodation and food services establishments 2023 minus 2018",
   "232": "derived: construction establishments 2023 minus 2018",
   "268": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
@@ -848,19 +944,24 @@ export const PLACE: LocalPlace = {
   "322": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "360": "derived: health care and social assistance establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design delaware\", pulled 2026-10-24 13:05-13:15 ET",
+  "400": "Delaware Division of Corporations: https://corp.delaware.gov/alt-entitytaxinstructions/",
   "421": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "433": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
+  "447": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
   "485": "derived: information establishments 2023 minus 2018",
+  "500": "Delaware Code, Title 6, § 12B-102: https://delcode.delaware.gov/title6/c012b/index.html",
   "531": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 100-499 employees, 2018",
   "560": "sum of the Semrush exact volumes in the table",
   "573": "Census County Business Patterns 2018, establishments, naics 31-33 manufacturing, 2018",
   "576": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 100-499 employees, 2023",
   "585": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "660": "Census County Business Patterns 2023, establishments, naics 31-33 manufacturing, 2023",
+  "738": "Census CBP 2023, NAICS 522 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
   "740": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "765": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "803": "derived: NAICS 541511 + 541430 establishments, 2023",
   "899": "Census County Business Patterns 2023, establishments with 50-99 employees, 2023",
+  "2025": "Delaware Department of Justice: https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/frequently-asked-questions/",
   "405,809": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "15.4": "derived: paid employees / establishments, 2023",
   "12.8": "derived: NAICS 541430 establishments per 10,000, 2023",
@@ -947,7 +1048,17 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "35,000": "Delaware Department of Justice: https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/frequently-asked-questions/",
+  "10,000": "Delaware Department of Justice: https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/frequently-asked-questions/",
+  "33,039": "Census CBP 2023, NAICS 522 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
+  "3.42": "derived: NAICS 522 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "9,710": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
+  "2.68": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "6,778": "Census CBP 2023, NAICS 325 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:10)",
+  "2.27": "derived: NAICS 325 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

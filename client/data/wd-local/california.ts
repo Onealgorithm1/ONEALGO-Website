@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "california",
  "seo": {
-  "title": "Web Design California: Custom Websites | OneAlgorithm",
+  "title": "Web Design California: Custom Websites | One Algorithm",
   "description": "Web design for California businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-california.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Other information services employs 3.8 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Online platforms and search businesses live on page speed and sign-up flows that work.",
+   "cards": [
+    {
+     "h3": "Other information services",
+     "line": "182,253 paid employees in 2,202 establishments, 3.8 times the US share. Online platforms and search businesses live on page speed and sign-up flows that work."
+    },
+    {
+     "h3": "Film and sound recording",
+     "line": "145,162 paid employees in 10,496 establishments, 3.72 times the US share. Studios and production firms sell on reels, credits and a booking or enquiry path."
+    },
+    {
+     "h3": "Publishing",
+     "line": "318,535 paid employees in 5,344 establishments, 2.15 times the US share. Publishers need subscription paths, fast article pages and an archive search engines can crawl."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What California businesses search for",
@@ -637,6 +679,61 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 850, 50th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "California is the state where a covered business's site most often needs a privacy notice, opt-out links and a record of each request.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "CCPA, as amended",
+     "line": "The California Privacy Protection Agency lists the tests: $26.625 million or more in revenue, data of 100,000 residents or households, or half of revenue from selling or sharing it."
+    },
+    {
+     "h3": "Web design and California sales tax",
+     "line": "CDTFA Publication 37 says designing, creating or hosting a website is generally not taxable, unless something tangible, such as printed copy or storage media, is delivered."
+    },
+    {
+     "h3": "California's Statement of Information",
+     "line": "A LLC files Form LLC-12 on bizfile Online with the Secretary of State soon after registering and every two years after, for $20."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "Breach notice under Civil Code § 1798.82: A business must disclose a breach to affected Californians, and a notice that goes to more than 500 residents is also sent to the Attorney General.",
+     "The official pages behind these: “Frequently asked questions: who the CCPA applies to” and “Graphic design, website and related services” and “LLC Statement of Information”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "California Privacy Protection Agency",
+     "what": "Frequently asked questions: who the CCPA applies to",
+     "read": "read 1 November 2026",
+     "page": "https://cppa.ca.gov/faq.html"
+    },
+    {
+     "name": "California Department of Tax and Fee Administration, Publication 37",
+     "what": "Graphic design, website and related services",
+     "read": "read 1 November 2026",
+     "page": "https://cdtfa.ca.gov/formspubs/pub37.pdf"
+    },
+    {
+     "name": "California Secretary of State",
+     "what": "LLC Statement of Information",
+     "read": "read 1 November 2026",
+     "page": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information"
+    },
+    {
+     "name": "California Legislative Information, Civil Code § 1798.82",
+     "what": "Disclosure of a data breach",
+     "read": "read 1 November 2026",
+     "page": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -805,10 +902,13 @@ export const PLACE: LocalPlace = {
   "1": "derived: rank of estab among the 64 place pages",
   "5": "derived: real estate, rental and leasing employees per establishment, 2023",
   "10": "derived: rank of u20 among the 64 place pages",
+  "12": "California Secretary of State: https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information",
   "16": "derived: retail trade employees per establishment, 2023",
   "18": "derived: rank of per511 among the 64 place pages",
+  "20": "California Secretary of State: https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-statement-information",
   "26": "derived: rank of estabChg among the 64 place pages",
   "34": "Semrush keyword difficulty, \"web design california\"",
+  "37": "California Department of Tax and Fee Administration, Publication 37: https://cdtfa.ca.gov/formspubs/pub37.pdf",
   "50": "page-map-webdev.json national_ranking rank",
   "59": "derived: rank of popChg among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
@@ -818,6 +918,7 @@ export const PLACE: LocalPlace = {
   "255": "derived: retail trade establishments 2023 minus 2018",
   "260": "Semrush US exact volume, \"web design company california\", pulled 2026-10-24 13:05-13:15 ET",
   "480": "Semrush US exact volume, \"web design california\", pulled 2026-10-24 13:05-13:15 ET",
+  "500": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
   "850": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "999": "derived: information establishments 2023 minus 2018",
   "15,223,664": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -866,7 +967,7 @@ export const PLACE: LocalPlace = {
   "27,338": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
   "26,339": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "32.6": "derived: information employees per establishment, 2023",
-  "3.8": "derived: information establishments change 2018-2023, percent",
+  "3.8": "derived: NAICS 519 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "634,885": "Census County Business Patterns 2023, paid employees, naics 52 finance and insurance, 2023",
   "49,165": "Census County Business Patterns 2023, establishments, naics 52 finance and insurance, 2023",
   "51,315": "Census County Business Patterns 2018, establishments, naics 52 finance and insurance, 2018",
@@ -930,7 +1031,20 @@ export const PLACE: LocalPlace = {
   "7,576,502": "derived: top-4 sectors' paid employees, 2023",
   "46.2": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "26.625": "California Privacy Protection Agency: https://cppa.ca.gov/faq.html",
+  "100,000": "California Privacy Protection Agency: https://cppa.ca.gov/faq.html",
+  "1798.82": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
+  "182,253": "Census CBP 2023, NAICS 519 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "2,202": "Census CBP 2023, NAICS 519 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "145,162": "Census CBP 2023, NAICS 512 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "10,496": "Census CBP 2023, NAICS 512 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "3.72": "derived: NAICS 512 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "318,535": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "5,344": "Census CBP 2023, NAICS 511 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:06)",
+  "2.15": "derived: NAICS 511 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

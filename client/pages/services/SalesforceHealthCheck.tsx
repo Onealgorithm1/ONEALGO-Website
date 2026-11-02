@@ -43,7 +43,7 @@ import {
 const PAGE_PATH = "/services/salesforce-health-check";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Free One-Week Salesforce Health Check | OneAlgorithm";
+const TITLE = "Free One-Week Salesforce Health Check | One Algorithm";
 const DESCRIPTION =
   "Free one-week Salesforce health check: licenses, data, automation, permissions and integrations, ranked by what to fix first. Call (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-health-check.jpg";
@@ -270,13 +270,13 @@ export default function SalesforceHealthCheck() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PAGE_PATH),
-    ogTitle: "Free one-week Salesforce health check | OneAlgorithm",
+    ogTitle: "Free one-week Salesforce health check | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PAGE_PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: OG_ALT,
-    twitterTitle: "Free one-week Salesforce health check | OneAlgorithm",
+    twitterTitle: "Free one-week Salesforce health check | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],

@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-florida"
  },
  "seo": {
-  "title": "SEO Fort Myers, FL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Fort Myers, FL | One Algorithm",
   "description": "SEO for Fort Myers businesses: audits, service and town pages built from real searches, plain monthly reports. Remote team. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-fort-myers.jpg"

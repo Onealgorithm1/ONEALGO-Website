@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Seattle"
  },
  "seo": {
-  "title": "SEO Seattle, WA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Seattle, WA | One Algorithm",
   "description": "Seattle SEO run remotely from Malvern, PA: technical audits, local pages, authority and clear monthly reports. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-seattle.jpg"

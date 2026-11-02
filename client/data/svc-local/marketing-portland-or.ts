@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Portland"
  },
  "seo": {
-  "title": "Digital Marketing Agency Portland, OR | OneAlgorithm",
+  "title": "Digital Marketing Agency Portland, OR | One Algorithm",
   "description": "Digital marketing for Portland, Oregon: one plan for website, content, email, social and reviews, run remotely. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-portland-or.jpg"

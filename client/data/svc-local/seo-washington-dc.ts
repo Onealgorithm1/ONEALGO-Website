@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Washington, DC"
  },
  "seo": {
-  "title": "SEO Washington, DC: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Washington, DC | One Algorithm",
   "description": "SEO for Washington, DC firms: technical audits, expert content and earned authority, delivered remotely from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-washington-dc.jpg"

@@ -36,7 +36,7 @@ const PAGE_PATH = "/services/salesforce-managed-services";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
 const READ_ON = "23 October 2026";
-const TITLE = "Salesforce Managed Services & Admin Support | OneAlgorithm";
+const TITLE = "Salesforce Managed Services & Admin Support | One Algorithm";
 const DESCRIPTION =
   "Salesforce managed services: weekly admin, development and release testing from a listed Consulting Partner. Free one-week health check: (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/media/salesforce/og/og-managed-week.jpg";
@@ -195,13 +195,13 @@ export default function SalesforceManagedServices() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PAGE_PATH),
-    ogTitle: "Salesforce Managed Services | OneAlgorithm",
+    ogTitle: "Salesforce Managed Services | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PAGE_PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: OG_ALT,
-    twitterTitle: "Salesforce Managed Services | OneAlgorithm",
+    twitterTitle: "Salesforce Managed Services | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadFonts: ["/fonts/bricolage-grotesque-latin-700-800.woff2"],

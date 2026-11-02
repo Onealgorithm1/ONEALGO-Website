@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Grand Rapids"
  },
  "seo": {
-  "title": "SEO Grand Rapids, MI: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Grand Rapids, MI | One Algorithm",
   "description": "SEO for Grand Rapids, MI businesses: audits, service-area pages and earned links, delivered remotely on Eastern time. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-grand-rapids.jpg"

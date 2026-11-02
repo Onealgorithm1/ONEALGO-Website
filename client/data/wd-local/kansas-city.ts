@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "kansas-city",
  "seo": {
-  "title": "Web Design Kansas City, MO: Custom Websites | OneAlgorithm",
+  "title": "Web Design Kansas City, MO: Custom Websites | One Algorithm",
   "description": "Web design for Kansas City businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-kansas-city.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nondurable goods wholesale employs 1.88 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Wholesalers need a catalogue, trade-account applications and order requests that reach the sales desk.",
+   "cards": [
+    {
+     "h3": "Nondurable goods wholesale",
+     "line": "32,179 paid employees in 678 establishments, 1.88 times the US share. Wholesalers need a catalogue, trade-account applications and order requests that reach the sales desk."
+    },
+    {
+     "h3": "Machinery manufacturing",
+     "line": "14,584 paid employees in 135 establishments, 1.85 times the US share. Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech."
+    },
+    {
+     "h3": "Couriers and messengers",
+     "line": "13,277 paid employees in 94 establishments, 1.54 times the US share. Delivery firms need tracking, service areas and an account sign-up for shippers."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Kansas City businesses search for",
@@ -830,9 +872,11 @@ export const PLACE: LocalPlace = {
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "70": "Semrush US exact volume, \"web developer kansas city\", pulled 2026-10-24 13:05-13:15 ET",
   "77": "derived: educational services establishments 2023 minus 2018",
+  "94": "Census CBP 2023, NAICS 492 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
   "114": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "116": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "134": "page-map-webdev.json national_ranking length",
+  "135": "Census CBP 2023, NAICS 333 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
   "151": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "153": "derived: retail trade establishments 2023 minus 2018",
   "169": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
@@ -848,6 +892,7 @@ export const PLACE: LocalPlace = {
   "480": "Semrush US exact volume, \"website development kansas city\", pulled 2026-10-24 13:05-13:15 ET",
   "501": "derived: NAICS 541511 + 541430 establishments, 2023",
   "665": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
+  "678": "Census CBP 2023, NAICS 424 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
   "720": "Semrush US exact volume, \"web design kansas city\", pulled 2026-10-24 13:05-13:15 ET",
   "742": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "911": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
@@ -947,7 +992,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "32,179": "Census CBP 2023, NAICS 424 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
+  "1.88": "derived: NAICS 424 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,584": "Census CBP 2023, NAICS 333 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
+  "1.85": "derived: NAICS 333 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "13,277": "Census CBP 2023, NAICS 492 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:28140)",
+  "1.54": "derived: NAICS 492 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

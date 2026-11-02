@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "north-carolina",
  "seo": {
-  "title": "Web Design North Carolina: Custom Websites | OneAlgorithm",
+  "title": "Web Design North Carolina: Custom Websites | One Algorithm",
   "description": "Web design for North Carolina businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-north-carolina.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Textile mills employs 9.78 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Mills sell to buyers who want spec sheets, minimums and sample requests without a phone call.",
+   "cards": [
+    {
+     "h3": "Textile mills",
+     "line": "23,872 paid employees in 265 establishments, 9.78 times the US share. Mills sell to buyers who want spec sheets, minimums and sample requests without a phone call."
+    },
+    {
+     "h3": "Furniture manufacturing",
+     "line": "30,962 paid employees in 682 establishments, 2.85 times the US share. Furniture makers need a catalogue with finishes, dealer lookups and trade-account sign-up."
+    },
+    {
+     "h3": "Wood product manufacturing",
+     "line": "22,989 paid employees in 558 establishments, 1.74 times the US share. Wood products sell on species, grades and dealer lookups."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What North Carolina businesses search for",
@@ -637,6 +679,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 540, 65th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "North Carolina's breach statute covers personal information in any form, paper included, so forms and the inbox behind them both count.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "North Carolina's April 15 report",
+     "line": "A LLC files its first annual report with the Secretary of State by April 15 of the year after it forms, and every April 15 after, for $200."
+    },
+    {
+     "h3": "Breach notice under G.S. 75-65",
+     "line": "Any business that owns or licenses North Carolinians' personal information, in any form, must give notice of a security breach without unreasonable delay."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Maintaining a business registration” and “Protection from security breaches”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "North Carolina Secretary of State",
+     "what": "Maintaining a business registration",
+     "read": "read 1 November 2026",
+     "page": "https://www.sosnc.gov/manual/launching_a_business/maintaining_registration"
+    },
+    {
+     "name": "North Carolina General Assembly, G.S. 75-65",
+     "what": "Protection from security breaches",
+     "read": "read 1 November 2026",
+     "page": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -800,7 +880,7 @@ export const PLACE: LocalPlace = {
   "3": "derived: retail trade establishments change 2018-2023, percent",
   "4": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "8": "derived: rank of estab among the 64 place pages",
-  "15": "derived: health care and social assistance share of paid employees, 2023",
+  "15": "North Carolina Secretary of State: https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
   "19": "derived: NAICS 541430 establishments per 10,000, 2023",
   "22": "derived: rank of estabChg among the 64 place pages",
   "23": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
@@ -810,18 +890,23 @@ export const PLACE: LocalPlace = {
   "52": "derived: rank of per511 among the 64 place pages",
   "62": "derived: manufacturing establishments 2023 minus 2018",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
-  "65": "page-map-webdev.json national_ranking rank",
+  "65": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
+  "75": "North Carolina General Assembly, G.S. 75-65: https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_75/GS_75-65.html",
   "104": "derived: finance and insurance establishments 2023 minus 2018",
   "110": "Semrush US exact volume, \"website development north carolina\", pulled 2026-10-24 13:05-13:15 ET",
   "125": "derived: information establishments 2023 minus 2018",
   "134": "page-map-webdev.json national_ranking length",
+  "200": "North Carolina Secretary of State: https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
+  "265": "Census CBP 2023, NAICS 313 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
   "304": "derived: wholesale trade establishments 2023 minus 2018",
   "320": "Semrush US exact volume, \"web design north carolina\", pulled 2026-10-24 13:05-13:15 ET",
   "354": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "465": "derived: educational services establishments 2023 minus 2018",
   "491": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "540": "page-map-webdev.json national_ranking sum (state pages add folded places)",
+  "558": "Census CBP 2023, NAICS 321 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
   "607": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
+  "682": "Census CBP 2023, NAICS 337 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
   "692": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "3,848,565": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.6": "derived: paid employees / establishments, 2023",
@@ -924,7 +1009,15 @@ export const PLACE: LocalPlace = {
   "49.7": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "23,872": "Census CBP 2023, NAICS 313 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
+  "9.78": "derived: NAICS 313 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "30,962": "Census CBP 2023, NAICS 337 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
+  "2.85": "derived: NAICS 337 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "22,989": "Census CBP 2023, NAICS 321 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:37)",
+  "1.74": "derived: NAICS 321 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

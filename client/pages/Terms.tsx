@@ -97,15 +97,15 @@ function Contents() {
 
 export default function Terms() {
   useSEO({
-    title: "Terms & Conditions — OneAlgorithm",
+    title: "Terms & Conditions | One Algorithm",
     description:
       "The terms for using onealgorithm.com: acceptable use, our content, no warranty, limitation of liability, and Pennsylvania governing law.",
     canonical: getCanonicalUrl("/terms"),
-    ogTitle: "Terms & Conditions — OneAlgorithm",
+    ogTitle: "Terms & Conditions | One Algorithm",
     ogDescription:
       "The terms governing your use of the OneAlgorithm website.",
     ogUrl: getCanonicalUrl("/terms"),
-    twitterTitle: "Terms & Conditions — OneAlgorithm",
+    twitterTitle: "Terms & Conditions | One Algorithm",
     twitterDescription:
       "The terms governing your use of the OneAlgorithm website.",
   });

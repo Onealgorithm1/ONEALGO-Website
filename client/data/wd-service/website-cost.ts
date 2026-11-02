@@ -74,7 +74,7 @@ export const WEBSITE_COST: ServicePageData = {
   path: LINKS.cost,
   name: "Website cost",
   seo: {
-    title: "How Much Does a Website Cost? Cost Drivers | OneAlgorithm",
+    title: "How Much Does a Website Cost? Cost Drivers | One Algorithm",
     description: "What sets the price of a website, layouts to integrations, no figure invented: tell us what it must do and get the price in writing. (610) 890-9711.",
     dateModified: "2026-10-24",
     ogAlt: "Three demo website layouts fanned on a night-blue sheet: full-bleed, split and centred, the layouts that set a website's price.",

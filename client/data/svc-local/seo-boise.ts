@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Boise"
  },
  "seo": {
-  "title": "SEO Boise, ID: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Boise, ID | One Algorithm",
   "description": "SEO for Boise, Idaho businesses, delivered remotely: audits, service-area pages, Search Console reporting. Call (610) 890-9711 to talk it through.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-boise.jpg"

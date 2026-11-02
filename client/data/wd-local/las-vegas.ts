@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "las-vegas",
  "seo": {
-  "title": "Web Design Las Vegas, NV: Custom Websites | OneAlgorithm",
+  "title": "Web Design Las Vegas, NV: Custom Websites | One Algorithm",
   "description": "Web design for Las Vegas businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-las-vegas.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Accommodation employs 10.4 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Hotels need direct booking, rate calendars and photos that load fast.",
+   "cards": [
+    {
+     "h3": "Accommodation",
+     "line": "142,290 paid employees in 323 establishments, 10.4 times the US share. Hotels need direct booking, rate calendars and photos that load fast."
+    },
+    {
+     "h3": "Transit and ground passenger transport",
+     "line": "8,107 paid employees in 150 establishments, 2.53 times the US share. Charter and shuttle firms need online booking, fleet pages and quotes for groups."
+    },
+    {
+     "h3": "Performing arts and spectator sports",
+     "line": "9,330 paid employees in 895 establishments, 2.47 times the US share. Venues and teams live on event calendars and ticketing that work on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Las Vegas businesses search for",
@@ -832,10 +874,12 @@ export const PLACE: LocalPlace = {
   "121": "derived: educational services establishments 2023 minus 2018",
   "133": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "134": "page-map-webdev.json national_ranking length",
+  "150": "Census CBP 2023, NAICS 485 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
   "171": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "175": "derived: manufacturing establishments 2023 minus 2018",
   "177": "derived: finance and insurance establishments 2023 minus 2018",
   "180": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
+  "323": "Census CBP 2023, NAICS 721 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
   "330": "derived: retail trade establishments 2023 minus 2018",
   "390": "Semrush US exact volume, \"web design company las vegas\", pulled 2026-10-24 13:05-13:15 ET",
   "415": "derived: administrative and support services establishments 2023 minus 2018",
@@ -849,6 +893,7 @@ export const PLACE: LocalPlace = {
   "799": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "865": "derived: accommodation and food services establishments 2023 minus 2018",
   "880": "Semrush US exact volume, \"web design las vegas\", pulled 2026-10-24 13:05-13:15 ET",
+  "895": "Census CBP 2023, NAICS 711 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
   "962": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "986": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "879,628": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -946,7 +991,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "142,290": "Census CBP 2023, NAICS 721 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
+  "10.4": "derived: NAICS 721 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "8,107": "Census CBP 2023, NAICS 485 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
+  "2.53": "derived: NAICS 485 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "9,330": "Census CBP 2023, NAICS 711 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:29820)",
+  "2.47": "derived: NAICS 711 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

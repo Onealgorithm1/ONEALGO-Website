@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for California"
  },
  "seo": {
-  "title": "SEO California: SEO Company | OneAlgorithm",
+  "title": "SEO Company in California | One Algorithm",
   "description": "SEO for California businesses: technical audits, pages from state search data and earned links, delivered remotely. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-california.jpg"

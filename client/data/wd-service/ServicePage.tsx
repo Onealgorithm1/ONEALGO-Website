@@ -26,7 +26,7 @@ import "../../components/wd/local.css";
  * in a pop-up, the NAP band, the APG FAQ, the desk.
  *
  * ⛔ Every proof action opens an in-site <dialog>; the only off-site anchors are the client domains in the windows.
- * ⛔ One CTA: a button to /contact?need=website&topic=…&from=… (contactHref), plus tel: links. No form, no chat.
+ * ⛔ One CTA: a button to /contact#need=website&topic=…&from=… (contactHref), plus tel: links. No form, no chat.
  * ⛔ Schema mirrors what is visible: BreadcrumbList (SfPage), LocalBusiness (NAP band shown), Service (areaServed US),
  *    WebPage (dateModified = the visible "Updated" line). FAQPage only when the section asks for it.
  * integrate: this file belongs in client/components/wd/; it sits in data/wd-service because of the wave's ownership split.
@@ -332,7 +332,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
   });
 
   // LocalBusiness mirrors the NAP band: no email or priceRange (neither is shown), hasMap = the Business Profile.
-  const lb: Record<string, unknown> = { ...createLocalBusinessSchema("LocalBusiness"), hasMap: NAP.map };
+  const lb: Record<string, unknown> = { ...createLocalBusinessSchema("ProfessionalService"), hasMap: NAP.map };
   delete lb.email;
   delete lb.priceRange;
   lb.sameAs = [...(lb.sameAs as string[]), NAP.map];

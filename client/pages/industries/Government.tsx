@@ -18,7 +18,7 @@ import { procurementRegistrations } from "../../../shared/capabilities-data";
  * not opened, so the pop-up says the figures are quoted by CRS from SBA. */
 
 const PAGE_PATH = "/industries/government";
-const TITLE = "Government IT services: WOSB, SAM registered | OneAlgorithm";
+const TITLE = "Government IT services: WOSB, SAM registered | One Algorithm";
 const DESCRIPTION = "Government IT services from an SBA-certified WOSB/EDWOSB with active SAM registration (UEI W8DYK38MEKP3). No contract awarded yet. (610) 890-9711.";
 const L = "sf-link";
 

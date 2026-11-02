@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Birmingham"
  },
  "seo": {
-  "title": "SEO Birmingham, AL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Birmingham, AL | One Algorithm",
   "description": "SEO for Birmingham, Alabama businesses, delivered remotely: audits, location pages, Search Console reports. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-birmingham-al.jpg"

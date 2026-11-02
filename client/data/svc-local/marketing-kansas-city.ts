@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Kansas City"
  },
  "seo": {
-  "title": "Digital Marketing Agency Kansas City, MO | OneAlgorithm",
+  "title": "Digital Marketing Agency Kansas City, MO | One Algorithm",
   "description": "Marketing for Kansas City businesses: clear message, content, email, social and reviews, delivered remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-kansas-city.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Philadelphia"
  },
  "seo": {
-  "title": "SEO Philadelphia, PA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Philadelphia, PA | One Algorithm",
   "description": "SEO for Philadelphia businesses from a Malvern, PA team: audits, pages planned from search data, authority work. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-philadelphia.jpg"

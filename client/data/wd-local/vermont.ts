@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "vermont",
  "seo": {
-  "title": "Web Design Vermont: Custom Websites | OneAlgorithm",
+  "title": "Web Design Vermont: Custom Websites | One Algorithm",
   "description": "Web design for Vermont businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-vermont.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Accommodation employs 3.4 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Hotels need direct booking, rate calendars and photos that load fast.",
+   "cards": [
+    {
+     "h3": "Accommodation",
+     "line": "12,227 paid employees in 418 establishments, 3.4 times the US share. Hotels need direct booking, rate calendars and photos that load fast."
+    },
+    {
+     "h3": "Computer and electronic manufacturing",
+     "line": "3,830 paid employees in 28 establishments, 2.56 times the US share. Electronics makers need datasheets, compliance documents and a technical sales enquiry that routes by product."
+    },
+    {
+     "h3": "Beverage and tobacco manufacturing",
+     "line": "1,350 paid employees in 87 establishments, 2.53 times the US share. Producers lean on brand pages, age gates where required and a trade enquiry route for distributors."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Vermont businesses search for",
@@ -809,6 +851,7 @@ export const PLACE: LocalPlace = {
   "18": "derived: finance and insurance establishments 2023 minus 2018",
   "20": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "27": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
+  "28": "Census CBP 2023, NAICS 334 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
   "33": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "35": "derived: rank of popChg among the 64 place pages",
   "38": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
@@ -825,6 +868,7 @@ export const PLACE: LocalPlace = {
   "76": "derived: accommodation and food services establishments 2023 minus 2018",
   "79": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "80": "derived: wholesale trade establishments 2023 minus 2018",
+  "87": "Census CBP 2023, NAICS 312 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
   "110": "Semrush US exact volume, \"web design company vermont\", pulled 2026-10-24 13:05-13:15 ET",
   "134": "page-map-webdev.json national_ranking length",
   "139": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
@@ -836,6 +880,7 @@ export const PLACE: LocalPlace = {
   "302": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 100-499 employees, 2023",
   "309": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 100-499 employees, 2018",
   "411": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
+  "418": "Census CBP 2023, NAICS 721 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
   "422": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "472": "Census County Business Patterns 2023, establishments with 50-99 employees, 2023",
   "480": "Semrush US exact volume, \"web design vermont\", pulled 2026-10-24 13:05-13:15 ET",
@@ -923,7 +968,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "12,227": "Census CBP 2023, NAICS 721 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
+  "3.4": "derived: NAICS 721 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "3,830": "Census CBP 2023, NAICS 334 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
+  "2.56": "derived: NAICS 334 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,350": "Census CBP 2023, NAICS 312 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:50)",
+  "2.53": "derived: NAICS 312 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

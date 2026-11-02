@@ -70,6 +70,8 @@ export type LocalSection =
       cards?: LocalCard[];
       table?: { caption: string; cols: [string, string, string]; rows: [string, string, string][] };
       links?: { to: string; label: string }[];
+      /** Official pages behind the cards (2026-11-01 place-only sections): a chip opens the "<id>-src" pop-up, text only. */
+      sources?: { name: string; what: string; read: string; page: string }[];
     } & LocalUnitCopy)
   /** The five build stages (shared lines, doorway rule D4) under a page-specific H2/lede. */
   | ({ kind: "process" } & LocalUnitCopy)

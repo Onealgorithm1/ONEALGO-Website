@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Google Ads for Dallas"
  },
  "seo": {
-  "title": "Google Ads Agency Dallas, TX | OneAlgorithm",
+  "title": "Google Ads Agency Dallas, TX | One Algorithm",
   "description": "Google Ads management for Dallas businesses: conversion tracking first, search terms from data, plain reports. Remote. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/google-ads-dallas.jpg"

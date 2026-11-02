@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-california"
  },
  "seo": {
-  "title": "SEO San Francisco, CA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in San Francisco, CA | One Algorithm",
   "description": "SEO for San Francisco Bay Area businesses: technical audits, demand-led pages and authority, all remote. Call (610) 890-9711 to start a review.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-san-francisco.jpg"

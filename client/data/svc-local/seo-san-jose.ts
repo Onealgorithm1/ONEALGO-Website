@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-california"
  },
  "seo": {
-  "title": "SEO San Jose, CA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in San Jose, CA | One Algorithm",
   "description": "SEO for San Jose and Silicon Valley businesses: technical audits, demand-led pages and authority, delivered remotely. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-san-jose.jpg"

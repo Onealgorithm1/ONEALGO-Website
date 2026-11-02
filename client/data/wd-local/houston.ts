@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-texas"
  },
  "seo": {
-  "title": "Web Design Houston, TX: Custom Websites | OneAlgorithm",
+  "title": "Web Design Houston, TX: Custom Websites | One Algorithm",
   "description": "Web design for Houston businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-houston.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Oil and gas extraction employs 8.46 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Operators buy on safety records and certifications, so those belong where a buyer looks first.",
+   "cards": [
+    {
+     "h3": "Oil and gas extraction",
+     "line": "15,750 paid employees in 363 establishments, 8.46 times the US share. Operators buy on safety records and certifications, so those belong where a buyer looks first."
+    },
+    {
+     "h3": "Mining support services",
+     "line": "29,995 paid employees in 805 establishments, 5.08 times the US share. Contractors to the field sell on safety records, equipment lists and response areas."
+    },
+    {
+     "h3": "Heavy and civil construction",
+     "line": "60,061 paid employees in 996 establishments, 2.79 times the US share. Civil contractors are hired on past projects, bonding and prequalification, which a site can show in one place."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Houston businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,810, 6th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Houston issues no general business license, so Texas filings and tax rules carry more of the weight.",
+   "leadIn": "Why it matters:",
+   "lead": "In Texas the state's own tax guidance names web pages as data processing, so the proposal should separate design, build and hosting.",
+   "cards": [
+    {
+     "h3": "No general Houston license",
+     "line": "The City of Houston's own new-business guide says there is no general business license issued by the city; permits follow the activity."
+    },
+    {
+     "h3": "The SOSPortal filing system",
+     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026, bringing filing, ordering and searching together into a single, streamlined platform."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “New business guide” and “Business filings: the SOSPortal launch”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Houston Office of Business Opportunity",
+     "what": "New business guide",
+     "read": "read 1 November 2026",
+     "page": "https://www.houstontx.gov/obo/solutionscenter/guides/NEW_BUSINESS_GUIDE.pdf"
+    },
+    {
+     "name": "Texas Secretary of State",
+     "what": "Business filings: the SOSPortal launch",
+     "read": "read 1 November 2026",
+     "page": "https://www.sos.texas.gov/corp/index.shtml"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -831,6 +911,7 @@ export const PLACE: LocalPlace = {
   "20": "derived: health care and social assistance employees per establishment, 2023",
   "21": "derived: accommodation and food services employees per establishment, 2023",
   "24": "derived: administrative and support services employees per establishment, 2023",
+  "29": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "30": "Semrush keyword difficulty, \"web design houston\"",
   "31": "derived: rank of per511 among the 64 place pages",
   "35": "derived: rank of u20 among the 64 place pages",
@@ -843,13 +924,17 @@ export const PLACE: LocalPlace = {
   "262": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
   "320": "Semrush US exact volume, \"website development houston\", pulled 2026-10-24 13:05-13:15 ET",
   "334": "derived: information establishments 2023 minus 2018",
+  "363": "Census CBP 2023, NAICS 211 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
   "403": "derived: educational services establishments 2023 minus 2018",
   "422": "derived: finance and insurance establishments 2023 minus 2018",
   "444": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "493": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "720": "Semrush US exact volume, \"web design company houston\", pulled 2026-10-24 13:05-13:15 ET",
   "760": "derived: administrative and support services establishments 2023 minus 2018",
+  "805": "Census CBP 2023, NAICS 213 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
   "928": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
+  "996": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
+  "2026": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "2,629,134": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.7": "derived: paid employees / establishments, 2023",
   "8.9": "derived: change in paid employees 2018-2023, percent",
@@ -958,7 +1043,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "15,750": "Census CBP 2023, NAICS 211 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
+  "8.46": "derived: NAICS 211 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "29,995": "Census CBP 2023, NAICS 213 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
+  "5.08": "derived: NAICS 213 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "60,061": "Census CBP 2023, NAICS 237 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
+  "2.79": "derived: NAICS 237 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

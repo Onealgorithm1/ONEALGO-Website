@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/seo-florida"
  },
  "seo": {
-  "title": "SEO Orlando, FL: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Orlando, FL | One Algorithm",
   "description": "Orlando SEO from audit to monthly Search Console reports, planned around what Central Florida buyers search. Call (610) 890-9711 for a site review.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-orlando.jpg"

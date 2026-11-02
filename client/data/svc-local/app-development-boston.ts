@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "App development for Boston"
  },
  "seo": {
-  "title": "App Development Boston, MA: Custom Software | OneAlgorithm",
+  "title": "App Development Boston, MA: Custom Software | One Algorithm",
   "description": "App development for Boston companies: custom software built remotely from Malvern, PA, with code you own. Call (610) 890-9711 to scope it.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-boston.jpg"

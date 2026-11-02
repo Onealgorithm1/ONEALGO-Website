@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Los Angeles"
  },
  "seo": {
-  "title": "Digital Marketing Agency Los Angeles, CA | OneAlgorithm",
+  "title": "Digital Marketing Agency Los Angeles, CA | One Algorithm",
   "description": "Digital marketing for Los Angeles companies: website message, content, social and email that bring leads. Remote team. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-los-angeles.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Las Vegas"
  },
  "seo": {
-  "title": "SEO Las Vegas, NV: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Las Vegas, NV | One Algorithm",
   "description": "SEO for Las Vegas businesses: audits, pages built from real search demand and authority work, run remotely. Call (610) 890-9711 to start.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-las-vegas.jpg"

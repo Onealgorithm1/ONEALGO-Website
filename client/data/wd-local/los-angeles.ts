@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-california"
  },
  "seo": {
-  "title": "Web Design Los Angeles, CA: Custom Websites | OneAlgorithm",
+  "title": "Web Design Los Angeles, CA: Custom Websites | One Algorithm",
   "description": "Web design for Los Angeles businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-los-angeles.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Film and sound recording employs 9.49 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Studios and production firms sell on reels, credits and a booking or enquiry path.",
+   "cards": [
+    {
+     "h3": "Film and sound recording",
+     "line": "125,824 paid employees in 8,672 establishments, 9.49 times the US share. Studios and production firms sell on reels, credits and a booking or enquiry path."
+    },
+    {
+     "h3": "Broadcasting",
+     "line": "28,636 paid employees in 368 establishments, 2.74 times the US share. Broadcasters need schedules, streaming links and an advertiser enquiry route."
+    },
+    {
+     "h3": "Performing arts and spectator sports",
+     "line": "58,404 paid employees in 19,990 establishments, 2.71 times the US share. Venues and teams live on event calendars and ticketing that work on a phone."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Los Angeles businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 3,140, 5th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "Los Angeles registers every business for its business tax, and the CCPA sets what a covered site must disclose.",
+   "leadIn": "Why it matters:",
+   "lead": "California is the state where a covered business's site most often needs a privacy notice, opt-out links and a record of each request.",
+   "cards": [
+    {
+     "h3": "LA's Business Tax Registration Certificate",
+     "line": "Anyone engaged in business in the City of Los Angeles needs a Tax Registration Certificate from the Office of Finance, and working in the city seven or more days a year counts."
+    },
+    {
+     "h3": "Breach notice under Civil Code § 1798.82",
+     "line": "A business must disclose a breach to affected Californians, and a notice that goes to more than 500 residents is also sent to the Attorney General."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Business tax FAQ and BTRC registration” and “Disclosure of a data breach”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "City of Los Angeles Office of Finance",
+     "what": "Business tax FAQ and BTRC registration",
+     "read": "read 1 November 2026",
+     "page": "https://finance.lacity.gov/business-tax-information-faq"
+    },
+    {
+     "name": "California Legislative Information, Civil Code § 1798.82",
+     "what": "Disclosure of a data breach",
+     "read": "read 1 November 2026",
+     "page": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -826,7 +906,9 @@ export const PLACE: LocalPlace = {
   "134": "page-map-webdev.json national_ranking length",
   "191": "derived: retail trade establishments 2023 minus 2018",
   "260": "Semrush US exact volume, \"web developer los angeles\", pulled 2026-10-24 13:05-13:15 ET",
+  "368": "Census CBP 2023, NAICS 515 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
   "475": "derived: finance and insurance establishments 2023 minus 2018",
+  "500": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
   "547": "derived: administrative and support services establishments 2023 minus 2018",
   "720": "Semrush US exact volume, \"web design company los angeles\", pulled 2026-10-24 13:05-13:15 ET",
   "807": "derived: information establishments 2023 minus 2018",
@@ -944,7 +1026,18 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "1798.82": "California Legislative Information, Civil Code § 1798.82: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.82",
+  "125,824": "Census CBP 2023, NAICS 512 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
+  "8,672": "Census CBP 2023, NAICS 512 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
+  "9.49": "derived: NAICS 512 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "28,636": "Census CBP 2023, NAICS 515 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
+  "2.74": "derived: NAICS 515 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "58,404": "Census CBP 2023, NAICS 711 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
+  "19,990": "Census CBP 2023, NAICS 711 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31080)",
+  "2.71": "derived: NAICS 711 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

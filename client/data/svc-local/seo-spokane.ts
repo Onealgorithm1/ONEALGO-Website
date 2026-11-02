@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Spokane"
  },
  "seo": {
-  "title": "SEO Spokane, WA: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Spokane, WA | One Algorithm",
   "description": "SEO for Spokane businesses: local search, technical fixes and pages built on real demand, delivered remotely. Call (610) 890-9711 to get started.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-spokane.jpg"

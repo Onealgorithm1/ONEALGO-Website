@@ -102,7 +102,7 @@ export const WEBSITE_REDESIGN: ServicePageData = {
   path: LINKS.redesign,
   name: "Website redesign",
   seo: {
-    title: "Website Redesign Services That Keep Rankings | OneAlgorithm",
+    title: "Website Redesign Services That Keep Rankings | One Algorithm",
     description: "Website redesign that keeps your domain, content and rankings: redirect list first, content audit, new code you own. Written scope: (610) 890-9711.",
     dateModified: "2026-10-24",
     ogAlt: "A redirect map drawn on a night-blue ground: six old addresses on the left joined by 301 lines to six new pages on the right, sample addresses.",

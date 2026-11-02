@@ -15,9 +15,9 @@ export const PLACE: LocalPlace = {
   "to": "/services/web-design-texas"
  },
  "seo": {
-  "title": "Web Design San Antonio, TX: Custom Websites | OneAlgorithm",
+  "title": "Web Design San Antonio, TX: Custom Websites | One Algorithm",
   "description": "Web design for San Antonio businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-san-antonio.jpg"
  },
  "hero": {
@@ -496,6 +496,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Mining support services employs 3.36 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Contractors to the field sell on safety records, equipment lists and response areas.",
+   "cards": [
+    {
+     "h3": "Mining support services",
+     "line": "6,783 paid employees in 198 establishments, 3.36 times the US share. Contractors to the field sell on safety records, equipment lists and response areas."
+    },
+    {
+     "h3": "Heavy and civil construction",
+     "line": "22,108 paid employees in 326 establishments, 3 times the US share. Civil contractors are hired on past projects, bonding and prequalification, which a site can show in one place."
+    },
+    {
+     "h3": "Warehousing and storage",
+     "line": "22,686 paid employees in 133 establishments, 1.96 times the US share. 3PLs and warehouses sell on square footage, systems integration and a request for a rate."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What San Antonio businesses search for",
@@ -653,6 +695,44 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,970, 14th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "In Texas the state's own tax guidance names web pages as data processing, so the proposal should separate design, build and hosting.",
+   "leadIn": "Why it matters:",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "cards": [
+    {
+     "h3": "Texas Data Privacy and Security Act",
+     "line": "In force since 1 July 2024, it exempts most businesses that meet the SBA's small-business definition, except that they must get consent before selling sensitive data."
+    },
+    {
+     "h3": "Reporting a breach to the Attorney General",
+     "line": "A breach affecting 250 or more Texans must be reported to the Office of the Attorney General as soon as practicable."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “Texas Data Privacy and Security Act” and “Data breach reporting”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "Office of the Texas Attorney General",
+     "what": "Texas Data Privacy and Security Act",
+     "read": "read 1 November 2026",
+     "page": "https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act"
+    },
+    {
+     "name": "Office of the Texas Attorney General",
+     "what": "Data breach reporting",
+     "read": "read 1 November 2026",
+     "page": "https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -818,7 +898,8 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "derived: wholesale trade establishments 2023 minus 2018",
+  "1": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
+  "3": "derived: NAICS 237 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "11": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "12": "derived: rank of popChg among the 64 place pages",
   "14": "page-map-webdev.json national_ranking rank",
@@ -840,15 +921,19 @@ export const PLACE: LocalPlace = {
   "107": "derived: manufacturing establishments 2023 minus 2018",
   "110": "Semrush US exact volume, \"web design company san antonio\", pulled 2026-10-24 13:05-13:15 ET",
   "126": "derived: educational services establishments 2023 minus 2018",
+  "133": "Census CBP 2023, NAICS 493 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
   "134": "page-map-webdev.json national_ranking length",
   "170": "Semrush US exact volume, \"website development san antonio\", pulled 2026-10-24 13:05-13:15 ET",
   "176": "derived: retail trade establishments 2023 minus 2018",
   "181": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
+  "198": "Census CBP 2023, NAICS 213 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
   "199": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "213": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
+  "250": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/data-breach-reporting",
   "264": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "292": "derived: administrative and support services establishments 2023 minus 2018",
   "293": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
+  "326": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
   "363": "derived: NAICS 541511 + 541430 establishments, 2023",
   "572": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "601": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
@@ -860,6 +945,7 @@ export const PLACE: LocalPlace = {
   "806": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
   "899": "derived: construction establishments 2023 minus 2018",
   "906": "derived: health care and social assistance establishments 2023 minus 2018",
+  "2024": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
   "898,200": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "18.8": "derived: paid employees / establishments, 2023",
   "9.1": "derived: change in paid employees 2018-2023, percent",
@@ -949,7 +1035,14 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "6,783": "Census CBP 2023, NAICS 213 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
+  "3.36": "derived: NAICS 213 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "22,108": "Census CBP 2023, NAICS 237 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
+  "22,686": "Census CBP 2023, NAICS 493 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:41700)",
+  "1.96": "derived: NAICS 493 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

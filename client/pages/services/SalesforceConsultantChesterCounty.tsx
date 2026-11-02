@@ -48,9 +48,9 @@ const PATH = "/services/salesforce-consultant-chester-county";
 const PAGE_URL = `https://onealgorithm.com${PATH}`;
 const PAGE_UPDATED = "2026-10-23";
 const PRICES_READ = "23 October 2026";
-const TITLE = "Salesforce Consultant Chester County, PA | OneAlgorithm";
+const TITLE = "Salesforce Consultant Chester County, PA | One Algorithm";
 const DESCRIPTION =
-  "Salesforce consultant in Malvern, Chester County: the right edition and a license count before you sign, or a free one-week health check. (610) 890-9711";
+  "Salesforce consultant in Malvern, Chester County, in person when it helps: the right edition and license count before you sign. (610) 890-9711";
 const PHOTO = SF_CITY_HEROES["chester-county"];
 const FILES = sfCityFiles("chester-county");
 const OG_IMAGE = `https://onealgorithm.com${FILES.og}`;
@@ -96,6 +96,9 @@ const FIT: [string, string][] = [
 const mi = (k: string) => Number((F_MAP.legend ?? []).find((l) => l.k === k)?.label.match(/about (\d+) miles/)?.[1]);
 
 const SOURCES: SfSource[] = [
+  /* 2026-11-01 (audit F-22): this page's job is in-person delivery around Malvern; the two place facts below. */
+  { name: "U.S. Census Bureau, Geocoder", what: "625 Swedesford Rd, Malvern, PA 19355: East Whiteland Township, Chester County", read: "read 1 November 2026", page: "https://geocoding.geo.census.gov/geocoder/" },
+  { name: "Chester County Planning Commission, Economy Report", what: "Employment: jobs in 2024 and the largest employing industries", read: "read 1 November 2026", page: "https://www.chescoplanning.org/EconDev/EconomyReport/2-Employment.cfm" },
   { name: "Salesforce, Sales Cloud pricing", what: "List prices per user a month for Starter Suite, Pro Suite, Core, Advanced and Max, with billing terms and add-ons", read: `read ${PRICES_READ}`, page: "https://www.salesforce.com/sales/pricing/" },
   { name: "Salesforce, Service Cloud pricing", what: "The same five list prices for Service Cloud", read: `read ${PRICES_READ}`, page: "https://www.salesforce.com/service/pricing/" },
   { name: "U.S. Census Bureau, County Business Patterns 2023", what: "Paid employees and establishments by industry group, Chester County, Pennsylvania", read: "read 23 October 2026", page: "https://www.census.gov/programs-surveys/cbp.html" },
@@ -313,13 +316,13 @@ export default function SalesforceConsultantChesterCounty() {
     title: TITLE,
     description: DESCRIPTION,
     canonical: getCanonicalUrl(PATH),
-    ogTitle: "Salesforce consultant for Chester County businesses | OneAlgorithm",
+    ogTitle: "Salesforce consultant for Chester County businesses | One Algorithm",
     ogDescription: DESCRIPTION,
     ogUrl: getCanonicalUrl(PATH),
     ogImage: OG_IMAGE,
     ogImageSize: [1200, 630],
     ogImageAlt: PHOTO.alt,
-    twitterTitle: "Salesforce consultant for Chester County businesses | OneAlgorithm",
+    twitterTitle: "Salesforce consultant for Chester County businesses | One Algorithm",
     twitterDescription: DESCRIPTION,
     twitterImage: OG_IMAGE,
     preloadImage: FILES.avif1600,
@@ -526,8 +529,8 @@ export default function SalesforceConsultantChesterCounty() {
             className="sf-c7"
             headingId="h-malvern"
             title="A Salesforce consultant in Malvern, PA"
-            lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, inside Chester County."
-            lead="Most work runs remotely inside your org; in-person sessions, when the project calls for them, are easiest across the Philadelphia region."
+            lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, in East Whiteland Township, Chester County."
+            lead="Working in person is easiest here: kickoffs, workshops and go-live days at your office or ours, a short drive across the county."
             points={[
               <>Call <a className="sf-link" href={SF_PHONE.href} data-cta="local">{SF_PHONE.display}</a>, Monday to Friday, 9 to 5</>,
               `Exton about ${mi("ex")} miles away, West Chester ${mi("wc")}, Downingtown ${mi("dt")}, in a straight line`,
@@ -536,6 +539,9 @@ export default function SalesforceConsultantChesterCounty() {
             <GoDeeper label="the region we cover and the local Salesforce user groups">
               <p className="sf-rule">
                 We also work across Delaware, Montgomery and Bucks counties, New Castle County in Delaware, and Philadelphia, and with companies anywhere in the United States, remotely.
+              </p>
+              <p>
+                The Chester County Planning Commission counted 251,200 jobs in the county in 2024, with health care, professional services, finance, retail and education employing the most people; those are the teams we sit down with.
               </p>
               <p>
                 Chester County's own Salesforce user group meets in West Chester. Philadelphia's admin, developer, architect, marketer and nonprofit groups and the Wilmington user group meet within about 20 miles of our office.

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Baltimore"
  },
  "seo": {
-  "title": "SEO Baltimore, MD: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Baltimore, MD | One Algorithm",
   "description": "SEO for Baltimore businesses from Malvern, PA: technical audits, service pages, Search Console reports, all remote. Call (610) 890-9711 now.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-baltimore.jpg"

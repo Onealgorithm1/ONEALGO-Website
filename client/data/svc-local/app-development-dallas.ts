@@ -23,7 +23,7 @@ export const PLACE: LocalPlace = {
   "to": "/services/app-development-texas"
  },
  "seo": {
-  "title": "App Development Dallas, TX: Custom Software | OneAlgorithm",
+  "title": "App Development Dallas, TX: Custom Software | One Algorithm",
   "description": "App development for Dallas companies: custom web apps and software, written scope, code you own. Delivered remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/app-development-dallas.jpg"

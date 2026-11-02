@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "virginia",
  "seo": {
-  "title": "Web Design Virginia: Custom Websites | OneAlgorithm",
+  "title": "Web Design Virginia: Custom Websites | One Algorithm",
   "description": "Web design for Virginia businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-virginia.jpg"
  },
  "hero": {
@@ -486,6 +486,44 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Data processing and hosting employs 2.07 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Data centre and hosting firms sell on compliance reports, uptime records and technical specs.",
+   "cards": [
+    {
+     "h3": "Data processing and hosting",
+     "line": "33,404 paid employees in 641 establishments, 2.07 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    },
+    {
+     "h3": "Professional, scientific and technical services",
+     "line": "536,441 paid employees in 32,231 establishments, 2.01 times the US share. Firms that sell expertise need case pages, credentials and an enquiry form that routes to the right person."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Virginia businesses search for",
@@ -821,6 +859,7 @@ export const PLACE: LocalPlace = {
   "604": "derived: administrative and support services establishments 2023 minus 2018",
   "617": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 500+ employees, 2023",
   "640": "page-map-webdev.json national_ranking sum (state pages add folded places)",
+  "641": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51)",
   "652": "derived: retail trade establishments 2023 minus 2018",
   "766": "derived: finance and insurance establishments 2023 minus 2018",
   "3,386,839": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -876,8 +915,8 @@ export const PLACE: LocalPlace = {
   "10,144": "Census County Business Patterns 2018, establishments, naics 53 real estate and rental and leasing, 2018",
   "5.3": "derived: real estate, rental and leasing employees per establishment, 2023",
   "14.5": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
-  "536,441": "Census County Business Patterns 2023, paid employees, naics 54 professional, scientific and technical services, 2023",
-  "32,231": "Census County Business Patterns 2023, establishments, naics 54 professional, scientific and technical services, 2023",
+  "536,441": "Census CBP 2023, NAICS 541 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51)",
+  "32,231": "Census CBP 2023, NAICS 541 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51)",
   "31,211": "Census County Business Patterns 2018, establishments, naics 54 professional, scientific and technical services, 2018",
   "16.6": "derived: professional, scientific and technical services employees per establishment, 2023",
   "3.3": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
@@ -925,7 +964,12 @@ export const PLACE: LocalPlace = {
   "50.7": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "33,404": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:51)",
+  "2.07": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "2.01": "derived: NAICS 541 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

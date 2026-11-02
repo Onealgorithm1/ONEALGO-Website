@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for St. Louis"
  },
  "seo": {
-  "title": "SEO St. Louis, MO: SEO Company | OneAlgorithm",
+  "title": "SEO Company in St. Louis, MO | One Algorithm",
   "description": "SEO for St. Louis firms: audits, pages built from local search data and monthly Search Console reports. Call (610) 890-9711 to book a review.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-st-louis.jpg"

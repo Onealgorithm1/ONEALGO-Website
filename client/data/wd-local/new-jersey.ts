@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "new-jersey",
  "seo": {
-  "title": "Web Design New Jersey: Custom Websites | OneAlgorithm",
+  "title": "Web Design New Jersey: Custom Websites | One Algorithm",
   "description": "Web design for New Jersey businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-new-jersey.jpg"
  },
  "hero": {
@@ -504,6 +504,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Nondurable goods wholesale employs 2 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Wholesalers need a catalogue, trade-account applications and order requests that reach the sales desk.",
+   "cards": [
+    {
+     "h3": "Nondurable goods wholesale",
+     "line": "133,210 paid employees in 4,917 establishments, 2 times the US share. Wholesalers need a catalogue, trade-account applications and order requests that reach the sales desk."
+    },
+    {
+     "h3": "Nonstore retail",
+     "line": "57,566 paid employees in 2,544 establishments, 1.84 times the US share. Online and catalogue sellers live on checkout speed, product search and order tracking."
+    },
+    {
+     "h3": "Transit and ground passenger transport",
+     "line": "23,539 paid employees in 957 establishments, 1.82 times the US share. Charter and shuttle firms need online booking, fleet pages and quotes for groups."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What New Jersey businesses search for",
@@ -669,6 +711,54 @@ export const PLACE: LocalPlace = {
      "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,680, 19th of the 134 places we measured nationwide."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "rules",
+   "h2": "Licenses, filings and data rules",
+   "lede": "The state's privacy act gives a covered business's site a privacy notice and opt-out route to carry, on top of the yearly report.",
+   "leadIn": "Why it matters:",
+   "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
+   "cards": [
+    {
+     "h3": "The Data Privacy Act, P.L.2023, c.266",
+     "line": "The state's privacy act covers businesses that handle data of 100,000 consumers in the state, not counting payment-only data, or 25,000 while earning revenue from selling it."
+    },
+    {
+     "h3": "The yearly report and its deadline",
+     "line": "A business files its annual report with the Division of Revenue and Enterprise Services by the last day of its formation month, for $75; skipping it can lead to revocation."
+    },
+    {
+     "h3": "Breach notice under N.J.S.A. 56:8-163",
+     "line": "Before telling customers, a business reports a breach to the Division of State Police, then notifies residents without unreasonable delay."
+    }
+   ],
+   "deeper": {
+    "label": "the other rules and where they come from",
+    "paras": [
+     "The official pages behind these: “New Jersey Data Privacy Act” and “Filings and accounting: annual reports” and “Identity Theft Prevention Act (N.J.S.A. 56:8-163)”, listed with their addresses under Sources."
+    ]
+   },
+   "sources": [
+    {
+     "name": "New Jersey Legislature, P.L.2023, c.266",
+     "what": "New Jersey Data Privacy Act",
+     "read": "read 1 November 2026",
+     "page": "https://pub.njleg.gov/Bills/2022/PL23/266_.HTM"
+    },
+    {
+     "name": "Business.NJ.gov (Division of Revenue and Enterprise Services)",
+     "what": "Filings and accounting: annual reports",
+     "read": "read 1 November 2026",
+     "page": "https://business.nj.gov/pages/filings-and-accounting"
+    },
+    {
+     "name": "New Jersey Division of Consumer Affairs",
+     "what": "Identity Theft Prevention Act (N.J.S.A. 56:8-163)",
+     "read": "read 1 November 2026",
+     "page": "https://www.njconsumeraffairs.gov/Statutes/Identity-Theft-Prevention-Act.pdf"
+    }
+   ]
   },
   {
    "kind": "process",
@@ -845,8 +935,10 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "Semrush US exact volume, \"web developer princeton nj\", pulled 2026-10-24 13:05-13:15 ET",
+  "2": "derived: NAICS 424 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "5": "derived: educational services establishments change 2018-2023, percent",
   "7": "derived: change in population 2019-2024 (ACS 1-year), percent",
+  "8": "New Jersey Division of Consumer Affairs: https://www.njconsumeraffairs.gov/Statutes/Identity-Theft-Prevention-Act.pdf",
   "10": "derived: administrative and support services share of paid employees, 2023",
   "11": "derived: rank of estab among the 64 place pages",
   "12": "derived: rank of per511 among the 64 place pages",
@@ -858,16 +950,20 @@ export const PLACE: LocalPlace = {
   "37": "Semrush keyword difficulty, \"web design new jersey\"",
   "50": "Semrush US exact volume, \"website design princeton nj\", pulled 2026-10-24 13:05-13:15 ET",
   "53": "derived: rank of estabChg among the 64 place pages",
+  "56": "New Jersey Division of Consumer Affairs: https://www.njconsumeraffairs.gov/Statutes/Identity-Theft-Prevention-Act.pdf",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "73": "derived: information establishments 2023 minus 2018",
+  "75": "Business.NJ.gov (Division of Revenue and Enterprise Services): https://business.nj.gov/pages/filings-and-accounting",
   "80": "Semrush exact sum for Princeton (page-map-webdev.json)",
   "86": "derived: establishments under 20 employees / total establishments, 2023",
   "110": "Semrush US exact volume, \"web design cherry hill nj\", pulled 2026-10-24 13:05-13:15 ET",
   "134": "page-map-webdev.json national_ranking length",
   "140": "Semrush exact sum for Cherry Hill (page-map-webdev.json)",
+  "163": "New Jersey Division of Consumer Affairs: https://www.njconsumeraffairs.gov/Statutes/Identity-Theft-Prevention-Act.pdf",
   "196": "derived: educational services establishments 2023 minus 2018",
   "210": "Semrush US exact volume, \"web design south jersey\", pulled 2026-10-24 13:05-13:15 ET",
   "240": "Semrush exact sum for South Jersey (page-map-webdev.json)",
+  "266": "New Jersey Legislature, P.L.2023, c.266: https://pub.njleg.gov/Bills/2022/PL23/266_.HTM",
   "273": "derived: manufacturing establishments 2023 minus 2018",
   "380": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "393": "Census County Business Patterns 2023, establishments, naics 541810 advertising agencies, 2023",
@@ -883,6 +979,8 @@ export const PLACE: LocalPlace = {
   "751": "derived: construction establishments 2023 minus 2018",
   "833": "derived: wholesale trade establishments 2023 minus 2018",
   "932": "derived: accommodation and food services establishments 2023 minus 2018",
+  "957": "Census CBP 2023, NAICS 485 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "2023": "New Jersey Legislature, P.L.2023, c.266: https://pub.njleg.gov/Bills/2022/PL23/266_.HTM",
   "3,739,076": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.6": "derived: NAICS 541511 paid employees per establishment, 2023",
   "5.5": "derived: change in paid employees 2018-2023, percent",
@@ -982,7 +1080,18 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "100,000": "New Jersey Legislature, P.L.2023, c.266: https://pub.njleg.gov/Bills/2022/PL23/266_.HTM",
+  "25,000": "New Jersey Legislature, P.L.2023, c.266: https://pub.njleg.gov/Bills/2022/PL23/266_.HTM",
+  "133,210": "Census CBP 2023, NAICS 424 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "4,917": "Census CBP 2023, NAICS 424 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "57,566": "Census CBP 2023, NAICS 454 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "2,544": "Census CBP 2023, NAICS 454 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "1.84": "derived: NAICS 454 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "23,539": "Census CBP 2023, NAICS 485 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:34)",
+  "1.82": "derived: NAICS 485 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

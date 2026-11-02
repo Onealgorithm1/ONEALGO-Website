@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "Digital marketing for Connecticut"
  },
  "seo": {
-  "title": "Digital Marketing Agency Connecticut | OneAlgorithm",
+  "title": "Digital Marketing Agency Connecticut | One Algorithm",
   "description": "Digital marketing for Connecticut businesses: website, search, email, reviews and social in the right order. Remote. Call (610) 890-9711 today.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/marketing-connecticut.jpg"

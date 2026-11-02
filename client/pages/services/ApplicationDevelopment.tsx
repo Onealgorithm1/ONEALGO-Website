@@ -30,7 +30,7 @@ import { ServiceCities } from "@/components/v2/svc-ServiceCities";
 
 const PATH = "/services/application-development";
 const URL = `https://onealgorithm.com${PATH}`;
-const TITLE = "Custom Software Development Company | OneAlgorithm";
+const TITLE = "Custom Software Development Company | One Algorithm";
 const DESCRIPTION =
   "Portals, internal tools and web apps where the code and cloud accounts are in your name from day one. Built from Malvern, PA. Talk to us: (610) 890-9711.";
 const OG = "https://onealgorithm.com/og-image.jpg";
@@ -134,7 +134,7 @@ export default function ApplicationDevelopment() {
             "Salesforce and platform apps",
           ],
         }}
-        primary={{ label: "Talk to an Expert", to: "/contact?need=app-development" }}
+        primary={{ label: "Talk to an Expert", to: "/contact#need=app-development" }}
         secondary={{ label: "View Services", to: "/services" }}
       />
 
@@ -198,7 +198,7 @@ export default function ApplicationDevelopment() {
             <div style={{ padding: 24, background: "var(--surface)", border: "1px solid var(--hair-s)" }}>
               <h3 className="sf-h3" style={{ margin: 0 }}>Already have an app or a prototype?</h3>
               <p>We start with an audit: who controls the repository, the cloud and the keys, where security stands and what launch would take. You get the findings whether or not you hire us.</p>
-              <SfButton to="/contact?need=app" cta="app-review">Ask for an app review</SfButton>
+              <SfButton to="/contact#need=app" cta="app-review">Ask for an app review</SfButton>
             </div>
           </div>
         </SmartSection>

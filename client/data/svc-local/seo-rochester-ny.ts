@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Rochester"
  },
  "seo": {
-  "title": "SEO Rochester, NY: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Rochester, NY | One Algorithm",
   "description": "SEO for Rochester, NY businesses: local map visibility, service pages and reviews, delivered remotely from Malvern, PA. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-rochester-ny.jpg"

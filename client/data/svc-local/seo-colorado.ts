@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Colorado"
  },
  "seo": {
-  "title": "SEO Colorado: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Colorado | One Algorithm",
   "description": "Colorado SEO for businesses statewide: technical audits, pages from real search demand and link work, done remotely. Call (610) 890-9711.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-colorado.jpg"

@@ -19,7 +19,7 @@ export const PLACE: LocalPlace = {
   "ogAlt": "SEO for Florida"
  },
  "seo": {
-  "title": "SEO Florida: SEO Company | OneAlgorithm",
+  "title": "SEO Company in Florida | One Algorithm",
   "description": "SEO for Florida businesses: statewide and city-level search plans, technical fixes and authority work, delivered remotely. Call (610) 890-9711 to begin.",
   "dateModified": "2026-10-31",
   "ogImage": "/og/places/seo-florida.jpg"

@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "state",
  "photo": "hawaii",
  "seo": {
-  "title": "Web Design Hawaii: Custom Websites | OneAlgorithm",
+  "title": "Web Design Hawaii: Custom Websites | One Algorithm",
   "description": "Web design for Hawaii businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-hawaii.jpg"
  },
  "hero": {
@@ -486,6 +486,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Scenic and sightseeing transport employs 41.52 times its national share of paid staff in the state, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Tour operators live on booking, availability and reviews.",
+   "cards": [
+    {
+     "h3": "Scenic and sightseeing transport",
+     "line": "4,189 paid employees in 247 establishments, 41.52 times the US share. Tour operators live on booking, availability and reviews."
+    },
+    {
+     "h3": "Accommodation",
+     "line": "34,801 paid employees in 341 establishments, 4.77 times the US share. Hotels need direct booking, rate calendars and photos that load fast."
+    },
+    {
+     "h3": "Air transportation",
+     "line": "9,457 paid employees in 58 establishments, 4.43 times the US share. Suppliers to airlines and airports sell on certifications, approvals and lead times."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the state. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Hawaii businesses search for",
@@ -817,7 +859,7 @@ export const PLACE: LocalPlace = {
   "51": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "52": "derived: educational services establishments 2023 minus 2018",
   "53": "derived: health care and social assistance establishments 2023 minus 2018",
-  "58": "derived: rank of per511 among the 64 place pages",
+  "58": "Census CBP 2023, NAICS 481 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
   "59": "derived: rank of estabChg among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "69": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
@@ -832,8 +874,10 @@ export const PLACE: LocalPlace = {
   "171": "derived: wholesale trade establishments 2023 minus 2018",
   "180": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "246": "derived: retail trade establishments 2023 minus 2018",
+  "247": "Census CBP 2023, NAICS 487 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
   "249": "derived: NAICS 541511 + 541430 establishments, 2023",
   "320": "Semrush US exact volume, \"web design hawaii\", pulled 2026-10-24 13:05-13:15 ET",
+  "341": "Census CBP 2023, NAICS 721 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
   "403": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "551": "Census County Business Patterns 2018, establishments, naics 61 educational services, 2018",
   "557": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
@@ -928,7 +972,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "4,189": "Census CBP 2023, NAICS 487 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
+  "41.52": "derived: NAICS 487 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "34,801": "Census CBP 2023, NAICS 721 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
+  "4.77": "derived: NAICS 721 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "9,457": "Census CBP 2023, NAICS 481 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:15)",
+  "4.43": "derived: NAICS 481 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

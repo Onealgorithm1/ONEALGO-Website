@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "tulsa",
  "seo": {
-  "title": "Web Design Tulsa, OK: Custom Websites | OneAlgorithm",
+  "title": "Web Design Tulsa, OK: Custom Websites | One Algorithm",
   "description": "Web design for Tulsa businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-tulsa.jpg"
  },
  "hero": {
@@ -492,6 +492,48 @@ export const PLACE: LocalPlace = {
    }
   },
   {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Machinery manufacturing employs 3.64 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech.",
+   "cards": [
+    {
+     "h3": "Machinery manufacturing",
+     "line": "11,368 paid employees in 131 establishments, 3.64 times the US share. Machinery buyers want spec sheets, manuals, parts lookups and a route to a dealer or service tech."
+    },
+    {
+     "h3": "Fabricated metal products",
+     "line": "12,938 paid employees in 390 establishments, 3.12 times the US share. Fabricators are found by capability: processes, tolerances, certifications and a drawing upload for quotes."
+    },
+    {
+     "h3": "Primary metal manufacturing",
+     "line": "2,297 paid employees in 20 establishments, 2.25 times the US share. Mills and foundries sell on grades, certifications and capacity, which buyers check before they call."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
+  },
+  {
    "kind": "search",
    "id": "search",
    "h2": "What Tulsa businesses search for",
@@ -814,6 +856,7 @@ export const PLACE: LocalPlace = {
   "8": "derived: manufacturing establishments change 2018-2023, percent",
   "12": "derived: retail trade share of paid employees, 2023",
   "19": "derived: rank of popChg among the 64 place pages",
+  "20": "Census CBP 2023, NAICS 331 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
   "23": "derived: educational services establishments 2023 minus 2018",
   "27": "Semrush keyword difficulty, \"web design tulsa\"",
   "35": "derived: rank of u20 among the 64 place pages",
@@ -832,7 +875,7 @@ export const PLACE: LocalPlace = {
   "104": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
   "106": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "119": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
-  "131": "derived: retail trade establishments 2023 minus 2018",
+  "131": "Census CBP 2023, NAICS 333 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
   "134": "page-map-webdev.json national_ranking length",
   "143": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "144": "derived: accommodation and food services establishments 2023 minus 2018",
@@ -846,6 +889,7 @@ export const PLACE: LocalPlace = {
   "269": "Census County Business Patterns 2023, establishments, naics 61 educational services, 2023",
   "302": "Census County Business Patterns 2023, establishments, naics 5415 computer systems design and related services, 2023",
   "304": "derived: health care and social assistance establishments 2023 minus 2018",
+  "390": "Census CBP 2023, NAICS 332 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
   "406": "Census County Business Patterns 2023, establishments, naics 51 information, 2023",
   "433": "Census County Business Patterns 2018, establishments, naics 51 information, 2018",
   "565": "Census County Business Patterns 2023 (sum of two published size classes), establishments with 100-499 employees, 2023",
@@ -934,7 +978,15 @@ export const PLACE: LocalPlace = {
   "50.7": "derived: top-4 sectors' share of paid employees, 2023",
   "85.2": "derived: median per511 of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "11,368": "Census CBP 2023, NAICS 333 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
+  "3.64": "derived: NAICS 333 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "12,938": "Census CBP 2023, NAICS 332 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
+  "3.12": "derived: NAICS 332 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "2,297": "Census CBP 2023, NAICS 331 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:46140)",
+  "2.25": "derived: NAICS 331 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 

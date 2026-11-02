@@ -11,9 +11,9 @@ export const PLACE: LocalPlace = {
  "kind": "metro",
  "photo": "omaha",
  "seo": {
-  "title": "Web Design Omaha, NE: Custom Websites | OneAlgorithm",
+  "title": "Web Design Omaha, NE: Custom Websites | One Algorithm",
   "description": "Web design for Omaha businesses, built remotely from Malvern, PA: custom sites you own, with scope and price in writing first. (610) 890-9711.",
-  "dateModified": "2026-10-24",
+  "dateModified": "2026-11-01",
   "ogImage": "/og/places/web-design-omaha.jpg"
  },
  "hero": {
@@ -408,7 +408,7 @@ export const PLACE: LocalPlace = {
     "label": "how the previews work",
     "paras": [
      "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Omaha business; each one shows a job a site has to do, whatever the city.",
+     "None of the six is presented as an Omaha business; each one shows a job a site has to do, whatever the city.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -490,6 +490,48 @@ export const PLACE: LocalPlace = {
      "Together the four employ 214,501 people, 47.1% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
+  },
+  {
+   "kind": "text",
+   "id": "economy",
+   "h2": "Industries heavier here than nationally",
+   "lede": "Data processing and hosting employs 2.84 times its national share of paid staff in the metro, the widest margin of any subsector we read.",
+   "leadIn": "Why it matters:",
+   "lead": "Data centre and hosting firms sell on compliance reports, uptime records and technical specs.",
+   "cards": [
+    {
+     "h3": "Data processing and hosting",
+     "line": "5,832 paid employees in 65 establishments, 2.84 times the US share. Data centre and hosting firms sell on compliance reports, uptime records and technical specs."
+    },
+    {
+     "h3": "Food manufacturing",
+     "line": "14,245 paid employees in 102 establishments, 2.56 times the US share. Food makers need spec sheets, certifications and a distributor or wholesale enquiry path."
+    },
+    {
+     "h3": "Insurance carriers and agencies",
+     "line": "16,821 paid employees in 804 establishments, 1.74 times the US share. Insurers and agents need quote forms, claims routes and licensing details where buyers expect them."
+    }
+   ],
+   "deeper": {
+    "label": "how the concentration figure is worked out",
+    "paras": [
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+    ]
+   },
+   "sources": [
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees and establishments by 3-digit NAICS subsector, the metro. Listed: subsectors with at least 1,000 paid employees and half a percent of the area's payroll count; farming, holding companies, postal service, civic and religious groups left out",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540"
+    },
+    {
+     "name": "U.S. Census Bureau, County Business Patterns 2023",
+     "what": "Paid employees by 3-digit NAICS subsector, United States (the denominator)",
+     "read": "read 1 November 2026",
+     "page": "https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1"
+    }
+   ]
   },
   {
    "kind": "search",
@@ -653,7 +695,7 @@ export const PLACE: LocalPlace = {
   {
    "kind": "process",
    "id": "process",
-   "h2": "How a Omaha web project runs",
+   "h2": "How an Omaha web project runs",
    "lede": "A project here runs in the same five stages as every build of ours, from agreeing what the site is for to launch.",
    "leadIn": "What you get:",
    "lead": "the scope, price and schedule in writing at stage two, before anything is designed or built.",
@@ -692,7 +734,7 @@ export const PLACE: LocalPlace = {
    "schema": false,
    "items": [
     {
-     "q": "Can a Omaha business hire a remote web design team?",
+     "q": "Can an Omaha business hire a remote web design team?",
      "a": "Yes. We take on website work for Omaha businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in Central hours, the clock the metro's 25,290 establishments keep.",
      "from": "suggest-base: can web design be outsourced / do web designers work from home"
     },
@@ -831,11 +873,13 @@ export const PLACE: LocalPlace = {
   "54": "derived: rank of u20 among the 64 place pages",
   "62": "derived: rank of estab among the 64 place pages",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "65": "Census CBP 2023, NAICS 518 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
   "72": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "79": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 500+ employees, 2018",
   "80": "derived: finance and insurance establishments 2023 minus 2018",
   "90": "Semrush US exact volume, \"web developer omaha\", pulled 2026-10-24 13:05-13:15 ET",
   "95": "derived: administrative and support services establishments 2023 minus 2018",
+  "102": "Census CBP 2023, NAICS 311 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
   "110": "Semrush US exact volume, \"website development omaha\", pulled 2026-10-24 13:05-13:15 ET",
   "111": "derived: wholesale trade establishments 2023 minus 2018",
   "115": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
@@ -859,6 +903,7 @@ export const PLACE: LocalPlace = {
   "626": "Census County Business Patterns 2018 (sum of two published size classes), establishments with 100-499 employees, 2018",
   "632": "Census County Business Patterns 2018, establishments, naics 31-33 manufacturing, 2018",
   "639": "Census County Business Patterns 2023, establishments, naics 31-33 manufacturing, 2023",
+  "804": "Census CBP 2023, NAICS 524 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
   "889": "Census County Business Patterns 2023, establishments with 50-99 employees, 2023",
   "930": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "423,477": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
@@ -943,7 +988,15 @@ export const PLACE: LocalPlace = {
   "85.2": "derived: median per511 of the 64 place pages",
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
-  "84.4": "derived: median u20 of the 64 place pages"
+  "84.4": "derived: median u20 of the 64 place pages",
+  "5,832": "Census CBP 2023, NAICS 518 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
+  "2.84": "derived: NAICS 518 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "14,245": "Census CBP 2023, NAICS 311 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
+  "2.56": "derived: NAICS 311 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "16,821": "Census CBP 2023, NAICS 524 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:36540)",
+  "1.74": "derived: NAICS 524 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
+  "1,000": "local-context.mjs listing floor (paid employees)",
+  "1.0": "location quotient of an area with the national mix"
  }
 };
 
