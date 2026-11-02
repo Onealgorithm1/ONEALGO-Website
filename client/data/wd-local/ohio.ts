@@ -694,7 +694,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Breach notice under R.C. 1349.19",
-     "line": "When a breach creates a material risk of identity theft or fraud, Ohio residents must be told in the most expedient time possible, within the statute's limit."
+     "line": "When a breach creates a material risk of identity theft or fraud, residents must be told in the most expedient time possible, within the statute's limit."
     }
    ],
    "deeper": {
@@ -884,7 +884,6 @@ export const PLACE: LocalPlace = {
   "4": "derived: administrative and support services establishments change 2018-2023, percent",
   "9": "derived: rank of estab among the 64 place pages",
   "11": "derived: retail trade share of paid employees, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "37": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "39": "page-map-webdev.json national_ranking rank",
   "42": "Semrush keyword difficulty, \"web design ohio\"",

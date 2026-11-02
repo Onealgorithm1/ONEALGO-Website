@@ -358,7 +358,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
         />}
         {place.search && <SearchSourcesDialog place={place} />}
         {place.sections.map((s) => s.kind === "text" && s.sources ? (
-          <SourcesDialog key={`${s.id}-src`} id={`${s.id}-src`} title="Where these rules and figures come from"
+          <SourcesDialog key={`${s.id}-src`} id={`${s.id}-src`} title={s.id === "economy" ? "Where the industry figures come from" : "Where these rules and figures come from"}
             intro="Each line in this section restates a public page from the office or agency that publishes it. The pages are listed as text; nothing here links to a data endpoint."
             sources={s.sources} />
         ) : null)}

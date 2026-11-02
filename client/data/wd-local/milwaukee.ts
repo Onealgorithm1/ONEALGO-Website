@@ -890,7 +890,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "10": "derived: change in NAICS 541511 establishments 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: professional, scientific and technical services establishments 2023 minus 2018",
   "16": "derived: educational services establishments 2023 minus 2018",
   "18": "derived: NAICS 541430 establishments per 10,000, 2023",

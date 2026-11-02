@@ -894,7 +894,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "6": "derived: construction establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: rank of u20 among the 64 place pages",
   "27": "derived: rank of per511 among the 64 place pages",
   "29": "page-map-webdev.json national_ranking rank",

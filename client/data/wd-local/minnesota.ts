@@ -692,7 +692,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Minnesota's annual renewal",
-     "line": "A Minnesota LLC files its renewal with the Secretary of State by December 31 of each calendar year, and the statute sets no fee for it."
+     "line": "A LLC files its renewal with the Secretary of State by December 31 of each calendar year, and the statute sets no fee for it."
     },
     {
      "h3": "Breach notice under § 325E.61",
@@ -891,7 +891,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "3": "derived: administrative and support services establishments change 2018-2023, percent",
   "10": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: professional, scientific and technical services employees per establishment, 2023",
   "14": "Semrush keyword difficulty, \"web design minnesota\"",
   "21": "Office of the Minnesota Attorney General: https://www.ag.state.mn.us/Office/Communications/2025/07/28_MCDPA.asp",
   "22": "derived: rank of estab among the 64 place pages",

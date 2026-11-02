@@ -690,7 +690,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "North Carolina's April 15 report",
-     "line": "A North Carolina LLC files its first annual report with the Secretary of State by April 15 of the year after it forms, and every April 15 after, for $200."
+     "line": "A LLC files its first annual report with the Secretary of State by April 15 of the year after it forms, and every April 15 after, for $200."
     },
     {
      "h3": "Breach notice under G.S. 75-65",
@@ -880,7 +880,6 @@ export const PLACE: LocalPlace = {
   "3": "derived: retail trade establishments change 2018-2023, percent",
   "4": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "8": "derived: rank of estab among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "North Carolina Secretary of State: https://www.sosnc.gov/manual/launching_a_business/maintaining_registration",
   "19": "derived: NAICS 541430 establishments per 10,000, 2023",
   "22": "derived: rank of estabChg among the 64 place pages",

@@ -690,11 +690,11 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Utah Consumer Privacy Act",
-     "line": "Effective 31 December 2023, it applies to businesses with $25,000,000 or more in annual revenue that also handle data of 100,000 Utah consumers or mostly sell personal data."
+     "line": "Utah Code § 13-61-102 applies to businesses with $25,000,000 or more in annual revenue that also handle data of 100,000 consumers, or 25,000 while earning over half their revenue from selling personal data."
     },
     {
      "h3": "Utah's yearly renewal",
-     "line": "A Utah business entity renews with the Division of Corporations and Commercial Code one year after registration and every year after, online at businessregistration.utah.gov."
+     "line": "A business entity renews with the Division of Corporations and Commercial Code one year after registration and every year after, online at businessregistration.utah.gov."
     },
     {
      "h3": "Breach notice under § 13-44-202",
@@ -704,15 +704,15 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "The official pages behind these: “Utah Consumer Privacy Act (UCPA)” and “How to renew a business” and “Personal information: notice of a breach”, listed with their addresses under Sources."
+     "The official pages behind these: “Utah Consumer Privacy Act: who it applies to” and “How to renew a business” and “Personal information: notice of a breach”, listed with their addresses under Sources."
     ]
    },
    "sources": [
     {
-     "name": "Utah Division of Consumer Protection",
-     "what": "Utah Consumer Privacy Act (UCPA)",
+     "name": "Utah State Legislature, § 13-61-102",
+     "what": "Utah Consumer Privacy Act: who it applies to",
      "read": "read 1 November 2026",
-     "page": "https://commerce.utah.gov/dcp/ucpa/"
+     "page": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf"
     },
     {
      "name": "Utah Division of Corporations and Commercial Code",
@@ -895,17 +895,18 @@ export const PLACE: LocalPlace = {
   "3": "derived: rank of estabChg among the 64 place pages",
   "7": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "9": "derived: rank of popChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "15": "derived: finance and insurance employees per establishment, 2023",
   "17": "derived: health care and social assistance employees per establishment, 2023",
   "21": "derived: rank of per511 among the 64 place pages",
   "25": "page-map-webdev.json national_ranking rank",
-  "31": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
+  "31": "derived: rank of estab among the 64 place pages",
   "40": "derived: wholesale trade establishments 2023 minus 2018",
   "41": "Semrush keyword difficulty, \"web design utah\"",
   "44": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
+  "61": "Utah State Legislature, § 13-61-102: https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
+  "102": "Utah State Legislature, § 13-61-102: https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
   "134": "page-map-webdev.json national_ranking length",
   "169": "derived: NAICS 5415 establishments per 10,000 establishments, 2023",
   "191": "derived: information establishments 2023 minus 2018",
@@ -926,7 +927,6 @@ export const PLACE: LocalPlace = {
   "880": "Census County Business Patterns 2018, establishments, naics 541511 custom computer programming services, 2018",
   "940": "derived: accommodation and food services establishments 2023 minus 2018",
   "942": "Census County Business Patterns 2023, establishments, naics 541511 custom computer programming services, 2023",
-  "2023": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
   "1,337,574": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "16.5": "derived: paid employees / establishments, 2023",
   "18.1": "derived: change in paid employees 2018-2023, percent",
@@ -1029,8 +1029,9 @@ export const PLACE: LocalPlace = {
   "4.2": "derived: median popChg of the 64 place pages",
   "5.2": "derived: median estabChg of the 64 place pages",
   "84.4": "derived: median u20 of the 64 place pages",
-  "25,000,000": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
-  "100,000": "Utah Division of Consumer Protection: https://commerce.utah.gov/dcp/ucpa/",
+  "25,000,000": "Utah State Legislature, § 13-61-102: https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+  "100,000": "Utah State Legislature, § 13-61-102: https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+  "25,000": "Utah State Legislature, § 13-61-102: https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
   "17,450": "Census CBP 2023, NAICS 339 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",
   "2.77": "derived: NAICS 339 share of paid employees / US share, Census CBP 2023 (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=us:1)",
   "32,220": "Census CBP 2023, NAICS 511 paid employees (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=state:49)",

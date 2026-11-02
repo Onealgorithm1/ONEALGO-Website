@@ -726,11 +726,11 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "The yearly report and its deadline",
-     "line": "A New Jersey business files its annual report with the Division of Revenue and Enterprise Services by the last day of its formation month, for $75; skipping it can lead to revocation."
+     "line": "A business files its annual report with the Division of Revenue and Enterprise Services by the last day of its formation month, for $75; skipping it can lead to revocation."
     },
     {
      "h3": "Breach notice under N.J.S.A. 56:8-163",
-     "line": "Before telling customers, a New Jersey business reports a breach to the Division of State Police, then notifies residents without unreasonable delay."
+     "line": "Before telling customers, a business reports a breach to the Division of State Police, then notifies residents without unreasonable delay."
     }
    ],
    "deeper": {

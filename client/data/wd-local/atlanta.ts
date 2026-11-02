@@ -895,7 +895,6 @@ export const PLACE: LocalPlace = {
   "9": "derived: rank of per511 among the 64 place pages",
   "10": "Georgia Department of Law, Consumer Protection Division: https://consumered.georgia.gov/ask-ed/2023-08-30/getting-notified-following-data-breach",
   "11": "derived: retail trade share of paid employees, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "16": "derived: retail trade employees per establishment, 2023",
   "17": "derived: rank of estabChg among the 64 place pages",
   "19": "derived: rank of u20 among the 64 place pages",

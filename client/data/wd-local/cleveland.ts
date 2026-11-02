@@ -905,7 +905,6 @@ export const PLACE: LocalPlace = {
   "3": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "6": "derived: change in population 2019-2024 (ACS 1-year), percent",
   "9": "derived: construction establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "Semrush keyword difficulty, \"web design cleveland\"",
   "17": "derived: retail trade employees per establishment, 2023",
   "20": "derived: rank of popChg among the 64 place pages",

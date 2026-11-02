@@ -684,13 +684,13 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "rules",
    "h2": "Licenses, filings and data rules",
-   "lede": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its new portal is where a site's legal name should match.",
+   "lede": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its record is where a site's legal name should match.",
    "leadIn": "Why it matters:",
    "lead": "Each rule here is quoted from the state office that publishes it, and the sources list names every page.",
    "cards": [
     {
      "h3": "The Corporation Commission, not the SOS",
-     "line": "Arizona entities file with the Arizona Corporation Commission, whose Arizona Business Center portal went live on 12 January 2026; LLCs file no annual report there."
+     "line": "Arizona entities file with the Arizona Corporation Commission, and LLCs file no annual report there; only corporations do."
     },
     {
      "h3": "Breach notice under A.R.S. § 18-552",
@@ -700,13 +700,13 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "The official pages behind these: “Business services FAQs and the Arizona Business Center” and “Notification of a security system breach”, listed with their addresses under Sources."
+     "The official pages behind these: “Business services FAQs: annual reports” and “Notification of a security system breach”, listed with their addresses under Sources."
     ]
    },
    "sources": [
     {
      "name": "Arizona Corporation Commission",
-     "what": "Business services FAQs and the Arizona Business Center",
+     "what": "Business services FAQs: annual reports",
      "read": "read 1 November 2026",
      "page": "https://azcc.gov/faqs/BusinessServicesFAQs"
     },
@@ -878,7 +878,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "11": "derived: administrative and support services establishments change 2018-2023, percent",
-  "12": "Arizona Corporation Commission: https://azcc.gov/faqs/BusinessServicesFAQs",
   "14": "derived: rank of estabChg among the 64 place pages",
   "15": "derived: health care and social assistance share of paid employees, 2023",
   "18": "Arizona State Legislature, A.R.S. § 18-552: https://www.azleg.gov/ars/18/00552.htm",
@@ -905,7 +904,6 @@ export const PLACE: LocalPlace = {
   "590": "Semrush US exact volume, \"web design arizona\", pulled 2026-10-24 13:05-13:15 ET",
   "890": "page-map-webdev.json national_ranking sum (state pages add folded places)",
   "963": "derived: administrative and support services establishments 2023 minus 2018",
-  "2026": "Arizona Corporation Commission: https://azcc.gov/faqs/BusinessServicesFAQs",
   "2,549,128": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.7": "derived: paid employees / establishments, 2023",
   "13.4": "derived: construction employees per establishment, 2023",

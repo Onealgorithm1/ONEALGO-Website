@@ -894,7 +894,6 @@ export const PLACE: LocalPlace = {
   "1": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
   "6": "Colorado Attorney General: https://coag.gov/resources/data-protection-laws/",
   "8": "derived: rank of u20 among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: rank of per511 among the 64 place pages",
   "16": "derived: rank of estab among the 64 place pages",
   "19": "derived: educational services employees per establishment, 2023",

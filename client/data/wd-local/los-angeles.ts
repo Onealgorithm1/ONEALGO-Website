@@ -896,7 +896,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "5": "derived: rank of u20 among the 64 place pages",
   "6": "derived: rank of estab among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: finance and insurance employees per establishment, 2023",
   "24": "derived: rank of estabChg among the 64 place pages",
   "32": "derived: rank of per511 among the 64 place pages",
   "38": "Semrush keyword difficulty, \"web design los angeles\"",

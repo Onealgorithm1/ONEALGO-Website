@@ -690,7 +690,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Michigan's annual statement",
-     "line": "A Michigan LLC files an annual statement with LARA's Corporations Division by February 15, for $25, through the MiBusiness Registry Portal."
+     "line": "A LLC files an annual statement with LARA's Corporations Division by February 15, for $25, through the MiBusiness Registry Portal."
     },
     {
      "h3": "Breach notice under MCL 445.72",

@@ -22,7 +22,7 @@ import { createRequire } from "node:module";
 
 const REPO = process.env.OA_REPO || "C:/Users/louis/oa-sf-redesign";
 const RUN = "C:/Users/louis/onealgo-icm-oa/areas/sales/runs/2026-10-24_webdev-seo";
-const OUTDIR = `${RUN}/build-all`;
+const OUTDIR = process.env.OA_OUT || `${RUN}/build-all`; // OA_OUT: write the report/shots elsewhere (e.g. a scratch dir)
 const args = process.argv.slice(2);
 const arg = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
 const BASE = arg("--base") || "http://127.0.0.1:5191";
@@ -44,6 +44,7 @@ const STATES = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Color
 const PROWS = MAP.rows.filter((r) => ["metro", "state", "city", "county", "town"].includes(r.kind));
 const PLACE_NAMES = [...new Set([...PROWS.map((r) => r.place.replace(/ \/ .*/, "")), ...PROWS.map((r) => r.place.split(" / ")[1]).filter(Boolean), ...STATES, "Malvern", "Center City", "Chadds Ford", "Wilmington", "Fort Worth", "San Jose", "Lancaster", "Allentown", "Lehigh Valley"])]
   .flatMap((n) => [n, n.replace(/\./g, "")]).flatMap((n) => [n, n.toLowerCase()]).sort((a, b) => b.length - a.length);
+const LB_PATHS = new Set([...fs.readFileSync(`${REPO}/client/components/StructuredData.tsx`, "utf8").match(/const LB_PATHS = new Set\(\[([\s\S]*?)\]\)/)[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]));
 const BANNED = /\baffordable\b|\bcheap(est)?\b|work fast|work quickly|years of experience|combined experience|WordPress sites|build (both|on) WordPress|\bWOSB\b|EDWOSB|woman-owned|minority-owned|award|\bguarantee|starting at|per hour|\/hr\b|\b\d+\s*(days?|weeks?)\b|24\/7|fastest|hand-coded|ADA certified|WCAG certified|100\/100|four people|Philadelphia clients|hundreds of|Price Is Right|20 years|thermal|BBB|Clutch|DesignRush|UpCity|since 20\d\d we/gi;
 const ALLOW_NUM = new Set(["2018", "2019", "2023", "2024", "2025", "2026", "2027", "625", "19355", "610", "890", "9711", "5415", "541511", "541430", "541613", "541810", "10,000", "20", "99", "100", "499", "500", "13", "2.1", "5.0", "01", "02", "03", "04", "05", "16", "17410", "45", "49", "50"]);
 
@@ -80,6 +81,8 @@ async function extract(slug) {
       .map((e) => e.textContent.replace(/\s+/g, " ").trim()).filter(Boolean);
     const tw = document.createTreeWalker(clone, NodeFilter.SHOW_TEXT); const parts = []; while (tw.nextNode()) parts.push(tw.currentNode.nodeValue);
     const text = parts.join(" ").replace(/\s+/g, " ").trim();
+    const rulesEl = clone.querySelector("#rules"); const rp = []; if (rulesEl) { const w = document.createTreeWalker(rulesEl, NodeFilter.SHOW_TEXT); while (w.nextNode()) rp.push(w.currentNode.nodeValue); }
+    const rules = rp.join(" ").replace(/\s+/g, " ").trim(); // same join as `text`, so it is a literal substring of it
     const units = [...main.querySelectorAll("h2.sf-h2")].filter((h) => !h.closest("dialog")).map((h) => {
       const u = h.closest(".sf-unit, article") || h.parentElement;
       const lede = u.querySelector(":scope > [data-lede]");
@@ -95,7 +98,7 @@ async function extract(slug) {
     const ld = [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => { try { return JSON.parse(s.textContent); } catch { return { __bad: true }; } });
     const banner = document.querySelector(".wd-local-banner img");
     return {
-      blocks, text, units, ld,
+      blocks, text, rules, units, ld,
       h1: document.querySelector("main h1")?.textContent.trim(),
       title: document.title, description: meta('meta[name="description"]'), canonical: document.querySelector('link[rel="canonical"]')?.href ?? null,
       robots: meta('meta[name="robots"]'), og: { title: meta('meta[property="og:title"]'), description: meta('meta[property="og:description"]'), url: meta('meta[property="og:url"]'), image: meta('meta[property="og:image"]'), w: meta('meta[property="og:image:width"]'), h: meta('meta[property="og:image:height"]') },
@@ -227,6 +230,8 @@ for (const slug of SLUGS) {
   const schemaIssues = [];
   // The ProfessionalService node is emitted only on the office pages (StructuredData LB_PATHS); remote place pages
   // reference #org instead (checked below), so it is not required here.
+  // Non-office pages must carry NO LocalBusiness / ProfessionalService node (LB_PATHS = the office pages).
+  if (!LB_PATHS.has(d.path)) { const lb = []; const walk = (n) => { if (Array.isArray(n)) return n.forEach(walk); if (!n || typeof n !== "object") return; const t = [].concat(n["@type"] ?? []); if (t.some((x) => /^(LocalBusiness|ProfessionalService)$/.test(x))) lb.push(t.join("/")); Object.values(n).forEach(walk); }; walk(r.ld); if (lb.length) schemaIssues.push(`${lb.join(", ")} node on a non-office page`); }
   for (const t of ["BreadcrumbList", "Service", "WebPage"]) if (!types.includes(t)) schemaIssues.push(`no ${t}`);
   if (svc && !(String(svc.areaServed?.name) === (name === "Washington, DC" ? "Washington" : name))) schemaIssues.push(`areaServed ${JSON.stringify(svc?.areaServed)}`);
   if (svc && !String(svc.provider?.["@id"]).endsWith("/#org")) schemaIssues.push("provider @id");
@@ -263,14 +268,17 @@ for (const slug of SLUGS) {
   if (density > 0.015) F(slug, `place-name density ${(density * 100).toFixed(2)}% > 1.5% (${places}: ${JSON.stringify(hits)})`);
   // banned phrases (page copy, head, page JSON-LD except the site-wide Organization node)
   const cpcs = new Set(Object.keys(d.trace).filter((k) => /^\d+\.\d\d$/.test(k)));
-  const scan = [r.text, r.title, r.description, JSON.stringify(r.ld.filter((x) => x["@type"] !== "Organization").map(({ sameAs, ...x }) => x))].join(" \n ").replace(/\$(\d+\.\d\d)/g, (m, v) => (cpcs.has(v) ? "" : m));
+  const mkScan = (txt) => [txt, r.title, r.description, JSON.stringify(r.ld.filter((x) => x["@type"] !== "Organization").map(({ sameAs, ...x }) => x))].join(" \n ").replace(/\$(\d+\.\d\d)/g, (m, v) => (cpcs.has(v) ? "" : m));
+  const scan = mkScan(r.text), scanNoRules = mkScan(r.text.replace(r.rules, " ")); // price check reads scanNoRules: the rules text is cut BEFORE the CPC strip alters it
   const banned = [...new Set(scan.match(BANNED) || [])];
   // 2026-11-01: a government fee quoted in the place-only rules section (traced to its official page URL) is not our price.
-  const price = (scan.match(/\$\s?\d[\d,]*(?:\.\d+)?/g) || []).filter((x) => !/:\/\//.test(d.trace[x.replace(/[$\s]/g, "").replace(/[.,]$/, "")] ?? "")).filter(Boolean);
+  // Exemption covers only dollar figures INSIDE the rules section (#rules): its text is cut out of the scan, and each figure there must trace to an official URL.
+  const dollars = (t) => t.match(/\$\s?\d[\d,]*(?:\.\d+)?/g) || [];
+  const price = [...dollars(scanNoRules), ...dollars(r.rules).filter((x) => !/:\/\//.test(d.trace[x.replace(/[$\s]/g, "").replace(/[.,]$/, "")] ?? ""))].filter(Boolean);
   if (banned.length) F(slug, `banned: ${banned.join(", ")}`);
   if (price.length) F(slug, `price-like figure: ${price.join(", ")}`);
   // traceable numbers (main copy; dialogs and the NAP's own figures are allowlisted or traced)
-  const dated = r.text.replace(/\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec) \d{4}\b/g, " ").replace(/CC[ -]BY(-SA)?[ -]\d\.\d/g, " ").replace(/\d{1,2}:\d{2}/g, " ").replace(/\b\d{4}-\d{2}-\d{2}\b/g, " ");
+  const dated = r.text.replace(/\b12 sectors\b/g, " ").replace(/\b\d{1,2} (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec) \d{4}\b/g, " ").replace(/CC[ -]BY(-SA)?[ -]\d\.\d/g, " ").replace(/\d{1,2}:\d{2}/g, " ").replace(/\b\d{4}-\d{2}-\d{2}\b/g, " ");
   const nums = (dated.match(/\d[\d,]*(?:\.\d+)?/g) || []).map((n) => n.replace(/,$/, "")).filter((n) => n.replace(/\D/g, "").length >= 2 || n.includes("."));
   const untraced = [...new Set(nums.filter((n) => !d.trace[n] && !ALLOW_NUM.has(n)))];
   if (untraced.length) F(slug, `untraced figures: ${untraced.map((n) => { const i = dated.search(new RegExp(`(?<![\\d,.])${n.replace(/[.,]/g, "\\$&")}(?![\\d])`)); return `${n} [${dated.slice(Math.max(0, i - 40), i + 20)}]`; }).join(" | ")}`);

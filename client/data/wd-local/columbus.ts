@@ -706,7 +706,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "City income tax, not a general license",
-     "line": "Columbus licenses particular activities rather than businesses in general, and every business conducted in the city files an annual city income tax return."
+     "line": "Residents conducting a business and non-residents conducting a business in Columbus must file an annual city return; all businesses except sole proprietorships file on Form BR-25."
     },
     {
      "h3": "Breach notice under R.C. 1349.19",
@@ -902,11 +902,11 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: rank of per511 among the 64 place pages",
   "20": "Semrush US exact volume, \"web developer columbus\", pulled 2026-10-24 13:05-13:15 ET",
   "21": "derived: information establishments 2023 minus 2018",
   "22": "derived: manufacturing establishments 2023 minus 2018",
+  "25": "City of Columbus, Division of Income Tax: https://www.columbus.gov/Government/City-Auditor/Income-Tax-Division/General-Income-Tax-Information",
   "26": "derived: rank of popChg among the 64 place pages",
   "27": "derived: rank of estabChg among the 64 place pages",
   "31": "Semrush keyword difficulty, \"web design columbus\"",

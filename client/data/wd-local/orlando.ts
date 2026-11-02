@@ -908,7 +908,6 @@ export const PLACE: LocalPlace = {
   "5": "derived: retail trade establishments change 2018-2023, percent",
   "9": "derived: rank of u20 among the 64 place pages",
   "11": "derived: wholesale trade establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: health care and social assistance share of paid employees, 2023",
   "15": "derived: administrative and support services establishments change 2018-2023, percent",
   "17": "derived: retail trade employees per establishment, 2023",

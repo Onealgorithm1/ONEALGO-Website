@@ -865,7 +865,7 @@ export const PLACE: LocalPlace = {
   "5": "Census CBP 2023, NAICS 521 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:40060)",
   "6": "derived: change in population 2019-2024 (ACS 1-year), percent",
   "7": "derived: manufacturing establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: information establishments 2023 minus 2018",
   "20": "derived: rank of popChg among the 64 place pages",
   "35": "derived: rank of estabChg among the 64 place pages",
   "36": "Semrush keyword difficulty, \"web design richmond\"",

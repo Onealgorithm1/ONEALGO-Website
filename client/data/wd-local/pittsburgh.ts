@@ -716,7 +716,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "The new yearly report: Since 1 January 2025 every Pennsylvania entity files a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7.",
+     "The new yearly report: Since 1 January 2025 most domestic and foreign filing associations file a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7.",
      "The official pages behind these: “New business registration” and “Breach of Personal Information Notification Act”, listed with their addresses under Sources."
     ]
    },
@@ -910,7 +910,6 @@ export const PLACE: LocalPlace = {
   "6": "derived: real estate, rental and leasing employees per establishment, 2023",
   "7": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "11": "derived: retail trade share of paid employees, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: administrative and support services employees per establishment, 2023",
   "18": "derived: finance and insurance employees per establishment, 2023",
   "24": "derived: information establishments 2023 minus 2018",

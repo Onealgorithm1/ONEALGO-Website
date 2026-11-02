@@ -690,11 +690,11 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Indiana Consumer Data Protection Act",
-     "line": "IC 24-15 applies from 1 January 2026 to businesses that handle data of 100,000 Indiana consumers, or 25,000 while earning over half their revenue from selling it."
+     "line": "IC 24-15 applies from 1 January 2026 to businesses that handle data of 100,000 consumers, or 25,000 while earning over half their revenue from selling it."
     },
     {
      "h3": "Web design and Indiana sales tax",
-     "line": "Indiana's Sales Tax Information Bulletin 8 treats web design as a service outside sales and use tax, as long as no tangible property changes hands, and hosting as well."
+     "line": "'s Sales Tax Information Bulletin 8 treats web design as a service outside sales and use tax, as long as no tangible property changes hands, and hosting as well."
     },
     {
      "h3": "Indiana's business entity report",
@@ -900,7 +900,6 @@ export const PLACE: LocalPlace = {
   "5": "derived: real estate, rental and leasing employees per establishment, 2023",
   "8": "Indiana Department of Revenue, Bulletin 8: https://www.in.gov/dor/files/sib08.pdf",
   "11": "derived: health care and social assistance establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "16": "derived: retail trade employees per establishment, 2023",
   "21": "derived: rank of estab among the 64 place pages",

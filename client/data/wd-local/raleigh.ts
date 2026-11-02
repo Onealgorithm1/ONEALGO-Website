@@ -902,7 +902,6 @@ export const PLACE: LocalPlace = {
   "4": "derived: rank of popChg among the 64 place pages",
   "6": "derived: rank of estabChg among the 64 place pages",
   "10": "derived: rank of per511 among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: wholesale trade establishments 2023 minus 2018",
   "16": "page-map-webdev.json national_ranking rank",
   "19": "derived: professional, scientific and technical services establishments change 2018-2023, percent",

@@ -844,7 +844,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "6": "derived: real estate, rental and leasing employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "19": "derived: health care and social assistance share of paid employees, 2023",
   "20": "Semrush US exact volume, \"website development connecticut\", pulled 2026-10-24 13:05-13:15 ET",
   "23": "Semrush keyword difficulty, \"web design connecticut\"",

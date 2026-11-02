@@ -902,7 +902,7 @@ export const PLACE: LocalPlace = {
   "4": "derived: real estate, rental and leasing employees per establishment, 2023",
   "7": "derived: rank of u20 among the 64 place pages",
   "10": "derived: rank of estabChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: change in paid employees 2018-2023, percent",
   "13": "derived: retail trade share of paid employees, 2023",
   "15": "derived: rank of popChg among the 64 place pages",
   "16": "derived: NAICS 541511 paid employees per establishment, 2023",

@@ -845,7 +845,6 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "5": "derived: information establishments 2023 minus 2018",
   "7": "derived: professional, scientific and technical services employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "Semrush keyword difficulty, \"web design hawaii\"",
   "19": "derived: health care and social assistance employees per establishment, 2023",
   "20": "derived: rank of u20 among the 64 place pages",

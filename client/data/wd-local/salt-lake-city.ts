@@ -903,7 +903,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "6": "derived: information establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "Utah State Legislature, § 13-44-202: https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.pdf",
   "19": "Semrush keyword difficulty, \"web design salt lake city\"",
   "20": "Semrush US exact volume, \"web developer salt lake city\", pulled 2026-10-24 13:05-13:15 ET",

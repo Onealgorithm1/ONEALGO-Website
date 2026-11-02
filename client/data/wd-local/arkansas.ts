@@ -838,7 +838,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "2": "derived: retail trade establishments change 2018-2023, percent",
   "4": "derived: information establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: health care and social assistance establishments change 2018-2023, percent",
   "23": "derived: rank of u20 among the 64 place pages",
   "24": "Semrush keyword difficulty, \"web design arkansas\"",
   "30": "Semrush US exact volume, \"website development arkansas\", pulled 2026-10-24 13:05-13:15 ET",

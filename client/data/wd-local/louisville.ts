@@ -891,7 +891,7 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "6": "derived: rank of popChg among the 64 place pages",
   "7": "derived: information establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: educational services establishments 2023 minus 2018",
   "21": "Census CBP 2023, NAICS 335 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:31140)",
   "22": "derived: accommodation and food services employees per establishment, 2023",
   "29": "derived: rank of estabChg among the 64 place pages",

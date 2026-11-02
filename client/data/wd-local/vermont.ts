@@ -846,7 +846,7 @@ export const PLACE: LocalPlace = {
   "1": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "2": "derived: rank of u20 among the 64 place pages",
   "11": "derived: educational services establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: information establishments 2023 minus 2018",
   "17": "derived: accommodation and food services employees per establishment, 2023",
   "18": "derived: finance and insurance establishments 2023 minus 2018",
   "20": "derived: professional, scientific and technical services establishments 2023 minus 2018",

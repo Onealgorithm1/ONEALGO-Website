@@ -898,7 +898,7 @@ export const PLACE: LocalPlace = {
   "6": "derived: manufacturing establishments 2023 minus 2018",
   "8": "page-map-webdev.json national_ranking rank",
   "11": "derived: rank of u20 among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: finance and insurance employees per establishment, 2023",
   "14": "derived: rank of per511 among the 64 place pages",
   "15": "Semrush keyword difficulty, \"web design san diego\"",
   "16": "derived: retail trade employees per establishment, 2023",

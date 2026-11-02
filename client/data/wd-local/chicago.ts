@@ -899,7 +899,6 @@ export const PLACE: LocalPlace = {
   "8": "derived: information establishments change 2018-2023, percent",
   "10": "Illinois General Assembly, 815 ILCS 530/10: https://www.ilga.gov/Documents/legislation/ilcs/documents/081505300K10.htm",
   "11": "derived: educational services establishments 2023 minus 2018",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: health care and social assistance share of paid employees, 2023",
   "20": "derived: rank of per511 among the 64 place pages",
   "23": "derived: rank of u20 among the 64 place pages",

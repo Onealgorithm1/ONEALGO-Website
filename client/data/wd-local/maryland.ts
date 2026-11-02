@@ -686,7 +686,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Maryland Online Data Privacy Act",
-     "line": "In force since 1 October 2025, it starts at data of 35,000 Maryland consumers, not counting payment-only data, or fewer when selling data drives revenue."
+     "line": "In force since 1 October 2025, it starts at data of 35,000 consumers, not counting payment-only data, or fewer when selling data drives revenue."
     },
     {
      "h3": "Custom webpage design is taxed",
@@ -700,7 +700,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "Maryland's Personal Information Protection Act: Com. Law § 14-3504 requires reasonable protection of Maryland consumers' personal information and notice when it is breached.",
+     "Maryland's Personal Information Protection Act: Com. Law § 14-3504 requires reasonable protection of consumers' personal information and notice when it is breached.",
      "The official pages behind these: “Maryland Online Data Privacy Act: applicability” and “Sales and use tax on data and IT services” and “Form 1 annual report instructions”, listed with their addresses under Sources."
     ]
    },
@@ -894,7 +894,6 @@ export const PLACE: LocalPlace = {
   "3": "Maryland General Assembly, Com. Law § 14-4702: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=True&archived=False",
   "4": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "7": "derived: rank of per511 among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "15": "Maryland State Department of Assessments and Taxation: https://dat.maryland.gov/SDAT%20Forms/PPR_Forms/2025_Form1_Instructions.pdf",
   "19": "derived: information employees per establishment, 2023",

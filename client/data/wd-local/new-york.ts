@@ -706,7 +706,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Licenses follow the activity",
-     "line": "New York City has no single business license on its official pages; the city's MyCity Business tool lists the city, state and federal licenses each business needs."
+     "line": "The city's MyCity Business tool gives each business a personalized list of the city, state and federal licenses and permits it needs."
     },
     {
      "h3": "Breach notice under GBL § 899-aa",
@@ -906,7 +906,6 @@ export const PLACE: LocalPlace = {
   "1": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "3": "page-map-webdev.json national_ranking rank",
   "4": "derived: rank of u20 among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "derived: accommodation and food services employees per establishment, 2023",
   "23": "derived: finance and insurance employees per establishment, 2023",
   "25": "derived: rank of per511 among the 64 place pages",

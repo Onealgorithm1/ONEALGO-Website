@@ -697,15 +697,15 @@ export const PLACE: LocalPlace = {
      "line": "Comptroller Publication 94-127 lists creating a web page and providing server space as taxable data processing, so Texas build invoices carry a sales tax question."
     },
     {
-     "h3": "SOSPortal and the Comptroller",
-     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026; the yearly report goes to the Comptroller with the franchise tax, due May 15."
+     "h3": "The SOSPortal filing system",
+     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026, bringing filing, ordering and searching together into a single, streamlined platform."
     }
    ],
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
      "Reporting a breach to the Attorney General: A breach affecting 250 or more Texans must be reported to the Office of the Attorney General as soon as practicable.",
-     "The official pages behind these: “Texas Data Privacy and Security Act” and “Data processing services” and “Business filings (SOSPortal) and franchise tax reports”, listed with their addresses under Sources."
+     "The official pages behind these: “Texas Data Privacy and Security Act” and “Data processing services” and “Business filings: the SOSPortal launch”, listed with their addresses under Sources."
     ]
    },
    "sources": [
@@ -722,8 +722,8 @@ export const PLACE: LocalPlace = {
      "page": "https://comptroller.texas.gov/taxes/publications/94-127.php"
     },
     {
-     "name": "Texas Secretary of State; Texas Comptroller",
-     "what": "Business filings (SOSPortal) and franchise tax reports",
+     "name": "Texas Secretary of State",
+     "what": "Business filings: the SOSPortal launch",
      "read": "read 1 November 2026",
      "page": "https://www.sos.texas.gov/corp/index.shtml"
     },
@@ -893,15 +893,14 @@ export const PLACE: LocalPlace = {
   "1": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
   "2": "derived: rank of estab among the 64 place pages",
   "6": "derived: real estate, rental and leasing employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "derived: rank of popChg among the 64 place pages",
-  "15": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
+  "15": "derived: accommodation and food services establishments change 2018-2023, percent",
   "17": "derived: wholesale trade employees per establishment, 2023",
   "18": "derived: rank of estabChg among the 64 place pages",
   "20": "derived: educational services establishments change 2018-2023, percent",
   "23": "derived: rank of per511 among the 64 place pages",
   "26": "derived: educational services employees per establishment, 2023",
-  "29": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
+  "29": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "35": "derived: rank of u20 among the 64 place pages",
   "36": "page-map-webdev.json national_ranking rank",
   "39": "Semrush keyword difficulty, \"web design texas\"",
@@ -919,7 +918,7 @@ export const PLACE: LocalPlace = {
   "896": "derived: manufacturing establishments 2023 minus 2018",
   "914": "Census County Business Patterns 2023, establishments, naics 541430 graphic design services, 2023",
   "2024": "Office of the Texas Attorney General: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act",
-  "2026": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
+  "2026": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "10,794,596": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.9": "derived: paid employees / establishments, 2023",
   "11.3": "derived: accommodation and food services share of paid employees, 2023",

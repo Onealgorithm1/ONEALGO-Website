@@ -856,7 +856,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
   "7": "derived: real estate, rental and leasing employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "Census CBP 2023, NAICS 324 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:35380)",
   "20": "Semrush US exact volume, \"web developer new orleans\", pulled 2026-10-24 13:05-13:15 ET",
   "24": "derived: change in population 2019-2024 (ACS 1-year), percent",

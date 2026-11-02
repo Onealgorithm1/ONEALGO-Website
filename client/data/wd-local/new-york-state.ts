@@ -690,11 +690,11 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Website development and sales tax",
-     "line": "Advisory Opinion TSB-A-20(70)S found that website development services are not among New York's enumerated taxable services; an opinion binds only the business that asked."
+     "line": "Advisory Opinion TSB-A-20(70)S found that website development services are not among 's enumerated taxable services; an opinion binds only the business that asked."
     },
     {
      "h3": "New York's publication rule",
-     "line": "Under LLC Law § 206 a new New York LLC publishes its formation in two newspapers for six weeks, then files a certificate of publication with the Department of State for $50."
+     "line": "Under LLC Law § 206 a new LLC publishes its formation in two newspapers for six weeks, then files a certificate of publication with the Department of State for $50."
     }
    ],
    "deeper": {
@@ -886,7 +886,7 @@ export const PLACE: LocalPlace = {
   "5": "derived: rank of u20 among the 64 place pages",
   "7": "derived: information establishments 2023 minus 2018",
   "11": "derived: wholesale trade establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: retail trade employees per establishment, 2023",
   "20": "New York State Department of Taxation and Finance: https://www.tax.ny.gov/pdf/advisory_opinions/sales/a20-70s.pdf",
   "46": "Semrush keyword difficulty, \"web design new york\"",
   "50": "New York Department of State, Division of Corporations: https://dos.ny.gov/limited-liability-company-articles-organization",

@@ -838,7 +838,6 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: retail trade share of paid employees, 2023",
   "14": "derived: professional, scientific and technical services establishments change 2018-2023, percent",
   "17": "derived: wholesale trade employees per establishment, 2023",

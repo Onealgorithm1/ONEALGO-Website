@@ -105,9 +105,9 @@ export function economySection({ geo, area, Ps, T, aOf }) {
 
 /** state = full state name ("District of Columbia" for DC); city = the city key in local-rules.json or null. */
 /* Place-name density (wd-local-check: <= 1.5% of <main> words): after the first mention, a card says "the state". */
-const lighten = (line, state, all = false) => {
+export const lighten = (line, state, all = false) => {
   let seen = all;
-  return line.replace(new RegExp(`\b${state}(?:'s)?(?= (?:residents|consumers|customers|entity|LLC|business)|'s)`, "g"), (m) => {
+  return line.replace(new RegExp(`\\b${state}(?:'s)?(?= (?:residents|consumers|customers|entity|LLC|business)|'s)`, "g"), (m) => {
     if (!seen) { seen = true; return m; }
     return m.endsWith("'s") ? "the state's" : "";
   }).replace(/\s{2,}/g, " ");

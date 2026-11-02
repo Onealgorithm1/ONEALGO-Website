@@ -914,7 +914,6 @@ export const PLACE: LocalPlace = {
   "3": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "6": "derived: rank of per511 among the 64 place pages",
   "9": "derived: wholesale trade establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "Office of the Maryland Attorney General: https://oag.maryland.gov/i-need-to/Pages/Guidelines-for-Businesses-to-Comply-with-the-Maryland-Personal-Information-Protection-Act.aspx",
   "16": "derived: information establishments 2023 minus 2018",
   "20": "Semrush US exact volume, \"web developer baltimore\", pulled 2026-10-24 13:05-13:15 ET",

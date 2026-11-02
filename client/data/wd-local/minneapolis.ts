@@ -905,7 +905,6 @@ export const PLACE: LocalPlace = {
   "2": "derived: change in total establishments 2018-2023, percent",
   "8": "derived: information establishments change 2018-2023, percent",
   "10": "derived: professional, scientific and technical services employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: rank of per511 among the 64 place pages",
   "16": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "19": "derived: paid employees / establishments, 2023",

@@ -861,7 +861,6 @@ export const PLACE: LocalPlace = {
   "7": "derived: manufacturing establishments 2023 minus 2018",
   "10": "derived: NAICS 541511 paid employees per establishment, 2023",
   "11": "derived: construction establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "18": "derived: paid employees / establishments, 2023",
   "21": "derived: NAICS 541430 establishments per 10,000, 2023",
   "24": "derived: rank of popChg among the 64 place pages",

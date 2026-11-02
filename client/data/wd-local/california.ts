@@ -698,7 +698,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "California's Statement of Information",
-     "line": "A California LLC files Form LLC-12 on bizfile Online with the Secretary of State soon after registering and every two years after, for $20."
+     "line": "A LLC files Form LLC-12 on bizfile Online with the Secretary of State soon after registering and every two years after, for $20."
     }
    ],
    "deeper": {

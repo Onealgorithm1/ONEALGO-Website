@@ -905,7 +905,6 @@ export const PLACE: LocalPlace = {
   "1": "derived: rank of estabChg among the 64 place pages",
   "4": "derived: rank of per511 among the 64 place pages",
   "11": "page-map-webdev.json national_ranking rank",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "17": "derived: health care and social assistance employees per establishment, 2023",
   "26": "derived: rank of u20 among the 64 place pages",
   "42": "derived: rank of estab among the 64 place pages",

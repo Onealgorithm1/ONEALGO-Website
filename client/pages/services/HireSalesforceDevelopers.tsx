@@ -24,7 +24,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 
 const PATH = "/services/hire-salesforce-developers";
 const URL_ = "https://onealgorithm.com" + PATH;
-const TITLE = "Hire Salesforce Developers: Staff Augmentation | One Algorithm";
+const TITLE = "Hire Salesforce Developers | One Algorithm";
 const DESCRIPTION = "Hire Salesforce developers, admins and architects who work inside your team, from a listed Salesforce Consulting Partner in Malvern, PA. (610) 890-9711.";
 const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 

@@ -857,7 +857,6 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "derived: finance and insurance establishments change 2018-2023, percent",
   "5": "derived: change in paid employees 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "15": "derived: real estate, rental and leasing establishments change 2018-2023, percent",
   "18": "derived: information establishments 2023 minus 2018",
   "23": "derived: professional, scientific and technical services establishments 2023 minus 2018",

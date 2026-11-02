@@ -709,14 +709,14 @@ export const PLACE: LocalPlace = {
      "line": "The City of Houston's own new-business guide says there is no general business license issued by the city; permits follow the activity."
     },
     {
-     "h3": "SOSPortal and the Comptroller",
-     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026; the yearly report goes to the Comptroller with the franchise tax, due May 15."
+     "h3": "The SOSPortal filing system",
+     "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026, bringing filing, ordering and searching together into a single, streamlined platform."
     }
    ],
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "The official pages behind these: “New business guide” and “Business filings (SOSPortal) and franchise tax reports”, listed with their addresses under Sources."
+     "The official pages behind these: “New business guide” and “Business filings: the SOSPortal launch”, listed with their addresses under Sources."
     ]
    },
    "sources": [
@@ -727,8 +727,8 @@ export const PLACE: LocalPlace = {
      "page": "https://www.houstontx.gov/obo/solutionscenter/guides/NEW_BUSINESS_GUIDE.pdf"
     },
     {
-     "name": "Texas Secretary of State; Texas Comptroller",
-     "what": "Business filings (SOSPortal) and franchise tax reports",
+     "name": "Texas Secretary of State",
+     "what": "Business filings: the SOSPortal launch",
      "read": "read 1 November 2026",
      "page": "https://www.sos.texas.gov/corp/index.shtml"
     }
@@ -905,15 +905,13 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "2": "derived: wholesale trade establishments change 2018-2023, percent",
   "6": "derived: rank of popChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "14": "derived: health care and social assistance share of paid employees, 2023",
-  "15": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
   "16": "derived: rank of estabChg among the 64 place pages",
   "19": "derived: rank of estab among the 64 place pages",
   "20": "derived: health care and social assistance employees per establishment, 2023",
   "21": "derived: accommodation and food services employees per establishment, 2023",
   "24": "derived: administrative and support services employees per establishment, 2023",
-  "29": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
+  "29": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "30": "Semrush keyword difficulty, \"web design houston\"",
   "31": "derived: rank of per511 among the 64 place pages",
   "35": "derived: rank of u20 among the 64 place pages",
@@ -936,7 +934,7 @@ export const PLACE: LocalPlace = {
   "805": "Census CBP 2023, NAICS 213 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
   "928": "Census County Business Patterns 2023, establishments, naics 541613 marketing consulting services, 2023",
   "996": "Census CBP 2023, NAICS 237 establishments (https://api.census.gov/data/2023/cbp?get=NAICS2017,NAICS2017_LABEL,ESTAB,EMP,EMP_N&LFO=001&EMPSZES=001&for=metropolitan%20statistical%20area/micropolitan%20statistical%20area:26420)",
-  "2026": "Texas Secretary of State; Texas Comptroller: https://www.sos.texas.gov/corp/index.shtml",
+  "2026": "Texas Secretary of State: https://www.sos.texas.gov/corp/index.shtml",
   "2,629,134": "Census County Business Patterns 2018, total paid employees (mid-march, all industries), 2018",
   "17.7": "derived: paid employees / establishments, 2023",
   "8.9": "derived: change in paid employees 2018-2023, percent",

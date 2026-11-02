@@ -694,7 +694,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Florida's annual report on Sunbiz",
-     "line": "A Florida LLC files its annual report on Sunbiz between 1 January and 1 May for $138.75; after 1 May the Division of Corporations adds a $400 late fee."
+     "line": "A LLC files its annual report on Sunbiz between 1 January and 1 May for $138.75; after 1 May the Division of Corporations adds a $400 late fee."
     },
     {
      "h3": "Breach notice under § 501.171",
@@ -887,7 +887,6 @@ export const PLACE: LocalPlace = {
   "2": "derived: rank of u20 among the 64 place pages",
   "3": "derived: rank of estab among the 64 place pages",
   "11": "derived: rank of estabChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: finance and insurance employees per establishment, 2023",
   "17": "derived: information employees per establishment, 2023",
   "20": "derived: change in NAICS 541511 establishments 2018-2023, percent",

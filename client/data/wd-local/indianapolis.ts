@@ -903,7 +903,6 @@ export const PLACE: LocalPlace = {
   "0": "sum of the folded places' Semrush exact sums",
   "1": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "11": "derived: administrative and support services establishments change 2018-2023, percent",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: health care and social assistance establishments change 2018-2023, percent",
   "15": "Indiana General Assembly, IC 24-15: https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
   "17": "page-map-webdev.json national_ranking rank",

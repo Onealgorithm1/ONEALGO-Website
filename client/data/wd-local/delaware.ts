@@ -697,7 +697,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Delaware's LLC tax, not a report",
-     "line": "Delaware LLCs file no annual report; they pay the Division of Corporations a $400 annual tax on or before June 1, with a $200 penalty and interest if late."
+     "line": " LLCs file no annual report; they pay the Division of Corporations a $400 annual tax on or before June 1, with a $200 penalty and interest if late."
     },
     {
      "h3": "Breach notice under 6 Del. C. § 12B-102",

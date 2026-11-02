@@ -880,7 +880,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "The new yearly report",
-     "line": "Since 1 January 2025 every Pennsylvania entity files a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7."
+     "line": "Since 1 January 2025 most domestic and foreign filing associations file a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7."
     },
     {
      "h3": "The 2005 breach notification act",
@@ -1073,7 +1073,6 @@ export const PLACE: LocalPlace = {
   "7": "Pennsylvania Department of State: https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
   "8": "derived: educational services establishments change 2018-2023, percent",
   "10": "Semrush exact sum for Norristown (page-map-webdev.json)",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "20": "derived: health care and social assistance share of paid employees, 2023",
   "26": "count of folded places beyond the three in the table",
   "29": "derived: information establishments 2023 minus 2018",

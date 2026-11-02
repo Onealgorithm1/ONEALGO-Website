@@ -47,7 +47,7 @@ import {
 const PAGE_PATH = "/services/salesforce-consulting-partner-pennsylvania";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const TITLE = "Salesforce Consulting Partner in Pennsylvania | One Algorithm";
+const TITLE = "Salesforce Partner in Pennsylvania | One Algorithm";
 const DESCRIPTION =
   "Salesforce Consulting Partner in Pennsylvania, listed on AppExchange, office in Malvern. Check any partner, then book a free health check: (610) 890-9711.";
 const PHOTO = SF_CITY_HEROES.pennsylvania;
@@ -463,7 +463,7 @@ export default function SalesforcePartnerPennsylvania() {
             className="sf-c7"
             headingId="h-pa-record"
             title="Pennsylvania's business record and your accounts"
-            lede="Since 1 January 2025 every Pennsylvania business entity files a yearly report with the Department of State through Business Filing Services."
+            lede="Since 1 January 2025 most domestic and foreign filing associations in Pennsylvania file a yearly report with the Department of State through Business Filing Services."
             leadIn="Why it matters:"
             lead="From reports due in 2027, an entity that does not file can be dissolved six months after its deadline."
             points={["Corporations file by June 30, LLCs by September 30", "Other associations file by December 31", "Business corporations pay $7; nonprofits pay nothing"]}

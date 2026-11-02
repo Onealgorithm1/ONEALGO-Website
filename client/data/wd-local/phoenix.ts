@@ -702,11 +702,11 @@ export const PLACE: LocalPlace = {
    "h2": "Licenses, filings and data rules",
    "lede": "Phoenix licenses through its transaction privilege tax, and Arizona's corporate record sits with the Corporation Commission.",
    "leadIn": "Why it matters:",
-   "lead": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its new portal is where a site's legal name should match.",
+   "lead": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its record is where a site's legal name should match.",
    "cards": [
     {
      "h3": "Phoenix privilege tax license",
-     "line": "A business with taxable activities in Phoenix needs a transaction privilege (sales) tax license from the city's Finance Department, $50 a year, renewed each January."
+     "line": "A business with taxable activities in Phoenix needs a transaction privilege (sales) tax license from the city's Finance Department: a $50 licence fee at the start, then a $50 renewal fee due each 1 January."
     },
     {
      "h3": "Breach notice under A.R.S. § 18-552",
@@ -716,15 +716,15 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "the other rules and where they come from",
     "paras": [
-     "The official pages behind these: “Privilege (sales) tax license and fees” and “Notification of a security system breach”, listed with their addresses under Sources."
+     "The official pages behind these: “Privilege (sales) tax license fees” and “Notification of a security system breach”, listed with their addresses under Sources."
     ]
    },
    "sources": [
     {
      "name": "City of Phoenix Finance Department",
-     "what": "Privilege (sales) tax license and fees",
+     "what": "Privilege (sales) tax license fees",
      "read": "read 1 November 2026",
-     "page": "https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license.html"
+     "page": "https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license/tax-license-fees.html"
     },
     {
      "name": "Arizona State Legislature, A.R.S. § 18-552",
@@ -898,6 +898,7 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
+  "1": "City of Phoenix Finance Department: https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license/tax-license-fees.html",
   "7": "derived: rank of estabChg among the 64 place pages",
   "12": "page-map-webdev.json national_ranking rank",
   "14": "derived: educational services establishments change 2018-2023, percent",
@@ -910,7 +911,7 @@ export const PLACE: LocalPlace = {
   "41": "derived: rank of u20 among the 64 place pages",
   "43": "derived: wholesale trade establishments 2023 minus 2018",
   "47": "derived: manufacturing establishments 2023 minus 2018",
-  "50": "City of Phoenix Finance Department: https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license.html",
+  "50": "City of Phoenix Finance Department: https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license/tax-license-fees.html",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",
   "90": "derived: NAICS 541511 establishments per 10,000 establishments, 2023",
   "134": "page-map-webdev.json national_ranking length",

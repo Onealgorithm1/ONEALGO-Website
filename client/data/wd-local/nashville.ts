@@ -858,7 +858,7 @@ export const PLACE: LocalPlace = {
   "1": "derived: manufacturing establishments change 2018-2023, percent",
   "5": "derived: rank of popChg among the 64 place pages",
   "8": "derived: rank of estabChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
+  "12": "derived: construction employees per establishment, 2023",
   "15": "derived: manufacturing establishments 2023 minus 2018",
   "17": "derived: health care and social assistance share of paid employees, 2023",
   "31": "page-map-webdev.json national_ranking rank",

@@ -895,7 +895,6 @@ export const PLACE: LocalPlace = {
  "trace": {
   "2": "page-map-webdev.json national_ranking rank",
   "8": "derived: rank of popChg among the 64 place pages",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: rank of estabChg among the 64 place pages",
   "15": "derived: rank of estab among the 64 place pages",
   "30": "Semrush keyword difficulty, \"web design dallas\"",

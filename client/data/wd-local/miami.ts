@@ -706,7 +706,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "City and county tax receipts",
-     "line": "Every business in the City of Miami needs a city Business Tax Receipt and a Miami-Dade County Local Business Tax Receipt, which runs from 1 October to 30 September."
+     "line": "Every business in the City of Miami needs a city Business Tax Receipt and a Miami-Dade County Local Business Tax Receipt."
     },
     {
      "h3": "Breach notice under § 501.171",
@@ -898,15 +898,14 @@ export const PLACE: LocalPlace = {
  },
  "trace": {
   "0": "sum of the folded places' Semrush exact sums",
-  "1": "City of Miami: https://www.miami.gov/Business-Licenses/Business-Licensing/Get-a-Business-Tax-Receipt-BTR",
+  "1": "derived: rank of u20 among the 64 place pages",
   "5": "derived: professional, scientific and technical services employees per establishment, 2023",
-  "12": "SECTORS: the two-digit CBP sectors in the pull",
   "13": "derived: rank of estab among the 64 place pages",
   "14": "derived: rank of estabChg among the 64 place pages",
   "18": "page-map-webdev.json national_ranking rank",
   "21": "derived: change in NAICS 541511 establishments 2018-2023, percent",
   "29": "derived: rank of popChg among the 64 place pages",
-  "30": "City of Miami: https://www.miami.gov/Business-Licenses/Business-Licensing/Get-a-Business-Tax-Receipt-BTR",
+  "30": "Semrush US exact volume, \"web developer miami\", pulled 2026-10-24 13:05-13:15 ET",
   "37": "derived: rank of per511 among the 64 place pages",
   "42": "Semrush keyword difficulty, \"web design miami\"",
   "64": "count of place pages (page-map-webdev.json build_order minus Philadelphia and Chester County)",

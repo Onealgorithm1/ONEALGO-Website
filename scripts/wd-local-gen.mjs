@@ -292,7 +292,7 @@ function build(name, all) {
     return { code, fact, ...s, emp, est, est18, avg, chg, diff: est - est18 };
   }).sort((a, b) => b.emp - a.emp);
   for (const s of sectors) T(fmt(Math.abs(s.diff)), `derived: ${s.label} establishments 2023 minus 2018`);
-  T(String(sectors.length), "SECTORS: the two-digit CBP sectors in the pull"); // "the 12 sectors we read" (was untraced)
+  // ponytail: the sector count is NOT traced (a trace key allowed every "12" on the page); wd-local-check allows only the phrase "<N> sectors".
   const top = sectors.slice(0, 4);
   const growth = [...sectors].sort((a, b) => b.chg - a.chg);
   const fastest = growth[0], slowest = growth[growth.length - 1];

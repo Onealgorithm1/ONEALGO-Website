@@ -55,7 +55,7 @@
   "Wisconsin": {
    "filing": {
     "h3": "Wisconsin's annual report",
-    "line": "Each year after it forms, a domestic LLC files an annual report with the Department of Financial Institutions by the end of its filing quarter: $25 online or $40 on paper.",
+    "line": "A domestic LLC pays the Department of Financial Institutions $25 to file its annual report online, or $40 on paper.",
     "src": "wi-dfi"
    },
    "tax": {
@@ -73,9 +73,9 @@
    "sources": {
     "wi-dfi": {
      "name": "Wisconsin Department of Financial Institutions",
-     "what": "Business entity FAQ: annual report timing and fees",
-     "page": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/FAQ.aspx",
-     "quote": "A domestic entity shall deliver its Annual Report to the Department in each year following the calendar year"
+     "what": "Business entity fees: annual report",
+     "page": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+     "quote": "Domestic Entities Business Corporation Cooperative (Stock or Membership) Limited Liability Company Limited Liability Partnership Limited Partnership Nonstock Corporation ... Annual Report $40.00 $15.00 $40.00 $25.00 $25.00 $40.00 Annual Report via Online Filing $25.00 $25.00 $25.00"
     },
     "wi-tax": {
      "name": "Wisconsin Department of Revenue, Publication 235",
@@ -94,7 +94,7 @@
   "Oregon": {
    "filing": {
     "h3": "Oregon Business Registry renewal",
-    "line": "An Oregon LLC renews every year on the anniversary of its original filing, through the Secretary of State's Oregon Business Registry, with a $100 state fee.",
+    "line": "An Oregon LLC renews every year on the anniversary of its original filing, through the Secretary of State's Oregon Business Registry.",
     "src": "or-sos"
    },
    "privacy": {
@@ -138,7 +138,7 @@
    },
    "privacy": {
     "h3": "Utah Consumer Privacy Act",
-    "line": "Effective 31 December 2023, it applies to businesses with $25,000,000 or more in annual revenue that also handle data of 100,000 Utah consumers or mostly sell personal data.",
+    "line": "Utah Code § 13-61-102 applies to businesses with $25,000,000 or more in annual revenue that also handle data of 100,000 Utah consumers, or 25,000 while earning over half their revenue from selling personal data.",
     "src": "ut-dcp"
    },
    "breach": {
@@ -156,10 +156,10 @@
      "quote": "The renewal is due one year from the date of registration and due annually thereafter"
     },
     "ut-dcp": {
-     "name": "Utah Division of Consumer Protection",
-     "what": "Utah Consumer Privacy Act (UCPA)",
-     "page": "https://commerce.utah.gov/dcp/ucpa/",
-     "quote": "Utah Consumer Privacy Act (UCPA) (Utah Code § 13-61-101) ... became effective on December 31, 2023. ... Have an annual revenue of $25,000,000 or more"
+     "name": "Utah State Legislature, § 13-61-102",
+     "what": "Utah Consumer Privacy Act: who it applies to",
+     "page": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+     "quote": "(b) has annual revenue of $25,000,000 or more; and (c) satisfies one or more of the following thresholds: (i) during a calendar year, controls or processes personal data of 100,000 or more consumers; or (ii) derives over 50% of the entity's gross revenue from the sale of personal data and controls or processes personal data of 25,000 or more consumers."
     },
     "ut-breach": {
      "name": "Utah State Legislature, § 13-44-202",
@@ -330,7 +330,7 @@
   "Arizona": {
    "filing": {
     "h3": "The Corporation Commission, not the SOS",
-    "line": "Arizona entities file with the Arizona Corporation Commission, whose Arizona Business Center portal went live on 12 January 2026; LLCs file no annual report there.",
+    "line": "Arizona entities file with the Arizona Corporation Commission, and LLCs file no annual report there; only corporations do.",
     "src": "az-acc"
    },
    "breach": {
@@ -338,12 +338,12 @@
     "line": "Once an investigation confirms a breach, the business that owns the data has a fixed window in the statute to notify the people affected.",
     "src": "az-breach"
    },
-   "lead": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its new portal is where a site's legal name should match.",
+   "lead": "Arizona's quirks start at filing: the Corporation Commission keeps the entity record, and its record is where a site's legal name should match.",
    "crm": "Arizona's breach statute, A.R.S. § 18-552, sets a fixed window once a breach of the customer data is confirmed, which a CRM's audit trail helps establish.",
    "sources": {
     "az-acc": {
      "name": "Arizona Corporation Commission",
-     "what": "Business services FAQs and the Arizona Business Center",
+     "what": "Business services FAQs: annual reports",
      "page": "https://azcc.gov/faqs/BusinessServicesFAQs",
      "quote": "Do LLCs file annual reports? No, LLCs are not required to file annual reports. Only corporations are required to file annual reports."
     },
@@ -357,8 +357,8 @@
   },
   "Texas": {
    "filing": {
-    "h3": "SOSPortal and the Comptroller",
-    "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026; the yearly report goes to the Comptroller with the franchise tax, due May 15.",
+    "h3": "The SOSPortal filing system",
+    "line": "Texas entities file with the Secretary of State, whose SOSPortal replaced SOSDirect on 29 September 2026, bringing filing, ordering and searching together into a single, streamlined platform.",
     "src": "tx-sos"
    },
    "privacy": {
@@ -380,8 +380,8 @@
    "crm": "Texas makes a breach affecting 250 or more Texans reportable to the Attorney General, so a CRM's export log is evidence worth keeping.",
    "sources": {
     "tx-sos": {
-     "name": "Texas Secretary of State; Texas Comptroller",
-     "what": "Business filings (SOSPortal) and franchise tax reports",
+     "name": "Texas Secretary of State",
+     "what": "Business filings: the SOSPortal launch",
      "page": "https://www.sos.texas.gov/corp/index.shtml",
      "quote": "We are pleased to announce the launch of SOSPortal, our new Business Filing system, on September 29, 2026. SOSPortal will replace both SOSDirect and SOSUpload, bringing filing, ordering, and searching together into a single, streamlined platform."
     },
@@ -665,7 +665,7 @@
   "Pennsylvania": {
    "filing": {
     "h3": "The new yearly report",
-    "line": "Since 1 January 2025 every Pennsylvania entity files a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7.",
+    "line": "Since 1 January 2025 most domestic and foreign filing associations file a yearly report with the Department of State through Business Filing Services; LLCs file by September 30, and business corporations pay $7.",
     "src": "pa-dos"
    },
    "breach": {
@@ -681,7 +681,7 @@
      "name": "Pennsylvania Department of State",
      "what": "Annual reports",
      "page": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
-     "quote": "The annual report requirement begins on January 1, 2025. The deadline for limited liability companies (domestic and foreign) is September 30. The fee for the new Annual Report is $7 for business corporations, limited liability companies (LLCs)..."
+     "quote": "Beginning in 2025, most domestic and foreign filing associations are required to file an Annual Report [DSCB:15-146]. ... The annual report requirement begins on January 1, 2025. The deadline for limited liability companies (domestic and foreign) is September 30. The fee for the new Annual Report is $7 for business corporations, limited liability companies (LLCs)..."
     },
     "pa-breach": {
      "name": "Pennsylvania General Assembly",
@@ -879,7 +879,7 @@
    },
    "tax": {
     "h3": "Custom website development is taxed",
-    "line": "Since 1 October 2025, under ESSB 5814, website design, development and support are retail sales in Washington; hosting and domains are not. The Department of Revenue notes the change is in court.",
+    "line": "Since 1 October 2025, under ESSB 5814, website design, development and support are retail sales in Washington; hosting and domains are not. The Department of Revenue says it is in ongoing legal proceedings over how these services are classified.",
     "src": "wa-tax"
    },
    "breach": {
@@ -907,7 +907,7 @@
      "name": "Washington Department of Revenue",
      "what": "Services newly subject to retail sales tax",
      "page": "https://dor.wa.gov/services-newly-subject-retail-sales-tax",
-     "quote": "As of Oct. 1, 2025, a new law (ESSB 5814) requires that certain services now be taxed when sold. [Table row] Custom website development - Included: Website design, development, and support. Not included: Web hosting and domain registration services."
+     "quote": "As of Oct. 1, 2025, a new law (ESSB 5814) requires that certain services now be taxed when sold. [Table row] Custom website development - Included: Website design, development, and support. Not included: Web hosting and domain registration services. ... Notice regarding legal proceedings The Washington Department of Revenue (DOR) is currently involved in ongoing legal proceedings regarding the classification of services newly subject to retail sales tax"
     },
     "wa-breach": {
      "name": "Washington State Office of the Attorney General",
@@ -1050,16 +1050,16 @@
   "Phoenix": {
    "license": {
     "h3": "Phoenix privilege tax license",
-    "line": "A business with taxable activities in Phoenix needs a transaction privilege (sales) tax license from the city's Finance Department, $50 a year, renewed each January.",
+    "line": "A business with taxable activities in Phoenix needs a transaction privilege (sales) tax license from the city's Finance Department: a $50 licence fee at the start, then a $50 renewal fee due each 1 January.",
     "src": "city"
    },
    "lede": "Phoenix licenses through its transaction privilege tax, and Arizona's corporate record sits with the Corporation Commission.",
    "sources": {
     "city": {
      "name": "City of Phoenix Finance Department",
-     "what": "Privilege (sales) tax license and fees",
-     "page": "https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license.html",
-     "quote": "If your business is involved in taxable activities, you need to get a transaction privilege (sales) tax license to report their Phoenix Transaction Privilege Tax (TPT) liability."
+     "what": "Privilege (sales) tax license fees",
+     "page": "https://www.phoenix.gov/administration/departments/finance/privilege-sales-use-tax/privilege-tax-license/tax-license-fees.html",
+     "quote": "A non-refundable $50.00 license fee is due within 30 days of your business's start date in the first year of application. ... Each year after that, a $50.00 renewal fee is due on January 1st."
     }
    }
   },
@@ -1162,7 +1162,7 @@
   "Columbus": {
    "license": {
     "h3": "City income tax, not a general license",
-    "line": "Columbus licenses particular activities rather than businesses in general, and every business conducted in the city files an annual city income tax return.",
+    "line": "Residents conducting a business and non-residents conducting a business in Columbus must file an annual city return; all businesses except sole proprietorships file on Form BR-25.",
     "src": "city"
    },
    "lede": "Columbus asks for a city income tax return rather than a general license, and Ohio taxes web work by how it is billed.",
@@ -1178,7 +1178,7 @@
   "New York": {
    "license": {
     "h3": "Licenses follow the activity",
-    "line": "New York City has no single business license on its official pages; the city's MyCity Business tool lists the city, state and federal licenses each business needs.",
+    "line": "The city's MyCity Business tool gives each business a personalized list of the city, state and federal licenses and permits it needs.",
     "src": "city"
    },
    "lede": "New York City licenses by activity, and New York State adds a newspaper publication step for every new LLC.",
@@ -1210,7 +1210,7 @@
   "Miami": {
    "license": {
     "h3": "City and county tax receipts",
-    "line": "Every business in the City of Miami needs a city Business Tax Receipt and a Miami-Dade County Local Business Tax Receipt, which runs from 1 October to 30 September.",
+    "line": "Every business in the City of Miami needs a city Business Tax Receipt and a Miami-Dade County Local Business Tax Receipt.",
     "src": "city"
    },
    "lede": "Miami asks for two business tax receipts, one from the city and one from Miami-Dade County.",
