@@ -21,7 +21,7 @@ import {
  * ⛔ PROOF, and only this: about 18 months of Marketing Cloud support delivered on an account already running (client
  * private, no dates, sector or tool scope: which tools that engagement touched is an owner fact, gap MC-5);
  * Salesforce's AppExchange record (16 / 53 / 38, the firm total, never broken out by cloud); Sreenivas Amirisetti's
- * 14 active certifications, Marketing Cloud Engagement Specialist among them (badges.md row 13; his credential, never
+ * 16 active certifications, Marketing Cloud Engagement Specialist among them (badges.md row 13; his credential, never
  * the company's). Do not upgrade "support" into a claimed new-account implementation (OD 12, FV-07). Lender bulk-email
  * work is core-org work, not Marketing Cloud: it stays off this page. Account Engagement (Pardot), Data 360 (Data
  * Cloud) and HubSpot are explained as products only, never as delivered work. MuleSoft: not mentioned here.

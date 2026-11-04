@@ -70,7 +70,7 @@ describe("Salesforce primitives", () => {
 
   it("PeopleStrip renders the approved lead line, verify link and Person schema, never a photo", () => {
     const html = at("/services/salesforce", <PeopleStrip />);
-    expect(html).toContain("Sreenivas Amirisetti leads our Salesforce practice. He holds Salesforce certifications from Administrator to Application Architect and earned his first in 2014.");
+    expect(html).toContain("Sreenivas Amirisetti leads our Salesforce practice. His 16 active Salesforce certifications run from Platform Administrator to Application Architect.");
     expect(html).toContain("Verify on his Trailblazer profile");
     expect(html).not.toContain("<img");
     const ld = JSON.parse(html.split('<script type="application/ld+json">')[1].split("</script>")[0]);

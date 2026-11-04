@@ -146,7 +146,7 @@ const CHECKS: Stage[] = [
     details: [
       "A Trailblazer profile shows which certifications are active today",
       "Salesforce's Verify Credentials page checks any certification by name",
-      "Ours: Sreenivas Amirisetti (14 active) and Swapna Amirisetti (2 active)",
+      "Ours: Sreenivas Amirisetti (16 active) and Swapna Amirisetti (2 active)",
     ],
   },
 ];
