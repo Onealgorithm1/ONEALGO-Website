@@ -33,7 +33,7 @@ import {
  *    Visits (owner 2026-10-23 ~19:05): most work is remote; in-person sessions when the project calls for them,
  *    easiest across the Philadelphia region. Never promise visits as standard.
  * ⛔ PROOF, and only this: Salesforce's AppExchange record (16 / 53 / 38, tier "Select", read SF_VERIFIED_ON), the
- *    four delivered patterns with clients unnamed, Sreenivas (14 active) and Swapna (2) with their own badges. No
+ *    four delivered patterns with clients unnamed, Sreenivas (16 active) and Swapna (2) with their own badges. No
  *    client name, review, years figure, price, SLA or industry-to-delivery pairing beyond lending (spec D8).
  * ⛔ LINKS: in-site only in the body. Market sources live in the "Where these figures come from" pop-up as program
  *    pages (no LinkedIn query, no api.census.gov, no data endpoint); the one off-site control per record is inside

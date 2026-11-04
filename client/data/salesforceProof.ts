@@ -85,7 +85,7 @@ export type SfPerson = {
  *  arrives, record the date beside approvedOn. /about still calls him "Chief Technology Officer".
  *  ⛔ This is the ONLY sentence about him on any page: no extra certification names (FV-04).
  *  2026-10-23 redesign v2: "earned his first in 2014" removed (house rule: no years-of-experience
- *  figures); the count "14 active" is Salesforce's public profile API, re-read 2026-10-23
+ *  figures); the count "16 active" (was 14; re-read 2026-11-04) is Salesforce's public profile API, re-read 2026-10-23
  *  (trailblazer-team-2026-10-23.md CORRECTION). The v2 pages read client/data/sfPeople.ts, which
  *  carries the same sentence plus the badge list; keep the two in step. */
 export const SF_PEOPLE: SfPerson[] = [
@@ -93,7 +93,7 @@ export const SF_PEOPLE: SfPerson[] = [
     name: "Sreenivas Amirisetti",
     title: "Salesforce practice lead",
     statement:
-      "Sreenivas Amirisetti leads our Salesforce practice. His 14 active Salesforce certifications run from Platform Administrator to Application Architect.",
+      "Sreenivas Amirisetti leads our Salesforce practice. His 16 active Salesforce certifications run from Platform Administrator to Application Architect.",
     trailhead: "https://www.salesforce.com/trailblazer/samirisetti",
     verifyLabel: "Verify on his Trailblazer profile",
     linkedin: "https://www.linkedin.com/in/samirisetti/",

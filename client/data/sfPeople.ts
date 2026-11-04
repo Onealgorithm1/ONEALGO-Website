@@ -1,6 +1,6 @@
 /* The two named people on the Salesforce pages and the official certification logos each holds.
  * Facts: owner-decisions.md (2026-10-23 late + CORRECTION), trailblazer-team-2026-10-23.md (Salesforce's public
- * profile API, read 2026-10-23: Sreenivas 14 active, Swapna 2 active), redesign-v2/badges/badges.md (logo
+ * profile API, read 2026-10-23: Sreenivas 14 active; 16 on 2026-11-04, Swapna 2 active), redesign-v2/badges/badges.md (logo
  * provenance: the exact files Salesforce serves, resized to 160px WebP, design untouched).
  *
  * ⛔ Badges sit with the PERSON, never as company certifications (Salesforce's rule: the holder uses the logo
@@ -35,6 +35,9 @@ export const SF_BADGES: Record<string, SfBadge> = {
   "cpq-administrator": { slug: "cpq-administrator", name: "Salesforce Certified CPQ Administrator", credentialPage: "https://trailheadacademy.salesforce.com/certificate/exam-cpq-admin---Sales-Admn-202" },
   "marketing-cloud-engagement-specialist": { slug: "marketing-cloud-engagement-specialist", name: "Salesforce Certified Marketing Cloud Engagement Specialist", credentialPage: "https://trailhead.salesforce.com/en/credentials/marketingcloudengagementspecialist" },
   "omnistudio-consultant": { slug: "omnistudio-consultant", name: "Salesforce Certified Omnistudio Consultant", credentialPage: "https://trailhead.salesforce.com/en/credentials/omnistudioconsultant" },
+  // Added 2026-11-04 (on his Trailblazer profile that day; logos = Salesforce's files on credentials/architectoverview, badges.md rows 15-16).
+  "system-architect": { slug: "system-architect", name: "Salesforce Certified System Architect", credentialPage: "https://trailhead.salesforce.com/en/credentials/systemarchitect" },
+  "platform-identity-and-access-management-architect": { slug: "platform-identity-and-access-management-architect", name: "Salesforce Certified Platform Identity and Access Management Architect", credentialPage: "https://trailhead.salesforce.com/en/credentials/platformidentityandaccessmanagementarchitect" },
 };
 
 export type SfPerson = {
@@ -48,7 +51,7 @@ export type SfPerson = {
   /** Public Trailblazer profile (Salesforce-issued certification list). */
   trailhead: string;
   linkedin?: string;
-  /** Active certifications in display order (badges.md order). */
+  /** Active certifications in display order (the holder's own order). */
   badges: SfBadge[];
   /** Optional "range held" line for the pop-up. */
   range?: string;
@@ -64,16 +67,19 @@ export const SREENIVAS: SfPerson = {
   title: "Salesforce practice lead",
   pronoun: "he",
   statement:
-    "Sreenivas Amirisetti leads our Salesforce practice. His 14 active Salesforce certifications run from Platform Administrator to Application Architect.",
+    "Sreenivas Amirisetti leads our Salesforce practice. His 16 active Salesforce certifications run from Platform Administrator to Application Architect.",
   trailhead: "https://www.salesforce.com/trailblazer/samirisetti",
   linkedin: "https://www.linkedin.com/in/samirisetti/",
   range: "Platform Administrator to Application Architect",
-  verifiedLabel: "23 October 2026",
+  verifiedLabel: "4 November 2026",
+  // Order = Sreenivas's own list, sent 2026-11-04.
   badges: [
-    b("platform-administrator"), b("platform-administrator-ii"), b("platform-app-builder"), b("platform-developer"),
-    b("platform-data-architect"), b("platform-development-lifecycle-and-deployment-architect"), b("platform-integration-architect"),
-    b("platform-sharing-and-visibility-architect"), b("application-architect"), b("agentforce-sales-consultant"),
-    b("agentforce-service-consultant"), b("cpq-administrator"), b("marketing-cloud-engagement-specialist"), b("omnistudio-consultant"),
+    b("application-architect"), b("system-architect"), b("platform-data-architect"), b("platform-integration-architect"),
+    b("platform-identity-and-access-management-architect"), b("platform-sharing-and-visibility-architect"),
+    b("platform-development-lifecycle-and-deployment-architect"), b("agentforce-sales-consultant"),
+    b("agentforce-service-consultant"), b("omnistudio-consultant"), b("cpq-administrator"),
+    b("marketing-cloud-engagement-specialist"), b("platform-developer"), b("platform-app-builder"),
+    b("platform-administrator-ii"), b("platform-administrator"),
   ],
 };
 

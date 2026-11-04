@@ -25,7 +25,7 @@ import {
  * you) are slotted where the page reads best. Every H2 string is the spec's, exact.
  *
  * PROOF, and only this proof (structure-spec §8.1): Salesforce's AppExchange record (16 / 53 / 38, read
- * SF_VERIFIED_ON), the four delivered patterns with clients unnamed, Sreenivas (14 active certifications, badges)
+ * SF_VERIFIED_ON), the four delivered patterns with clients unnamed, Sreenivas (16 active certifications, badges)
  * and Swapna (2). ⛔ Never a client name, review, rating, award, tier, price, SLA or years figure. MuleSoft keeps
  * the 2026-09-01 wording. "Implementation Partner" sits in the <title> only (spec §4 + the approved prototype;
  * fix-round FV-15 had removed it: flagged in build-v2/foundation.md for the owner).

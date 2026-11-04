@@ -24,7 +24,7 @@ import {
  * ⛔ Security answers use page facts only: no encryption, SOC 2, ISO, NIST, CMMC, FedRAMP or "zero downtime".
  * ⛔ MuleSoft is not named on this page (owner decision #6: add nothing). No years-of-experience figure.
  * ⛔ The company count never describes individuals: "the certified people doing the migration" is gone (gap #35);
- *    the people block names Sreenivas (14) and Swapna (2) with their own badges.
+ *    the people block names Sreenivas (16) and Swapna (2) with their own badges.
  * LINKS: in-site only in the body. Salesforce's documentation is cited as text + read date and listed in ONE
  * sources pop-up (id "docs"); the only off-site anchors live inside the dialogs (new tab, noopener, external mark). */
 
