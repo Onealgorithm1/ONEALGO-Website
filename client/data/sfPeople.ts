@@ -37,7 +37,7 @@ export const SF_BADGES: Record<string, SfBadge> = {
   "omnistudio-consultant": { slug: "omnistudio-consultant", name: "Salesforce Certified Omnistudio Consultant", credentialPage: "https://trailhead.salesforce.com/en/credentials/omnistudioconsultant" },
   // Added 2026-11-04 (on his Trailblazer profile that day; logos = Salesforce's files on credentials/architectoverview, badges.md rows 15-16).
   "system-architect": { slug: "system-architect", name: "Salesforce Certified System Architect", credentialPage: "https://trailhead.salesforce.com/en/credentials/systemarchitect" },
-  "platform-identity-and-access-management-architect": { slug: "platform-identity-and-access-management-architect", name: "Salesforce Certified Platform Identity and Access Management Architect", credentialPage: "https://trailhead.salesforce.com/en/credentials/identityandaccessmanagementarchitect" },
+  "platform-identity-and-access-management-architect": { slug: "platform-identity-and-access-management-architect", name: "Salesforce Certified Platform Identity and Access Management Architect", credentialPage: "https://trailhead.salesforce.com/en/credentials/platformidentityandaccessmanagementarchitect" },
 };
 
 export type SfPerson = {
