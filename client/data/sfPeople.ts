@@ -72,9 +72,9 @@ export const SREENIVAS: SfPerson = {
   linkedin: "https://www.linkedin.com/in/samirisetti/",
   range: "Platform Administrator to Application Architect",
   verifiedLabel: "4 November 2026",
-  // Order = Sreenivas's own list, sent 2026-11-04.
+  // Order = Sreenivas's own list, his WhatsApp to Louis 2026-11-04 8:38 am ET (Integration before Data).
   badges: [
-    b("application-architect"), b("system-architect"), b("platform-data-architect"), b("platform-integration-architect"),
+    b("application-architect"), b("system-architect"), b("platform-integration-architect"), b("platform-data-architect"),
     b("platform-identity-and-access-management-architect"), b("platform-sharing-and-visibility-architect"),
     b("platform-development-lifecycle-and-deployment-architect"), b("agentforce-sales-consultant"),
     b("agentforce-service-consultant"), b("omnistudio-consultant"), b("cpq-administrator"),
