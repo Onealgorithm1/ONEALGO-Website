@@ -154,7 +154,7 @@ const TERMS: { t: string; pct: number; cut: boolean }[] = [
 export function AuditPlate({ fig }: { fig: number }) {
   return (
     <Frame fig={fig} kind="Sample report" stamp="Sample data, not a client account"
-      caption="A search terms report, sorted by share of spend. The terms that cost the most and bring nothing become the first negatives.">
+      caption="A search terms report, sorted by share of spend. Costly terms that bring nothing become the first negatives.">
       <svg viewBox="0 0 480 400" role="img" aria-labelledby={`ga${fig}-t ga${fig}-d`}>
         <title id={`ga${fig}-t`}>Sample search terms report</title>
         <desc id={`ga${fig}-d`}>Five search terms with their share of ad spend. Three are marked add negative and two are marked keep.</desc>
@@ -319,7 +319,7 @@ export function ReportPlate({ fig }: { fig: number }) {
   ];
   return (
     <Frame fig={fig} kind="Sample report" stamp="Layout only, no client data"
-      caption="The order of a monthly report: spend, leads counted once, what changed, what is next. This is a layout, not a result.">
+      caption="The order of a monthly report. This is a layout, not a result.">
       <svg viewBox="0 0 480 400" role="img" aria-labelledby={`ga${fig}-t ga${fig}-d`}>
         <title id={`ga${fig}-t`}>Sample monthly report layout</title>
         <desc id={`ga${fig}-d`}>Four labelled blocks in order: spend, leads counted once, what we changed, what is next. No figures are shown.</desc>
@@ -367,7 +367,7 @@ export function GaSources({ sources }: { sources: SfSource[] }) {
     <SourcesDialog
       id="sources"
       title="Sources for this page"
-      intro="Google's Help pages show no last-updated date, only a 2026 footer, so the date a person at OneAlgorithm read each one is the only date we can give."
+      intro="Google's Help pages show no last-updated date, only a 2026 footer, so we give the date we read each one."
       sources={sources}
     />
   );

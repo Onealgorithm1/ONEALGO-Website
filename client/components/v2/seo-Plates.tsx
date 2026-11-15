@@ -136,7 +136,7 @@ export function SeoAuditPlate() {
           ))}
         </ol>
         <footer><span>The first few are usually things your own developer can do.</span><span className="seo-k">Sample data, not a client audit</span></footer>
-        <figcaption id="seo-audit-cap" className="sf-mono" style={{ padding: "10px 18px" }}>A written audit ranks fixes by what to do first. The items above are examples.</figcaption>
+        <figcaption id="seo-audit-cap" className="sf-mono" style={{ padding: "10px 18px" }}>A written audit ranks fixes by what to do first.</figcaption>
       </figure>
     </div>
   );

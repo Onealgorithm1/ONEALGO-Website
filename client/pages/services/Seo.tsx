@@ -42,31 +42,31 @@ const SOURCES: SfSource[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want. We do not print a price list, and a quote given before anyone has looked at the site is a guess.", link: { to: "/contact#need=seo", label: "Ask for the audit" } },
-  { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first. New pages on a young site often take a quarter or more. We report non-brand clicks monthly from your own Search Console, so you see movement as it happens." },
-  { q: "Is SEO worth it?", a: "It is worth it when people search for what you sell and your site can realistically beat the pages that rank. The audit tells you which. We measure non-brand clicks, because brand clicks only show people who already knew you. For Phantom Arcades they rose 231% over the same 68 days a year earlier. We guarantee nothing.", link: { to: CASE, label: "Phantom Arcades SEO case study" } },
-  { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants. Each job is separate in the report, so you can see which change moved which number. We start with an audit and fix technical faults before writing new pages.", link: { to: "#jobs", label: "See the six jobs" } },
-  { q: "What is the difference between local SEO and SEO?", a: "Local SEO is the part tied to place: your Google Business Profile, reviews, service area and map results. SEO is everything on the site that decides whether Google can find and trust it. Google says local results rest on relevance, distance and prominence, and that you cannot pay for a better local ranking.", link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" } },
-  { q: "What is the difference between SEO and Google Ads?", a: "Ads buy a position now and stop when you stop paying. SEO builds slowly and keeps working once pages are indexed and trusted. Many small businesses need both at different times: ads for a launch or a slow quarter, SEO for steady demand. We run both and will tell you which to start with.", link: { to: "/services/google-ads", label: "Google Ads management" } },
-  { q: "Can I do SEO myself?", a: "Yes, much of it. The first items on an audit are usually things your own developer can do, such as redirects, titles and a stray noindex. Pay for help when the list is long, the site is hard to crawl or nobody has time to write and measure pages. Ask us for the audit either way." },
-  { q: "How will I know it is working?", a: "Reporting comes from your own Search Console and GA4, so you can check every number. We put non-brand clicks on their own line, because brand clicks only show people who already knew your name. Each monthly report names what changed, what moved and what we are doing next." },
-  { q: "Do you guarantee a number-one ranking?", a: "No. Nobody can, and Google will not even guarantee that a page you submit gets indexed. We promise the work: faults fixed, pages written, no bought links and every number visible to you. Be wary of any provider who guarantees a first-page or number-one ranking." },
-  { q: "How do I choose an SEO company?", a: "Pick the one that shows its method, gives you read access to Search Console and refuses to guarantee rankings. Ask how links are earned and whether non-brand clicks are reported apart from brand. Walk away from bought links, brand clicks presented as growth, and a fixed number of new pages each month." },
-  { q: "Does SEO still matter with AI search?", a: "Yes. AI assistants answer from pages they can crawl and trust, so crawl access, clear answer-first copy and accurate structured data still decide whether your site is used. We track sessions from AI assistants in GA4 as their own line. We cannot promise a citation from any assistant." },
-  { q: "Does Google offer SEO services?", a: "Google publishes guidance, including its SEO Starter Guide, and its Business Profile help says there is no way to request or pay for a better local ranking. The guide adds that you might consider hiring a professional. Google does not sell you a ranking; we do the audit, the fixes and the reporting." },
+  { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want.", link: { to: "/contact#need=seo", label: "Ask for the audit" } },
+  { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first. New pages on a young site often take a quarter or more." },
+  { q: "Is SEO worth it?", a: "It is worth it when people search for what you sell and your site can realistically beat the pages that rank. For Phantom Arcades, non-brand clicks rose 231% over the same 68 days a year earlier.", link: { to: CASE, label: "Phantom Arcades SEO case study" } },
+  { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants. We start with an audit.", link: { to: "#jobs", label: "See the six jobs" } },
+  { q: "What is the difference between local SEO and SEO?", a: "Local SEO is the part tied to place: your Google Business Profile, reviews, service area and map results. SEO is everything on the site that decides whether Google can find and trust it.", link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" } },
+  { q: "What is the difference between SEO and Google Ads?", a: "Ads buy a position now and stop when you stop paying. SEO builds slowly and keeps working once pages are indexed and trusted. We run both and will tell you which to start with.", link: { to: "/services/google-ads", label: "Google Ads management" } },
+  { q: "Can I do SEO myself?", a: "Yes, much of it. The first items on an audit are usually things your own developer can do, such as redirects, titles and a stray noindex. Pay for help when the list is long or nobody has time to write and measure pages." },
+  { q: "How will I know it is working?", a: "Reporting comes from your own Search Console and GA4. Non-brand clicks get their own line, because brand clicks only show people who already knew your name." },
+  { q: "Do you guarantee a number-one ranking?", a: "No. Nobody can, and Google will not even guarantee that a page you submit gets indexed. We promise the work: faults fixed, pages written, no bought links and every number visible to you." },
+  { q: "How do I choose an SEO company?", a: "Pick the one that shows its method, gives you read access to Search Console and refuses to guarantee rankings. Walk away from bought links and brand clicks presented as growth." },
+  { q: "Does SEO still matter with AI search?", a: "Yes. AI assistants answer from pages they can crawl and trust, so crawl access, answer-first copy and accurate structured data still decide whether your site is used. We track AI assistant sessions in GA4." },
+  { q: "Does Google offer SEO services?", a: "Google publishes guidance, including its SEO Starter Guide, which says you might consider hiring a professional. Its Business Profile help says there is no way to request or pay for a better local ranking." },
 ];
 
 const JOBS = [
-  { id: "technical", t: "Technical SEO", k: "Crawl, index, speed", lede: "Technical SEO makes sure Google can reach, read and index every page worth ranking.", lead: "Content on a site search engines struggle to crawl is wasted work, so this comes first.",
+  { id: "technical", t: "Technical SEO", k: "Crawl, index, speed", lede: "Technical SEO makes sure Google can reach, read and index every page worth ranking.", lead: "Content on a site search engines struggle to crawl is wasted work.",
     deep: "Crawl and index coverage, redirect chains, canonical tags, sitemaps, duplicate titles and Core Web Vitals, measured on real visitors." },
   { id: "content", t: "Content and keywords", k: "Winnable first", lede: "We map what people search near what you sell, then check whether you can beat the pages that rank.", lead: "Sometimes the answer is no, and we do not bill you to chase it.",
     deep: "One page per thing people search for, written plainly. Many near-identical pages is what the scaled content abuse policy targets." },
   { id: "links", t: "Links without buying them", k: "Earned only", lede: "We ask for links a person would plausibly click, from sites that have a reason to mention you.", lead: "Buying or selling links for ranking is link spam in Google's own policy.",
-    deep: "No bought links, no private blog networks, nothing that risks a manual action. If a proposal promises a fixed number of links a month, ask where they come from." },
+    deep: "No bought links, no private blog networks, nothing that risks a manual action." },
   { id: "local", t: "Local SEO", k: "Map results", lede: "For a local business the map results come from your Google Business Profile, so we set that up properly.", lead: "Google says there is no way to request or pay for a better local ranking.",
-    deep: "The primary category, hours, services, photos, a service area instead of an address if you work at the customer's site, and reviews asked for and answered. Local results rank on relevance, distance and prominence." },
-  { id: "reporting", t: "Analytics and reporting", k: "Your accounts", lede: "Search Console and GA4 are set up in accounts you own, so every number we send can be checked.", lead: "You see which queries bring people in, and what those people do once they arrive.",
-    deep: "Page changes are tested against whether visitors do anything after they land. Brand and non-brand clicks are reported separately." },
+    deep: "The primary category, hours, services, photos, a service area if you work at the customer's site, and reviews asked for and answered. Local results rank on relevance, distance and prominence." },
+  { id: "reporting", t: "Analytics and reporting", k: "Your accounts", lede: "Search Console and GA4 are set up in accounts you own, so every number we send can be checked.", lead: "You see which queries bring people in and what they do next.",
+    deep: "We test page changes against what visitors do after they land. Brand and non-brand clicks are reported separately." },
   { id: "ai", t: "AI search visibility", k: "Be cited, not guessed", lede: "AI assistants answer from pages they can crawl and trust, so the same fundamentals apply, plus answer-first copy.", lead: "We track sessions from AI assistants in GA4 as their own line.",
     deep: "Crawl access, plain answer-first paragraphs, structured data that matches the page, and citations to primary sources. We cannot promise a citation from any assistant." },
 ];
@@ -81,10 +81,10 @@ const STATIONS: Station[] = [
 
 const STEP_TEXT = [
   ["Audit", "A crawl, what you rank for now, Core Web Vitals and your Business Profile, then a prioritized list of fixes."],
-  ["Fix", "Technical faults first: indexing, redirects, titles, speed. Content work is pointless until Google can crawl and index the page."],
-  ["Content", "One plain page per thing people search for, checked against the keywords you can actually win."],
-  ["Links", "Outreach for links worth clicking. Nothing bought, nothing from a network built to manipulate rankings."],
-  ["Report", "Monthly numbers from your own Search Console and GA4, with non-brand clicks on their own line and next month's work named."],
+  ["Fix", "Technical faults first: indexing, redirects, titles, speed."],
+  ["Content", "One plain page per thing people search for, checked against the keywords you can win."],
+  ["Links", "Outreach for links worth clicking. Nothing bought."],
+  ["Report", "Monthly numbers from your own Search Console and GA4, with next month's work named."],
 ];
 
 const CHOOSE: [string, string, string][] = [
@@ -171,7 +171,7 @@ export default function Seo() {
           <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
           <h3 className="sf-h3" id="h-whatis" style={{ marginTop: 28 }}>What is SEO, and how does it work?</h3>
           <p className="sf-measure">SEO, search engine optimization, is the work of making a site easy for Google to crawl, index and understand, then giving it pages worth ranking. It works in a fixed order: technical fixes first, then content, then links, with reporting throughout.</p>
-          <p className="sf-lead sf-measure" style={{ marginTop: 16 }}><span className="sf-lead-in">Why it matters:</span> Most of the work is fixing what blocks Google, not writing more pages. No ranking guarantees, no bought links.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 16 }}><span className="sf-lead-in">Why it matters:</span> Most of the work is fixing what blocks Google. No ranking guarantees, no bought links.</p>
         </SmartSection>
 
         <OfferBand heading="Not sure what is holding your site back?" line="Send the address. We tell you what we would check first." label="Book an SEO audit" />
@@ -215,8 +215,8 @@ export default function Seo() {
             ]}
           >
             <GoDeeper label="what we changed and how we measured it">
-              <p className="sf-rule">The window is 13 August to 19 October 2026, against the same dates in 2025. The 68 days before it were flat, with clicks down 6%, so the lift is not a trend that was already running.</p>
-              <p>These are Search Console figures for one client. We do not quote revenue.</p>
+              <p className="sf-rule">The window is 13 August to 19 October 2026, against the same dates in 2025. The 68 days before it were flat, with clicks down 6%.</p>
+              <p>These are Search Console figures for one client.</p>
               <div className="sf-links"><Link className="sf-link" to={CASE}>Phantom Arcades SEO case study</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -234,7 +234,7 @@ export default function Seo() {
           }}
         >
           <SeoAuditPlate />
-          <p className="sf-lead sf-measure" style={{ marginTop: 24 }}><span className="sf-lead-in">Why it matters:</span> We check five things first: crawl and index, redirects, titles, speed on real visitors and your Business Profile. Sample data, not a client audit.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 24 }}><span className="sf-lead-in">Why it matters:</span> We check five things first: crawl and index, redirects, titles, speed on real visitors and your Business Profile.</p>
         </SmartSection>
 
         <OfferBand heading="Want this list for your site?" line="Send the address and the searches you want to be found for." label="Get an SEO audit" />
@@ -292,10 +292,9 @@ export default function Seo() {
             headingId="h-google"
             title="What Google actually requires"
             lede="Google publishes the rules, and the first is that a page must be crawled and indexed before it can rank."
-            lead="Google says it does not guarantee that a page you submit gets indexed."
           >
             <GoDeeper label="the shortcuts that do not move the needle">
-              <p className="sf-rule">Google's spam policies name buying links, keyword stuffing and mass-produced pages as shortcuts to avoid. Link spam is creating links primarily to manipulate rankings. Keyword stuffing is filling a page with keywords or numbers. Scaled content abuse is many pages generated primarily to manipulate rankings. Repeating a keyword, listing towns to rank in, and promises of a guaranteed number-one ranking are all still sold, and each can cost a site its standing.</p>
+              <p className="sf-rule">Google's spam policies name buying links, keyword stuffing and mass-produced pages as shortcuts to avoid. Link spam is creating links primarily to manipulate rankings. Keyword stuffing is filling a page with keywords or numbers. Scaled content abuse is many pages generated primarily to manipulate rankings.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c7"><GooglePipeline /></div>
@@ -378,7 +377,7 @@ export default function Seo() {
         <DeskCTA
           hcLink={false}
           heading="Get an SEO audit of your site"
-          lede="Send your site address and the searches you want to be found for, and we tell you what we would check first."
+          lede="Send your site address and the searches you want to be found for."
           coversLabel="What the audit covers"
           covers={[
             "Crawl and index coverage: what Google can see",

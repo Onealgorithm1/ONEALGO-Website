@@ -36,7 +36,7 @@ export const U: Record<string, WdUnit> = {
     title: "Websites we built, open them here",
     lede: "OneAlgorithm is a web design and development company in Malvern, PA, and these six sites are our work: open any of them here.",
     leadIn: "Why it matters:",
-    lead: "a live site shows what a template cannot, how it loads, reads and sells on the device in your hand.",
+    lead: "a live site shows how it loads, reads and sells on the device in your hand.",
     deep: "how the previews work",
   },
   what: {
@@ -44,8 +44,8 @@ export const U: Record<string, WdUnit> = {
     title: "What is custom website development?",
     lede: "Custom website development means a site designed and coded for one business, its content and its systems, instead of a template filled in.",
     leadIn: "Why it matters:",
-    lead: "the page you are reading was built this way, and the build stage beside it shows the same process in miniature.",
-    points: ["Designed around one business, from its content outward", "Coded, not configured: no theme, no page builder", "Owned outright: code, domain and hosting in your name"],
+    lead: "the page you are reading was built this way, and the build stage beside it shows the process.",
+    points: ["Designed from your content outward", "Coded: no theme, no page builder", "Code, domain and hosting in your name"],
     deep: "what custom excludes, and how this page was built",
   },
   build: {
@@ -61,8 +61,8 @@ export const U: Record<string, WdUnit> = {
     title: "Website redesign that keeps what already works",
     lede: "A website redesign replaces the design and code while keeping your domain, your content and every address search engines already know, each one redirected.",
     leadIn: "Why it matters:",
-    lead: "a redesign that drops old URLs loses the rankings the old site earned, so the redirect list is written before the first screen is designed.",
-    points: ["Redirect list first: every old address maps to a new one", "Content audit: keep what ranks, rewrite what does not", "Same domain, same accounts, new code"],
+    lead: "a redesign that drops old URLs loses the rankings they earned, so the redirect list comes before the first design.",
+    points: ["Redirect list first: every old address maps to a new one", "Content audit: keep what ranks, rewrite the rest", "Same domain, same accounts, new code"],
     deep: "how a redesign keeps your rankings",
   },
   small: {
@@ -70,14 +70,14 @@ export const U: Record<string, WdUnit> = {
     title: "Website design for small businesses",
     lede: "Small business website design is scoped to three jobs: be found, explain the service, and turn a visit into a call, booking or order.",
     leadIn: "What we do:",
-    lead: "we size the build to that list, so a home inspector, a tutor or a contractor pays for pages that work.",
+    lead: "we size the build to that list, so a home inspector, tutor or contractor pays for pages that work.",
     points: ["Be found: Business Profile, titles, schema and Search Console from day one", "Explain: service pages in the owner's words, by area where it matters", "Convert: phone first, forms to email and CRM, booking where it fits"],
     deep: "what a small business site has to do",
   },
   process: {
     id: "process",
     title: "How a custom website build runs",
-    lede: "A custom website build runs in five stages, from agreeing what the site is for to launch and support, with the work visible throughout.",
+    lede: "A custom website build runs in five stages, from agreeing what the site is for to launch and support.",
     leadIn: "What you get:",
     lead: "the scope, price and schedule in writing before stage three, and a site in your own accounts at stage five.",
   },
@@ -86,7 +86,7 @@ export const U: Record<string, WdUnit> = {
     title: "How much does a website cost?",
     lede: "A website's cost is set by its scope: page layouts, existing content, what it connects to, and whether it sells, books or logs people in.",
     leadIn: "The bottom line:",
-    lead: "tell us what the site has to do and you get the price and the schedule in writing before anyone builds anything.",
+    lead: "tell us what the site has to do and you get the price and schedule in writing.",
     deep: "how the written scope works",
   },
   builder: {
@@ -103,7 +103,7 @@ export const U: Record<string, WdUnit> = {
     lede: "An ADA compliant website is one people with disabilities can use, and we build and test it against WCAG 2.1 AA.",
     leadIn: "What we do:",
     lead: "keyboard access, contrast, text alternatives and structure, checked with the automated rules an auditor runs, then by keyboard.",
-    points: ["WCAG 2.1 AA as the written standard in every proposal", "Automated rules on every build, then a keyboard pass", "No accessibility overlay: fixes go in the code"],
+    points: ["WCAG 2.1 AA written into every proposal", "Automated rules on every build, then a keyboard pass", "No accessibility overlay: fixes go in the code"],
     deep: "the legal question, and how we test",
   },
   after: {
@@ -111,7 +111,7 @@ export const U: Record<string, WdUnit> = {
     title: "After launch: support, hosting and security",
     lede: "After launch the site runs on hosting and a domain you control, with HTTPS and security headers in place, and we stay on for support.",
     leadIn: "Why it matters:",
-    lead: "the one thing a new site must not do is depend on the people who built it.",
+    lead: "a new website should never have to depend on the people who built it.",
     deep: "what the handover includes, and how support is scoped",
   },
   own: {
@@ -119,7 +119,7 @@ export const U: Record<string, WdUnit> = {
     title: "What we build with, and what you keep",
     lede: "We build with HTML, CSS and TypeScript and hand over the source, the domain and the hosting, written so another developer can pick it up.",
     leadIn: "What you get:",
-    lead: "the website and the code are yours outright when it is finished, with no license to keep paying to stay online.",
+    lead: "the website and the code are yours outright, with no license to keep paying to stay online.",
     deep: "what transfers to you, and what we build on",
   },
   found: {
@@ -134,7 +134,7 @@ export const U: Record<string, WdUnit> = {
     title: "Who we build websites for",
     lede: "We build websites for small and mid-sized US businesses and for the construction, manufacturing, e-commerce and public-sector organizations on our industry pages.",
     leadIn: "Why it matters:",
-    lead: "what changes between sectors is what the site connects to and the standard it is judged against, not the build.",
+    lead: "between sectors, what changes is what the site connects to and the standard it is judged against.",
     deep: "what changes by sector",
   },
   choose: {
@@ -169,7 +169,7 @@ export const U: Record<string, WdUnit> = {
 
 /** U3: the four kinds of build, one line each (H3 rows beside the demo sheet). */
 export const BUILD_KINDS: { title: string; line: string; to?: string; linkLabel?: string }[] = [
-  { title: "Marketing and lead-generation sites", line: "Service pages, a phone that is one tap away, and forms that reach the inbox and the CRM." },
+  { title: "Marketing and lead-generation sites", line: "Service pages, a one-tap phone number, and forms that reach the inbox and CRM." },
   { title: "Online stores", line: "Catalogue, stock and checkout on the platform that fits, with one count for the website and the counter." },
   { title: "Web applications", line: "Sites that log people in, take bookings, price a build or run a process.", to: "/services/application-development", linkLabel: "Application development" },
   { title: "Integrations: forms, CRM, bookings, payments", line: "Wired to the systems you already run, with a record when a sync fails.", to: "/services/salesforce", linkLabel: "Salesforce consulting" },
@@ -177,15 +177,15 @@ export const BUILD_KINDS: { title: string; line: string; to?: string; linkLabel?
 
 /** U10: the three H3 rows; `hl` is the HandoverPlate node the row lights (data-hl-key). */
 export const AFTER_ROWS: { title: string; line: string; hl: "repo" | "dns" | "host" | "docs" }[] = [
-  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account, not ours.", hl: "host" },
-  { title: "Security: HTTPS and security headers", line: "HTTPS and security headers set at launch, as on this site.", hl: "dns" },
-  { title: "Updates and support after launch", line: "We stay on under the written proposal's terms. Every project is scoped on its own.", hl: "docs" },
+  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account.", hl: "host" },
+  { title: "Security: HTTPS and security headers", line: "Set at launch, as on this site.", hl: "dns" },
+  { title: "Updates and support after launch", line: "We stay on under the written proposal's terms, scoped per project.", hl: "docs" },
 ];
 
 /** U11: the handover ledger (wording as live since 2026-08-24, WebsiteDevelopment.tsx HANDOVER). */
 export const HANDOVER: { k: string; text: string }[] = [
-  { k: "REPO", text: "Source in your own repository, from day one and at handover" },
-  { k: "DNS", text: "Domain and DNS in your account, not ours" },
+  { k: "REPO", text: "Source in your own repository from day one" },
+  { k: "DNS", text: "Domain and DNS in your account" },
   { k: "HOST", text: "Deployed somewhere you control, and can move" },
   { k: "DOCS", text: "Written so another developer can pick it up" },
 ];
