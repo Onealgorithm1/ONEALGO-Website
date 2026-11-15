@@ -1277,7 +1277,7 @@ export function PageHero({
 
       {/* Team certifications right under the hero buttons (Louis 2026-11-14: "up higher so people see it right away").
           Renders only on Google Ads, SEO and marketing paths (shared-TeamCerts certsFor); nothing elsewhere. */}
-      <TeamCertsLine pathname={path} />
+      <TeamCertsLine pathname={path} className={dark ? "mt-6 text-white/85" : "mt-6 text-oa-ink2"} />
 
       {children}
 
