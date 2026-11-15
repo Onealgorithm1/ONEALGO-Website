@@ -563,7 +563,7 @@ function build(name, all) {
     lead: hoursLead,
     question: name === "Pennsylvania"
       ? { q: "Where is your office?", a: "At 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most work runs remotely, and in-person sessions are easiest across the Philadelphia region when a project calls for them." }
-      : { q: "Do you work with businesses in our area?", a: `Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser.` },
+      : { q: `Do you work with ${P} businesses?`, a: `Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser.` },
     ...(inPhilly ? { plateNote: "SIX COUNTIES IN OUR BUSINESS PROFILE" } : {}),
     deeper: {
       label: "calls, reviews and where the work happens",

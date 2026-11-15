@@ -759,7 +759,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 8 a.m. to 4 p.m. local time, the day 2,779 programming firms here keep.",
    "question": {
-    "q": "Do you work with businesses in our area?",
+    "q": "Do you work with Dallas businesses?",
     "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
