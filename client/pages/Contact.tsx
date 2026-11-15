@@ -28,6 +28,7 @@ const SERVICES = [
   "SEO",
   "Google Ads",
   "Application Development",
+  "AI Automation",
   "MarTech",
   "Operational Transformation",
 ];
@@ -104,7 +105,7 @@ export default function Contact() {
       setFormData((prev) => (prev.whatYouNeed ? prev : { ...prev, whatYouNeed: "Website Development" }));
     }
     const NEED: Record<string, string> = {
-      seo: "SEO", "google-ads": "Google Ads", "app-development": "Application Development", marketing: "Marketing Services",
+      seo: "SEO", "google-ads": "Google Ads", "app-development": "Application Development", "ai-automation": "AI Automation", marketing: "Marketing Services",
       martech: "MarTech", "it-consulting": "IT Consulting", "staff-augmentation": "Staff Augmentation",
       zendesk: "Zendesk Implementation / Support", "operational-transformation": "Operational Transformation",
       industries: "Industry project", construction: "Other", manufacturing: "Other", government: "Other", services: "Other", contact: "Other",

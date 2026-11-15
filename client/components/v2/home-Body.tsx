@@ -20,6 +20,7 @@ const FAMILIES = [
   { to: "/services/seo", title: "SEO services", body: "Search visibility on Google and in AI assistants, measured.", cta: "See SEO services" },
   { to: "/services/google-ads", title: "Google Ads management", body: "Paid search with tracking counted once and the account in your name.", cta: "See Google Ads" },
   { to: "/services/application-development", title: "Custom software development", body: "Portals and internal tools your company owns outright.", cta: "See custom software" },
+  { to: "/services/ai-automation", title: "AI automation services", body: "AI agents and workflow automation, with a person in charge.", cta: "See AI automation" },
   { to: "/services/salesforce", title: "Salesforce consulting", body: "Consulting, migration, integration and managed services from a Select Consulting Partner.", cta: "See Salesforce" },
   { to: "/services/martech", title: "Marketing automation and MarTech", body: "Social, automation and the platforms behind them.", cta: "See MarTech" },
   { to: "/services/it-consulting", title: "IT consulting and staff augmentation", body: "Senior people and a plan for how the work runs.", cta: "See IT consulting" },

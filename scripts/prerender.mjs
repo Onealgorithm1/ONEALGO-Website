@@ -61,6 +61,8 @@ const ROUTES = [
   "/services/salesforce-implementation-cost",
   "/services/salesforce-data-migration",
   "/services/salesforce-integration",
+  "/services/salesforce-agentforce",
+  "/services/ai-automation",
   "/services/salesforce-managed-services",
   "/services/salesforce-health-check",
   "/services/salesforce-marketing-cloud-consulting",

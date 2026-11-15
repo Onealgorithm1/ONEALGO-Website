@@ -310,6 +310,8 @@ export default function Salesforce() {
           <nav aria-label="Related services" style={{ marginTop: 32 }}>
             <p className="sf-kicker">Related services</p>
             <ul className="sf-links" style={{ marginTop: 8 }}>
+              <li><Link className="sf-link" to="/services/salesforce-agentforce">Salesforce Agentforce consulting</Link></li>
+              <li><Link className="sf-link" to="/services/ai-automation">AI automation services</Link></li>
               <li><Link className="sf-link" to="/services/website-development">Custom website design and development</Link></li>
             </ul>
           </nav>

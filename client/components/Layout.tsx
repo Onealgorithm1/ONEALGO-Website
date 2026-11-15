@@ -159,12 +159,14 @@ const NAV_GROUPS: { title: string; to: string; links: { to: string; label: strin
     { to: "/services/salesforce-health-check", label: "Free Health Check" },
     { to: "/services/salesforce-data-migration", label: "Data Migration" },
     { to: "/services/salesforce-integration", label: "Integration" },
+    { to: "/services/salesforce-agentforce", label: "Agentforce" },
     { to: "/services/salesforce-managed-services", label: "Managed Services" },
     { to: "/services/salesforce-marketing-cloud-consulting", label: "Marketing Cloud" },
     { to: "/services/salesforce-implementation-cost", label: "Implementation Cost" },
     { to: "/services/zendesk", label: "Zendesk" },
   ] },
   { title: "Software, IT and Operations", to: "/services/application-development", links: [
+    { to: "/services/ai-automation", label: "AI Automation" },
     { to: "/services/application-development", label: "Custom App Development" },
     { to: "/services/martech", label: "MarTech" },
     { to: "/services/it-consulting", label: "IT Consulting" },
@@ -208,11 +210,11 @@ function Layout({ children }: LayoutProps) {
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
   const pageOffer = offerFor(location.pathname);
   // v2-kit routes (Salesforce + website-development set) carry the AA "contrast" logo tone: orange-500 "One" is 1.86:1 on the white header.
-  const contrastLogo = isSalesforce || location.pathname === "/services/website-development" || location.pathname.startsWith("/services/web-design-");
+  const contrastLogo = isSalesforce || location.pathname === "/services/ai-automation" || location.pathname === "/services/website-development" || location.pathname.startsWith("/services/web-design-");
   // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
   // and every Section/PageHero inside <main> read this one value, so their
   // left edges cannot drift apart. Every other route keeps the 1200px frame.
-  const frame = isSalesforce ? "wide" : "default";
+  const frame = isSalesforce || location.pathname === "/services/ai-automation" ? "wide" : "default";
   // Salesforce link policy (owner rule 2026-10-23): every off-site text link shows the external mark and says
   // it opens a new tab. Footer only, Salesforce routes only; every other page's footer is unchanged.
   const newTab = isSalesforce ? " (opens in a new tab)" : "";
@@ -1204,6 +1206,7 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/google-ads">Google Ads Management</FooterLink>
               <FooterLink to="/services/marketing">Marketing and Social Media</FooterLink>
               <FooterLink to="/services/application-development">Custom App Development</FooterLink>
+              <FooterLink to="/services/ai-automation">AI Automation Services</FooterLink>
               <FooterLink to="/services/martech">MarTech and Marketing Automation</FooterLink>
               <FooterLink to="/services/it-consulting">IT Consulting</FooterLink>
               <FooterLink to="/services/staff-augmentation">Staff Augmentation</FooterLink>
@@ -1229,6 +1232,7 @@ function Layout({ children }: LayoutProps) {
               <FooterLink to="/services/salesforce-health-check">Free Salesforce Health Check</FooterLink>
               <FooterLink to="/services/salesforce-data-migration">Salesforce Data Migration</FooterLink>
               <FooterLink to="/services/salesforce-integration">Salesforce Integration</FooterLink>
+              <FooterLink to="/services/salesforce-agentforce">Salesforce Agentforce</FooterLink>
               <FooterLink to="/services/salesforce-managed-services">Salesforce Managed Services</FooterLink>
               <FooterLink to="/services/salesforce-marketing-cloud-consulting">Marketing Cloud Consulting</FooterLink>
               <FooterLink to="/services/salesforce-implementation-cost">Salesforce Implementation Cost</FooterLink>
