@@ -6,6 +6,7 @@ import {
   EvidenceDialog, Verify, type Readout, type Tone,
 } from "../sf";
 import { contactHref } from "../sf/DeskCTA";
+import { TeamCertsLine } from "../v2/shared-TeamCerts";
 import { SiteWindow } from "./SiteWindow";
 import { RegionPlate } from "./RegionPlate";
 import { LocalFaq } from "./LocalFaq";
@@ -320,6 +321,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
                 <SfButton to={cta} magnet cta="hero">Start a project</SfButton>
                 <a className="sf-phone" href={NAP.phone.href} data-cta="hero">Call {NAP.phone.display}</a>
               </div>
+              <TeamCertsLine pathname={place.path} />
             </div>
           </div>
         </section>

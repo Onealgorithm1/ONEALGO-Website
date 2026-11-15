@@ -1,3 +1,4 @@
+import { TEAM_CERTS } from "../components/v2/shared-TeamCerts";
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
@@ -234,6 +235,26 @@ export default function About() {
                   Algorithm, and we do not present them as clients.
                 </p>
               </Prose>
+
+              {/* Our team's certifications (2026-11-14): individual certifications held by people on the team, worded as the
+                  team's. The same rows feed the line on the Google Ads, SEO and marketing pages (shared-TeamCerts.tsx). */}
+              <h3 className="mt-10 text-lg font-semibold text-oa-ink">Our team's certifications</h3>
+              <table className="mt-4 w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-oa-hairline text-oa-ink3">
+                    <th scope="col" className="py-2 pr-4 font-normal">Platform</th>
+                    <th scope="col" className="py-2 font-normal">Certified in</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-oa-hairline">
+                  {Object.values(TEAM_CERTS).map((r) => (
+                    <tr key={r.platform}>
+                      <th scope="row" className="py-2.5 pr-4 font-medium text-oa-ink">{r.platform}</th>
+                      <td className="py-2.5 text-oa-ink2">{r.detail}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
 
               <dl className="mt-10 divide-y divide-oa-hairline border-y border-oa-hairline">
                 {FACTS.map(([label, value]) => (
