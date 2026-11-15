@@ -386,11 +386,11 @@ export const PLACE: LocalPlace = {
    "h2": "Detroit's SEO searches are winnable",
    "lede": "Two core phrasings draw 1,310 searches a month in our Semrush pull, both with low keyword difficulty.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo company detroit\" draws 720 searches at KD 19; \"seo detroit\" draws 590 at KD 18.",
+   "lead": "\"seo company detroit\" draws 720 searches at KD 19, and \"seo detroit\" draws 590 at KD 18.",
    "deeper": {
     "label": "Why low difficulty matters",
     "paras": [
-     "Low difficulty means the pages ranking today are not unbeatable. Check the keyword difficulty for your own trade phrasings too; where it is low, better pages can move ahead of the current results.",
+     "Low difficulty means the pages ranking today are not unbeatable. Check the keyword difficulty for your own trade phrasings too. Where it is low, better pages can move ahead of the current results.",
      "Advertisers pay about $9.53 per click on \"seo company detroit\" and $6.43 on \"seo detroit\". Those are market prices for one visit, not what we charge. Autocomplete also shows \"seo services rates detroit\" and \"detroit seo consultants\", a sign that buyers compare costs and expertise before choosing."
     ]
    },
@@ -539,7 +539,7 @@ export const PLACE: LocalPlace = {
    "h2": "The SEO routine for Detroit",
    "lede": "Each stage card below is applied to Detroit's phrasings, suburbs and the businesses that hold your results today.",
    "leadIn": "What you get:",
-   "lead": "a technical fix list, a page plan built from Detroit demand, and plain monthly reports with calls and clicks.",
+   "lead": "a technical fix list, a page plan built from Detroit demand, and monthly reports with calls and clicks.",
    "deeper": {
     "label": "How the work unfolds",
     "paras": [
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What do Detroit SEO consultants actually do?",
-     "a": "SEO consultants diagnose why a site underperforms in Google and recommend fixes; some, like us, also make the changes. For a Detroit retailer, one of 14,016 in the metro, that means product and store pages, local listings and reviews, delivered remotely and reported in plain numbers each month.",
+     "a": "SEO consultants diagnose why a site underperforms in Google and recommend fixes. Some, like us, also make the changes. For a Detroit retailer, one of 14,016 in the metro, that means product and store pages, local listings and reviews, delivered remotely and reported in plain numbers each month.",
      "from": "autocomplete: detroit seo consultants"
     },
     {
@@ -617,7 +617,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is a Detroit SEO agency better than a remote one?",
-     "a": "Not by default; SEO happens on your website and in Google, so results depend on method, not zip code. We work remotely from Malvern, PA, in Detroit's time zone. With only 74.4 marketing firms per 10,000 establishments locally, a remote team also widens your choice beyond a thinner local field.",
+     "a": "Not by default. SEO happens on your website and in Google, so results depend on method, not zip code. We work remotely from Malvern, PA, in Detroit's time zone. With only 74.4 marketing firms per 10,000 establishments locally, a remote team also widens your choice beyond a thinner local field.",
      "from": "autocomplete: detroit seo agency"
     },
     {

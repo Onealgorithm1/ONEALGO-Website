@@ -285,7 +285,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "One marketing team, every channel connected",
-   "lede": "Many Houston owners hire a web designer, a social freelancer and an ad vendor separately; we run those pieces as one plan.",
+   "lede": "Many Houston owners hire a web designer, a social freelancer and an ad vendor separately, and we run those pieces as one plan.",
    "leadIn": "Why it matters:",
    "lead": "channels that share one message and one tracking setup are easier to judge and easier to change.",
    "deeper": {
@@ -320,7 +320,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Why audience size changes the plan",
     "paras": [
-     "A metro this large rewards segmentation. Instead of one message to everyone, we split audiences by area and need, then send each group the page, email or post that fits it.",
+     "A metro this large rewards segmentation. We split audiences by area and need, then send each group the page, email or post that fits it.",
      "Professional firms make up 13.7% of businesses here, ranking 17th of 37 and just above the 13.3 median. They are often both your competitors for attention and your best referral partners."
     ]
    },
@@ -350,7 +350,7 @@ export const PLACE: LocalPlace = {
     "label": "Channel by sector",
     "paras": [
      "For Houston retailers we usually start with product email, seasonal landing pages and an accurate Google listing. Clinics lean on reviews and patient education posts. Contractors do well with before-and-after galleries and fast replies to every inquiry.",
-     "We choose the channel mix after reading your sector and your past numbers, not from a standard package."
+     "We choose the channel mix after reading your sector and your past numbers."
     ]
    },
    "table": {
@@ -436,7 +436,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the count honestly",
     "paras": [
      "The 1,190 total is an upper bound, not a list of rivals. Census codes count every establishment filed under advertising or marketing consulting, whatever its size or client base. The number of firms actually running website, search and email for a Houston small business is smaller.",
-     "What the low density does tell you: Houston has fewer marketing providers per establishment than most places with a marketing page, so a capable remote team is a practical option rather than a compromise."
+     "What the low density does tell you: Houston has fewer marketing providers per establishment than most places with a marketing page, so a capable remote team is a practical option."
     ]
    },
    "table": {
@@ -626,7 +626,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a digital marketing agency?",
-     "a": "Ask what it will do first and how it will report. A good agency names the channels, explains the order and shows real results; ours is a Florida arcade manufacturer whose non-brand Google clicks rose 231% year over year. With 1,190 Houston agencies and consultancies to compare, ask each for that evidence.",
+     "a": "Ask what it will do first and how it will report. A good agency names the channels, explains the order and shows real results. Ours is a Florida arcade manufacturer whose non-brand Google clicks rose 231% year over year. With 1,190 Houston agencies and consultancies to compare, ask each for that evidence.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

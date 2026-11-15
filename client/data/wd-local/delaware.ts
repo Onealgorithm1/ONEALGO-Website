@@ -372,22 +372,22 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "76,784 paid employees across 3,066 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "76,784 paid employees across 3,066 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Retail",
-     "line": "62,102 paid employees across 3,742 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
+     "line": "62,102 paid employees across 3,742 establishments in 2023, and a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Hospitality and food",
-     "line": "46,106 paid employees across 2,444 establishments in 2023; a site here needs hours, menus and bookings that read on a phone in a hurry."
+     "line": "46,106 paid employees across 2,444 establishments in 2023, and a site here needs hours, menus and bookings that read on a phone in a hurry."
     }
    ],
    "deeper": {
     "label": "how a remote build runs, stage by stage",
     "paras": [
      "Health care and social assistance alone holds 16.8% of the 457,635 paid employees counted in the state in 2023.",
-     "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them.",
+     "Most of a build runs remotely, and New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them.",
      "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and accommodation and food services.",
      "Finance and insurance is fourth, with 45,586 paid employees in 1,999 establishments."
     ]
@@ -403,8 +403,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Delaware business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a Delaware business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -430,7 +430,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 29,706 establishments, 25,503 had fewer than 20 people and 3,549 employed 20 to 99. Another 576 employed 100 to 499, and 78 employed 500 or more.",
      "Within the 20-to-99 band, 2,650 establishments had 20 to 49 people and 899 had 50 to 99. The average establishment employed 15.4 of the 457,635 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 29,706; that is one establishment for every 35.4 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 29,706. That is one establishment for every 35.4 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 257.5 per 10,000 businesses is a ceiling on web-design firms in the state."
     ]
    }
@@ -443,9 +443,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 62,102 employees.",
    "points": [
-    "Health care: 25 employees per establishment; booking and intake matter most.",
-    "Retail: 16.6 employees per establishment; stock and checkout must agree.",
-    "Hospitality and food: 18.9 employees per establishment; hours and menus must read fast."
+    "Health care: 25 employees per establishment, and booking and intake matter most.",
+    "Retail: 16.6 employees per establishment, and stock and checkout must agree.",
+    "Hospitality and food: 18.9 employees per establishment, and hours and menus must read fast."
    ],
    "table": {
     "caption": "Delaware: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -483,7 +483,7 @@ export const PLACE: LocalPlace = {
      "3,066 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 3,742 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 2,444 establishments that need hours, menus and bookings that read on a phone in a hurry, and finance and insurance, fourth at 45,586 employees, needs secure forms, plain disclosures and a short path to a call.",
      "Professional, scientific and technical services ranks fifth at 39,610 employees, and the 12 sectors we read cover 402,214 of the 457,635 paid employees in the state.",
-     "Together the four employ 230,578 people, 50.4% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 230,578 people, 50.4% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -582,7 +582,7 @@ export const PLACE: LocalPlace = {
    "h2": "765 custom programming firms statewide",
    "lede": "765 custom computer programming establishments (NAICS 541511) operated in the state in 2023, +76.7% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 257.5 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 257.5 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 38 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 268 establishments in 2023.",
@@ -630,7 +630,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Information went from 585 to 1,070 establishments between 2018 and 2023; finance and insurance went from 2,008 to 1,999.",
+     "Information went from 585 to 1,070 establishments between 2018 and 2023, and finance and insurance went from 2,008 to 1,999.",
      "Professional, scientific and technical services came second, +41.6%, and educational services third, +30.7%.",
      "That is a net gain of 3,935 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 405,809 to 457,635 over the same years, +12.8%. Population moved +8% from 2019 to 2024, to 1,051,917."
@@ -679,7 +679,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 29,706 establishments here against the 64 places' own counts, 5th for their change since 2018.",
      "Programming firms run 257.5 per 10,000 businesses here against a median of 85.2. The under-20 share is 85.9% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 740, 55th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 740, 55th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -741,7 +741,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 76,784 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the state, where health care and social assistance employs 76,784 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 1,407 systems design establishments in the state could pick up from.",
      "For the 3,742 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
@@ -756,14 +756,14 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 765 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Delaware?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in Delaware?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "plateNote": "SIX COUNTIES IN OUR BUSINESS PROFILE",
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover most of a Delaware build; when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule."
+     "Calls and screen-shares cover most of a Delaware build, and when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule."
     ]
    }
   },
@@ -780,7 +780,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Delaware?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 25,503 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $7.69 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 25,503 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $7.69 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -789,7 +789,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the state, 85.9% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the state, 85.9% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -807,7 +807,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is website design tax deductible?",
-     "a": "Your accountant decides how to book it, under federal and Delaware rules. Our proposals separate design, development, hosting and support, so each line can be booked on its own; 29,706 establishments in the state face the same question, and we do not give tax advice.",
+     "a": "Your accountant decides how to book it, under federal and Delaware rules, and we do not give tax advice. Our proposals separate design, development, hosting and support for any of the 29,706 establishments in the state, so each line can be booked on its own.",
      "from": "suggest-base: is website design tax deductible / should website design be capitalized"
     },
     {
@@ -821,7 +821,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you build accessible websites in Delaware?",
-     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the 3,066 health care and social assistance establishments in the state, whose patients include people of every ability.",
+     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the 3,066 health care and social assistance establishments in the state, whose patients include people of every ability.",
      "from": "suggest-base: why is accessibility important in web design",
      "link": {
       "to": "/services/website-development#accessibility",

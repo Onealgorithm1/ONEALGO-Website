@@ -346,7 +346,7 @@ export const PLACE: LocalPlace = {
     "label": "Florida-specific patterns",
     "paras": [
      "Real estate stands out with 47,772 establishments. Agents and brokers compete on neighborhood and community pages, and the ones who publish genuinely useful local guides tend to hold their positions.",
-     "Construction's 68,008 establishments face a seasonal and storm-driven search pattern. Pages for roofing, restoration and remodeling need to be live and indexed before demand spikes, not after."
+     "Construction's 68,008 establishments face a seasonal and storm-driven search pattern. Pages for roofing, restoration and remodeling need to be live and indexed before demand spikes."
     ]
    },
    "table": {
@@ -390,8 +390,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Costs and phrasing",
     "paras": [
-     "Bidders pay $11.72 for one click on \"seo company florida\" and $8.49 on \"seo florida\". Those are Google's prices for a single visit, not ours, and they show what an organic position saves.",
-     "Autocomplete is revealing. Floridians type \"local seo company florida\", \"seo company south florida\" and \"best law firm seo company florida\". Regional and trade-specific intent is strong, which supports building region and practice pages rather than one statewide catch-all."
+     "Bidders pay $11.72 for one click on \"seo company florida\" and $8.49 on \"seo florida\". Those are Google's prices for a single visit, and they show what an organic position saves.",
+     "Autocomplete is revealing. Floridians type \"local seo company florida\", \"seo company south florida\" and \"best law firm seo company florida\". Regional and trade-specific intent is strong, which supports building region and practice pages."
     ]
    },
    "table": {

@@ -281,7 +281,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "A marketing system for Nashville, Tennessee businesses",
-   "lede": "Most Nashville companies do not need more channels; they need one clear message carried through the site, search, email and social.",
+   "lede": "Most Nashville companies need one clear message carried through the site, search, email and social.",
    "leadIn": "Why it matters:",
    "lead": "scattered posts and ads without a working website burn budget, while a joined-up plan compounds month after month.",
    "deeper": {
@@ -318,7 +318,7 @@ export const PLACE: LocalPlace = {
     "label": "Why the business mix shapes the plan",
     "paras": [
      "Marketing to consumers and marketing to other businesses need different calendars. Nashville's mix tilts toward consumer-facing sectors: professional firms are only 10.2 of every hundred establishments, against a 13.3 median across our marketing place pages.",
-     "That ranks the metro 35th of 37 on professional share. For most local businesses here, the winning plan reaches households through search, social and reviews, rather than relying on long trade-show style sales cycles."
+     "That ranks the metro 35th of 37 on professional share. For most local businesses here, the winning plan reaches households through search, social and reviews."
     ]
    },
    "readouts": [
@@ -337,7 +337,7 @@ export const PLACE: LocalPlace = {
    "h2": "Which Nashville sectors marketing reaches",
    "lede": "Retail, health care and professional services are the three biggest sectors, followed closely by 4,621 construction establishments.",
    "leadIn": "What we do:",
-   "lead": "each sector buys marketing for a different reason, so the channel mix changes with the industry, not with the agency's favourite tool.",
+   "lead": "each sector buys marketing for a different reason, so the channel mix changes with the industry.",
    "points": [
     "Construction and trades: before-and-after posts plus reviews drive calls.",
     "Finance and insurance, 3,320 establishments: email and trust content matter most.",
@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "label": "Social media dominates the long tail",
     "paras": [
      "Those CPC figures are the price an advertiser pays Google per click, not our fees. Both terms carry a keyword difficulty of 27, which means a well-built page can compete without years of link history.",
-     "Google autocomplete is full of social requests: \"social media marketing agency nashville\", \"social media management nashville\" and \"nashville social media agency\". Plenty of searchers want someone to run their social accounts. We handle that, but we tie posts to the website and reviews so they produce calls, not just likes.",
+     "Google autocomplete is full of social requests: \"social media marketing agency nashville\", \"social media management nashville\" and \"nashville social media agency\". Plenty of searchers want someone to run their social accounts. We handle that, but we tie posts to the website and reviews so they produce calls.",
      "The two tracked phrasings sum to 1,880 monthly searches."
     ]
    },
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "h2": "From website to automation, in order",
    "lede": "We stack marketing channels in the order that lets each one feed the next.",
    "leadIn": "The bottom line:",
-   "lead": "site and message, then search, blog and email, then authority, then automated social, profile posts and review replies; paid ads arrive last.",
+   "lead": "site and message, then search, blog and email, then authority, then automated social, profile posts and review replies. Paid ads arrive last.",
    "points": [
     "A website that converts makes every later channel cheaper.",
     "Automated social and review routines keep a Nashville profile active.",
@@ -545,7 +545,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Inside the stages",
     "paras": [
-     "The first conversation is about your customers and margins, not tactics. From there we write the plan: which pages change, which content gets produced, which automations get switched on and when ads would make sense.",
+     "The first conversation is about your customers and margins. From there we write the plan: which pages change, which content gets produced, which automations get switched on and when ads would make sense.",
      "Each month you see what was shipped and what moved, using your Google Analytics, Search Console and Business Profile data. Nothing hides behind an agency login."
     ]
    },
@@ -619,7 +619,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How should I compare marketing firms in Nashville?",
-     "a": "Compare written plans, reporting sources and account ownership rather than portfolios alone. Ask whether reports come from your own analytics and whether ad accounts sit in your name. Nashville has 97.6 agencies and consultants per 10,000 establishments, so you can afford to be selective.",
+     "a": "Compare written plans, reporting sources and account ownership. Ask whether reports come from your own analytics and whether ad accounts sit in your name. Nashville has 97.6 agencies and consultants per 10,000 establishments, so you can afford to be selective.",
      "from": "autocomplete: marketing firms in nashville"
     },
     {

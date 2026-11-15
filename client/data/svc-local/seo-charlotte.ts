@@ -287,7 +287,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What working together looks like",
     "paras": [
-     "We handle audits, keyword research, page rewrites, technical repairs and link earning from our office in Malvern, Pennsylvania. Nothing requires an on-site visit; you approve work through shared documents and calls.",
+     "We handle audits, keyword research, page rewrites, technical repairs and link earning from our office in Malvern, Pennsylvania. You approve work through shared documents and calls.",
      "Charlotte has one quirk worth fixing early: its autocomplete mixes in Charlottesville, Port Charlotte and Charlotte County, Florida. Clear North Carolina signals in titles, schema and listings help you appear for the right Charlotte."
     ]
    },
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "Charlotte searches for SEO help",
    "lede": "Two phrasings each draw 880 searches a month in our Semrush pull, 1,760 together.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo company charlotte\" carries KD 27 and a $13.21 click price; \"seo charlotte\" is harder at KD 36.",
+   "lead": "\"seo company charlotte\" carries KD 27 and a $13.21 click price, and \"seo charlotte\" is harder at KD 36.",
    "deeper": {
     "label": "What the phrasing reveals",
     "paras": [
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "Yes, but:",
    "lead": "at 94.5 per 10,000 establishments, 28th of 59 and a little above the 90.1 median, the field is ordinary, not packed.",
    "points": [
-    "Treat that total as a ceiling; many never offer SEO.",
+    "Treat that total as a ceiling, since many never offer SEO.",
     "Custom programming is thin, 71.6 per 10,000, ranking 42nd.",
     "Fewer technical shops means site quality can still differentiate."
    ],
@@ -612,7 +612,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a Charlotte SEO agency or a remote one?",
-     "a": "Hire for method and accountability; location matters little in SEO because the work happens on your site and in Google. We work remotely from Malvern, PA, on Eastern time like Charlotte. Among the metro's 545 marketing consultancies, a local office rarely changes results; a clear plan and honest reporting do.",
+     "a": "Hire for method and accountability. Location matters little in SEO because the work happens on your site and in Google. We work remotely from Malvern, PA, on Eastern time like Charlotte. Among the metro's 545 marketing consultancies, a local office rarely changes results. A clear plan and monthly reporting do.",
      "from": "autocomplete: charlotte seo agency"
     },
     {

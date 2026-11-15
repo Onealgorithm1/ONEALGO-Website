@@ -293,7 +293,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What management means here",
     "paras": [
-     "Managing ads is less about clever headlines and more about plumbing. We confirm calls and form fills are counted correctly, choose search terms from real query data, write ads that match landing pages and adjust bids against results rather than impressions.",
+     "We confirm calls and form fills are counted correctly, choose search terms from real query data, write ads that match landing pages and adjust bids against results rather than impressions.",
      "We run accounts remotely from Malvern, Pennsylvania, inside an ad account registered to your business. You keep the history, the data and the billing relationship with Google."
     ]
    },
@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reviews and access",
     "paras": [
-     "You grant us manager access to your account and review it with you on screen-share calls. Reports arrive as links you open in your browser.",
+     "You grant us manager access to your account and we review it with you on screen-share calls. Reports arrive as links you open in your browser.",
      "The work is done from our single location in Malvern, Pennsylvania. Reach us at (610) 890-9711."
     ]
    }
@@ -621,7 +621,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is Chicago PPC management worth it for a small business?",
-     "a": "It is worth it when tracking works and the landing page converts; otherwise spend leaks. Chicago has 37.9 residents per establishment, so competition for local attention is real. Start small, measure calls and forms, and scale only what produces customers.",
+     "a": "It is worth it when tracking works and the landing page converts. Otherwise spend leaks. Chicago has 37.9 residents per establishment, so competition for local attention is real. Start small, measure calls and forms, and scale only what produces customers.",
      "from": "autocomplete: chicago ppc management"
     },
     {
@@ -641,7 +641,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How can I get my website to show up on Google in Chicago?",
-     "a": "Ads put you at the top immediately; SEO earns lasting organic spots. Most Chicago firms benefit from both. With 248,519 establishments competing, we often start ads for fast data while organic pages build. Our SEO team works from the same tracking.",
+     "a": "Ads put you at the top immediately. SEO earns lasting organic spots. Most Chicago firms benefit from both. With 248,519 establishments competing, we often start ads for fast data while organic pages build. Our SEO team works from the same tracking.",
      "from": "questionBank: how to get your website to show up on google",
      "link": {
       "to": "/services/seo-chicago",

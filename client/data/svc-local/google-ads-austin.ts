@@ -292,7 +292,7 @@ export const PLACE: LocalPlace = {
     "label": "How the account is run",
     "paras": [
      "The Google Ads account is created under your business and you keep full access. We join as managers, work in it remotely from Pennsylvania and leave a written note of every significant change.",
-     "Most Austin accounts we would build start small: a handful of tightly themed ad groups for your most profitable services, each pointing to a page written for that search."
+     "An Austin account usually starts small: a handful of tightly themed ad groups for your most profitable services, each pointing to a page written for that search."
     ]
    },
    "cards": [
@@ -350,7 +350,7 @@ export const PLACE: LocalPlace = {
     "label": "Fitting ads to the business",
     "paras": [
      "Contractors usually do best with call-focused campaigns limited to the suburbs they serve. Practices separate high-value treatments into their own campaigns so the budget follows profit. Professional firms track form submissions through to qualified leads.",
-     "We set the structure after looking at what a customer is worth to you, not from a template."
+     "We set the structure after looking at what a customer is worth to you."
     ]
    },
    "table": {
@@ -634,7 +634,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I promote my website on Google?",
-     "a": "Use ads for immediate placement and SEO for long-term traffic. Austin has 159.5 advertising and marketing firms per 10,000 establishments, so competitors are likely promoting too; a fast site with clear service pages helps both your ads and your organic rankings hold their ground.",
+     "a": "Use ads for immediate placement and SEO for long-term traffic. Austin has 159.5 advertising and marketing firms per 10,000 establishments, so competitors are likely promoting too. A fast site with clear service pages helps both your ads and your organic rankings hold their ground.",
      "from": "questionBank: how to promote your website on google",
      "link": {
       "to": "/services/seo",

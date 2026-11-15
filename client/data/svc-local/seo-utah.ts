@@ -289,7 +289,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "This page covers SEO for Utah as a whole. We also have a dedicated city page for Salt Lake City, where the metro-level numbers live.",
      "OneAlgorithm handles Utah work remotely from Malvern, Pennsylvania. Audits, page plans and fixes are shared on calls and preview links, and the reporting comes from your own Search Console.",
-     "For a business that serves several Utah regions, the core decision is structure: which towns and services deserve their own page, and which can share one. We make that call from search volume, not guesswork."
+     "For a business that serves several Utah regions, the core decision is structure: which towns and services deserve their own page, and which can share one. We make that call from search volume."
     ]
    },
    "cards": [
@@ -318,7 +318,7 @@ export const PLACE: LocalPlace = {
     "label": "Where Utah stands among our pages",
     "paras": [
      "Utah ranks 22nd of 59 SEO place pages on establishments and 23rd on population. Its professional services share is 14.2 of every hundred establishments, above the 13 median, ranking 20th.",
-     "A higher professional share usually means more business buyers searching for specialist help, and more firms competing for them. For SEO, that raises the value of pages that answer detailed, technical questions instead of broad ones."
+     "A higher professional share usually means more business buyers searching for specialist help, and more firms competing for them. For SEO, that raises the value of pages that answer detailed, technical questions."
     ]
    },
    "readouts": [
@@ -387,11 +387,11 @@ export const PLACE: LocalPlace = {
    "h2": "Utah's SEO searches, by phrase",
    "lede": "Utah buyers lean toward \"seo company utah\" over the shorter form, and both phrasings carry expensive clicks.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo company utah\" gets 1,300 searches a month at $15.42 per ad click; \"seo utah\" gets 1,000 at $20.15.",
+   "lead": "\"seo company utah\" gets 1,300 searches a month at $15.42 per ad click, and \"seo utah\" gets 1,000 at $20.15.",
    "deeper": {
     "label": "Reading the Utah table",
     "paras": [
-     "Those CPCs are what advertisers pay Google per click, not our price. A $20.15 click on a statewide term shows how much businesses value showing up for it, which is the case for earning the organic listing instead.",
+     "Those CPCs are what advertisers pay Google per click, not our price. A $20.15 click on a statewide term shows how much businesses value showing up for it, which is the case for earning the organic listing.",
      "Keyword difficulty is moderate: 26 for \"seo company utah\" and 23 for \"seo utah\". The two phrases sum to 2,300 monthly searches.",
      "Autocomplete shows how Utahns phrase it: \"utah seo experts\", \"utah seo pros\" and even town-level forms like \"seo hurricane utah\". Searches that name a smaller town are a reminder that statewide businesses need town pages, not just a state page."
     ]
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "h2": "Growing a Utah site in stages",
    "lede": "Statewide SEO grows from a solid core site outward to regional pages, content and authority.",
    "leadIn": "The bottom line:",
-   "lead": "message and website first, then regional pages, blog, email and links, then automated profile posts and review replies; ads after organic traction.",
+   "lead": "message and website first, then regional pages, blog, email and links, then automated profile posts and review replies, and ads after organic traction.",
    "points": [
     "Core service pages before any town pages.",
     "Town pages only where Utah search demand justifies them.",
@@ -619,7 +619,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is \"seo utah\" worth ranking for?",
-     "a": "For an SEO provider, yes; for most businesses, your own service terms matter more. \"seo utah\" draws 1,000 searches a month and advertisers pay $20.15 a click. The same logic applies to your industry: expensive ad terms usually signal valuable organic positions.",
+     "a": "For an SEO provider, yes. For most businesses, your own service terms matter more. \"seo utah\" draws 1,000 searches a month and advertisers pay $20.15 a click. The same logic applies to your industry: expensive ad terms usually signal valuable organic positions.",
      "from": "autocomplete: seo utah"
     },
     {

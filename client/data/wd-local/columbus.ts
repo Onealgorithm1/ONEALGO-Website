@@ -380,15 +380,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "173,317 paid employees across 6,208 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "173,317 paid employees across 6,208 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Retail",
-     "line": "104,246 paid employees across 5,594 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
+     "line": "104,246 paid employees across 5,594 establishments in 2023, and a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Hospitality and food",
-     "line": "100,354 paid employees across 4,869 establishments in 2023; a site here needs hours, menus and bookings that read on a phone in a hurry."
+     "line": "100,354 paid employees across 4,869 establishments in 2023, and a site here needs hours, menus and bookings that read on a phone in a hurry."
     }
    ],
    "deeper": {
@@ -411,8 +411,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Columbus business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a Columbus business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -438,7 +438,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 46,419 establishments, 37,708 had fewer than 20 people and 7,105 employed 20 to 99. Another 1,434 employed 100 to 499, and 172 employed 500 or more.",
      "Within the 20-to-99 band, 5,230 establishments had 20 to 49 people and 1,875 had 50 to 99. The average establishment employed 21.2 of the 985,064 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 46,419; that is one establishment for every 47.9 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 46,419. That is one establishment for every 47.9 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 109.9 per 10,000 businesses is a ceiling on web-design firms in the metro."
     ]
    }
@@ -451,9 +451,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 104,246 employees.",
    "points": [
-    "Health care: 27.9 employees per establishment; booking and intake matter most.",
-    "Retail: 18.6 employees per establishment; stock and checkout must agree.",
-    "Hospitality and food: 20.6 employees per establishment; hours and menus must read fast."
+    "Health care: 27.9 employees per establishment, and booking and intake matter most.",
+    "Retail: 18.6 employees per establishment, and stock and checkout must agree.",
+    "Hospitality and food: 20.6 employees per establishment, and hours and menus must read fast."
    ],
    "table": {
     "caption": "The Columbus metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -491,7 +491,7 @@ export const PLACE: LocalPlace = {
      "6,208 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 5,594 in retail trade need stock that matches the till and a phone checkout.",
      "Accommodation and food services counts 4,869 establishments that need hours, menus and bookings that read on a phone in a hurry, and manufacturing, fourth at 73,869 employees, needs spec sheets, distributor lookups and request-for-quote forms.",
      "Finance and insurance ranks fifth at 70,661 employees, and the 12 sectors we read cover 793,987 of the 985,064 paid employees in the metro.",
-     "Together the four employ 451,786 people, 45.9% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 451,786 people, 45.9% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -519,7 +519,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -595,7 +595,7 @@ export const PLACE: LocalPlace = {
    "h2": "510 custom programming firms in the metro",
    "lede": "510 custom computer programming establishments (NAICS 541511) operated in the metro in 2023, +3.9% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 109.9 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 109.9 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 115 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 237 establishments in 2023.",
@@ -643,7 +643,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Real estate, rental and leasing went from 2,268 to 2,797 establishments between 2018 and 2023; wholesale trade went from 2,050 to 1,938.",
+     "Real estate, rental and leasing went from 2,268 to 2,797 establishments between 2018 and 2023, and wholesale trade went from 2,050 to 1,938.",
      "Construction came second, +17.1%, and health care and social assistance third, +10.8%.",
      "That is a net gain of 3,265 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 904,670 to 985,064 over the same years, +8.9%. Population moved +4.9% from 2019 to 2024, to 2,225,377."
@@ -692,7 +692,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 46,419 establishments here against the 64 places' own counts, 27th for their change since 2018.",
      "Programming firms run 109.9 per 10,000 businesses here against a median of 85.2. The under-20 share is 81.2% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,020, 44th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 1,020, 44th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -744,7 +744,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 173,317 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the metro, where health care and social assistance employs 173,317 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 1,021 systems design establishments in the metro could pick up from.",
      "For the 5,594 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
@@ -759,13 +759,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 510 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Columbus?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in Columbus?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -782,7 +782,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Columbus?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 37,708 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $12.84 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 37,708 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $12.84 a click for the main web design phrasing here (Semrush).",
      "from": "suggest-places: columbus ohio web design cost",
      "link": {
       "to": "/services/website-development#cost",
@@ -791,7 +791,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the metro, 81.2% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the metro, 81.2% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -827,7 +827,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you build accessible websites in Columbus?",
-     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the 6,208 health care and social assistance establishments in the metro, whose patients include people of every ability.",
+     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the 6,208 health care and social assistance establishments in the metro, whose patients include people of every ability.",
      "from": "suggest-base: why is accessibility important in web design",
      "link": {
       "to": "/services/website-development#accessibility",

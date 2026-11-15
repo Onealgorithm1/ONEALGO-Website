@@ -281,7 +281,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Los Angeles marketing starts with the message",
-   "lede": "Most Los Angeles companies do not lack channels; they lack one clear sentence that tells a stranger why to pick them.",
+   "lede": "Most Los Angeles companies have the channels but lack one clear sentence that tells a stranger why to pick them.",
    "leadIn": "Why it matters:",
    "lead": "every post, email and ad repeats the homepage message, so a muddy message gets amplified everywhere at once.",
    "deeper": {
@@ -494,7 +494,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Result",
-     "line": "Clicks up 92%; non-brand clicks up 231% year over year."
+     "line": "Clicks up 92%, non-brand clicks up 231% year over year."
     }
    ],
    "links": [
@@ -613,7 +613,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a digital marketing agency in Los Angeles?",
-     "a": "Choose the one that tells you, in writing, what it will do first and how it will measure it. With 4,870 marketing consulting firms in the metro, ask who owns the accounts, how leads are tracked and what the monthly report shows. Clear answers matter more than a long client list.",
+     "a": "Choose the one that tells you, in writing, what it will do first and how it will measure it. With 4,870 marketing consulting firms in the metro, ask who owns the accounts, how leads are tracked and what the monthly report shows.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {
@@ -633,7 +633,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can a marketing agency outside Los Angeles run our campaigns?",
-     "a": "Yes. We work remotely from Malvern, PA, and every draft, report and account is visible to you online. Campaigns are scheduled for Pacific time, and we study the Los Angeles market, its 411,949 establishments and its search patterns, before writing anything. Location matters less than method and reporting.",
+     "a": "Yes. We work remotely from Malvern, PA, and every draft, report and account is visible to you online. Campaigns are scheduled for Pacific time, and we study the Los Angeles market, its 411,949 establishments and its search patterns, before writing anything.",
      "from": "autocomplete: marketing agency los angeles"
     }
    ]

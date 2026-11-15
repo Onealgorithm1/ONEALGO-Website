@@ -318,7 +318,7 @@ export const PLACE: LocalPlace = {
     "label": "Where Boston lands",
     "paras": [
      "Among the 37 places where we publish marketing pages, Boston ranks 12th by establishment count and 13th by population. That is a large audience, and a noisy one: buyers see a lot of marketing before they ever reach yours.",
-     "Professional, scientific and technical services hold 13.3% of establishments here, exactly the median of 13.3 across those marketing pages. The economy is broad rather than tilted toward one specialty.",
+     "Professional, scientific and technical services hold 13.3% of establishments here, exactly the median of 13.3 across those marketing pages. The economy is broad.",
      "For marketing, broad means a single message rarely fits everyone. Campaigns work better aimed at one buyer type at a time, with a landing page written for that buyer alone."
     ]
    },
@@ -393,7 +393,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the phrases reveal",
     "paras": [
-     "\"marketing agency boston\" adds 590 monthly searches at $5.40 a click, for 1,470 across both rows. Those click prices are what advertisers pay Google; they say nothing about our fees.",
+     "\"marketing agency boston\" adds 590 monthly searches at $5.40 a click, for 1,470 across both rows. Those click prices are what advertisers pay Google, not our fees.",
      "Keyword difficulty sits at 30 and 27, moderate for a big metro. The more telling data is in autocomplete: Boston searchers type \"social media marketing agency boston\" and \"social media management boston\", which says many buyers start with social and only later discover they need the rest.",
      "We take that as a cue. Social works best when it points to a site that converts, so a social-first request usually becomes a website-and-message conversation in the first meeting."
     ]
@@ -436,7 +436,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the agency density",
     "paras": [
      "Consultancies far outnumber ad agencies here. Many are solo strategists or specialists in one channel, which is why Boston buyers often end up stitching together a designer, an SEO person and a social freelancer.",
-     "We take the opposite approach: one plan, one team, one order of work. The website and message come first, and every later channel builds on them instead of competing for the same budget.",
+     "We take the opposite approach: one plan, one team, one order of work. The website and message come first, and every later channel builds on them.",
      "The 1,040 figure is a ceiling. Plenty of those firms serve national brands or a single niche and would never pitch a local contractor or clinic."
     ]
    },
@@ -515,7 +515,7 @@ export const PLACE: LocalPlace = {
    "h2": "From website to automation in Boston",
    "lede": "Growth follows a set sequence, and skipping ahead to ads or social is the most common way Boston budgets leak.",
    "leadIn": "The bottom line:",
-   "lead": "organic search, content and email build an asset; paid ads rent attention and work best once that asset exists.",
+   "lead": "organic search, content and email build an asset, while paid ads rent attention and work best once that asset exists.",
    "points": [
     "First, a website and message that turn visitors into enquiries.",
     "Then SEO, a blog, email and authority-building mentions.",
@@ -526,7 +526,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Automation is not robots writing your brand voice. It is scheduled social posts drafted from your real work, regular Google Business Profile updates, and review requests sent after each job, with replies written and posted for you.",
      "For a Boston trade or clinic, that keeps the profile buyers see alive every week. For a professional firm, it keeps a newsletter going out on schedule without anyone remembering to send it.",
-     "Paid campaigns come last. By then we know which pages convert and which messages land, so ad spend goes to proven winners instead of experiments."
+     "Paid campaigns come last. By then we know which pages convert and which messages land, so ad spend goes to proven winners."
     ]
    },
    "links": [
@@ -633,7 +633,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is a digital marketing firm, compared with a Boston ad agency?",
-     "a": "A digital marketing firm runs your website, search, content, email and social together. An ad agency usually focuses on campaigns and media buying. Boston has 212 ad agencies against 828 consultancies; we sit closer to the second group, starting with the site rather than the ad.",
+     "a": "A digital marketing firm runs your website, search, content, email and social together. An ad agency usually focuses on campaigns and media buying. Boston has 212 ad agencies against 828 consultancies. We sit closer to the second group, starting with the site rather than the ad.",
      "from": "questionBank: what is a digital marketing firm"
     },
     {

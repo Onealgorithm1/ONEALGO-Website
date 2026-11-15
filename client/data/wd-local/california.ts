@@ -370,15 +370,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "2,347,305 paid employees across 132,345 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "2,347,305 paid employees across 132,345 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Hospitality and food",
-     "line": "1,788,988 paid employees across 95,952 establishments in 2023; a site here needs hours, menus and bookings that read on a phone in a hurry."
+     "line": "1,788,988 paid employees across 95,952 establishments in 2023, and a site here needs hours, menus and bookings that read on a phone in a hurry."
     },
     {
      "h3": "Admin and support",
-     "line": "1,738,165 paid employees across 48,724 establishments in 2023; a site here needs clear service pages, quote requests and a careers page that fills roles."
+     "line": "1,738,165 paid employees across 48,724 establishments in 2023, and a site here needs clear service pages, quote requests and a careers page that fills roles."
     }
    ],
    "deeper": {
@@ -401,8 +401,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a California business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a California business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -428,7 +428,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 1,029,689 establishments, 892,347 had fewer than 20 people and 114,955 employed 20 to 99. Another 19,672 employed 100 to 499, and 2,715 employed 500 or more.",
      "Within the 20-to-99 band, 86,596 establishments had 20 to 49 people and 28,359 had 50 to 99. The average establishment employed 15.9 of the 16,405,436 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 1,029,689; that is one establishment for every 38.3 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 1,029,689. That is one establishment for every 38.3 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 106.5 per 10,000 businesses is a ceiling on web-design firms in the state."
     ]
    }
@@ -441,9 +441,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and accommodation and food services comes next at 1,788,988 employees.",
    "points": [
-    "Health care: 17.7 employees per establishment; booking and intake matter most.",
-    "Hospitality and food: 18.6 employees per establishment; hours and menus must read fast.",
-    "Admin and support: 35.7 employees per establishment; service pages and careers carry it."
+    "Health care: 17.7 employees per establishment, and booking and intake matter most.",
+    "Hospitality and food: 18.6 employees per establishment, and hours and menus must read fast.",
+    "Admin and support: 35.7 employees per establishment, and service pages and careers carry it."
    ],
    "table": {
     "caption": "California: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -481,7 +481,7 @@ export const PLACE: LocalPlace = {
      "132,345 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 95,952 in accommodation and food services need hours, menus and bookings that read on a phone in a hurry.",
      "Administrative and support services counts 48,724 establishments that need clear service pages, quote requests and a careers page that fills roles, and retail trade, fourth at 1,702,044 employees, needs stock that matches the till and a phone checkout.",
      "Professional, scientific and technical services ranks fifth at 1,430,821 employees, and the 12 sectors we read cover 14,155,201 of the 16,405,436 paid employees in the state.",
-     "Together the four employ 7,576,502 people, 46.2% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 7,576,502 people, 46.2% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -579,7 +579,7 @@ export const PLACE: LocalPlace = {
    "h2": "10,962 custom programming firms statewide",
    "lede": "10,962 custom computer programming establishments (NAICS 541511) operated in the state in 2023, +1.4% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 106.5 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 106.5 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 2,709 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 9,390 establishments in 2023.",
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Educational services went from 14,926 to 17,203 establishments between 2018 and 2023; wholesale trade went from 58,226 to 54,671.",
+     "Educational services went from 14,926 to 17,203 establishments between 2018 and 2023, and wholesale trade went from 58,226 to 54,671.",
      "Health care and social assistance came second, +14.8%, and construction third, +11.9%.",
      "That is a net gain of 75,057 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 15,223,664 to 16,405,436 over the same years, +7.8%. Population moved −0.2% from 2019 to 2024, to 39,431,263."
@@ -676,7 +676,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 1,029,689 establishments here against the 64 places' own counts, 26th for their change since 2018.",
      "Programming firms run 106.5 per 10,000 businesses here against a median of 85.2. The under-20 share is 86.7% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 850, 50th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 850, 50th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -745,7 +745,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 2,347,305 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the state, where health care and social assistance employs 2,347,305 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 20,696 systems design establishments in the state could pick up from.",
      "For the 95,952 accommodation and food services establishments here, stage two usually lists hours, menus and bookings that read on a phone in a hurry."
     ]
@@ -760,13 +760,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 6 a.m. to 2 p.m. local time, the day 10,962 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in California?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in California?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -783,7 +783,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in California?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 892,347 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $8.98 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 892,347 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $8.98 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -792,7 +792,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the state, 86.7% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the state, 86.7% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -820,7 +820,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should a California business hire a freelancer or a web design firm?",
-     "a": "Either can work; what matters is live sites you can open, who owns the code and a written scope. The state had 10,962 custom programming and 2,709 graphic design establishments in 2023, and a firm keeps the work moving when one person is away.",
+     "a": "Either can work. What matters is live sites you can open, who owns the code and a written scope. The state had 10,962 custom programming and 2,709 graphic design establishments in 2023, and a firm keeps the work moving when one person is away.",
      "from": "suggest-places: web designers california freelance",
      "link": {
       "to": "/services/website-development#choose",

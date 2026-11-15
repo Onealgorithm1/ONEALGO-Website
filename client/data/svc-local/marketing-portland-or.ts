@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "We designed and rebuilt the site for search, including a 3D cabinet configurator, and mapped 80+ old addresses to their new pages with redirects so earned visibility carried over.",
      "Search Console compared mid-August to mid-October 2026 with the same dates in 2025: clicks went from 1,112 to 2,130 and non-brand clicks from 95 to 314, while impressions rose 63%. The equal stretch just before was flat.",
-     "For a Portland business the lesson is order: get the site and its addresses right first, then let email, social and reviews build on it."
+     "For a Portland business, get the site and its addresses right first, then let email, social and reviews build on it."
     ]
    },
    "cards": [
@@ -510,7 +510,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Portland marketing scales up",
    "lede": "We scale marketing one proven channel at a time, starting with the site every other channel points to.",
    "leadIn": "The bottom line:",
-   "lead": "site and message, then search, blog, email and authority, then social, profile and review automation; paid ads follow organic traction.",
+   "lead": "site and message, then search, blog, email and authority, then social, profile and review automation. Paid ads follow organic traction.",
    "points": [
     "A clear website message comes before any posting schedule.",
     "Automation keeps social and reviews active without extra staff.",

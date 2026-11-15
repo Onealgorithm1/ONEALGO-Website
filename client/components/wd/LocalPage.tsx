@@ -168,7 +168,7 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
             title={`Diagram of the five stages of ${/^[AEIO]/.test(place.name) ? "an" : "a"} ${place.name} web project`}
             desc="A rail runs through five stations: agree what the site is for; scope, price and schedule in writing; design in the browser; build and wire it up; launch, hand over and stay on."
             stamp="The five stages · in the order they run"
-            caption="The five stages in order; the written scope, price and schedule come at stage two."
+            caption="The five stages in order, with the written scope, price and schedule at stage two."
           />
           <ol className="sf-c12 wd-stages5">
             {STAGES.map((st) => (
@@ -220,7 +220,7 @@ function Block({ s, place, tone, onPreview }: { s: LocalSection; place: LocalPla
             <p style={{ marginTop: 8 }}>{s.question.a}</p>
             <Deeper d={s.deeper} />
           </SmartUnit>
-          {s.plate !== false && <RegionPlate className="sf-c5" fig={2} counties={COUNTIES} office={{ l1: NAP.l1, l2: NAP.l2 }} note={s.plateNote} caption="Schematic of the six counties in our Business Profile, office marked; the street address is in the contact band." />}
+          {s.plate !== false && <RegionPlate className="sf-c5" fig={2} counties={COUNTIES} office={{ l1: NAP.l1, l2: NAP.l2 }} note={s.plateNote} caption="Schematic of the six counties in our Business Profile, office marked, with the street address in the contact band." />}
         </SmartSection>
       );
     case "faq":
@@ -352,7 +352,7 @@ export function LocalPage({ place }: { place: LocalPlace }) {
 
         {fr.some((f) => f.query) ? <CensusSourcesDialog place={place} /> : <SourcesDialog
           id="figures-src"
-          intro={`Every figure in the numbers section covers the ${place.facts.geoName}, names its source and gives the date a person at OneAlgorithm read it. Nothing on the page links to a data endpoint.`}
+          intro={`Every figure in the numbers section covers the ${place.facts.geoName}, names its source and gives the date a person at OneAlgorithm read it.`}
           sources={[
             { name: CENSUS_SOURCES.cbp.name, what: `Employer establishments by size and by industry (NAICS), ${has("2018") ? "2018 and 2023" : "2023"}`, read, page: CENSUS_SOURCES.cbp.page },
             { name: CENSUS_SOURCES.acs.name, what: "Total population, table B01003, 2024", read, page: CENSUS_SOURCES.acs.page },
@@ -361,14 +361,14 @@ export function LocalPage({ place }: { place: LocalPlace }) {
         {place.search && <SearchSourcesDialog place={place} />}
         {place.sections.map((s) => s.kind === "text" && s.sources ? (
           <SourcesDialog key={`${s.id}-src`} id={`${s.id}-src`} title={s.id === "economy" ? "Where the industry figures come from" : "Where these rules and figures come from"}
-            intro="Each line in this section restates a public page from the office or agency that publishes it. The pages are listed as text; nothing here links to a data endpoint."
+            intro="Each line in this section restates a public page from the office or agency that publishes it."
             sources={s.sources} />
         ) : null)}
         {photo && <PhotoCreditDialog photo={photo as any} />}
         <EvidenceDialog
           id="listing"
           title="Our Google Business Profile figures"
-          intro="What our Google listing showed when a person at OneAlgorithm read it. We quote the figures; the reviews are not marked up as ratings on this page."
+          intro="What our Google listing showed when a person at OneAlgorithm read it."
           rows={[
             { th: "Listing", td: LISTING.name },
             { th: "Rating", td: `${LISTING.rating} from ${LISTING.reviews} reviews` },

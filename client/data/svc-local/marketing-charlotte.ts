@@ -281,7 +281,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Marketing that compounds for Charlotte companies",
-   "lede": "Charlotte firms often juggle a website vendor, a social freelancer and an email tool; we run them as one program.",
+   "lede": "Charlotte firms often juggle a website vendor, a social freelancer and an email tool, and we run them as one program.",
    "leadIn": "Why it matters:",
    "lead": "disconnected channels repeat work and lose leads between them, while one program lets each channel feed the next.",
    "deeper": {
@@ -339,7 +339,7 @@ export const PLACE: LocalPlace = {
    "lead": "a real estate brokerage and a retailer cannot share a content calendar, so we build each plan around buying cycles.",
    "points": [
     "Health care: 7,235 establishments where reviews and reminders drive bookings.",
-    "Real estate: 5,013 establishments; autocomplete even shows \"charlotte real estate media\".",
+    "Real estate: 5,013 establishments. Autocomplete even shows \"charlotte real estate media\".",
     "Information: 1,150 firms, a small, digitally fluent audience."
    ],
    "deeper": {
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "What Charlotte marketing buyers type",
    "lede": "Two agency phrasings add up to 1,070 monthly searches in our Semrush data, and the costlier click is not the harder keyword.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency charlotte\" draws 590 searches at a $6.89 click; \"marketing agency charlotte\" draws 480 at $4.00 but KD 51.",
+   "lead": "\"digital marketing agency charlotte\" draws 590 searches at a $6.89 click, and \"marketing agency charlotte\" draws 480 at $4.00 but KD 51.",
    "deeper": {
     "label": "Behind the search numbers",
     "paras": [
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What automation handles",
     "paras": [
-     "Automation is where a small Charlotte team gains hours back. Posts go out on schedule from your own content, review requests follow each completed job, and replies keep the conversation polite and timely. You set the tone; the system keeps the rhythm.",
+     "Automation is where a small Charlotte team gains hours back. Posts go out on schedule from your own content, review requests follow each completed job, and replies keep the conversation polite and timely.",
      "Email deserves its own mention: a welcome sequence for new leads and a regular newsletter keep past customers close for little extra effort."
     ]
    },
@@ -537,14 +537,14 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "How the Charlotte program runs",
-   "lede": "The stage cards below set the order; inside each, the work is shaped by your sector and Charlotte's search data.",
+   "lede": "The stage cards below set the order, and inside each the work is shaped by your sector and Charlotte's search data.",
    "leadIn": "What you get:",
    "lead": "a written message, a prioritised plan, approvals in your browser, and monthly numbers on leads and sales.",
    "deeper": {
     "label": "Rhythm of the work",
     "paras": [
      "We open with a discovery call and a review of your site, listings and past campaigns. You receive a short brief: who you serve, what you say and which channels come first.",
-     "Monthly cycles follow, each with a plan, delivered work and a report. Channels that underperform are fixed or cut; the ones that bring leads get more attention."
+     "Monthly cycles follow, each with a plan, delivered work and a report. Channels that underperform are fixed or cut. The ones that bring leads get more attention."
     ]
    },
    "cards": [
@@ -617,7 +617,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Are the marketing firms in Charlotte, NC worth it for a small company?",
-     "a": "They are when the firm ties its work to leads and sales rather than activity. For a small Charlotte company competing among 71,411 establishments, the right partner narrows the work to a few channels, measures them monthly and drops what fails. Paying for activity without measurement rarely is.",
+     "a": "They are when the firm ties its work to leads and sales rather than activity. For a small Charlotte company competing among 71,411 establishments, the right partner narrows the work to a few channels, measures them monthly and drops what fails.",
      "from": "autocomplete: marketing firms charlotte nc"
     },
     {

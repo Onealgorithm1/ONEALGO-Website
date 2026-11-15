@@ -507,7 +507,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "growth",
    "h2": "How Durham rankings get built",
-   "lede": "Website and message first, then content and authority, then automation; paid ads come only after organic search shows what converts.",
+   "lede": "Website and message first, then content and authority, then automation, and paid ads come only after organic search shows what converts.",
    "leadIn": "The bottom line:",
    "lead": "in a small market, compounding organic visibility outlasts any burst of paid traffic, so we build it first.",
    "points": [
@@ -537,7 +537,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Applying our SEO process in Durham",
-   "lede": "The stage cards below are standard; in Durham they also cover NC disambiguation, topical depth and nearby Triangle towns.",
+   "lede": "The stage cards below are standard, and in Durham they also cover NC disambiguation, topical depth and nearby Triangle towns.",
    "leadIn": "What you get:",
    "lead": "an audit, a page plan from Durham search data, approved drafts and monthly reports linking rankings to leads.",
    "deeper": {
@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote, with a paper trail",
     "paras": [
-     "Our team works from Malvern, PA. Calls, screen-shares and browser reviews of every page change replace in-person meetings, with notes after each one.",
+     "Our team works from Malvern, PA, with Durham businesses by video call. Screen-shares and browser reviews cover every page change, with notes after each one.",
      "Durham keeps Eastern time like we do, and support is reachable at any hour."
     ]
    }
@@ -632,7 +632,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for a small metro like Durham?",
-     "a": "SEO is important because in a metro of 620,522 people, being findable by the right few buyers matters more than reach. Durham ranks 58th of the 59 places we cover by population, yet its searchers are specialised; one well-placed page can bring the precise clients a general ad would miss.",
+     "a": "SEO is important because in a metro of 620,522 people, being findable by the right few buyers matters more than reach. Durham ranks 58th of the 59 places we cover by population, yet its searchers are specialised. One well-placed page can bring the precise clients a general ad would miss.",
      "from": "questionBank: why is seo important"
     }
    ]

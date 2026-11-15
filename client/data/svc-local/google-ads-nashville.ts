@@ -433,7 +433,7 @@ export const PLACE: LocalPlace = {
     "label": "Why density matters less for ads",
     "paras": [
      "Nashville is slightly less crowded with agencies than most of our Google Ads markets. For an advertiser, that matters less than the auction itself: you compete against every business bidding on your keywords, wherever their agency sits.",
-     "What does matter is whether the person running your account can also fix tracking and landing pages. Custom programming firms are thinner here, so ask any agency who handles that work; we handle tracking and landing pages ourselves."
+     "What does matter is whether the person running your account can also fix tracking and landing pages. Custom programming firms are thinner here, so ask any agency who handles that work. We handle tracking and landing pages ourselves."
     ]
    },
    "table": {
@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Day-to-day contact",
     "paras": [
-     "Account reviews happen on screen-shares where we walk through the live campaigns together. Ad drafts and landing pages arrive as links you can open and approve in your browser. The account is managed from Malvern, Pennsylvania, and distance changes nothing about how it runs.",
+     "Account reviews happen on screen-shares where we walk through the live campaigns together. Ad drafts and landing pages arrive as links you can open and approve in your browser. The account is managed from Malvern, Pennsylvania.",
      "You can reach us by phone or email between reviews, and round-the-clock support covers urgent account issues."
     ]
    }

@@ -291,14 +291,14 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "SEO work sized for Houston",
-   "lede": "Houston buyers search by neighbourhood, specialty and need, so we build pages that answer those exact searches instead of one generic homepage.",
+   "lede": "Houston buyers search by neighbourhood, specialty and need, so we build pages that answer those exact searches.",
    "leadIn": "Why it matters:",
    "lead": "the metro is big enough that a vague site disappears, yet specific pages still find room to rank.",
    "deeper": {
     "label": "How the work reaches you",
     "paras": [
      "Our team sits in Malvern, Pennsylvania, and does Houston SEO entirely online. You get a written audit, a page plan tied to search volumes, and changes you can review in your browser before anything goes live.",
-     "We do not sell a package of keywords. We look at what your customers in Harris, Fort Bend and Montgomery counties actually type, check which of those searches you can win, and spend effort where the gap between demand and competition is widest."
+     "We look at what your customers in Harris, Fort Bend and Montgomery counties actually type, check which of those searches you can win, and spend effort where the gap between demand and competition is widest."
     ]
    },
    "cards": [
@@ -356,7 +356,7 @@ export const PLACE: LocalPlace = {
     "label": "Matching SEO to the sector",
     "paras": [
      "A medical practice and a roofing contractor both need local SEO, but the pages differ. The clinic needs provider bios, condition pages and accessible booking. The contractor needs service-area pages, photos with descriptive file names and a Google Business Profile that is kept busy.",
-     "We read your sector first, then plan the site around the searches that sector produces in Houston, rather than copying a template from another city."
+     "We read your sector first, then plan the site around the searches that sector produces in Houston."
     ]
    },
    "table": {
@@ -400,7 +400,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the search table",
     "paras": [
-     "The cost per click is what an advertiser bids in Google Ads, not what we charge. A $12.23 click on \"seo services houston\" tells you how much the top of that results page is worth to the firms buying it.",
+     "The cost per click is what an advertiser bids in Google Ads. A $12.23 click on \"seo services houston\" tells you how much the top of that results page is worth to the firms buying it.",
      "Autocomplete adds texture. People type \"medical seo company houston\" and \"local seo company houston\", which shows buyers already know they want specialty or map-focused work. Your own customers leave the same kind of trail, and we chart it before writing a single page."
     ]
    },
@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What thinner competition means",
     "paras": [
-     "A lower density of marketing firms does not mean easy rankings; national directories and large agencies still occupy the results. It does mean a business with a well-built site and steady content is less likely to be outspent by a crowd of local rivals.",
+     "A lower density of marketing firms does not mean easy rankings. National directories and large agencies still occupy the results. It does mean a business with a well-built site and steady content is less likely to be outspent by a crowd of local rivals.",
      "We check who actually ranks for your terms before promising anything, because the Census code count says nothing about who does the work well."
     ]
    },
@@ -522,7 +522,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "growth",
    "h2": "From a clear site to steady traffic",
-   "lede": "SEO compounds when it sits on a site that says plainly what you do and who you do it for.",
+   "lede": "SEO compounds when it sits on a site that says what you do and who you do it for.",
    "leadIn": "The bottom line:",
    "lead": "fix the message and structure, then add content and authority, then automate the routine posting.",
    "points": [
@@ -533,7 +533,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Where paid search fits",
     "paras": [
-     "Paid ads come after organic traction in our plan, not before. Once your pages convert visitors, Google Ads can buy extra reach on the same terms with a landing page already proven.",
+     "Paid ads come after organic traction in our plan. Once your pages convert visitors, Google Ads can buy extra reach on the same terms with a landing page already proven.",
      "Automation keeps the work going between campaigns: Google Business Profile posts, review requests after each job and replies to every review, all scheduled so nothing depends on someone remembering."
     ]
    },
@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screens and reviews",
     "paras": [
      "Houston is one hour behind our Malvern office, so a morning call for you is late morning for us. Reviews happen on a shared screen or in your own browser, at a link we send.",
-     "We serve Houston from one office in Malvern, PA. You get the same people from first audit to monthly report, reachable by phone at (610) 890-9711 and supported around the clock."
+     "We serve Houston from our office in Malvern, PA. You get the same people from first audit to monthly report, reachable by phone at (610) 890-9711 and supported around the clock."
     ]
    }
   },

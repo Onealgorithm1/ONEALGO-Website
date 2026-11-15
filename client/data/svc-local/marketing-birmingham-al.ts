@@ -346,7 +346,7 @@ export const PLACE: LocalPlace = {
     "label": "Matching tactics to sectors",
     "paras": [
      "A dental practice gains most from automated review requests after each visit and recall emails. A roofer gains from job photos posted to Google and social. An insurance agent gains from a plain-English newsletter that lands before renewal season.",
-     "The table below shows the four largest sectors; we start with whichever one your customers belong to and build the calendar around how they decide."
+     "The table below shows the four largest sectors. We start with whichever one your customers belong to and build the calendar around how they decide."
     ]
    },
    "table": {
@@ -391,7 +391,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the autocomplete",
     "paras": [
      "That $4.03 is the price an advertiser pays Google per click on \"marketing agency birmingham\", not our fee, and it only matters once paid ads join the plan.",
-     "Autocomplete is dominated by social media: \"social media marketing birmingham\", \"social media manager birmingham al\" and several job searches. Job searches like these show social media work is in demand locally; we handle it as scheduled automation rather than a new hire."
+     "Autocomplete is dominated by social media: \"social media marketing birmingham\", \"social media manager birmingham al\" and several job searches. Job searches like these show social media work is in demand locally. We handle it as scheduled automation rather than a new hire."
     ]
    },
    "table": {
@@ -489,7 +489,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Approach",
-     "line": "Site rebuilt for search; 80+ old addresses redirected."
+     "line": "Site rebuilt for search. 80+ old addresses redirected."
     },
     {
      "h3": "Outcome",

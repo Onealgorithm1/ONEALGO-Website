@@ -287,7 +287,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Three sectors, three search habits",
     "paras": [
-     "Professional, scientific and technical services lead with 6,345 establishments: engineers, consultants, accountants, software shops. Their buyers search with precise, technical phrasing, so pages must use the vocabulary of the field, not marketing language.",
+     "Professional, scientific and technical services lead with 6,345 establishments: engineers, consultants, accountants, software shops. Their buyers search with precise, technical phrasing, so pages must use the vocabulary of the field.",
      "Construction is second at 4,424 establishments. Builders, remodelers and trades are usually chosen from map results and reviews, so a complete Google Business Profile and service-area pages matter more than a long blog.",
      "Retail trade adds 4,345 establishments. Shops win with accurate listings, clear product and category pages and fast mobile pages, since shoppers often check hours and stock on a phone before they visit."
     ]
@@ -394,8 +394,8 @@ export const PLACE: LocalPlace = {
     "label": "What those prices signal",
     "paras": [
      "Those figures are what advertisers pay Google per visit, not what we charge. A $32.65 click says a Raleigh SEO lead is valuable, which is why the organic result for that phrase is worth earning.",
-     "Difficulty is real but reachable: 42 for the company phrase and 41 for the short one. A strong page backed by a clean site and a few good links can compete; a renamed homepage cannot.",
-     "Autocomplete shows how locals phrase it: “seo company raleigh nc”, “raleigh seo team” and “local seo raleigh”. The NC suffix and the word team both suggest buyers who want people they can talk to, not software."
+     "Difficulty is real but reachable: 42 for the company phrase and 41 for the short one. A strong page backed by a clean site and a few good links can compete.",
+     "Autocomplete shows how locals phrase it: “seo company raleigh nc”, “raleigh seo team” and “local seo raleigh”. The NC suffix and the word team both suggest buyers who want people they can talk to."
     ]
    },
    "table": {
@@ -435,8 +435,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "A ceiling, not a rival list",
     "paras": [
-     "A firm count is a ceiling. Consultancies in Raleigh include brand strategists, research shops and fractional marketers; only some do the technical and content work that moves rankings.",
-     "The programming figure matters more than it looks. With 529 custom programming firms nearby, technical polish is easy to buy in Raleigh, so fixes alone rarely set a site apart. Content depth and earned authority do.",
+     "A firm count is a ceiling. Consultancies in Raleigh include brand strategists, research shops and fractional marketers. Only some do the technical and content work that moves rankings.",
+     "With 529 custom programming firms nearby, technical polish is easy to buy in Raleigh, so fixes alone rarely set a site apart. Content depth and earned authority do.",
      "Raleigh keeps Eastern time, as we do. We work from Malvern, PA, and give Raleigh businesses written plans, shared dashboards and reviews on a call."
     ]
    },
@@ -523,7 +523,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What each stage looks like",
     "paras": [
-     "For a Raleigh contractor, stage one means service-area pages and project photos. For a technical firm, it means a homepage that says plainly what problem you solve and for whom.",
+     "For a Raleigh contractor, stage one means service-area pages and project photos. For a technical firm, it means a homepage that says what problem you solve and for whom.",
      "Then the content and authority work: articles that answer real questions, an email list, links from Triangle business sources and industry publications.",
      "Automation runs last and keeps going: Google Business Profile posts, social posts and review requests with replies. Paid search fits once organic pages prove they convert, and then runs beside the SEO."
     ]
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Same hours, no site visits needed",
     "paras": [
-     "Raleigh and Malvern share Eastern time, so working hours line up exactly. We meet over video, share screens instead of visiting, and send every draft for review in your browser.",
+     "Raleigh and Malvern share Eastern time, so working hours line up exactly. We meet over video, share screens and send every draft for review in your browser.",
      "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, with support available at any hour."
     ]
    }
@@ -614,7 +614,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Which SEO services do Raleigh businesses usually need first?",
-     "a": "Usually a technical audit and a fix list, then service or location pages for the searches that matter. Construction firms, 4,424 of them in the metro, need map visibility first; technical firms need content depth. We plan the order from your data, then deliver it remotely.",
+     "a": "Usually a technical audit and a fix list, then service or location pages for the searches that matter. Construction firms, 4,424 of them in the metro, need map visibility first. Technical firms need content depth. We plan the order from your data, then deliver it remotely.",
      "from": "autocomplete: seo services raleigh"
     },
     {

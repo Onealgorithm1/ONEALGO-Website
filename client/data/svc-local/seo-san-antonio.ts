@@ -634,7 +634,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for San Antonio businesses?",
-     "a": "Because customers search before they call, and a ranking page keeps bringing them without a per-click fee. Advertisers pay $15.50 per click on “seo san antonio”; organic visibility earns similar visitors at no cost per visit. Across 52,088 local establishments, that adds up to a real advantage.",
+     "a": "Because customers search before they call, and a ranking page keeps bringing them without a per-click fee. Advertisers pay $15.50 per click on “seo san antonio”. Organic visibility earns similar visitors at no cost per visit. Across 52,088 local establishments, that adds up to a real advantage.",
      "from": "questionBank: why is seo important"
     },
     {

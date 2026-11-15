@@ -597,7 +597,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I pick an SEO company in Connecticut?",
-     "a": "Pick one that shows its audit process, real Search Console results and how it would handle the towns you serve. Connecticut has 674 marketing and advertising establishments, and that density ranks 40th of 59 places we cover; a remote firm with a clear method widens the choice.",
+     "a": "Pick one that shows its audit process, real Search Console results and how it would handle the towns you serve. Connecticut has 674 marketing and advertising establishments, and that density ranks 40th of 59 places we cover. A remote firm with a clear method widens the choice.",
      "from": "autocomplete: seo company connecticut",
      "link": {
       "to": "/services/seo",
@@ -606,7 +606,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Are Connecticut SEO experts better than out-of-state providers?",
-     "a": "Not by default; what matters is the method and the results you can verify. SEO happens in your site and Google tools, not in person. We work remotely from Malvern, PA, and plan pages for a state of 3,675,069 residents from search data, which works the same from anywhere.",
+     "a": "Not by default. What matters is the method and the results you can verify. SEO happens in your site and Google tools, not in person. We work remotely from Malvern, PA, and plan pages for a state of 3,675,069 residents from search data, which works the same from anywhere.",
      "from": "autocomplete: connecticut seo experts"
     },
     {
@@ -621,7 +621,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a Connecticut SEO consultant or an agency?",
-     "a": "Choose based on who will do the build work, not just the advice. A consultant may hand you a list of fixes; an agency team writes and implements them. Connecticut has 487 marketing consulting firms, and that count includes many that do not build or change websites themselves.",
+     "a": "Choose based on who will do the build work, not just the advice. A consultant may hand you a list of fixes. An agency team writes and implements them. Connecticut has 487 marketing consulting firms, and that count includes many that do not build or change websites themselves.",
      "from": "autocomplete: connecticut seo consultant"
     },
     {

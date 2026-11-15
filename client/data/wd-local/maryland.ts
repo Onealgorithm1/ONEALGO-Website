@@ -370,15 +370,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "403,945 paid employees across 18,859 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "403,945 paid employees across 18,859 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Professional services",
-     "line": "301,509 paid employees across 21,699 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
+     "line": "301,509 paid employees across 21,699 establishments in 2023, and a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Retail",
-     "line": "289,469 paid employees across 16,687 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
+     "line": "289,469 paid employees across 16,687 establishments in 2023, and a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -401,8 +401,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Maryland business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a Maryland business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -428,7 +428,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 142,967 establishments, 120,246 had fewer than 20 people and 19,005 employed 20 to 99. Another 3,350 employed 100 to 499, and 366 employed 500 or more.",
      "Within the 20-to-99 band, 14,076 establishments had 20 to 49 people and 4,929 had 50 to 99. The average establishment employed 17.3 of the 2,468,367 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 142,967; that is one establishment for every 43.8 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 142,967. That is one establishment for every 43.8 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 152.2 per 10,000 businesses is a ceiling on web-design firms in the state."
     ]
    }
@@ -441,9 +441,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and professional, scientific and technical services comes next at 301,509 employees.",
    "points": [
-    "Health care: 21.4 employees per establishment; booking and intake matter most.",
-    "Professional services: 13.9 employees per establishment; expertise must be easy to check.",
-    "Retail: 17.3 employees per establishment; stock and checkout must agree."
+    "Health care: 21.4 employees per establishment, and booking and intake matter most.",
+    "Professional services: 13.9 employees per establishment, and expertise must be easy to check.",
+    "Retail: 17.3 employees per establishment, and stock and checkout must agree."
    ],
    "table": {
     "caption": "Maryland: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -481,7 +481,7 @@ export const PLACE: LocalPlace = {
      "18,859 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 21,699 in professional, scientific and technical services need proof of expertise, case pages and a routed enquiry form.",
      "Retail trade counts 16,687 establishments that need stock that matches the till and a phone checkout, and administrative and support services, fourth at 256,840 employees, needs clear service pages, quote requests and a careers page that fills roles.",
      "Accommodation and food services ranks fifth at 241,483 employees, and the 12 sectors we read cover 2,143,186 of the 2,468,367 paid employees in the state.",
-     "Together the four employ 1,251,763 people, 50.7% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 1,251,763 people, 50.7% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -505,7 +505,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -575,7 +575,7 @@ export const PLACE: LocalPlace = {
    "h2": "2,176 custom programming firms statewide",
    "lede": "2,176 custom computer programming establishments (NAICS 541511) operated in the state in 2023, +14.2% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 152.2 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 152.2 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 291 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 694 establishments in 2023.",
@@ -623,7 +623,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Health care and social assistance went from 17,101 to 18,859 establishments between 2018 and 2023; wholesale trade went from 5,369 to 4,890.",
+     "Health care and social assistance went from 17,101 to 18,859 establishments between 2018 and 2023, and wholesale trade went from 5,369 to 4,890.",
      "Real estate, rental and leasing came second, +8.4%, and educational services third, +7.7%.",
      "That is a net gain of 3,470 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 2,366,053 to 2,468,367 over the same years, +4.3%. Population moved +3.6% from 2019 to 2024, to 6,263,220."
@@ -672,7 +672,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 142,967 establishments here against the 64 places' own counts, 45th for their change since 2018.",
      "Programming firms run 152.2 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.1% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 980, 45th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 980, 45th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -741,7 +741,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 403,945 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the state, where health care and social assistance employs 403,945 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 5,227 systems design establishments in the state could pick up from.",
      "For the 21,699 professional, scientific and technical services establishments here, stage two usually lists proof of expertise, case pages and a routed enquiry form."
     ]
@@ -756,13 +756,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 2,176 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Maryland?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in Maryland?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -779,7 +779,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Maryland?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 120,246 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $6.06 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 120,246 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $6.06 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -788,7 +788,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the state, 84.1% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the state, 84.1% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -824,7 +824,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is website design tax deductible?",
-     "a": "Your accountant decides how to book it, under federal and Maryland rules. Our proposals separate design, development, hosting and support, so each line can be booked on its own; 142,967 establishments in the state face the same question, and we do not give tax advice.",
+     "a": "Your accountant decides how to book it, under federal and Maryland rules, and we do not give tax advice. Our proposals separate design, development, hosting and support for any of the 142,967 establishments in the state, so each line can be booked on its own.",
      "from": "suggest-base: is website design tax deductible / should website design be capitalized"
     }
    ]

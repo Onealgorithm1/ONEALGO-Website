@@ -400,7 +400,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the keyword table",
     "paras": [
-     "That $19.59 is the price Google charges advertisers for a click, not our price; it shows what the traffic is worth. The phrase \"seo company denver\" costs $21.50 a click with a keyword difficulty of 27, the easiest of the three to rank for, while \"seo services denver\" is the hardest at 40.",
+     "That $19.59 is the price Google charges advertisers for a click, not our price. It shows what the traffic is worth. The phrase \"seo company denver\" costs $21.50 a click with a keyword difficulty of 27, the easiest of the three to rank for, while \"seo services denver\" is the hardest at 40.",
      "Autocomplete adds detail the table hides. Denver searchers type \"denver seo audit company\" and \"ecommerce seo company denver\", which tells us buyers often want a diagnosis first, and online stores want someone who understands product pages."
     ]
    },
@@ -633,7 +633,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I pick the best SEO company in Denver?",
-     "a": "Pick the one that shows its work. Ask for a written audit, a page plan tied to search volume, and access to your own Search Console data. Denver has 1,365 advertising and marketing consulting establishments, so you have options; insist on verifiable results rather than promises about rankings.",
+     "a": "Pick the one that shows its work. Ask for a written audit, a page plan tied to search volume, and access to your own Search Console data. Denver has 1,365 advertising and marketing consulting establishments, so you have options. Insist on verifiable results.",
      "from": "autocomplete: best seo company in denver",
      "link": {
       "to": "/services/seo",

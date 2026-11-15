@@ -287,14 +287,14 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "An opening most metros lack",
     "paras": [
-     "Baton Rouge ranks 58th of 59 for marketing-firm density among our SEO pages. That does not make SEO automatic, but fewer specialist firms means fewer well-run competitors pushing for the same local searches.",
+     "Baton Rouge ranks 58th of 59 for marketing-firm density among our SEO pages. Fewer specialist firms means fewer well-run competitors pushing for the same local searches.",
      "We work remotely from Malvern, Pennsylvania. You get a crawl-based audit, a page plan built from search demand, technical fixes and authority building, with every step visible in shared reports."
     ]
    },
    "cards": [
     {
      "h3": "Retail trade",
-     "line": "The metro's largest sector; stores win with fast category pages, accurate hours and Google profiles that sell."
+     "line": "The metro's largest sector. Stores win with fast category pages, accurate hours and Google profiles that sell."
     },
     {
      "h3": "Professional and technical services",
@@ -539,7 +539,7 @@ export const PLACE: LocalPlace = {
    "h2": "How a Baton Rouge SEO project runs",
    "lede": "Our stage cards below stay fixed, while the Baton Rouge plan within them centers on the parishes and services you choose.",
    "leadIn": "What you get:",
-   "lead": "a written audit, a page plan tied to demand and plain reports showing what changed and why.",
+   "lead": "a written audit, a page plan tied to demand and reports showing what changed and why.",
    "deeper": {
     "label": "Planning for the region",
     "paras": [
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I find the best SEO company in Baton Rouge?",
-     "a": "Look for one that shows measured results, writes its plan down and gives you full access to your data. Baton Rouge has only 95 advertising and marketing consulting firms, so options are limited; remote teams with transparent reporting widen the choice considerably.",
+     "a": "Look for one that shows measured results, writes its plan down and gives you full access to your data. Baton Rouge has only 95 advertising and marketing consulting firms, so options are limited. Remote teams with transparent reporting widen the choice considerably.",
      "from": "autocomplete: best seo company baton rouge",
      "link": {
       "to": "/services/seo",

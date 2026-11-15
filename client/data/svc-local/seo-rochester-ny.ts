@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Semrush had no bid data for the company phrase. The $10.44 figure on “seo rochester” is what advertisers pay Google for one visit, not our price.",
      "Scores of 17 and 14 are low. A focused page, a clean site and genuine local links can compete for these results.",
-     "Autocomplete shows locals adding the state: “seo company rochester ny” and “seo rochester ny”, alongside “rochester seo company” and “seo agency rochester”. Pages here should say Rochester, NY plainly, since the name is shared with other cities."
+     "Autocomplete shows locals adding the state: “seo company rochester ny” and “seo rochester ny”, alongside “rochester seo company” and “seo agency rochester”. Pages here should say Rochester, NY, since the name is shared with other cities."
     ]
    },
    "table": {

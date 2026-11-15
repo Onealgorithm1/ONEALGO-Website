@@ -615,7 +615,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is a mobile app?",
-     "a": "A mobile app is software used on a phone or tablet. Many business needs are met by a web app that works in the phone's browser with no download. \"mobile app development texas\" gets 390 searches a month; we help buyers pick the right route before design starts.",
+     "a": "A mobile app is software used on a phone or tablet. Many business needs are met by a web app that works in the phone's browser with no download. \"mobile app development texas\" gets 390 searches a month. We help buyers pick the right route before design starts.",
      "from": "questionBank: what is a mobile app"
     },
     {

@@ -283,7 +283,7 @@ export const PLACE: LocalPlace = {
    "h2": "SEO for Baltimore's professional and health economy",
    "lede": "Baltimore's largest sectors, professional services and health care, sell expertise, and expertise is searched for in long, specific phrases.",
    "leadIn": "Why it matters:",
-   "lead": "a firm that publishes one clear page per service ranks for those phrases; a firm with one vague homepage does not.",
+   "lead": "a firm that publishes one clear page per service ranks for those phrases, and a firm with one vague homepage does not.",
    "deeper": {
     "label": "Why remote works here",
     "paras": [
@@ -345,7 +345,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Pages by sector",
     "paras": [
-     "A hospital-adjacent practice needs pages per condition and procedure; a Fells Point retailer needs a strong Business Profile and category pages; a general contractor needs one page per trade and per county it serves.",
+     "A hospital-adjacent practice needs pages per condition and procedure. A Fells Point retailer needs a strong Business Profile and category pages. A general contractor needs one page per trade and per county it serves.",
      "We confirm which pattern applies from your Search Console queries before writing anything, then build the pages in the order that brings traffic soonest."
     ]
    },
@@ -390,7 +390,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Noise in the autocomplete",
     "paras": [
-     "Baltimore autocomplete is messy: \"so baltimore sports bar and lounge\" and \"sao baltimore city\" sit beside \"baltimore seo company\". Short local queries get mixed with unrelated names, which is why we plan from Semrush volumes and your own Search Console data rather than guesses.",
+     "Baltimore autocomplete is messy: \"so baltimore sports bar and lounge\" and \"sao baltimore city\" sit beside \"baltimore seo company\". Short local queries get mixed with unrelated names, which is why we plan from Semrush volumes and your own Search Console data.",
      "The $9.03 is what Google charges an advertiser per click, not our price. It gives a rough value for each organic visitor a ranking page earns for free."
     ]
    },
@@ -432,7 +432,7 @@ export const PLACE: LocalPlace = {
     "label": "What that mix means",
     "paras": [
      "Baltimore's business base is heavy on technical firms and light on marketers. Plenty of technical companies have strong products and websites written by engineers for engineers. That gap is where SEO pays off: clear service pages, plain-language explanations and schema that help Google understand what the firm does.",
-     "The 459 figure is a ceiling on rivals, not a list; it includes firms that never touch search."
+     "The 459 figure is a ceiling on rivals. It includes firms that never touch search."
     ]
    },
    "table": {
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What does a Baltimore SEO company actually do each month?",
-     "a": "It audits what Google sees, fixes technical issues, builds pages for the searches your customers make, earns links and reviews, then reports results. For a Baltimore firm, the monthly rhythm is shipping a few pages, checking Search Console, and choosing the next pages; with professional services at 15.3% of the metro, many plans focus on specialist service pages.",
+     "a": "It audits what Google sees, fixes technical issues, builds pages for the searches your customers make, earns links and reviews, then reports results. For a Baltimore firm, the monthly rhythm is shipping a few pages, checking Search Console, and choosing the next pages. With professional services at 15.3% of the metro, many plans focus on specialist service pages.",
      "from": "autocomplete: baltimore seo company",
      "link": {
       "to": "/services/seo",

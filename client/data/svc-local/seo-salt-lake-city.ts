@@ -321,7 +321,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the ranks show",
     "paras": [
-     "Among the 59 places where we publish SEO pages, Salt Lake City places 43rd for establishments and 45th for population. Business counts are from Census County Business Patterns 2023; population is the ACS 2024 estimate.",
+     "Among the 59 places where we publish SEO pages, Salt Lake City places 43rd for establishments and 45th for population. Business counts are from Census County Business Patterns 2023. Population is the ACS 2024 estimate.",
      "Professional, scientific and technical services make up 14.7% of establishments, above the 13% median and 16th on the list. The metro has more expertise-led firms than its size suggests.",
      "For SEO, a smaller business base means fewer pages competing for each local phrase. That favours businesses willing to publish focused, useful pages consistently."
     ]
@@ -344,8 +344,8 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "construction holds 11.6% of establishments, and trade buyers usually want a nearby firm they can call quickly.",
    "points": [
-    "Health care: 3,978 establishments; retail: 3,628.",
-    "Real estate counts 2,780; finance and insurance 2,527.",
+    "Health care: 3,978 establishments. Retail: 3,628.",
+    "Real estate counts 2,780, finance and insurance 2,527.",
     "The three biggest sectors hold 37.1% of establishments."
    ],
    "deeper": {
@@ -399,7 +399,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Advertisers pay $18.50 a click for that phrase, which is Google's ad price, not ours. \"seo company salt lake city\" draws more volume, at 720 monthly searches and difficulty 24, with no bid data. The table totals 1,310 searches a month.",
      "Low difficulty paired with a high click price is a good combination for organic work: ranking is realistic, and each visit would cost real money as an ad.",
-     "Autocomplete leans hard on pricing structures: \"seo packages salt lake city\", \"seo monthly packages salt lake city\" and \"seo management packages salt lake city\". Buyers are comparing bundles, which is why we explain what an audit-led plan includes instead."
+     "Autocomplete leans hard on pricing structures: \"seo packages salt lake city\", \"seo monthly packages salt lake city\" and \"seo management packages salt lake city\". Buyers are comparing bundles, so we explain what an audit-led plan includes."
     ]
    },
    "table": {
@@ -488,7 +488,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Phantom Arcades, an arcade cabinet manufacturer in Valrico, Florida, asked us to rebuild its website for search. We designed and built the new site, including a 3D cabinet configurator.",
      "Because the addresses changed, we mapped 80+ old URLs to their new pages with redirects, so earlier search signals carried over instead of breaking.",
-     "Search Console compared an autumn window in 2026 with the same dates in 2025: clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal period before that window was flat. Your results depend on your market; the method is what carries over."
+     "Search Console compared an autumn window in 2026 with the same dates in 2025: clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal period before that window was flat. Your results depend on your market. The method is what carries over."
     ]
    },
    "cards": [
@@ -516,13 +516,13 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "growth",
    "h2": "Growing a Salt Lake City site",
-   "lede": "Once core pages rank and convert, growth comes from adding channels in a deliberate order rather than all at once.",
+   "lede": "Once core pages rank and convert, growth comes from adding channels in a deliberate order.",
    "leadIn": "The bottom line:",
-   "lead": "a site that converts, then content and authority, then automation; ads only once organic traffic converts reliably.",
+   "lead": "a site that converts, then content and authority, then automation, and ads only once organic traffic converts reliably.",
    "points": [
     "Website and message first, so traffic turns into enquiries.",
     "Then SEO, a blog, email and authority-building mentions.",
-    "Automated posts and review replies; paid ads after organic traction."
+    "Automated posts and review replies. Paid ads after organic traction."
    ],
    "deeper": {
     "label": "The later layers",
@@ -547,7 +547,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "How a Salt Lake City engagement runs",
-   "lede": "The stage order is the same for every client; what changes in Salt Lake City is the keyword map and the authority targets.",
+   "lede": "The stage order is the same for every client, and what changes in Salt Lake City is the keyword map and the authority targets.",
    "leadIn": "What you get:",
    "lead": "an audit, a page plan built on Salt Lake City demand, reviewed fixes, and monthly reports from your Search Console.",
    "deeper": {

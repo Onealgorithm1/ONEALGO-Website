@@ -285,7 +285,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "One marketing plan for Jacksonville firms",
-   "lede": "Owners on the First Coast often juggle a web designer, a social freelancer and an ad vendor; we replace that patchwork with one ordered plan.",
+   "lede": "Owners on the First Coast often juggle a web designer, a social freelancer and an ad vendor, a patchwork we replace with one ordered plan.",
    "leadIn": "Why it matters:",
    "lead": "when each channel answers to a different vendor, nobody can say which one produced the last good customer.",
    "deeper": {
@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
     "label": "What that difficulty means",
     "paras": [
      "High difficulty on agency terms tells us local agencies fight hard for their own clients. Your industry terms are often far easier, which is where we aim first.",
-     "Ad clicks on \"marketing agency jacksonville\" go for $5.94 in Google's auction; that is a bid price, not our fee. Autocomplete also suggests \"marketing companies in jacksonville fl\" and several social media manager phrasings, so owners compare agencies with in-house help."
+     "Ad clicks on \"marketing agency jacksonville\" go for $5.94 in Google's auction. That is a bid price, not our fee. Autocomplete also suggests \"marketing companies in jacksonville fl\" and several social media manager phrasings, so owners compare agencies with in-house help."
     ]
    },
    "table": {
@@ -615,7 +615,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a social media manager in Jacksonville or an agency?",
-     "a": "An agency usually covers more ground for the money, since social alone rarely produces leads. A hire posts content; an agency also fixes the site, email and reviews the posts point to. With retail at 12.1% of Jacksonville establishments, coordinated promotions matter more than daily posts.",
+     "a": "An agency usually covers more ground for the money, since social alone rarely produces leads. A hire posts content. An agency also fixes the site, email and reviews the posts point to. With retail at 12.1% of Jacksonville establishments, coordinated promotions matter more than daily posts.",
      "from": "autocomplete: social media manager jacksonville fl"
     },
     {
@@ -625,7 +625,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a digital marketing agency in Jacksonville?",
-     "a": "Ask for a written plan, examples of measured results and confirmation that you own every account. Difficulty on \"digital marketing agency jacksonville\" is 62, so firms that rank well for it are skilled at their own marketing; check they can show the same for clients.",
+     "a": "Ask for a written plan, examples of measured results and confirmation that you own every account. Difficulty on \"digital marketing agency jacksonville\" is 62, so firms that rank well for it are skilled at their own marketing. Check they can show the same for clients.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

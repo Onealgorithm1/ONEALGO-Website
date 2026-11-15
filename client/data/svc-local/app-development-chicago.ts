@@ -358,7 +358,7 @@ export const PLACE: LocalPlace = {
     "label": "Sector needs, briefly",
     "paras": [
      "Construction, at 9.1% of establishments, runs on the field: crews, materials and change orders. A simple mobile-friendly web app that logs each job beats a group text every time.",
-     "Information businesses are small here at 1.7%, which tells us most Chicago demand for software comes from companies whose main business is something else. They need a builder who learns their operation, not one who assumes they speak in code."
+     "Information businesses are small here at 1.7%, which tells us most Chicago demand for software comes from companies whose main business is something else. They need a builder who learns their operation."
     ]
    },
    "table": {

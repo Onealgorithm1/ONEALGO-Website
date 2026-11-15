@@ -281,13 +281,13 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Indianapolis marketing, planned as one system",
-   "lede": "Many Indianapolis businesses have tried marketing in pieces; we connect the pieces so each channel feeds the next.",
+   "lede": "Many Indianapolis businesses have tried marketing in pieces, and we connect the pieces so each channel feeds the next.",
    "leadIn": "Why it matters:",
    "lead": "when message, site and channels pull in different directions, nobody can tell which spending actually produces customers.",
    "deeper": {
     "label": "What we fix first",
     "paras": [
-     "The common pattern in a mid-sized metro: a website built years ago, a social account posting sporadically, a few ads someone set up once. Each piece has a cost; none has a clear job.",
+     "The common pattern in a mid-sized metro: a website built years ago, a social account posting sporadically, a few ads someone set up once. Each piece has a cost. None has a clear job.",
      "We start by writing what you sell, to whom and why you are the better choice, then make the website say it. Only then do we add channels. Everything is delivered remotely from Malvern, Pennsylvania, in your Eastern time zone."
     ]
    },
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "Indianapolis searches for marketing help",
    "lede": "Two agency phrasings add up to 1,200 exact-match US searches a month, according to the Semrush pull.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency indianapolis\" draws 720 searches at a difficulty of 47; \"marketing agency indianapolis\" draws 480 at 66.",
+   "lead": "\"digital marketing agency indianapolis\" draws 720 searches at a difficulty of 47, and \"marketing agency indianapolis\" draws 480 at 66.",
    "deeper": {
     "label": "Prices and phrasing",
     "paras": [
@@ -432,7 +432,7 @@ export const PLACE: LocalPlace = {
     "label": "Fewer agencies per business",
     "paras": [
      "Indianapolis has slightly fewer marketing firms per business than our marketing-page median, and most are consultants: 374 marketing consulting establishments against 86 advertising agencies.",
-     "Integration skills are thinner still. Custom programming runs at 81.4 per 10,000, 24th of 37, against an 88.7 median. Marketing automation needs someone who can connect forms, email, reviews and reporting, so check that any agency you hire can do the wiring, not just the writing."
+     "Integration skills are thinner still. Custom programming runs at 81.4 per 10,000, 24th of 37, against an 88.7 median. Marketing automation needs someone who can connect forms, email, reviews and reporting, so check that any agency you hire can do the wiring."
     ]
    },
    "table": {
@@ -636,7 +636,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Are advertising agencies in Indianapolis the same as marketing agencies?",
-     "a": "Not quite. Advertising agencies usually focus on creative and media buying; marketing agencies cover the wider system, including site, search and email. Indianapolis has 86 advertising agencies and 374 marketing consultancies. We work on the marketing system, with ads as one late layer.",
+     "a": "Not quite. Advertising agencies usually focus on creative and media buying. Marketing agencies cover the wider system, including site, search and email. Indianapolis has 86 advertising agencies and 374 marketing consultancies. We work on the marketing system, with ads as one late layer.",
      "from": "autocomplete: advertising agencies in indianapolis"
     }
    ]

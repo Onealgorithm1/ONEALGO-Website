@@ -489,7 +489,7 @@ export const PLACE: LocalPlace = {
     "label": "The checks built in",
     "paras": [
      "Before launch, we send a written scope covering campaigns, search terms, landing pages and how conversions are counted. You can submit a test form or place a test call and watch it register.",
-     "After launch, the account, the tracking and the landing pages remain yours. Reports show search terms, costs and conversions in plain numbers, not vanity metrics."
+     "After launch, the account, the tracking and the landing pages remain yours. Reports show search terms, costs and conversions in plain numbers."
     ]
    },
    "cards": [
@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose a Google Ads agency in Atlanta?",
-     "a": "Pick one that keeps the account in your name and shows you the search terms report. The Atlanta metro has 322 advertising agencies, but not all manage Google Ads daily; ask how conversions are counted and whether tracking is tested before launch. Those answers matter more than any sales deck.",
+     "a": "Pick one that keeps the account in your name and shows you the search terms report. The Atlanta metro has 322 advertising agencies, but not all manage Google Ads daily. Ask how conversions are counted and whether tracking is tested before launch.",
      "from": "autocomplete: google ads agency atlanta"
     },
     {
@@ -625,7 +625,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is an Atlanta PPC agency better than running ads myself?",
-     "a": "Running ads yourself works if you have time for weekly search term reviews and tracking upkeep. Many Atlanta owners do not, and \"ppc agency atlanta\" draws 480 searches a month from buyers looking for help. An agency adds structure and testing; you still keep the account.",
+     "a": "Running ads yourself works if you have time for weekly search term reviews and tracking upkeep. Many Atlanta owners do not, and \"ppc agency atlanta\" draws 480 searches a month from buyers looking for help. An agency adds structure and testing. You still keep the account.",
      "from": "autocomplete: ppc agency atlanta"
     },
     {

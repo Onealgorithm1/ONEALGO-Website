@@ -422,10 +422,10 @@ export const PLACE: LocalPlace = {
    "h2": "Charleston's marketing competition",
    "lede": "The Census counts 37 advertising agencies and 144 marketing consultancies in the metro, 181 firms, or 79.1 per 10,000 businesses.",
    "leadIn": "Yes, but:",
-   "lead": "the count is a ceiling, not a rival list; many of these firms do brand, social or ads, not SEO.",
+   "lead": "the count is a ceiling, not a rival list, since many of these firms do brand, social or ads, not SEO.",
    "points": [
     "Density ranks 37th of 59, under the 90.1 median.",
-    "Consultancies run at 62.9 per 10,000; agencies at 16.2.",
+    "Consultancies run at 62.9 per 10,000, agencies at 16.2.",
     "Custom programming: 121 firms, 52.9 per 10,000."
    ],
    "deeper": {
@@ -471,7 +471,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Evidence from a Florida case",
-   "lede": "Our published SEO result comes from an arcade manufacturer in Florida, which shows the process rather than a Charleston client.",
+   "lede": "Our published SEO result comes from an arcade manufacturer in Florida, and a Charleston SEO project follows the same process.",
    "leadIn": "Why it matters:",
    "lead": "the same rebuild-for-search work lifted Google clicks 92% and non-brand clicks 231% year over year.",
    "deeper": {
@@ -493,7 +493,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Google clicks up 92%",
-     "line": "Search Console recorded the gain year over year; non-brand clicks rose 231%."
+     "line": "Search Console recorded the gain year over year. Non-brand clicks rose 231%."
     }
    ],
    "links": [
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Local adjustments",
     "paras": [
-     "Charleston service areas often run from Mount Pleasant to Summerville and North Charleston. Each location page carries specific detail so it serves a real search rather than repeating the main page.",
+     "Charleston service areas often run from Mount Pleasant to Summerville and North Charleston. Each location page carries specific detail so it serves a real search.",
      "Because another Charleston sits in West Virginia, we make the state explicit in titles and structured data, so your pages compete only for South Carolina searches."
     ]
    },
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for Charleston businesses?",
-     "a": "Because clients search before they call, and a page that ranks keeps bringing them without paying per click. Advertisers pay $7.63 per click on “seo charleston”; organic visibility earns similar visits with no cost per visit. In a metro of 869,940 people, that steady flow adds up.",
+     "a": "Because clients search before they call, and a page that ranks keeps bringing them without paying per click. Advertisers pay $7.63 per click on “seo charleston”. Organic visibility earns similar visits with no cost per visit. In a metro of 869,940 people, that steady flow adds up.",
      "from": "questionBank: why is seo important"
     },
     {

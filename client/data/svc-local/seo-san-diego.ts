@@ -297,7 +297,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How SEO differs by sector",
     "paras": [
-     "Professional firms lead the count with 16,216 establishments. Their buyers compare credentials and read before they call, so the pages that win explain a service plainly, name the problem it solves and show who does the work. Thin service pages lose to firms that answer the question in full.",
+     "Professional firms lead the count with 16,216 establishments. Their buyers compare credentials and read before they call, so the pages that win explain a service, name the problem it solves and show who does the work. Thin service pages lose to firms that answer the question in full.",
      "Health care and social assistance follows with 11,649 establishments. Patients search by condition, insurance and neighbourhood, which makes Google Business Profile accuracy, location pages and review replies the core of the work.",
      "Retail trade adds 9,207 storefronts and online shops. For them SEO means category pages that match product phrasing, clean structured data and fast mobile pages, because a shopper on a phone gives a slow page a few seconds at most."
     ]
@@ -328,7 +328,7 @@ export const PLACE: LocalPlace = {
     "label": "What the base tells us",
     "paras": [
      "That professional share ranks 6th of the 59 SEO place pages we publish, well above the median of 13. A metro heavy in consultants, engineers, lawyers and agencies produces a lot of expert content, which raises the bar for anyone trying to rank on thin pages.",
-     "By headcount San Diego sits 25th on population and 23rd on establishments among those same pages. It is not the largest market on our list, but its mix leans toward businesses that sell knowledge, and knowledge businesses compete hardest on search.",
+     "By headcount San Diego sits 25th on population and 23rd on establishments among those same pages. Its mix leans toward businesses that sell knowledge, and knowledge businesses compete hardest on search.",
      "The readouts under this section are drawn from the Census County Business Patterns for 2023 and the American Community Survey for 2024."
     ]
    },
@@ -403,8 +403,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the search table",
     "paras": [
-     "That cost per click is what advertisers bid on Google for a single visit, not what we charge. It tells you what the same visitor is worth when you earn the click organically instead.",
-     "Keyword difficulty runs from 27 for “seo company san diego” to 38 for “seo services san diego”, which has 880 searches a month. Those are moderate scores: winnable with a strong service page and real local signals, not with a quick title tweak.",
+     "That cost per click is what advertisers bid on Google for a single visit, not what we charge. It tells you what the same visitor is worth when you earn the click organically.",
+     "Keyword difficulty runs from 27 for “seo company san diego” to 38 for “seo services san diego”, which has 880 searches a month. Those are moderate scores, winnable with a strong service page and real local signals.",
      "Google's autocomplete adds phrasings Semrush does not size, such as “attorney seo san diego” and “local seo services san diego”. Both point to buyers who already know the niche they want served, so a page for each tends to convert better than a generic one."
     ]
    },
@@ -441,7 +441,7 @@ export const PLACE: LocalPlace = {
    "h2": "A crowded field of marketing firms",
    "lede": "San Diego has 160.6 advertising and marketing firms per 10,000 establishments, the 3rd densest of our 59 SEO place pages.",
    "leadIn": "Yes, but:",
-   "lead": "the 1,500 firms in those codes are a ceiling, not a rival list; most do branding, events or consulting, not SEO.",
+   "lead": "the 1,500 firms in those codes are a ceiling, and most do branding, events or consulting, not SEO.",
    "points": [
     "267 advertising agencies (NAICS 541810).",
     "1,233 marketing consulting firms (NAICS 541613).",
@@ -451,7 +451,7 @@ export const PLACE: LocalPlace = {
     "label": "What the density means for you",
     "paras": [
      "The median density across our SEO pages is 90.1 per 10,000, so San Diego's agency field is far thicker than typical. Buyers here get pitched often, and they have learned to ask for evidence.",
-     "Custom programming adds 120.2 firms per 10,000, ranking 14th. Many of those build websites, which is why the sites you compete against are often technically sound. Winning means better content and stronger authority, not just a faster theme.",
+     "Custom programming adds 120.2 firms per 10,000, ranking 14th. Many of those build websites, which is why the sites you compete against are often technically sound. Winning means better content and stronger authority.",
      "We work from Malvern, PA. What we bring is a written plan, access to your own Search Console data and monthly reports you can check."
     ]
    },
@@ -564,7 +564,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Inside each stage",
     "paras": [
-     "We start with what Google already sees on your site: indexed pages, errors, speed and the queries you appear for today. That baseline makes every later report honest.",
+     "We start with what Google already sees on your site: indexed pages, errors, speed and the queries you appear for today. Every later report is measured against that baseline.",
      "The page plan is built from Semrush volumes and autocomplete phrasings for San Diego, including niche variants such as attorney and local SEO. Each planned page has one target and one job.",
      "You keep ownership of everything: the site, Google Search Console, Google Business Profile and analytics stay in your accounts, with our access granted by you."
     ]

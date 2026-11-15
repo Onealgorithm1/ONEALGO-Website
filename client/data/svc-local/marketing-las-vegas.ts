@@ -281,14 +281,14 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Marketing that starts with your message",
-   "lede": "Most Las Vegas companies we talk to have tried a channel or two; we join them into one plan, working remotely from Malvern, PA.",
+   "lede": "Most Las Vegas companies we talk to have tried a channel or two, and we join them into one plan, working remotely from Malvern, PA.",
    "leadIn": "Why it matters:",
    "lead": "health care, retail and professional firms all compete for the same 2,398,871 residents, and scattered tactics get lost.",
    "deeper": {
     "label": "One plan instead of five vendors",
     "paras": [
      "A typical small business in the valley has a web designer, someone posting to Instagram, an email tool nobody opens and a few boosted posts. Each piece reports its own success, and nobody can say which one brought in last month's customers.",
-     "We start by writing down who you sell to and why they should choose you, then make the website say it. Search, email and social follow from that message, and every channel reports into the same analytics so the numbers can be compared honestly."
+     "We start by writing down who you sell to and why they should choose you, then make the website say it. Search, email and social follow from that message, and every channel reports into the same analytics so the numbers can be compared."
     ]
    },
    "cards": [
@@ -422,7 +422,7 @@ export const PLACE: LocalPlace = {
    "h2": "Las Vegas leads 37 places in agency density",
    "lede": "The metro has 171.9 advertising and marketing establishments per 10,000 businesses, the highest of the 37 places on our marketing list.",
    "leadIn": "Yes, but:",
-   "lead": "density counts storefronts, not capability; the median place sits at 96.6, so a long list says little about fit.",
+   "lead": "density counts storefronts, not capability, and the median place sits at 96.6, so a long list says little about fit.",
    "points": [
     "799 marketing consultancies and 133 advertising agencies.",
     "932 firms in total, a ceiling rather than a rival list.",
@@ -544,7 +544,7 @@ export const PLACE: LocalPlace = {
     "label": "What the plan covers",
     "paras": [
      "The plan names your best customers, the sectors you compete with across Henderson, Summerlin and the rest of the valley, and which channel gets attention in which order.",
-     "Each month you see what was done, what it produced in your own analytics, and what comes next. If a channel is not earning its keep, we say so and move the effort elsewhere."
+     "Each month you see what was done, what it produced in your own analytics, and what comes next. If a channel is not earning its keep, we move the effort elsewhere."
     ]
    },
    "cards": [
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a social media marketing agency in Las Vegas?",
-     "a": "Not always; social works best once your website and offer convert visitors. Retail, with 6,500 Las Vegas establishments, benefits most from regular posts. Professional firms often get more from email and search. We set up automated posting as part of a wider plan rather than as a standalone service.",
+     "a": "Not always. Social works best once your website and offer convert visitors. Retail, with 6,500 Las Vegas establishments, benefits most from regular posts. Professional firms often get more from email and search. We set up automated posting as part of a wider plan rather than as a standalone service.",
      "from": "autocomplete: social media marketing agency las vegas"
     },
     {
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why hire a digital marketing agency instead of doing it in-house?",
-     "a": "An agency gives you copy, design, search and analytics from one team instead of several hires. A Las Vegas company competing with 7,876 professional firms or 6,500 retailers needs all four; we provide them remotely from Malvern, PA, and hand over everything if you later build a team.",
+     "a": "An agency gives you copy, design, search and analytics from one team instead of several hires. A Las Vegas company competing with 7,876 professional firms or 6,500 retailers needs all four. We provide them remotely from Malvern, PA, and hand over everything if you later build a team.",
      "from": "questionBank: why hire a digital marketing agency"
     }
    ]

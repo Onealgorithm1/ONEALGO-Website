@@ -392,12 +392,12 @@ export const PLACE: LocalPlace = {
    "h2": "How Dallas looks for ad help",
    "lede": "Searches for ad management are small in Dallas, 510 a month across three phrasings in our Semrush pull.",
    "leadIn": "By the numbers:",
-   "lead": "\"ppc agency dallas\" draws 390 searches at KD 17; \"google ads management dallas\" draws only 50 at KD 1.",
+   "lead": "\"ppc agency dallas\" draws 390 searches at KD 17. \"google ads management dallas\" draws only 50 at KD 1.",
    "deeper": {
     "label": "What low volume tells us",
     "paras": [
      "Semrush shows no bid data on these phrases, so there is no reliable click price to quote. Low volume on agency searches says little about demand for what you sell.",
-     "Autocomplete fills in the picture with phrasings like \"pay per click agency dallas\" and \"dallas ppc management\". The volume that matters for your campaign is not these searches, though; it is the searches your own customers type, which we size from Keyword Planner data before suggesting any budget."
+     "Autocomplete fills in the picture with phrasings like \"pay per click agency dallas\" and \"dallas ppc management\". The volume that matters for your campaign is the searches your own customers type, which we size from Keyword Planner data before suggesting any budget."
     ]
    },
    "table": {
@@ -442,8 +442,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Who you outbid",
     "paras": [
-     "Your competition in Google Ads is not the agency list; it is every business bidding on the same searches in your area. We check auction insights to see who appears beside you, how often, and where you can win on relevance instead of price.",
-     "Better ads and landing pages raise Quality Score, which lowers what you pay for the same position. That is the lever most accounts underuse."
+     "Your competition in Google Ads is every business bidding on the same searches in your area. We check auction insights to see who appears beside you, how often, and where you can win on relevance instead of price.",
+     "Better ads and landing pages raise Quality Score, which lowers what you pay for the same position."
     ]
    },
    "table": {
@@ -546,7 +546,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "How a Dallas campaign gets built",
-   "lede": "The stage cards set our order; here is what each looks like for a Dallas account.",
+   "lede": "The stage cards set our order, and here is what each looks like for a Dallas account.",
    "leadIn": "What you get:",
    "lead": "a tracking test report, a keyword plan with search volumes, ad and page drafts, and a weekly view of spend.",
    "deeper": {
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I expect from a Google Ads agency in Dallas?",
-     "a": "Expect tracking before spend, keywords chosen from data and reports in plain numbers. Semrush counts only 70 searches a month for \"google ads agency dallas\", so compare a few firms directly; ask whether they verify conversions before launch and whether the account stays in your name. Both answers should be yes.",
+     "a": "Expect tracking before spend, keywords chosen from data and reports in plain numbers. Semrush counts only 70 searches a month for \"google ads agency dallas\", so compare a few firms directly. Ask whether they verify conversions before launch and whether the account stays in your name. Both answers should be yes.",
      "from": "autocomplete: google ads agency dallas",
      "link": {
       "to": "/services/google-ads",
@@ -621,12 +621,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a pay per click agency in Dallas, or can I run ads myself?",
-     "a": "You can run ads yourself if you have time to track conversions, review search terms and test ads every week. Most owners do not. With 1,832 ad and marketing consulting establishments in the Dallas metro, help is easy to find; the test is whether they show you everything inside your own account.",
+     "a": "You can run ads yourself if you have time to track conversions, review search terms and test ads every week. Most owners do not. With 1,832 ad and marketing consulting establishments in the Dallas metro, help is easy to find. The test is whether they show you everything inside your own account.",
      "from": "autocomplete: pay per click agency dallas"
     },
     {
      "q": "Are top ad agencies in Dallas better for Google Ads?",
-     "a": "Not necessarily; large ad agencies often focus on brand campaigns and media buying rather than search accounts. Dallas has 464 advertising agencies, and size says little about how carefully one manages keywords and negatives. Judge any firm on tracking, transparency and whether a specialist, not a junior, runs your account.",
+     "a": "Not necessarily. Large ad agencies often focus on brand campaigns and media buying rather than search accounts. Dallas has 464 advertising agencies, and size says little about how carefully one manages keywords and negatives. Judge any firm on tracking, transparency and whether a specialist, not a junior, runs your account.",
      "from": "autocomplete: top ad agencies in dallas"
     },
     {

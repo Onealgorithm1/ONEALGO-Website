@@ -48,11 +48,11 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 /** "2026-10-21" -> "21 October 2026" (the site's registry date style, as SF_VERIFIED_LABEL). */
 const fmtDate = (iso: string, month: "long" | "short" = "long") =>
   new Date(`${iso.slice(0, 10)}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month, year: "numeric", timeZone: "UTC" });
-/** "2027-07-15/16" -> "15–16 July 2027". */
+/** "2027-07-15/16" -> "15 to 16 July 2027". */
 const fmtEvent = (d: string) => {
   const [base, end] = d.split("/");
   const out = fmtDate(base);
-  return end ? out.replace(/^\d+/, (day) => `${day}–${Number(end)}`) : out;
+  return end ? out.replace(/^\d+/, (day) => `${day} to ${Number(end)}`) : out;
 };
 const today = () => new Date().toISOString().slice(0, 10);
 /** For possessives: "DC's", "Dallas's". */
@@ -107,7 +107,7 @@ function federalSentence(c: City) {
   const f = federalStateFor(c);
   if (f) {
     const top = f.agencies ? String(f.agencies).split(";").slice(0, 2).map((a) => a.split(":")[0].trim()).join(" and ") : "";
-    return `Across ${STATE[f.place] ?? f.place}, federal agencies recorded ${n(f.awards)} contract award${f.awards === 1 ? "" : "s"} mentioning Salesforce in ${f.period.replace("–", " to ")}${f.usd ? `, worth $${n(f.usd)} in obligations` : ""}${top ? `; the largest buyers were ${top}` : ""}.`;
+    return `Across ${STATE[f.place] ?? f.place}, federal agencies recorded ${n(f.awards)} contract award${f.awards === 1 ? "" : "s"} mentioning Salesforce in ${f.period.replace("–", " to ")}${f.usd ? `, worth $${n(f.usd)} in obligations` : ""}${top ? `. The largest buyers were ${top}` : ""}.`;
   }
   /* FV-16: a handful of tiny awards (New York: 1 award, $500) reads as a data error; the city line shows from 3 awards
      up, and only where the city-only band does not already carry it (DC, Atlanta, Denver say it there). */
@@ -147,7 +147,7 @@ function communityLede(groups: readonly { km: number }[]) {
   if (!groups.length) return "No group with a recent event meets within 50 km of the city center.";
   if (groups.length === 1) return `The one group with a recent event meets ${groups[0].km === 0 ? "in the city center" : `${groups[0].km} km from the city center`}.`;
   const near = groups.filter((g) => g.km <= 5).length;
-  return `${near ? `${near} of the ${groups.length}` : `None of the ${groups.length}`} groups ${near === 1 ? "meets" : "meet"} within 5 km of the city center; the nearest are listed first.`;
+  return `${near ? `${near} of the ${groups.length}` : `None of the ${groups.length}`} groups ${near === 1 ? "meets" : "meet"} within 5 km of the city center, and the nearest are listed first.`;
 }
 const list = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 
@@ -162,7 +162,7 @@ const ROLE_DOES: Record<string, string> = {
 /** The free health check's four steps (titles: structure-spec §7.4 row 9; lines: SalesforceHealthCheck at ef1a8f0). */
 const HC_STAGES: (Station & { line: string })[] = [
   { k: "s1", num: "01", title: "Tell us the symptom", sub: "a call or the form", line: "Reports nobody trusts, a renewal you are unsure about, automation nobody dares touch." },
-  { k: "s2", num: "02", title: "A week in your org", sub: "read-only user · free", line: "You create a user that can read your setup and records; the week is free." },
+  { k: "s2", num: "02", title: "A week in your org", sub: "read-only user · free", line: "You create a user that can read your setup and records, and the week is free." },
   { k: "s3", num: "03", title: "A written, ranked list", sub: "ordered by what to fix first", line: "What we found and why it matters, ordered by what to fix first." },
   { k: "s4", num: "04", title: "You decide what happens next", sub: "with us or your admin", line: "Act on it with us, with your own admin, or not at all." },
 ];
@@ -182,8 +182,8 @@ function buildFaqs(c: City, who: string): CityFaqRow[] {
   const copy = CITY_COPY[c.slug];
   return [
     {
-      q: `Do you have an office in ${c.name}?`,
-      a: `No. We take on Salesforce work for ${who} remotely from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most of the work runs inside your org over video and screen-share; on larger projects, on-site visits for kickoff, go-live or training are planned into the project.`,
+      q: `Do you work with companies in ${c.name}?`,
+      a: `Yes. We take on Salesforce work for ${who} remotely from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most of the work runs inside your org over video and screen-share, and on larger projects on-site visits for kickoff, go-live or training are planned into the project.`,
       schema: false,
     },
     ...copy.faqs,
@@ -199,7 +199,7 @@ function buildFaqs(c: City, who: string): CityFaqRow[] {
     },
     {
       q: `What should ${an(c.name)} ${c.name} company budget for Salesforce consulting, and how long does it take?`,
-      a: `We scope and price ${c.name} work in writing after the free one-week health check. Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase), and Cynoteck puts a small project at 4 to 8 weeks; for comparison, one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
+      a: `We scope and price ${c.name} work in writing after the free one-week health check. Published guides put a small-business project at $15,000 to $50,000 and a mid-market one at $50,000 to $150,000 (BrainSpate, American Chase), Cynoteck puts a small project at 4 to 8 weeks, and one in-house software developer in the ${msaName(c)} earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}).`,
       link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" },
     },
     {
@@ -260,7 +260,7 @@ function IndustriesFigure({ c, fig }: { c: City; fig: number }) {
       <span className="sf-tick" aria-hidden="true" style={{ display: "block" }} />
       <div className="stamp" aria-hidden="true"><span>FIG. {fig} · Chart · Census County Business Patterns 2023 · MSA {c.msa.code}</span><span>OneAlgorithm</span></div>
       <figcaption id={id} style={{ padding: "10px 12px 12px" }}>
-        Employees in the four largest of the eight employer groups we pulled for the {msaName(c)}; {c.industries[0].label} leads with {n(c.industries[0].employees)}.
+        Employees in the four largest of the eight employer groups we pulled for the {msaName(c)}, where {c.industries[0].label} leads with {n(c.industries[0].employees)}.
       </figcaption>
     </figure>
   );
@@ -297,7 +297,7 @@ function rulesFor(c: City): { unit: CityUnit; sources: SfSource[] } | null {
       deeper: [
         ...law.map((r) => `${r.h3}: ${r.line}`),
         ...(cy ? [`${cy.license.h3}: ${cy.license.line}`] : []),
-        "Each line restates the agency's own page, read 1 November 2026; the sources pop-up lists every page.",
+        "Each line restates the agency's own page, read 1 November 2026, and the sources pop-up lists every page.",
       ],
     },
     sources,
@@ -459,8 +459,8 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             headingId="h-choose"
             title={`Choosing a Salesforce consultant in ${c.name}`}
             lede="Check the firm in Salesforce's AppExchange Partner Finder, count its certified people, and ask who will do the work."
-            lead="A partner's record is public, so you can read it before the first call instead of after the contract."
-            points={["Find the firm on AppExchange and open its listing", "Read its certified people, certifications and competency rows", "Ask who will do your work; check them on Trailblazer"]}
+            lead="A partner's record is public, so you can read it before the first call."
+            points={["Find the firm on AppExchange and open its listing", "Read its certified people, certifications and competency rows", "Ask who will do your work, then check them on Trailblazer"]}
             measure={false}
             style={{ alignSelf: "start" }}
           >
@@ -476,7 +476,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             className="sf-c7"
             headingId="h-hire"
             title={`Hire, contract or partner in ${c.name}?`}
-            lede={`${c.name} showed ${n(total)} Salesforce listings across four LinkedIn role searches on ${fmtDate(c.jobsPulled)}; hire, contract or partner: the table shows which fits.`}
+            lede={`${c.name} showed ${n(total)} Salesforce listings across four LinkedIn role searches on ${fmtDate(c.jobsPulled)}, and the table compares hiring, contracting and a partner.`}
             lead={`One in-house software developer here earns a median $${n(c.wages.developers.median)} a year in salary alone (BLS, ${c.wages.period}), before benefits.`}
             measure={false}
           >
@@ -508,7 +508,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             </p>
 
             <h3 className="sf-h3" style={{ marginTop: 40 }}>Salesforce admin, developer, consultant or architect?</h3>
-            <p style={{ marginTop: 8 }}>{roleName(byCount[0].role)} listings lead in {c.name} with {n(byCount[0].count)}; {roleName(byCount[3].role).toLowerCase()} listings are the fewest at {n(byCount[3].count)}.</p>
+            <p style={{ marginTop: 8 }}>{roleName(byCount[0].role)} listings lead in {c.name} with {n(byCount[0].count)}, and {roleName(byCount[3].role).toLowerCase()} listings are the fewest at {n(byCount[3].count)}.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "20px var(--gap)", marginTop: 20 }}>
               {byCount.map((j) => (
                 <div className="sf-readout" key={j.role}>
@@ -564,9 +564,9 @@ export default function SalesforceCity({ slug }: { slug: string }) {
           <div className="sf-grid" style={{ marginTop: 8 }}>
             <div className="sf-c7">
               <GoDeeper label={`how to read the ${short(c)} figures`}>
-                <p className="sf-rule">On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {roleCounts(c)}; a listing can match more than one search, so read the {n(total)} as demand rather than a head count.</p>
+                <p className="sf-rule">On {fmtDate(c.jobsPulled)}, LinkedIn searches within 25 miles of {c.name} returned {roleCounts(c)}. A listing can match more than one search, so read the {n(total)} as demand rather than a head count.</p>
                 <p>
-                  The {msaName(c)} had {n(c.establishments.value)} business establishments in 2023{estChange != null && <>, {estChange >= 0 ? "up" : "down"} {Math.abs(estChange)}% from 2018</>}; {n(c.size500plus.value)} of them employed 500 or more people and another {n(c.size100to499.value)} employed 100 to 499.
+                  The {msaName(c)} had {n(c.establishments.value)} business establishments in 2023{estChange != null && <>, {estChange >= 0 ? "up" : "down"} {Math.abs(estChange)}% from 2018</>}. Of those, {n(c.size500plus.value)} employed 500 or more people and another {n(c.size100to499.value)} employed 100 to 499.
                   {popChange != null && <> Population changed {signed(popChange)} between 2019 and 2024.</>}
                 </p>
                 {fed && <p>{fed}</p>}
@@ -646,7 +646,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
             title="Staged diagram of the four steps of the free one-week Salesforce health check"
             desc="A rail runs through four stations: tell us the symptom, a week in your org, a written ranked list, and you decide what happens next."
             stamp="How the free week runs"
-            caption={`The four steps in order; every ${c.name} engagement starts here, and you can stop after any of them.`}
+            caption={`The four steps in order: every ${c.name} engagement starts here, and you can stop after any of them.`}
           />
           {/* D4: the shared rail stays one line per step (the detail lives on the health-check page); each unit is wired
               to its station through data-station, so hover and focus still highlight the rail. */}
@@ -677,7 +677,7 @@ export default function SalesforceCity({ slug }: { slug: string }) {
               level={3}
               className="sf-c7"
               title="Salesforce work we have delivered"
-              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support; client names stay private."
+              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support, with client names kept private."
             >
               <DeliveredLedger />
             </SmartUnit>

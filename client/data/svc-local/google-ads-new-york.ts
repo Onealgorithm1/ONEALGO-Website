@@ -342,7 +342,7 @@ export const PLACE: LocalPlace = {
    "h2": "Sectors and their search intent",
    "lede": "The top three sectors hold 36.9% of establishments, and each buys clicks for a different kind of action.",
    "leadIn": "The bottom line:",
-   "lead": "health care and professional services want booked calls; retail wants store visits and orders.",
+   "lead": "health care and professional services want booked calls, and retail wants store visits and orders.",
    "points": [
     "Construction's 50,911 firms suit emergency and quote-request searches.",
     "Finance and insurance face strict ad policy checks.",
@@ -392,11 +392,11 @@ export const PLACE: LocalPlace = {
    "h2": "What a New York click costs",
    "lede": "Three agency phrasings in our Semrush pull add up to 660 searches a month, most of it for “ppc agency new york”.",
    "leadIn": "By the numbers:",
-   "lead": "“google ads agency new york” costs advertisers $31.39 per click; that is Google's market price, not our fee.",
+   "lead": "“google ads agency new york” costs advertisers $31.39 per click, which is Google's market price, not our fee.",
    "deeper": {
     "label": "Volume, cost and difficulty",
     "paras": [
-     "“ppc agency new york” draws 480 searches at $14.28 a click; “google ads management new york” has 70 searches and no bid data. Difficulty scores of 15, 5 and 9 show how few pages target these phrasings well.",
+     "“ppc agency new york” draws 480 searches at $14.28 a click. “google ads management new york” has 70 searches and no bid data. Difficulty scores of 15, 5 and 9 show how few pages target these phrasings well.",
      "Autocomplete adds “new york ppc management” and plenty of noise, such as people searching for the New York Post. Negative keywords filter out that noise, which is exactly the work that keeps a New York budget from leaking."
     ]
    },
@@ -433,7 +433,7 @@ export const PLACE: LocalPlace = {
    "h2": "New York's Google Ads management field",
    "lede": "The metro has 1,626 advertising agencies and 3,988 marketing consultancies, 99.8 for every 10,000 establishments.",
    "leadIn": "Yes, but:",
-   "lead": "only a share of those manage Google Ads; the count is a ceiling, not a list of competitors.",
+   "lead": "only a share of those manage Google Ads, so the count is a ceiling, not a list of competitors.",
    "points": [
     "Density ranks 6th of 10, exactly at the 99.8 median.",
     "Advertising agencies alone: 28.9 per 10,000.",
@@ -504,7 +504,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Your account",
-     "line": "Billing and admin stay with your business; we hold manager access."
+     "line": "Billing and admin stay with your business. We hold manager access."
     }
    ]
   },
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I expect from a Google Ads agency in New York?",
-     "a": "Expect tracking tested before spend, ads matched to landing pages, and reports you can verify in your own account. Advertisers pay $31.39 a click on “google ads agency new york” itself, which shows how costly mistakes are here; a good agency explains every change in plain language.",
+     "a": "Expect tracking tested before spend, ads matched to landing pages, and reports you can verify in your own account. Advertisers pay $31.39 a click on “google ads agency new york” itself, which shows how costly mistakes are here. A good agency explains every change in plain language.",
      "from": "autocomplete: google ads agency new york",
      "link": {
       "to": "/services/google-ads",
@@ -626,7 +626,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How does Google Ads work for a New York business?",
-     "a": "You bid on searches, and Google shows your ad when someone types a matching phrase in the area you target. You pay when they click. Prices vary widely; “ppc agency new york” costs advertisers $14.28 a click, so tracking which clicks become customers is essential.",
+     "a": "You bid on searches, and Google shows your ad when someone types a matching phrase in the area you target. You pay when they click. Prices vary widely. “ppc agency new york” costs advertisers $14.28 a click, so tracking which clicks become customers is essential.",
      "from": "questionBank: how does google ads work"
     },
     {
@@ -636,7 +636,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How should a New York business start advertising on Google?",
-     "a": "Start with tracking, a landing page that converts and a short list of high-intent searches in your service area. Retail, with 70,682 New York establishments, often starts with location campaigns; professional firms start with lead forms. Expand only once the first campaign shows a cost per enquiry you accept.",
+     "a": "Start with tracking, a landing page that converts and a short list of high-intent searches in your service area. Retail, with 70,682 New York establishments, often starts with location campaigns, and professional firms start with lead forms. Expand only once the first campaign shows a cost per enquiry you accept.",
      "from": "questionBank: how to advertise on google"
     },
     {

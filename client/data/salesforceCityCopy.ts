@@ -91,7 +91,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "development work for New York teams",
           deeper: [
             "Development covers Flow automation for the manual steps, Apex where clicks can't, permissions rebuilt so the right people see the right records, and integrations that tell someone when they fail.",
-            "Lending is where we run [ongoing Salesforce development](/services/salesforce-managed-services) every week, since April 2026; finance and insurance is New York's third-largest employer group in our Census pull.",
+            "Lending is where we run [ongoing Salesforce development](/services/salesforce-managed-services) every week, since April 2026. Finance and insurance is New York's third-largest employer group in our Census pull.",
           ],
         },
         {
@@ -147,7 +147,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "the federal figures behind DC Salesforce work",
           deeper: [
             "The 306 awards were led by the Treasury, Defense and State departments and total $1,241,391,054 in obligations (USAspending.gov, fiscal years 2022 to 2026).",
-            "Contractors use Salesforce to track opportunities from SAM.gov, teaming partners, proposal stages and contract vehicles; we build the objects and reports around how a capture team already works.",
+            "Contractors use Salesforce to track opportunities from SAM.gov, teaming partners, proposal stages and contract vehicles. We build the objects and reports around how a capture team already works.",
           ],
         },
       ],
@@ -170,7 +170,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     services: { order: ["int", "dm", "ms", "mc", "sa", "cost"], lede: "Seven Salesforce services for Dallas companies, from the free one-week health check to ERP and SAP integration and migration." },
     local: {
       h2: "Salesforce for Dallas finance and insurance firms",
-      lede: "Finance and insurance is one of the four largest employer groups in Dallas–Fort Worth, with 262,677 employees in the Census count.",
+      lede: "Finance and insurance is one of the four largest employer groups in Dallas-Fort Worth, with 262,677 employees in the Census count.",
       units: [
         {
           title: "Lending and finance work on Salesforce",
@@ -179,29 +179,29 @@ export const CITY_COPY: Record<string, CityCopy> = {
           lead: "Finance teams need tight control of who sees which records, set with permission sets and sharing rules and tested against real logins.",
           label: "the finance figures and the lending work",
           deeper: [
-            "The Dallas–Fort Worth finance and insurance group counts 12,347 establishments in the Census County Business Patterns 2023 pull.",
-            "We describe the lending work and keep the client's name private; [Salesforce managed services](/services/salesforce-managed-services) shows how the weekly development runs.",
+            "The Dallas-Fort Worth finance and insurance group counts 12,347 establishments in the Census County Business Patterns 2023 pull.",
+            "We describe the lending work and keep the client's name private. [Salesforce managed services](/services/salesforce-managed-services) shows how the weekly development runs.",
           ],
         },
         {
           title: "Salesforce consulting across Texas",
-          lede: "We take on Salesforce work for companies across Texas remotely from Malvern, PA, from Dallas–Fort Worth to Austin.",
+          lede: "We take on Salesforce work for companies across Texas remotely from Malvern, PA, from Dallas-Fort Worth to Austin.",
           leadIn: "By the numbers:",
           lead: "Across Texas, federal agencies recorded 5 contract awards mentioning Salesforce in fiscal years 2022 to 2026, worth $10,379,797.",
           label: "Texas figures and the Dallas community",
           deeper: [
-            "Dallas–Fort Worth has more active Salesforce Trailblazer Community Groups than any other metro we checked, plus a Salesforce office on North Field Street.",
-            "Dallas–Fort Worth also has one of the larger software developer workforces we measured, so many companies here staff routine admin work in-house and bring in a partner for integration and migration projects.",
-            "The Texas community meets at Texas Dreamin' 2027 in Austin; see [Salesforce consultants in Austin](/services/salesforce-consultant-austin).",
+            "Dallas-Fort Worth has more active Salesforce Trailblazer Community Groups than any other metro we checked, plus a Salesforce office on North Field Street.",
+            "Dallas-Fort Worth also has one of the larger software developer workforces we measured, so many companies here staff routine admin work in-house and bring in a partner for integration and migration projects.",
+            "The Texas community meets at Texas Dreamin' 2027 in Austin. See [Salesforce consultants in Austin](/services/salesforce-consultant-austin).",
           ],
         },
       ],
     },
     faqs: [
-      { q: "Can Salesforce sync with our ERP?", a: "Usually, yes. The real questions are which system owns each record, how often it syncs and what happens when the two disagree. We have built an SAP-to-Salesforce sync; the same approach applies to other ERPs, and we agree the rules with your finance and operations people before writing any code.", link: { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP" } },
+      { q: "Can Salesforce sync with our ERP?", a: "Usually, yes. The real questions are which system owns each record, how often it syncs and what happens when the two disagree. We have built an SAP-to-Salesforce sync, and the same approach applies to other ERPs. We agree the rules with your finance and operations people before writing any code.", link: { to: "/services/salesforce-integration", label: "Salesforce integration with SAP and ERP" } },
       { q: "Is a mid-size Dallas company too small for a Salesforce partner?", a: "No. The free one-week Salesforce health check works the same for a 20-person team as for a 500-person one, and every fix after it is scoped to what your team actually uses." },
       { q: "How long does a Salesforce-to-ERP integration take?", a: "It depends on how many objects sync and how clean the data is, so we scope it before giving a timeline. The free one-week Salesforce health check is often the first step, because it shows the state of the data the integration will depend on." },
-      { q: "Can you work alongside our in-house Salesforce admins in Dallas?", a: "Yes. Dallas–Fort Worth has one of the larger software developer workforces we measured, so many teams keep routine admin work in-house and bring in a partner for integration and migration projects. We work alongside them and hand over in writing." },
+      { q: "Can you work alongside our in-house Salesforce admins in Dallas?", a: "Yes. Dallas-Fort Worth has one of the larger software developer workforces we measured, so many teams keep routine admin work in-house and bring in a partner for integration and migration projects. We work alongside them and hand over in writing." },
     ],
     siblings: [C("austin", "Austin")],
   },
@@ -235,7 +235,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "Colorado's federal figures and Denver's community",
           deeper: [
             "Three of those awards had work performed in the city of Denver, worth $1,706,169, led by the Department of the Interior (USAspending.gov).",
-            "Mile High Dreamin' is scheduled for August 25–26, 2027, and Denver has an active Trailblazer community and a Salesforce office downtown, at 1225 17th Street.",
+            "Mile High Dreamin' is scheduled for August 25 to 26, 2027, and Denver has an active Trailblazer community and a Salesforce office downtown, at 1225 17th Street.",
           ],
         },
       ],
@@ -278,7 +278,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           lead: "We load in tested batches with duplicate rules switched on, so the reports still add up afterwards.",
           label: "how a large Atlanta data load runs",
           deeper: [
-            "A large load starts with a test load and a field map agreed in writing; large loads fail on the edge cases, so we find them on a small sample before the full run.",
+            "A large load starts with a test load and a field map agreed in writing. Large loads fail on the edge cases, so we find them on a small sample before the full run.",
             "For teams that want a Salesforce specialist on call rather than on payroll, our [managed services](/services/salesforce-managed-services) run weekly administration and development, with hours reported every week.",
           ],
         },
@@ -312,7 +312,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           lead: "Weekly Salesforce development through our managed services, with hours reported every week.",
           label: "development and integration for Boston teams",
           deeper: [
-            "Larger employers often run Salesforce next to finance and ERP systems; we [connect the two](/services/salesforce-integration) and agree which system owns each record before building anything.",
+            "Larger employers often run Salesforce next to finance and ERP systems. We [connect the two](/services/salesforce-integration) and agree which system owns each record before building anything.",
             "The development work runs through [Salesforce managed services](/services/salesforce-managed-services), built in a sandbox and tested before release.",
           ],
         },
@@ -357,7 +357,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "the platform side of a Seattle integration",
           deeper: [
             "Platform knowledge means governor limits, which API to use for which volume, when Flow is the right tool and when code is, and how to keep the org maintainable.",
-            "Software developers in the Seattle metro number 92,770 (BLS, May 2025); we pair with them rather than replacing them.",
+            "Software developers in the Seattle metro number 92,770 (BLS, May 2025), and we pair with them.",
           ],
         },
         {
@@ -397,10 +397,10 @@ export const CITY_COPY: Record<string, CityCopy> = {
           title: "Salesforce implementation in the Bay Area",
           lede: "We take on Bay Area work remotely, anywhere from San Francisco and Oakland to Fremont, with discovery, reviews and handover on video.",
           leadIn: "Why it matters:",
-          lead: "Buyers here know what Salesforce can do; what they need is a defined piece of work and an org their team can run.",
+          lead: "Buyers here know what Salesforce can do, and they need a defined piece of work and an org their team can run.",
           label: "the stages of a Bay Area implementation",
           deeper: [
-            "An implementation runs in four stages: the license count and edition, configuration, [data migration](/services/salesforce-data-migration) and [integration](/services/salesforce-integration) reconciled before go-live, then support after go-live; any stage can be taken on its own.",
+            "An implementation runs in four stages: the license count and edition, configuration, [data migration](/services/salesforce-data-migration) and [integration](/services/salesforce-integration) reconciled before go-live, then support after go-live. Any stage can be taken on its own.",
             "Health care, professional services and information businesses are among the Bay Area's largest employer groups in our Census pull.",
           ],
         },
@@ -430,7 +430,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
     description: `Salesforce consultants for Los Angeles companies: ERP integration, Marketing Cloud, migration. Free one-week health check. ${PHONE}.`,
     answer: {
       lead: "ERP integration, Marketing Cloud support and data migration, scoped in writing after the free one-week health check.",
-      points: ["Specialist work on demand without a full-time hire", "Your admin keeps the day-to-day; we take the deeper work", "Orders, accounts and pricing agreed between Salesforce and the ERP"],
+      points: ["Specialist work on demand without a full-time hire", "Your admin keeps the day-to-day, and we take the deeper work", "Orders, accounts and pricing agreed between Salesforce and the ERP"],
     },
     services: { order: ["int", "mc", "dm", "ms", "sa", "cost"], lede: "Seven Salesforce services for Los Angeles companies, from the free one-week health check to ERP integration and Marketing Cloud." },
     local: {
@@ -444,7 +444,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           lead: "Integrations, data migrations and Marketing Cloud, the pieces one admin was never hired for, while your admin keeps the day-to-day.",
           label: "specialist work and Marketing Cloud",
           deeper: [
-            "Marketing Cloud is Salesforce's own marketing platform, and we have provided about 18 months of Marketing Cloud support; [Marketing Cloud consulting](/services/salesforce-marketing-cloud-consulting) shows how that support runs.",
+            "Marketing Cloud is Salesforce's own marketing platform, and we have provided about 18 months of Marketing Cloud support. [Marketing Cloud consulting](/services/salesforce-marketing-cloud-consulting) shows how that support runs.",
           ],
         },
         {
@@ -499,7 +499,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "the SEC search and Austin's job count",
           deeper: [
             "Austin has the smallest business base of the cities on our Salesforce pages, but more than 1,000 Salesforce job listings across our four LinkedIn role searches.",
-            "Texas Dreamin' 2027 meets in Austin; see also [Salesforce consultants in Dallas](/services/salesforce-consultant-dallas).",
+            "Texas Dreamin' 2027 meets in Austin. See also [Salesforce consultants in Dallas](/services/salesforce-consultant-dallas).",
           ],
         },
       ],
@@ -532,10 +532,10 @@ export const CITY_COPY: Record<string, CityCopy> = {
           title: "Remote by design across South Florida",
           lede: "Where local Salesforce people are scarce, teams lean on remote partners, and that is how we work everywhere.",
           leadIn: "What we do:",
-          lead: "Discovery, reviews and handover on video from Malvern, Pennsylvania; on larger projects, on-site visits are planned into the project.",
+          lead: "Discovery, reviews and handover on video from Malvern, Pennsylvania, and on larger projects on-site visits are planned into the project.",
           label: "Miami's Salesforce community and hiring",
           deeper: [
-            "Salesforce lists no office in the Miami metro; the nearest active Trailblazer group meets in Southeast Florida, about 40 km from central Miami, and Florida Dreamin' is the region's community event.",
+            "Salesforce lists no office in the Miami metro. The nearest active Trailblazer group meets in Southeast Florida, about 40 km from central Miami, and Florida Dreamin' is the region's community event.",
             "On 21 October 2026, LinkedIn searches within 25 miles of Miami showed 603 Salesforce listings across four role searches.",
           ],
         },
@@ -547,7 +547,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           label: "the Miami finance figures and multi-region orgs",
           deeper: [
             "Finance and insurance employs 116,609 people across 13,086 establishments in the Miami metro (Census County Business Patterns 2023).",
-            "Our [managed services](/services/salesforce-managed-services) run that weekly development, with hours reported every week; the nearest of our other city pages is [Salesforce consultants in Atlanta](/services/salesforce-consultant-atlanta).",
+            "Our [managed services](/services/salesforce-managed-services) run that weekly development, with hours reported every week. The nearest of our other city pages is [Salesforce consultants in Atlanta](/services/salesforce-consultant-atlanta).",
           ],
         },
       ],
@@ -590,7 +590,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
           lead: "Keep accounts, orders and pricing consistent between Salesforce and the ERP, then clean the data so reports match operations.",
           label: "the Chicago manufacturing figures and ERP work",
           deeper: [
-            "[Salesforce integration](/services/salesforce-integration) agrees which system owns each record before anything is built; see also [Salesforce consultants in Denver](/services/salesforce-consultant-denver).",
+            "[Salesforce integration](/services/salesforce-integration) agrees which system owns each record before anything is built. See also [Salesforce consultants in Denver](/services/salesforce-consultant-denver).",
             "Chicago's Trailblazer community includes Admin groups in Chicago, Downers Grove, Schaumburg and Naperville.",
           ],
         },

@@ -93,7 +93,7 @@ export function economySection({ geo, area, Ps, T, aOf }) {
     deeper: {
       label: "how the concentration figure is worked out",
       paras: [
-        `Each figure divides the subsector's share of paid employees in ${area} by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country.`,
+        `Each figure divides the subsector's share of paid employees in ${area} by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country.`,
       ],
     },
     sources: [
@@ -149,7 +149,7 @@ export function rulesSection({ P, state, city, isState, T, sib = 0 }) {
     h2: "Licenses, filings and data rules",
     lede: ledeTxt,
     leadIn: "Why it matters:",
-    lead: Cy ? S.lead : isState ? `Each rule here is quoted from the ${state === "District of Columbia" ? "District" : "state"} office that publishes it, and the sources list names every page.` : "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+    lead: Cy ? S.lead : isState ? `Each rule here is quoted from the ${state === "District of Columbia" ? "District" : "state"} office that publishes it, and the sources list names every page.` : "Two of the state's rules are shown here, each quoted from the office that publishes it, and the sources list names every page.",
     cards: cards.map((c) => ({ h3: c.h3, line: lighten(c.line, state, isState) })),
     deeper: {
       label: "the other rules and where they come from",

@@ -370,15 +370,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "883,961 paid employees across 31,168 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "883,961 paid employees across 31,168 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Manufacturing",
-     "line": "689,133 paid employees across 13,307 establishments in 2023; a site here needs spec sheets, distributor lookups and request-for-quote forms."
+     "line": "689,133 paid employees across 13,307 establishments in 2023, and a site here needs spec sheets, distributor lookups and request-for-quote forms."
     },
     {
      "h3": "Retail",
-     "line": "560,620 paid employees across 34,275 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
+     "line": "560,620 paid employees across 34,275 establishments in 2023, and a site here needs stock that matches the till and a phone checkout."
     }
    ],
    "deeper": {
@@ -401,8 +401,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as an Ohio business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for an Ohio business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -428,7 +428,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 255,049 establishments, 209,584 had fewer than 20 people and 37,728 employed 20 to 99. Another 6,872 employed 100 to 499, and 865 employed 500 or more.",
      "Within the 20-to-99 band, 27,959 establishments had 20 to 49 people and 9,769 had 50 to 99. The average establishment employed 19.9 of the 5,081,279 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 255,049; that is one establishment for every 46.6 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 255,049. That is one establishment for every 46.6 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 67.9 per 10,000 businesses is a ceiling on web-design firms in the state."
     ]
    }
@@ -441,9 +441,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 689,133 employees.",
    "points": [
-    "Health care: 28.4 employees per establishment; booking and intake matter most.",
-    "Manufacturing: 51.8 employees per establishment; spec sheets and RFQ forms carry the site.",
-    "Retail: 16.4 employees per establishment; stock and checkout must agree."
+    "Health care: 28.4 employees per establishment, and booking and intake matter most.",
+    "Manufacturing: 51.8 employees per establishment, and spec sheets and RFQ forms carry the site.",
+    "Retail: 16.4 employees per establishment, and stock and checkout must agree."
    ],
    "table": {
     "caption": "Ohio: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -481,7 +481,7 @@ export const PLACE: LocalPlace = {
      "31,168 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 13,307 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Retail trade counts 34,275 establishments that need stock that matches the till and a phone checkout, and accommodation and food services, fourth at 496,313 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Administrative and support services ranks fifth at 411,579 employees, and the 12 sectors we read cover 4,310,518 of the 5,081,279 paid employees in the state.",
-     "Together the four employ 2,630,027 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 2,630,027 people, 51.8% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -579,7 +579,7 @@ export const PLACE: LocalPlace = {
    "h2": "1,733 custom programming firms statewide",
    "lede": "1,733 custom computer programming establishments (NAICS 541511) operated in the state in 2023, −0.5% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 67.9 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 67.9 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 442 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 1,058 establishments in 2023.",
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Real estate, rental and leasing went from 10,751 to 11,647 establishments between 2018 and 2023; finance and insurance went from 17,147 to 15,004.",
+     "Real estate, rental and leasing went from 10,751 to 11,647 establishments between 2018 and 2023, and finance and insurance went from 17,147 to 15,004.",
      "Construction came second, +6.9%, and accommodation and food services third, +6.7%.",
      "That is a net gain of 3,112 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 4,878,062 to 5,081,279 over the same years, +4.2%. Population moved +1.7% from 2019 to 2024, to 11,883,304."
@@ -676,7 +676,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 255,049 establishments here against the 64 places' own counts, 55th for their change since 2018.",
      "Programming firms run 67.9 per 10,000 businesses here against a median of 85.2. The under-20 share is 82.2% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,110, 39th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 1,110, 39th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -728,7 +728,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 883,961 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the state, where health care and social assistance employs 883,961 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 3,456 systems design establishments in the state could pick up from.",
      "For the 13,307 manufacturing establishments here, stage two usually lists spec sheets, distributor lookups and request-for-quote forms."
     ]
@@ -743,13 +743,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 1,733 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Ohio?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in Ohio?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -766,7 +766,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Ohio?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 209,584 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $16.50 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 209,584 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $16.50 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -775,7 +775,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the state, 82.2% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the state, 82.2% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -802,7 +802,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you build accessible websites in Ohio?",
-     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the 31,168 health care and social assistance establishments in the state, whose patients include people of every ability.",
+     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the 31,168 health care and social assistance establishments in the state, whose patients include people of every ability.",
      "from": "suggest-base: why is accessibility important in web design",
      "link": {
       "to": "/services/website-development#accessibility",

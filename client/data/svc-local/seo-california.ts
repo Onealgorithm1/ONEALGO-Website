@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Scale is the story",
     "paras": [
-     "Professional share ranks 22nd of 59 against a median of 13, close to typical. California's sheer size is the story, not an unusual mix: every sector here is large enough to have its own competitive search landscape.",
+     "Professional share ranks 22nd of 59 against a median of 13, close to typical. California's sheer size is the story: every sector here is large enough to have its own competitive search landscape.",
      "Scale changes SEO planning. A business serving the whole state competes with national brands, while one serving a single metro competes mostly with neighbours. We decide that scope before writing a single page.",
      "These readouts are from Census County Business Patterns 2023 and the 2024 American Community Survey, measured statewide."
     ]
@@ -484,7 +484,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Phantom Arcades builds arcade cabinets in Valrico, Florida. We designed and rebuilt their website for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects so existing search equity carried over.",
      "Search Console then compared a 68-day window this autumn with the same dates in 2025. Clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal period before the window was flat.",
-     "A California business gets the same discipline: a site rebuilt for search, every old address redirected, and results read from Search Console rather than claimed."
+     "A California business gets the same discipline: a site rebuilt for search, every old address redirected, and results read from Search Console."
     ]
    },
    "cards": [
@@ -624,7 +624,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire an SEO consultant in California or a remote agency?",
-     "a": "Either can work; what matters is method and accountability. A consultant suits a narrow project, an agency suits ongoing work across content, links and reporting. We are a remote team in Malvern, PA, three hours ahead of Pacific time, and California has 9,390 marketing consulting firms to compare against.",
+     "a": "Either can work. What matters is method and accountability. A consultant suits a narrow project, an agency suits ongoing work across content, links and reporting. We are a remote team in Malvern, PA, three hours ahead of Pacific time, and California has 9,390 marketing consulting firms to compare against.",
      "from": "autocomplete: seo consultant california"
     },
     {
@@ -634,7 +634,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do you do SEO for a business that serves all of California?",
-     "a": "Start with a technically clean site and one strong statewide page, then add city pages where demand and real service overlap, then earn links from California sources. With 11,852 advertising and marketing firms in the state, the businesses that win are usually the ones that expand patiently rather than all at once.",
+     "a": "Start with a technically clean site and one strong statewide page, then add city pages where demand and real service overlap, then earn links from California sources. With 11,852 advertising and marketing firms in the state, the businesses that win are usually the ones that expand patiently.",
      "from": "questionBank: how to do seo"
     },
     {

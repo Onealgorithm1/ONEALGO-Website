@@ -391,7 +391,7 @@ export const PLACE: LocalPlace = {
     "label": "What else the city types",
     "paras": [
      "Autocomplete adds \"st louis email marketing agency\", \"st louis email marketing services\" and \"advertising agencies in st louis mo\". Several email phrasings appear in that list, which shapes how we prioritise channels.",
-     "The click prices are what Google charges advertisers, not our fees; they show the value of an organic page that answers the same search."
+     "The click prices are what Google charges advertisers, not our fees. They show the value of an organic page that answers the same search."
     ]
    },
    "table": {
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Ads, eventually",
     "paras": [
-     "Paid ads can work in St. Louis at click prices near $4.30, but only on pages that already convert. By then, tracking is in place and ad results can be judged on leads, not traffic."
+     "Paid ads can work in St. Louis at click prices near $4.30, but only on pages that already convert. By then, tracking is in place and ad results can be judged on leads."
     ]
    },
    "links": [
@@ -536,7 +536,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Putting a St. Louis plan to work",
-   "lede": "The stage cards give the order; for St. Louis firms, email and reviews usually move earliest in the plan.",
+   "lede": "The stage cards give the order, and for St. Louis firms, email and reviews usually move earliest in the plan.",
    "leadIn": "What you get:",
    "lead": "a written plan, revised website copy, live email and review flows, and a monthly leads report by channel.",
    "deeper": {

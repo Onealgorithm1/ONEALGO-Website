@@ -622,7 +622,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How many marketing firms are in Pittsburgh, PA?",
-     "a": "The Census counts 317 advertising and marketing consulting establishments in the Pittsburgh metro: 111 agencies and 206 consultants. Treat that as a ceiling; not every firm does digital work. At 18 ad agencies per 10,000 businesses, local choice is narrow, so compare remote teams on plans and reporting too.",
+     "a": "The Census counts 317 advertising and marketing consulting establishments in the Pittsburgh metro: 111 agencies and 206 consultants. Treat that as a ceiling. Not every firm does digital work. At 18 ad agencies per 10,000 businesses, local choice is narrow, so compare remote teams on plans and reporting too.",
      "from": "autocomplete: marketing firms in pittsburgh pa"
     },
     {
@@ -632,7 +632,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How should a Pittsburgh business choose a digital marketing agency?",
-     "a": "Ask for a written plan, confirm you will own every account, and ask how each channel is tracked to inquiries. In Pittsburgh, broad agency phrases score 63 and 65 on keyword difficulty, so ranking well for them shows effort; still, judge any agency on the reporting it offers you.",
+     "a": "Ask for a written plan, confirm you will own every account, and ask how each channel is tracked to inquiries. In Pittsburgh, broad agency phrases score 63 and 65 on keyword difficulty, so ranking well for them shows effort. Still, judge any agency on the reporting it offers you.",
      "from": "questionBank: how to choose a digital marketing agency"
     }
    ]

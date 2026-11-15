@@ -319,7 +319,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 59 places where we publish SEO pages, New Orleans is 49th for establishments and 51st for population. Counts come from Census County Business Patterns 2023 and the ACS 2024 population estimate.",
      "Professional, scientific and technical services make up 13% of establishments, exactly the median across those pages, placing the metro 30th on that measure.",
-     "Smaller size cuts competition but also caps volume. The goal is to own the phrases that matter for your business, rather than chasing broad terms that bring visitors with no intent to buy."
+     "Smaller size cuts competition but also caps volume. The goal is to own the phrases that matter for your business."
     ]
    },
    "readouts": [
@@ -340,8 +340,8 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "retail holds 13.6% of establishments, and shop searches are local, mobile and often made on the spot.",
    "points": [
-    "Professional services: 3,262 establishments; health care: 2,738.",
-    "Construction counts 1,759; finance and insurance 1,476.",
+    "Professional services: 3,262 establishments. Health care: 2,738.",
+    "Construction counts 1,759, finance and insurance 1,476.",
     "The top three sectors hold 37.5% of all establishments."
    ],
    "deeper": {
@@ -393,9 +393,9 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the New Orleans table",
     "paras": [
-     "\"seo new orleans\" adds 880 searches a month at difficulty 18, with no bid data, bringing the table to 1,600. The $14.01 figure is what advertisers pay Google per click, not a fee of ours.",
+     "\"seo new orleans\" adds 880 searches a month at difficulty 18, with no bid data, bringing the table to 1,600. The $14.01 figure is what advertisers pay Google per click.",
      "Difficulty that low means a well-structured page with a few solid links can compete without years of authority behind it.",
-     "Autocomplete adds \"seo services new orleans\", \"seo agency new orleans\" and \"seo company in new orleans\". Those are buyers with a project in mind; unrelated phrasings such as \"seo jobs new orleans\" and \"sea new orleans\" stay out of the plan."
+     "Autocomplete adds \"seo services new orleans\", \"seo agency new orleans\" and \"seo company in new orleans\". Those are buyers with a project in mind. Unrelated phrasings such as \"seo jobs new orleans\" and \"sea new orleans\" stay out of the plan."
     ]
    },
    "table": {
@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The 123 figure is already a ceiling, covering every agency and consultancy in NAICS 541810 and 541613, and not all of them offer SEO. The real number of local SEO providers is smaller still.",
      "Thin competition among agencies can mean thin competition in results too. Where fewer firms sell optimization, solid technical work and well-targeted pages can move faster than in denser metros.",
-     "Programming density is 35.4 per 10,000 establishments, well under the 86.9 median. Fewer technical rivals means a clean, fast site is a genuine advantage, not just table stakes."
+     "Programming density is 35.4 per 10,000 establishments, well under the 86.9 median. Fewer technical rivals means a clean, fast site is an advantage."
     ]
    },
    "table": {
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "points": [
     "Website and message first, so visits become calls.",
     "Then SEO, a blog, email and local authority.",
-    "Automation next; paid ads only after organic traffic converts."
+    "Automation next, paid ads only after organic traffic converts."
    ],
    "deeper": {
     "label": "Building past the first rankings",
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "A New Orleans SEO engagement, stage by stage",
-   "lede": "We follow the same stages for every client; for New Orleans the plan weights local and mobile search heavily.",
+   "lede": "We follow the same stages for every client, and for New Orleans the plan weights local and mobile search heavily.",
    "leadIn": "What you get:",
    "lead": "an audit, a page plan built from New Orleans searches, approved fixes, and monthly Search Console reports.",
    "deeper": {
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
     "label": "Central time, remote work",
     "paras": [
      "New Orleans runs one hour behind us, so calls fit easily into your day. Reviews happen on screen-shares, and every draft is a link you open in your browser.",
-     "We keep one office in Malvern, PA, and support is reachable around the clock."
+     "Our team works from Malvern, PA, and support is reachable around the clock."
     ]
    }
   },
@@ -604,7 +604,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose an SEO company in New Orleans?",
-     "a": "Choose one that shows a written audit, a page plan built on search data and reports from your own Search Console. New Orleans has only 123 agencies and consultancies, so options are limited; remote providers widen the pool, and method matters more than location.",
+     "a": "Choose one that shows a written audit, a page plan built on search data and reports from your own Search Console. New Orleans has only 123 agencies and consultancies, so options are limited. Remote providers widen the pool, and method matters more than location.",
      "from": "autocomplete: seo company new orleans",
      "link": {
       "to": "/services/seo",

@@ -338,7 +338,7 @@ export const PLACE: LocalPlace = {
    "h2": "The sectors behind New Jersey search",
    "lede": "Construction is the fourth-largest sector in New Jersey, and it searches almost entirely through maps and reviews.",
    "leadIn": "The bottom line:",
-   "lead": "most New Jersey SEO is local SEO, repeated across many towns, not one national ranking.",
+   "lead": "most New Jersey SEO is local SEO, repeated across many towns.",
    "points": [
     "Construction: 22,502 establishments, 9.5% of the state.",
     "Finance and insurance: 11,075 establishments, 4.7%.",
@@ -348,7 +348,7 @@ export const PLACE: LocalPlace = {
     "label": "What each sector needs",
     "paras": [
      "Contractors in New Jersey work across county lines, which tempts them to build dozens of near-identical town pages. Google treats those as thin. We build fewer, stronger pages, each with real projects and details from that area.",
-     "Finance and insurance firms face stricter quality review for money topics. Clear authorship, licensing details stated plainly and careful claims help those pages hold rankings.",
+     "Finance and insurance firms face stricter quality review for money topics. Clear authorship, licensing details and careful claims help those pages hold rankings.",
      "Real estate competes with national portals. Neighbourhood depth, local market notes and well-marked listings give a New Jersey brokerage pages a portal cannot match."
     ]
    },
@@ -393,7 +393,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the numbers say",
     "paras": [
-     "Those are Google advertiser bids for a single visit, not our pricing. They show how much a New Jersey SEO lead is worth to the firms buying it, and why ranking organically for these terms pays.",
+     "Those are Google advertiser bids for a single visit. They show how much a New Jersey SEO lead is worth to the firms buying it, and why ranking organically for these terms pays.",
      "Keyword difficulty is modest: 22 for “seo new jersey” and 29 for the company phrase. A focused page with real proof can compete, provided the site behind it is technically clean.",
      "Autocomplete fills in the intent. People type “local seo company new jersey”, “seo agency new jersey” and niche phrasings such as dental SEO, which tells us many buyers want town-level visibility rather than statewide reach."
     ]
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Close by, delivered remotely",
     "paras": [
      "Malvern is a short drive from the Delaware River, and we share your Eastern time zone, but the work runs remotely: calls, screen-shares and reviews in your own browser.",
-     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent site issues get a response at any hour."
+     "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent site issues get a response at any hour."
     ]
    }
   },

@@ -510,7 +510,7 @@ export const PLACE: LocalPlace = {
    "h2": "Our sequence for Phoenix growth",
    "lede": "We build marketing in stages, adding a channel only when the one before it is working.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first, then search, blog, email and authority, then automation; paid ads come once organic delivers.",
+   "lead": "website and message first, then search, blog, email and authority, then automation. Paid ads come once organic delivers.",
    "points": [
     "Social posts scheduled a month ahead, tied to the website.",
     "Review requests and replies automated after each sale.",
@@ -519,7 +519,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Social done properly",
     "paras": [
-     "Since so many Phoenix buyers search for social media help, we treat it seriously: posts planned in advance, linked to pages on your site, and measured by visits and enquiries rather than likes.",
+     "Since so many Phoenix buyers search for social media help, we treat it seriously: posts planned in advance, linked to pages on your site, and measured by visits and enquiries.",
      "Google Business Profile posts run alongside, and review flow keeps your rating fresh for newcomers comparing options. Paid campaigns join once organic channels show which offers land."
     ]
    },
@@ -538,13 +538,13 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "How Phoenix marketing projects run",
-   "lede": "The stage cards below show the order; each stage ends with something you approve before we move on.",
+   "lede": "The stage cards below show the order, and each stage ends with something you approve before we move on.",
    "leadIn": "What you get:",
    "lead": "a sharper message, a content and social calendar for your Valley audience, and reports built around leads.",
    "deeper": {
     "label": "Working across time zones",
     "paras": [
-     "Arizona skips daylight saving, so the gap with Malvern shifts between two and three hours through the year. We schedule posts and emails for Phoenix peaks, not ours.",
+     "Arizona skips daylight saving, so the gap with Malvern shifts between two and three hours through the year. We schedule posts and emails for Phoenix peaks.",
      "Drafts arrive as links, you comment when it suits you, and nothing publishes without your approval."
     ]
    },
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Our setup",
     "paras": [
-     "Our only office is in Malvern, Pennsylvania. Strategy calls happen on video, reports are walked through on a shared screen, and campaigns are approved in your browser.",
+     "Our team works from Malvern, Pennsylvania. Strategy calls happen on video, reports are walked through on a shared screen, and campaigns are approved in your browser.",
      "Urgent issues, such as a broken form or a locked social account, reach us at any hour."
     ]
    }
@@ -599,7 +599,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What does a digital marketing agency in Phoenix do?",
-     "a": "It plans and runs the online channels that win customers: website message, search, email, social and later ads. With 1,300 monthly searches for \"digital marketing agency phoenix\", many owners want one partner across all of it, so the channels reinforce each other instead of competing for budget.",
+     "a": "It plans and runs the online channels that win customers: website message, search, email, social and later ads. With 1,300 monthly searches for \"digital marketing agency phoenix\", many owners want one partner across all of it, so the channels reinforce each other.",
      "from": "autocomplete: digital marketing agency phoenix",
      "link": {
       "to": "/services/marketing",
@@ -613,12 +613,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a social media manager in Phoenix or an agency?",
-     "a": "A single manager suits companies with lots of daily content; an agency suits those needing strategy, writing, email and reporting together. Phoenix has 1,117 marketing consulting establishments, so options are wide. We handle social as part of a full plan, tied to the website and measured by leads.",
+     "a": "A single manager suits companies with lots of daily content. An agency suits those needing strategy, writing, email and reporting together. Phoenix has 1,117 marketing consulting establishments, so options are wide. We handle social as part of a full plan, tied to the website and measured by leads.",
      "from": "autocomplete: social media manager phoenix"
     },
     {
      "q": "How do I choose a digital marketing agency in Phoenix?",
-     "a": "Choose one that shows its plan in writing and keeps accounts in your name. Phoenix has 127.4 ad agencies and marketing consultancies per 10,000 establishments, so compare first-month plans, reporting and ownership terms. Agencies that answer plainly before signing tend to report plainly after it, too.",
+     "a": "Choose one that shows its plan in writing and keeps accounts in your name. Phoenix has 127.4 ad agencies and marketing consultancies per 10,000 establishments, so compare first-month plans, reporting and ownership terms. Ask each one for a sample report before signing.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {
@@ -628,7 +628,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is the difference between advertising agencies in Phoenix and a marketing agency?",
-     "a": "Advertising agencies usually focus on creative and media buys; marketing agencies run ongoing channels like email, search and social. Phoenix has 343 advertising agencies in the Census count. Most growing Valley businesses need steady channel work more than occasional one-off campaigns.",
+     "a": "Advertising agencies usually focus on creative and media buys. Marketing agencies run ongoing channels like email, search and social. Phoenix has 343 advertising agencies in the Census count. Most growing Valley businesses need steady channel work more than occasional one-off campaigns.",
      "from": "autocomplete: advertising agencies in phoenix"
     },
     {

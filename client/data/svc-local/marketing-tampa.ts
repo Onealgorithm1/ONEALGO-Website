@@ -285,7 +285,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "A marketing plan Tampa owners can follow",
-   "lede": "A website and a social page are not a plan; we join a Tampa company’s channels into one, delivered remotely.",
+   "lede": "We join a Tampa company’s website, social page and other channels into one plan, delivered remotely.",
    "leadIn": "Why it matters:",
    "lead": "in a metro of 3,424,560 people, customers meet you across several channels before they ever pick up the phone.",
    "deeper": {
@@ -349,7 +349,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Channel fit by sector",
     "paras": [
-     "Insurance agencies and advisers benefit from email education and clear explainer pages; compliance rules limit flashy claims anyway, so substance carries the load.",
+     "Insurance agencies and advisers benefit from email education and clear explainer pages. Compliance rules limit flashy claims anyway.",
      "Agents and builders sell on proof. Project galleries, testimonials gathered automatically after a closing or a finished job, and a Google Business Profile that stays active give buyers confidence before the first conversation."
     ]
    },
@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
     "label": "What the costs and phrasings say",
     "paras": [
      "Advertisers pay $5.56 and $4.26 per click on the two phrases. That is the price Google sets for the click, not what we charge.",
-     "Autocomplete leans toward social: “social media marketing agency tampa” and “social media management tampa” appear alongside the agency searches. Owners clearly feel the pull of social, which is why we explain where it fits in the sequence rather than leading with it."
+     "Autocomplete leans toward social: “social media marketing agency tampa” and “social media management tampa” appear alongside the agency searches. Owners feel the pull of social, so we explain where it fits in the sequence."
     ]
    },
    "table": {
@@ -426,7 +426,7 @@ export const PLACE: LocalPlace = {
    "h2": "How many marketing firms compete in Tampa",
    "lede": "Tampa Bay counts 139.3 advertising and marketing firms per 10,000 establishments, 8th of 37 places, above the 96.6 median.",
    "leadIn": "Yes, but:",
-   "lead": "1,272 establishments is a ceiling, not a rival list; many are specialists who would never run your whole program.",
+   "lead": "1,272 establishments is a ceiling. Many are specialists who would never run your whole program.",
    "points": [
     "1,063 marketing consulting establishments.",
     "209 advertising agencies.",
@@ -436,7 +436,7 @@ export const PLACE: LocalPlace = {
     "label": "What to ask before you hire",
     "paras": [
      "In a market with this many options, ask three things: who writes the plan, whose accounts the work lives in, and how success gets measured. Vague answers to any of them predict trouble later.",
-     "We keep everything in accounts you own, from analytics and ad platforms to the email list, and we report on enquiries and sales rather than likes."
+     "We keep everything in accounts you own, from analytics and ad platforms to the email list, and we report on enquiries and sales."
     ]
    },
    "table": {
@@ -513,7 +513,7 @@ export const PLACE: LocalPlace = {
    "h2": "Stacking channels in the right order",
    "lede": "Each channel we add depends on the one before it, so we resist the urge to launch everything at once.",
    "leadIn": "The bottom line:",
-   "lead": "organic channels earn trust first; ads join when there is something proven to amplify.",
+   "lead": "organic channels earn trust first. Ads join when there is something proven to amplify.",
    "points": [
     "Website and message, then search and a blog.",
     "Email and authority building next.",
@@ -522,8 +522,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Automation and ads, later",
     "paras": [
-     "Scheduling social posts and Google Business Profile updates, sending review requests and drafting replies can all run automatically. They pay off once the site converts; before that, they send visitors somewhere that leaks.",
-     "Paid campaigns follow organic traction. Once search and email show which offers bring enquiries, ad spend goes behind those offers instead of being used to find them."
+     "Scheduling social posts and Google Business Profile updates, sending review requests and drafting replies can all run automatically. They pay off once the site converts. Before that, they send visitors somewhere that leaks.",
+     "Paid campaigns follow organic traction. Once search and email show which offers bring enquiries, ad spend goes behind those offers."
     ]
    },
    "links": [
@@ -616,7 +616,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do digital marketing companies in Tampa differ?",
-     "a": "They differ in method, reporting and account ownership more than in channel lists. Tampa Bay ranks 8th of 37 places for marketing firm density, so compare written plans. We work remotely from Malvern, PA, and report from your own accounts on enquiries, not impressions.",
+     "a": "They differ in method, reporting and account ownership more than in channel lists. Tampa Bay ranks 8th of 37 places for marketing firm density, so compare written plans. We work remotely from Malvern, PA, and report from your own accounts on enquiries.",
      "from": "autocomplete: digital marketing companies tampa"
     },
     {

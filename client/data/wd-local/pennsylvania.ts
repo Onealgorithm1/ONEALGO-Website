@@ -543,22 +543,22 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "1,142,207 paid employees across 39,602 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "1,142,207 paid employees across 39,602 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Retail",
-     "line": "650,539 paid employees across 40,238 establishments in 2023; a site here needs stock that matches the till and a phone checkout."
+     "line": "650,539 paid employees across 40,238 establishments in 2023, and a site here needs stock that matches the till and a phone checkout."
     },
     {
      "h3": "Manufacturing",
-     "line": "564,394 paid employees across 13,231 establishments in 2023; a site here needs spec sheets, distributor lookups and request-for-quote forms."
+     "line": "564,394 paid employees across 13,231 establishments in 2023, and a site here needs spec sheets, distributor lookups and request-for-quote forms."
     }
    ],
    "deeper": {
     "label": "how a remote build runs, stage by stage",
     "paras": [
      "Health care and social assistance alone holds 20% of the 5,713,846 paid employees counted in the state in 2023.",
-     "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them. For a business in Chester County, where our office is, see [web design in Chester County](/services/web-design-chester-county).",
+     "Most of a build runs remotely, and in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them. For a business in Chester County, where our office is, see [web design in Chester County](/services/web-design-chester-county).",
      "The three cards above are the three largest of the 12 sectors we read for the state, by paid employees: health care and social assistance, retail trade and manufacturing.",
      "Hospitality and food is fourth, with 474,507 paid employees in 29,187 establishments."
     ]
@@ -577,8 +577,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "Starzi Brothers moved off Squarespace to a site with a page for each service and the quote form that lands in the office inbox; it is the one Pennsylvania business among the six.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Starzi Brothers moved off Squarespace to a site with a page for each service and the quote form that lands in the office inbox. It is the one Pennsylvania business among the six.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -604,7 +604,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 307,065 establishments, 257,465 had fewer than 20 people and 41,074 employed 20 to 99. Another 7,527 employed 100 to 499, and 999 employed 500 or more.",
      "Within the 20-to-99 band, 30,443 establishments had 20 to 49 people and 10,631 had 50 to 99. The average establishment employed 18.6 of the 5,713,846 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 307,065; that is one establishment for every 42.6 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 307,065. That is one establishment for every 42.6 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 68.4 per 10,000 businesses is a ceiling on web-design firms in the state."
     ]
    }
@@ -617,9 +617,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and retail trade comes next at 650,539 employees.",
    "points": [
-    "Health care: 28.8 employees per establishment; booking and intake matter most.",
-    "Retail: 16.2 employees per establishment; stock and checkout must agree.",
-    "Manufacturing: 42.7 employees per establishment; spec sheets and RFQ forms carry the site."
+    "Health care: 28.8 employees per establishment, and booking and intake matter most.",
+    "Retail: 16.2 employees per establishment, and stock and checkout must agree.",
+    "Manufacturing: 42.7 employees per establishment, and spec sheets and RFQ forms carry the site."
    ],
    "table": {
     "caption": "Pennsylvania: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -657,7 +657,7 @@ export const PLACE: LocalPlace = {
      "39,602 health care and social assistance establishments in the state need online booking, intake forms and an accessible path for every patient. The 40,238 in retail trade need stock that matches the till and a phone checkout.",
      "Manufacturing counts 13,231 establishments that need spec sheets, distributor lookups and request-for-quote forms, and accommodation and food services, fourth at 474,507 employees, needs hours, menus and bookings that read on a phone in a hurry.",
      "Professional, scientific and technical services ranks fifth at 378,845 employees, and the 12 sectors we read cover 4,816,628 of the 5,713,846 paid employees in the state.",
-     "Together the four employ 2,831,647 people, 49.6% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 2,831,647 people, 49.6% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -685,7 +685,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the state by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -758,7 +758,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 10 of the 134 places we measured, at 2,360 searches a month.",
      "Advertisers paid about $20.20 a click for “web design pennsylvania”, which is what a search costs to buy, not the price of a website.",
-     "The other 26 folded places add the rest of the 2,110; none is big enough for a page of its own."
+     "The other 26 folded places add the rest of the 2,110, and none is big enough for a page of its own."
     ]
    },
    "source": "Semrush US exact match · 250 a month in all, top 170 · pulled 24 October 2026"
@@ -769,7 +769,7 @@ export const PLACE: LocalPlace = {
    "h2": "2,099 custom programming firms statewide",
    "lede": "2,099 custom computer programming establishments (NAICS 541511) operated in the state in 2023, −6.3% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 68.4 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 68.4 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 470 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 1,153 establishments in 2023.",
@@ -817,7 +817,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Real estate, rental and leasing went from 10,628 to 11,785 establishments between 2018 and 2023; finance and insurance went from 18,777 to 16,829.",
+     "Real estate, rental and leasing went from 10,628 to 11,785 establishments between 2018 and 2023, and finance and insurance went from 18,777 to 16,829.",
      "Educational services came second, +8%, and construction third, +6.3%.",
      "That is a net gain of 3,573 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 5,478,025 to 5,713,846 over the same years, +4.3%. Population moved +2.2% from 2019 to 2024, to 13,078,751."
@@ -866,7 +866,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 307,065 establishments here against the 64 places' own counts, 55th for their change since 2018.",
      "Programming firms run 68.4 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.8% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 2,360, 10th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 2,360, 10th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -918,7 +918,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the state, where health care and social assistance employs 1,142,207 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the state, where health care and social assistance employs 1,142,207 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 4,404 systems design establishments in the state could pick up from.",
      "For the 40,238 retail trade establishments here, stage two usually lists stock that matches the till and a phone checkout."
     ]
@@ -940,7 +940,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover most of a Pennsylvania build; when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule."
+     "Calls and screen-shares cover most of a Pennsylvania build, and when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule."
     ]
    }
   },
@@ -957,7 +957,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Pennsylvania?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 257,465 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $20.20 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 257,465 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $20.20 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -966,7 +966,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the state, 83.8% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the state, 83.8% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -1002,7 +1002,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is website design tax deductible?",
-     "a": "Your accountant decides how to book it, under federal and Pennsylvania rules. Our proposals separate design, development, hosting and support, so each line can be booked on its own; 307,065 establishments in the state face the same question, and we do not give tax advice.",
+     "a": "Your accountant decides how to book it, under federal and Pennsylvania rules, and we do not give tax advice. Our proposals separate design, development, hosting and support for any of the 307,065 establishments in the state, so each line can be booked on its own.",
      "from": "suggest-base: is website design tax deductible / should website design be capitalized"
     }
    ]

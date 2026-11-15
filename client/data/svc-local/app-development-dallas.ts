@@ -299,7 +299,7 @@ export const PLACE: LocalPlace = {
    "h2": "Custom app development for Dallas operations",
    "lede": "We build the internal tools, customer portals and web apps that Dallas businesses outgrow spreadsheets for.",
    "leadIn": "Why it matters:",
-   "lead": "off-the-shelf software fits the average company; a custom app fits how your team actually works.",
+   "lead": "off-the-shelf software fits the average company. A custom app fits how your team actually works.",
    "deeper": {
     "label": "What we build",
     "paras": [
@@ -333,7 +333,7 @@ export const PLACE: LocalPlace = {
     "label": "Why the base matters for an app",
     "paras": [
      "More establishments means more businesses running on patched-together tools. Every one of the 27,552 professional, scientific and technical firms here handles clients, documents and billing, and many do it with software that was never designed for their process.",
-     "A custom app earns its cost when it removes repeated manual work or opens a new revenue line. We look for that case before proposing a build, and we say so when an existing product would serve you better."
+     "A custom app earns its cost when it removes repeated manual work or opens a new revenue line. We look for that case before proposing a build, and we recommend an existing product when it would serve you better."
     ]
    },
    "readouts": [
@@ -361,7 +361,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Sector shapes the spec",
     "paras": [
-     "A field crew app must work with poor signal and gloved hands. A finance tool needs role-based access and a record of who changed what. A clinic portal must keep patient data separate and logged. We write these requirements into the scope before design starts, so they are built in rather than bolted on.",
+     "A field crew app must work with poor signal and gloved hands. A finance tool needs role-based access and a record of who changed what. A clinic portal must keep patient data separate and logged. We write these requirements into the scope before design starts, so they are built in.",
      "Your sector also tells us which systems the app must talk to, such as accounting, scheduling or payment platforms."
     ]
    },
@@ -402,7 +402,7 @@ export const PLACE: LocalPlace = {
    "h2": "What Dallas searches for in app development",
    "lede": "Four phrasings in our Semrush pull total 2,710 searches a month, led by custom software rather than mobile apps.",
    "leadIn": "By the numbers:",
-   "lead": "\"custom software development dallas\" draws 880 searches at KD 21; \"app development company dallas\" draws 720 at KD 12.",
+   "lead": "\"custom software development dallas\" draws 880 searches at KD 21. \"app development company dallas\" draws 720 at KD 12.",
    "deeper": {
     "label": "What buyers are signalling",
     "paras": [
@@ -497,14 +497,14 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "Rather than promise results, we show a method you can verify at every step of a Dallas project.",
+   "lede": "We show a method you can verify at every step of a Dallas project.",
    "leadIn": "Why it matters:",
    "lead": "you should be able to inspect a developer's work at every stage, not just at the end.",
    "deeper": {
     "label": "The checks built into the process",
     "paras": [
      "Scope comes first and in writing: what the app must do, who uses it, what it connects to and what is out of bounds. You sign off before design begins, which keeps surprises out of the build.",
-     "You see progress in the browser, not in slide decks. Each stage produces something you can click, test and comment on, and we track issues in a shared list you can read at any time.",
+     "You see progress in the browser. Each stage produces something you can click, test and comment on, and we track issues in a shared list you can read at any time.",
      "At handover the repository, hosting and third-party accounts sit in your company's name. If you ever want another team to take over, nothing stands in the way."
     ]
    },
@@ -529,7 +529,7 @@ export const PLACE: LocalPlace = {
    "h2": "After launch: growing the app",
    "lede": "An app pays off once people use it, so we pair the build with the site, search and automation that bring users in.",
    "leadIn": "The bottom line:",
-   "lead": "launch is the start: we measure use, fix friction and add features that the data, not guesses, support.",
+   "lead": "launch is the start: we measure use, fix friction and add features that the data supports.",
    "points": [
     "A clear website page explains the app and captures interest.",
     "Search, content and email bring customers to customer-facing tools.",
@@ -641,7 +641,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do Dallas software development companies set their rates?",
-     "a": "Rates usually follow scope: features, integrations, users and how much support you need afterwards. We do not publish a price list; we write the scope first and quote against it. For context, advertisers pay about $16.30 per click just to reach Dallas buyers searching \"app development company dallas\".",
+     "a": "Rates usually follow scope: features, integrations, users and how much support you need afterwards. We do not publish a price list. We write the scope first and quote against it. For context, advertisers pay about $16.30 per click just to reach Dallas buyers searching \"app development company dallas\".",
      "from": "autocomplete: software development company dallas rates"
     },
     {
@@ -660,7 +660,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is mobile app development, and does a Dallas company need it?",
-     "a": "Mobile app development is building software for phones and tablets. Many Dallas companies need mobile access rather than a native app; a responsive web app covers both. \"Mobile app development dallas\" draws 720 searches a month, yet that search often hides a need for a workflow tool staff open on their phones.",
+     "a": "Mobile app development is building software for phones and tablets. Many Dallas companies need mobile access rather than a native app. A responsive web app covers both. \"Mobile app development dallas\" draws 720 searches a month, yet that search often hides a need for a workflow tool staff open on their phones.",
      "from": "questionBank: what is mobile app development"
     }
    ]

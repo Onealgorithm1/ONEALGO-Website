@@ -289,7 +289,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "We provide SEO for companies across the Portland, Vancouver and Hillsboro metro, which straddles Oregon and Washington. Searches here mix city, suburb and even state names, so page plans need to cover both sides of the Columbia where you serve customers.",
      "OneAlgorithm works remotely from Malvern, Pennsylvania. You get a written audit, a page plan and changes that appear on preview links before going live.",
-     "A note on names: when someone types \"seo portland\", Google also has to guess between Oregon and Maine. Pages that say Portland, Oregon plainly help it choose you."
+     "A note on names: when someone types \"seo portland\", Google also has to guess between Oregon and Maine. Pages that say Portland, Oregon help it choose you."
     ]
    },
    "cards": [
@@ -387,7 +387,7 @@ export const PLACE: LocalPlace = {
    "h2": "Search demand for SEO in Portland",
    "lede": "Portland's two main SEO phrasings draw equal volume, but they differ sharply in difficulty and click price.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo company portland\" and \"seo portland\" each get 720 searches a month; ad clicks cost $12.06 and $16.60 respectively.",
+   "lead": "\"seo company portland\" and \"seo portland\" each get 720 searches a month, and ad clicks cost $12.06 and $16.60 respectively.",
    "deeper": {
     "label": "Difficulty and ambiguity",
     "paras": [
@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Situation: the company needed its website rebuilt for search without losing the visits its old page addresses already earned.",
      "Work: we designed and rebuilt the site for search, including a 3D cabinet configurator, and mapped 80+ old addresses to their new pages with redirects.",
-     "Result: in Google Search Console, comparing an autumn window in 2026 with the same dates in 2025, clicks went from 1,112 to 2,130 and non-brand clicks from 95 to 314, with impressions up 63%. The equal stretch before the window was flat. A Portland clinic or contractor gets the same method; the numbers belong to that client alone."
+     "Result: in Google Search Console, comparing an autumn window in 2026 with the same dates in 2025, clicks went from 1,112 to 2,130 and non-brand clicks from 95 to 314, with impressions up 63%. The equal stretch before the window was flat. A Portland clinic or contractor gets the same method. The numbers belong to that client alone."
     ]
    },
    "cards": [
@@ -510,7 +510,7 @@ export const PLACE: LocalPlace = {
    "h2": "Building Portland visibility in layers",
    "lede": "Lasting SEO grows in layers, each one resting on a site that already explains itself well.",
    "leadIn": "The bottom line:",
-   "lead": "message and site first, then pages, blog, email and links, then automated profile posts and review replies; paid ads after organic gains.",
+   "lead": "message and site first, then pages, blog, email and links, then automated profile posts and review replies, and paid ads after organic gains.",
    "points": [
     "Speed and clarity on key pages before new content.",
     "Neighbourhood and suburb pages where Portland demand exists.",

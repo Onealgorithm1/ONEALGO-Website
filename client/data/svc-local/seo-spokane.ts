@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Bridging the time difference",
     "paras": [
      "Our office is in Malvern, PA. Everything runs on video calls, screen-shares and page reviews in your browser, and we book calls in our afternoon so they land in Spokane's morning.",
-     "Our team sits in Malvern, PA, and support covers every hour, including Pacific evenings."
+     "Support covers every hour, including Pacific evenings."
     ]
    }
   },
@@ -622,12 +622,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is SEO, in plain terms, for a Spokane business?",
-     "a": "SEO is the work that makes Google show your business when people search for what you sell. In Spokane, \"seo spokane\" draws 590 searches a month and advertisers pay about $9.10 per click on it; SEO aims to earn that kind of visitor without paying for each one.",
+     "a": "SEO is the work that makes Google show your business when people search for what you sell. In Spokane, \"seo spokane\" draws 590 searches a month and advertisers pay about $9.10 per click on it. SEO aims to earn that kind of visitor without paying for each one.",
      "from": "questionBank: what is seo"
     },
     {
      "q": "How can a Spokane clinic improve its SEO?",
-     "a": "Improve it by fixing technical issues, publishing accurate provider and service pages and building reviews. Spokane has 1,960 health care establishments, so patients compare options in the map results; a complete Business Profile, correct hours, insurance details and recent reviews often decide which clinic gets the call.",
+     "a": "Improve it by fixing technical issues, publishing accurate provider and service pages and building reviews. Spokane has 1,960 health care establishments, so patients compare options in the map results. A complete Business Profile, correct hours, insurance details and recent reviews often decide which clinic gets the call.",
      "from": "questionBank: how to improve seo"
     },
     {

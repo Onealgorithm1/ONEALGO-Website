@@ -316,7 +316,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "A wide audience per business",
     "paras": [
-     "With 47.8 residents per establishment, each Albuquerque business has a large pool of potential customers and relatively few rivals. Visibility, not saturation, is the main obstacle.",
+     "With 47.8 residents per establishment, each Albuquerque business has a large pool of potential customers and relatively few rivals. Visibility is the main obstacle.",
      "Professional firms account for 12.5% of establishments, 36th of 59 and just under the median of 13. The base is balanced across health care, services, retail and building."
     ]
    },
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "h2": "The path from site to authority",
    "lede": "We build search growth in a set order, each layer resting on the one before.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first, then SEO, blog, email and authority, then automation; paid ads join after organic traction.",
+   "lead": "website and message first, then SEO, blog, email and authority, then automation, and paid ads join after organic traction.",
    "points": [
     "Pages for each service and Albuquerque-area community.",
     "Articles and email that build trust over time.",
@@ -537,7 +537,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "SEO for Albuquerque, step by step",
-   "lede": "The stage cards below set the sequence; here is how it applies to an Albuquerque site.",
+   "lede": "The stage cards below set the sequence, and here is how it applies to an Albuquerque site.",
    "leadIn": "What you get:",
    "lead": "a page plan for the Albuquerque areas you serve, visible fixes, and monthly Search Console reports.",
    "deeper": {

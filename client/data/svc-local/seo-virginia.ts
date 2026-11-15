@@ -288,7 +288,7 @@ export const PLACE: LocalPlace = {
     "label": "One state, several search markets",
     "paras": [
      "Autocomplete shows the split: buyers type “seo northern virginia”, “seo company virginia beach” and “seo company in lynchburg virginia”. A statewide site that ignores those regional patterns ends up ranking nowhere in particular.",
-     "We map where your customers actually are, then build pages for the regions that carry demand. For Richmond specifically, see our [SEO in Richmond](/services/seo-richmond-va) page; this page covers the statewide view, and all delivery runs remotely from Pennsylvania."
+     "We map where your customers actually are, then build pages for the regions that carry demand. For Richmond specifically, see our [SEO in Richmond](/services/seo-richmond-va) page. This page covers the statewide view, and all delivery runs remotely from Pennsylvania."
     ]
    },
    "cards": [
@@ -431,7 +431,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Plenty of builders, fewer marketers",
     "paras": [
-     "Virginia counts 4,080 custom programming firms against 1,334 marketing and advertising firms. Building websites is easy to source; connecting them to search demand and a clear message is harder to find locally.",
+     "Virginia counts 4,080 custom programming firms against 1,334 marketing and advertising firms. Building websites is easy to source. Connecting them to search demand and a clear message is harder to find locally.",
      "Low agency density also means fewer competitors publishing strong content in many niches, which helps explain the low keyword difficulty above. Businesses that invest steadily in useful pages can stand out sooner than in denser markets."
     ]
    },
@@ -607,12 +607,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can an SEO company help a Virginia Beach business?",
-     "a": "Yes; a Virginia Beach business needs local pages, an accurate Google Business Profile and reviews that reflect Hampton Roads customers. Searches like “seo company virginia beach” show buyers search by city, and statewide figures such as 25,872 retail establishments show how many businesses compete for those local results.",
+     "a": "Yes. A Virginia Beach business needs local pages, an accurate Google Business Profile and reviews that reflect Hampton Roads customers. Searches like “seo company virginia beach” show buyers search by city, and statewide figures such as 25,872 retail establishments show how many businesses compete for those local results.",
      "from": "autocomplete: seo company virginia beach"
     },
     {
      "q": "Is SEO in Northern Virginia different from the rest of the state?",
-     "a": "Often, yes; Northern Virginia sits beside Washington, where many buyers are technology firms, contractors and professional services. Virginia ranks 5th of 59 places for custom programming density, so content for that region usually needs to speak to specialist buyers rather than general consumers, with its own pages and phrases.",
+     "a": "Often, yes. Northern Virginia sits beside Washington, where many buyers are technology firms, contractors and professional services. Virginia ranks 5th of 59 places for custom programming density, so content for that region usually needs to speak to specialist buyers rather than general consumers, with its own pages and phrases.",
      "from": "autocomplete: seo northern virginia"
     },
     {

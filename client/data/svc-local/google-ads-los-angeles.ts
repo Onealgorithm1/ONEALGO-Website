@@ -323,7 +323,7 @@ export const PLACE: LocalPlace = {
     "label": "Why auctions get pricey",
     "paras": [
      "Google Ads is an auction. Every business that bids on your keywords pushes the price up, and a metro with this many establishments has bidders in almost every category.",
-     "That makes efficiency the game. Tight geographic targeting, strong negatives and pages that convert let a smaller budget compete with bigger spenders who waste money on broad terms."
+     "Tight geographic targeting, strong negatives and pages that convert let a smaller budget compete with bigger spenders who waste money on broad terms."
     ]
    },
    "readouts": [
@@ -342,7 +342,7 @@ export const PLACE: LocalPlace = {
    "h2": "Which sectors bid hardest here",
    "lede": "Health care trails professional services by count, but customer value, not sector size, sets what a click is worth.",
    "leadIn": "Why it matters:",
-   "lead": "the value of one customer sets how much you can afford per click, and that varies widely by sector.",
+   "lead": "how much you can afford per click varies widely by sector.",
    "points": [
     "Construction, 25,486 firms: project leads worth bidding on carefully.",
     "Finance and insurance, 19,258 firms: high-value customers support careful, narrow bidding.",
@@ -444,7 +444,7 @@ export const PLACE: LocalPlace = {
     "label": "Comparing managers",
     "paras": [
      "When you compare Google Ads managers, ask three things: who owns the account, how conversions are tracked, and how often search terms are reviewed. The answers separate active management from set-and-forget.",
-     "We report spend, conversions and cost per conversion in plain numbers. If a campaign is not working, the report says so, along with what we are changing."
+     "We report spend, conversions and cost per conversion in plain numbers. If a campaign is not working, the report shows what we are changing."
     ]
    },
    "table": {
@@ -525,7 +525,7 @@ export const PLACE: LocalPlace = {
     "label": "How paid and organic help each other",
     "paras": [
      "Search term reports show exactly what buyers type before they convert. That data tells our SEO and content work which pages deserve investment, so ad spend doubles as research.",
-     "Over time, as organic pages rank for the terms that convert, you can trim bids on those words and move budget to new ones. That is how paid search stays efficient in a costly market."
+     "Over time, as organic pages rank for the terms that convert, you can trim bids on those words and move budget to new ones."
     ]
    },
    "links": [
@@ -547,7 +547,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Running Los Angeles campaigns week by week",
-   "lede": "The stage cards below describe the cycle; here is how it fits a Los Angeles account specifically.",
+   "lede": "The stage cards below describe the cycle, and here is how it fits a Los Angeles account specifically.",
    "leadIn": "What you get:",
    "lead": "a tracked account, campaigns targeted to the parts of the metro you serve, and plain weekly and monthly reports.",
    "deeper": {
@@ -637,7 +637,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I get my website to show up on Google in Los Angeles?",
-     "a": "Ads put you on the page today; SEO earns organic spots over time. With 12,927,614 people in the metro, both matter. We often start ads for immediate leads while building organic pages, then use ad data to decide which pages to write next.",
+     "a": "Ads put you on the page today. SEO earns organic spots over time. With 12,927,614 people in the metro, both matter. We often start ads for immediate leads while building organic pages, then use ad data to decide which pages to write next.",
      "from": "questionBank: how to get your website to show up on google",
      "link": {
       "to": "/services/seo",

@@ -288,7 +288,7 @@ export const PLACE: LocalPlace = {
     "label": "Owned before rented",
     "paras": [
      "Florida's economy swings with seasons, visitors and weather. Businesses that depend entirely on paid ads feel every swing. Those with an email list, strong reviews and pages that rank keep customers coming when ad prices spike.",
-     "We build that system remotely from Malvern, Pennsylvania. For metro-level detail, we also publish marketing pages for Miami, Tampa, Orlando and Jacksonville; this page covers firms that market across the state."
+     "We build that system remotely from Malvern, Pennsylvania. For metro-level detail, we also publish marketing pages for Miami, Tampa, Orlando and Jacksonville. This page covers firms that market across the state."
     ]
    },
    "cards": [
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Florida searches for an agency",
    "lede": "Two agency phrasings add up to 1,590 exact-match searches a month, and both carry high keyword difficulty.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency florida\" draws 1,000 searches at a keyword difficulty of 66; \"marketing agency florida\" draws 590 at 65.",
+   "lead": "\"digital marketing agency florida\" draws 1,000 searches at a keyword difficulty of 66, and \"marketing agency florida\" draws 590 at 65.",
    "deeper": {
     "label": "What the difficulty tells you",
     "paras": [
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
     "label": "Automation for a seasonal state",
     "paras": [
      "Florida's busy months strain small teams. Automated review requests, Google Business Profile posts and scheduled social content keep marketing running when everyone is serving customers.",
-     "Paid ads join once organic channels show which offers and messages convert. Then ads can scale proven winners during peak season instead of testing in public at peak prices."
+     "Paid ads join once organic channels show which offers and messages convert. Then ads can scale proven winners during peak season."
     ]
    },
    "links": [
@@ -542,7 +542,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Planning around Florida's calendar",
     "paras": [
-     "We map your busy and quiet months early. Content and email work happens before peaks, so it is indexed and warmed up when demand arrives, and quiet months are used for building rather than coasting.",
+     "We map your busy and quiet months early. Content and email work happens before peaks, so it is indexed and warmed up when demand arrives, and quiet months are used for building.",
      "Hurricane season also shapes the plan for trades and property businesses: emergency pages and messages are prepared in advance."
     ]
    },
@@ -597,7 +597,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should a digital marketing agency in Florida deliver?",
-     "a": "It should deliver a connected system: a converting site, search, email, reviews and automation, measured by leads rather than likes. \"digital marketing agency florida\" draws 1,000 searches a month, so plenty of agencies compete; ask which channel they would build first.",
+     "a": "It should deliver a connected system: a converting site, search, email, reviews and automation, measured by leads rather than likes. \"digital marketing agency florida\" draws 1,000 searches a month, so plenty of agencies compete. Ask which channel they would build first.",
      "from": "autocomplete: digital marketing agency florida",
      "link": {
       "to": "/services/marketing",
@@ -606,7 +606,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a social media marketing agency in Florida?",
-     "a": "Only if social connects to an offer, a site and an email list. On its own, social rarely pays. Florida has 8,112 advertising and marketing consulting establishments, and many sell posting alone; we treat social as one automated layer feeding channels you own.",
+     "a": "Only if social connects to an offer, a site and an email list. On its own, social rarely pays. Florida has 8,112 advertising and marketing consulting establishments, and many sell posting alone. We treat social as one automated layer feeding channels you own.",
      "from": "autocomplete: social media marketing agency florida"
     },
     {
@@ -621,7 +621,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What does a digital marketing agency do for small businesses in Florida?",
-     "a": "It picks the few channels that will work and runs them consistently: usually a clear site, local search, reviews and email. Florida's 68,008 construction establishments show the pattern; many win jobs through reviews and Google profiles rather than expensive ads.",
+     "a": "It picks the few channels that will work and runs them consistently: usually a clear site, local search, reviews and email. Florida's 68,008 construction establishments show the pattern. Many win jobs through reviews and Google profiles rather than expensive ads.",
      "from": "questionBank: what does a digital marketing agency do for small businesses"
     },
     {

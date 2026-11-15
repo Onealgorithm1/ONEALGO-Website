@@ -615,7 +615,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What should I look for in a Google Ads agency in Miami?",
-     "a": "Look for account ownership in your name, conversion tracking you can test and reports straight from Google. Miami ranks 1st of 10 places for agency density, so plenty of firms will offer; ask which ones also build the landing pages and tracking.",
+     "a": "Look for account ownership in your name, conversion tracking you can test and reports straight from Google. Miami ranks 1st of 10 places for agency density, so plenty of firms will offer. Ask which ones also build the landing pages and tracking.",
      "from": "autocomplete: google ads agency miami"
     },
     {
@@ -635,7 +635,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I get my website to show up on Google in Miami?",
-     "a": "Ads put you at the top today; SEO gets you into organic results over time. For quick visibility, a Miami search campaign can go live once tracking is set. For lasting results, pair it with organic work, since health care alone counts 26,082 metro establishments competing for attention.",
+     "a": "Ads put you at the top today. SEO gets you into organic results over time. For quick visibility, a Miami search campaign can go live once tracking is set. For lasting results, pair it with organic work, since health care alone counts 26,082 metro establishments competing for attention.",
      "from": "questionBank: how to get your website to show up on google"
     }
    ]

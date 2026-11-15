@@ -287,9 +287,9 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we work for Nashville",
     "paras": [
-     "OneAlgorithm delivers SEO remotely from our office in Malvern, Pennsylvania. Nobody needs to fly in: we audit your site, agree a plan with you on a call, and ship changes you can review in your own browser.",
-     "Our starting point is never a package. We read what Google currently indexes for your domain, which Nashville phrasings bring traffic to rivals, and where your pages leave a searcher without an answer. The plan follows from that.",
-     "If your website itself needs rebuilding, our [Nashville web design](/services/web-design-nashville) page covers that side; SEO works best on a fast site with clear pages."
+     "OneAlgorithm delivers SEO remotely from our office in Malvern, Pennsylvania. We audit your site, agree a plan with you on a call, and ship changes you can review in your own browser.",
+     "We read what Google currently indexes for your domain, which Nashville phrasings bring traffic to rivals, and where your pages leave a searcher without an answer. The plan follows from that.",
+     "If your website itself needs rebuilding, our [Nashville web design](/services/web-design-nashville) page covers that side. SEO works best on a fast site with clear pages."
     ]
    },
    "cards": [
@@ -299,7 +299,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "h3": "Health care",
-     "line": "Service and provider pages that answer symptom and treatment questions plainly, with schema Google can read."
+     "line": "Service and provider pages that answer symptom and treatment questions, with schema Google can read."
     },
     {
      "h3": "Professional services",
@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the base tells an SEO plan",
     "paras": [
-     "A ratio of 42.3 residents per establishment means each storefront, clinic or contractor competes for a fairly thin slice of local demand. Ranking for the broad term alone rarely pays; ranking for the specific service plus the neighbourhood usually does.",
+     "A ratio of 42.3 residents per establishment means each storefront, clinic or contractor competes for a fairly thin slice of local demand. Ranking for the broad term alone rarely pays. Ranking for the specific service plus the neighbourhood usually does.",
      "Professional, scientific and technical firms make up 10.2 of every hundred establishments here, below the 13 median across our SEO place pages. Nashville ranks 56th of 59 on that share, so the metro leans toward consumer-facing businesses, and the search terms that matter lean the same way."
     ]
    },
@@ -387,11 +387,11 @@ export const PLACE: LocalPlace = {
    "h2": "What Nashville types into Google",
    "lede": "The two phrasings in our Semrush table carry clear SEO demand in the metro, and the easier one is also the busier one.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo nashville\" draws 880 searches a month in Semrush with a keyword difficulty of just 3; advertisers pay $13.64 per click on it.",
+   "lead": "\"seo nashville\" draws 880 searches a month in Semrush with a keyword difficulty of just 3, and advertisers pay $13.64 per click on it.",
    "deeper": {
     "label": "What the phrasings reveal",
     "paras": [
-     "That $13.64 is what an advertiser pays Google for one click, not what we charge. It is a useful signal: when a click costs that much, an organic listing for the same phrase is worth real money every month.",
+     "That $13.64 is what an advertiser pays Google for one click. When a click costs that much, an organic listing for the same phrase is worth real money every month.",
      "The second row, \"seo company nashville\", adds 720 searches with a difficulty of 32 and no bid data. Google's autocomplete shows the longer forms people actually type, such as \"search engine optimization company nashville\" and \"nashville seo and web design company\", which tells us buyers often want the site and the search work handled together.",
      "Together the table sums to 1,600 monthly searches, before counting the long-tail versions that rarely show in keyword tools."
     ]
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "h2": "How crowded the Nashville field is",
    "lede": "Census codes for advertising agencies and marketing consultants put the ceiling at 497 firms in the metro.",
    "leadIn": "Yes, but:",
-   "lead": "most of those 497 do not do SEO at all, so the count is an upper bound rather than a list of rivals.",
+   "lead": "most of those 497 do not do SEO at all, so the count is an upper bound.",
    "points": [
     "102 advertising agencies and 395 marketing consulting firms in 2023.",
     "That is 97.6 per 10,000 establishments, above the 90.1 median.",
@@ -433,8 +433,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the density means for you",
     "paras": [
-     "A density of 97.6 agencies and consultants per 10,000 establishments puts Nashville slightly above the middle of the places we cover. Buyers here have choices, which is why we show our method and our evidence instead of making promises.",
-     "Custom programming shops are thinner on the ground at 60.7 per 10,000, ranking 47th, so technical skill is not a given in every local agency. We handle technical SEO fixes in-house rather than passing them to a third party."
+     "A density of 97.6 agencies and consultants per 10,000 establishments puts Nashville slightly above the middle of the places we cover. Buyers here have choices, so we show our method and our evidence.",
+     "Custom programming shops are thinner on the ground at 60.7 per 10,000, ranking 47th, so technical skill is not a given in every local agency. We handle technical SEO fixes in-house."
     ]
    },
    "table": {
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "h2": "The order we grow Nashville sites",
    "lede": "Search gains stick when the site already converts, so we fix the message before chasing more traffic.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first, then pages, blog and authority, then automated posts and review replies; paid ads only once organic traction shows.",
+   "lead": "website and message first, then pages, blog and authority, then automated posts and review replies, and paid ads only once organic traction shows.",
    "points": [
     "Clear service pages and a fast site come before link building.",
     "Google Business Profile posts and review replies run on a schedule.",
@@ -588,7 +588,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screen-shares and reviews",
     "paras": [
      "We work with Nashville teams over video calls and screen-shares, and every page change goes to a preview link you can open in your browser before it goes live. Our team works from Malvern, PA, and the work, the reporting and the support all happen online.",
-     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and the phone is (610) 890-9711."
+     "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and the phone is (610) 890-9711."
     ]
    }
   },
@@ -628,7 +628,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a Nashville SEO agency, or can a remote team do it?",
-     "a": "A remote team can do it fully, because SEO happens on your website and in Google's tools, not in a meeting room. We run every stage remotely from Malvern, PA, with calls arranged around Central time and changes you review in your browser before they go live in Nashville searches.",
+     "a": "A remote team can do it fully, because SEO happens on your website and in Google's tools. We run every stage remotely from Malvern, PA, with calls arranged around Central time and changes you review in your browser before they go live in Nashville searches.",
      "from": "autocomplete: nashville seo agency"
     },
     {

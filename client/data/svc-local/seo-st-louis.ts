@@ -27,7 +27,7 @@ export const PLACE: LocalPlace = {
  "hero": {
   "kicker": "SEO and search visibility",
   "h1": "SEO services for St. Louis businesses",
-  "lede": "St. Louis businesses get technical fixes, new pages and honest search reporting from us, delivered remotely from Malvern, PA."
+  "lede": "St. Louis businesses get technical fixes, new pages and monthly search reporting from us, delivered remotely from Malvern, PA."
  },
  "areaServed": {
   "@type": "City",
@@ -281,9 +281,9 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "St. Louis SEO for a health-care-led metro",
-   "lede": "In the St. Louis metro, health care, not professional services, is the largest sector by number of establishments.",
+   "lede": "In the St. Louis metro, health care is the largest sector by number of establishments.",
    "leadIn": "Why it matters:",
-   "lead": "patients search by condition, treatment and neighborhood, so the page plan here starts with services rather than with the brand.",
+   "lead": "patients search by condition, treatment and neighborhood, so the page plan here starts with services.",
    "deeper": {
     "label": "How we approach St. Louis",
     "paras": [
@@ -391,7 +391,7 @@ export const PLACE: LocalPlace = {
     "label": "What those prices tell you",
     "paras": [
      "Those are Google's prices to advertisers, not ours. A click near $24.32 signals that buyers searching for SEO help in St. Louis are worth a lot to the firms bidding on them.",
-     "Keyword difficulty is moderate at 29 and 24, and autocomplete adds \"seo agency st louis\" and \"st louis seo consultant\". Moderate difficulty with high click prices is a strong case for ranking organically instead of renting the traffic."
+     "Keyword difficulty is moderate at 29 and 24, and autocomplete adds \"seo agency st louis\" and \"st louis seo consultant\". Moderate difficulty with high click prices is a strong case for ranking organically."
     ]
    },
    "table": {
@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I compare SEO companies in St. Louis?",
-     "a": "Compare their audit and their reporting, not their promises. St. Louis has 441 establishments in the advertising and marketing consulting codes, fewer per business than most metros, so ask each firm what it found on your site, what it would fix first, and how clicks will be reported.",
+     "a": "Compare their audit and their reporting. St. Louis has 441 establishments in the advertising and marketing consulting codes, fewer per business than most metros, so ask each firm what it found on your site, what it would fix first, and how clicks will be reported.",
      "from": "autocomplete: seo companies st louis"
     },
     {

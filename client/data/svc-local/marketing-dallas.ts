@@ -285,9 +285,9 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "One marketing plan for Dallas businesses",
-   "lede": "Most Dallas companies do not need more channels; they need the website, search, content and follow-up working in the right order.",
+   "lede": "Most Dallas companies do not need more channels, only the website, search, content and follow-up working in the right order.",
    "leadIn": "Why it matters:",
-   "lead": "a metro ranked 7th by population among our 37 marketing places rewards a plan that compounds instead of scattering spend.",
+   "lead": "a metro ranked 7th by population among our 37 marketing places rewards a plan that compounds.",
    "deeper": {
     "label": "What we take off your plate",
     "paras": [
@@ -320,7 +320,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Why scale changes the plan",
     "paras": [
-     "In a market this large, the audience for almost any offer exists; the problem is reaching the right slice of it. That pushes marketing toward precise targeting: specific service pages, segmented email lists and content written for one buyer type at a time.",
+     "In a market this large, the audience for almost any offer exists. The problem is reaching the right slice of it. That pushes marketing toward precise targeting: specific service pages, segmented email lists and content written for one buyer type at a time.",
      "The professional services share sits just above the 13.3% median for our marketing pages, which tells us a meaningful part of your competition sells expertise and markets on reputation."
     ]
    },
@@ -349,7 +349,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading your sector",
     "paras": [
-     "A Frisco dental group and a Garland general contractor share a metro, but their buyers behave nothing alike. Patients compare reviews and availability; property owners want photos of finished work and a quick answer on scope. We build the message and channels around that behaviour.",
+     "A Frisco dental group and a Garland general contractor share a metro, but their buyers behave nothing alike. Patients compare reviews and availability. Property owners want photos of finished work and a quick answer on scope. We build the message and channels around that behaviour.",
      "Where sectors overlap, such as real estate and finance, we look for content that serves both audiences and earns links from each."
     ]
    },
@@ -541,7 +541,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Running the plan, step by step",
-   "lede": "The stage cards below show the order; here is how it plays out for a Dallas company.",
+   "lede": "The stage cards below show the order, and here is how it plays out for a Dallas company.",
    "leadIn": "What you get:",
    "lead": "one prioritised roadmap, drafts you approve in the browser, and a monthly report on leads, not likes.",
    "deeper": {
@@ -621,7 +621,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can a Dallas marketing firm work fully remotely?",
-     "a": "Yes, and ours does: every strategy call, review and report happens online from Malvern, PA. Among the 1,832 ad and marketing consulting establishments in Dallas-Fort Worth, location matters less than access and accountability; what counts is responsiveness, clear reporting and work you approve before it publishes.",
+     "a": "Yes, and ours does: every strategy call, review and report happens online from Malvern, PA. Among the 1,832 ad and marketing consulting establishments in Dallas-Fort Worth, location matters less than access and accountability. What counts is responsiveness, clear reporting and work you approve before it publishes.",
      "from": "autocomplete: marketing firms in dallas"
     },
     {
@@ -631,7 +631,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why hire a digital marketing agency instead of doing it in-house?",
-     "a": "Hire an agency when you need several skills at once and cannot staff them all. A Dallas company would need a writer, developer, SEO specialist and analyst; we provide all four remotely. Click prices like $6.47 on agency searches show how costly guessing can be when campaigns run without a plan.",
+     "a": "Hire an agency when you need several skills at once and cannot staff them all. A Dallas company would need a writer, developer, SEO specialist and analyst. We provide all four remotely. Click prices like $6.47 on agency searches show how costly guessing can be when campaigns run without a plan.",
      "from": "questionBank: why hire a digital marketing agency"
     },
     {

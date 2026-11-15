@@ -287,7 +287,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Where we begin",
     "paras": [
-     "Each project opens with an audit of what Google indexes, which searches already show your site, and where pages are missing for services you offer. Trades businesses often have one page covering every service; that is usually the first fix.",
+     "Each project opens with an audit of what Google indexes, which searches already show your site, and where pages are missing for services you offer. Trades businesses often have one page covering every service. That is usually the first fix.",
      "Delivery is remote from Malvern, PA, and Grand Rapids shares our Eastern time, so audits and reviews are walked through on video during your working day."
     ]
    },
@@ -386,12 +386,12 @@ export const PLACE: LocalPlace = {
    "h2": "Grand Rapids SEO searches",
    "lede": "Our Semrush pull shows “seo company grand rapids” at 590 searches a month and “seo grand rapids” at 480, 1,070 in all.",
    "leadIn": "By the numbers:",
-   "lead": "an advertiser pays $14.87 for a click on the company phrase, which is Google's price, not ours.",
+   "lead": "an advertiser pays $14.87 for a click on the company phrase, which is Google's price.",
    "deeper": {
     "label": "Low difficulty, clear intent",
     "paras": [
      "Both phrasings carry a keyword difficulty of 17, a low score. A strong, specific page can compete for them without a long link-building campaign.",
-     "Autocomplete is short and clean: “seo grand rapids mi” and “grand rapids seo” alongside the main phrases, all of them plainly from people looking for SEO help.",
+     "Autocomplete is short and clean: “seo grand rapids mi” and “grand rapids seo” alongside the main phrases, all of them from people looking for SEO help.",
      "The cheaper phrase, at $7.96 a click, still shows real commercial interest in the area."
     ]
    },
@@ -423,7 +423,7 @@ export const PLACE: LocalPlace = {
    "h2": "Grand Rapids has a modest marketing field",
    "lede": "The Census counts 199 advertising and marketing consulting firms in the Grand Rapids metro, about 72.1 per 10,000 businesses.",
    "leadIn": "Yes, but:",
-   "lead": "fewer firms does not mean less competition in search; it means fewer of them publish strong local pages.",
+   "lead": "fewer firms does not mean less competition in search. It means fewer of them publish strong local pages.",
    "points": [
     "49 ad agencies at 17.8 per 10,000.",
     "150 marketing consultancies at 54.4 per 10,000.",
@@ -433,7 +433,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the field",
     "paras": [
      "The count is a ceiling on possible rivals, and only part of it offers SEO. With density well below the 90.1 median, fewer agencies are chasing each local business than in most places on our list.",
-     "Custom programming adds 184 firms, 66.7 per 10,000, ranking 45th. Many build sites; fewer plan them around searches, which is the gap our audits usually find."
+     "Custom programming adds 184 firms, 66.7 per 10,000, ranking 45th. Many build sites. Fewer plan them around searches, which is the gap our audits usually find."
     ]
    },
    "table": {
@@ -674,7 +674,7 @@ export const PLACE: LocalPlace = {
  ],
  "desk": {
   "h2": "Start your Grand Rapids SEO project",
-  "lede": "Send your website and the West Michigan towns you serve, and we will reply with an honest read of your search position.",
+  "lede": "Send your website and the West Michigan towns you serve, and we will reply with a read of your search position.",
   "covers": [
    "Your website address",
    "Services you most want to sell",

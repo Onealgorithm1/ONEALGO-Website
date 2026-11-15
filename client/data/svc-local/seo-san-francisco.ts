@@ -291,7 +291,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we approach the Bay Area",
     "paras": [
-     "We work from Malvern, PA, and San Francisco engagements are delivered remotely. That has never been a handicap for SEO: Google does not care where your consultant sits, only what your site shows it.",
+     "We work from Malvern, PA, and San Francisco engagements are delivered remotely. For SEO, Google ranks your site on what it shows, wherever your consultant sits.",
      "In a market this technical, we start with a hard audit. Rendering, indexing, internal links, page speed and duplicate content get fixed first, because rivals here usually have those right already.",
      "Then we build pages from real demand and earn authority for them. California businesses outside the city can also see our statewide [SEO in California](/services/seo-california) page."
     ]
@@ -323,7 +323,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "That professional share ranks 5th among our 59 SEO metros, against a median of 13. On sheer size, the metro is 17th for establishments and 18th for population, based on Census County Business Patterns 2023 and the ACS 2024 estimate.",
      "There are about 34.9 residents per establishment. More businesses chasing each customer tends to mean more of them invest in search.",
-     "For SEO planning, the lesson is to pick battles. Broad terms attract well-funded competitors; specific service and location pages are where a focused site can win first."
+     "For SEO planning, broad terms attract well-funded competitors. Specific service and location pages are where a focused site can win first."
     ]
    },
    "readouts": [
@@ -345,7 +345,7 @@ export const PLACE: LocalPlace = {
    "lead": "the top three sectors hold 39.1% of establishments, and the leader alone is larger than retail and construction combined.",
    "points": [
     "Health care: 16,920 establishments, a 12.7% share.",
-    "Real estate counts 8,556; finance and insurance 7,229.",
+    "Real estate counts 8,556, finance and insurance 7,229.",
     "Information firms: 4,360, or 3.3% of the total."
    ],
    "deeper": {
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "h2": "Growing past the San Francisco basics",
    "lede": "Strong technical SEO is the entry ticket in the Bay Area, and growth after it comes from layering channels in order.",
    "leadIn": "The bottom line:",
-   "lead": "message and site first, then content, email and authority, then automation; paid search once organic pages convert.",
+   "lead": "message and site first, then content, email and authority, then automation, and paid search once organic pages convert.",
    "points": [
     "Website and message before traffic, every time.",
     "SEO, blog, email and authority form the compounding middle.",
@@ -617,7 +617,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire an SEO consultant in San Francisco or an agency?",
-     "a": "Hire the option that will do the technical and content work your site needs and report it plainly. The San Francisco-Oakland metro has 1,201 marketing consultancies alone. We work the way a hands-on consultancy does, with the work delivered remotely from Malvern, PA.",
+     "a": "Hire the option that will do the technical and content work your site needs and report it monthly. The San Francisco-Oakland metro has 1,201 marketing consultancies alone. We work the way a hands-on consultancy does, with the work delivered remotely from Malvern, PA.",
      "from": "autocomplete: seo consultant san francisco"
     },
     {

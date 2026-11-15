@@ -293,7 +293,7 @@ export const PLACE: LocalPlace = {
    "h2": "Ranking where every rival knows SEO",
    "lede": "In Austin your competitors probably already have a decent website, so winning search means being more specific and more technically sound than they are.",
    "leadIn": "Why it matters:",
-   "lead": "generic service pages rarely move in a market this savvy; narrow, well-built pages still do.",
+   "lead": "generic service pages rarely move in a market this savvy, but narrow, well-built pages still do.",
    "deeper": {
     "label": "Our approach for a savvy market",
     "paras": [
@@ -440,14 +440,14 @@ export const PLACE: LocalPlace = {
    "lead": "a firm count is a ceiling: not all 259 agencies and 798 consultants compete for local SEO work.",
    "points": [
     "The median across our SEO pages is just 90.1 per 10,000.",
-    "Consultancies run 120.4 per 10,000; ad agencies 39.1.",
+    "Consultancies run 120.4 per 10,000, ad agencies 39.1.",
     "Custom programming adds 1,461 firms, 220.4 per 10,000."
    ],
    "deeper": {
     "label": "What density changes",
     "paras": [
      "A market packed with marketers raises the floor. Expect the firms you compete with to have tidy sites and an SEO plugin installed, so basics alone will not separate you.",
-     "What still separates firms is depth and maintenance: pages written for narrow searches, technical errors fixed as they appear, and content refreshed when it slips. We focus on that ongoing work rather than one-time optimisation."
+     "What still separates firms is depth and maintenance: pages written for narrow searches, technical errors fixed as they appear, and content refreshed when it slips. We focus on that ongoing work."
     ]
    },
    "table": {

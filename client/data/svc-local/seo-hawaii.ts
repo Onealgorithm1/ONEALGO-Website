@@ -387,11 +387,11 @@ export const PLACE: LocalPlace = {
    "h2": "How Hawaii searches for SEO help",
    "lede": "Hawaii's main SEO phrase is unusually easy to rank for, while its close cousin costs advertisers a lot per click.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo hawaii\" gets 720 searches a month with a keyword difficulty of 5; \"seo company hawaii\" gets 590 at $23.99 per ad click.",
+   "lead": "\"seo hawaii\" gets 720 searches a month with a keyword difficulty of 5, and \"seo company hawaii\" gets 590 at $23.99 per ad click.",
    "deeper": {
     "label": "Easy keyword, expensive click",
     "paras": [
-     "That $23.99 is what advertisers pay Google per click on \"seo company hawaii\", not what we charge; the shorter phrase costs $8.66. A high click price with low difficulty, 17 for the company phrasing, signals that organic listings here are valuable and reachable.",
+     "That $23.99 is what advertisers pay Google per click on \"seo company hawaii\". The shorter phrase costs $8.66. A high click price with low difficulty, 17 for the company phrasing, signals that organic listings here are valuable and reachable.",
      "Autocomplete adds \"hawaii seo agency\", \"hawaii seo services\" and newer forms like \"ai seo hawaii\", a sign that buyers are asking about AI search too. It also mixes in noise such as \"sea hawaii tours\", which is why pages should state the service clearly.",
      "The two tracked phrases sum to 1,310 monthly searches."
     ]
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "h2": "A thin agency field across Hawaii",
    "lede": "Hawaii has just 37 advertising agencies and 144 marketing consulting firms, 181 establishments in total.",
    "leadIn": "Yes, but:",
-   "lead": "not every one of the 181 sells SEO, so the count is a ceiling on direct competitors, not a list of them.",
+   "lead": "not every one of the 181 sells SEO, so the count is a ceiling on direct competitors.",
    "points": [
     "55 agencies and consultants per 10,000 establishments, against a 90.1 median.",
     "Hawaii ranks 56th of 59 on that density.",
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "h2": "The growth path for Hawaii sites",
    "lede": "Hawaii SEO builds from a strong core site to island pages, content and authority, then automation.",
    "leadIn": "The bottom line:",
-   "lead": "site and message first, then island pages, blog, email and links, then automated profile posts and review replies; ads after organic traction.",
+   "lead": "site and message first, then island pages, blog, email and links, then automated profile posts and review replies, and ads after organic traction.",
    "points": [
     "Core pages must load fast on island mobile connections.",
     "Separate visitor and resident content where demand differs.",
@@ -609,7 +609,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What do SEO services in Hawaii include for a multi-island business?",
-     "a": "They include an audit, an island-by-island page plan, technical fixes, content and authority building. With 32,911 establishments statewide, a business on more than one island usually needs a page and a Business Profile for each location customers search. Each island page should say plainly where you work.",
+     "a": "They include an audit, an island-by-island page plan, technical fixes, content and authority building. With 32,911 establishments statewide, a business on more than one island usually needs a page and a Business Profile for each location customers search. Each island page should say where you work.",
      "from": "autocomplete: seo services hawaii"
     },
     {
@@ -624,7 +624,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is AI SEO for Hawaii businesses?",
-     "a": "AI SEO means structuring pages so AI assistants and Google's AI answers can quote them accurately. For Hawaii's 4,395 retail establishments, that means clear product details, hours and locations stated plainly, plus schema, so an assistant recommending a shop has facts to cite.",
+     "a": "AI SEO means structuring pages so AI assistants and Google's AI answers can quote them accurately. For Hawaii's 4,395 retail establishments, that means clear product details, hours and locations, plus schema, so an assistant recommending a shop has facts to cite.",
      "from": "autocomplete: ai seo hawaii"
     },
     {

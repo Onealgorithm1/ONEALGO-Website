@@ -293,7 +293,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How the work runs",
     "paras": [
-     "SEO here starts with a crawl and a read of your Search Console data, so we know which pages Google already trusts and which it ignores. From there we plan new pages around phrasings Atlanta searchers actually use, such as \"local seo company atlanta\", rather than guesses from a keyword tool alone.",
+     "SEO here starts with a crawl and a read of your Search Console data, so we know which pages Google already trusts and which it ignores. From there we plan new pages around phrasings Atlanta searchers actually use, such as \"local seo company atlanta\".",
      "Everything happens over calls, shared screens and staging links you open in your own browser. Nobody needs to visit an office, and every change is written down before it ships."
     ]
    },
@@ -345,7 +345,7 @@ export const PLACE: LocalPlace = {
    "lead": "a page plan that suits a law firm fails a clinic, so we plan by sector before writing a word.",
    "points": [
     "Retail at 11.4% leans on product pages and an accurate Business Profile.",
-    "Health care at 11.3% needs service pages written for patients, not insurers.",
+    "Health care at 11.3% needs service pages written for patients.",
     "Construction, with 14,024 establishments, wins on location pages and project photos."
    ],
    "deeper": {
@@ -442,7 +442,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the density tells us",
     "paras": [
-     "A density of 121 means Atlanta buyers hear more marketing pitches than buyers in most metros we cover. Firms that stand out here show their method and their numbers rather than repeating the same promises.",
+     "A density of 121 means Atlanta buyers hear more marketing pitches than buyers in most metros we cover. Firms that stand out here show their method and their numbers.",
      "The 2,251 custom programming shops matter too: many build websites, and plenty of those sites launch without the titles, schema or internal links Google relies on. An audit is where those gaps show up first."
     ]
    },
@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "We designed and rebuilt the site for search, including a 3D cabinet configurator, and mapped 80+ old addresses to their new pages with redirects so earlier links still resolved.",
      "Search Console then compared a 68-day window in 2026 with the same dates in 2025: clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The period just before that window was flat, so the rise was not a trend already under way.",
-     "An Atlanta project follows the same method, fed with Atlanta's own search data and competitors instead of the manufacturer's."
+     "An Atlanta project follows the same method, fed with Atlanta's own search data and competitors."
     ]
    },
    "cards": [
@@ -550,7 +550,7 @@ export const PLACE: LocalPlace = {
    "h2": "How an Atlanta SEO project runs",
    "lede": "Each stage below ends with something you can open and check, from the first crawl report to the monthly Search Console readout.",
    "leadIn": "What you get:",
-   "lead": "a written page plan built from Atlanta's search data, shipped fixes, and a plain report on clicks and positions.",
+   "lead": "a written page plan built from Atlanta's search data, shipped fixes, and a report on clicks and positions.",
    "deeper": {
     "label": "Inside the stages",
     "paras": [
@@ -609,12 +609,12 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I pick a local SEO company in Atlanta?",
-     "a": "Ask to see the method and the reporting before the pitch. With 1,974 marketing firms in the metro, the useful filter is whether a company reads your Search Console data first and shows real results, like our arcade client's 231% rise in non-brand clicks, rather than promising positions.",
+     "a": "Ask to see the method and the reporting before the pitch. With 1,974 marketing firms in the metro, the useful filter is whether a company reads your Search Console data first and shows real results, like our arcade client's 231% rise in non-brand clicks.",
      "from": "autocomplete: local seo company atlanta"
     },
     {
      "q": "What makes a good SEO consultant in Atlanta?",
-     "a": "A good consultant explains what they will change and how you will measure it. In a metro with 163,103 establishments, generic advice is easy to find; look for someone who plans pages from Atlanta search data, ships the fixes, and reports clicks from your own Search Console account every month.",
+     "a": "A good consultant explains what they will change and how you will measure it. In a metro with 163,103 establishments, generic advice is easy to find. Look for someone who plans pages from Atlanta search data, ships the fixes, and reports clicks from your own Search Console account every month.",
      "from": "autocomplete: atlanta seo consultant"
     },
     {

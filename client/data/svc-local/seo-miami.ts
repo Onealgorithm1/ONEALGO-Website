@@ -360,7 +360,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Why sector shapes the plan",
     "paras": [
-     "A medical practice in Coral Gables and a boutique in Wynwood both want Google traffic, but they win it differently. The practice needs trust signals and one page per procedure; the shop needs crawlable product pages that load quickly on a phone.",
+     "A medical practice in Coral Gables and a boutique in Wynwood both want Google traffic, but they win it differently. The practice needs trust signals and one page per procedure. The shop needs crawlable product pages that load quickly on a phone.",
      "Construction (17,761 establishments) and real estate (16,069) round out the large groups. Both depend on map results and neighborhood terms, which is why we start every Miami plan by listing the towns and districts a business really serves."
     ]
    },
@@ -405,7 +405,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the click prices",
     "paras": [
-     "Advertisers pay about $10.14 per click on \"seo miami\" and $13.69 on \"seo services miami\". Those are Google Ads auction prices, not our fees, and they show what a single visitor from these searches is worth to agencies bidding for them.",
+     "Advertisers pay about $10.14 per click on \"seo miami\" and $13.69 on \"seo services miami\". Those are Google Ads auction prices, and they show what a single visitor from these searches is worth to agencies bidding for them.",
      "\"seo company miami\" gets 1,000 searches but carries a difficulty of 32, the toughest of the three. Autocomplete adds phrasings like \"seo consultant miami\" and \"seo services company miami\", which tells us buyers here split between hiring a firm and hiring one person."
     ]
    },
@@ -563,7 +563,7 @@ export const PLACE: LocalPlace = {
     "label": "What each round looks like",
     "paras": [
      "The audit compares your site with the pages ranking for your Miami terms today. The plan names which pages to fix, which to write and which neighborhood or service terms each one targets.",
-     "After launch we read clicks and positions every month and pick the next round from the data. If a page stalls, we say so and change it instead of waiting."
+     "After launch we read clicks and positions every month and pick the next round from the data. If a page stalls, we change it."
     ]
    },
    "cards": [
@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screens and approvals",
     "paras": [
      "Meetings happen by video call or phone, and audits are walked through on a shared screen. Drafts live in links you open in your own browser, so your team can comment from Brickell, Doral or anywhere else.",
-     "One office in Malvern, Pennsylvania handles the work, with support available around the clock when something breaks."
+     "Our office in Malvern, Pennsylvania handles the work, with support available around the clock when something breaks."
     ]
    }
   },
@@ -626,7 +626,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What do SEO services in Miami usually include?",
-     "a": "A technical audit, a page plan, on-page fixes, content and link building, then monthly reporting. For Miami that plan should reflect search demand: \"seo services miami\" alone gets 1,000 searches a month. Each piece should be tied to a phrase people type, not added because a package lists it.",
+     "a": "A technical audit, a page plan, on-page fixes, content and link building, then monthly reporting. For Miami that plan should reflect search demand: \"seo services miami\" alone gets 1,000 searches a month. Each piece should be tied to a phrase people type.",
      "from": "autocomplete: seo services miami"
     },
     {

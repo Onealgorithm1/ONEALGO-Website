@@ -376,15 +376,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Professional services",
-     "line": "633,277 paid employees across 34,327 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
+     "line": "633,277 paid employees across 34,327 establishments in 2023, and a site here needs proof of expertise, case pages and a routed enquiry form."
     },
     {
      "h3": "Health care",
-     "line": "365,086 paid employees across 19,078 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "365,086 paid employees across 19,078 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Hospitality and food",
-     "line": "291,897 paid employees across 14,138 establishments in 2023; a site here needs hours, menus and bookings that read on a phone in a hurry."
+     "line": "291,897 paid employees across 14,138 establishments in 2023, and a site here needs hours, menus and bookings that read on a phone in a hurry."
     }
    ],
    "deeper": {
@@ -407,8 +407,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Washington, DC business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a Washington, DC business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -434,7 +434,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 159,002 establishments, 132,793 had fewer than 20 people and 21,511 employed 20 to 99. Another 4,201 employed 100 to 499, and 497 employed 500 or more.",
      "Within the 20-to-99 band, 15,724 establishments had 20 to 49 people and 5,787 had 50 to 99. The average establishment employed 18 of the 2,863,486 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 159,002; that is one establishment for every 40.5 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 159,002. That is one establishment for every 40.5 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 297.3 per 10,000 businesses is a ceiling on web-design firms in the metro."
     ]
    }
@@ -447,9 +447,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and health care and social assistance comes next at 365,086 employees.",
    "points": [
-    "Professional services: 18.4 employees per establishment; expertise must be easy to check.",
-    "Health care: 19.1 employees per establishment; booking and intake matter most.",
-    "Hospitality and food: 20.6 employees per establishment; hours and menus must read fast."
+    "Professional services: 18.4 employees per establishment, and expertise must be easy to check.",
+    "Health care: 19.1 employees per establishment, and booking and intake matter most.",
+    "Hospitality and food: 20.6 employees per establishment, and hours and menus must read fast."
    ],
    "table": {
     "caption": "The Washington, DC metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -487,7 +487,7 @@ export const PLACE: LocalPlace = {
      "34,327 professional, scientific and technical services establishments in the metro need proof of expertise, case pages and a routed enquiry form. The 19,078 in health care and social assistance need online booking, intake forms and an accessible path for every patient.",
      "Accommodation and food services counts 14,138 establishments that need hours, menus and bookings that read on a phone in a hurry, and retail trade, fourth at 265,458 employees, needs stock that matches the till and a phone checkout.",
      "Administrative and support services ranks fifth at 212,794 employees, and the 12 sectors we read cover 2,455,445 of the 2,863,486 paid employees in the metro.",
-     "Together the four employ 1,555,718 people, 54.3% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 1,555,718 people, 54.3% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -515,7 +515,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -579,7 +579,7 @@ export const PLACE: LocalPlace = {
      "We rank every place in the country by the same measure, the sum of these phrasings, and this page sits 38 of the 134 places we measured, at 1,110 searches a month.",
      "The development phrasing draws 110 a month and the developer phrasing 20, phrasings that often signal a build beyond a brochure site.",
      "The company-intent phrasing draws 260 searches a month at about $7.17 a click, the buyer already looking for a firm.",
-     "Semrush recorded no advertiser bids for “web design washington dc”, so its cost per click is left blank rather than guessed.",
+     "Semrush recorded no advertiser bids for “web design washington dc”, so the table shows no bid data for it.",
      "The top phrasing, at 720 searches, carries a Semrush keyword difficulty of 23 out of 100."
     ]
    },
@@ -591,7 +591,7 @@ export const PLACE: LocalPlace = {
    "h2": "4,727 custom programming firms in the metro",
    "lede": "4,727 custom computer programming establishments (NAICS 541511) operated in the metro in 2023, +13.7% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 297.3 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 297.3 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 320 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 1,065 establishments in 2023.",
@@ -639,7 +639,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Health care and social assistance went from 17,135 to 19,078 establishments between 2018 and 2023; wholesale trade went from 4,043 to 3,751.",
+     "Health care and social assistance went from 17,135 to 19,078 establishments between 2018 and 2023, and wholesale trade went from 4,043 to 3,751.",
      "Real estate, rental and leasing came second, +9.1%, and educational services third, +4.6%.",
      "That is a net gain of 4,064 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 2,734,972 to 2,863,486 over the same years, +4.7%. Population moved +2.5% from 2019 to 2024, to 6,437,907."
@@ -688,7 +688,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 159,002 establishments here against the 64 places' own counts, 43rd for their change since 2018.",
      "Programming firms run 297.3 per 10,000 businesses here against a median of 85.2. The under-20 share is 83.5% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 1,110, 38th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 1,110, 38th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -740,7 +740,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the metro, where professional, scientific and technical services employs 633,277 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the metro, where professional, scientific and technical services employs 633,277 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 10,829 systems design establishments in the metro could pick up from.",
      "For the 19,078 health care and social assistance establishments here, stage two usually lists online booking, intake forms and an accessible path for every patient."
     ]
@@ -755,13 +755,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 4,727 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Washington, DC?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Do you work with businesses in Washington, DC?",
+    "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -778,7 +778,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Washington, DC?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 132,793 small establishments here or a larger one. You get the price and schedule in writing first; Semrush recorded no advertiser bids for the main web design phrasing here.",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 132,793 small establishments here or a larger one, and you get the price and schedule in writing first. Semrush recorded no advertiser bids for the main web design phrasing here.",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -787,7 +787,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the metro, 83.5% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the metro, 83.5% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -823,7 +823,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you build accessible websites in Washington, DC?",
-     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the 19,078 health care and social assistance establishments in the metro, whose patients include people of every ability.",
+     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the 19,078 health care and social assistance establishments in the metro, whose patients include people of every ability.",
      "from": "suggest-base: why is accessibility important in web design",
      "link": {
       "to": "/services/website-development#accessibility",
