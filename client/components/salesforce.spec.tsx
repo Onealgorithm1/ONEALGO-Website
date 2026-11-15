@@ -100,7 +100,9 @@ describe("Salesforce primitives", () => {
     const html = at("/services/salesforce-data-migration", <RouteBoard groups={["services", "cities"]} first="int" />);
     expect(html).not.toContain('href="/services/salesforce-data-migration"');
     expect(html.indexOf("/services/salesforce-integration")).toBeLessThan(html.indexOf("/services/salesforce-health-check"));
-    expect(html.match(/salesforce-consultant-/g)?.length).toBe(SF_PAGES.cities.length);
+    // every city/state page in SF_PAGES.cities is linked (2026-11-14: the Pennsylvania partner page joined the row; its
+    // path is salesforce-consulting-partner-, so the check is per link, not by one path prefix)
+    for (const c of SF_PAGES.cities) expect(html).toContain(`href="${c.to}"`);
   });
 
   it("DeliveredLedger marks this page's row instead of linking it", () => {

@@ -5,6 +5,10 @@
 export const SF_PHONE = { display: "(610) 890-9711", href: "tel:+16108909711" } as const;
 
 export const SF_CITY_LINKS = [
+  // 2026-11-14: the two Pennsylvania pages Google had not indexed (Chester County "unknown to Google", 7 inbound links;
+  // Pennsylvania "discovered, not indexed") join the row every other Salesforce city page is linked from.
+  { to: "/services/salesforce-consultant-chester-county", label: "Chester County, PA" },
+  { to: "/services/salesforce-consulting-partner-pennsylvania", label: "Pennsylvania" },
   { to: "/services/salesforce-consultant-new-york", label: "New York" },
   { to: "/services/salesforce-consultant-washington-dc", label: "Washington, DC" },
   { to: "/services/salesforce-consultant-dallas", label: "Dallas" },
