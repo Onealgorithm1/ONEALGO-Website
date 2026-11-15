@@ -27,20 +27,25 @@ export function certsFor(pathname: string): CertRow[] {
   return [];
 }
 
-/** "Certified team" badge row under the hero buttons (2026-11-14, Louis: "right in your face"). Badges are styled text,
- *  NOT vendor logos, on purpose: Google's brand rules forbid its logo to anyone outside a formal partner program and
- *  allow an accurate plain-text reference (about.google/brand-resource-center/guidance/partnerships, read 2026-11-14).
- *  ponytail: one inline-styled component; if a vendor partner badge is ever earned, swap that pill for its official snippet.
- *  Renders nothing on pages with no matching rows. */
+/* Vendor logo files in public/certs (official marks via Wikimedia Commons, 2026-11-14). `name` is shown beside
+ * marks that carry no wordmark of their own. Rows without a logo (Google Marketing Platform) render as a text tile. */
+const LOGOS: Record<string, { src: string; w: number; h: number; name?: string }> = {
+  "Google Ads": { src: "/certs/google-ads.svg", w: 251, h: 313 },
+  "Google Analytics": { src: "/certs/google-analytics.png", w: 279, h: 96 },
+  "Microsoft Advertising": { src: "/certs/microsoft-advertising.png", w: 96, h: 96, name: "Microsoft Advertising" },
+  Semrush: { src: "/certs/semrush.svg", w: 195, h: 26 },
+};
+
+/** "Certified team" logo row under the hero buttons (2026-11-14, Louis: logos "right in your face"). White tiles so
+ *  each vendor's colours read on the dark hero and on light pages alike. Renders nothing on pages with no rows. */
 export function TeamCertsLine({ pathname, className = "", tone }: { pathname: string; className?: string; tone?: "dark" | "light" }) {
   const rows = certsFor(pathname);
   if (!rows.length) return null;
   const dark = tone === "dark";
-  const ink = dark ? "#fff" : "#0f172a";
-  const pill: React.CSSProperties = {
-    display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 14px", borderRadius: 999,
-    border: `1px solid ${dark ? "rgba(255,255,255,.35)" : "rgba(15,23,42,.18)"}`,
-    background: dark ? "rgba(255,255,255,.08)" : "#fff", color: ink, fontSize: 15, fontWeight: 600, lineHeight: 1.2,
+  const tile: React.CSSProperties = {
+    display: "flex", alignItems: "center", justifyContent: "center", gap: 8, height: 64, padding: "10px 16px",
+    borderRadius: 12, background: "#fff", border: "1px solid rgba(15,23,42,.12)",
+    boxShadow: dark ? "0 1px 2px rgba(0,0,0,.25)" : "none", color: "#0f172a", fontSize: 14, fontWeight: 600, lineHeight: 1.15,
   };
   return (
     <div className={`team-certs ${className}`} style={{ marginTop: tone ? 28 : 14 }}>
@@ -48,12 +53,22 @@ export function TeamCertsLine({ pathname, className = "", tone }: { pathname: st
         Certified team
       </p>
       <ul aria-label="Certifications held by our team" style={{ display: "flex", flexWrap: "wrap", gap: 10, listStyle: "none", margin: 0, padding: 0 }}>
-        {rows.map((r) => (
-          <li key={r.platform} style={pill} title={r.detail}>
-            <svg aria-hidden="true" className="text-oa-orange shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1L2.7 15.5l1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.3z" /><path d="M8.5 12l2.3 2.3 4.7-4.7" /></svg>
-            {r.platform} certified
-          </li>
-        ))}
+        {rows.map((r) => {
+          const l = LOGOS[r.platform];
+          return (
+            <li key={r.platform} style={tile} title={`${r.platform} certified: ${r.detail}`}>
+              {l ? (
+                <>
+                  <img src={l.src} alt={`${r.platform} certified`} width={l.w} height={l.h} loading="eager" decoding="async"
+                    style={{ height: l.h > l.w ? 44 : l.w / l.h > 5 ? 20 : 36, width: "auto" }} />
+                  {l.name && <span aria-hidden="true">{l.name}</span>}
+                </>
+              ) : (
+                <span>{r.platform}</span>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
