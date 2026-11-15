@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { SfButton } from "../sf/SfPage";
 import { SF_PHONE } from "../../data/salesforceShared";
 import { offerFor } from "./shared-offers";
+import { TeamCertsLine } from "./shared-TeamCerts";
 
 /* Mid-page CTA band (sf night look). Place inside <SfPage>. Defaults come from shared-offers for the current route.
  *   <OfferBand />   or   <OfferBand heading="Not sure what is wrong?" line="One sentence." label="Button text" /> */
@@ -28,6 +29,7 @@ export function OfferBand({ heading, line, label, className = "" }: { heading?: 
         <div className="ob-copy">
           <h2 className="sf-h3">{heading ?? offer.label}</h2>
           <p className="sf-measure">{line ?? offer.sub}</p>
+          <TeamCertsLine pathname={pathname} />
         </div>
         <div className="ob-act">
           <SfButton to={offer.href} cta="band" magnet>{label ?? offer.label}</SfButton>
