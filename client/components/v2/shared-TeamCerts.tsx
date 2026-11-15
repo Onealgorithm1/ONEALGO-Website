@@ -29,11 +29,11 @@ export function certsFor(pathname: string): CertRow[] {
 
 /** One line under a call to action: "Our team is certified in: Google Ads (…) · Google Analytics · …". Renders nothing
  *  on pages with no matching rows. Inherits the text colour of where it sits (works on the night band and on light). */
-export function TeamCertsLine({ pathname, className = "" }: { pathname: string; className?: string }) {
+export function TeamCertsLine({ pathname, className = "", tone }: { pathname: string; className?: string; tone?: "dark" | "light" }) {
   const rows = certsFor(pathname);
   if (!rows.length) return null;
   return (
-    <p className={`team-certs ${className}`} style={{ marginTop: 10, fontSize: 14, lineHeight: 1.5, opacity: 0.85 }}>
+    <p className={`team-certs ${className}`} style={{ marginTop: tone ? 24 : 10, fontSize: 14, lineHeight: 1.5, opacity: tone ? 1 : 0.85, color: tone === "dark" ? "rgba(255,255,255,.85)" : undefined }}>
       <strong>Our team is certified in:</strong>{" "}
       {rows.map((r) => (r.detail && r.platform !== "Google Analytics" ? `${r.platform} (${r.detail})` : r.platform)).join(" · ")}
     </p>
