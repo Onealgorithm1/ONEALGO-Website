@@ -324,7 +324,7 @@ export default function SalesforceAgentforce() {
             lede="A sales agent follows up on new leads and keeps records current, so reps spend their time on conversations."
             points={["A first reply to every new lead", "Meeting notes written back to the record", "Stale opportunities flagged to their owner"]}
           >
-            <p className="sf-mono" style={{ marginTop: 12 }}>These are jobs we would scope with you, not results from a client.</p>
+            <p className="sf-mono" style={{ marginTop: 12 }}>These are jobs we would scope with you.</p>
           </SmartUnit>
         </SmartSection>
 
@@ -384,7 +384,7 @@ export default function SalesforceAgentforce() {
               title="Our Agentforce record today"
               lede="Sreenivas Amirisetti holds the Agentforce Sales Consultant and Agentforce Service Consultant certifications."
               leadIn="Yes, but:"
-              lead="Our Agentforce record is certifications. The delivered work below is what an agent runs on."
+              lead="Our Agentforce record is certifications, not a delivered project. The Salesforce work below is what an agent runs on."
               style={{ gridColumn: "1 / 8", gridRow: 1 } as React.CSSProperties}
             >
               <DeliveredLedger />
