@@ -34,26 +34,26 @@ const DESCRIPTION = "Google Ads management services: tracking counted once, nega
 const CONTACT = contactHref("Google Ads audit", PATH, "google-ads");
 
 const AUDIT_AREAS = [
-  { title: "Search terms and negatives", body: "We sort the search terms report by spend and outcome, then write the negative list from real searches so irrelevant clicks stop." },
-  { title: "Conversion tracking counted once", body: "Google can track website, app, phone-call and offline conversions. We check each one fires once, so no lead is counted twice." },
+  { title: "Search terms and negatives", body: "We sort the search terms report by spend and outcome, then write the negative list from real searches." },
+  { title: "Conversion tracking counted once", body: "Google can track website, app, phone-call and offline conversions. We check each one fires once." },
   { title: "Geography and structure", body: "Targeting should match where you can serve, and campaigns should group keywords that share an intent." },
-  { title: "Landing pages", body: <>A lot of what limits an account happens after the click, so we read the page behind each ad group. We can rebuild it too: see <Link className="sf-link" to="/services/website-development">website development</Link>.</> },
+  { title: "Landing pages", body: <>We read the page behind each ad group. We can rebuild it too: see <Link className="sf-link" to="/services/website-development">website development</Link>.</> },
 ];
 
 const PARTS = [
-  { title: "Campaign setup and strategy", body: "How many campaigns, which keywords sit together, where the budget splits. Get this wrong and bid tuning will not rescue it." },
+  { title: "Campaign setup and strategy", body: "How many campaigns, which keywords sit together, where the budget splits." },
   { title: "Audience targeting and remarketing", body: "Remarketing lists and customer match, so you stop paying a full click price for someone who already bought." },
-  { title: "Bid management", body: "Smart Bidding where there is enough conversion data, manual control where there is not. We say which before switching." },
-  { title: "Creative and landing page testing", body: "Ad and page tests run one variable at a time, long enough to mean something. Much of the limit sits after the click." },
+  { title: "Bid management", body: "Smart Bidding where there is enough conversion data, manual control where there is not." },
+  { title: "Creative and landing page testing", body: "Ad and page tests, one variable at a time. Much of the limit sits after the click." },
   { title: "Measurement and attribution", body: "Conversion tracking that fires once, offline imports that match your CRM, and an attribution model you chose." },
-  { title: "Reporting", body: "A plain report: spend, leads counted once, what we changed and what is next. Impressions sit near the bottom." },
+  { title: "Reporting", body: "Spend, leads counted once, what we changed and what is next. Impressions sit near the bottom." },
 ];
 
 const STAGES: Stage[] = [
   { k: "s1", num: "01", title: "Audit the account", sub: "search terms · geography · pages", line: "Where the budget goes, what the geography covers, what the page does with the click.", details: ["Search terms sorted by spend and outcome", "The landing page behind each ad group"] },
-  { k: "s2", num: "02", title: "Fix the tracking", sub: "forms · calls · offline imports", line: "Each lead is counted once, and nothing else is trusted until it is.", details: ["Phone calls included", "Offline imports that match your CRM"] },
+  { k: "s2", num: "02", title: "Fix the tracking", sub: "forms · calls · offline imports", line: "Each lead is counted once before anything else changes.", details: ["Phone calls included", "Offline imports that match your CRM"] },
   { k: "s3", num: "03", title: "Subtract", sub: "negatives before keywords", line: "Cut the spend that is not converting before adding a single keyword.", details: ["The negative list, written from real searches", "Geography trimmed to where you can serve"] },
-  { k: "s4", num: "04", title: "Build and test", sub: "one variable at a time", line: "New structure, bids and ads, with a plain report you can check.", details: ["Tests run long enough to mean something", "A report that shows spend and leads counted once"] },
+  { k: "s4", num: "04", title: "Build and test", sub: "one variable at a time", line: "New structure, bids and ads.", details: ["Tests run long enough to mean something", "A report that shows spend and leads counted once"] },
 ];
 
 const FEES = [
@@ -63,18 +63,18 @@ const FEES = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "How much does Google Ads management cost?", a: "Fees come in three models: a flat fee, a percentage of ad spend, or a hybrid. Ad spend itself is paid to Google, separately from our fee. We set the scope after the audit and do not print a price list, because the size of the account and the state of its tracking decide the work." },
-  { q: "How much should I spend on Google Ads each month?", a: "Start from what a customer is worth and how many leads you can handle, not from a round number. The audit checks whether your tracking counts leads once, so budget is judged on real conversions. We give no universal figure, because the auction depends on your competitors, location and keywords." },
-  { q: "Is Google Ads worth it for a small business?", a: "It can be, when people search for what you sell and the landing page turns them into enquiries. Ads buy a position now, so they suit a launch or a slow quarter. We audit first: if tracking is broken or the account leaks spend, fixing that is worth more than raising the budget." },
-  { q: "How long until I see results?", a: "Ads can start showing soon after launch, but the useful answer takes longer: enough clicks and conversions to judge. We fix tracking first, cut waste with the search terms report, then test one change at a time. We cannot promise a date for results, and nobody can." },
-  { q: "Can an agency guarantee ROI?", a: "No. Results depend on your market, offer, page and budget, and Google's auction is not ours to control. Be wary of any agency that guarantees a return. What we can promise is method: tracking that counts each lead once, negatives first, the account in your name and plain reporting." },
-  { q: "Is Google Ads better than SEO?", a: "Neither is better. They do different jobs. Ads buy visibility now and stop when you stop paying. SEO builds slowly and keeps working once pages are trusted. Many small businesses use ads while their pages earn rankings. We run both, so we can say where your next dollar works harder.", link: { to: "/services/seo", label: "SEO services" } },
-  { q: "What is Quality Score, and does it matter?", a: "Quality Score is a 1-10 diagnostic at keyword level, built from expected click-through rate, ad relevance and landing page experience. Google's help page says it is not an input in the ad auction. Treat it as a hint about what to fix, not a number to chase." },
+  { q: "How much does Google Ads management cost?", a: "A flat fee, a percentage of ad spend, or a hybrid. Ad spend is paid to Google, separately from our fee. We set the scope after the audit, because account size and tracking decide the work." },
+  { q: "How much should I spend on Google Ads each month?", a: "Start from what a customer is worth and how many leads you can handle. The right figure depends on your competitors, location and keywords, and on tracking that counts each lead once." },
+  { q: "Is Google Ads worth it for a small business?", a: "It can be, when people search for what you sell and the landing page turns them into enquiries. Ads buy a position now, so they suit a launch or a slow quarter." },
+  { q: "How long until I see results?", a: "Ads can show soon after launch, but judging them takes enough clicks and conversions. We fix tracking, cut waste, then test one change at a time. We cannot promise a date." },
+  { q: "Can an agency guarantee ROI?", a: "No. Results depend on your market, offer, page and budget, and on Google's auction. What we promise is method: tracking that counts each lead once, negatives first, the account in your name and plain reporting." },
+  { q: "Is Google Ads better than SEO?", a: "Neither. Ads buy visibility now and stop when you stop paying. SEO builds slowly and keeps working once pages are trusted. We run both, so we can say where your next dollar works harder.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "What is Quality Score, and does it matter?", a: "Quality Score is a 1-10 diagnostic at keyword level, built from expected click-through rate, ad relevance and landing page experience. Google's help page says it is not an input in the ad auction. Treat it as a hint about what to fix." },
   { q: "Do you need a Google Partner agency?", a: "Google's Partner badge requires a 70% optimization score, $10,000 in ad spend over 90 days across managed accounts, and certified strategists. Judge any agency, including us, on method and access: do you own the account, and can you see every number?" },
-  { q: "Do I own my Google Ads account?", a: "Yes. The account is in your name, with you as owner, and we work inside it. If we part ways you keep the campaigns, history and conversion data. Be cautious of any agency that runs your ads from its own account and will not hand over access." },
-  { q: "What is Google Ads management?", a: "It is the ongoing work of running a Google Ads account: structure, keywords and negatives, bids, ad copy, landing pages, conversion tracking and reporting, so spend goes to searches that produce enquiries. It is sometimes called PPC management. Management is separate from the ad spend, which goes to Google." },
-  { q: "Why are Google Ads so expensive?", a: "Google ranks ads by Ad Rank, which weighs your bid, ad and landing page quality, auction competitiveness and the search context. Google's help says relevant keywords and ads can win a higher position at a lower price. Waste, such as broad match with no negatives or a weak page, raises your cost per lead." },
-  { q: "Where do you run Google Ads accounts?", a: "We run accounts remotely from our Malvern, PA office. For Philadelphia businesses there is a dedicated page covering radius, call tracking and the waste we find locally. The method is the same everywhere: audit, tracking, subtract, then build. Request an audit and we will say which parts of your account matter first.", link: { to: "/services/google-ads-philadelphia", label: "Google Ads management in Philadelphia" } },
+  { q: "Do I own my Google Ads account?", a: "Yes. The account is in your name, with you as owner, and we work inside it. If we part ways you keep the campaigns, history and conversion data. Be cautious of any agency that runs your ads from its own account." },
+  { q: "What is Google Ads management?", a: "It is the ongoing work of running a Google Ads account: structure, keywords and negatives, bids, ad copy, landing pages, conversion tracking and reporting, so spend goes to searches that produce enquiries. It is sometimes called PPC management." },
+  { q: "Why are Google Ads so expensive?", a: "Google ranks ads by Ad Rank, which weighs your bid, ad and landing page quality, auction competitiveness and the search context. Google's help says relevant keywords and ads can win a higher position at a lower price. Broad match with no negatives or a weak page raises your cost per lead." },
+  { q: "Where do you run Google Ads accounts?", a: "We run accounts remotely from our Malvern, PA office. Philadelphia businesses have a dedicated page covering radius, call tracking and the waste we find locally.", link: { to: "/services/google-ads-philadelphia", label: "Google Ads management in Philadelphia" } },
 ];
 
 export default function GoogleAds() {
@@ -144,12 +144,6 @@ export default function GoogleAds() {
             headingId="h-audit"
             title="What a Google Ads audit covers"
             lede="A Google Ads audit finds where spend leaks and what is not being counted, ranked by what to fix first."
-            lead="An audit checks the four places wasted spend tends to hide, and shows which one is yours."
-            points={[
-              "Search terms and negatives: what to cut",
-              "Conversion tracking counted once",
-              "Geography, structure and landing pages",
-            ]}
           />
           <div className="sf-c7"><AuditPlate fig={1} /></div>
           <div className="sf-c12"><GaLedger items={AUDIT_AREAS} /></div>
@@ -168,7 +162,7 @@ export default function GoogleAds() {
         <SmartSection
           id="what"
           tone="surface"
-          heading={{ title: "What Google Ads management includes", id: "h-what", lede: "Search campaigns, Performance Max and remarketing, set up in six parts, with tracking first if it is not already in place." }}
+          heading={{ title: "What Google Ads management includes", id: "h-what", lede: "Search campaigns, Performance Max and remarketing, set up in six parts, tracking first." }}
         >
           <div style={{ marginTop: 40 }}><GaCards items={PARTS} /></div>
         </SmartSection>
@@ -185,7 +179,7 @@ export default function GoogleAds() {
               title="The four stages of a Google Ads engagement"
               desc="A rail runs through four stations: audit the account, fix the tracking, subtract, build and test."
               stamp="How the work runs"
-              caption="Four stages in the order they run. Tracking comes before any change to bids or keywords."
+              caption="Tracking comes before any change to bids or keywords."
             />
             <StageUnits items={STAGES} />
           </div>
@@ -197,7 +191,7 @@ export default function GoogleAds() {
             <CountOncePlate
               fig={3}
               inputs={["Form submitted", "Call tracker rings", "Thank-you page reloads"]}
-              caption="One lead can trip three counters. Until each lead is counted once, every report and every bid is built on the wrong number."
+              caption="One lead can trip three counters, and every report and bid is then built on the wrong number."
             />
           </div>
           <SmartUnit
@@ -205,11 +199,9 @@ export default function GoogleAds() {
             headingId="h-tracking"
             title="Count each lead exactly once"
             lede="A form and a call tracker can both claim one lead, which inflates every report."
-            lead="Nothing else in the account can be trusted until the count is right."
             points={[
               "Website, phone-call and offline conversions, as Google lists them",
               "A thank-you page that fires once",
-              "Offline imports that match your CRM",
             ]}
           >
             <p style={{ marginTop: 14 }}>Measurement is a project of its own: see <Link className="sf-link" to="/services/martech">MarTech consulting</Link>.</p>
@@ -235,7 +227,7 @@ export default function GoogleAds() {
               ]}
             />
             <p className="sf-lead sf-measure" data-lead="" style={{ marginTop: 28 }}>
-              <span className="sf-lead-in">Why it matters:</span> The right choice follows your conversion data and creative, not which format is newer. We say which fits before switching anything.
+              <span className="sf-lead-in">Why it matters:</span> The right choice follows your conversion data and creative. We say which fits before switching anything.
             </p>
           </div>
         </SmartSection>
@@ -251,7 +243,6 @@ export default function GoogleAds() {
             lead="Quality Score is a diagnostic, and Google says it is not an input in the ad auction."
             points={[
               "We read Quality Score to find the weak ad or page, then fix that",
-              "Relevant keywords and ads can win a higher position at a lower price",
               "The cheapest gain is often a tighter keyword list",
             ]}
           />
@@ -265,7 +256,7 @@ export default function GoogleAds() {
             headingId="h-cost"
             title="What Google Ads management costs"
             lede="Agencies charge a flat fee, a percentage of ad spend or a hybrid, and your ad budget is paid to Google separately."
-            lead="We print no price here, because a number means little before we have seen your account."
+            lead="We set the scope after we have seen your account."
           />
           <div className="sf-c7"><GaLedger items={FEES} /></div>
         </SmartSection>
@@ -275,14 +266,14 @@ export default function GoogleAds() {
           <div className="sf-c7">
             <div className="ga-quote">
               <p className="ga-q">The account is in your name.</p>
-              <p className="ga-s">If you stop working with us, the history, the conversion data and the learning stay with you.</p>
+              <p className="ga-s">The history, the conversion data and the learning stay with you.</p>
             </div>
           </div>
           <SmartUnit
             className="sf-c5"
             headingId="h-keep"
             title="You keep the account"
-            lede="The Google Ads account is in your name, and you keep it if we part ways."
+            lede="The Google Ads account is in your name, and you keep it."
             lead="We work inside your account, and you can see every number."
           />
         </SmartSection>
@@ -295,11 +286,6 @@ export default function GoogleAds() {
             title="What your monthly report shows"
             lede="A plain report: spend, leads counted once, what we changed and what is next."
             lead="You get the schedule in writing, and no number you cannot check."
-            points={[
-              "Spend, and where it went",
-              "Leads counted once, not clicks",
-              "The next change we will test",
-            ]}
           />
           <div className="sf-c7"><ReportPlate fig={5} /></div>
         </SmartSection>
@@ -346,10 +332,10 @@ export default function GoogleAds() {
           lede="You get a prioritized list of what to fix, and you do not have to hire us to act on it."
           coversLabel="What the audit covers"
           covers={[
-            "Search terms by spend, and the negative list",
+            "Search terms and the negative list",
             "Conversion tracking: calls, forms, offline imports",
             "Geography and account structure",
-            "Landing pages behind the click",
+            "Landing pages",
             "Bid strategy and the report",
           ]}
           next={[

@@ -27,16 +27,16 @@ const FAMILIES = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Where is OneAlgorithm located?", a: "We are based in Malvern, Pennsylvania, in Chester County, and our phone is (610) 890-9711. We work with clients across the United States, mostly remotely, and meet in person when a project calls for it. Local pages cover Chester County and Philadelphia.", link: { to: "/contact", label: "Contact us" } },
-  { q: "What does OneAlgorithm do?", a: "We build websites and software, run SEO and Google Ads, and implement Salesforce. We also provide IT consulting and staff augmentation for small organizations. One four-person team handles the work from first workshop to 24/7 support, so you talk to the people who build it.", link: { to: "/services", label: "All services" } },
-  { q: "How big is the team?", a: "There are four of us. That means you work with the people doing the build, not a layer of account managers, and the same people stay on from the first workshop through support.", link: { to: "/about", label: "About us" } },
-  { q: "Do you offer support after launch?", a: "Yes. Every engagement has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. It is one support offer with no tiers to choose between, and it is handled by the team that built the work.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
-  { q: "Are you a Salesforce partner?", a: `Yes. Salesforce lists OneAlgorithm as a Select Consulting Partner on the AppExchange, with ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications in Salesforce's own record, read 23 October 2026. You can check the listing yourself before you hire anyone.`, link: { to: "/services/salesforce", label: "Salesforce consulting" } },
-  { q: "Do I own what you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one, and nothing is held back. We hand over documentation, so another developer can pick the work up whenever you choose.", link: { to: "/services/application-development", label: "Custom software development" } },
-  { q: "Can you show a measured result?", a: "Yes. For Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, measured in Search Console. The case study shows the dates and method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades SEO case study" } },
-  { q: "Can you work with the systems we already use?", a: "Usually, yes. Integrations are scoped per system, and we start with the two that disagree. We connect Salesforce, Zendesk (we signed a partner agreement in 2026) and Microsoft 365 rather than assuming a replacement.", link: { to: "/services/salesforce-integration", label: "Salesforce integration" } },
-  { q: "Do you build websites and do SEO for small businesses?", a: "Yes, small businesses are who we build for. We build the site and run the SEO, so the pages are made to be found, and you own the result. Each service has its own page with the process and what to expect.", link: { to: "/services/website-development", label: "Website development" } },
-  { q: "Do you work outside Pennsylvania?", a: "Yes. Most work is remote, with clients across the United States. We have local pages for Chester County and Philadelphia because that is where we are known, but nothing about the work requires you to be near Malvern. Calls and screen-shares replace site visits for most projects.", link: { to: "/services/seo-chester-county", label: "SEO, Chester County" } },
+  { q: "Where is OneAlgorithm located?", a: "We are in Malvern, Pennsylvania, in Chester County. Phone: (610) 890-9711. We work with clients across the United States, mostly remotely, and meet in person when a project needs it.", link: { to: "/contact", label: "Contact us" } },
+  { q: "What does OneAlgorithm do?", a: "We build websites and software, run SEO and Google Ads, and implement Salesforce. We also provide IT consulting and staff augmentation for small organizations, from first workshop to 24/7 support.", link: { to: "/services", label: "All services" } },
+  { q: "How big is the team?", a: "There are four of us. You work with the people doing the build, and they stay on from the first workshop through support.", link: { to: "/about", label: "About us" } },
+  { q: "Do you offer support after launch?", a: "Yes. Every engagement has a hypercare period right after go-live, then 24/7 technical support and maintenance from the team that built the work. It is one offer, with no tiers.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
+  { q: "Are you a Salesforce partner?", a: `Yes. Salesforce lists OneAlgorithm as a Select Consulting Partner on the AppExchange, with ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications in Salesforce's own record, read 23 October 2026.`, link: { to: "/services/salesforce", label: "Salesforce consulting" } },
+  { q: "Do I own what you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one. We hand over documentation, so another developer can pick the work up.", link: { to: "/services/application-development", label: "Custom software development" } },
+  { q: "Can you show a measured result?", a: "Yes. For Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, measured in Search Console.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades SEO case study" } },
+  { q: "Can you work with the systems we already use?", a: "Usually, yes. We scope integrations per system and start with the two that disagree. We connect Salesforce, Zendesk (we signed a partner agreement in 2026) and Microsoft 365.", link: { to: "/services/salesforce-integration", label: "Salesforce integration" } },
+  { q: "Do you build websites and do SEO for small businesses?", a: "Yes, small businesses are who we build for. We build the site and run the SEO, so the pages are made to be found, and you own the result.", link: { to: "/services/website-development", label: "Website development" } },
+  { q: "Do you work outside Pennsylvania?", a: "Yes. Most work is remote, with clients across the United States. Calls and screen-shares replace site visits for most projects. Our local pages cover Chester County and Philadelphia.", link: { to: "/services/seo-chester-county", label: "SEO, Chester County" } },
 ];
 
 export function HomeBody() {
@@ -58,7 +58,7 @@ export function HomeBody() {
             <SystemsPlate fig={1} stamp="One team, start to finish" title="Diagram: from what you run today to a supported result"
               left={["Websites and search", "Apps and portals", "Salesforce and CRM"]} hub={["One team", "Start to run-state"]}
               right={["Built", "Run", "Supported 24/7"]}
-              caption="A diagram of how the services fit: the work you need on the left, one team in the middle, a supported result on the right." />
+              caption="The work you need on the left, one team in the middle, a supported result on the right." />
           </div>
         </div>
       </SmartSection>
@@ -70,7 +70,7 @@ export function HomeBody() {
           <SmartUnit className="sf-c5" headingId="h-proof" kicker="Proof" title="An SEO result you can check"
             lede="For an arcade manufacturer in Florida, Google clicks rose 92 percent over the same 68 days a year apart."
             lead="Non-brand clicks rose 231 percent, which is new customers finding the site."
-            points={["Measured in Google Search Console", "The prior 68 days were flat", "No revenue claim made"]}>
+            points={["Measured in Google Search Console", "The prior 68 days were flat", "The client owns the property"]}>
             <p className="sf-links" style={{ marginTop: 14 }}><Link className="sf-link" to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link></p>
           </SmartUnit>
           <div className="sf-c7">
@@ -87,10 +87,10 @@ export function HomeBody() {
         <ProofStrip variant="local" />
       </SmartSection>
 
-      <OfferBand heading="Tell us what to fix" line="Say what is not working and what you want it to do, and a person replies." label="Talk to a consultant" />
+      <OfferBand heading="Tell us what to fix" line="Say what is not working, and a person replies." label="Talk to a consultant" />
 
       {/* 3. Services: the card grid. */}
-      <SmartSection id="services" tone="surface" heading={{ kicker: "Services", title: "What we build and run", id: "h-services", lede: "Seven service families, one team from first workshop to run-state." }}>
+      <SmartSection id="services" tone="surface" heading={{ kicker: "Services", title: "What we build and run", id: "h-services", lede: "Eight service families, one team." }}>
         <ServiceCards className="sf-mt" items={FAMILIES} />
         <div style={{ marginTop: 28 }}>
           <GoDeeper label="every service, page by page">
@@ -138,7 +138,7 @@ export function HomeBody() {
       </SmartSection>
 
       {/* 6. Sectors as lift tiles. */}
-      <SmartSection id="industries" tone="night" className="ind-sec" heading={{ kicker: "Industries", title: "Industries we serve", id: "h-industries", lede: "Each page says what we have done and where our experience stops." }}>
+      <SmartSection id="industries" tone="night" className="ind-sec" heading={{ kicker: "Industries", title: "Industries we serve", id: "h-industries", lede: "Each page says what we have done in that industry." }}>
         <GhostNum>05</GhostNum>
         <ul className="ind-row3" style={{ listStyle: "none", padding: 0, gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))" }}>
           {SECTORS.map((x, i) => (
@@ -162,7 +162,7 @@ export function HomeBody() {
           <SmartUnit className="sf-c7" headingId="h-office" title="Our office in Malvern, Pennsylvania"
             lede="We are based in Malvern, in Chester County, and work with clients across the region and the country."
             lead="Our Google Business Profile shows 5.0 from 6 Google reviews, read 31 October 2026."
-            points={["Service area: Bucks, Chester, Delaware, Montgomery and Philadelphia counties, and New Castle, DE", "Remote work with clients across the United States", "Local pages for Chester County and Philadelphia"]} />
+            points={["Service area: Bucks, Chester, Delaware, Montgomery and Philadelphia counties, and New Castle, DE", "Local pages for Chester County and Philadelphia"]} />
           <div className="sf-c5">
             <p className="sf-kicker">OneAlgorithm</p>
             <p className="ps-big" style={{ fontWeight: 600, fontSize: 24, margin: "8px 0" }}>Malvern, PA</p>
@@ -174,7 +174,7 @@ export function HomeBody() {
       <SmartSection id="faq" tone="surface" grid labelledBy="h-faq">
         <div className="sf-c4">
           <h2 className="sf-h2" id="h-faq">Questions buyers ask</h2>
-          <p className="sf-lede" data-lede="" style={{ marginTop: 14 }}>Straight answers, no sales pitch.</p>
+          <p className="sf-lede" data-lede="" style={{ marginTop: 14 }}>Ten short answers.</p>
         </div>
         <div className="sf-c7 sf-faq-col"><FAQ items={FAQS} /></div>
       </SmartSection>
@@ -187,9 +187,9 @@ export function HomeBody() {
 
       <DeskCTA
         form={{ topic: "general", topicLabel: "OneAlgorithm", heading: "Tell us what you need", prompt: "What is the system or page that is not working?", submitLabel: "Talk to an expert", need: "general" }}
-        heading="Tell us what to fix" lede="Say what is not working and what you want it to do, and a person at OneAlgorithm reads it and replies."
+        heading="Tell us what to fix" lede="Say what is not working, and a person at OneAlgorithm replies."
         covers={["What is not working today", "The systems and sites involved", "What a fix would let you do", "Your timeline"]} coversLabel="What to have ready"
-        next={["Send the form on the contact page. The topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
+        next={["Send the form on the contact page. The topic is filled in.", "A person reads it and replies.", "If it fits, we scope it in writing before work starts."]}
         hcLink={false}
       />
 

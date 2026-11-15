@@ -26,7 +26,7 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-slow",
     q: "Why is my website slow?",
-    a: "Usually one of three things: images uploaded at camera size, third-party scripts fetching code before the page can finish, or a theme that loads everything on every page. Measure first: a page-speed report says which one you have, and the fix is often one image and two scripts.",
+    a: "Usually one of three things: images uploaded at camera size, third-party scripts that hold up the page, or a theme that loads everything on every page. A page-speed report says which one you have, and the fix is often one image and two scripts.",
     links: [{ to: "#after-launch", label: "After launch: support, hosting and security" }],
   },
   {
@@ -37,7 +37,7 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-coding",
     q: "Does website development require coding?",
-    a: "Yes for custom work: a site designed and coded for one business is written in HTML, CSS and TypeScript. No for a builder such as Squarespace or Wix, where you fill a template and pay monthly. The comparison table on this page says which suits which job.",
+    a: "Yes for custom work: a site designed and coded for one business is written in HTML, CSS and TypeScript. No for a builder such as Squarespace or Wix, where you fill a template and pay monthly. The table on this page compares them.",
     links: [{ to: "#builder-or-custom", label: "Squarespace, Wix or WordPress versus custom" }],
   },
   {
@@ -63,6 +63,6 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-animation",
     q: "Is the animation at the top real, or is it a video?",
-    a: "Both. The moving background is our brand film; the lettering in front of it is a canvas particle system running in your browser, drawn from the two lines of the heading and built for this site after the published 21st.dev Magic Text Reveal pattern. Move your cursor across the words and they react.",
+    a: "Both. The moving background is our brand film. The lettering in front is a canvas particle system running in your browser, drawn from the two lines of the heading and built for this site after the published 21st.dev Magic Text Reveal pattern. Move your cursor across the words and they react.",
   },
 ];

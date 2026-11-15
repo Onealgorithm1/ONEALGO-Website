@@ -5,14 +5,14 @@ import { GhostNum } from "./industries-Visuals";
 /* The three-step growth path (Louis 2026-10-31, oa-growth-strategy-and-page-rules): results without ad spend first.
    Used on the home page and /services; the dental card on /industries describes the same path. Approach copy only: no results claimed. */
 const STEPS = [
-  { t: "The website and the message", p: "A site that says what you do, for whom and what to do next. Everything else rests on it." },
+  { t: "The website and the message", p: "A site that says what you do, for whom and what to do next." },
   { t: "Traction without ad spend", p: "SEO, blog posts, email campaigns and site authority, so people find you and keep coming back." },
   { t: "Automation", p: "Social posts, Google Business Profile posts, and review requests and replies, run on a schedule." },
 ];
 
 export function GrowthPath({ id = "growth", tone = "night" }: { id?: string; tone?: "paper" | "surface" | "night" }) {
   return (
-    <SmartSection id={id} tone={tone} className="ind-sec" heading={{ id: `h-${id}`, kicker: "Our approach", title: "Results before ad spend", lede: "Three steps, in this order. Ads come after organic traction." }}>
+    <SmartSection id={id} tone={tone} className="ind-sec" heading={{ id: `h-${id}`, kicker: "Our approach", title: "Results before ad spend", lede: "Three steps. Ads come after organic traction." }}>
       <GhostNum slow>03</GhostNum>
       <ol className="ind-row3" style={{ listStyle: "none", padding: 0, gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))" }}>
         {STEPS.map((s, i) => (

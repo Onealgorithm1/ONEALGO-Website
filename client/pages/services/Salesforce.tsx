@@ -52,55 +52,55 @@ const PA = "/services/salesforce-consulting-partner-pennsylvania";
 const FAQS: SfFaqItem[] = [
   {
     q: "What are the steps in a Salesforce implementation?",
-    a: "Four, usually in this order: work out what you need before you buy licenses, configure and build, migrate and integrate the data, then support the team after go-live. Each stage can be taken on its own, so a company with an admin already in place can bring us in for the migration alone.",
+    a: "Four, usually in this order: work out what you need before you buy licenses, configure and build, migrate and integrate the data, then support the team after go-live. You can hire us for any one stage.",
     link: { to: "#how", label: "How a Salesforce implementation runs" },
   },
   {
     q: "How do I choose the best Salesforce implementation partner?",
-    a: `Check the record before you call. Open the partner's AppExchange listing and read what Salesforce publishes there: certified people, certifications and the competencies they sit under. Ask who will actually do your work and look those people up on their Trailblazer profiles. Then ask for a written scope before any price. Ours is listing ${SF_LISTING_ID}: ${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications.`,
+    a: `Open the partner's AppExchange listing and read what Salesforce publishes there: certified people, certifications and competencies. Look up the people who will do your work on their Trailblazer profiles, and ask for a written scope before any price. Ours is listing ${SF_LISTING_ID}: ${SF_CERTIFIED_PEOPLE} Salesforce-certified people and ${SF_CERTIFICATIONS} certifications.`,
     link: { to: PA, label: "How to check any Salesforce partner" },
   },
   {
     q: "What do Salesforce consulting services include?",
-    a: "Advice and hands-on work across the life of a Salesforce org: deciding what to buy, configuring it, automating with Flow, migrating data, connecting other systems, and running it afterwards. Ours are the free one-week health check, implementation, data migration, integration with SAP and other ERPs, managed services, Marketing Cloud support and staff augmentation.",
+    a: "Advice and hands-on work across the life of a Salesforce org, from deciding what to buy to running it afterwards. Ours are the free one-week health check, implementation, data migration, integration with SAP and other ERPs, managed services, Marketing Cloud support and staff augmentation.",
     link: { to: HC, label: "Start with the free health check" },
   },
   {
     q: "Why do Salesforce implementations fail, and how do we avoid it?",
-    a: "The usual causes are adoption and data, not configuration: the org is set up around a template instead of how the team works, old data arrives unreconciled so nobody trusts the reports, and nobody owns the org after go-live. We start from your current process, workarounds included, reconcile record counts and totals before go-live, and agree who owns the org before the build starts.",
+    a: "The usual causes are adoption and data: the org follows a template instead of how the team works, old data arrives unreconciled, and nobody owns the org after go-live. We start from your current process, reconcile record counts and totals before go-live, and agree who owns the org before the build starts.",
   },
   {
     q: "Salesforce or HubSpot: which should we choose?",
-    a: "Choose on fit. HubSpot is often the quicker start for a team with a straightforward pipeline and marketing-led sales. Salesforce earns its cost when you need custom data models, detailed access rules, multi-step approvals or a sync with an ERP such as SAP. We tell you which side of that line you are on before you buy, including when the answer is not Salesforce.",
+    a: "HubSpot is often the quicker start for a team with a straightforward pipeline and marketing-led sales. Salesforce earns its cost when you need custom data models, detailed access rules, multi-step approvals or a sync with an ERP such as SAP. We tell you which fits before you buy.",
     link: { to: COST, label: "What Salesforce costs, edition by edition" },
   },
   {
     q: "Should we implement Salesforce ourselves or hire a partner?",
-    a: "Do it in-house if someone on your team has implemented Salesforce before and has the time. Bring in a partner when the build has to land alongside everyone's day job, or when it involves data migration, an ERP integration or automation nobody on staff has built. Many companies do both: we build, your admin owns the org after go-live, and the handover is planned before the build starts.",
+    a: "Do it in-house if someone on your team has implemented Salesforce before and has the time. Bring in a partner for data migration, an ERP integration or automation nobody on staff has built. Many companies do both: we build, and your admin owns the org after go-live.",
   },
   {
     q: "What happens after go-live, and who supports Salesforce then?",
-    a: "We stay on while your team learns it: training for admins and everyday users, reports and dashboards changed as the questions change, and testing before every Salesforce release. After that, managed services keep the org running: weekly administration and development, with hours reported every week.",
+    a: "We stay on while your team learns it: training for admins and everyday users, reports and dashboards changed as the questions change, and testing before every Salesforce release. After that, managed services cover weekly administration and development, with hours reported every week.",
     link: { to: MS, label: "Salesforce managed services" },
   },
   {
     q: "What does a Salesforce implementation cost?",
-    a: "It depends on the edition, the license count and how much of your data has to move. The ranges other firms publish, with their sources and typical timelines, are in our Salesforce implementation cost guide. Before you sign anything, we give you a license count and a rough cost, and tell you if a smaller edition does the job.",
+    a: "It depends on the edition, the license count and how much data has to move. Our Salesforce implementation cost guide lists the ranges other firms publish, with sources and typical timelines. Before you sign, we give you a license count and a rough cost.",
     link: { to: COST, label: "Salesforce implementation cost guide" },
   },
   {
     q: "Can I see examples of your Salesforce work?",
-    a: "Yes. The delivered-work ledger on this page lists it: ongoing Salesforce development for a lending company since April 2026, an SAP-to-Salesforce sync, QuickBase and Kissflow migrations into Salesforce, and about 18 months of Marketing Cloud support. We describe the work and keep client names private. Then judge us on your own org: the free one-week health check ends with a written list you keep.",
+    a: "Yes: ongoing Salesforce development for a lending company since April 2026, an SAP-to-Salesforce sync, QuickBase and Kissflow migrations into Salesforce, and about 18 months of Marketing Cloud support. Client names stay private.",
     link: { to: "#record", label: "Salesforce work we have delivered" },
   },
   {
     q: "Do you work with small businesses?",
-    a: "Yes. A small team gets the same people and the same free one-week health check. For a small company the first question is usually the edition: Starter Suite and Pro Suite exist for smaller teams, and we tell you whether one of them does the job before you buy more.",
+    a: "Yes. A small team gets the same people and the same free one-week health check. Starter Suite and Pro Suite exist for smaller teams, and we tell you whether one does the job before you buy more.",
     link: { to: "/services/salesforce-consultant-chester-county", label: "What Salesforce costs a small company" },
   },
   {
     q: "Is OneAlgorithm really a Salesforce partner?",
-    a: `Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing ${SF_LISTING_ID}. Salesforce publishes the detail itself: ${SF_CERTIFIED_PEOPLE} certified people holding ${SF_CERTIFICATIONS} certifications. You can open the listing and check it before you call us.`,
+    a: `Yes. We are a listed Salesforce Consulting Partner on the AppExchange, listing ${SF_LISTING_ID}. Salesforce publishes ${SF_CERTIFIED_PEOPLE} certified people holding ${SF_CERTIFICATIONS} certifications there.`,
     link: { to: "#record", label: "Check our record" },
   },
   {
@@ -113,7 +113,7 @@ const FAQS: SfFaqItem[] = [
 /* Objection questions (H3) with the answers in Go deeper. ⛔ None repeats a FAQ question; the "no reviews"
    objection stays off (voice rule: never announce an absence). */
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
-  { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your org stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
+  { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your org stays on it through delivery, and you deal directly with the people doing the work. Sreenivas Amirisetti leads the practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
   { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
   { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first. <Link className="sf-link" to={COST}>What Salesforce work costs</Link></> },
   { q: "You are not in our city.", a: <>We work from Malvern, PA. The work happens inside your org, remotely, and in person when a meeting needs it. <Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultants for Philadelphia companies</Link></> },
@@ -183,11 +183,11 @@ export default function Salesforce() {
           >
             <GoDeeper label="the four stages, what we do and what it costs">
               <p className="sf-rule">
-                Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day: choosing the edition and license count, configuring Sales Cloud and Service Cloud, automating manual steps with Flow, migrating and reconciling data, connecting other systems such as an ERP, and supporting the team after go-live.
+                Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day.
               </p>
-              <p><span className="sf-lead-in">What we do:</span> All four stages, or any one on its own, with the person who scopes your org staying on it through delivery.</p>
-              <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign. The market's published ranges are in our cost guide.</p>
-              <p><span className="sf-lead-in">Editions:</span> Starter Suite, Pro Suite, Core, Advanced and Max (Salesforce's current names, read {SF_VERIFIED_LABEL}). We tell you which one does the job before you buy.</p>
+              <p><span className="sf-lead-in">What we do:</span> All four stages, or any one on its own.</p>
+              <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign.</p>
+              <p><span className="sf-lead-in">Editions:</span> Starter Suite, Pro Suite, Core, Advanced and Max (Salesforce's current names, read {SF_VERIFIED_LABEL}).</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HC}>Start with the free health check</Link>
                 <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
@@ -214,12 +214,11 @@ export default function Salesforce() {
             kicker="Already on Salesforce"
             title="Your team works around Salesforce"
             lede="People still do by hand what the platform was bought to automate."
-            lead={<>Our Platform work is the Flow, permissions and integration work that takes those steps off your team.</>}
             points={["The weekly manual steps, handed to Flow", "Pipeline, cases and queues set up around your process", "Integrations that fail quietly, found and alerted on"]}
             measure={false}
           >
             <GoDeeper label="how we configure an org around the team">
-              <p className="sf-rule">Sales and Service Cloud get configured around how your people actually work. The reports your leadership will open get built from the questions they ask, and every integration gets an alert for the day it stops.</p>
+              <p className="sf-rule">The reports your leadership opens get built from the questions they ask. Every integration gets an alert for the day it stops.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HC}>What the free week covers</Link>
                 <Link className="sf-link" to={MS}>Weekly administration and development</Link>
@@ -238,7 +237,7 @@ export default function Salesforce() {
             measure={false}
           >
             <GoDeeper label="how the edition decision is made before the license order">
-              <p className="sf-rule">Clouds bought together because they were quoted together are the most common line on a first invoice. Starter Suite and Pro Suite exist for smaller teams. Core, Advanced and Max cover the rest. The edition decision is made with you before the license order.</p>
+              <p className="sf-rule">Clouds bought together because they were quoted together are the most common line on a first invoice. Starter Suite and Pro Suite exist for smaller teams. Core, Advanced and Max cover the rest.</p>
               <div className="sf-links"><Link className="sf-link" to={COST}>What Salesforce costs, edition by edition</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -261,7 +260,7 @@ export default function Salesforce() {
             title="Staged diagram of a four-stage Salesforce implementation with a reconciliation ledger"
             desc="A rail runs through four stations: scope, build, migrate and integrate, after go-live. Under station three, sample records move from a legacy system into Salesforce and the totals match."
             stamp="How an implementation runs"
-            caption="The four stages in the order they usually run, and the one test that matters at stage 03: the record counts and totals on both sides agree before anyone goes live. Sample figures."
+            caption="The four stages in the usual order. At stage 03, the record counts and totals on both sides agree before anyone goes live. Sample figures."
           />
           <StageUnits items={HUB_STAGES} />
         </SmartSection>
@@ -279,7 +278,7 @@ export default function Salesforce() {
         >
           <SmartUnit level={3} className="sf-c4" title="Sales Cloud and Service Cloud consulting" lede="Sales Cloud runs the work of winning business, and Service Cloud runs support after the sale." measure={false}>
             <GoDeeper label="what we configure in Sales Cloud and Service Cloud">
-              <p className="sf-rule">Sales Cloud runs leads, opportunities and pipeline. Service Cloud runs cases, queues and escalation. We configure both around how your team actually works. Sreenivas Amirisetti holds the Agentforce Sales Consultant and Agentforce Service Consultant certifications, formerly Sales Cloud and Service Cloud Consultant.</p>
+              <p className="sf-rule">Sales Cloud runs leads, opportunities and pipeline. Service Cloud runs cases, queues and escalation. Sreenivas Amirisetti holds the Agentforce Sales Consultant and Agentforce Service Consultant certifications, formerly Sales Cloud and Service Cloud Consultant.</p>
               <div className="sf-links"><Link className="sf-link" to={HC}>Check the org you have, free</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -343,7 +342,7 @@ export default function Salesforce() {
               <DeliveredLedger />
               <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
               <GoDeeper label="the competency rows and how to check any partner">
-                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them. Ask who will do your work and look them up on Trailblazer.</p>
+                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them.</p>
                 <div className="sf-links"><Link className="sf-link" to={PA}>How to check any Salesforce partner</Link></div>
               </GoDeeper>
             </SmartUnit>
@@ -357,7 +356,7 @@ export default function Salesforce() {
           heading={{
             id: "h-concerns",
             title: "Concerns before hiring a Salesforce partner",
-            lede: "Four questions buyers raise before the first call, each with the direct answer.",
+            lede: "Four questions buyers raise before the first call.",
           }}
         >
           {CONCERNS.map((c, i) => (

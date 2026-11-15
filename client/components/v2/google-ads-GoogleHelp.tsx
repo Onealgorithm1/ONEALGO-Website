@@ -4,7 +4,7 @@ import { EvidenceDialog } from "../sf";
    only the (c) 2026 Google footer, so the read date is the only date there is. Each page renders only the ids it
    opens with <Verify id=…/>, so an id is never duplicated on a page. */
 const READ = "31 October 2026";
-const NOTE = "The page shows no last-updated date, only a 2026 Google footer, so the date we read it is the only date we can give.";
+const NOTE = "The page shows no last-updated date, only a 2026 Google footer, so we give the date we read it.";
 
 type Fact = { title: string; intro: string; rows: { th: string; td: string }[]; href: string };
 

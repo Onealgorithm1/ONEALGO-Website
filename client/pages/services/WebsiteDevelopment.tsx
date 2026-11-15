@@ -130,7 +130,7 @@ export default function WebsiteDevelopment() {
         <SmartSection id={U.work.id} tone="night" grid labelledBy="h-work">
           <SmartUnit className="sf-c12" headingId="h-work" title={U.work.title} lede={U.work.lede} leadIn={U.work.leadIn} lead={U.work.lead}>
             <GoDeeper label={U.work.deep!}>
-              <p className="sf-rule">The live site loads inside a sandboxed frame on this page, so you use it without leaving. A site that refuses framing shows our full-page capture, with its date in the stamp. The sandbox blocks top navigation and downloads. The framed site's own scripts, fonts and media are its own and load only when you press Preview. The domain link under each window opens the site itself in a new tab.</p>
+              <p className="sf-rule">The live site loads in a sandboxed frame on this page, and its own scripts, fonts and media load only when you press Preview. The sandbox blocks top navigation and downloads. A site that refuses framing shows our dated full-page capture.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c12 wd-windows-6">
@@ -145,8 +145,8 @@ export default function WebsiteDevelopment() {
           <div className="sf-c12 sf-grid wd-pin-row" data-pin="">
             <SmartUnit className="sf-c5" headingId="h-what" title={U.what.title} lede={U.what.lede} leadIn={U.what.leadIn} lead={U.what.lead} points={U.what.points}>
               <GoDeeper label={U.what.deep!}>
-                <p className="sf-rule">A builder or a theme rents you a layout: you fill the slots it offers and pay monthly for what you cannot change. Custom work starts from your content and your systems and ends in code you own.</p>
-                <p>The hero on this page is the same idea in miniature: a particle field rasterised from live text, drawn on a canvas in your browser, no library, built for this site after the published 21st.dev “Magic Text Reveal” pattern.</p>
+                <p className="sf-rule">A builder or a theme rents you a layout: you fill its slots and pay monthly. Custom work starts from your content and systems and ends in code you own.</p>
+                <p>The hero on this page is an example: a particle field drawn on a canvas in your browser, with no library.</p>
                 <div className="sf-links"><Verify id="hero-build">How the hero was built</Verify></div>
               </GoDeeper>
             </SmartUnit>
@@ -168,7 +168,7 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.build.deep!}>
-              <p className="sf-rule">Which of the six sites is which: Phantom Arcades is a web application and a shop, with an eight-cabinet 3D configurator that prices the machine as you build it. The Gorband and Atlas Peptides are online stores. The Gorband runs on Square, one catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites, with online scheduling, booking and a quote form that lands in the office inbox.</p>
+              <p className="sf-rule">Phantom Arcades is a web application and a shop: its eight-cabinet 3D configurator prices the machine as you build it. The Gorband and Atlas Peptides are online stores, and The Gorband runs one Square catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites.</p>
               <p>Every build includes the forms, the analytics and the search groundwork. The integrations are named in the written scope.</p>
               <div className="sf-links"><Verify id="phantom-configurator">The Phantom configurator, with figures</Verify></div>
             </GoDeeper>
@@ -181,9 +181,9 @@ export default function WebsiteDevelopment() {
             <p className="sf-mono wd-verify-line">Measured on one redesign · <Verify id="phantom-redesign">Phantom redesign figures</Verify></p>
             <GoDeeper label={U.redesign.deep!}>
               <h3>How a redesign keeps your rankings</h3>
-              <p className="sf-rule">We crawl the old site first and map every address to its new one, so the redirect list exists before the first screen is designed. The content audit keeps what ranks and rewrites what does not. The redirects are tested before launch, and Search Console is read after it.</p>
+              <p className="sf-rule">We crawl the old site and map every address to its new one. The redirects are tested before launch, and Search Console is read after it.</p>
               <h3>Working with the site you already have</h3>
-              <p>Often, yes. Sometimes rebuilding is cheaper than fixing, and we tell you which one you are looking at.</p>
+              <p>Often, yes. When rebuilding is cheaper than fixing, we tell you.</p>
               <p><Link className="sf-link" to="/services/website-redesign">Website redesign that keeps your rankings</Link></p>
             </GoDeeper>
           </SmartUnit>
@@ -196,9 +196,9 @@ export default function WebsiteDevelopment() {
             <GoDeeper label={U.small.deep!}>
               <h3>What a small business site has to do</h3>
               <ul className="sf-points" style={{ marginTop: 0 }}>
-                <li>Business Profile linked, titles and schema written, Search Console and analytics connected at launch</li>
-                <li>Forms to the inbox and the CRM, booking where the business books, the phone one tap away</li>
-                <li>Service pages in the owner's words, and a page per area where the work is local</li>
+                <li>Business Profile, Search Console and analytics connected at launch</li>
+                <li>Forms to the inbox and the CRM, the phone one tap away</li>
+                <li>A page per area where the work is local</li>
               </ul>
               <h3>Three small-business sites we built</h3>
               <p>Inspect This Home Inspections: service pages by area, online scheduling, and reports the owner updates himself. The Boards Professor: booking, tutor profiles and reviews pulled from two platforms into one page. Starzi Brothers: moved off Squarespace to a page for each service and town, and a quote form that lands in the office inbox.</p>
@@ -220,7 +220,7 @@ export default function WebsiteDevelopment() {
             title="Diagram of the five stages of a custom website build"
             desc="A rail runs through five stations: agree what the site is for; scope, price and schedule in writing; design in the browser; build and wire it up; launch, hand over and stay on."
             stamp="The five stages · in the order they run"
-            caption="The five stages in the order they run. The scope, price and schedule are in writing before stage three. The site is in your own accounts at stage five."
+            caption="The scope, price and schedule are in writing before stage three. The site is in your own accounts at stage five."
           />
           <StageUnits items={WD_STAGES} className="wd-stages-5" />
         </SmartSection>
@@ -229,8 +229,8 @@ export default function WebsiteDevelopment() {
         <SmartSection id={U.cost.id} tone="surface" grid labelledBy="h-cost">
           <SmartUnit className="sf-c5" headingId="h-cost" title={U.cost.title} lede={U.cost.lede} leadIn={U.cost.leadIn} lead={U.cost.lead}>
             <GoDeeper label={U.cost.deep!}>
-              <p className="sf-rule">The proposal lists the pages and layouts, the integrations, the content we need from you and the dates, with the price against that list. If the number is wrong for you, we say what we would cut to get there.</p>
-              <p>After signing, the two things that move a quote are content that has not been written and feedback that sits unanswered, so both carry dates in the schedule.</p>
+              <p className="sf-rule">The proposal sets the price against a list: pages and layouts, integrations, the content we need from you and the dates.</p>
+              <p>After signing, unwritten content and unanswered feedback are what move a quote, so both carry dates in the schedule.</p>
               <p><Link className="sf-link" to="/services/website-cost">How much does a website cost?</Link></p>
             </GoDeeper>
           </SmartUnit>
@@ -255,7 +255,7 @@ export default function WebsiteDevelopment() {
         <SmartSection id={U.builder.id} grid labelledBy="h-builder">
           <SmartUnit className="sf-c12" headingId="h-builder" title={U.builder.title} lede={U.builder.lede} leadIn={U.builder.leadIn} lead={U.builder.lead}>
             <GoDeeper label={U.builder.deep!}>
-              <p className="sf-rule">If you need a handful of pages, you are happy to lay them out yourself, and nothing has to connect to another system, a builder gets you online this week for a monthly fee, and that is a sensible answer. It stops working when you want something the template cannot do, when the site has to integrate with software you already run, when performance starts costing you visitors, or when the monthly fee never ends and the site cannot move off the platform. A built site costs more once and then it is yours.</p>
+              <p className="sf-rule">Use a builder when you need a handful of pages, will lay them out yourself, and nothing has to connect to another system: you are online this week for a monthly fee. Go custom when the template cannot do what you want, the site must integrate with software you run, or performance costs you visitors. A built site costs more once and then it is yours.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c12">
@@ -281,9 +281,9 @@ export default function WebsiteDevelopment() {
           <SmartUnit className="sf-c7" headingId="h-a11y" title={U.a11y.title} lede={U.a11y.lede} leadIn={U.a11y.leadIn} lead={U.a11y.lead} points={U.a11y.points}>
             <GoDeeper label={U.a11y.deep!}>
               <h3>Do websites have to be ADA compliant?</h3>
-              <p className="sf-rule">For state and local governments, yes: the Department of Justice's 2024 rule under Title II adopts WCAG 2.1 AA, with compliance dates of 26 April 2027 for entities of 50,000 people or more and 26 April 2028 for smaller entities and special districts, after the Interim Final Rule published on 20 April 2026. For private businesses the Department of Justice has no regulation setting out detailed standards and calls WCAG helpful guidance (its web guidance of 18 March 2022). Ask counsel about your own obligations; we build to WCAG 2.1 AA either way.</p>
+              <p className="sf-rule">For state and local governments, yes. The Department of Justice's 2024 Title II rule adopts WCAG 2.1 AA, with compliance dates of 26 April 2027 for entities of 50,000 people or more and 26 April 2028 for smaller entities and special districts, after the Interim Final Rule published on 20 April 2026. For private businesses the Department has no regulation setting out detailed standards and calls WCAG helpful guidance (its web guidance of 18 March 2022). Ask counsel about your obligations. We build to WCAG 2.1 AA either way.</p>
               <h3>How we test accessibility</h3>
-              <p>Press Tab now: the ring you see is the one in the figure. Every build runs the automated rules an auditor runs, then a keyboard pass for what no rule catches: order, focus, names, and text contrast at 4.5:1 or better.</p>
+              <p>Press Tab now: the ring you see is the one in the figure. The keyboard pass checks what no automated rule catches: order, focus and names. Text contrast is 4.5:1 or better.</p>
               <div className="sf-links"><Verify id="wcag">Sources: WCAG 2.1 and the DOJ rules</Verify></div>
             </GoDeeper>
           </SmartUnit>
@@ -301,8 +301,8 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.after.deep!}>
-              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. HTTPS and the security headers are set at launch. This site runs the same way.</p>
-              <p>Support after launch is scoped in the written proposal, project by project: there is no standard plan, so no standard price, response time or term is printed here. Updates, content changes and the checks after a browser or platform change are agreed the same way.</p>
+              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. This site runs the same way.</p>
+              <p>Support after launch is scoped in the written proposal, project by project: updates, content changes and the checks after a browser or platform change.</p>
             </GoDeeper>
           </SmartUnit>
           <HandoverPlate className="sf-c7" />
@@ -321,9 +321,9 @@ export default function WebsiteDevelopment() {
           <SmartUnit className="sf-c5" headingId="h-own" title={U.own.title} lede={U.own.lede} leadIn={U.own.leadIn} lead={U.own.lead} measure={false}>
             <GoDeeper label={U.own.deep!}>
               <h3>Platforms we build on</h3>
-              <p className="sf-rule">HTML, CSS and TypeScript, and three.js where a 3D configurator earns it. Stores run on the platform that fits the business: The Gorband is on Square, and Atlas Peptides checks out through Stripe.</p>
+              <p className="sf-rule">HTML, CSS and TypeScript, and three.js where a 3D configurator earns it. Stores run on the platform that fits: The Gorband is on Square, and Atlas Peptides checks out through Stripe.</p>
               <h3>What transfers to you</h3>
-              <p>“Written so another developer can pick it up” means a README, the build scripts and the deploy steps in the repository, no proprietary builder in the chain, and nothing that stops working when we are not in the room.</p>
+              <p>“Written so another developer can pick it up” means a README, the build scripts and the deploy steps in the repository, with no proprietary builder in the chain.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
@@ -356,12 +356,12 @@ export default function WebsiteDevelopment() {
               </li>
             </ul>
             <GoDeeper label={U.who.deep!}>
-              <p className="sf-rule">Construction: the owner-facing project pages and whatever sits behind a login, and whether either can read from the systems that hold the job data. Manufacturing: product and specification catalogues that stay in step with the system of record instead of being retyped into a CMS. E-commerce: the surrounding pages, the joins to stock and support, and a checkout that is not the slow part. Government and the public sector: Section 508 and WCAG conformance become the acceptance criteria, which is how we build anyway.</p>
+              <p className="sf-rule">Construction: owner-facing project pages, what sits behind a login, and whether either can read from the systems that hold the job data. Manufacturing: product and specification catalogues that stay in step with the system of record. E-commerce: the surrounding pages, the joins to stock and support, and a checkout that is not the slow part. Government and the public sector: Section 508 and WCAG conformance are the acceptance criteria.</p>
             </GoDeeper>
           </SmartUnit>
           <SmartUnit className="sf-c6" headingId="h-choose" id={U.choose.id} delay={0.08} title={U.choose.title} lede={U.choose.lede} leadIn={U.choose.leadIn} lead={U.choose.lead} points={U.choose.points} measure={false}>
             <GoDeeper label={U.choose.deep!}>
-              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates. The price against that scope. Ownership: the repository, the domain and the hosting account in your name, named in the proposal. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms.</p>
+              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates, with the price against it. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
@@ -393,7 +393,7 @@ export default function WebsiteDevelopment() {
             </address>
             <p className="sf-mono wd-updated">Updated {PAGE_UPDATED_LABEL}</p>
             <GoDeeper label={U.check.deep!}>
-              <p className="sf-rule">Open our Google listing ({GOOGLE_LISTING.name}) and read the six reviews; three are from Dennis, Lou and Sean, whose sites are on this page. Open the sites themselves from the windows above. Read the case studies, by Louis Rubino, for the figures and their sources.</p>
+              <p className="sf-rule">Read the six reviews on our Google listing ({GOOGLE_LISTING.name}). Three are from Dennis, Lou and Sean, whose sites are on this page. The case studies, by Louis Rubino, give the figures and their sources.</p>
               <div className="sf-links">{CHECK_POSTS.map((p) => <Link key={p.to} className="sf-link" to={p.to}>{p.label}</Link>)}</div>
             </GoDeeper>
           </SmartUnit>
@@ -437,7 +437,7 @@ export default function WebsiteDevelopment() {
             </EvidenceDialog>
           );
         })}
-        <EvidenceDialog id="hero-build" title="How the hero on this page was built" intro="What the animation at the top of this page is, in this page's own terms." rows={HERO_BUILD_ROWS} />
+        <EvidenceDialog id="hero-build" title="How the hero on this page was built" intro="What the animation at the top of this page is." rows={HERO_BUILD_ROWS} />
         <EvidenceDialog
           id="phantom-configurator"
           title="The Phantom Arcades configurator"
@@ -448,20 +448,20 @@ export default function WebsiteDevelopment() {
         <EvidenceDialog
           id="phantom-redesign"
           title="Phantom Arcades: the redesign, measured"
-          intro="Search figures after the redesign, as published in our case study with Google Search Console as the source. One client, one window; no revenue claim is made."
+          intro="Search figures after the redesign, as published in our case study with Google Search Console as the source. One client, one window."
           rows={PHANTOM_REDESIGN.rows}
           primary={{ href: PHANTOM_REDESIGN.post, label: "Read the case study" }}
         />
         <SourcesDialog
           id="wcag"
           title="WCAG 2.1 and the ADA rules: sources"
-          intro="The standard we build to and the two Department of Justice documents the answer above relies on, as text with the date a person at OneAlgorithm read them."
+          intro="The standard we build to and the two Department of Justice documents behind the answer above, with the date a person at OneAlgorithm read them."
           sources={WCAG_SOURCES}
         />
         <EvidenceDialog
           id="google-listing"
           title="OneAlgorithm's Google listing"
-          intro="What Google's Places record for our listing said when a person at OneAlgorithm read it. We quote the figures. We do not mark them up as a rating."
+          intro="What Google's Places record for our listing said when a person at OneAlgorithm read it."
           rows={[
             { th: "Listing", td: GOOGLE_LISTING.name },
             { th: "Rating", td: GOOGLE_LISTING.rating },
