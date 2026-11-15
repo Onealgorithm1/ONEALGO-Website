@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
-  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, EvidenceDialog, AppExchangeEvidence,
+  SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, EvidenceDialog, AppExchangeEvidence, ExtLink,
   FAQ, DeskCTA, StageRail, StageUnits, Verify, type SfFaqItem, type Stage, type Readout,
 } from "../../components/sf";
 import { SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_PHONE, SF_VERIFIED_LABEL } from "../../data/salesforceProof";
@@ -27,7 +27,7 @@ import { DataTable, TABLE_CSS } from "./aiShared";
  *   The models named are the ones in comment_model_calls (Anthropic Claude, Google Gemini, OpenAI open-weight on
  *   Cloudflare Workers AI) and OpenAI Whisper for transcription.
  * ⛔ CREDENTIALS are individual course credentials (OpenAI Academy via Accredible, Zendesk via Skilljar; issued
- *   November 2026, onealgo-icm-oa/areas/sales/notes/*-takeaways-2026-11-10.md). Only the five OpenAI courses whose
+ *   November 2026, onealgo-icm-oa/areas/sales/notes/*-takeaways-2026-11-10.md). The nine OpenAI credentials are the ones Accredible lists for the holder (email 2026-11-15); formerly five, whose
  *   notes record a passed assessment AND an issued credential are listed. Never "OpenAI certified company/partner". */
 
 const PAGE_PATH = "/services/ai-automation";
@@ -43,6 +43,20 @@ const AGF = "/services/salesforce-agentforce";
 const SF = "/services/salesforce";
 const INT = "/services/salesforce-integration";
 const APP = "/services/application-development";
+
+/* OpenAI Academy credentials, each with its Accredible verify link (the holder's own share links, emailed by Accredible
+   2026-11-15; opened in a signed-out browser the same day: each shows the credential and the holder). */
+const OPENAI_CREDS: [string, string][] = [
+  ["Applied AI Foundations", "https://oaiacademy.credential.net/0e359469-5d5f-4243-a6b3-3f7aa24d09cb?key=2f6d5ae7403b87ec1062217e636a8fc06fd4c21c2651bdfa3149e87d8b49e387"],
+  ["Agents and Workflows", "https://oaiacademy.credential.net/1a894a8e-954a-428d-89ac-8f339c19c114?key=17bcab97cedda2ba099ce443911c5711f3f4c2fa3370cfa7b70e11e383232402"],
+  ["Scope AI Solutions", "https://oaiacademy.credential.net/b6218ba6-5b14-4e32-8f38-10235ce7f2d4?key=24d1e3d495335cb72e7f59df7dc436f0eee2313ffd4901062ff49b06cef609e8"],
+  ["Design and Build Agentic Systems", "https://oaiacademy.credential.net/f20ccc33-6aea-43c8-b0c0-449269960c52?key=305e8f05798c180485e290561cb0dbc985665a29960845f97dc4d2da679e3d90"],
+  ["Build with Retrieval-Augmented Generation", "https://oaiacademy.credential.net/076ee2f2-a571-43e4-b9f6-1b340ffbf30f?key=f69f68bbec8766c8605422ebf3e1defd591c75fc5aa722e012ac9b5b992d9205"],
+  ["Evaluate AI Applications", "https://oaiacademy.credential.net/b6ad9ee0-9906-4f75-8a12-735a0c155553?key=972ad921f9df13ca6dfa1b901d880babb398ad2fd5fe1deada8636e522ef58db"],
+  ["Optimize AI Application Performance", "https://oaiacademy.credential.net/bccaf8c5-4e73-4dc5-9b9d-4ba48fbd64f0?key=0ebc5518599613101106a0e8753d916d753d29692c54bb6a600b2059ae447ac3"],
+  ["Build With AI: OpenAI API Pathway Completion", "https://oaiacademy.credential.net/2746c029-e831-4707-a67d-70a6c7fb9e42?key=c426c63d12dd3771855700d082f0500b3c87374e874bb6f8f0d33b97af8db7db"],
+  ["Get Started with Codex", "https://oaiacademy.credential.net/a87ed783-2395-468f-96f8-cd8a7e6c27b0?key=4a7e1a29c1df5c3888d39ca5b5efaef43908c377f61ad1456f2cff2776a77771"],
+];
 
 const REPLIES = 5302;
 const HELD = 581;
@@ -439,7 +453,7 @@ export default function AiAutomation() {
             className="sf-c7"
             kicker="Training"
             title="AI credentials held on our team"
-            lede="One member of our team holds five OpenAI Academy credentials, and our Salesforce lead holds Salesforce's two Agentforce consultant certifications."
+            lede="One member of our team holds nine OpenAI Academy credentials, and our Salesforce lead holds Salesforce's two Agentforce consultant certifications."
             lead="These are individual course credentials, held by the people who earned them."
           >
             <p className="sf-mono" style={{ marginTop: 12 }}><Verify id="ai-training">See the full list</Verify></p>
@@ -485,9 +499,9 @@ export default function AiAutomation() {
         <EvidenceDialog
           id="ai-training"
           title="AI credentials held on our team"
-          intro="Individual course credentials held by people at OneAlgorithm. Ask and we will show you any of them."
+          intro="Individual course credentials held by people at OneAlgorithm. Each OpenAI Academy credential opens on OpenAI's credential service."
           rows={[
-            { th: "OpenAI Academy", td: "Applied AI Foundations · Agents and Workflows · Scope AI Solutions · Design and Build Agentic Systems · Get Started with Codex (issued November 2026)" },
+            { th: "OpenAI Academy (issued November 2026)", td: <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 6 }}>{OPENAI_CREDS.map(([name, href]) => <li key={name}><ExtLink href={href}>{name}</ExtLink></li>)}</ul> },
             { th: "Salesforce", td: "Agentforce Sales Consultant · Agentforce Service Consultant (held by Sreenivas Amirisetti)" },
             { th: "Zendesk", td: "AI Agents, Level 1 (issued November 2026)" },
           ]}
