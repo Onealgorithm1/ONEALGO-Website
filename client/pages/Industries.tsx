@@ -17,7 +17,7 @@ import { IndBody, CaseBand, CBP, type IndUnit } from "../components/v2/industrie
 
 const INDUSTRIES = [
   { icon: Building2, title: "Construction", h3: "Construction software integration", body: "Connecting the field app, the estimating tool and the accounting package a firm already bought, so a job number means one thing in all three.", to: "/industries/construction" },
-  { icon: Factory, title: "Manufacturing", h3: "Manufacturing ERP integration", body: "ERP, reporting and integration work behind the plant, and what we have not done on the floor.", to: "/industries/manufacturing" },
+  { icon: Factory, title: "Manufacturing", h3: "Manufacturing ERP integration", body: "ERP, reporting and integration work behind the plant, and a list of what we have not done on the floor.", to: "/industries/manufacturing" },
   { icon: ShoppingCart, title: "Ecommerce", h3: "Ecommerce website development", body: "WooCommerce and custom store builds, and the joins between the store and stock, payments and the ledger.", to: "/industries/ecommerce" },
   { icon: Landmark, title: "Government", h3: "Government IT services", body: "Set-aside eligible and SAM registered, with identifiers and NAICS codes published for market research.", to: "/industries/government" },
   { icon: Megaphone, title: "Marketing", h3: "Technology for marketing teams", body: "A function, not an industry: a short signpost to the social media, MarTech and SEO service pages.", to: "/industries/marketing" },

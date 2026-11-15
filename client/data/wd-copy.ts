@@ -177,7 +177,7 @@ export const BUILD_KINDS: { title: string; line: string; to?: string; linkLabel?
 
 /** U10: the three H3 rows; `hl` is the HandoverPlate node the row lights (data-hl-key). */
 export const AFTER_ROWS: { title: string; line: string; hl: "repo" | "dns" | "host" | "docs" }[] = [
-  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account.", hl: "host" },
+  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account, not ours.", hl: "host" },
   { title: "Security: HTTPS and security headers", line: "HTTPS and security headers set at launch, as on this site.", hl: "dns" },
   { title: "Updates and support after launch", line: "We stay on under the written proposal's terms. Every project is scoped on its own.", hl: "docs" },
 ];
@@ -185,7 +185,7 @@ export const AFTER_ROWS: { title: string; line: string; hl: "repo" | "dns" | "ho
 /** U11: the handover ledger (wording as live since 2026-08-24, WebsiteDevelopment.tsx HANDOVER). */
 export const HANDOVER: { k: string; text: string }[] = [
   { k: "REPO", text: "Source in your own repository, from day one and at handover" },
-  { k: "DNS", text: "Domain and DNS in your account" },
+  { k: "DNS", text: "Domain and DNS in your account, not ours" },
   { k: "HOST", text: "Deployed somewhere you control, and can move" },
   { k: "DOCS", text: "Written so another developer can pick it up" },
 ];

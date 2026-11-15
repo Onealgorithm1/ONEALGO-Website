@@ -178,7 +178,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "How do we get a fixed price for our Salesforce project?",
-    a: "Scope it in writing first. We write the scope, then price it, then do the work and hand it over. If you already run Salesforce, the free one-week health check gives you a license count and a rough cost before you sign anything.",
+    a: "Scope it in writing first. A fixed price is only as firm as the scope behind it, so we write the scope, then price it, then do the work and hand it over. If you already run Salesforce, the free one-week health check gives you a license count and a rough cost before you sign anything.",
     link: { to: HC, label: "Free one-week Salesforce health check" },
   },
   {

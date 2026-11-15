@@ -148,7 +148,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "What does a Salesforce managed services team do each week?",
-    a: "A normal week mixes small and large: user setup and access, automation that needs building or fixing, configuration changes and data jobs, plus a release check three times a year. The mix changes every week, so the work goes to people who already know the org.",
+    a: "A normal week mixes small and large: user setup and access, automation that needs building or fixing, configuration changes and data jobs, plus a release check three times a year. The mix changes every week, which is the point of having people who already know the org.",
   },
   {
     q: "Is Salesforce a managed service provider?",

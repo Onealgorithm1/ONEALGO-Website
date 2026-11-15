@@ -26,7 +26,7 @@ export const COMPARE: { row: string; builder: string; custom: string; builderWin
 /** U6: the five stages (k = s1…s5 for the rail highlight; `short` fits the five-station drawing). */
 export const WD_STAGES: Stage[] = [
   { k: "s1", num: "01", title: "Agree what the site is for", short: "What the site is for", sub: "who · what it must do · what it connects to", line: "Who it is for, what it must do, and what it connects to, agreed before anything is designed.",
-    details: ["Who the site is talking to, and what it has to make them do", "The systems it connects to: CRM, booking, payments, inventory", "What exists today: domain, hosting, content, logins", "Whether a smaller site would do the job"] },
+    details: ["Who the site is talking to, and what it has to make them do", "The systems it connects to: CRM, booking, payments, inventory", "What exists today: domain, hosting, content, logins", "Whether a smaller site does the job, and we tell you if it does"] },
   { k: "s2", num: "02", title: "Scope, price and schedule in writing", short: "Scope, price, schedule", sub: "the proposal", line: "The proposal: pages, integrations, price and dates, signed before the build starts.",
     details: ["Pages and layouts, named", "Integrations and the content you supply", "The price against that list, and the dates", "What we would cut if the number is wrong for you"] },
   { k: "s3", num: "03", title: "Design in the browser", short: "Design in the browser", sub: "real content · real widths", line: "Real content at real widths, reviewed in your own browser, not a slide deck.",
