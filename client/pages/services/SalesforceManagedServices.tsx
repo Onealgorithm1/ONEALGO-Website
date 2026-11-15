@@ -152,7 +152,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is Salesforce a managed service provider?",
-    a: "No. Salesforce provides the software as a cloud service and runs the infrastructure, upgrades and security of the platform itself. It does not configure your org or handle your users' requests day to day; that work falls to your own admins or to a consulting partner. Salesforce lists those partners on the AppExchange, where we are listed.",
+    a: "No. Salesforce provides the software as a cloud service and runs the infrastructure, upgrades and security of the platform itself. It does not configure your org or handle your users' requests day to day. That work falls to your own admins or to a consulting partner. Salesforce lists those partners on the AppExchange, where we are listed.",
   },
   {
     q: "What services does Salesforce itself provide?",
@@ -473,7 +473,7 @@ export default function SalesforceManagedServices() {
             headingId="h-secure"
             title="How we keep your Salesforce org secure"
             lede="Your org stays under your control: the free week runs on a read-only user you create, and every change is tested in a sandbox first."
-            lead="Salesforce's Setup Audit Trail shows who changed what for 180 days; our written record adds why, and it stays yours."
+            lead="Salesforce's Setup Audit Trail shows who changed what for 180 days. Our written record adds why, and it stays yours."
             measure={false}
           >
             <GoDeeper label="the audit trail and the change record">
@@ -559,7 +559,7 @@ export default function SalesforceManagedServices() {
         {/* Pop-ups: sources only (the AppExchange and Trailblazer evidence dialogs come with Readouts / PersonCredentials). */}
         <SourcesDialog id="salesforce-sources" title="Where these Salesforce facts come from" sources={SALESFORCE_SOURCES} />
         <SourcesDialog id="bls-sources" sources={BLS_SOURCES} />
-        <SourcesDialog id="pricing-sources" title="Where these prices come from" intro="Each firm's own wording, re-read on its own page. We quote what they publish; prices change, so check the source before you compare." sources={PRICING_SOURCES} />
+        <SourcesDialog id="pricing-sources" title="Where these prices come from" intro="Each firm's own wording, re-read on its own page. We quote what they publish. Prices change, so check the source before you compare." sources={PRICING_SOURCES} />
       </SfPage>
     </Layout>
   );

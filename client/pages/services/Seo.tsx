@@ -43,7 +43,7 @@ const SOURCES: SfSource[] = [
 
 const FAQS: SfFaqItem[] = [
   { q: "How much does SEO cost?", a: "We scope it in writing after the audit, because the work follows what the audit finds: how many pages, how much is broken, how competitive your searches are and how much ongoing content and reporting you want. We do not print a price list, and a quote given before anyone has looked at the site is a guess.", link: { to: "/contact#need=seo", label: "Ask for the audit" } },
-  { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first; new pages on a young site often take a quarter or more. We report non-brand clicks monthly from your own Search Console, so you see movement as it happens." },
+  { q: "How long does SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. Technical fixes usually move first. New pages on a young site often take a quarter or more. We report non-brand clicks monthly from your own Search Console, so you see movement as it happens." },
   { q: "Is SEO worth it?", a: "It is worth it when people search for what you sell and your site can realistically beat the pages that rank. The audit tells you which. We measure non-brand clicks, because brand clicks only show people who already knew you. For Phantom Arcades they rose 231% over the same 68 days a year earlier. We guarantee nothing.", link: { to: CASE, label: "Phantom Arcades SEO case study" } },
   { q: "What do SEO services include?", a: "Technical fixes, keyword and content work, links earned rather than bought, local search, Search Console and GA4 reporting, and visibility in AI assistants. Each job is separate in the report, so you can see which change moved which number. We start with an audit and fix technical faults before writing new pages.", link: { to: "#jobs", label: "See the six jobs" } },
   { q: "What is the difference between local SEO and SEO?", a: "Local SEO is the part tied to place: your Google Business Profile, reviews, service area and map results. SEO is everything on the site that decides whether Google can find and trust it. Google says local results rest on relevance, distance and prominence, and that you cannot pay for a better local ranking.", link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" } },
@@ -59,7 +59,7 @@ const FAQS: SfFaqItem[] = [
 const JOBS = [
   { id: "technical", t: "Technical SEO", k: "Crawl, index, speed", lede: "Technical SEO makes sure Google can reach, read and index every page worth ranking.", lead: "Content on a site search engines struggle to crawl is wasted work, so this comes first.",
     deep: "Crawl and index coverage, redirect chains, canonical tags, sitemaps, duplicate titles and Core Web Vitals, measured on real visitors." },
-  { id: "content", t: "Content and keywords", k: "Winnable first", lede: "We map what people search near what you sell, then check whether you can beat the pages that rank.", lead: "Sometimes the honest answer is no, and we say so instead of billing you to chase it.",
+  { id: "content", t: "Content and keywords", k: "Winnable first", lede: "We map what people search near what you sell, then check whether you can beat the pages that rank.", lead: "Sometimes the answer is no, and we do not bill you to chase it.",
     deep: "One page per thing people search for, written plainly. Many near-identical pages is what the scaled content abuse policy targets." },
   { id: "links", t: "Links without buying them", k: "Earned only", lede: "We ask for links a person would plausibly click, from sites that have a reason to mention you.", lead: "Buying or selling links for ranking is link spam in Google's own policy.",
     deep: "No bought links, no private blog networks, nothing that risks a manual action. If a proposal promises a fixed number of links a month, ask where they come from." },
@@ -98,7 +98,7 @@ const CHOOSE: [string, string, string][] = [
 const LOCAL_READOUTS: Readout[] = [
   { value: 15102, label: "Chester County business establishments", source: <>U.S. Census Bureau, County Business Patterns 2023</> },
   { value: 12796, label: "of them have fewer than 20 employees (84.7%)", source: <>Same source, all sectors</> },
-  { value: 29460, label: "Philadelphia County establishments; 84.0% have fewer than 20 employees", source: <>Same source, all sectors</> },
+  { value: 29460, label: "Philadelphia County establishments, 84.0% with fewer than 20 employees", source: <>Same source, all sectors</> },
 ];
 
 export default function Seo() {
@@ -272,7 +272,7 @@ export default function Seo() {
           heading={{
             id: "h-why",
             title: "Why OneAlgorithm for SEO",
-            lede: "Four people in Malvern who report from accounts you own and say so when a keyword is not worth chasing.",
+            lede: "Four people in Malvern who report from accounts you own and tell you when a keyword is not worth chasing.",
           }}
         >
           <div className="seo-grid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))" }}>
@@ -293,7 +293,7 @@ export default function Seo() {
             headingId="h-google"
             title="What Google actually requires"
             lede="Google publishes the rules, and the first is that a page must be crawled and indexed before it can rank."
-            lead="Google says plainly it does not guarantee that a page you submit gets indexed."
+            lead="Google says it does not guarantee that a page you submit gets indexed."
           >
             <GoDeeper label="the shortcuts that do not move the needle">
               <p className="sf-rule">Google's spam policies name buying links, keyword stuffing and mass-produced pages as shortcuts to avoid. Link spam is creating links primarily to manipulate rankings. Keyword stuffing is filling a page with keywords or numbers. Scaled content abuse is many pages generated primarily to manipulate rankings. Repeating a keyword, listing towns to rank in, and promises of a guaranteed number-one ranking are all still sold, and each can cost a site its standing.</p>
@@ -344,7 +344,7 @@ export default function Seo() {
             <article className="seo-lift" data-reveal="">
               <p className="sf-kicker">Nearby</p>
               <h3 className="sf-h3" id="h-nearby">Based in Malvern, PA</h3>
-              <p>Our office is in Malvern, inside Chester County. We serve Philadelphia businesses from Malvern; we have no Philadelphia client result to show, and we do not claim one.</p>
+              <p>Our office is in Malvern, inside Chester County. We serve Philadelphia businesses from Malvern. We have no Philadelphia client result to show.</p>
               <div className="sf-links">
                 <Link className="sf-link" to="/services/seo-chester-county">SEO company in Chester County</Link>
                 <Link className="sf-link" to="/services/google-ads">Google Ads management</Link>

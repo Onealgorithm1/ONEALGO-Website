@@ -49,9 +49,9 @@ const FAQS: SfFaqItem[] = [
   { q: "What does local SEO cover?", a: "Local SEO covers your Google Business Profile, the primary category, hours, services and photos, a service area if you work at the customer's site, reviews asked for and answered, and a clear page for each service. Google ranks local results on relevance, distance and prominence, so each part works on one of those." },
   { q: "Is there an SEO company in Malvern, PA?", a: "Yes. Our office is on Swedesford Road in Malvern, inside Chester County. We take on Chester County businesses and serve neighboring counties from the same office. Call (610) 890-9711 to book an SEO audit, and see our Google Business Profile for the address and hours." },
   { q: "Do you do SEO for businesses in Chester Springs?", a: "Yes. We cover Chester Springs, Landenberg and the rest of Chester County from our Malvern office. The work starts with the same audit: your Business Profile, your service pages and what is stopping Google from showing you to people nearby. Nothing is promised in advance." },
-  { q: "How long does local SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. A corrected Business Profile can move first; reviews and service pages build over a quarter or more. We report from your own Search Console, so you can see which change moved which number." },
+  { q: "How long does local SEO take?", a: "Google says some changes might take effect in a few hours and others could take several months. A corrected Business Profile can move first. Reviews and service pages build over a quarter or more. We report from your own Search Console, so you can see which change moved which number." },
   { q: "How much does local SEO cost?", a: "We scope local SEO in writing after the audit, because the work depends on your Business Profile, your service pages and how many competing businesses sit near you. We do not print a price list. The full explanation of what drives the cost is on our SEO services page.", link: { to: "/services/seo", label: "SEO services for small business" } },
-  { q: "Is local SEO worth it for a small business?", a: "It is when people nearby search for what you sell. Google's local results use relevance, distance and prominence, so a complete Business Profile, honest reviews and a clear page per service put a small business in front of those searchers. No one can promise a map position; we show you what moved." },
+  { q: "Is local SEO worth it for a small business?", a: "It is when people nearby search for what you sell. Google's local results use relevance, distance and prominence, so a complete Business Profile, honest reviews and a clear page per service put a small business in front of those searchers. No one can promise a map position. We show you what moved." },
   { q: "Should I show my address if customers do not come to me?", a: "Not if you work at the customer's site. Set a service area on your Business Profile instead of showing a street address, and keep the same business details everywhere they appear. We check which setting suits your business before changing anything on the profile." },
   { q: "Do I need a Business Profile if I already have a website?", a: "Yes, for map results. The local results come from your Business Profile, and Google says they rest on relevance, distance and prominence. Your website still matters, because it supplies the page for each service you want to be found for. The two work together." },
   { q: "Can you guarantee a spot in the Google map results?", a: "No. Google says there is no way to request or pay for a better local ranking, so anyone selling a guaranteed map position is guessing. We can set up the profile properly, collect and answer reviews and build clear service pages, then show you what moved.", link: { to: "/services/seo", label: "How we work on SEO" } },
@@ -82,7 +82,7 @@ const STEP_TEXT = [
   ["Fix the Business Profile", "The primary category, your hours, services, photos and description, and a service area instead of an address if you work at the customer's site."],
   ["Write one page per service", "A plain page for each thing people search for, and a place page only where you really serve that area and have something specific to say about it."],
   ["Make your details match everywhere", "The same name, address and phone number on the site, the profile and the main directories."],
-  ["Set up reviews, then report", "A simple way to ask every customer for a review and reply to each one, and reporting from your own Search Console, so you can check the numbers without taking our word for them."],
+  ["Set up reviews, then report", "A simple way to ask every customer for a review and reply to each one, and reporting from your own Search Console, so you can check the numbers yourself."],
 ];
 
 export default function SeoChesterCounty() {
@@ -155,7 +155,7 @@ export default function SeoChesterCounty() {
           <ProfilePlate />
           <div style={{ marginTop: 28 }}><ProofStrip variant="local" /></div>
           <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
-          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Being inside the county means we know the area and can be at your door, not driving in.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Being inside the county means we know the area and can be at your door.</p>
           <GoDeeper label="what local SEO means here">
             <p className="sf-rule">
               Local SEO is the part of SEO that depends on being local: the Business Profile, reviews, service area and a clear page for each thing you sell. The technical work (crawl errors, slow pages, duplicate titles) is the same anywhere, and it is covered on our main SEO page.
@@ -231,7 +231,7 @@ export default function SeoChesterCounty() {
             leadIn="By the numbers:"
             title="Chester County's small businesses"
             lede="Chester County has 15,102 business establishments, and 84.7% of them employ fewer than 20 people."
-            lead="Small businesses compete on the map results and a clear page per service, which is exactly what local SEO works on."
+            lead="Small businesses compete on the map results and a clear page per service, which is what local SEO works on."
           >
             <GoDeeper label="what the number means for you">
               <p className="sf-rule">Most firms in the county are small, so the competition for a local search is often another small firm with a profile and a few reviews. A complete, accurate profile and a plain page per service is enough to compete. Google says some changes take effect in a few hours and others take several months.</p>

@@ -62,7 +62,7 @@ const FACTS: Record<string, Fact> = {
   },
   partner: {
     title: "What Google requires of a Partner",
-    intro: "Google Ads Help lists the requirements for the Google Partner badge and for Premier Partner. OneAlgorithm does not hold either and does not claim them.",
+    intro: "Google Ads Help lists the requirements for the Google Partner badge and for Premier Partner. OneAlgorithm does not hold either.",
     rows: [
       { th: "Optimization score", td: "At least 70 percent" },
       { th: "Ad spend", td: "$10,000 USD over 90 days, across managed accounts" },

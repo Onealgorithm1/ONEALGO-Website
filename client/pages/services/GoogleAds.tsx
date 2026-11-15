@@ -66,9 +66,9 @@ const FAQS: SfFaqItem[] = [
   { q: "How much does Google Ads management cost?", a: "Fees come in three models: a flat fee, a percentage of ad spend, or a hybrid. Ad spend itself is paid to Google, separately from our fee. We set the scope after the audit and do not print a price list, because the size of the account and the state of its tracking decide the work." },
   { q: "How much should I spend on Google Ads each month?", a: "Start from what a customer is worth and how many leads you can handle, not from a round number. The audit checks whether your tracking counts leads once, so budget is judged on real conversions. We give no universal figure, because the auction depends on your competitors, location and keywords." },
   { q: "Is Google Ads worth it for a small business?", a: "It can be, when people search for what you sell and the landing page turns them into enquiries. Ads buy a position now, so they suit a launch or a slow quarter. We audit first: if tracking is broken or the account leaks spend, fixing that is worth more than raising the budget." },
-  { q: "How long until I see results?", a: "Ads can start showing soon after launch, but the useful answer takes longer: enough clicks and conversions to judge. We fix tracking first, cut waste with the search terms report, then test one change at a time. We cannot promise a date for results, and nobody honestly can." },
+  { q: "How long until I see results?", a: "Ads can start showing soon after launch, but the useful answer takes longer: enough clicks and conversions to judge. We fix tracking first, cut waste with the search terms report, then test one change at a time. We cannot promise a date for results, and nobody can." },
   { q: "Can an agency guarantee ROI?", a: "No. Results depend on your market, offer, page and budget, and Google's auction is not ours to control. Be wary of any agency that guarantees a return. What we can promise is method: tracking that counts each lead once, negatives first, the account in your name and plain reporting." },
-  { q: "Is Google Ads better than SEO?", a: "Neither is better; they do different jobs. Ads buy visibility now and stop when you stop paying. SEO builds slowly and keeps working once pages are trusted. Many small businesses use ads while their pages earn rankings. We run both, so we can say where your next dollar works harder.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "Is Google Ads better than SEO?", a: "Neither is better. They do different jobs. Ads buy visibility now and stop when you stop paying. SEO builds slowly and keeps working once pages are trusted. Many small businesses use ads while their pages earn rankings. We run both, so we can say where your next dollar works harder.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "What is Quality Score, and does it matter?", a: "Quality Score is a 1-10 diagnostic at keyword level, built from expected click-through rate, ad relevance and landing page experience. Google's help page says it is not an input in the ad auction. Treat it as a hint about what to fix, not a number to chase." },
   { q: "Do you need a Google Partner agency?", a: "Google's Partner badge requires a 70% optimization score, $10,000 in ad spend over 90 days across managed accounts, and certified strategists. We do not claim the badge. Judge any agency, including us, on method and access: do you own the account, and can you see every number?" },
   { q: "Do I own my Google Ads account?", a: "Yes. The account is in your name, with you as owner, and we work inside it. If we part ways you keep the campaigns, history and conversion data. Be cautious of any agency that runs your ads from its own account and will not hand over access." },
@@ -216,12 +216,12 @@ export default function GoogleAds() {
           </SmartUnit>
         </SmartSection>
 
-        <OfferBand heading="Not sure what your account is doing?" line="Tell us what you spend it on; we say what we would check first." label="Request a Google Ads audit" />
+        <OfferBand heading="Not sure what your account is doing?" line="Tell us what you spend it on and we say what we would check first." label="Request a Google Ads audit" />
 
         {/* 5. Comparison table. */}
         <SmartSection
           id="pmax"
-          heading={{ title: "Search campaigns or Performance Max?", id: "h-pmax", lede: "Search campaigns answer what people type; Performance Max runs one goal-based campaign across Google's channels." }}
+          heading={{ title: "Search campaigns or Performance Max?", id: "h-pmax", lede: "Search campaigns answer what people type, and Performance Max runs one goal-based campaign across Google's channels." }}
         >
           <div style={{ marginTop: 40 }}>
             <GaTable
@@ -308,7 +308,7 @@ export default function GoogleAds() {
         <SmartSection
           id="case"
           tone="surface"
-          heading={{ title: "What we can show you today", id: "h-case", lede: "We have no Google Ads client results to show, and we claim none. Our measured work is in search." }}
+          heading={{ title: "What we can show you today", id: "h-case", lede: "We have no Google Ads client results to show. Our measured work is in search." }}
         >
           <div className="sf-grid" style={{ marginTop: 32 }}>
             <div className="sf-c5">

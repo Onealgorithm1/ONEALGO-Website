@@ -14,13 +14,13 @@ export const WD_FAQ: WdFaqItem[] = [
   {
     id: "faq-timing",
     q: "How long does it take to build a website?",
-    a: "The schedule goes in writing next to the price, so you get a date instead of a guess. What sets it: how much content exists, how fast feedback comes back, and how many systems the site connects to. Your project starts when the scope is agreed.",
+    a: "The schedule goes in writing next to the price, so you get a date. What sets it: how much content exists, how fast feedback comes back, and how many systems the site connects to. Your project starts when the scope is agreed.",
     links: [{ to: "#process", label: "How a custom website build runs" }],
   },
   {
     id: "faq-existing",
     q: "Can you work with the site I already have?",
-    a: "Yes. A redesign keeps your domain, your content and every address search engines already know, each one redirected. Sometimes rebuilding is cheaper than fixing, and we tell you which one you are looking at rather than quoting whichever is bigger.",
+    a: "Yes. A redesign keeps your domain, your content and every address search engines already know, each one redirected. Sometimes rebuilding is cheaper than fixing, and we tell you which one you are looking at.",
     links: [{ to: "#redesign", label: "Website redesign that keeps what already works" }],
   },
   {

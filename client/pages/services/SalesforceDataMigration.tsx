@@ -90,7 +90,7 @@ const HISTORY: [string, string][] = [
 ];
 
 const BREAKS: [string, string][] = [
-  ["Relationships that do not connect", "Parents load first; children find them by external ID"],
+  ["Relationships that do not connect", "Parents load first, and children find them by external ID"],
   ["Duplicates that load perfectly", "Merge rules agreed with you before the load, not after"],
   ["Six spellings of one picklist value", "Every source value mapped to one Salesforce value"],
   ["Automation firing on every record", "Flows, triggers and rules reviewed and paused for the load"],
@@ -103,7 +103,7 @@ const BREAKS: [string, string][] = [
 const TOOLS: { tool: string; fits: React.ReactNode; limit: string }[] = [
   { tool: "Data Import Wizard", fits: "Accounts, contacts, leads and custom objects", limit: "Under 50,000 records per import" },
   { tool: "Data Loader", fits: "Any object; repeat, scheduled and backup jobs", limit: "Up to 150 million records at a time" },
-  { tool: "Bulk API 2.0", fits: "Large loads run as background jobs; Data Loader can switch to it", limit: "Asynchronous and parallel" },
+  { tool: "Bulk API 2.0", fits: "Large loads run as background jobs. Data Loader can switch to it", limit: "Asynchronous and parallel" },
   { tool: "Integration and ETL platforms", fits: "The old system keeps running beside Salesforce", limit: "Set by each product" },
 ];
 
@@ -216,7 +216,7 @@ export default function SalesforceDataMigration() {
         <SFHero
           kicker={<>Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
           title="Salesforce data migration services, reconciled row by row"
-          lede="We move US companies off QuickBase, Kissflow or another CRM into Salesforce, reconciled before go-live; existing orgs start with a free one-week health check."
+          lede="We move US companies off QuickBase, Kissflow or another CRM into Salesforce, reconciled before go-live, and existing orgs start with a free one-week health check."
           proof
           figure={<DataMigration fig={1} hero className="sf-hero-fig" />}
         />
@@ -228,14 +228,14 @@ export default function SalesforceDataMigration() {
             headingId="h-what"
             title="What is Salesforce data migration?"
             lede="Salesforce data migration moves records, history and files from another system into Salesforce and proves the counts match before go-live."
-            lead="The copying is the small part; records that load but no longer mean what they meant make every report wrong from day one."
+            lead="The copying is the small part. Records that load but no longer mean what they meant make every report wrong from day one."
           >
             <GoDeeper label="what a migration involves and what it costs">
               <p className="sf-rule">
                 Records from another system, or another Salesforce org, have to land in the right objects with their relationships, owners and history intact. The work is the mapping before the load and the reconciliation after it: counts that match, object by object, before go-live.
               </p>
               <p><span className="sf-lead-in">What we do:</span> We inventory the source, map it to Salesforce with external IDs, trial-load a sandbox, then cut over and reconcile again.</p>
-              <p><span className="sf-lead-in">What it costs:</span> Scoped in writing once we know the source and the volume; published market ranges are in our cost guide.</p>
+              <p><span className="sf-lead-in">What it costs:</span> Scoped in writing once we know the source and the volume. Published market ranges are in our cost guide.</p>
               <p>Data migration is one stage of a Salesforce implementation.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
@@ -294,7 +294,7 @@ export default function SalesforceDataMigration() {
           </SmartUnit>
           <SmartUnit level={3} className="sf-c6" headingId="source-sap" kicker="Migration or integration" delay={0.08} measure={false}
             title="SAP: a one-off move or a sync"
-            lede="If SAP keeps running after go-live, the job is an integration; if SAP is being retired, it runs like any source here.">
+            lede="If SAP keeps running after go-live, the job is an integration, and if SAP is being retired, it runs like any source here.">
             <GoDeeper label="SAP data and Salesforce">
               <p className="sf-rule">We have delivered an SAP-to-Salesforce sync, and it starts by agreeing which system owns each record.</p>
               <div className="sf-links"><Link className="sf-link" to={INT}>Salesforce integration with SAP and ERP</Link></div>
@@ -349,7 +349,7 @@ export default function SalesforceDataMigration() {
           heading={{
             id: "h-tools",
             title: "Salesforce data migration tools compared",
-            lede: "Data Import Wizard suits small loads, Data Loader and the Bulk API handle large ones; the volume decides.",
+            lede: "Data Import Wizard suits small loads, Data Loader and the Bulk API handle large ones, and the volume decides.",
           }}
         >
           <div className="sf-c8">
@@ -456,7 +456,7 @@ export default function SalesforceDataMigration() {
             measure={false}
             title="Salesforce data migration best practices"
             lede="The practices that prevent data loss: the source stays read-only, every old ID travels with its record, and counts are reconciled twice."
-            lead="A day spent agreeing merge rules saves a month of cleanup after the load."
+            lead="Duplicate and merge rules are agreed with you before the load."
             points={[
               "A full export of the source first, kept as a backup",
               "Automation paused for the load, consent fields tested first",
@@ -466,7 +466,7 @@ export default function SalesforceDataMigration() {
             <GoDeeper label="the full list of practices">
               <ul className="sf-points" style={{ marginTop: 0 }}>
                 <li>Set the source read-only instead of deleting it, so anything questioned later is checked against the original.</li>
-                <li>Carry every old record ID in an external ID field; parents load first and children find them by it.</li>
+                <li>Carry every old record ID in an external ID field. Parents load first and children find them by it.</li>
                 <li>Load as upserts matched on the external ID, so a corrected file can run again without duplicates.</li>
                 <li>Agree duplicate and merge rules with you before the load, not after.</li>
                 <li>Map every source picklist value to one Salesforce value.</li>
@@ -548,7 +548,7 @@ export default function SalesforceDataMigration() {
         {/* 10 DESK (spec row 9): the one form, #start. */}
         <DeskCTA
           heading="Scope your Salesforce data migration"
-          lede="Name the source system and roughly how much is in it; data already in Salesforce starts with the free one-week health check."
+          lede="Name the source system and roughly how much is in it, and data already in Salesforce starts with the free one-week health check."
           next={["Call or send the form.", "A person at OneAlgorithm reads it and replies.", "We tell you what we would check first."]}
           form={{
             topic: "data-migration",

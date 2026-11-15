@@ -140,7 +140,7 @@ const MARKET_READOUTS: Readout[] = [
 const STAGES: Stage[] = [
   { k: "s1", num: "01", title: "A free week in your org", sub: "health check · read-only user", line: "With a read-only user you create, we review licenses against use, data quality, manual work, access and integrations.",
     details: ["Licenses against actual use", "Data quality: duplicates, orphans, fields nobody fills", "What is still done by hand", "Who can see and change what", "Which integrations fail quietly"] },
-  { k: "s2", num: "02", title: "A written list, ranked", sub: "what to fix first, and why", line: "What to fix first, in writing, with the reason for each item; the list is yours whether or not we do the work.",
+  { k: "s2", num: "02", title: "A written list, ranked", sub: "what to fix first, and why", line: "What to fix first, in writing, with the reason for each item, and the list is yours whether or not we do the work.",
     details: ["Every finding ranked by what to fix first", "The reason for each item, written down", "Yours to keep, whoever does the work"] },
   { k: "s3", num: "03", title: "You choose; we build", sub: "scoped in writing · with your admin", line: "Each fix is scoped in writing before work starts, built alongside your team and handed back to the people who run the org.",
     details: ["A written scope before any work starts", "Built alongside your admin, not around them", "Handed back to the people who run the org"] },
@@ -159,7 +159,7 @@ const PROBLEMS: { title: string; line: string; more: string; deep: string; link:
   { title: "The integration that fails quietly", line: "A sync between Salesforce and the ERP, finance system or warehouse that broke months ago and told nobody.",
     more: "We agree which system owns each record, repair the sync and give failures a log a named person reads.", deep: "how we repair an integration that fails quietly",
     link: { to: INT, label: "Salesforce integration services" } },
-  { title: "A build somebody else left", line: "Inherited orgs are normal; you get a plain account of what is there, what to keep and what it costs you.",
+  { title: "A build somebody else left", line: "Inherited orgs are normal, and you get an account of what is there, what to keep and what it costs you.",
     more: "We describe the org, not the last firm: what is there, what is worth keeping and what is costing you, then you decide.", deep: "how we take over an inherited org",
     link: { to: HC, label: "Start with the free health check" } },
 ];
@@ -199,7 +199,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is your office in Philadelphia?",
-    a: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day; in-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
+    a: "Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about 25 miles west of Center City. Salesforce work happens inside your org, so most of it runs remotely from the first day. In-person sessions happen when the project calls for them, and the Philadelphia region is where they are easiest.",
   },
   {
     q: "Do you work with Chester County and other Pennsylvania companies?",
@@ -302,7 +302,7 @@ export default function SalesforceConsultantPhiladelphia() {
                 A Salesforce consultant works out how your business actually runs, including the workarounds nobody wrote down, then configures Salesforce around that process and hands over an org your own people can run. For a company that already owns Salesforce, the job is usually cleaner data, automation in place of manual steps, and systems that agree.
               </p>
               <p><span className="sf-lead-in">Why it matters:</span> An org that does not match how you work gets worked around: the real data moves to spreadsheets, reports stop being trusted and licenses go unused.</p>
-              <p><span className="sf-lead-in">What it costs:</span> The health check is free. Fixes are scoped in writing first; the cost guide shows the market's published ranges.</p>
+              <p><span className="sf-lead-in">What it costs:</span> The health check is free. Fixes are scoped in writing first. The cost guide shows the market's published ranges.</p>
               <p><span className="sf-lead-in">After the work:</span> Training for admins and everyday users, then weekly administration and development if you want it.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link>
@@ -362,7 +362,7 @@ export default function SalesforceConsultantPhiladelphia() {
             className="sf-c5"
             headingId="h-hire"
             title="Hire, contract or partner in Philadelphia?"
-            lede={`LinkedIn showed ${n(roleCount("Consultant"))} Salesforce consultant openings within 25 miles of ${CITY.name} on ${PULLED}; you can hire, contract or bring in a partner.`}
+            lede={`LinkedIn showed ${n(roleCount("Consultant"))} Salesforce consultant openings within 25 miles of ${CITY.name} on ${PULLED}, and you can hire, contract or bring in a partner.`}
             lead="Every employer here is hiring the same people, so a partner covers a migration, an integration or a clean-up without a recruiting cycle."
             measure={false}
           >
@@ -509,12 +509,12 @@ export default function SalesforceConsultantPhiladelphia() {
           <SmartUnit
             headingId="h-delivered"
             title="Salesforce work we have delivered"
-            lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support; client names stay private."
+            lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support, with client names kept private."
           >
             <DeliveredLedger />
             <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
             <GoDeeper label="the competency rows and how to check any partner">
-              <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+              <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them. Ask who will do your work and look them up on Trailblazer.</p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -538,7 +538,7 @@ export default function SalesforceConsultantPhiladelphia() {
             title="Our Malvern office, 25 miles from Center City"
             lede="Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, in Chester County, about 25 miles by road west of Center City."
             leadIn="The bottom line:"
-            lead="Most Salesforce work runs remotely inside your org; in-person sessions happen when the project calls for them, easiest across the Philadelphia region."
+            lead="Most Salesforce work runs remotely inside your org. In-person sessions happen when the project calls for them, easiest across the Philadelphia region."
             measure={false}
             points={[
               "Work starts inside your org on day one of the health check",
@@ -615,7 +615,7 @@ export default function SalesforceConsultantPhiladelphia() {
           heading={{
             id: "h-concerns",
             title: "Concerns before hiring a Philadelphia Salesforce consultant",
-            lede: "Three questions Philadelphia buyers raise before the first call, each with the direct answer.",
+            lede: "Three questions Philadelphia buyers raise before the first call.",
           }}
         >
           {CONCERNS.map((c, i) => (

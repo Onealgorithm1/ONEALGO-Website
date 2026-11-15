@@ -156,7 +156,7 @@ const FAQS: SfFaqItem[] = [
 /* Objection questions (H3) with the answers in Go deeper. ⛔ None repeats a FAQ question; the "no reviews" objection
    stays off (voice rule: never announce an absence). Travel wording: owner answer 2026-10-23 ~19:05. */
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
-  { q: "Our account was built by someone who has left.", a: <>We start there: a plain list of what is still running, what it sends, and whether anyone would miss it if it stopped. Fewer moving parts make every later change cheaper and safer.</> },
+  { q: "Our account was built by someone who has left.", a: <>We start there: a list of what is still running, what it sends, and whether anyone would miss it if it stopped. Fewer moving parts make every later change cheaper and safer.</> },
   { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your account stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice; his credentials are under <a className="sf-link" href="#record">our record</a>.</> },
   { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
   { q: "You are not in our city.", a: <>Most of the work is remote, inside your accounts, from Malvern, PA. In-person sessions happen when the project calls for them, easiest across the Philadelphia region; for larger projects elsewhere, on-site visits such as kickoff or training are planned into the project.</> },
@@ -232,7 +232,7 @@ export default function SalesforceMarketingCloud() {
                 A Salesforce Marketing Cloud consultant sets up and looks after the parts of Marketing Cloud a marketing team relies on: the Marketing Cloud Connect link to Salesforce CRM, data extensions, emails, journeys and automations, and the consent rules around them. On a running account, most of the work is support: changing what exists, fixing what broke, keeping the data clean.
               </p>
               <p><span className="sf-lead-in">What it costs:</span> Support is scoped in writing before anything is signed.</p>
-              <p>Running Marketing Cloud Account Engagement, the product once called Pardot? It is a separate product; <a className="sf-link" href="#faq">the questions below</a> explain how the two differ.</p>
+              <p>Running Marketing Cloud Account Engagement, the product once called Pardot? It is a separate product, and <a className="sf-link" href="#faq">the questions below</a> explain how the two differ.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HUB}>Salesforce consulting services</Link>
                 <Link className="sf-link" to={COST}>What Salesforce work costs</Link>
@@ -272,7 +272,7 @@ export default function SalesforceMarketingCloud() {
             title="Marketing Cloud tools we work in"
             lede="We work in Email Studio, Journey Builder, Automation Studio and Contact Builder, including data extensions and SQL query activities."
             leadIn="What we do:"
-            lead="We use Salesforce's own name for each tool and say exactly what we check there."
+            lead="We use Salesforce's own name for each tool and list what we check there."
             measure={false}
           >
             <p className="sf-mono" style={{ marginTop: 20, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
@@ -342,7 +342,7 @@ export default function SalesforceMarketingCloud() {
               <p className="sf-rule">
                 With Marketing Cloud Connect, an unsubscribe link or the Marketing Cloud Unsubscribe button on the record updates both systems. Ticking Email Opt Out by hand in Sales or Service Cloud does not change the subscriber's status in Marketing Cloud, and unsubscribing someone only inside Marketing Cloud does not tick Email Opt Out.
               </p>
-              <p><span className="sf-lead-in">What we do:</span> We test that path in both directions before changing anything else, because it is the one mistake a customer will remember.</p>
+              <p><span className="sf-lead-in">What we do:</span> We test that path in both directions before changing anything else.</p>
               <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
                 Salesforce Help: Unsubscribes with Marketing Cloud Connect, read {READ_ON} · {DOCS_CHIP}
               </p>
@@ -426,7 +426,7 @@ export default function SalesforceMarketingCloud() {
           >
             <GoDeeper label="how to check a consultant's credentials">
               <p className="sf-rule">
-                Salesforce publishes each person's active certifications on their public Trailblazer profile, and anyone can check a credential on Salesforce's verification page. A company's AppExchange listing shows its total certified people and certifications; it does not tell you who will do your work. Ours lists 16 certified people and 53 certifications (read {READ_ON}).
+                Salesforce publishes each person's active certifications on their public Trailblazer profile, and anyone can check a credential on Salesforce's verification page. A company's AppExchange listing shows its total certified people and certifications. It does not tell you who will do your work. Ours lists 16 certified people and 53 certifications (read {READ_ON}).
               </p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check any Salesforce partner</Link></div>
             </GoDeeper>
@@ -465,7 +465,7 @@ export default function SalesforceMarketingCloud() {
               </div>
               <GoDeeper label="what month-by-month support looks like">
                 <p className="sf-rule">
-                  On a running account, the requests are rarely dramatic. A new welcome series, a change to who counts as an active customer, an automation that ran overnight and sent nothing, a data extension somebody built for one campaign that three journeys now depend on. Each one is small. Left alone, they pile into an account nobody wants to touch, which is how teams end up paying for features they have stopped using.
+                  On a running account, the requests are rarely dramatic. A new welcome series, a change to who counts as an active customer, an automation that ran overnight and sent nothing, a data extension somebody built for one campaign that three journeys now depend on. Left alone, they pile into an account nobody wants to touch, which is how teams end up paying for features they have stopped using.
                 </p>
                 <p>
                   We take those requests one at a time and keep the account explainable. Support also means saying when something should be switched off: journeys outlive the campaigns they were built for, and old automations keep running against data extensions nobody refreshes.
@@ -502,7 +502,7 @@ export default function SalesforceMarketingCloud() {
             title="Staged diagram of how a Marketing Cloud engagement starts, in four steps"
             desc="A rail runs through four stations: describe the symptom, a free one-week review of the Salesforce side, a written list ranked by what to fix first, and ongoing support if you want it."
             stamp="How a Marketing Cloud engagement starts"
-            caption="The four steps in the order they run. Step 02 is the free one-week health check of the Salesforce org that feeds Marketing Cloud; step 04 only if you want it."
+            caption="The four steps in the order they run. Step 02 is the free one-week health check of the Salesforce org that feeds Marketing Cloud. Step 04 runs only if you want it."
           />
           <StageUnits items={MC_STAGES} />
         </SmartSection>

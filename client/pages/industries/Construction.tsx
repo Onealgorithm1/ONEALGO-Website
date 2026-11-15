@@ -59,23 +59,23 @@ const UNITS: IndUnit[] = [
     points: ["Public site, owner pages or subcontractor portal", "Lighthouse scores printed to check", "Built, launched and maintained"],
     deepLabel: "what we have and have not built",
     deep: (<>
-      <p className="sf-rule">We have not built a site for a construction company, and this page claims no such work. A contractor site has to show licence, insurance and project photos clearly; tell us if that is the job and we will say whether we fit.</p>
+      <p className="sf-rule">We have not built a site for a construction company. A contractor site has to show licence, insurance and project photos clearly. Tell us if that is the job and we will say whether we fit.</p>
       <div className="sf-links"><Link className={L} to="/services/website-development">Website development</Link><Link className={L} to="/services/application-development">Custom software development</Link></div>
     </>),
   },
   {
     id: "limits", title: "Where our construction experience stops",
     lede: "We are a small IT consultancy in Malvern, PA, not a construction software vendor.",
-    lead: "We have published no construction case study; the nearest pattern is an unnamed SAP-to-Salesforce sync.",
+    lead: "We have published no construction case study, and the nearest pattern is an unnamed SAP-to-Salesforce sync.",
     deepLabel: "what that means for you",
     deep: (<>
-      <p className="sf-rule">We do not sell construction software, and we will not imply a construction client. We are useful once a business already owns its tools and they do not work together, or when it needs something nobody sells. The four people who do the work are on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">We do not sell construction software. We are useful once a business already owns its tools and they do not work together, or when it needs something nobody sells. The four people who do the work are on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Do you build construction websites?", a: "We build websites and portals as a general service, but we have not built one for a construction company and do not claim to. If a contractor site is what you need, tell us what it must show and we will say honestly whether we fit.", link: { to: "/services/website-development", label: "Website development" } },
+  { q: "Do you build construction websites?", a: "We build websites and portals as a general service, but we have not built one for a construction company. If a contractor site is what you need, tell us what it must show and we will say whether we fit.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "Can you connect our estimating, field and accounting software?", a: "Yes, in principle. Integration is scoped per pair of systems, and we start with the two that disagree. We agree in writing which system owns each record before anything is built, and we do not resell the tools themselves. The first deliverable is a short map of which system owns bids, job costs and invoices.", link: { to: "/services/application-development", label: "Custom software development" } },
   { q: "What does construction software implementation involve?", a: "It usually covers configuration, data migration, integration, training and support. We scope it after a short review of the systems you already own, so the plan names the records, the owners and the order of work rather than promising a platform swap." },
   { q: "Do you sell construction software?", a: "No. We do not sell or resell construction software. We connect the tools you already run and build custom pieces when nothing on the market fits, which keeps our advice independent of any vendor and your data in your own accounts." },
@@ -84,7 +84,7 @@ const FAQS: SfFaqItem[] = [
   { q: "How long does an integration take?", a: "It depends on both systems, and it is set only after discovery, once we have listed the systems and the fields that must sync. Name the two systems that disagree and we will tell you what we would check first and what could slow the work." },
   { q: "Who owns the integration afterwards?", a: "You do. The mapping, the documentation and the accounts are in your name from day one, and we hand them over. If you want us to keep running it, we can maintain it under our 24/7 support, but you are never locked in." },
   { q: "Can you add a developer to our team?", a: "Yes. A senior developer or integration engineer can work inside your team on your tools for a sprint or a year. We agree the role, the hours and the end date in writing first, and the same person stays on throughout.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
-  { q: "Do you have construction clients?", a: "We have no published construction case study, and we will not imply one. The closest pattern we can describe is an unnamed SAP-to-Salesforce sync. What we offer is integration depth and candour about what we have and have not done in construction." },
+  { q: "Do you have construction clients?", a: "We have no published construction case study. The closest pattern we can describe is an unnamed SAP-to-Salesforce sync. What we offer is integration depth." },
 ];
 
 export default function Construction() {
@@ -108,7 +108,7 @@ export default function Construction() {
             <span className="text-oa-orange">construction firms</span>
           </>
         }
-        lede="We are an IT consultancy, not a construction software vendor. What we offer a construction business is to connect the systems it already bought — the field app, the estimating tool, the accounting package — so the same job means the same thing in each of them."
+        lede="We are an IT consultancy, not a construction software vendor. What we offer a construction business is to connect the systems it already bought (the field app, the estimating tool, the accounting package) so the same job means the same thing in each of them."
         panel={{
           title: "What that means in practice",
           items: [

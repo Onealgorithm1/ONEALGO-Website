@@ -224,7 +224,7 @@ export function IndBody({ crumbs, base, units, facts, faqHeading, faqs, desk, ch
       <DeskCTA
         form={{ topic: desk.need, topicLabel: desk.topicLabel, heading: "Tell us what you need", prompt: "What is the system or page that is not working?", submitLabel: "Talk to an expert", need: desk.need }}
         heading={desk.heading} lede={desk.lede} covers={desk.covers} coversLabel="What to have ready"
-        next={desk.next ?? ["Send the form on the contact page; the topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
+        next={desk.next ?? ["Send the form on the contact page. The topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
         hcLink={false}
       />
       {allSources && <SourcesDialog id="facts" sources={allSources} />}

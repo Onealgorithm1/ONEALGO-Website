@@ -121,7 +121,7 @@ const STAGES: Stage[] = [
   { k: "s2", num: "02", title: "Settle the edition and seats", sub: "edition · seats · step-up cost", line: "Matched to that process, with the monthly cost of each step up shown side by side.",
     details: ["Seats only for the people who would log in", "Sales Cloud, Service Cloud or both, decided by the work", "Whether an ERP or SAP sync makes Core the cheaper route"] },
   { k: "s3", num: "03", title: "License count and rough cost", sub: "in writing · before you sign", line: "In writing, before anyone signs with Salesforce, so you decide with the numbers in front of you.",
-    details: ["The edition recommendation, with the cost of each step up", "A rough setup cost; the market's published ranges are in the cost guide", "If a smaller edition does the job, we say so"] },
+    details: ["The edition recommendation, with the cost of each step up", "A rough setup cost, with the market's published ranges in the cost guide", "If a smaller edition does the job, we say so"] },
   { k: "s4", num: "04", title: "Configure and hand over", sub: "configure · migrate · hand over", line: "We configure and migrate, then your own admin runs it, or we run weekly administration and development.",
     details: ["Records cleaned, loaded and reconciled against the source before go-live", "Your own admin takes it over, or we run weekly administration and development", "Hours reported every week"] },
 ];
@@ -133,7 +133,7 @@ const DECISIONS: { title: string; lede: string; deep: React.ReactNode; label: st
     lede: "If a spreadsheet and a shared inbox still do the job, we tell you before you spend anything on licenses.",
     label: "when Salesforce is the right tool",
     deep: <>
-      <p className="sf-rule">If Salesforce fits, you know exactly why. It pays off when several people share customers, deals or cases; when one person tracks a short list, a spreadsheet often still wins.</p>
+      <p className="sf-rule">If Salesforce fits, you know exactly why. It pays off when several people share customers, deals or cases. When one person tracks a short list, a spreadsheet often still wins.</p>
       <div className="sf-links"><Link className="sf-link" to={HUB}>Salesforce consulting services</Link></div>
     </>,
   },
@@ -142,7 +142,7 @@ const DECISIONS: { title: string; lede: string; deep: React.ReactNode; label: st
     lede: "The expensive mistake is a tier bought for one feature, or seats for people who never log in.",
     label: "sizing the edition and the seats",
     deep: <>
-      <p className="sf-rule">We size both before anything is configured, with the monthly cost of each step up shown side by side. Ten people on Starter Suite is {money(priceOf("starter") * 10)} a month; the same ten on Core is {money(priceOf("core") * 10)}.</p>
+      <p className="sf-rule">We size both before anything is configured, with the monthly cost of each step up shown side by side. Ten people on Starter Suite is {money(priceOf("starter") * 10)} a month. The same ten on Core is {money(priceOf("core") * 10)}.</p>
       <div className="sf-links"><Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link></div>
     </>,
   },
@@ -201,7 +201,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Should we stay on Salesforce or move to something cheaper?",
-    a: "Start by finding out what you pay for and do not use. Our free one-week Salesforce health check covers licenses, data, automation, permissions and integrations and ends in a written list ranked by what to fix first, unused seats and a smaller edition included. Often the cheaper answer is the Salesforce you already have, sized correctly; when another tool fits better, the list says so.",
+    a: "Start by finding out what you pay for and do not use. Our free one-week Salesforce health check covers licenses, data, automation, permissions and integrations and ends in a written list ranked by what to fix first, unused seats and a smaller edition included. Often the cheaper answer is the Salesforce you already have, sized correctly. When another tool fits better, the list says so.",
     link: { to: HC, label: "Free one-week Salesforce health check" },
   },
   {
@@ -221,7 +221,7 @@ const FAQS: SfFaqItem[] = [
     /* Owner 2026-10-23 ~19:05 (travel/visits): most work is remote; in-person sessions when the project calls
        for them, easiest across the Philadelphia region. ⛔ Never a standing visit promise. */
     q: "Can we meet in person near Exton, Downingtown or West Chester?",
-    a: `Yes, when the project calls for it. Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org; in-person sessions are easiest across the Philadelphia region.`,
+    a: `Yes, when the project calls for it. Our office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, about ${mi("ex")} miles from Exton, ${mi("wc")} from West Chester and ${mi("dt")} from Downingtown in a straight line. Most of a Salesforce engagement runs remotely because the work happens inside your org. In-person sessions are easiest across the Philadelphia region.`,
   },
 ];
 
@@ -386,7 +386,7 @@ export default function SalesforceConsultantChesterCounty() {
                   </li>
                 ))}
               </ul>
-              <p className="sf-mono">Sales Cloud terms; Salesforce marks the prices subject to change. <Verify id="sources">Sources</Verify></p>
+              <p className="sf-mono">Sales Cloud terms. Salesforce marks the prices subject to change. <Verify id="sources">Sources</Verify></p>
               <div className="sf-links"><Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -395,7 +395,7 @@ export default function SalesforceConsultantChesterCounty() {
             headingId="h-bill"
             delay={0.08}
             title="Estimate your Salesforce license bill"
-            lede="Enter how many people would log in; seats times the edition price is the half of the cost you can know today."
+            lede="Enter how many people would log in: seats times the edition price is the half of the cost you can know today."
             measure={false}
           >
             <LicenseCalculator />
@@ -493,7 +493,7 @@ export default function SalesforceConsultantChesterCounty() {
             <DeliveredLedger />
             <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
             <GoDeeper label="Salesforce's record of us and how to check any partner">
-              <p className="sf-rule">Salesforce's AppExchange record lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+              <p className="sf-rule">Salesforce's AppExchange record lists {SF_CERTIFIED_PEOPLE} certified people and {SF_CERTIFICATIONS} certifications (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them. Ask who will do your work and look them up on Trailblazer.</p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check a Salesforce partner</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -511,7 +511,7 @@ export default function SalesforceConsultantChesterCounty() {
           heading={{
             id: "h-concerns",
             title: "Concerns before hiring a Salesforce consultant",
-            lede: "Three questions Chester County buyers raise before the first call, each answered directly.",
+            lede: "Three questions Chester County buyers raise before the first call.",
           }}
         >
           {CONCERNS.map((c, i) => (
@@ -541,7 +541,7 @@ export default function SalesforceConsultantChesterCounty() {
                 We also work across Delaware, Montgomery and Bucks counties, New Castle County in Delaware, and Philadelphia, and with companies anywhere in the United States, remotely.
               </p>
               <p>
-                The Chester County Planning Commission counted 251,200 jobs in the county in 2024, with health care, professional services, finance, retail and education employing the most people; those are the teams we sit down with.
+                The Chester County Planning Commission counted 251,200 jobs in the county in 2024, with health care, professional services, finance, retail and education employing the most people. Those are the teams we sit down with.
               </p>
               <p>
                 Chester County's own Salesforce user group meets in West Chester. Philadelphia's admin, developer, architect, marketer and nonprofit groups and the Wilmington user group meet within about 20 miles of our office.
@@ -568,7 +568,7 @@ export default function SalesforceConsultantChesterCounty() {
           next={[
             "Call or send the form.",
             "A person at OneAlgorithm reads it and replies.",
-            "You get a license count and a rough cost before anyone signs; if a smaller edition does the job, we say so.",
+            "You get a license count and a rough cost before anyone signs. If a smaller edition does the job, we say so.",
           ]}
           form={{
             topic: "che",
@@ -597,7 +597,7 @@ export default function SalesforceConsultantChesterCounty() {
           heading={{
             id: "h-services",
             title: "Salesforce services from our Malvern office",
-            lede: "If you already run Salesforce, start with the free one-week health check; everything else is scoped in writing first.",
+            lede: "If you already run Salesforce, start with the free one-week health check, and everything else is scoped in writing first.",
           }}
         >
           <ServiceCards items={HUB_SERVICE_CARDS} />

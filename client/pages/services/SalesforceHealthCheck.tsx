@@ -127,7 +127,7 @@ const STEPS: Stage[] = [
     line: "Reports nobody trusts, a renewal you are unsure about, automation nobody dares touch: a call or the form is enough to start.",
     details: [`Call ${SF_PHONE.display} or send the form on this page`, "A person at OneAlgorithm reads it and replies", "If it fits, the week starts with a read-only user you create"] },
   { k: "s2", num: "02", title: "A week in your org", sub: "read-only user · five areas",
-    line: "You create a user that can read your setup and records; we work through the five areas against how your team actually uses Salesforce.",
+    line: "You create a user that can read your setup and records, and we work through the five areas against how your team uses Salesforce.",
     details: ["Usually the View Setup and Configuration permission", "The review reads and changes nothing", "Licenses, data, automation, permissions and integrations", "You deactivate the user when the week ends"] },
   { k: "s3", num: "03", title: "A written, ranked list", sub: "what to fix first · walkthrough",
     line: "Every finding written down with why it matters, in the order to fix it, then walked through with you on a call.",
@@ -175,12 +175,12 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "What are the four levels of security in Salesforce?",
-    a: "Organization, objects, fields and records. Organization settings control who can log in and how; object and field permissions control what each user can see and edit; record access comes from organization-wide defaults, the role hierarchy and sharing rules. The week's Permissions area checks all four.",
+    a: "Organization, objects, fields and records. Organization settings control who can log in and how. Object and field permissions control what each user can see and edit. Record access comes from organization-wide defaults, the role hierarchy and sharing rules. The week's Permissions area checks all four.",
     link: { to: "#area-perm", label: "What the week checks in permissions" },
   },
   {
     q: "How is the Salesforce Health Check score calculated?",
-    a: "Salesforce scores your security settings from 0 to 100 by how closely they match the baseline you measure against: its own standard, or one you import. Settings are grouped by risk, from High-Risk to Informational, and moving a setting to the more restrictive value typically raises the score. The score is a starting point; the week explains which gaps matter for how your team works.",
+    a: "Salesforce scores your security settings from 0 to 100 by how closely they match the baseline you measure against: its own standard, or one you import. Settings are grouped by risk, from High-Risk to Informational, and moving a setting to the more restrictive value typically raises the score. The score is a starting point. The week explains which gaps matter for how your team works.",
   },
   {
     q: "What is a good Salesforce Health Check score?",
@@ -192,11 +192,11 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "What free tools check Salesforce org health?",
-    a: "Health Check in Setup, for security settings. Org Check, a free Salesforce Labs app on AppExchange, for how the org is built. Salesforce Code Analyzer, for Apex and other code. Optimizer used to cover part of this and is now retired. None of them weighs what it finds against how your team uses Salesforce; that is what the week adds.",
+    a: "Health Check in Setup, for security settings. Org Check, a free Salesforce Labs app on AppExchange, for how the org is built. Salesforce Code Analyzer, for Apex and other code. Optimizer used to cover part of this and is now retired. None of them weighs what it finds against how your team uses Salesforce. The week does.",
   },
   {
     q: "Salesforce Health Check or Optimizer: which should I use?",
-    a: "Health Check, because Optimizer is gone. Health Check reviews security settings and is still in Setup. Optimizer reviewed how the org was built; Salesforce retired it for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26.",
+    a: "Health Check, because Optimizer is gone. Health Check reviews security settings and is still in Setup. Optimizer reviewed how the org was built. Salesforce retired it for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26.",
   },
   {
     q: "How much does a Salesforce health check cost?",
@@ -315,7 +315,7 @@ export default function SalesforceHealthCheck() {
             title="What is a Salesforce health check?"
             lede="A Salesforce health check is a review of an org's licenses, data, automation, permissions and integrations; ours is free and takes one week."
             leadIn="Yes, but:"
-            lead="Salesforce's built-in Health Check tool scores security settings only; it does not look at your data, automation, licenses or integrations."
+            lead="Salesforce's built-in Health Check tool scores security settings only. It does not look at your data, automation, licenses or integrations."
             points={[
               "One week inside your org, through a read-only user you create",
               "Five areas, checked against how your team actually uses Salesforce",
@@ -381,7 +381,7 @@ export default function SalesforceHealthCheck() {
             title="Salesforce Security Health Check or a full review?"
             lede="The built-in Security Health Check scores security settings only; our week also covers licenses, data, automation and integrations."
             leadIn="The bottom line:"
-            lead="Run Salesforce's own check first, because it is free and takes minutes; the week covers what it cannot see."
+            lead="Run Salesforce's own check first, because it is free and takes minutes. The week covers what it cannot see."
             measure={false}
           >
             <p className="sf-mono" style={{ marginTop: 20, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
@@ -432,8 +432,8 @@ export default function SalesforceHealthCheck() {
               measure={false}
             >
               <GoDeeper label="the two Salesforce changes in detail">
-                <p className="sf-rule">Automation built with Workflow Rules and Process Builder still runs, but Salesforce no longer fixes it or helps when it breaks; every one still active is listed for its move to Flow.</p>
-                <p>Optimizer, the free app that scanned how an org was built, was retired for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26. Health Check in Setup still reviews security settings; the week covers the rest.</p>
+                <p className="sf-rule">Automation built with Workflow Rules and Process Builder still runs, but Salesforce no longer fixes it or helps when it breaks. Every one still active is listed for its move to Flow.</p>
+                <p>Optimizer, the free app that scanned how an org was built, was retired for Hyperforce orgs in the Winter '26 release and for all other orgs in Summer '26. Health Check in Setup still reviews security settings. The week covers the rest.</p>
                 <div className="sf-links"><Verify id="sources">Where these facts come from</Verify></div>
               </GoDeeper>
             </SmartUnit>
@@ -530,7 +530,7 @@ export default function SalesforceHealthCheck() {
         {/* 10 DESK: the one form, #start (row 9). No "what the health check covers" link on the page itself. */}
         <DeskCTA
           heading="Book the free one-week Salesforce health check"
-          lede="Tell us the symptom; we spend one week in your org with a read-only user you create, then walk you through the ranked list."
+          lede="Tell us the symptom, and we spend one week in your org with a read-only user you create, then walk you through the ranked list."
           hcLink={false}
           form={{ topic: "hc", topicLabel: "Salesforce health check", heading: "Book the free week", prompt: "What is the symptom?", submitLabel: "Request the free health check" }}
         />

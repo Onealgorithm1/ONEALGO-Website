@@ -20,7 +20,7 @@ const FAQ: WdFaqItem[] = [
     // autocomplete (Google) "how much does it cost to hire a website designer", seed "how much does a website cost"
     id: "faq-hire-designer",
     q: "How much does it cost to hire a website designer?",
-    a: "A website designer charges for the scope in front of them, so the useful question is what you are asking them to design: how many layouts, with what content, connected to what. Hourly and project pricing both exist; we price the project, in writing, against the named scope, so the figure cannot drift.",
+    a: "A website designer charges for the scope in front of them, so the useful question is what you are asking them to design: how many layouts, with what content, connected to what. Hourly and project pricing both exist. We price the project, in writing, against the named scope, so the figure cannot drift.",
   },
   {
     // autocomplete "do websites cost money to run", "does website cost monthly", "how much website cost per month"
@@ -52,14 +52,14 @@ const FAQ: WdFaqItem[] = [
     // autocomplete "how much does a custom website cost", "how much does it cost to build a custom website"
     id: "faq-custom-vs-template",
     q: "How much does a custom website cost compared with a template?",
-    a: "A custom website costs more once and nothing monthly beyond domain and hosting; a template costs less to start and a platform fee for as long as it is up. Compare them over the years you expect to keep the site, and add what the template cannot do, which is usually the reason people ask.",
+    a: "A custom website costs more once and nothing monthly beyond domain and hosting. A template costs less to start and a platform fee for as long as it is up. Compare them over the years you expect to keep the site, and add what the template cannot do, which is usually the reason people ask.",
     links: [{ to: `${LINKS.hub}#builder-or-custom`, label: "Squarespace, Wix or WordPress versus custom" }],
   },
   {
     // Reddit r/smallbusiness "What's a reasonable budget for a small business website?", "How much did it cost you to get a website made?"
     id: "faq-quotes-differ",
     q: "Why do website quotes differ so much?",
-    a: "Because the scopes differ, even when the request was the same sentence. One firm priced five layouts and your existing text; another priced twelve layouts, new copy and a booking system. Read each quote for the five drivers on this page, and the difference usually turns out to be a difference in what is being built.",
+    a: "Because the scopes differ, even when the request was the same sentence. One firm priced five layouts and your existing text. Another priced twelve layouts, new copy and a booking system. Read each quote for the five drivers on this page, and the difference usually turns out to be a difference in what is being built.",
     links: [{ to: "#drivers", label: "What sets the price of a website" }],
   },
   {
@@ -105,8 +105,8 @@ export const WEBSITE_COST: ServicePageData = {
         label: "how to read the table",
         paras: [
           "Count layouts, not pages. Ten service pages that share one layout cost one layout's design and ten pages of content; ten pages that each need their own arrangement cost ten designs. A small site rarely needs more than a handful: home, service, about or team, contact, and one for articles or areas.",
-          "Content is the quiet driver. When the text and photographs exist, the build is assembly; when they do not, writing and photography are work, and they go in the scope as lines of their own so nothing is hidden inside a build price.",
-          "Integrations are priced by what they have to do, not by the logo. A form that emails the office is small. A form that creates a CRM record, books a slot and takes a deposit is three systems talking, and the proposal says so.",
+          "Content is the quiet driver. When the text and photographs exist, the build is assembly. When they do not, writing and photography are work, and they go in the scope as lines of their own.",
+          "Integrations are priced by what they have to do, not by the logo. A form that emails the office is small. A form that creates a CRM record, books a slot and takes a deposit is three systems talking, and the proposal lists them.",
         ],
       },
     },
@@ -115,10 +115,10 @@ export const WEBSITE_COST: ServicePageData = {
       h2: "The price and schedule in writing",
       lede: "Every OneAlgorithm proposal lists the pages and layouts, the integrations, the content you supply and the dates, with the price set against that list.",
       leadIn: "Why it matters:",
-      lead: "a price against a named scope can be compared, cut or grown; a number on its own cannot.",
+      lead: "a price against a named scope can be compared, cut or grown, and a number on its own cannot.",
       points: ["Pages and layouts named, one by one", "Integrations and the content you supply, listed", "What we would cut if the number is wrong for you"],
       cards: [
-        { h3: "Before anything is designed", line: "The scope, the price and the dates are agreed and signed first; no design work starts on a verbal number." },
+        { h3: "Before anything is designed", line: "The scope, the price and the dates are agreed and signed first. No design work starts on a verbal number." },
         { h3: "While it is built", line: "A change of scope is written up the way the original was: what is added, what it changes, what it costs, the new date." },
         { h3: "At the invoice", line: "Nothing reaches an invoice that was not first added to the scope, so the final figure is the one you signed." },
       ],
@@ -152,7 +152,7 @@ export const WEBSITE_COST: ServicePageData = {
       deeper: {
         label: "what the running cost covers",
         paras: [
-          "The domain renews with the registrar you choose; the hosting is billed by the host you choose, on its own published terms, to your card. Email, a booking tool or a payments provider each has its own fee, paid to that provider; we name them in the scope so there is no surprise in month two.",
+          "The domain renews with the registrar you choose. The hosting is billed by the host you choose, on its own published terms, to your card. Email, a booking tool or a payments provider each has its own fee, paid to that provider. We name them in the scope so there is no surprise in month two.",
           "Support after launch is not a standard plan with a standard price: it is written per project, with what is covered and on what terms. What transfers to you at handover is on the showcase: [what we build with, and what you keep](/services/website-development#ownership).",
         ],
       },
@@ -160,10 +160,10 @@ export const WEBSITE_COST: ServicePageData = {
     {
       kind: "text", id: "builder",
       h2: "Custom website cost versus a website builder",
-      lede: "A custom website is paid for once and owned; a builder site is rented monthly, which is the real cost comparison, not the first invoice.",
+      lede: "A custom website is paid for once and owned, and a builder site is rented monthly, which is the real cost comparison.",
       leadIn: "Yes, but:",
-      lead: "a builder is the right spend for a handful of pages nobody needs to connect to anything, and we say so.",
-      points: ["Builder: lower to start, a fee for as long as the site is up", "Custom: one build price, then domain and hosting at cost", "Exit: a builder exports content; a custom site moves whole"],
+      lead: "a builder is the right spend for a handful of pages nobody needs to connect to anything.",
+      points: ["Builder: lower to start, a fee for as long as the site is up", "Custom: one build price, then domain and hosting at cost", "Exit: a builder exports content, a custom site moves whole"],
       cards: [
         { h3: "Does it have to connect to anything?", line: "A CRM, a booking calendar, payments or stock: a builder offers its marketplace apps, custom code wires what you run." },
         { h3: "Will the layout need to change?", line: "A template is a fixed set of slots, so the fee stops paying the day you need a page it cannot make." },
@@ -173,7 +173,7 @@ export const WEBSITE_COST: ServicePageData = {
     },
     {
       kind: "text", id: "small-business", figure: "build-roofer",
-      figureCaption: "A demo contractor site built from a blank page: services, service area, a quote form and the phone one tap away. The small-business scope, drawn; nothing here is client work.",
+      figureCaption: "A demo contractor site built from a blank page: services, service area, a quote form and the phone one tap away. The small-business scope, drawn. Nothing here is client work.",
       h2: "What a small business website costs",
       lede: "A small business website is priced on three jobs, being found, explaining the service and turning a visit into a call, and nothing beyond them.",
       leadIn: "What we do:",
@@ -213,8 +213,8 @@ export const WEBSITE_COST: ServicePageData = {
       deeper: {
         label: "how to read these figures",
         paras: [
-          "Volume is Semrush's average monthly count of US searches for the phrase as written; CPC is what advertisers pay Google per click on it, in US dollars. Neither is a price for a website, and a high CPC says only that firms bid hard for that searcher.",
-          "The pattern is the point. The question phrasings are the ones people type first, and they cost advertisers little because most of those searchers are still deciding. The quote phrasing is rarer and five times dearer, because by then the searcher has a scope in mind. This page is written for the first group, so that when you are in the second, the scope is already clear.",
+          "Volume is Semrush's average monthly count of US searches for the phrase as written. CPC is what advertisers pay Google per click on it, in US dollars. Neither is a price for a website, and a high CPC says only that firms bid hard for that searcher.",
+          "The question phrasings are the ones people type first, and they cost advertisers little because most of those searchers are still deciding. The quote phrasing is rarer and five times dearer, because by then the searcher has a scope in mind. This page is written for the first group, so that when you are in the second, the scope is already clear.",
         ],
       },
     },
@@ -223,12 +223,12 @@ export const WEBSITE_COST: ServicePageData = {
       h2: "How to compare website quotes",
       lede: "Compare website quotes on the same scope sheet: layouts, content, integrations, ownership and support, and read any quote that skips a line as incomplete.",
       leadIn: "The bottom line:",
-      lead: "two quotes that differ by a lot usually describe two different sites; make them describe the same one first.",
+      lead: "two quotes that differ by a lot usually describe two different sites, so make them describe the same one first.",
       points: ["Who owns the code, the domain and the hosting at the end", "What is included for content, photography and copy", "What support after launch covers, and on what terms"],
       cards: [
         { h3: "Same scope", line: "Send every firm the same list: the pages, what each must do, what the site connects to, and what content exists." },
         { h3: "Same ownership", line: "Ask where the code, the domain and the hosting will live when it is finished, and whose name is on each account." },
-        { h3: "Same standards", line: "Ask how speed and accessibility will be measured before launch; a firm that builds to WCAG 2.1 AA can say how it checks." },
+        { h3: "Same standards", line: "Ask how speed and accessibility will be measured before launch. A firm that builds to WCAG 2.1 AA can say how it checks." },
       ],
       links: [{ to: `${LINKS.hub}#choose`, label: "How to choose a web design company" }],
     },
@@ -251,8 +251,8 @@ export const WEBSITE_COST: ServicePageData = {
       h2: "Who writes the quote",
       lede: "OneAlgorithm is a web design and development company in Malvern, PA, founded in 2020, rated 5.0 from 6 Google reviews, read 23 October 2026.",
       leadIn: "Why it matters:",
-      lead: "we take on website work for businesses across the United States remotely from Malvern, PA; check us before you ask.",
-      question: { q: "Do you give a price over the phone?", a: "No, and not because the number is secret: a price without a scope is a guess, and a guess that turns out low becomes a dispute later. Call, describe what the site has to do, and the written scope and price follow if it fits." },
+      lead: "we take on website work for businesses across the United States remotely from Malvern, PA, and you can check us before you ask.",
+      question: { q: "Do you give a price over the phone?", a: "No. A price without a scope is a guess, and a guess that turns out low becomes a dispute later. Call, describe what the site has to do, and the written scope and price follow if it fits." },
       links: [{ to: `${LINKS.hub}#check`, label: "A web design company you can check" }, { to: `${LINKS.hub}#work`, label: "Websites we built, open them here" }],
     },
     { kind: "faq", id: "faq", h2: "Website cost questions people ask", items: FAQ },

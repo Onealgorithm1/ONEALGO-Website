@@ -39,11 +39,11 @@ const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link
 const ROLES: EUnit[] = [
   {
     id: "h-roles", title: "Roles we place",
-    lede: "Salesforce administrators, developers and architects first; other technical roles on request, and we say where we are light.",
-    lead: "If what you need is not on this list, we will say so rather than send someone who read the documentation last week.",
+    lede: "Salesforce administrators, developers and architects first, then other technical roles on request, and we say where we are light.",
+    lead: "If what you need is not on this list, we tell you. We do not send someone who read the documentation last week.",
     points: ["Salesforce administrator", "Salesforce developer", "Salesforce architect"],
     label: "how we handle other roles",
-    deep: <p className="sf-rule">Salesforce is where our delivery evidence is, so it is where we lead. Other technical roles are considered on request, case by case, and we state plainly whether we have the right person before you spend an hour interviewing. For the Salesforce side, see {L("/services/salesforce", "Salesforce consulting")} and {L("/services/salesforce-managed-services", "Salesforce managed services")}. For a whole product, see {L("/services/application-development", "custom software development")}.</p>,
+    deep: <p className="sf-rule">Salesforce is where our delivery evidence is, so it is where we lead. Other technical roles are considered on request, case by case, and we tell you whether we have the right person before you spend an hour interviewing. For the Salesforce side, see {L("/services/salesforce", "Salesforce consulting")} and {L("/services/salesforce-managed-services", "Salesforce managed services")}. For a whole product, see {L("/services/application-development", "custom software development")}.</p>,
   },
 ];
 
@@ -57,7 +57,7 @@ const COST_COMPLIANCE: EUnit[] = [
   {
     id: "h-compliance", title: "Compliance and E-Verify for our employees",
     lede: "Our E-Verify account, enrolled since 2024, verifies our own employees and does not cover subcontractors.",
-    lead: "A client taking on contract staff carries real risk, so we state the limit.",
+    lead: "A client taking on contract staff carries risk, so we state the limit.",
     leadIn: "Yes, but:",
     points: ["E-Verify: our own employees only", "Registered in the federal SAM system", "Not a claim about subcontractors"],
     label: "what we do and do not claim",
@@ -67,15 +67,15 @@ const COST_COMPLIANCE: EUnit[] = [
 
 const FAQS: SfFaqItem[] = [
   { q: "Is staff augmentation outsourcing?", a: "No. In outsourcing the vendor takes the work and the management of it. In staff augmentation you keep the management and the priorities, and the specialist works as part of your team, in your tools, under your lead. You direct the day-to-day work and decide what comes first." },
-  { q: "How fast can someone start?", a: "It depends on the role and on how quickly your access and environment are ready. We tell you honestly whether we have the right person before you spend time interviewing, and we give a start date once the role is defined. We do not quote a standard number of days." },
-  { q: "Who manages the people you place?", a: "You do. Your lead sets their priorities, and they work in your repository, your ticket queue and your standups. We stay available to the person and to you, and we raise problems early rather than waiting for a review." },
+  { q: "How fast can someone start?", a: "It depends on the role and on how quickly your access and environment are ready. We tell you whether we have the right person before you spend time interviewing, and we give a start date once the role is defined. We do not quote a standard number of days." },
+  { q: "Who manages the people you place?", a: "You do. Your lead sets their priorities, and they work in your repository, your ticket queue and your standups. We stay available to the person and to you, and we raise problems early." },
   { q: "How is staff augmentation different from managed services?", a: "With managed services a vendor runs a function for you and is accountable for the service. With staff augmentation you manage the people, and they work inside your team. If you want a plan or a build instead of hours, that is consulting.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
   { q: "What is in a staff augmentation contract?", a: "A staff augmentation contract normally covers the role and scope, the term, notice, intellectual property assignment and confidentiality. It also states who employs the person placed. We agree it in writing before work starts, and we are happy to review yours." },
   { q: "Do you E-Verify the people you place?", a: "Our E-Verify account covers our own employees only, and we have been enrolled since 2024. It does not cover subcontractors, so we do not claim that everyone placed on your team is verified. Ask us who employs the person, and we will tell you in writing." },
   { q: "Can you place people outside Salesforce?", a: "Our delivery record is Salesforce, so that is where we lead. Other technical roles are discussed case by case, and we say where we are light before you interview anyone. If we are not the right fit, we tell you rather than send a candidate we cannot stand behind." },
   { q: "Do you work with companies outside Pennsylvania?", a: "Yes. Our office is in Malvern, Pennsylvania, and most placements work remotely with teams across the United States. Where a project needs people in the room, we plan it with you, in writing, before anyone travels." },
   { q: "What do you need from us to start?", a: "Four things: the role, the stack, the team the person joins, and the window in which you need them to start. A paragraph is enough. We reply with whether we have the right person and what we would want to know next.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
-  { q: "What is the difference between staff augmentation and a software development company?", a: "A software development company takes a product and is accountable for building it. Staff augmentation gives you skilled people to direct yourself. If you want a finished product, see our custom software development work; if you want hands on your own backlog, this is the page.", link: { to: "/services/application-development", label: "Custom software development" } },
+  { q: "What is the difference between staff augmentation and a software development company?", a: "A software development company takes a product and is accountable for building it. Staff augmentation gives you skilled people to direct yourself. If you want a finished product, see our custom software development work. If you want hands on your own backlog, this is the page.", link: { to: "/services/application-development", label: "Custom software development" } },
 ];
 
 export default function StaffAugmentation() {
@@ -137,7 +137,7 @@ export default function StaffAugmentation() {
           title="Where an augmented specialist sits"
           desc="Four boxes joined by arrows: your lead sets priorities, your tools and process stay as they are, our specialist works inside your team, and we say where each candidate is light."
           stamp="Inside your team"
-          caption="You keep control of the work; we tell you where a candidate is light before you interview."
+          caption="You keep control of the work. We tell you where a candidate is light before you interview."
           nodes={[
             { num: "01", title: "Your lead", sub: "sets the priorities" },
             { num: "02", title: "Your tools", sub: "repo, board, standups" },
@@ -146,15 +146,15 @@ export default function StaffAugmentation() {
           ]}
         >
           <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
-          <GoDeeper label="the model in plain terms">
+          <GoDeeper label="how the model works">
             <p className="sf-rule">Staff augmentation is a way to add skills without hiring. The person works inside your repository, your board and your review process, so there is no second team to manage on the side. It differs from outsourcing, where a vendor takes the work and the management of it.</p>
-            <p>It is also different from {L("/services/it-consulting", "IT consulting services")}: a consultant delivers a recommendation or a build; an augmented specialist delivers hours of skilled work under your direction.</p>
+            <p>It is also different from {L("/services/it-consulting", "IT consulting services")}: a consultant delivers a recommendation or a build. An augmented specialist delivers hours of skilled work under your direction.</p>
           </GoDeeper>
         </BridgePlate>
 
         <OfferBand heading="Have a seat to fill?" line="Tell us the role and the stack. We say whether we have the person." label="Talk to a consultant" />
 
-        <SmartSection id="beats" tone="paper" heading={{ id: "h-beats", title: "When staff augmentation beats hiring", lede: "Hiring is slow and commits you for years; four situations make renting the skill the better call." }}>
+        <SmartSection id="beats" tone="paper" heading={{ id: "h-beats", title: "When staff augmentation beats hiring", lede: "Hiring is slow and commits you for years, and in four situations renting the skill is the better call." }}>
           <HoverCards
             cols={4}
             items={[
@@ -164,7 +164,7 @@ export default function StaffAugmentation() {
               { glyph: "team", kicker: "Capacity", title: "Your team is at its limit", body: "Two more pairs of hands, directed by your lead." },
             ]}
           />
-          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Yes, but:</span> often hiring is still right, and we will say so.</p>
+          <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Yes, but:</span> often hiring is still right, and we tell you when it is.</p>
         </SmartSection>
 
         <SmartSection id="proof" tone="surface" compact labelledBy="proof-l">
@@ -194,7 +194,7 @@ export default function StaffAugmentation() {
           title="Four-step rail: need, candidates, onboarding, while they stay"
           desc="A rail with four stations: what you need, candidates with gaps stated, onboarding, and check-ins while the person is with you."
           stamp="How we place someone"
-          caption="A candidate described honestly saves you a bad month."
+          caption="We state each candidate's gaps before you interview."
         />
 
         <EnterpriseTable
@@ -219,7 +219,7 @@ export default function StaffAugmentation() {
           <div className="sf-c12">
             <div className="sf-links">{L("/services/hire-salesforce-developers", "Hire Salesforce developers, admins and architects")}</div>
             <GoDeeper label="what Salesforce augmentation looks like">
-              <p className="sf-rule">The client is a lending company and stays unnamed; we publish no figures from the work. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
+              <p className="sf-rule">The client is a lending company and stays unnamed. We publish no figures from the work. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
               <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce consulting")} practice also holds Salesforce's AppExchange record of 16 people and 53 certifications.</p>
             </GoDeeper>
           </div>
@@ -227,7 +227,7 @@ export default function StaffAugmentation() {
 
         <EnterpriseRow id="cost" tone="paper" units={COST_COMPLIANCE} />
 
-        <SmartSection id="market" tone="surface" heading={{ id: "h-market", title: "The labor market around the role", lede: "BLS publishes no staff-augmentation series; these are the nearest occupation counts, not the size of the market." }}>
+        <SmartSection id="market" tone="surface" heading={{ id: "h-market", title: "The labor market around the role", lede: "BLS publishes no staff-augmentation series, so these are the nearest occupation counts, not the size of the market." }}>
           <Readouts
             withEvidence={false}
             className="ev-r2"

@@ -54,7 +54,7 @@ const CONNECT: EUnit[] = [
     leadIn: "Yes, but:",
     points: ["Order, inventory and shipment data in one place", "Reports sales and finance both trust", "No control-system programming"],
     label: "what we do and do not do",
-    deep: <p className="sf-rule">The one delivery pattern we describe is an unnamed SAP-to-Salesforce sync. Manufacturers and distributors often re-key order and inventory figures between the ERP, spreadsheets and the CRM; that is the problem it addresses. See {L("/industries/manufacturing", "manufacturing")} and {L("/services/salesforce-integration", "Salesforce integration")}. We do not program control systems or safety systems.</p>,
+    deep: <p className="sf-rule">The one delivery pattern we describe is an unnamed SAP-to-Salesforce sync. Manufacturers and distributors often re-key order and inventory figures between the ERP, spreadsheets and the CRM. That is the problem it addresses. See {L("/industries/manufacturing", "manufacturing")} and {L("/services/salesforce-integration", "Salesforce integration")}. We do not program control systems or safety systems.</p>,
   },
 ];
 
@@ -131,7 +131,7 @@ export default function OperationalTransformationConsulting() {
           title="Process first, then systems"
           desc="Three boxes joined by arrows: how work moves between people, who owns each decision, and which system holds which data."
           stamp="Process first, then systems"
-          caption="The tools come after the way of working is clear, not before."
+          caption="The tools come after the way of working is clear."
           nodes={[
             { num: "01", title: "How work moves", sub: "who touches it, where it waits" },
             { num: "02", title: "Who decides", sub: "one owner per decision" },
@@ -156,7 +156,7 @@ export default function OperationalTransformationConsulting() {
           <div className="sf-grid" style={{ rowGap: 0 }}>
             <div className="sf-c7">
               <h2 className="sf-h2" id="h-signs">Signs you need operational transformation</h2>
-              <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">Most businesses that call us would not use the phrase; they describe one of five symptoms.</p>
+              <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">Most businesses that call us describe one of five symptoms, without using the phrase.</p>
             </div>
           </div>
           <div className="sf-ledger">
@@ -185,7 +185,7 @@ export default function OperationalTransformationConsulting() {
             { k: "s1", num: "01", title: "Diagnose", line: "We map how work actually moves: who touches it, where it waits and which numbers get typed twice." },
             { k: "s2", num: "02", title: "Design", line: "Agree who owns which decisions, which processes change and which measures will show it worked." },
             { k: "s3", num: "03", title: "Build and connect", line: "Set up and connect the systems that carry the new way of working, through our own Salesforce, integration and MarTech work." },
-            { k: "s4", num: "04", title: "Hand over", line: "Your people run it; we check that it holds and train whoever needs it." },
+            { k: "s4", num: "04", title: "Hand over", line: "Your people run it. We check that it holds and train whoever needs it." },
           ]}
           title="Four-step rail: diagnose, design, build and connect, hand over"
           desc="A rail with four stations: diagnose, design, build and connect, hand over."
@@ -219,7 +219,7 @@ export default function OperationalTransformationConsulting() {
           />
         </SmartSection>
 
-        <SmartSection id="systems" tone="night" heading={{ id: "h-systems", title: "Where the systems get built", lede: "Operational transformation changes how the business runs; these are the places in the firm where the systems side gets built." }}>
+        <SmartSection id="systems" tone="night" heading={{ id: "h-systems", title: "Where the systems get built", lede: "Operational transformation changes how the business runs, and these are the places in the firm where the systems side gets built." }}>
           <HoverCards
             cols={4}
             items={[
@@ -238,7 +238,7 @@ export default function OperationalTransformationConsulting() {
             <li>Systems to set up or connect</li>
             <li>How much your people can run themselves</li>
           </ul>
-          <p className="sf-lede sf-measure" style={{ marginTop: 32 }} data-lede="">Advising on how businesses run is a large and growing occupation; these are the Bureau of Labor Statistics' figures, not claims about us.</p>
+          <p className="sf-lede sf-measure" style={{ marginTop: 32 }} data-lede="">Advising on how businesses run is a large and growing occupation, shown here in the Bureau of Labor Statistics' figures.</p>
           <Readouts
             withEvidence={false}
             items={[

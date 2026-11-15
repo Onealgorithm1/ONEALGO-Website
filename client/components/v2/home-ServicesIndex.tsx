@@ -17,14 +17,14 @@ import { SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE } from "../../data/salesforcePro
 
 export const SERVICES_FAQS: SfFaqItem[] = [
   { q: "What IT and marketing services do you offer?", a: "Seven families: websites, SEO and Google Ads, custom software, Salesforce, marketing and MarTech, IT consulting and staff augmentation, and Zendesk. One four-person team runs them, from the first workshop to 24/7 support. Each family has its own page with the detail.", link: { to: "/services/website-development", label: "Website development" } },
-  { q: "Do you work with small businesses?", a: "Yes, small and mid-sized organizations are who we work for. We are four people, so you deal with the people who do the build rather than a layer of account managers. We make no claim about client counts or sizes beyond that." },
+  { q: "Do you work with small businesses?", a: "Yes, small and mid-sized organizations are who we work for. We are four people, so you deal with the people who do the build rather than a layer of account managers." },
   { q: "How do I know which service I need?", a: "Start from the problem: a site nobody finds, ads you cannot read, or systems that disagree. Each service card says which problem it solves. If you are still unsure, send a note through the contact form and a person will point you to the right page." },
   { q: "What is the difference between IT consulting and staff augmentation?", a: "IT consulting gives you advice and a plan for the systems you run. Staff augmentation puts a developer or analyst inside your team to do the work. Many projects start with the first and add the second. Each has its own page.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
-  { q: "Do you do SEO and Google Ads?", a: "SEO yes, with a published result: for Phantom Arcades, Google clicks rose 92 percent year on year. Google Ads is a method and an audit offer, and we have no client ad-account results to show, so we make no claim about them.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "Do you do SEO and Google Ads?", a: "SEO yes, with a published result: for Phantom Arcades, Google clicks rose 92 percent year on year. Google Ads is a method and an audit offer, and we have no client ad-account results to show.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "Do you build software as well as websites?", a: "Yes. We build customer portals, internal tools and web applications, with the code and the cloud accounts in your name. Websites are one service and custom software another, and the two often share a team. A website can grow into a portal later on the same accounts.", link: { to: "/services/application-development", label: "Custom software development" } },
-  { q: "Do you offer 24/7 support?", a: "Yes. Every engagement has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. A person reads what you send, and it is the same team that built the work. There is one support offer and it covers every hour of the day." },
-  { q: "Where do you work?", a: "We are based in Malvern, Pennsylvania, and work remotely with clients across the United States. We have local pages for Chester County and Philadelphia. In-person sessions happen when a project calls for them, and we agree them up front. Chester County and Philadelphia are the two places with their own pages.", link: { to: "/contact", label: "Contact us" } },
-  { q: "Do I own the work you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one, and we hand over documentation. Nothing is held back, so you can bring another developer in at any time. The handover documentation is what makes a switch of developer possible." },
+  { q: "Do you offer 24/7 support?", a: "Yes. Every engagement has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. A person reads what you send, and it is the same team that built the work." },
+  { q: "Where do you work?", a: "We are based in Malvern, Pennsylvania, and work remotely with clients across the United States. We have local pages for Chester County and Philadelphia. In-person sessions happen when a project calls for them, and we agree them up front.", link: { to: "/contact", label: "Contact us" } },
+  { q: "Do I own the work you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one, and we hand over documentation. Nothing is held back, so you can bring another developer in at any time." },
   { q: "Can you work with Salesforce or Zendesk?", a: `Salesforce yes: we are a Select Consulting Partner on the AppExchange, with ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications in Salesforce's record. We signed a Zendesk partner agreement in 2026 and claim no tier beyond that. The Salesforce listing can be checked on the AppExchange before you commit.`, link: { to: "/services/salesforce", label: "Salesforce consulting" } },
 ];
 
@@ -63,7 +63,7 @@ export function ServicesIndexBody() {
 
       <GrowthPath tone="paper" />
 
-      <OfferBand heading="Not sure which one?" line="Tell us what you are trying to fix; we point you to the right service." label="Talk to a consultant" />
+      <OfferBand heading="Not sure which one?" line="Tell us what you are trying to fix and we point you to the right service." label="Talk to a consultant" />
 
       {SERVICE_GROUPS.map((g, i) => {
         const l = LAYOUT[i % LAYOUT.length];
@@ -151,7 +151,7 @@ export function ServicesIndexBody() {
         form={{ topic: "services", topicLabel: "Services", heading: "Tell us what you need", prompt: "What is the system or page that is not working?", submitLabel: "Talk to an expert", need: "services" }}
         heading="Not sure which one?" lede="Tell us what you are trying to fix and we will point you to the right service."
         covers={["What is not working today", "The systems and sites involved", "What a fix would let you do", "Your timeline"]} coversLabel="What to have ready"
-        next={["Send the form on the contact page; the topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
+        next={["Send the form on the contact page. The topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
         hcLink={false}
       />
       <SourcesDialog id="sources" sources={[

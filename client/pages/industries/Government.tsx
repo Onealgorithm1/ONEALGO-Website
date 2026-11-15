@@ -53,7 +53,7 @@ const UNITS: IndUnit[] = [
   {
     id: "eligibility", title: "Eligibility you can verify",
     lede: "We are SBA-certified WOSB and EDWOSB with an active SAM registration.",
-    lead: "A certification makes a firm eligible for set-aside work; it is not a contract award, and we do not present it as one.",
+    lead: "A certification makes a firm eligible for set-aside work. It is not a contract award.",
     points: ["SBA WOSB and EDWOSB, certified 14 April 2026", "SAM.gov active until 17 April 2027", "No federal contract awarded and no clearance held"],
     deepLabel: "the registry record behind each line",
     deep: (<>
@@ -80,8 +80,8 @@ const UNITS: IndUnit[] = [
     deepLabel: "the four capabilities in detail",
     deep: (<>
       <p className="sf-rule">Licensing, permitting, grants and case management are Salesforce configuration problems before they are anything else. Cloud moves happen in stages, without a cutover weekend nobody can survive.</p>
-      <p><span className="sf-lead-in">What we do:</span> Data pipelines and reporting where there is recorded history to support them; named practitioners embedded in a program team on contract or project terms.</p>
-      <p>We make no claim about cleared staff: a clearance is normally sponsored by an awarded contract, and we have not held one.</p>
+      <p><span className="sf-lead-in">What we do:</span> Data pipelines and reporting where there is recorded history to support them, and named practitioners embedded in a program team on contract or project terms.</p>
+      <p>We hold no clearance: a clearance is normally sponsored by an awarded contract, and we have not held one.</p>
       <div className="sf-links">
         <Link className={L} to="/services/salesforce">Salesforce consulting</Link>
         <Link className={L} to="/services/it-consulting">IT consulting</Link>
@@ -96,22 +96,22 @@ const UNITS: IndUnit[] = [
     points: ["Open to teaming and subcontract roles", "Open to mentor-protégé conversations", "Registered and eligible, with no award yet"],
     deepLabel: "how we approach teaming",
     deep: (<>
-      <p className="sf-rule">We are open to teaming as a small-business partner on work that fits the capabilities above. Send the solicitation and the role, and we will say plainly whether we fit.</p>
+      <p className="sf-rule">We are open to teaming as a small-business partner on work that fits the capabilities above. Send the solicitation and the role, and we will say whether we fit.</p>
       <div className="sf-links"><Link className={L} to="/capabilities">Capability statement</Link></div>
     </>),
   },
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Can you act as a prime contractor?", a: "We are registered in SAM and eligible to bid as a prime on set-aside work. We have not yet been awarded a government contract, and we say so. Eligibility is not past performance, and nothing on this page is written to suggest otherwise." },
+  { q: "Can you act as a prime contractor?", a: "We are registered in SAM and eligible to bid as a prime on set-aside work. We have not yet been awarded a government contract. Eligibility is not past performance." },
   { q: "What does WOSB and EDWOSB certification mean?", a: "The SBA certified us as a women-owned small business and an economically disadvantaged women-owned small business on 14 April 2026, valid to 14 April 2029. It makes us eligible for set-aside work. It is a certification of ownership, not a contract award." },
   { q: "What is a WOSB set-aside?", a: "A contract reserved for certified women-owned small businesses under the SBA program. The statutory goal is 5 percent of prime dollars, and fiscal 2025 reached 4.52 percent, as quoted by the Congressional Research Service. See the goals table above for the source." },
   { q: "What qualifies as a small business for government contracts?", a: "Size is set per NAICS code by the SBA, usually by revenue or number of employees. Our registered codes are listed on this page, and the size standard itself is the SBA's. You can check our record in SAM.gov using our UEI." },
-  { q: "Do you hold a security clearance?", a: "No. We have held no clearance, and we claim none. A clearance is normally sponsored by an awarded contract, so a firm without an award usually has none. If a solicitation requires cleared staff, we will tell you that we cannot meet it." },
+  { q: "Do you hold a security clearance?", a: "No. We have held no clearance. A clearance is normally sponsored by an awarded contract, so a firm without an award usually has none. If a solicitation requires cleared staff, we will tell you that we cannot meet it." },
   { q: "Which procurement vehicles are you on?", a: "SAM.gov federally, with no GSA Schedule awarded. At state and cooperative level we hold COSTARS in Pennsylvania, eVA in Virginia and a Pennsylvania supplier registration. The registrations table on this page shows the reference numbers so you can search by number." },
   { q: "What do you deliver for government buyers?", a: "Salesforce configuration, IT modernization in stages, data work and technical staffing. We list these as capabilities, not as past agency work, because we have not yet been awarded a government contract. Each links to the service page that describes it.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
   { q: "How can a contracting officer verify you?", a: "Search SAM.gov by UEI W8DYK38MEKP3 or CAGE 14G18, and check the SBA certification record for our legal name. The identifiers table on this page lists every number, and the capability statement at the top of the page can be opened in one click." },
-  { q: "Do you have a government contract?", a: "No. We have not been awarded one, and we say so plainly. What we can show is eligibility you can verify: an active SAM registration, SBA certification and registered NAICS codes. We would rather be checked than assumed. The SAM registration and NAICS codes are public, so you can look them up yourself." },
+  { q: "Do you have a government contract?", a: "No. We have not been awarded one. What we can show is eligibility you can verify: an active SAM registration, SBA certification and registered NAICS codes. The SAM registration and NAICS codes are public, so you can look them up yourself." },
   { q: "What does a government IT contractor do?", a: "A government IT contractor supplies IT services to agencies under contract, such as system modernization, data work, CRM configuration and technical staffing. Ours is a capability and eligibility statement, not past performance. We have not yet held a government contract.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
 ];
 
@@ -136,7 +136,7 @@ export default function Government() {
             <span className="text-oa-orange">eligibility you can verify</span>
           </>
         }
-        lede="One Algorithm is an SBA-certified WOSB/EDWOSB with an active SAM registration, published NAICS codes, and registrations on the procurement portals listed below. We have not yet been awarded a government contract, and nothing on this page is written to suggest otherwise."
+        lede="One Algorithm is an SBA-certified WOSB/EDWOSB with an active SAM registration, published NAICS codes, and registrations on the procurement portals listed below. We have not yet been awarded a government contract."
         panel={{
           title: "Eligibility and registration",
           items: [
@@ -170,16 +170,16 @@ export default function Government() {
         }}
         proof="local"
         offer1={{ heading: "Doing market research?", line: "The identifiers below are the fast answer. Send us a solicitation or a role.", label: "Send us a solicitation" }}
-        offer2={{ heading: "Looking for a small-business teaming partner?", line: "Tell us the role and the NAICS code; we say whether we fit.", label: "Talk to a consultant" }}
+        offer2={{ heading: "Looking for a small-business teaming partner?", line: "Tell us the role and the NAICS code, and we say whether we fit.", label: "Talk to a consultant" }}
         units={UNITS}
         after={{
           offer: (tone) => (
             <PatternTable id="website" tone={tone()} heading="Government website development"
-              lede="We build websites; we have no government site to show."
+              lede="We build websites, and we have no government site to show."
               head={["What a buyer asks", "Where we stand"]}
               rows={[
                 ["Do you build websites?", "Yes, as a general service, with scores printed on the service page."],
-                ["Do you have a government site?", "No, and we make no such claim."],
+                ["Do you have a government site?", "No."],
               ]} />
           ),
         }}
@@ -241,7 +241,7 @@ export default function Government() {
 
         <SmartSection id="codes" tone="surface" grid heading={{ id: "h-codes", title: "Registered NAICS codes", lede: `${siteConfig.codes.naics.length} NAICS codes registered for ${siteConfig.legalName}.` }}>
           <SmartUnit level={3} className="sf-c6" measure={false} title="NAICS codes" lede="The primary codes, with titles.">
-            <ul className="sf-points sf-mono">{NAICS_PRIMARY.map((c) => <li key={c}>{c} — {NAICS_TITLES[c]}</li>)}</ul>
+            <ul className="sf-points sf-mono">{NAICS_PRIMARY.map((c) => <li key={c}>{c}: {NAICS_TITLES[c]}</li>)}</ul>
             {NAICS_OTHER.length > 0 && <p>Also registered: {NAICS_OTHER.join(", ")}</p>}
           </SmartUnit>
         </SmartSection>

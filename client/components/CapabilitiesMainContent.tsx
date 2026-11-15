@@ -310,7 +310,7 @@ export default function CapabilitiesMainContent() {
         </div>
         <p className="mt-1 max-w-prose text-sm leading-relaxed text-oa-ink2">
           Registered under{" "}
-          <span className="font-mono">{siteConfig.legalName}</span> — search that
+          <span className="font-mono">{siteConfig.legalName}</span>. Search that
           name, not our trading name.
         </p>
 
@@ -326,7 +326,7 @@ export default function CapabilitiesMainContent() {
                 <div className="mt-5">
                   <CheckList
                     items={complianceProfile.certifications.map(
-                      (cert) => `${cert.name} — ${cert.detail}`,
+                      (cert) => `${cert.name}: ${cert.detail}`,
                     )}
                   />
                 </div>
@@ -428,7 +428,7 @@ export default function CapabilitiesMainContent() {
             <>
               <p className="mt-6 text-oa-ink2">
                 <span className="font-semibold text-oa-ink">Primary NAICS:</span>{" "}
-                <span className="font-mono">{siteConfig.codes.naics[0]}</span> –
+                <span className="font-mono">{siteConfig.codes.naics[0]}</span>,
                 Custom Computer Programming Services
               </p>
               <h3 className="mt-8 font-mono text-eyebrow uppercase text-oa-ink3">

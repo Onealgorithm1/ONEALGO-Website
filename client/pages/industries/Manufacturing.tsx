@@ -38,7 +38,7 @@ const UNITS: IndUnit[] = [
     points: ["Name the source: ERP, spreadsheet or storefront", "Agree one place the number is read", "Report from it weekly before building more"],
     deepLabel: "how we scope data work",
     deep: (<>
-      <p className="sf-rule">Before anything is called a dashboard, something has to record the number reliably. Often that record does not exist yet, and we would rather say so than sell a pilot.</p>
+      <p className="sf-rule">Before anything is called a dashboard, something has to record the number reliably. Often that record does not exist yet.</p>
       <p><span className="sf-lead-in">What you get:</span> A list of the data that exists today, where it stops, and the cheapest way to extend it.</p>
       <div className="sf-links"><Link className={L} to="/services/operational-transformation-consulting">Operational transformation consulting</Link></div>
     </>),
@@ -51,7 +51,7 @@ const UNITS: IndUnit[] = [
     deepLabel: "the two patterns we can describe",
     deep: (<>
       <p className="sf-rule">The sync client is unnamed, so we describe the pattern only: which system owns each field, what happens when a record changes in both, and how a failure is reported. The Phantom Arcades flow takes a configured order from the WooCommerce store into the back office.</p>
-      <p>We make no plant claim for either. See <Link className={L} to="/services/application-development">custom software development</Link>.</p>
+      <p>Neither is plant-floor work. See <Link className={L} to="/services/application-development">custom software development</Link>.</p>
     </>),
   },
   {
@@ -69,10 +69,10 @@ const UNITS: IndUnit[] = [
   {
     id: "limits", title: "Where our manufacturing experience stops",
     lede: "We have not delivered a plant-floor, SCADA or OT security project.",
-    lead: "A plant manager should hear that from us, not discover it in a statement of work.",
+    lead: "We hold no OT credential.",
     deepLabel: "what we are and are not",
     deep: (<>
-      <p className="sf-rule">We are not an MES or a quality-management product, and we do not resell one. We have published no manufacturing case study and will not imply one. The useful conversation is a specific one: which system, and what happens today when two of them disagree. Who you would work with is on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">We are not an MES or a quality-management product, and we do not resell one. We have published no manufacturing case study. The useful conversation is a specific one: which system, and what happens today when two of them disagree. Who you would work with is on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
@@ -80,14 +80,14 @@ const UNITS: IndUnit[] = [
 const FAQS: SfFaqItem[] = [
   { q: "What is ERP integration?", a: "ERP integration connects the ERP to the other systems around it, such as the CRM, the storefront and reporting, so that each figure is entered once and read the same everywhere. We agree which system owns each record, then build and monitor the sync." },
   { q: "Can you integrate our ERP with other systems?", a: "Yes, in principle. Integration is scoped per pair of systems, and we start with the two that disagree. We check whether each has an API or only an export, agree which system wins for each field, and report sync failures to a person.", link: { to: "/services/application-development", label: "Custom software development" } },
-  { q: "Do you replace our ERP?", a: "No. We connect what you run and do not resell ERP software. If a replatform is genuinely the right answer, we will say so plainly, but the usual job is making the ERP, the CRM and the storefront agree rather than swapping any of them out." },
+  { q: "Do you replace our ERP?", a: "No. We connect what you run and do not resell ERP software. If a replatform is the right answer, we will say so, but the usual job is making the ERP, the CRM and the storefront agree." },
   { q: "Do you do SCADA or OT security work?", a: "No. We have not delivered a plant-floor, SCADA or OT security project, and we hold no OT credential. If that is what you need, we will say so on the first call and tell you it belongs with an OT specialist." },
-  { q: "Do you build manufacturing websites?", a: "We build websites and product sites with configurators, such as the Phantom Arcades build. We have not built a site for a manufacturing company and make no such claim. Tell us what the site must show and we will say whether we fit.", link: { to: "/services/website-development", label: "Website development" } },
+  { q: "Do you build manufacturing websites?", a: "We build websites and product sites with configurators, such as the Phantom Arcades build. We have not built a site for a manufacturing company. Tell us what the site must show and we will say whether we fit.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "Do you offer manufacturing marketing or industrial SEO?", a: "Not as a specialty, and specialist agencies own those searches. We offer SEO as a general service and can show one measured result, Phantom Arcades, where Google clicks rose 92 percent year on year. We have no manufacturing marketing proof.", link: { to: "/services/seo", label: "SEO services" } },
-  { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. The Phantom Arcades build is our reference example, and its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
+  { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. Its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
   { q: "What drives the cost of an ERP integration?", a: "The number of systems, whether each has an API, the data quality, the volume to reconcile and how often the rules change. You get a written scope before any work begins, and a number only after we have seen the systems on both sides involved." },
   { q: "How long does an integration take?", a: "It depends on the systems and the data, and we set a plan only after discovery. Tell us the two systems that disagree and we will say what we would check first, what could slow the work, and how we would report progress." },
-  { q: "Can you add engineers during a go-live?", a: "Yes. Integration and platform engineers can work inside your team for the go-live or longer, so your own staff can keep the plant running. We agree the role, hours and end date in writing first. Your own staff keep the plant running while ours handle the integration work.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
+  { q: "Can you add engineers during a go-live?", a: "Yes. Integration and platform engineers can work inside your team for the go-live or longer, so your own staff can keep the plant running. We agree the role, hours and end date in writing first.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
 ];
 
 export default function Manufacturing() {
@@ -113,7 +113,7 @@ export default function Manufacturing() {
             </span>
           </>
         }
-        lede="For manufacturers we do the integration work behind the business: getting order, inventory and production data into the systems that run it. Usually the data already exists; it just stops at the spreadsheet or the ledger."
+        lede="For manufacturers we do the integration work behind the business: getting order, inventory and production data into the systems that run it. Usually the data already exists. It just stops at the spreadsheet or the ledger."
         panel={{
           title: "What that means in practice",
           items: [
