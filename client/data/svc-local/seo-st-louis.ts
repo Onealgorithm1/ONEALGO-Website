@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Across time zones",
     "paras": [
-     "We do not have a St. Louis office. Calls are booked in your Central-time morning or afternoon, screens are shared for reviews, and staging pages open in any browser for comments."
+     "We work from Malvern, PA. Calls are booked in your Central-time morning or afternoon, screens are shared for reviews, and staging pages open in any browser for comments."
     ]
    }
   },

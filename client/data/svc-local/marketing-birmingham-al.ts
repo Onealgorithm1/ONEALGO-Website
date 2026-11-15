@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings and drafts",
     "paras": [
-     "Every meeting is a video call with screens shared, and every draft is a link you open in your browser. The work is remote from Malvern, PA; there is no branch in Alabama.",
+     "Every meeting is a video call with screens shared, and every draft is a link you open in your browser. The work is remote from Malvern, PA.",
      "Support for urgent problems is available around the clock."
     ]
    }

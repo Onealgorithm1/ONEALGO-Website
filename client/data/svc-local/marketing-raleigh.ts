@@ -476,7 +476,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Proof from outside North Carolina",
-   "lede": "We have no Raleigh case to cite, so we show the one we can document: a Florida arcade manufacturer's search growth.",
+   "lede": "We show a case we can document: a Florida arcade manufacturer's search growth.",
    "leadIn": "Why it matters:",
    "lead": "search drives the rest of our marketing, and for that manufacturer Google clicks grew 92% and non-brand clicks 231% year over year.",
    "deeper": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Working hours that match",
     "paras": [
      "Our hours and yours are the same, since both cities run on Eastern time. Meetings are video calls, reviews happen in your browser, and nothing waits on a site visit.",
-     "We keep no North Carolina branch; the team works from Malvern, PA, and urgent issues are answered around the clock."
+     "The team works from Malvern, PA, and urgent issues are answered around the clock."
     ]
    }
   },

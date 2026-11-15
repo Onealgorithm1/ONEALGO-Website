@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Staying in touch",
     "paras": [
-     "There is no Tulsa office. Calls are booked in your Central-time day, pages are reviewed on staging links in your browser, and monthly reports arrive from accounts you control."
+     "Our team is in Malvern, PA. Calls are booked in your Central-time day, pages are reviewed on staging links in your browser, and monthly reports arrive from accounts you control."
     ]
    }
   },

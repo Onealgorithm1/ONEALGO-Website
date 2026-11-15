@@ -494,7 +494,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "We do not publish app client results, so here is the method itself and the things you can verify at every stage.",
+   "lede": "Here is the method we follow on an app build, and the things you can verify at every stage.",
    "leadIn": "What you get:",
    "lead": "a written scope before any code, a clickable build in your browser, and full ownership of code and accounts.",
    "deeper": {
@@ -606,7 +606,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote by design",
     "paras": [
-     "We keep no office in Los Angeles. Planning calls run on video, designs are reviewed as live pages in your browser, and every build has a link you can test from your desk or phone.",
+     "Los Angeles projects run from our office in Malvern, PA. Planning calls run on video, designs are reviewed as live pages in your browser, and every build has a link you can test from your desk or phone.",
      "After launch, support requests reach us at any hour, and we keep the app patched and running."
     ]
    }

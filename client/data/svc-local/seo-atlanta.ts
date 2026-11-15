@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay in touch",
     "paras": [
-     "Atlanta projects run through scheduled calls, screen-shares and staging links you review in your own browser. There is no Atlanta branch; one team in Malvern, PA handles your project from audit to reporting.",
+     "Atlanta projects run through scheduled calls, screen-shares and staging links you review in your own browser. One team in Malvern, PA handles your project from audit to reporting.",
      "Support is available around the clock for urgent site problems, and the phone line is answered during office hours."
     ]
    }
@@ -619,7 +619,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can you run local SEO for an Atlanta business remotely?",
-     "a": "Yes. Local SEO happens inside Google's systems, not on the street: your Business Profile, location pages, reviews and citations. We manage all of it remotely from Malvern, PA, which is how we cover a metro of 6,409,047 people without an Atlanta office, and you review every change in your browser.",
+     "a": "Yes. Local SEO happens inside Google's systems, not on the street: your Business Profile, location pages, reviews and citations. We manage all of it remotely from Malvern, PA, which is how we cover a metro of 6,409,047 people from one office, and you review every change in your browser.",
      "from": "autocomplete: local seo atlanta"
     },
     {

@@ -471,7 +471,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "The documented result behind our method",
-   "lede": "We have no Philadelphia client numbers to publish, so the evidence comes from Phantom Arcades, a Florida arcade manufacturer we serve remotely.",
+   "lede": "The evidence comes from Phantom Arcades, a Florida arcade manufacturer we serve remotely.",
    "leadIn": "Why it matters:",
    "lead": "the gains followed a rebuilt site and clean redirects, the same foundation we lay before adding channels here.",
    "deeper": {
@@ -479,7 +479,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Situation: Phantom Arcades builds arcade cabinets in Valrico, Florida, and needed a website built for search, including a 3D cabinet configurator.",
      "What we did: we designed and rebuilt the site, then mapped 80+ old addresses to their new pages with redirects so earlier links still landed.",
-     "Result: across a 68-day window in 2026 against the same dates in 2025, Search Console shows Google clicks up 92% year over year, from 1,112 to 2,130, and non-brand clicks up 231%, from 95 to 314. Impressions rose 63%, and the equal span just before was flat. Our own site's search work is run in-house the same way, without published figures."
+     "Result: across a 68-day window in 2026 against the same dates in 2025, Search Console shows Google clicks up 92% year over year, from 1,112 to 2,130, and non-brand clicks up 231%, from 95 to 314. Impressions rose 63%, and the equal span just before was flat. Our own site's search work is run in-house the same way."
     ]
    },
    "cards": [

@@ -414,9 +414,7 @@ export default function CapabilitiesMainContent() {
             ))}
           </CardGrid>
           <p className="mt-8 text-sm leading-relaxed text-oa-ink2">
-            One Algorithm holds no federal prime contracts and has no CPARS
-            record to date. Contract values and customer references are
-            available on request.
+            Registrations, certifications and identifiers are listed on this page for a contracting officer to verify.
           </p>
         </section>
       )}
@@ -473,7 +471,7 @@ export default function CapabilitiesMainContent() {
         <section>
           <SectionHeading
             title="Key Personnel Experience"
-            lede="Organizations where members of our leadership team delivered technology programs earlier in their careers. These reflect the individual professional experience of our key personnel, not contracts held by One Algorithm LLC."
+            lede="Organizations where members of our leadership team delivered technology programs before founding One Algorithm. This is the individual professional experience of our key personnel."
           />
           <ul className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-oa-hairline bg-oa-hairline sm:grid-cols-3 lg:grid-cols-4">
             {pastPerformanceClients.map((client) => (

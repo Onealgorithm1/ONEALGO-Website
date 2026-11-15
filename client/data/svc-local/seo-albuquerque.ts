@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote collaboration",
     "paras": [
-     "There is no Albuquerque office. We work from our single office in Malvern, Pennsylvania, using video calls, shared screens and drafts you open in your own browser.",
+     "We work from our single office in Malvern, Pennsylvania, using video calls, shared screens and drafts you open in your own browser.",
      "Support requests reach us around the clock, and you can see every change we make before and after it goes live."
     ]
    }

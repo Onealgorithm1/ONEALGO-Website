@@ -471,7 +471,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Proof from a Florida client",
-   "lede": "Our published SEO case study is an arcade manufacturer in Florida, measured in Google Search Console; no Cleveland client is implied.",
+   "lede": "Our published SEO case study is an arcade manufacturer in Florida, measured in Google Search Console.",
    "leadIn": "The bottom line:",
    "lead": "non-brand Google clicks rose 231% and total clicks 92% year over year after we rebuilt the site for search.",
    "deeper": {
@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Same clock, remote team",
     "paras": [
-     "We have no Cleveland office; the work is done in Malvern, PA. Because Cleveland is on Eastern time too, calls, screen-shares and approvals fit the same working day.",
+     "The work is done in Malvern, PA. Because Cleveland is on Eastern time too, calls, screen-shares and approvals fit the same working day.",
      "If the live site breaks or drops from Google, support answers at any hour."
     ]
    }

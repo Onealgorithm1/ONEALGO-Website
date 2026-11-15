@@ -472,7 +472,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "We do not publish Google Ads client results, so here is the method instead, with everything you can verify yourself.",
+   "lede": "Here is our Google Ads method, with everything you can verify yourself.",
    "leadIn": "What you get:",
    "lead": "a written scope, tracking you can test, and an ads account plus landing pages that belong to you from the first day.",
    "deeper": {
@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Day-to-day contact",
     "paras": [
-     "Account reviews happen on screen-shares where we walk through the live campaigns together. Ad drafts and landing pages arrive as links you can open and approve in your browser. We have no Tennessee office; the account is managed from Malvern, Pennsylvania, and it runs the same either way.",
+     "Account reviews happen on screen-shares where we walk through the live campaigns together. Ad drafts and landing pages arrive as links you can open and approve in your browser. The account is managed from Malvern, Pennsylvania, and distance changes nothing about how it runs.",
      "You can reach us by phone or email between reviews, and round-the-clock support covers urgent account issues."
     ]
    }

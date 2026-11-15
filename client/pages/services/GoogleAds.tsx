@@ -70,7 +70,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Can an agency guarantee ROI?", a: "No. Results depend on your market, offer, page and budget, and Google's auction is not ours to control. Be wary of any agency that guarantees a return. What we can promise is method: tracking that counts each lead once, negatives first, the account in your name and plain reporting." },
   { q: "Is Google Ads better than SEO?", a: "Neither is better. They do different jobs. Ads buy visibility now and stop when you stop paying. SEO builds slowly and keeps working once pages are trusted. Many small businesses use ads while their pages earn rankings. We run both, so we can say where your next dollar works harder.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "What is Quality Score, and does it matter?", a: "Quality Score is a 1-10 diagnostic at keyword level, built from expected click-through rate, ad relevance and landing page experience. Google's help page says it is not an input in the ad auction. Treat it as a hint about what to fix, not a number to chase." },
-  { q: "Do you need a Google Partner agency?", a: "Google's Partner badge requires a 70% optimization score, $10,000 in ad spend over 90 days across managed accounts, and certified strategists. We do not claim the badge. Judge any agency, including us, on method and access: do you own the account, and can you see every number?" },
+  { q: "Do you need a Google Partner agency?", a: "Google's Partner badge requires a 70% optimization score, $10,000 in ad spend over 90 days across managed accounts, and certified strategists. Judge any agency, including us, on method and access: do you own the account, and can you see every number?" },
   { q: "Do I own my Google Ads account?", a: "Yes. The account is in your name, with you as owner, and we work inside it. If we part ways you keep the campaigns, history and conversion data. Be cautious of any agency that runs your ads from its own account and will not hand over access." },
   { q: "What is Google Ads management?", a: "It is the ongoing work of running a Google Ads account: structure, keywords and negatives, bids, ad copy, landing pages, conversion tracking and reporting, so spend goes to searches that produce enquiries. It is sometimes called PPC management. Management is separate from the ad spend, which goes to Google." },
   { q: "Why are Google Ads so expensive?", a: "Google ranks ads by Ad Rank, which weighs your bid, ad and landing page quality, auction competitiveness and the search context. Google's help says relevant keywords and ads can win a higher position at a lower price. Waste, such as broad match with no negatives or a weak page, raises your cost per lead." },
@@ -308,7 +308,7 @@ export default function GoogleAds() {
         <SmartSection
           id="case"
           tone="surface"
-          heading={{ title: "What we can show you today", id: "h-case", lede: "We have no Google Ads client results to show. Our measured work is in search." }}
+          heading={{ title: "What we can show you today", id: "h-case", lede: "Our measured work is in search, where Phantom Arcades' Google clicks rose 92% year over year." }}
         >
           <div className="sf-grid" style={{ marginTop: 32 }}>
             <div className="sf-c5">

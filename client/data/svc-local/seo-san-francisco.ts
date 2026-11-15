@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
     "label": "Remote, on your schedule",
     "paras": [
      "We are on Eastern time, so a call first thing in your morning lands at our lunchtime, and anything you send in the evening is usually picked up before your next morning. Reviews happen on screen-shares and shared links.",
-     "We have no Bay Area office. Support is available around the clock if something on the site breaks."
+     "We work with Bay Area businesses from Malvern, PA. Support is available around the clock if something on the site breaks."
     ]
    }
   },

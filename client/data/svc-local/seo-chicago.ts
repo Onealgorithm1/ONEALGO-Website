@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How meetings work",
     "paras": [
-     "There is no Chicago branch to visit, and there does not need to be. We meet on video calls, share our screen to walk through findings, and send reviews you open in your browser.",
+     "Chicago projects run from our office in Malvern, PA. We meet on video calls, share our screen to walk through findings, and send reviews you open in your browser.",
      "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Call (610) 890-9711 and you reach the people doing the work."
     ]
    }

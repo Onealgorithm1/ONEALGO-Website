@@ -590,7 +590,7 @@ export const PLACE: LocalPlace = {
     "label": "How collaboration works",
     "paras": [
      "We meet on video, share drafts as links and gather your comments right on the page. Reports open in any browser, on any device.",
-     "Our one office is in Malvern, Pennsylvania; there is no Austin branch. Support is available around the clock at (610) 890-9711."
+     "Our one office is in Malvern, Pennsylvania. Support is available around the clock at (610) 890-9711."
     ]
    }
   },

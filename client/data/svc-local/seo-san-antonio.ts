@@ -477,7 +477,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "A client story from Florida",
-   "lede": "Our published SEO case study is Phantom Arcades, an arcade cabinet manufacturer in Florida, not a San Antonio business.",
+   "lede": "Our published SEO case study is Phantom Arcades, an arcade cabinet manufacturer in Florida.",
    "leadIn": "The bottom line:",
    "lead": "clicks from searches that never named the brand rose 231%, and total Google clicks rose 92% year over year.",
    "deeper": {
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls on Central time",
     "paras": [
-     "We have no San Antonio office. Our Malvern, PA team holds calls by video, inside your Central-time working day, and shares every audit and draft as a browser link.",
+     "Our Malvern, PA team holds calls by video, inside your Central-time working day, and shares every audit and draft as a browser link.",
      "Urgent problems on a live site, like a page dropping out of Google, get round-the-clock support."
     ]
    }

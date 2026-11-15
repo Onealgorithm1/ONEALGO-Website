@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How the collaboration works",
     "paras": [
-     "Nashville businesses work with us on video, share screens to walk through drafts and approve posts and pages from a link in their browser. We do not keep a Tennessee branch; the team works from Malvern, Pennsylvania, and support reaches you online wherever you are.",
+     "Nashville businesses work with us on video, share screens to walk through drafts and approve posts and pages from a link in their browser. The team works from Malvern, Pennsylvania, and support reaches you online wherever you are.",
      "Calls are booked in Central time when that suits you, and written updates land in your inbox between them."
     ]
    }

@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work and what you check",
-   "lede": "We do not publish ad results; instead, every part of the account is set up so you can verify the work yourself.",
+   "lede": "Every part of the account is set up so you can verify the work yourself.",
    "leadIn": "What you get:",
    "lead": "written scope, conversion tracking you can test, and admin access to every account we touch.",
    "deeper": {
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Day-to-day contact",
     "paras": [
-     "Account reviews happen on calls with your Google Ads dashboard shared on screen, so we look at the same numbers together. There is no Atlanta branch; the account is managed remotely from Malvern, PA.",
+     "Account reviews happen on calls with your Google Ads dashboard shared on screen, so we look at the same numbers together. The account is managed remotely from Malvern, PA.",
      "If a campaign breaks or spend spikes, support is available around the clock."
     ]
    }

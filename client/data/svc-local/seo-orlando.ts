@@ -483,7 +483,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The rebuild included a 3D cabinet configurator, and we mapped 80+ old addresses to new ones with redirects so visitors and Google following old links reached the right new page.",
      "Over a 68-day Search Console window in 2026 against the same dates in 2025, clicks went from 1,112 to 2,130 and non-brand clicks from 95 to 314, while impressions rose 63%. The equal stretch before that window was flat.",
-     "This is a Valrico manufacturer, not an Orlando business; the method transfers, with your market's data in place of theirs."
+     "This is a Valrico manufacturer, and the method transfers to Orlando, with your market's data in place of theirs."
     ]
    },
    "cards": [
@@ -588,7 +588,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How projects stay on track",
     "paras": [
-     "We have no Orlando branch. Kickoff, reviews and monthly reporting happen on video calls and shared screens, and staging pages open in your own browser for comments.",
+     "We work with Orlando firms from Malvern, PA. Kickoff, reviews and monthly reporting happen on video calls and shared screens, and staging pages open in your own browser for comments.",
      "There is also a statewide page, SEO in Florida, for firms serving more than the Orlando metro."
     ]
    }

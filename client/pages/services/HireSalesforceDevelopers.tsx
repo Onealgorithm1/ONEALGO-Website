@@ -31,14 +31,14 @@ const OG_IMAGE = "https://onealgorithm.com/og-image.jpg";
 const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link>;
 
 const FAQS: SfFaqItem[] = [
-  { q: "How do I hire a Salesforce developer through you?", a: "Tell us the org, the work and who the developer would report to. We say whether we have the right person and where they are light, you interview them, and once you agree they join your team and work to your backlog under your lead." },
+  { q: "How do I hire a Salesforce developer through you?", a: "Tell us the org, the work and who the developer would report to. We say whether we have the right person and what they have worked on, you interview them, and once you agree they join your team and work to your backlog under your lead." },
   { q: "Who manages the Salesforce developer day to day?", a: "You do. Your lead sets the priorities, and the developer works in your org, your sandboxes, your ticket queue and your standups. We stay in touch with you and with the developer, and raise problems early." },
-  { q: "Which Salesforce roles can you place?", a: "Salesforce developers, administrators and architects. Salesforce is where our delivery record is, so it is the only area where we lead. If the role you need is outside what we can stand behind, we tell you before you spend time interviewing." },
+  { q: "Which Salesforce roles can you place?", a: "Salesforce developers, administrators and architects. Salesforce is where our delivery record is, so it is where we lead. We tell you whether we have the right person before you spend time interviewing." },
   { q: "Are your Salesforce developers certified?", a: `Salesforce's AppExchange record lists ${SF_CERTIFIED_PEOPLE} Salesforce-certified people at OneAlgorithm holding ${SF_CERTIFICATIONS} certifications (read ${SF_VERIFIED_LABEL}). You can open the listing and check it yourself. Ask who will do your work and look them up on Trailblazer.` },
   { q: "What does it cost to hire a Salesforce developer this way?", a: "It follows the role, the seniority, how long you need the person and the hours. We quote in writing once we know the work, and we publish no rate card. For published market ranges on Salesforce projects, see our cost guide.", link: { to: "/services/salesforce-implementation-cost", label: "Salesforce implementation cost guide" } },
   { q: "Staff augmentation or managed services: which do I need?", a: "If you want a Salesforce person working to your own backlog under your lead, that is staff augmentation, and it is this page. If you want us to run the org week by week and be accountable for it, that is managed services.", link: { to: "/services/salesforce-managed-services", label: "Salesforce managed services" } },
   { q: "Can the Salesforce developer work remotely with our team?", a: "Yes. Salesforce work happens inside your org, so it runs remotely from our Malvern, Pennsylvania office with teams across the United States. In-person sessions happen when the project calls for them, easiest around Philadelphia." },
-  { q: "Who employs the Salesforce developer you place?", a: "We tell you in writing before work starts. Our E-Verify account covers our own employees only and does not cover subcontractors, so we never claim that everyone placed on your team is verified." },
+  { q: "Who employs the Salesforce developer you place?", a: "We tell you in writing before work starts. Our E-Verify account covers our own employees only and does not cover subcontractors." },
 ];
 
 export default function HireSalesforceDevelopers() {
@@ -83,7 +83,7 @@ export default function HireSalesforceDevelopers() {
           items: [
             "Your org, your backlog, your lead setting priorities",
             "Salesforce developers, admins and architects",
-            "We tell you where each candidate is light",
+            "We tell you what each candidate has worked on",
             "Certifications you can check on Salesforce's own record",
           ],
         }}
@@ -99,9 +99,9 @@ export default function HireSalesforceDevelopers() {
           tone="surface"
           heading={{ id: "h-what", title: "What Salesforce staff augmentation is", lede: "Salesforce staff augmentation adds a Salesforce developer, admin or architect to your team, working in your org under your lead, for as long as the work lasts." }}
           title="Where a Salesforce developer from us sits"
-          desc="Four boxes joined by arrows: your lead sets priorities, your org and sandboxes stay as they are, our Salesforce developer works inside your team, and we say where each candidate is light."
+          desc="Four boxes joined by arrows: your lead sets priorities, your org and sandboxes stay as they are, our Salesforce developer works inside your team, and we say what each candidate has worked on."
           stamp="Inside your org"
-          caption="You keep control of the backlog. We tell you where a candidate is light before you interview."
+          caption="You keep control of the backlog. We tell you what a candidate has worked on before you interview."
           nodes={[
             { num: "01", title: "Your lead", sub: "sets the priorities" },
             { num: "02", title: "Your org", sub: "sandboxes, backlog, standups" },
@@ -144,13 +144,13 @@ export default function HireSalesforceDevelopers() {
           fig={2}
           stations={[
             { k: "s1", num: "01", title: "The org", sub: "clouds, backlog, lead" },
-            { k: "s2", num: "02", title: "Candidates", sub: "gaps stated up front" },
+            { k: "s2", num: "02", title: "Candidates", sub: "experience stated up front" },
             { k: "s3", num: "03", title: "Access", sub: "user, sandboxes, releases" },
             { k: "s4", num: "04", title: "Releases", sub: "check-ins with your lead" },
           ]}
           steps={[
             { k: "s1", num: "01", title: "The org and the work", line: "Which clouds, which automation and integrations, what is in the backlog, and who the developer reports to." },
-            { k: "s2", num: "02", title: "Candidates, gaps stated", line: "You interview them, and we say which parts of your org each one has not worked on before you find out in a sprint." },
+            { k: "s2", num: "02", title: "Candidates, experience stated", line: "You interview them, and we say which parts of your org each one has worked on, so you know before the first sprint." },
             { k: "s3", num: "03", title: "Access and sandboxes", line: "A user, a permission set, sandbox access and your release process, agreed with your lead before day one." },
             { k: "s4", num: "04", title: "Every release after", line: "We check in with your lead, not only with the developer, and raise problems before a deployment." },
           ]}

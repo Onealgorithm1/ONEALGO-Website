@@ -497,7 +497,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Our working method, step by step",
-   "lede": "We have no client app results to show, so we invite you to judge the method itself.",
+   "lede": "Judge the method itself: written scope, browser previews and code you own.",
    "leadIn": "What you get:",
    "lead": "a written scope you sign, a staging site you can open, and the code repository registered to you.",
    "deeper": {
@@ -610,7 +610,7 @@ export const PLACE: LocalPlace = {
     "label": "Design reviews online",
     "paras": [
      "We review designs with your team on a shared screen, and anyone can test the staging build from their own laptop between calls.",
-     "There is no Austin office. The developers who scope your project are the ones who build it, working from Malvern, PA."
+     "The developers who scope your project are the ones who build it, working from Malvern, PA."
     ]
    }
   },

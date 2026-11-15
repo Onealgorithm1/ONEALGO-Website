@@ -497,7 +497,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "We publish no client app results here, so judge us on method: written scope, visible progress and code that belongs to you.",
+   "lede": "Judge us on method: written scope, visible progress and code that belongs to you.",
    "leadIn": "What you get:",
    "lead": "a signed scope, a staging link you can open any time, and the repository and accounts in your name.",
    "deeper": {
@@ -609,7 +609,7 @@ export const PLACE: LocalPlace = {
     "label": "Screen-shares and staging links",
     "paras": [
      "Design reviews run over screen-share with your team. Between calls, the staging link lets anyone in your Houston office test the latest build and leave notes.",
-     "We have no Texas branch; the people who scope the app are the people who build it, from Malvern, PA."
+     "The people who scope the app are the people who build it, from Malvern, PA."
     ]
    }
   },

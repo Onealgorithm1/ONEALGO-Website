@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Bridging the time difference",
     "paras": [
-     "Hawaii clients work with us through video calls, screen-shares and preview links that show each change in the browser before it publishes. We have no Hawaii office; the team works from Malvern, Pennsylvania, and online support reaches every island.",
+     "Hawaii clients work with us through video calls, screen-shares and preview links that show each change in the browser before it publishes. The team works from Malvern, Pennsylvania, and online support reaches every island.",
      "Hawaii mornings fall in our Eastern afternoon, so we book calls early in your day, and written updates fill the hours between."
     ]
    }

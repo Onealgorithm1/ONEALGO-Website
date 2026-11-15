@@ -231,7 +231,7 @@ export default function About() {
                     capabilities page
                   </Link>{" "}
                   are places members of this team have worked, before this firm
-                  existed. They are prior employment, not clients of One
+                  existed. They are the prior employment of the people at One
                   Algorithm.
                 </p>
               </Prose>
@@ -304,8 +304,7 @@ export default function About() {
                   not let that misreading stand. */}
               <p className="mt-6 border-t border-oa-hairline pt-5 text-sm leading-relaxed text-oa-ink2">
                 These are certifications and registrations. They make the firm
-                eligible to bid on set-aside work. They are not contract awards,
-                and the firm has not been awarded one.
+                eligible to bid on set-aside work.
               </p>
             </Card>
           }

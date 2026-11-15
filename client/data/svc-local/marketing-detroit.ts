@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Approvals in your browser",
     "paras": [
-     "We keep no Michigan branch. Planning sessions, creative reviews and reporting happen over video and screen-share, and you approve every post, email and page in your browser.",
+     "Our team works with Detroit businesses from Malvern, PA. Planning sessions, creative reviews and reporting happen over video and screen-share, and you approve every post, email and page in your browser.",
      "Malvern, PA runs on the same Eastern clock as Detroit, and our support line stays open around the clock."
     ]
    }

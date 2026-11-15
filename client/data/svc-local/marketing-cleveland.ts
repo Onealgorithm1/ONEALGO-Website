@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Staying in touch",
     "paras": [
-     "There is no Cleveland branch. Our team works from Malvern, PA, on the same Eastern clock, so planning calls and screen-shares slot into your normal day.",
+     "Our team works from Malvern, PA, on the same Eastern clock, so planning calls and screen-shares slot into your normal day.",
      "Campaigns and sites get support at any hour, so a broken form on a Saturday does not have to wait for Monday."
     ]
    }

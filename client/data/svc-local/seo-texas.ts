@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "One team, any Texas city",
     "paras": [
      "Texas spans two time zones, mostly Central with El Paso on Mountain time, and we schedule calls to suit either. Reviews happen on shared screens and links you open in your browser.",
-     "We keep no Texas office. One team in Malvern, PA, handles your work end to end, with support around the clock."
+     "One team in Malvern, PA, handles your work end to end, with support around the clock."
     ]
    }
   },

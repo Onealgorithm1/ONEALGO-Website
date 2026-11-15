@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
     "label": "Day-to-day collaboration",
     "paras": [
      "Most of Florida shares our Eastern time zone, so calls land during normal working hours. Drafts, calendars and reports are shared as browser links you can comment on.",
-     "Our only office is in Malvern, Pennsylvania; there is no Florida branch. Support is available around the clock when something urgent breaks."
+     "Our only office is in Malvern, Pennsylvania. Support is available around the clock when something urgent breaks."
     ]
    }
   },

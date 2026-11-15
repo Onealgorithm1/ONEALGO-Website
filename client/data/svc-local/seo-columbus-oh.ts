@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we work together",
     "paras": [
-     "There is no Columbus office. We meet on video calls during the shared Eastern working day, review pages on staging links in your browser, and send reports straight from your own accounts."
+     "We work from Malvern, PA. We meet on video calls during the shared Eastern working day, review pages on staging links in your browser, and send reports straight from your own accounts."
     ]
    }
   },

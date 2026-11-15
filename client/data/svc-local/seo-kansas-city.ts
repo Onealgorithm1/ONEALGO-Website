@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How the work reaches you",
     "paras": [
-     "There is no Kansas City branch. Our only office is in Malvern, Pennsylvania, and we work with Kansas City businesses over video, shared screens and drafts you open in your own browser.",
+     "Our only office is in Malvern, Pennsylvania, and we work with Kansas City businesses over video, shared screens and drafts you open in your own browser.",
      "Support is available around the clock, so a broken page or a sudden ranking drop does not wait for Monday."
     ]
    }

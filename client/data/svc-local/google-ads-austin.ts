@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "What you can verify before spending",
-   "lede": "We share no ad results here, so the proof is a set of checks you can run on our setup yourself.",
+   "lede": "The proof is a set of checks you can run on our setup yourself.",
    "leadIn": "What you get:",
    "lead": "an account you own, conversions tested in front of you, and search term reports you can read line by line.",
    "deeper": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "How we review the account",
     "paras": [
      "We go through the account together on a shared screen, so every setting is visible. Monthly reports arrive by email and open in your browser.",
-     "There is no Austin office; we work from Malvern, PA, reachable at (610) 890-9711, with support around the clock."
+     "We work from Malvern, PA, reachable at (610) 890-9711, with support around the clock."
     ]
    }
   },

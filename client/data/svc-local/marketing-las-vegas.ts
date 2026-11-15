@@ -471,7 +471,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "What our search work has produced",
-   "lede": "We have no Las Vegas client to show, so here is the result we can document: Phantom Arcades, an arcade manufacturer in Florida.",
+   "lede": "Here is a result we can document: Phantom Arcades, an arcade manufacturer in Florida.",
    "leadIn": "Why it matters:",
    "lead": "we rebuilt the website for search first, and Google traffic followed within one measured window.",
    "deeper": {
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "How meetings work",
     "paras": [
      "Strategy sessions happen over video with a shared screen, and drafts of pages, emails and posts arrive as links you can comment on in your browser.",
-     "We do not keep a Nevada office. Everything runs from Malvern, PA, with support on hand day and night if a site or campaign needs urgent attention."
+     "Everything runs from Malvern, PA, with support on hand day and night if a site or campaign needs urgent attention."
     ]
    }
   },

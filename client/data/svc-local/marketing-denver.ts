@@ -288,7 +288,7 @@ export const PLACE: LocalPlace = {
     "label": "What \"digital marketing\" means here",
     "paras": [
      "For us it is one connected system: the website, search pages, a blog, email, review requests, social posts and, eventually, paid ads. Each piece feeds the next, and every one of them is tracked so you can see which channel brought the inquiry.",
-     "We are not a Colorado shop. The team works from Malvern, PA, and you see drafts, dashboards and reports in your browser."
+     "The team works from Malvern, PA, and you see drafts, dashboards and reports in your browser."
     ]
    },
    "cards": [
@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How meetings work",
     "paras": [
-     "We meet over video, share screens to walk through dashboards, and send every page or post as a link you approve in your browser. There is no Denver office; the team works remotely from Malvern, PA.",
+     "We meet over video, share screens to walk through dashboards, and send every page or post as a link you approve in your browser. The team works remotely from Malvern, PA.",
      "Urgent issues get round-the-clock support."
     ]
    }

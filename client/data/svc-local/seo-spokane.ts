@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Bridging the time difference",
     "paras": [
-     "We have no Washington office. Everything runs on video calls, screen-shares and page reviews in your browser, and we book calls in our afternoon so they land in Spokane's morning.",
+     "Our office is in Malvern, PA. Everything runs on video calls, screen-shares and page reviews in your browser, and we book calls in our afternoon so they land in Spokane's morning.",
      "Our team sits in Malvern, PA, and support covers every hour, including Pacific evenings."
     ]
    }

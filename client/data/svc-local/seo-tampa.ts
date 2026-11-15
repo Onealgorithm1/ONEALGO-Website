@@ -484,7 +484,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The work started with the website itself. We designed and rebuilt it for search, including a 3D cabinet configurator, and mapped 80+ old addresses to their new pages with redirects so existing visibility carried over.",
      "Search Console then compared a 68-day window in 2026 with the same dates in 2025. Clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions climbed 63%. The equally long stretch before that window was flat, so the change lines up with the rebuild.",
-     "Non-brand clicks are people who did not type the company's name, which is the growth SEO exists to produce. This is the case we can show; we do not claim Tampa clients."
+     "Non-brand clicks are people who did not type the company's name, which is the growth SEO exists to produce. The same work applies to a Tampa site."
     ]
    },
    "cards": [
@@ -588,10 +588,10 @@ export const PLACE: LocalPlace = {
     "a": "No. Our one office is in Malvern, PA, and SEO work for Tampa runs remotely, with every stage reviewed in your own browser."
    },
    "deeper": {
-    "label": "Same time zone, no branch",
+    "label": "Same time zone, remote team",
     "paras": [
      "Tampa and Malvern share Eastern time, so calls fit normal working hours on both ends. We review audits and drafts over video with a shared screen, and you approve staged pages in your browser.",
-     "We have no Florida branch and do not pretend to; the whole team works remotely from Pennsylvania, with support available around the clock."
+     "The whole team works remotely from Pennsylvania, with support available around the clock."
     ]
    }
   },

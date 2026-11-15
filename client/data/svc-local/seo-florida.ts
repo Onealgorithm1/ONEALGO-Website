@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "How we stay in touch",
     "paras": [
      "We meet Florida clients on video and share our screen to walk through findings. Reviews, drafts and reports come as links you open in your browser.",
-     "We have no Florida office. The team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355, mostly in the same Eastern time zone as you."
+     "The team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355, mostly in the same Eastern time zone as you."
     ]
    }
   },

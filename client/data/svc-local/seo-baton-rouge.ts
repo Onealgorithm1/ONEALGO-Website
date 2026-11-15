@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls and reviews",
     "paras": [
      "We meet over video and walk through findings on screen-share. Drafts and reports come as links you open in your browser, with comments in one place.",
-     "There is no Baton Rouge office; the team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355. Call (610) 890-9711 to reach us."
+     "The team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355. Call (610) 890-9711 to reach us."
     ]
    }
   },

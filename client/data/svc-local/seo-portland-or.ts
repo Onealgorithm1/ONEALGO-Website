@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote by design",
     "paras": [
-     "Portland businesses work with us over video calls and shared screens, and every change arrives as a preview link to review in the browser. We keep no Oregon branch; the work comes from our office in Malvern, Pennsylvania.",
+     "Portland businesses work with us over video calls and shared screens, and every change arrives as a preview link to review in the browser. The work comes from our office in Malvern, Pennsylvania.",
      "Pacific mornings overlap with Eastern afternoons, so a call before lunch in Portland reaches us during our working day."
     ]
    }

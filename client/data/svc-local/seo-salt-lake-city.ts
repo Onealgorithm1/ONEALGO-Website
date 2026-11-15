@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
     "label": "Mountain time, remote delivery",
     "paras": [
      "We are two hours ahead of Mountain time, so morning calls on your side are midday for us. Every review happens on a screen-share or in shared documents you open in your browser.",
-     "We have no Utah office: one office in Malvern, PA, and support available at any hour when something urgent comes up."
+     "We have one office, in Malvern, PA, and support available at any hour when something urgent comes up."
     ]
    }
   },

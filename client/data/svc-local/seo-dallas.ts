@@ -600,7 +600,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay close",
     "paras": [
-     "We do not keep a branch in Texas. Calls, screen-shares and document reviews in your browser replace the office visit, and they keep a clear record of every decision.",
+     "We serve Dallas businesses from Malvern, PA. Calls, screen-shares and document reviews in your browser replace the office visit, and they keep a clear record of every decision.",
      "Our single office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and support is available around the clock when something breaks."
     ]
    }

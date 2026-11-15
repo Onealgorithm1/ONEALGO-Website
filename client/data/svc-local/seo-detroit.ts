@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings without the drive",
     "paras": [
-     "There is no Michigan office. We work through calls, screen-shares and page previews in your browser, which means less travel and a clearer record than in-person meetings.",
+     "Our office is in Malvern, PA. We work through calls, screen-shares and page previews in your browser, which means less travel and a clearer record than in-person meetings.",
      "Detroit shares our Eastern time zone, and our Malvern, PA team keeps support available day and night."
     ]
    }

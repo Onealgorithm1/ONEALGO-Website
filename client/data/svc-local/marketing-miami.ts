@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
     "label": "How meetings work",
     "paras": [
      "Kickoffs and monthly reviews run on video calls. Content drafts, social calendars and reports open in your browser so you can approve them between appointments.",
-     "We keep no Miami office; the whole team works from Malvern, Pennsylvania."
+     "The whole team works from Malvern, Pennsylvania."
     ]
    }
   },

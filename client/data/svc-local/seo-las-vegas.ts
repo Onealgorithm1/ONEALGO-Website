@@ -481,7 +481,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The client: Phantom Arcades, an arcade cabinet manufacturer in Valrico, Florida, served entirely remotely, the same way we would work with a Las Vegas business.",
      "What we did: designed and rebuilt the website for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects.",
-     "The result: in a late-summer to autumn 2026 Search Console window, against the same dates a year earlier, Google clicks rose from 1,112 to 2,130 and non-brand clicks from 95 to 314. Impressions rose 63%, while the equal stretch before that window was flat. We have no Las Vegas client to cite, and we will not pretend otherwise."
+     "The result: in a late-summer to autumn 2026 Search Console window, against the same dates a year earlier, Google clicks rose from 1,112 to 2,130 and non-brand clicks from 95 to 314. Impressions rose 63%, while the equal stretch before that window was flat. A Las Vegas site gets the same process."
     ]
    },
    "cards": [
@@ -588,7 +588,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screens and reviews",
     "paras": [
      "We meet by video call and share screens to walk through audits and drafts. Staging links open in any browser, so you review new pages from your own desk before anything goes live.",
-     "There is no Nevada branch. One team in Malvern, PA, runs the work, and support is available around the clock when something breaks."
+     "One team in Malvern, PA, runs the work, and support is available around the clock when something breaks."
     ]
    }
   },

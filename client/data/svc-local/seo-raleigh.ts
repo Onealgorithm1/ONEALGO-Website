@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "A firm count is a ceiling. Consultancies in Raleigh include brand strategists, research shops and fractional marketers; only some do the technical and content work that moves rankings.",
      "The programming figure matters more than it looks. With 529 custom programming firms nearby, technical polish is easy to buy in Raleigh, so fixes alone rarely set a site apart. Content depth and earned authority do.",
-     "We are not in North Carolina and do not pretend to be. We work from Malvern, PA, and give Raleigh businesses written plans, shared dashboards and reviews on a call."
+     "Raleigh keeps Eastern time, as we do. We work from Malvern, PA, and give Raleigh businesses written plans, shared dashboards and reviews on a call."
     ]
    },
    "table": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Same hours, no site visits needed",
     "paras": [
      "Raleigh and Malvern share Eastern time, so working hours line up exactly. We meet over video, share screens instead of visiting, and send every draft for review in your browser.",
-     "We have no North Carolina office. Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, with support available at any hour."
+     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, with support available at any hour."
     ]
    }
   },

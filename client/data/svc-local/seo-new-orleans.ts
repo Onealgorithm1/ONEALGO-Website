@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
     "label": "Central time, remote work",
     "paras": [
      "New Orleans runs one hour behind us, so calls fit easily into your day. Reviews happen on screen-shares, and every draft is a link you open in your browser.",
-     "There is no New Orleans office. We keep one office in Malvern, PA, and support is reachable around the clock."
+     "We keep one office in Malvern, PA, and support is reachable around the clock."
     ]
    }
   },

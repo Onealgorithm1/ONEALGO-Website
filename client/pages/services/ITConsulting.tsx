@@ -219,15 +219,15 @@ export default function ITConsulting() {
           />
           <p className="sf-lead sf-measure" style={{ marginTop: 28 }}><span className="sf-lead-in">Why it matters:</span> Buyers here have choices, so we compete on a small team that stays on the work.</p>
           <GoDeeper label="working with us locally, and support after go-live">
-            <p className="sf-rule">Malvern sits in Chester County, a short drive from Center City Philadelphia, King of Prussia and Wilmington. We have no separate Philadelphia office. Organizations further away work with us over video and shared screens, and we travel for workshops, cutovers and anything better done in the room.</p>
+            <p className="sf-rule">Malvern sits in Chester County, a short drive from Center City Philadelphia, King of Prussia and Wilmington. Organizations further away work with us over video and shared screens, and we travel for workshops, cutovers and anything better done in the room.</p>
             <p>After go-live we stay: hypercare first, while real users find the cases nobody tested, then ongoing support, 24/7.</p>
           </GoDeeper>
         </SmartSection>
 
-        <SmartSection id="show" tone="surface" grid heading={{ id: "h-show", title: "What we can and cannot show", lede: "We have not published client names, testimonials or outcome figures." }}>
+        <SmartSection id="show" tone="surface" grid heading={{ id: "h-show", title: "IT consulting proof you can check", lede: "We are a Select Salesforce Consulting Partner and a Zendesk partner, and you can look both up." }}>
           <Statement>Four named people you can question about work you care about.</Statement>
           <ul className="sf-points sf-c5">
-            <li>No case studies on this site</li>
+            <li>Scope in writing before work starts</li>
             <li>Experience listed as prior employment</li>
             <li>Partner status you can look up</li>
           </ul>

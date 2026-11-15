@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we run accounts you can check",
-   "lede": "We share no client ad results, so here is the method you can verify inside your own account.",
+   "lede": "Here is the method, which you can verify inside your own account.",
    "leadIn": "Why it matters:",
    "lead": "an ad account should be transparent to its owner, with nothing hidden behind a monthly summary.",
    "deeper": {
@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Accounts reviewed on screen",
     "paras": [
-     "We manage accounts remotely and keep no office in Texas. Reviews happen on video calls with the live account on screen, so you see exactly what we see.",
+     "We manage accounts remotely from our office in Malvern, PA. Reviews happen on video calls with the live account on screen, so you see exactly what we see.",
      "Our base is 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent issues, such as a disapproved ad, get attention outside office hours too."
     ]
    }

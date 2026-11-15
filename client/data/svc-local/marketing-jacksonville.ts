@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
     "label": "Staying in touch",
     "paras": [
      "Calls happen on video or phone, and reports and drafts open in your browser. Your team can comment from Southside, the Beaches or wherever they are working.",
-     "We run no Jacksonville branch; the work comes from our Malvern, Pennsylvania office."
+     "The work comes from our Malvern, Pennsylvania office."
     ]
    }
   },

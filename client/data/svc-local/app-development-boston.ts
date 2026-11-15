@@ -498,7 +498,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "We have no app client results to publish, so here is the method you can hold us to instead.",
+   "lede": "Here is the method you can hold us to, with something to check at every stage.",
    "leadIn": "What you get:",
    "lead": "a written scope, a clickable design before code, and repositories, hosting and accounts registered in your name.",
    "deeper": {
@@ -612,7 +612,7 @@ export const PLACE: LocalPlace = {
     "label": "Remote by design",
     "paras": [
      "Boston and Malvern share Eastern time, so standups and design reviews fit a normal workday. You watch the app take shape on screen-shares and test builds open in your browser.",
-     "There is no Boston office or local team: one office, in Malvern, PA, serving clients remotely across the country."
+     "We have one office, in Malvern, PA, and serve clients remotely across the country."
     ]
    }
   },

@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote, but close",
     "paras": [
-     "Our single office is in Malvern, Pennsylvania, with no Kansas City location. We meet on video, walk through reports on a shared screen, and you approve campaigns in your browser.",
+     "Our single office is in Malvern, Pennsylvania. We meet on video, walk through reports on a shared screen, and you approve campaigns in your browser.",
      "Help is available around the clock if a form, email send or social account needs urgent attention."
     ]
    }

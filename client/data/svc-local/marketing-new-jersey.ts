@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
     "label": "Same clock, online delivery",
     "paras": [
      "We work on the same Eastern clock as your team, so questions sent in the morning are usually answered the same day. Meetings run over video, and approvals happen in shared documents.",
-     "No branch office exists in the state; everything is delivered online from Malvern, PA, and urgent problems get a reply at any hour."
+     "Everything is delivered online from Malvern, PA, and urgent problems get a reply at any hour."
     ]
    }
   },

@@ -479,7 +479,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Phantom Arcades, a cabinet maker in Valrico, Florida, asked us to rebuild its website for search, including a 3D cabinet configurator.",
      "We designed the new site and mapped more than 80 old addresses to new ones with redirects, so earlier links and rankings carried over.",
-     "Search Console then compared a 68-day window with the same dates a year earlier: clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, impressions up 63%. The same stretch before launch was flat. We make no claim to Colorado clients."
+     "Search Console then compared a 68-day window with the same dates a year earlier: clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, impressions up 63%. The same stretch before launch was flat. The same method applies to a Colorado business."
     ]
    },
    "cards": [
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Across two time zones",
     "paras": [
      "Colorado runs two hours behind our Eastern clock, so your mornings meet our late mornings and afternoons. We walk through audits on video with a shared screen, and staged pages open in your browser for approval.",
-     "We keep no Colorado branch. The team works from Malvern, PA, and support is available around the clock."
+     "The team works from Malvern, PA, and support is available around the clock."
     ]
    }
   },

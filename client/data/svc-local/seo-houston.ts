@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screens and reviews",
     "paras": [
      "Houston is one hour behind our Malvern office, so a morning call for you is late morning for us. Reviews happen on a shared screen or in your own browser, at a link we send.",
-     "There is no branch office in Texas. You get the same people from first audit to monthly report, reachable by phone at (610) 890-9711 and supported around the clock."
+     "We serve Houston from one office in Malvern, PA. You get the same people from first audit to monthly report, reachable by phone at (610) 890-9711 and supported around the clock."
     ]
    }
   },

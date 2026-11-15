@@ -583,9 +583,9 @@ export const PLACE: LocalPlace = {
     "a": "No. Our one office is in Malvern, PA, and SEO work for Baltimore runs remotely, with every stage reviewed in your own browser."
    },
    "deeper": {
-    "label": "Same time zone, no branch",
+    "label": "Same time zone, same working day",
     "paras": [
-     "Calls run by video with screens shared, and drafts arrive as links you open in your browser. We have no Baltimore branch; the team works remotely from Malvern, PA, in the same time zone.",
+     "Calls run by video with screens shared, and drafts arrive as links you open in your browser. The team works remotely from Malvern, PA, in the same time zone.",
      "Urgent issues get support around the clock."
     ]
    }

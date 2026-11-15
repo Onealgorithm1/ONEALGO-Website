@@ -472,7 +472,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Our one published SEO result",
-   "lede": "The case study we can share is a Florida arcade manufacturer, not a Grand Rapids client, with figures from Search Console.",
+   "lede": "The case study we can share is a Florida arcade manufacturer, with figures from Search Console.",
    "leadIn": "The bottom line:",
    "lead": "after the rebuild, total Google clicks grew 92% year over year and non-brand clicks grew 231%.",
    "deeper": {
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls and reviews",
     "paras": [
-     "We have no Grand Rapids office; the team works from Malvern, PA. Calls and screen-shares run on the Eastern time you already keep, and reports arrive as browser links.",
+     "The team works from Malvern, PA. Calls and screen-shares run on the Eastern time you already keep, and reports arrive as browser links.",
      "Live-site problems get support at any time of day or night."
     ]
    }

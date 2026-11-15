@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Our method, open to inspection",
-   "lede": "We publish no Google Ads client results, so here is the method and what you can verify yourself.",
+   "lede": "Here is the Google Ads method and what you can verify yourself.",
    "leadIn": "What you get:",
    "lead": "tracking checked before spend, search terms reported, and the account owned by you from the start.",
    "deeper": {
@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Access and reviews",
     "paras": [
-     "No New York branch exists; campaigns are managed from Malvern, PA. Reviews happen by video, and you can open the account yourself whenever you want to check spend.",
+     "Campaigns are managed from Malvern, PA. Reviews happen by video, and you can open the account yourself whenever you want to check spend.",
      "Support runs day and night, so a broken landing page or a disapproved ad is handled outside office hours too."
     ]
    }

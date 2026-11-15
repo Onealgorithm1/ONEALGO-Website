@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Video, screens and staging links",
     "paras": [
-     "We meet over video and share screens to walk through audits and drafts, and you review every change in your browser before it goes live. There is no Alabama office; the work is remote from Malvern, PA.",
+     "We meet over video and share screens to walk through audits and drafts, and you review every change in your browser before it goes live. The work is remote from Malvern, PA.",
      "Round-the-clock support covers anything urgent, like a site dropping out of Google."
     ]
    }

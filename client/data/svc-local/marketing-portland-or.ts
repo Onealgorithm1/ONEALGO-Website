@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay in touch",
     "paras": [
-     "We meet Portland teams on video, review drafts together on screen-shares and send each page or post as a browser link to approve. There is no Oregon branch; everything runs from Malvern, Pennsylvania, and online support covers the gap.",
+     "We meet Portland teams on video, review drafts together on screen-shares and send each page or post as a browser link to approve. Everything runs from Malvern, Pennsylvania, and online support covers the distance.",
      "A late-morning call in Portland falls in our afternoon, which keeps scheduling simple."
     ]
    }

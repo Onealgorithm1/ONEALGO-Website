@@ -483,7 +483,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Starting point: an arcade cabinet manufacturer in Florida needed a website built for search. In the stretch just before the measured window, Google clicks had run flat.",
      "The work: we designed and rebuilt the site for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects so old links still landed on the right pages.",
-     "Outcome in Search Console, a 2026 window against the same dates a year earlier: clicks rose from 1,112 to 2,130, up 92%, and non-brand clicks from 95 to 314, up 231%. Impressions rose 63%. We have no Tampa client results to share and will not invent any."
+     "Outcome in Search Console, a 2026 window against the same dates a year earlier: clicks rose from 1,112 to 2,130, up 92%, and non-brand clicks from 95 to 314, up 231%. Impressions rose 63%. The same method applies to a Tampa business."
     ]
    },
    "cards": [
@@ -590,7 +590,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings and reviews",
     "paras": [
      "We share Eastern time with Tampa, so planning calls happen during your normal day. Drafts of pages, emails and social posts arrive as links you can review and comment on from any browser.",
-     "There is no Tampa office. The team works remotely from Malvern, PA, and support is reachable around the clock if a campaign or site needs fixing."
+     "The team works remotely from Malvern, PA, and support is reachable around the clock if a campaign or site needs fixing."
     ]
    }
   },

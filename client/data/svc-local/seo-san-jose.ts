@@ -590,7 +590,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How remote collaboration works",
     "paras": [
-     "San Jose teams work with us over video calls, screen-shares and shared tickets, and every change appears on a preview link before it goes live. We do not have a California office; the team works from Malvern, Pennsylvania, and round-the-clock support reaches you directly.",
+     "San Jose teams work with us over video calls, screen-shares and shared tickets, and every change appears on a preview link before it goes live. The team works from Malvern, Pennsylvania, and round-the-clock support reaches you directly.",
      "Pacific mornings overlap with our afternoons, which suits stand-up style check-ins with your developers."
     ]
    }

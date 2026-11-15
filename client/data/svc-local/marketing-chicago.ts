@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings, reviews, approvals",
     "paras": [
      "We work with Chicago companies over video, with drafts and reports shared as links you review in a browser. Approvals happen in comments, not in long email chains.",
-     "We keep a single office, in Malvern, Pennsylvania, and do not run a Chicago branch. Support is around the clock when something breaks."
+     "We keep a single office, in Malvern, Pennsylvania. Support is around the clock when something breaks."
     ]
    }
   },

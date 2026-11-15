@@ -483,7 +483,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Our method, open to inspection",
-   "lede": "We publish no Google Ads client results, so this section shows how we run accounts and what you can check yourself.",
+   "lede": "This section shows how we run Google Ads accounts and what you can check yourself.",
    "leadIn": "What you get:",
    "lead": "tracking you can verify, a written plan for keywords and budget, and full ownership of the ad account.",
    "deeper": {
@@ -595,7 +595,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay in touch",
     "paras": [
-     "Our only office is in Malvern, Pennsylvania; there is no Los Angeles branch. Reviews happen on video calls with the account open on a shared screen, and you can log in to see every change we make.",
+     "Our only office is in Malvern, Pennsylvania. Reviews happen on video calls with the account open on a shared screen, and you can log in to see every change we make.",
      "If something urgent comes up, such as a budget spike or a disapproved ad, support is available at any hour."
     ]
    }

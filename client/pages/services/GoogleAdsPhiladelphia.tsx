@@ -68,7 +68,7 @@ const FAQS: SfFaqItem[] = [
   { q: "What do you check first in a Google Ads account?", a: "Search terms and negatives first, then whether conversions are counted once, then geography and structure, then landing pages. Those four areas explain most wasted spend in a local account. You get the findings ranked by what to fix first, and the account stays in your name." },
   { q: "Why does a local Google Ads account waste money?", a: "The usual causes are a radius that spends across state lines, broad match with no negative list, conversions counted twice, phone calls nobody counts, a neglected landing page and an account the owner cannot see. Each one is cheaper to fix than to out-bid, which is why the audit comes first." },
   { q: "Do you manage Google Ads outside Philadelphia?", a: "Yes. We manage Google Ads in Philadelphia, Bucks, Chester, Delaware and Montgomery counties, and New Castle County, Delaware, and the method carries to businesses elsewhere. Our main Google Ads page explains the method in full. This page covers the Philadelphia specifics such as radius, state lines and call tracking.", link: { to: "/services/google-ads", label: "Google Ads management" } },
-  { q: "Do you have an office in Philadelphia?", a: "No. Our office is in Malvern, PA, and we serve Philadelphia businesses from there. We have no Philadelphia client results to show. Call (610) 890-9711 to request a Google Ads audit." },
+  { q: "Where is your office, and do you serve Philadelphia?", a: "Our office is in Malvern, PA, and we serve Philadelphia businesses from there. Call (610) 890-9711 to request a Google Ads audit." },
   { q: "Should a Philadelphia business use ads or local SEO?", a: "Ads give visibility now and stop when spend stops. Local SEO builds slowly through your Business Profile, reviews and service pages. A business with an urgent gap often starts with ads and builds SEO alongside. We audit both sides and tell you which to start with.", link: { to: "/services/seo-chester-county", label: "SEO company in Chester County" } /* ponytail: add the Philadelphia SEO link when /services/seo-philadelphia is approved */ },
   { q: "How often do you work on the account and report?", a: "We agree the schedule in writing before the work starts, and report in plain numbers: spend, calls and forms counted once, and what we changed. You can see everything, because the account is yours. If something is leaking, we do not wait for the next report to fix it." },
   { q: "Do I have to hire you after the audit?", a: "No. The audit is the offer. You get the findings ranked by what to fix first, and your own team or developer can act on them. If you want us to run the account afterwards, we scope that in writing, and the account stays in your name either way." },
@@ -142,7 +142,7 @@ export default function GoogleAdsPhiladelphia() {
             headingId="h-area"
             title="A PPC agency for Philadelphia, from Malvern"
             lede="We manage Google Ads in Philadelphia, Bucks, Chester, Delaware and Montgomery counties, and New Castle County, Delaware, from our Malvern office."
-            lead="We have no Philadelphia office. The geography is chosen from where you can profitably serve, not left at a default."
+            lead="The geography is chosen from where you can profitably serve, not left at a default."
             points={[
               "Targeting matched to the area you actually serve",
               "Radius and state-line choices made deliberately",

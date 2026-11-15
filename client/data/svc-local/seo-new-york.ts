@@ -494,7 +494,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The situation: a full redesign was planned, including a 3D cabinet configurator, and the old site’s addresses were already indexed by Google.",
      "What we did: designed and rebuilt the site for search, then mapped 80+ old addresses to their new pages with redirects so earned visibility carried over. We compared a Search Console window in 2026 with the same dates in 2025.",
-     "The result: clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The period just before that window was flat. This is a Florida client, not a New York one, and the same process applies here."
+     "The result: clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The period just before that window was flat. This is a Florida client, and the same process applies in New York."
     ]
    },
    "cards": [
@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How calls and reviews work",
     "paras": [
-     "There is no branch office in New York; the work runs from Malvern, PA, a train ride from Manhattan. Calls, screen-shares and page reviews happen online, on your schedule.",
+     "The work runs from Malvern, PA, a train ride from Manhattan. Calls, screen-shares and page reviews happen online, on your schedule.",
      "Every draft, audit and report opens in your browser. Support is available around the clock for anything urgent on the live site."
     ]
    }
