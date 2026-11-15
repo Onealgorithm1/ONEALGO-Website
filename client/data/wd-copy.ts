@@ -92,7 +92,7 @@ export const U: Record<string, WdUnit> = {
   builder: {
     id: "builder-or-custom",
     title: "Squarespace, Wix or WordPress versus custom",
-    lede: "Squarespace, Wix or WordPress suits standard layouts on a monthly fee; custom code suits a site that must do something specific or be owned outright.",
+    lede: "Squarespace, Wix or WordPress suits standard layouts on a monthly fee, and custom code suits sites that must do something specific or be owned outright.",
     leadIn: "Yes, but:",
     lead: "the table below says which is which, including the cases where the builder wins.",
     deep: "when we say use the builder",
@@ -100,7 +100,7 @@ export const U: Record<string, WdUnit> = {
   a11y: {
     id: "accessibility",
     title: "ADA compliance and accessible websites",
-    lede: "An ADA compliant website is one people with disabilities can use; we build and test it against WCAG 2.1 AA.",
+    lede: "An ADA compliant website is one people with disabilities can use, and we build and test it against WCAG 2.1 AA.",
     leadIn: "What we do:",
     lead: "keyboard access, contrast, text alternatives and structure, checked with the automated rules an auditor runs, then by keyboard.",
     points: ["WCAG 2.1 AA as the written standard in every proposal", "Automated rules on every build, then a keyboard pass", "No accessibility overlay: fixes go in the code"],
@@ -127,7 +127,7 @@ export const U: Record<string, WdUnit> = {
     title: "How a new website gets found",
     lede: "A new website gets found when its structure, titles and schema are built in and Search Console, analytics and the Business Profile connect at launch.",
     leadIn: "What we do:",
-    lead: "the build includes that groundwork; search, ads and follow-up are separate services on the road map below.",
+    lead: "the build includes that groundwork, while search, ads and follow-up are separate services on the road map below.",
   },
   who: {
     id: "industries",
@@ -177,15 +177,15 @@ export const BUILD_KINDS: { title: string; line: string; to?: string; linkLabel?
 
 /** U10: the three H3 rows; `hl` is the HandoverPlate node the row lights (data-hl-key). */
 export const AFTER_ROWS: { title: string; line: string; hl: "repo" | "dns" | "host" | "docs" }[] = [
-  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account, not ours.", hl: "host" },
+  { title: "Hosting and domain in your name", line: "Deployed where you control it, with DNS in your account.", hl: "host" },
   { title: "Security: HTTPS and security headers", line: "HTTPS and security headers set at launch, as on this site.", hl: "dns" },
-  { title: "Updates and support after launch", line: "We stay on under the written proposal's terms; every project is scoped on its own.", hl: "docs" },
+  { title: "Updates and support after launch", line: "We stay on under the written proposal's terms. Every project is scoped on its own.", hl: "docs" },
 ];
 
 /** U11: the handover ledger (wording as live since 2026-08-24, WebsiteDevelopment.tsx HANDOVER). */
 export const HANDOVER: { k: string; text: string }[] = [
   { k: "REPO", text: "Source in your own repository, from day one and at handover" },
-  { k: "DNS", text: "Domain and DNS in your account, not ours" },
+  { k: "DNS", text: "Domain and DNS in your account" },
   { k: "HOST", text: "Deployed somewhere you control, and can move" },
   { k: "DOCS", text: "Written so another developer can pick it up" },
 ];
@@ -210,7 +210,7 @@ export const NAP = {
   phone: { display: "(610) 890-9711", href: "tel:+16108909711" },
   hours: "Mon–Fri 9–5",
   counties: ["Chester County, PA", "Delaware County, PA", "Montgomery County, PA", "Bucks County, PA", "Philadelphia County, PA", "New Castle County, DE"],
-  travel: "Most work runs remotely; in-person sessions when the project calls for them, easiest across the Philadelphia region.",
+  travel: "Most work runs remotely, with in-person sessions when the project calls for them, easiest across the Philadelphia region.",
 };
 
 /** U17: the desk. */

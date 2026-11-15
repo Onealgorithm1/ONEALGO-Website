@@ -28,12 +28,12 @@ const FAMILIES = [
 const FAQS: SfFaqItem[] = [
   { q: "Where is OneAlgorithm located?", a: "We are based in Malvern, Pennsylvania, in Chester County, and our phone is (610) 890-9711. We work with clients across the United States, mostly remotely, and meet in person when a project calls for it. Local pages cover Chester County and Philadelphia.", link: { to: "/contact", label: "Contact us" } },
   { q: "What does OneAlgorithm do?", a: "We build websites and software, run SEO and Google Ads, and implement Salesforce. We also provide IT consulting and staff augmentation for small organizations. One four-person team handles the work from first workshop to 24/7 support, so you talk to the people who build it.", link: { to: "/services", label: "All services" } },
-  { q: "How big is the team?", a: "There are four of us. That means you work with the people doing the build, not a layer of account managers, and the same people stay on from the first workshop through support. We make no claim about client counts or size beyond that.", link: { to: "/about", label: "About us" } },
-  { q: "Do you offer support after launch?", a: "Yes. Every engagement has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. It is one support offer with no tiers to choose between, and it is handled by the team that built the work. There are no support tiers, so what you get is the same for every client.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
+  { q: "How big is the team?", a: "There are four of us. That means you work with the people doing the build, not a layer of account managers, and the same people stay on from the first workshop through support.", link: { to: "/about", label: "About us" } },
+  { q: "Do you offer support after launch?", a: "Yes. Every engagement has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. It is one support offer with no tiers to choose between, and it is handled by the team that built the work.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
   { q: "Are you a Salesforce partner?", a: `Yes. Salesforce lists OneAlgorithm as a Select Consulting Partner on the AppExchange, with ${SF_CERTIFIED_PEOPLE} certified people and ${SF_CERTIFICATIONS} certifications in Salesforce's own record, read 23 October 2026. You can check the listing yourself before you hire anyone, and we claim no higher partner tier.`, link: { to: "/services/salesforce", label: "Salesforce consulting" } },
-  { q: "Do I own what you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one, and nothing is held back. We hand over documentation, so another developer can pick the work up whenever you choose. Documentation is part of the handover, not an extra.", link: { to: "/services/application-development", label: "Custom software development" } },
+  { q: "Do I own what you build?", a: "Yes. The code, the cloud accounts and the domain registrations are in your name from day one, and nothing is held back. We hand over documentation, so another developer can pick the work up whenever you choose.", link: { to: "/services/application-development", label: "Custom software development" } },
   { q: "Can you show a measured result?", a: "Yes, one. For Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, measured in Search Console. It is one result, not a pattern, and we claim no revenue. The case study shows the dates and method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades SEO case study" } },
-  { q: "Can you work with the systems we already use?", a: "Usually, yes. Integrations are scoped per system, and we start with the two that disagree. We connect Salesforce, Zendesk (we signed a partner agreement in 2026) and Microsoft 365 rather than assuming a replacement. Which of the two systems disagree most is the question we ask first.", link: { to: "/services/salesforce-integration", label: "Salesforce integration" } },
+  { q: "Can you work with the systems we already use?", a: "Usually, yes. Integrations are scoped per system, and we start with the two that disagree. We connect Salesforce, Zendesk (we signed a partner agreement in 2026) and Microsoft 365 rather than assuming a replacement.", link: { to: "/services/salesforce-integration", label: "Salesforce integration" } },
   { q: "Do you build websites and do SEO for small businesses?", a: "Yes, small businesses are who we build for. We build the site and run the SEO, so the pages are made to be found, and you own the result. Each service has its own page with the process and what to expect.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "Do you work outside Pennsylvania?", a: "Yes. Most work is remote, with clients across the United States. We have local pages for Chester County and Philadelphia because that is where we are known, but nothing about the work requires you to be near Malvern. Calls and screen-shares replace site visits for most projects.", link: { to: "/services/seo-chester-county", label: "SEO, Chester County" } },
 ];
@@ -86,7 +86,7 @@ export function HomeBody() {
         <ProofStrip variant="local" />
       </SmartSection>
 
-      <OfferBand heading="Tell us what to fix" line="Say what is not working and what you want it to do; a person replies." label="Talk to a consultant" />
+      <OfferBand heading="Tell us what to fix" line="Say what is not working and what you want it to do, and a person replies." label="Talk to a consultant" />
 
       {/* 3. Services: the card grid. */}
       <SmartSection id="services" tone="surface" heading={{ kicker: "Services", title: "What we build and run", id: "h-services", lede: "Seven service families, one team from first workshop to run-state." }}>
@@ -123,7 +123,7 @@ export function HomeBody() {
         </div>
         <Readouts withEvidence={false} items={[
           { value: SF_CERTIFIED_PEOPLE, label: "Salesforce-certified people", source: "Salesforce's AppExchange record" },
-          { value: SF_CERTIFICATIONS, label: "Salesforce certifications", source: "Salesforce's figure, not ours" },
+          { value: SF_CERTIFICATIONS, label: "Salesforce certifications", source: "Salesforce's figure" },
         ]} />
       </SmartSection>
 
@@ -186,9 +186,9 @@ export function HomeBody() {
 
       <DeskCTA
         form={{ topic: "general", topicLabel: "OneAlgorithm", heading: "Tell us what you need", prompt: "What is the system or page that is not working?", submitLabel: "Talk to an expert", need: "general" }}
-        heading="Tell us what to fix" lede="Say what is not working and what you want it to do; a person at OneAlgorithm reads it and replies."
+        heading="Tell us what to fix" lede="Say what is not working and what you want it to do, and a person at OneAlgorithm reads it and replies."
         covers={["What is not working today", "The systems and sites involved", "What a fix would let you do", "Your timeline"]} coversLabel="What to have ready"
-        next={["Send the form on the contact page; the topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
+        next={["Send the form on the contact page. The topic is filled in.", "A person at OneAlgorithm reads it and replies.", "If it fits, we scope it in writing before any work starts."]}
         hcLink={false}
       />
 

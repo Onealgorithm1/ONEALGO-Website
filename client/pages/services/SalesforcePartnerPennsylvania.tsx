@@ -124,7 +124,7 @@ const CHECKS: Stage[] = [
   },
   {
     k: "s2", num: "02", title: "Count certified people and certifications", short: "Count people and certifications", sub: "Salesforce's counts, not the firm's",
-    line: "Salesforce certifies people, not companies; the listing shows how many certified people the firm employs and how many certifications they hold.",
+    line: "Salesforce certifies people, not companies, and the listing shows how many certified people the firm employs and how many certifications they hold.",
     details: [
       "Salesforce keeps those counts, not the firm",
       "Compare firms on the same two figures",
@@ -154,7 +154,7 @@ const CHECKS: Stage[] = [
 /* The seven services: the hub's cards (exact service names, scene details), with this page's delivered-work
    one-liners (the ef1a8f0 wording) on the four cards that carry a delivered pattern. */
 const PA_BODIES: Record<string, string> = {
-  "/services/salesforce-data-migration": "We have migrated QuickBase and Kissflow systems into Salesforce; yours is reconciled before go-live.",
+  "/services/salesforce-data-migration": "We have migrated QuickBase and Kissflow systems into Salesforce. Yours is reconciled before go-live.",
   "/services/salesforce-integration": "We keep SAP and Salesforce in sync, with the owner of each record agreed before anything is built.",
   "/services/salesforce-managed-services": "Weekly administration and development with hours reported every week, ongoing for a lending company since April 2026.",
   "/services/salesforce-marketing-cloud-consulting": "Support for Marketing Cloud accounts already running, backed by about 18 months of Marketing Cloud support.",
@@ -171,7 +171,7 @@ const PA_ROUTES = [
 /* Objection questions (H3), answers in Go deeper. None repeats a FAQ question. */
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Will we get a junior team after the sale?", a: <>You work directly with the certified people doing the work, with no hand-off after the sale. Sreenivas Amirisetti leads our Salesforce practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
-  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, the list says that.</> },
   { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first. <Link className="sf-link" to={COST}>What Salesforce work costs</Link></> },
   { q: "You are not in our part of Pennsylvania.", a: <>Most of the work runs remotely inside your org, and on-site visits are planned into larger projects. <a className="sf-link" href="#pennsylvania">Salesforce consultants across Pennsylvania</a></> },
 ];
@@ -187,7 +187,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "What is the difference between a Salesforce consultant and an implementation partner?",
-    a: "A consultant is a person; a partner is a firm. 'Implementation partner' is the everyday name for the firm you hire to set Salesforce up, and Salesforce lists those firms as Consulting Partners. Many Salesforce consultants work inside partner firms, and others work freelance.",
+    a: "A consultant is a person, and a partner is a firm. 'Implementation partner' is the everyday name for the firm you hire to set Salesforce up, and Salesforce lists those firms as Consulting Partners. Many Salesforce consultants work inside partner firms, and others work freelance.",
   },
   {
     q: "Partner or freelancer: does it matter?",
@@ -200,7 +200,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Does it matter whether a partner's people are certified?",
-    a: "Yes. Salesforce certifies people, not companies, so a partner's certifications are only as useful as the people who will work on your org. The listing counts certified people and certifications by competency; ask who will do your work, then check their active certifications on Trailblazer. Ours are listed under Who leads your Salesforce work.",
+    a: "Yes. Salesforce certifies people, not companies, so a partner's certifications are only as useful as the people who will work on your org. The listing counts certified people and certifications by competency. Ask who will do your work, then check their active certifications on Trailblazer. Ours are listed under Who leads your Salesforce work.",
     link: { to: "#record", label: "Who leads your Salesforce work" },
   },
   {
@@ -291,7 +291,7 @@ export default function SalesforcePartnerPennsylvania() {
             headingId="h-tiers"
             title="Salesforce partner tiers: Provisional, Select and Summit"
             lede="Since March 2026, Salesforce ranks consulting partners Provisional, Select or Summit, and rates their Competencies on certifications, completed projects and customer satisfaction."
-            lead={<>The tier is set by Salesforce, not the firm; OneAlgorithm's AppExchange listing shows {SF_TIER}, read {SF_VERIFIED_LABEL}.</>}
+            lead={<>The tier is set by Salesforce, not the firm. OneAlgorithm's AppExchange listing shows {SF_TIER}, read {SF_VERIFIED_LABEL}.</>}
             points={[
               "Provisional: new partners, onboarding and winning their first projects",
               "Select: partners with a track record of customer success",
@@ -368,7 +368,7 @@ export default function SalesforcePartnerPennsylvania() {
             headingId="h-check"
             title="How to check a Salesforce partner before hiring"
             lede="Four checks, all on Salesforce's own register: find the firm, count its certified people, read the competency row, and ask who will do the work."
-            lead="Run them on any firm you are considering, us included; every figure is Salesforce's, so firms compare on the same record."
+            lead="Run them on any firm you are considering, us included. Every figure is Salesforce's, so firms compare on the same record."
           />
           <StageRail
             fig={1}
@@ -404,13 +404,13 @@ export default function SalesforcePartnerPennsylvania() {
               delay={0.08}
               headingId="h-delivered"
               title="Salesforce work we have delivered"
-              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support; client names stay private."
+              lede="We have delivered Salesforce development, an SAP sync, QuickBase and Kissflow migrations and Marketing Cloud support, with client names kept private."
             >
               <DeliveredLedger />
               <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
               <GoDeeper label="our listing, line by line">
                 <p className="sf-rule">Listed as a {SF_TIER} Consulting Partner in AppExchange Partner Finder, listing {SF_LISTING_ID}, with the office in Malvern, Chester County, Pennsylvania. Salesforce counts our people and certifications against its competencies: {SF_CERTIFICATIONS} certifications, including 7 Agentforce and 1 Data 360 (read {SF_VERIFIED_LABEL}).</p>
-                <p>Open the listing and compare it line by line; the Verify buttons above show what we read and when.</p>
+                <p>Open the listing and compare it line by line. The Verify buttons above show what we read and when.</p>
               </GoDeeper>
             </SmartUnit>
           </div>

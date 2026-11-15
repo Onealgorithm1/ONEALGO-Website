@@ -67,10 +67,10 @@ const usd = (n: number) => "$" + n.toLocaleString("en-US");
 
 /* The four size-band guides, as each publishes them (re-read 23 October 2026). */
 const GUIDES = [
-  { name: "Cynoteck", when: "Updated 11 Sep 2026", small: "$10,000–$50,000", mid: "$75,000–$250,000", ent: "$150,000–$500,000+", notes: "small 1 to 10 users, 4 to 8 weeks; mid-market 50 to 200 users, 4 to 6 months; enterprise 200+ users, 6 to 12+ months" },
-  { name: "BrainSpate", when: "Updated 10 Sep 2026", small: "$15,000–$50,000", mid: "$50,000–$150,000", ent: "$150,000–$500,000+", notes: "" },
-  { name: "Groviya", when: "Updated 23 Oct 2026", small: "$15,000–$50,000", mid: "$50,000–$250,000", ent: "$250,000–$1,000,000+", notes: "small is one cloud, standard processes, up to about 50 users; mid-market one or two clouds, 50 to 300 users, 3 to 6 months; enterprise several clouds or industry clouds, 6 to 18 months" },
-  { name: "American Chase", when: "Updated 3 Aug 2026", small: "$15,000–$50,000", mid: "$50,000–$150,000", ent: "$150,000–$500,000+", notes: "small 5 to 50 users; mid-market 50 to 500 users; enterprise 500+ users" },
+  { name: "Cynoteck", when: "Updated 11 Sep 2026", small: "$10,000 to $50,000", mid: "$75,000 to $250,000", ent: "$150,000 to $500,000+", notes: "small 1 to 10 users, 4 to 8 weeks; mid-market 50 to 200 users, 4 to 6 months; enterprise 200+ users, 6 to 12+ months" },
+  { name: "BrainSpate", when: "Updated 10 Sep 2026", small: "$15,000 to $50,000", mid: "$50,000 to $150,000", ent: "$150,000 to $500,000+", notes: "" },
+  { name: "Groviya", when: "Updated 23 Oct 2026", small: "$15,000 to $50,000", mid: "$50,000 to $250,000", ent: "$250,000 to $1,000,000+", notes: "small is one cloud, standard processes, up to about 50 users; mid-market one or two clouds, 50 to 300 users, 3 to 6 months; enterprise several clouds or industry clouds, 6 to 18 months" },
+  { name: "American Chase", when: "Updated 3 Aug 2026", small: "$15,000 to $50,000", mid: "$50,000 to $150,000", ent: "$150,000 to $500,000+", notes: "small 5 to 50 users; mid-market 50 to 500 users; enterprise 500+ users" },
 ];
 
 /* Girikon's seven ranges (published 21 January 2026, updated 25 June 2026). */
@@ -84,7 +84,7 @@ const PHASES: { name: string; lo: number; hi: number; open?: boolean }[] = [
   { name: "Testing, deployment and support", lo: 10000, hi: 35000 },
 ];
 /** "$15,000–$100,000+" from the numbers, so the bar and the text can never disagree. */
-const rangeText = (r: { lo: number; hi: number; open?: boolean }) => `${usd(r.lo)}–${usd(r.hi)}${r.open ? "+" : ""}`;
+const rangeText = (r: { lo: number; hi: number; open?: boolean }) => `${usd(r.lo)} to ${usd(r.hi)}${r.open ? "+" : ""}`;
 
 /* Folio3's one-time implementation ranges, services only, excluding licenses (published 4 March 2026, updated
    30 July 2026). Effort notes are our paraphrase of Folio3's. */
@@ -178,7 +178,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "How do we get a fixed price for our Salesforce project?",
-    a: "Scope it in writing first. A fixed price is only as firm as the scope behind it, so we write the scope, then price it, then do the work and hand it over. If you already run Salesforce, the free one-week health check gives you a license count and a rough cost before you sign anything.",
+    a: "Scope it in writing first. We write the scope, then price it, then do the work and hand it over. If you already run Salesforce, the free one-week health check gives you a license count and a rough cost before you sign anything.",
     link: { to: HC, label: "Free one-week Salesforce health check" },
   },
   {
@@ -191,9 +191,9 @@ const FAQS: SfFaqItem[] = [
 /* Objection questions (H3) with the answers in Go deeper. ⛔ None repeats a FAQ question. */
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Will the price grow once the work starts?", a: <>Every piece of work is scoped in writing before it starts: a written scope, then the work, then a handover. A late request becomes its own scoped piece of work, not a surprise line on this one.</> },
-  { q: "How do we know you are a real Salesforce partner?", a: <>Check Salesforce's record rather than our word: the AppExchange lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} Salesforce-certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}. <Verify id="appexchange">Check the record</Verify></> },
+  { q: "How do we know you are a real Salesforce partner?", a: <>Check Salesforce's record: the AppExchange lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} Salesforce-certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}. <Verify id="appexchange">Check the record</Verify></> },
   { q: "Will you sell us more Salesforce than we need?", a: <>We give you a license count and a rough cost before you sign, and tell you when a smaller edition does the job. <a className="sf-link" href="#licenses">Salesforce pricing per user per month</a></> },
-  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so. <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link></> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, the list says that. <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link></> },
 ];
 
 /** A visible comparison table (the spec keeps the cost tables visible: the table IS the answer). Page-local until
@@ -336,7 +336,7 @@ export default function SalesforceImplementationCost() {
             </>
           }
           title={H1}
-          lede="Published guides put small-business Salesforce implementation at $15,000 to $50,000, mid-market up to $250,000; our free one-week health check estimates yours."
+          lede="Published guides put small-business Salesforce implementation at $15,000 to $50,000, mid-market up to $250,000, and our free one-week health check estimates yours."
           proof
           figure={<CostPhases fig={1} hero className="sf-hero-fig" />}
         />
@@ -347,7 +347,7 @@ export default function SalesforceImplementationCost() {
             className="sf-c7"
             headingId="h-answer"
             title="How much does Salesforce implementation cost?"
-            lede="Four published guides put a small-business Salesforce implementation at $15,000–$50,000 (one starts at $10,000) and mid-market at $50,000–$150,000 or up to $250,000, before licenses."
+            lede="Four published guides put small-business Salesforce implementation at $15,000 to $50,000 (one from $10,000) and mid-market at $50,000 to $150,000 or to $250,000, before licenses."
             leadIn="By the numbers:"
             lead="Enterprise runs $150,000 to $500,000 or more in three guides, and to $1,000,000 or more in Groviya's multi-cloud band."
             points={[
@@ -361,7 +361,7 @@ export default function SalesforceImplementationCost() {
                 Implementation firms publish these ranges on their own sites. They differ at the edges because each guide prices a different project: more clouds, more data or more integrations move the number. With four guides side by side, you can see where any proposal sits.
               </p>
               <p><span className="sf-lead-in">What we do:</span> We scope the work in writing and give you a license count and a rough cost before anyone signs.</p>
-              <p><span className="sf-lead-in">What it costs:</span> The free one-week Salesforce health check costs nothing. A real figure starts with your org, not a guide.</p>
+              <p><span className="sf-lead-in">What it costs:</span> The free one-week Salesforce health check costs nothing. A real figure starts with your org.</p>
               <div className="sf-links">
                 <a className="sf-link" href="#guides">Four published Salesforce cost guides compared</a>
                 <a className="sf-link" href="#start">Get a Salesforce cost figure for your org</a>
@@ -372,9 +372,9 @@ export default function SalesforceImplementationCost() {
             <p className="sf-kicker">The published bands, before licenses</p>
             <div className="sf-readouts" style={{ gridTemplateColumns: "minmax(0, 1fr)", marginTop: 16, rowGap: 28 }}>
               {[
-                { v: "$15,000–$50,000", l: "Small business", s: "Three of four guides · Cynoteck starts at $10,000" },
-                { v: "$50,000–$150,000", l: "Mid-market", s: "BrainSpate, American Chase · to $250,000 in Cynoteck and Groviya" },
-                { v: "$150,000–$500,000+", l: "Enterprise", s: "Three of four guides · Groviya runs to $1,000,000+" },
+                { v: "$15,000 to $50,000", l: "Small business", s: "Three of four guides · Cynoteck starts at $10,000" },
+                { v: "$50,000 to $150,000", l: "Mid-market", s: "BrainSpate, American Chase · to $250,000 in Cynoteck and Groviya" },
+                { v: "$150,000 to $500,000+", l: "Enterprise", s: "Three of four guides · Groviya runs to $1,000,000+" },
               ].map((b) => (
                 <div className="sf-readout" key={b.l}>
                   <span className="sf-readout-num" style={{ fontSize: "clamp(30px, 2.9vw, 46px)" }}>{b.v}</span>
@@ -408,7 +408,7 @@ export default function SalesforceImplementationCost() {
               style={{ marginTop: 28 }}
             >
               <GoDeeper label="where the guides agree, and each guide's assumptions">
-                <p className="sf-rule">For mid-market, two say $50,000 to $150,000 and two stretch to $250,000. Three put enterprise at $150,000 to $500,000 or more; Groviya's multi-cloud band runs to $1,000,000 or more.</p>
+                <p className="sf-rule">For mid-market, two say $50,000 to $150,000 and two stretch to $250,000. Three put enterprise at $150,000 to $500,000 or more, and Groviya's multi-cloud band runs to $1,000,000 or more.</p>
                 <ul className="sf-points" style={{ marginTop: 0 }}>
                   {GUIDES.filter((g) => g.notes).map((g) => (
                     <li key={g.name}><b className="sf-lead-in">{g.name}:</b> {g.notes}.</li>
@@ -474,7 +474,7 @@ export default function SalesforceImplementationCost() {
             </GoDeeper>
           </SmartUnit>
           <div className="sf-readout" style={{ marginTop: 36 }}>
-            <span className="sf-readout-num" style={{ fontSize: "clamp(30px, 2.9vw, 46px)" }}>{usd(SCENARIOS[0].lo)}–{usd(SCENARIOS[0].hi)}</span>
+            <span className="sf-readout-num" style={{ fontSize: "clamp(30px, 2.9vw, 46px)" }}>{usd(SCENARIOS[0].lo)} to {usd(SCENARIOS[0].hi)}</span>
             <p className="sf-readout-lab">Year one, five users on Starter Suite</p>
             <p className="sf-readout-src sf-mono">{usd(SCENARIOS[0].lic)} in licenses + the small-business band · before add-ons</p>
           </div>
@@ -492,7 +492,7 @@ export default function SalesforceImplementationCost() {
             lede: "Six things move the number: users, clouds, data volume, integrations, custom build and who runs it after go-live.",
           }}
         >
-          <SmartUnit level={3} className="sf-c4" title="Users, roles and training" lede="More people means more roles, more permission sets and more training; BrainSpate prices training alone at $2,000 to $10,000." measure={false}>
+          <SmartUnit level={3} className="sf-c4" title="Users, roles and training" lede="More people means more roles, more permission sets and more training, and BrainSpate prices training alone at $2,000 to $10,000." measure={false}>
             <GoDeeper label="how users, roles and training add cost">
               <p className="sf-rule">Roles and permission sets decide who sees and changes what. Each new team adds both, and the training that goes with them. BrainSpate's figure is for training on its own, before any build.</p>
             </GoDeeper>
@@ -503,14 +503,14 @@ export default function SalesforceImplementationCost() {
               <div className="sf-links"><a className="sf-link" href="#clouds">Salesforce implementation cost by cloud</a></div>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.16} title="How much data moves, and how clean" lede="Moving a lot of messy records costs more than moving a little clean data; BrainSpate puts data migration at $5,000 to $50,000 or more." measure={false}>
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="How much data moves, and how clean" lede="Moving a lot of messy records costs more than moving a little clean data, and BrainSpate puts data migration at $5,000 to $50,000 or more." measure={false}>
             <GoDeeper label="data volume, data quality and what we do about both">
               <p className="sf-rule">Data surprises are the classic mid-project overrun: duplicates, orphans and fields nobody fills all have to be dealt with before the load.</p>
               <p><span className="sf-lead-in">What we do:</span> We migrate QuickBase and Kissflow systems into Salesforce, reconciled before go-live.</p>
               <div className="sf-links"><Link className="sf-link" to={DM}>Salesforce data migration</Link></div>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" title="What Salesforce has to talk to" lede="Each connection to an ERP, finance system or website is its own job; BrainSpate puts integrations at $5,000 to $75,000 or more." measure={false}>
+          <SmartUnit level={3} className="sf-c4" title="What Salesforce has to talk to" lede="Each connection to an ERP, finance system or website is its own job, and BrainSpate puts integrations at $5,000 to $75,000 or more." measure={false}>
             <GoDeeper label="integrations, and the SAP sync we have built">
               <p className="sf-rule">Every system Salesforce exchanges records with needs its own mapping, its own error handling and an owner for each record.</p>
               <p><span className="sf-lead-in">What we do:</span> We have built an SAP-to-Salesforce sync, with the owner of every record agreed before the build.</p>
@@ -522,7 +522,7 @@ export default function SalesforceImplementationCost() {
               <p className="sf-rule">Basic configuration means fields, workflows, reports and dashboards. Standard features cost less to build and to keep running than custom code, so configure before you custom-build.</p>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Who runs it after go-live" lede="Salesforce needs someone to keep it in step with the business; Cynoteck puts a dedicated admin at $70,000 to $120,000 or more a year." measure={false}>
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Who runs it after go-live" lede="Salesforce needs someone to keep it in step with the business, and Cynoteck puts a dedicated admin at $70,000 to $120,000 or more a year." measure={false}>
             <GoDeeper label="running Salesforce after go-live">
               <p className="sf-rule">The cost after go-live is people: an admin on staff, or weekly administration and development bought as a service, with hours reported every week.</p>
               <p><span className="sf-lead-in">What we do:</span> We run weekly Salesforce development for a lending company, ongoing since April 2026.</p>
@@ -555,7 +555,7 @@ export default function SalesforceImplementationCost() {
             rows={PHASES.map((p) => [p.name, rangeText(p)])}
             ranges={PHASES}
             scale={70000}
-            source={<>Girikon, published 21 January 2026, updated 25 June 2026; read {CHECKED}. Bars on one $0–$70,000 scale; hatched = "or more". Not a OneAlgorithm price. <Sources /></>}
+            source={<>Girikon, published 21 January 2026, updated 25 June 2026; read {CHECKED}. Bars on one $0 to $70,000 scale; hatched = "or more". Not a OneAlgorithm price. <Sources /></>}
           />
         </SmartSection>
 
@@ -567,7 +567,7 @@ export default function SalesforceImplementationCost() {
             headingId="h-clouds"
             title="Salesforce implementation cost by cloud"
             lede="Folio3's guide puts one-time implementation services at $15,000 to $100,000 or more for Sales Cloud and up to $300,000 or more for Commerce Cloud."
-            lead="Each cloud is its own build, so two clouds cost more than one; deciding which you need comes first."
+            lead="Each cloud is its own build, so two clouds cost more than one. Deciding which you need comes first."
             measure={false}
           >
             <GoDeeper label="what drives the effort, cloud by cloud">
@@ -586,7 +586,7 @@ export default function SalesforceImplementationCost() {
             rows={CLOUDS.map((c) => [c.name, rangeText(c)])}
             ranges={CLOUDS}
             scale={330000}
-            source={<>Folio3, published 4 March 2026, updated 30 July 2026; read {CHECKED}. Services only, excluding licenses. Bars on one $0–$330,000 scale; every range is "or more". Not OneAlgorithm prices. <Sources /></>}
+            source={<>Folio3, published 4 March 2026, updated 30 July 2026; read {CHECKED}. Services only, excluding licenses. Bars on one $0 to $330,000 scale; every range is "or more". Not OneAlgorithm prices. <Sources /></>}
           />
         </SmartSection>
 
@@ -646,7 +646,7 @@ export default function SalesforceImplementationCost() {
             className="sf-c5"
             delay={0.08}
             title="Older quotes may name other editions"
-            lede="On 1 September salesforce.com listed Enterprise ($175), Unlimited ($350) and Agentforce 1 ($550); on 23 October it listed Core, Advanced and Max."
+            lede="On 1 September salesforce.com listed Enterprise ($175), Unlimited ($350) and Agentforce 1 ($550), and on 23 October it listed Core, Advanced and Max."
             lead="A quote or renewal written before the change may name editions the pricing page no longer shows."
             measure={false}
           >
@@ -672,7 +672,7 @@ export default function SalesforceImplementationCost() {
             ]}
           >
             <GoDeeper label="support plans, sandboxes and list-price changes">
-              <p className="sf-rule"><span className="sf-lead-in">Premier Success Plan:</span> included with Core, Advanced and Max, and available for purchase on Pro Suite. Standard Success comes with every license; Signature is priced by your Salesforce account executive.</p>
+              <p className="sf-rule"><span className="sf-lead-in">Premier Success Plan:</span> included with Core, Advanced and Max, and available for purchase on Pro Suite. Standard Success comes with every license. Signature is priced by your Salesforce account executive.</p>
               <p><span className="sf-lead-in">Sandboxes:</span> Pro Suite and up include a Developer sandbox. Core, Advanced and Max include one Partial Copy sandbox. A Full sandbox is included in Advanced and Max and available for purchase on Core.</p>
               <p><span className="sf-lead-in">List prices change:</span> Salesforce raised list prices for the Enterprise and Unlimited editions of Sales Cloud, Service Cloud, Field Service and some Industries Clouds by an average of 6 percent on 1 August 2025, and left Foundations, Starter and Pro unchanged (Salesforce news, 17 June 2025). Budget the renewal as well as the first year, and read the price terms in your order form before you sign.</p>
               <p className="sf-mono">Salesforce figures read on salesforce.com on {CHECKED}. Storage and admin: Cynoteck, updated 11 September 2026.</p>
@@ -718,9 +718,9 @@ export default function SalesforceImplementationCost() {
             head={["Who does the work", "Published cost"]}
             rows={[
               [<>Do it yourself<span className="mt-1 block text-[14px] font-normal text-sf-ink3">Your own staff, learning the platform as they go</span></>, "$5,000+"],
-              [<>Freelancer or contractor<span className="mt-1 block text-[14px] font-normal text-sf-ink3">One person for a defined task</span></>, <>$25–$250 an hour<span className="mt-1 block text-[13px] text-sf-ink3">Cynoteck: $50–$150</span></>],
-              [<>In-house hire<span className="mt-1 block text-[14px] font-normal text-sf-ink3">A dedicated person who learns your business, plus recruiting and training</span></>, <>$80,000–$170,000 a year<span className="mt-1 block text-[13px] text-sf-ink3">BLS medians: {usd(BLS.analysts)} and {usd(BLS.developers)}</span></>],
-              [<>Consulting partner<span className="mt-1 block text-[14px] font-normal text-sf-ink3">A team that covers configuration, data and integration, end to end</span></>, <>$90–$300 an hour<span className="mt-1 block text-[13px] text-sf-ink3">Cynoteck, certified Salesforce partners: $100–$300</span></>],
+              [<>Freelancer or contractor<span className="mt-1 block text-[14px] font-normal text-sf-ink3">One person for a defined task</span></>, <>$25 to $250 an hour<span className="mt-1 block text-[13px] text-sf-ink3">Cynoteck: $50 to $150</span></>],
+              [<>In-house hire<span className="mt-1 block text-[14px] font-normal text-sf-ink3">A dedicated person who learns your business, plus recruiting and training</span></>, <>$80,000 to $170,000 a year<span className="mt-1 block text-[13px] text-sf-ink3">BLS medians: {usd(BLS.analysts)} and {usd(BLS.developers)}</span></>],
+              [<>Consulting partner<span className="mt-1 block text-[14px] font-normal text-sf-ink3">A team that covers configuration, data and integration, end to end</span></>, <>$90 to $300 an hour<span className="mt-1 block text-[13px] text-sf-ink3">Cynoteck, certified Salesforce partners: $100 to $300</span></>],
             ]}
             source={<>Ascendix (updated 21 May 2025), main figures; Cynoteck (updated 11 September 2026); BLS Occupational Employment and Wage Statistics, May 2025, occupations 15-1211 and 15-1252. Market figures, not OneAlgorithm rates. <Sources /></>}
           />
@@ -733,7 +733,7 @@ export default function SalesforceImplementationCost() {
               </ul>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.08} title="How we price" lede="A written scope first, then the work, then a handover: every piece of work is scoped in writing before it starts." measure={false}>
+          <SmartUnit level={3} className="sf-c4" delay={0.08} title="How we price" lede="A written scope first, then the work, then a handover." measure={false}>
             <GoDeeper label="how OneAlgorithm prices project and ongoing work">
               <p className="sf-rule"><span className="sf-lead-in">Project work:</span> scoped in writing before anything starts, with the terms set in the written proposal.</p>
               <p><span className="sf-lead-in">Ongoing work:</span> weekly administration and development, with hours reported every week.</p>
@@ -741,7 +741,7 @@ export default function SalesforceImplementationCost() {
               <div className="sf-links"><Link className="sf-link" to={MS}>Salesforce managed services</Link></div>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Salesforce staff augmentation cost" lede="Salesforce staff augmentation adds Salesforce people to your team for as long as you need them; the hourly rates above are the market's benchmark." measure={false}>
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Salesforce staff augmentation cost" lede="Salesforce staff augmentation adds Salesforce people to your team for as long as you need them, and the hourly rates above are the market's benchmark." measure={false}>
             <GoDeeper label="what staff augmentation costs, and how it is set">
               <p className="sf-rule">Each engagement is scoped in writing before it starts, and the terms are set in the written proposal. For comparison, Ascendix puts freelancers at $25 to $250 an hour and consulting firms at $90 to $300.</p>
               <div className="sf-links"><Link className="sf-link" to={SA}>Salesforce staff augmentation</Link></div>
@@ -780,7 +780,7 @@ export default function SalesforceImplementationCost() {
               <h3>What pushes a project past its band</h3>
               <p className="sf-rule">More than one cloud, several systems to connect, years of unclean data to move, custom processes Salesforce does not do natively, and a large number of users and roles.</p>
               <h3>How to keep the cost down</h3>
-              <p>Launch the process that pays back first and scope each phase on its own, so a late request lands in the next phase instead of on this bill. Standard features cost less to build and to keep running than custom code. Count the seats you actually use. Carry a contingency line: Girikon's formula is 10–20% × (core costs + hidden costs); worked, 15% × ($120,000 + $40,000) = $24,000.</p>
+              <p>Launch the process that pays back first and scope each phase on its own, so a late request lands in the next phase instead of on this bill. Standard features cost less to build and to keep running than custom code. Count the seats you actually use. Carry a contingency line: Girikon's formula is 10 to 20% × (core costs + hidden costs). Worked: 15% × ($120,000 + $40,000) = $24,000.</p>
               <div className="sf-links"><Link className="sf-link" to={DM}>Salesforce data migration</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -799,7 +799,7 @@ export default function SalesforceImplementationCost() {
               <div className="sf-links"><Link className="sf-link" to={MS}>How that work runs</Link></div>
             </GoDeeper>
             <div className="sf-readout" style={{ marginTop: 28 }}>
-              <span className="sf-readout-num" style={{ fontSize: "clamp(30px, 2.9vw, 46px)" }}>+10–30%</span>
+              <span className="sf-readout-num" style={{ fontSize: "clamp(30px, 2.9vw, 46px)" }}>+10 to 30%</span>
               <p className="sf-readout-lab">Compliance, audits and validation</p>
               <p className="sf-readout-src sf-mono">Folio3's regulated-industry uplift · read {CHECKED}</p>
             </div>

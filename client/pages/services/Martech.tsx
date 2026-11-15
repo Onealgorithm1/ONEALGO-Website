@@ -40,7 +40,7 @@ const CAPABILITIES = [
 const WHY_US = [
   "We do the engineering as well as the strategy, so an integration doesn't become somebody else's ticket.",
   "One customer record, so the same person isn't three contacts in three tools.",
-  "Automation for the manual steps — list uploads, lead assignment, the Monday report.",
+  "Automation for the manual steps: list uploads, lead assignment, the Monday report.",
   "Reporting that reconciles with the CRM, including the months when the CRM number is the worse one.",
 ];
 
@@ -60,16 +60,16 @@ const STEPS = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "What is MarTech consulting?", a: "MarTech consulting reviews the software behind your marketing, such as the CRM, email platform, ad accounts and analytics, then fixes how they connect. The aim is one set of numbers that reconcile and fewer tools doing the same job. It is not a new tool; it is the wiring between your existing ones." },
+  { q: "What is MarTech consulting?", a: "MarTech consulting reviews the software behind your marketing, such as the CRM, email platform, ad accounts and analytics, then fixes how they connect. The aim is one set of numbers that reconcile and fewer tools doing the same job. It is the wiring between your existing tools." },
   { q: "What does MarTech stand for?", a: "MarTech is short for marketing technology: the software a team uses to plan, run and measure marketing. Your stack is the set of those tools, typically a CRM, an email or automation platform, ad accounts, analytics and the connections between them. Consulting looks at whether that set works together." },
   { q: "What does MarTech consulting cost?", a: "We scope it in writing after the stack audit, because the number of tools, how they connect and what is broken decide the work. We do not print a price list. The audit's inventory, cost-against-use view and cancel list can show where existing spend is being paid for and not used." },
   { q: "Does Salesforce have marketing automation?", a: "Yes. Salesforce Marketing Cloud is its marketing automation and email platform, and it connects to Salesforce CRM. We have supported a client's Marketing Cloud account for about 18 months. For setup, journeys and consent, see our Salesforce Marketing Cloud consulting page.", link: { to: MC, label: "Salesforce Marketing Cloud consulting" } },
-  { q: "How do you connect a CRM to marketing automation?", a: "We start with an integration map: which fields, contacts and campaigns move, in which direction and on what schedule. Then we build and test the sync, including opt-outs flowing back, and document it so your team can run it. We do not connect tools blindly or in bulk.", link: { to: "/services/salesforce-integration", label: "Salesforce integration services" } },
+  { q: "How do you connect a CRM to marketing automation?", a: "We start with an integration map: which fields, contacts and campaigns move, in which direction and on what schedule. Then we build and test the sync, including opt-outs flowing back, and document it so your team can run it.", link: { to: "/services/salesforce-integration", label: "Salesforce integration services" } },
   { q: "How long does it take to fix a marketing stack?", a: "It depends on how many tools you run and how tangled they are. The audit comes first and gives you a ranked list of fixes, so quick wins can start before the larger integration work. We agree the timeline in writing after the audit and will not promise a date beforehand." },
   { q: "Will I need to buy another marketing tool?", a: "Not necessarily. The audit compares what you pay for with what you use, and the cancel list names tools you could drop. We recommend a new tool only when an existing one cannot do the job, and we tell you why before you spend anything." },
   { q: "Can my team run the integrations after you finish?", a: "Yes, that is the aim. We document every connection and hand over: what moves, where it is configured and what to check when it breaks. The accounts stay in your name, so you are never locked in to us, and you can bring us back for changes." },
   { q: "How many MarTech tools do we really need?", a: "As few as cover your jobs: a CRM, a way to send and automate email, ad accounts, analytics and reporting. The right number is the one with no overlap. Our audit lists each tool, what it costs and how much it is used, so overlap and unused tools become visible." },
-  { q: "Do you work with HubSpot?", a: "Our MarTech work centres on Salesforce, including Marketing Cloud, and the CRM. We do not offer HubSpot implementation. If HubSpot sits in your stack, the audit will still inventory it and show how it connects to everything else; building inside HubSpot is outside what we sell." },
+  { q: "Do you work with HubSpot?", a: "Our MarTech work centres on Salesforce, including Marketing Cloud, and the CRM. We do not offer HubSpot implementation. If HubSpot sits in your stack, the audit will still inventory it and show how it connects to everything else. Building inside HubSpot is outside what we sell." },
 ];
 
 const TITLE = "MarTech Consulting and Stack Audit | One Algorithm";
@@ -135,7 +135,7 @@ export default function Martech() {
           </GoDeeper>
         </SmartSection>
 
-        <OfferBand heading="Not sure what is broken?" line="Name the tools you own; we tell you what we would connect first." label="Book a stack audit" />
+        <OfferBand heading="Not sure what is broken?" line="Name the tools you own and we tell you what we would connect first." label="Book a stack audit" />
 
         <SmartSection id="proof-strip" tone="surface" compact labelledBy="h-proof-strip">
           <h2 className="sf-h3" id="h-proof-strip" style={{ marginBottom: 20 }}>Who you are hiring</h2>
@@ -170,7 +170,7 @@ export default function Martech() {
         <SmartSection id="what" tone="surface" labelledBy="h-what"
           heading={{ id: "h-what", kicker: "Capabilities", title: "What we build, and what we connect", lede: "Six things, and every one happens inside a platform you already license." }}>
           <HoverCards cols={3} numbered items={CAPABILITIES} />
-          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> A stack with a seventh tool in it is rarely the answer.</p>
+          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> We recommend a new tool only when an existing one cannot do the job.</p>
         </SmartSection>
 
         {/* 4 · why us: night band */}
@@ -181,14 +181,14 @@ export default function Martech() {
             points={["Engineering and strategy from one team, so no integration becomes a ticket", WHY_US[1], "Automation for the manual steps: uploads, assignment, the Monday report"]}>
             <GoDeeper label="the fourth reason, and how we report">
               <p className="sf-rule">{WHY_US[3]}</p>
-              <p>That matters most in the months when the CRM figure is the lower one: a report you can only trust when it flatters you is not a report. We are four people in Malvern who read the stack end to end, and 24/7 support and hypercare follow every launch.</p>
+              <p>That matters most in the months when the CRM figure is the lower one. We are four people in Malvern who read the stack end to end, and 24/7 support and hypercare follow every launch.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
 
         {/* 4b · NEW: work delivered */}
         <SmartSection id="delivered" labelledBy="h-delivered"
-          heading={{ id: "h-delivered", kicker: "Proof", title: "MarTech work we have delivered", lede: "Two pieces of work, described as what they are, with no client named." }}>
+          heading={{ id: "h-delivered", kicker: "Proof", title: "MarTech work we have delivered", lede: "Two pieces of work, with no client named." }}>
           <div className="sf-grid" style={{ marginTop: 40 }}>
             <div className="sf-c6"><CaseCard title="Marketing Cloud support" built="Recurring support for one client's Salesforce Marketing Cloud account for about 18 months. The client is not named." to={MC} linkLabel="Salesforce Marketing Cloud consulting" /></div>
             <div className="sf-c6"><CaseCard title="Our own email outreach platform" built="A Salesforce email outreach platform with a send governor and reply matching. It is our own system, not a client result." to="/services/salesforce-integration" linkLabel="Salesforce integration services" /></div>

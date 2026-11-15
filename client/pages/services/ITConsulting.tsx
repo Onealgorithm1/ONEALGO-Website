@@ -57,21 +57,21 @@ const COST_CHOOSE: EUnit[] = [
     leadIn: "Yes, but:",
     points: ["Is the scope in writing?", "Who does the work, by name?", "Who owns the accounts and the documentation?"],
     label: "the fourth question, and what to expect from us",
-    deep: <p className="sf-rule">The fourth question is what happens at 2 a.m. when something breaks. Ask who answers, how fast they say they will, and whether that is written down. We answer with 24/7 support and hypercare after go-live. We name no competitor here; the same questions work on any firm, including us.</p>,
+    deep: <p className="sf-rule">The fourth question is what happens at 2 a.m. when something breaks. Ask who answers, how fast they say they will, and whether that is written down. We answer with 24/7 support and hypercare after go-live. The same questions work on any firm, including us.</p>,
   },
 ];
 
 const FAQS: SfFaqItem[] = [
   { q: "What is IT consulting?", a: "IT consulting is outside advice, and sometimes hands-on delivery, on how an organization plans, secures, buys and runs its technology. It covers security review, cloud sizing, tool selection and roadmaps. The goal is a written plan with an owner and an order, so you know what to fix first.", link: { to: "/services", label: "Services" } },
   { q: "How is IT consulting different from IT staff augmentation?", a: "Consulting delivers a plan or a build that we are accountable for. IT staff augmentation places a person inside your team, under your lead, for a sprint or a year. Choose consulting when the problem is a decision, and staff augmentation when you know the work and need more hands.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
-  { q: "Do you offer 24/7 support?", a: "Yes. After go-live we provide hypercare first, while real users find the cases nobody tested, then ongoing 24/7 support for what we delivered. We support the systems we built or advised on; we are not a managed service provider running your help desk every day." },
+  { q: "Do you offer 24/7 support?", a: "Yes. After go-live we provide hypercare first, while real users find the cases nobody tested, then ongoing 24/7 support for what we delivered. We support the systems we built or advised on. We are not a managed service provider running your help desk every day." },
   { q: "Do you work with small businesses?", a: "Yes. We are four people, and small organizations are who the engagements are sized for. The person who scopes the work stays on it through delivery, so you are not handed to a different team after the first conversation. Tell us the problem and we will say whether we fit.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
   { q: "Where do you work?", a: "Our office is in Malvern, PA, in Chester County. We meet clients in Philadelphia and Chester County in person by arrangement, and we work remotely with organizations across the United States, using video and shared screens for most sessions." },
   { q: "When should a small company hire an IT consultant?", a: "Hire one when nobody owns security, the cloud bill is unclear, or several tools overlap and nobody can say which one wins. Those are decisions, not tickets. A consultant inventories what you run, ranks the risks, and tells you what to fix first and what to leave alone." },
-  { q: "Is technology consulting the same as IT consulting?", a: "Technology consulting is the broader term and also covers software, marketing systems and business process. IT consulting is the narrower part about infrastructure, security, cloud and tools. This page covers the IT side; the services page lists the rest of what we do.", link: { to: "/services", label: "All services" } },
-  { q: "Can you manage our systems day to day?", a: "No. We are not a managed service provider, and we say so plainly. We decide what should change, build it or advise your team while they do, and support what we deliver around the clock. If you need a vendor to patch servers and answer tickets, we can help you choose one." },
+  { q: "Is technology consulting the same as IT consulting?", a: "Technology consulting is the broader term and also covers software, marketing systems and business process. IT consulting is the narrower part about infrastructure, security, cloud and tools. This page covers the IT side. The services page lists the rest of what we do.", link: { to: "/services", label: "All services" } },
+  { q: "Can you manage our systems day to day?", a: "No. We are not a managed service provider. We decide what should change, build it or advise your team while they do, and support what we deliver around the clock. If you need a vendor to patch servers and answer tickets, we can help you choose one." },
   { q: "What do you need from us to start?", a: "Three things: a list of the accounts and access we may need, the tools you run today, and the problem in one paragraph. You do not need a finished brief. We read what the systems report, interview the people doing the work, and come back with a written plan." },
-  { q: "Do you work with Salesforce and Zendesk?", a: "Yes. We are a Select Salesforce Consulting Partner, and we signed a Zendesk partner agreement in 2026. Both are other companies' records, not ours to certify. See our Salesforce consulting pages and our Zendesk implementation page for how we work with each.", link: { to: "/services/zendesk", label: "Zendesk implementation" } },
+  { q: "Do you work with Salesforce and Zendesk?", a: "Yes. We are a Select Salesforce Consulting Partner, and we signed a Zendesk partner agreement in 2026. Both are other companies' records. See our Salesforce consulting pages and our Zendesk implementation page for how we work with each.", link: { to: "/services/zendesk", label: "Zendesk implementation" } },
 ];
 
 export default function ITConsulting() {
@@ -110,7 +110,7 @@ export default function ITConsulting() {
             systems you already run
           </>
         }
-        lede="We inventory what you actually run — servers, licences, the spreadsheet holding a process together — then tell you what to fix first, what to leave alone, and roughly what each will cost. Most of what we recommend reuses something you already own."
+        lede="We inventory what you actually run (servers, licences, the spreadsheet holding a process together), then tell you what to fix first, what to leave alone, and roughly what each will cost. Most of what we recommend reuses something you already own."
         panel={{
           title: "What we're usually asked for",
           items: [
@@ -194,7 +194,7 @@ export default function ITConsulting() {
           id="msp"
           tone="paper"
           title="IT consultant or managed service provider?"
-          lede="A consultant decides what to change and why; a managed provider runs the day-to-day."
+          lede="A consultant decides what to change and why, and a managed provider runs the day-to-day."
           caption="IT consultant compared with a managed service provider"
           head={["Compared", "IT consultant", "Managed service provider"]}
           rows={[
@@ -224,7 +224,7 @@ export default function ITConsulting() {
           </GoDeeper>
         </SmartSection>
 
-        <SmartSection id="show" tone="surface" grid heading={{ id: "h-show", title: "What we can and cannot show", lede: "We have not published client names, testimonials or outcome figures, and we will not invent any." }}>
+        <SmartSection id="show" tone="surface" grid heading={{ id: "h-show", title: "What we can and cannot show", lede: "We have not published client names, testimonials or outcome figures." }}>
           <Statement>Four named people you can question about work you care about.</Statement>
           <ul className="sf-points sf-c5">
             <li>No case studies on this site</li>
@@ -233,8 +233,8 @@ export default function ITConsulting() {
           </ul>
           <div className="sf-c12">
             <GoDeeper label="experience, partner status and related services">
-              <p className="sf-rule">Between us the team has worked in healthcare, finance, {L("/industries/manufacturing", "manufacturing")}, {L("/industries/construction", "construction")} and {L("/industries/ecommerce", "e-commerce")}. That experience was earned inside those organizations, as employees, before this firm existed, and we say so rather than letting it read as company past performance.</p>
-              <p>We are a Select Salesforce Consulting Partner and a Zendesk partner. Both are somebody else's record, not ours; {L("/about", "the links to check them")} are on our about page.</p>
+              <p className="sf-rule">Between us the team has worked in healthcare, finance, {L("/industries/manufacturing", "manufacturing")}, {L("/industries/construction", "construction")} and {L("/industries/ecommerce", "e-commerce")}. We earned that experience as employees of those organizations, before this firm existed.</p>
+              <p>We are a Select Salesforce Consulting Partner and a Zendesk partner. Both are somebody else's record, and {L("/about", "the links to check them")} are on our about page.</p>
               <p className="sf-links">{L("/services/zendesk", "Zendesk implementation")} {L("/services/staff-augmentation", "IT staff augmentation")} {L("/services/operational-transformation-consulting", "operational transformation consulting")} {L("/services/martech", "MarTech consulting")} {L("/services/salesforce", "Salesforce consulting")} {L("/services", "Services")}</p>
             </GoDeeper>
           </div>

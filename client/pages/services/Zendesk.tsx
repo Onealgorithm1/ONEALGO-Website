@@ -48,13 +48,13 @@ const CHECKLIST = [
 const FAQS: SfFaqItem[] = [
   { q: "How long does a Zendesk implementation take?", a: "It depends on the number of channels, the integrations and how much data has to come across. We do not quote a standard duration from a web page. After we have seen your setup, we write a plan with dates, so you know what happens first and who owns it." },
   { q: "Do you replace Zendesk support?", a: "No. Zendesk supports its own product, and that stays with Zendesk. We help you configure Zendesk around your team, connect it to other systems and design the workflow, then support what we set up. If a fault is in the product itself, Zendesk is the right door." },
-  { q: "Can you migrate us from another help desk?", a: "A migration is a scoped project, and we would start with an inventory of tickets, users, macros and attachments. We would map each field, trial-load a copy and check the counts before cutover. This describes our method; we do not claim a past Zendesk migration.", link: { to: "#h-checklist", label: "The implementation checklist" } },
+  { q: "Can you migrate us from another help desk?", a: "A migration is a scoped project, and we would start with an inventory of tickets, users, macros and attachments. We would map each field, trial-load a copy and check the counts before cutover. This describes our method. We do not claim a past Zendesk migration.", link: { to: "#h-checklist", label: "The implementation checklist" } },
   { q: "What is Zendesk?", a: "Zendesk is customer service software that manages support tickets across email, chat, phone and web. Zendesk says it serves more than 80,000 companies and lists more than 1,800 apps, partners and integrations in its Marketplace. Our figures come from Zendesk's own partner page." },
   { q: "Is Zendesk a CRM?", a: "Not by itself. Zendesk handles support: tickets, queues, macros and a help center. The CRM role, with accounts, opportunities and pipeline, belongs to Salesforce or a similar system. Many teams run both and connect them, so an agent sees the account and a rep sees the open tickets.", link: { to: "#vs-h", label: "Zendesk or Salesforce Service Cloud?" } },
   { q: "Can Zendesk work with Microsoft 365?", a: "In principle, yes, through integrations. Shared mailboxes can route into Zendesk, and side conversations can go out to Outlook and Teams for people who are not agents. We scope it per tenant, because mailbox rules and permissions differ, and test it in a sandbox first." },
   { q: "How much does Zendesk cost?", a: "Zendesk sets and publishes its own plan prices, so check zendesk.com for the current plans. Our implementation work is scoped separately, in writing, once we know your channels, groups, automations and integrations. We publish no rate card, and we do not resell Zendesk plans." },
   { q: "What do you need from us to start?", a: "Four things: your ticket volume, the channels you answer on, the help desk you use today and the systems that must connect. A paragraph is enough to begin. We come back with questions and a view of what we would change first.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
-  { q: "How do I choose a Zendesk consultant?", a: "Ask for named references, a written scope, the name of the person who does the work and who owns the configuration afterwards. Ask what the consultant has and has not done. We have a partner agreement and no past Zendesk client to cite, and we say so.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
+  { q: "How do I choose a Zendesk consultant?", a: "Ask for named references, a written scope, the name of the person who does the work and who owns the configuration afterwards. Ask what the consultant has and has not done. We have a partner agreement and no past Zendesk client to cite.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
 ];
 
 export default function Zendesk() {
@@ -93,7 +93,7 @@ export default function Zendesk() {
             implementation, support and Salesforce integration
           </>
         }
-        lede="We're a Zendesk partner, under a partner agreement signed in 2026. A Zendesk implementation covers the ticket workflow, the routing and the link to the CRM you already run; here is how we would run it, so support and sales stop emailing each other for context."
+        lede="We're a Zendesk partner, under a partner agreement signed in 2026. A Zendesk implementation covers the ticket workflow, the routing and the link to the CRM you already run, so support and sales stop emailing each other for context."
         panel={{
           title: "What an implementation covers",
           items: [
@@ -126,7 +126,7 @@ export default function Zendesk() {
         >
           <p className="sf-mono" style={{ marginTop: 16 }}>Updated October 31, 2026</p>
           <GoDeeper label="the seven things an implementation covers">
-            <p className="sf-rule">An implementation covers setup and configuration; support workflow design; automation and routing; knowledge base structure; reporting and dashboards; Salesforce and CRM integration; and the Microsoft 365 handoffs. The point of the workflow is that a ticket cannot quietly sit unowned for three days. This describes how we would run a project; see {L("/services/it-consulting", "IT consulting services")} for how we scope work.</p>
+            <p className="sf-rule">An implementation covers setup and configuration, support workflow design, automation and routing, knowledge base structure, reporting and dashboards, Salesforce and CRM integration, and the Microsoft 365 handoffs. The point of the workflow is that a ticket cannot quietly sit unowned for three days. This describes how we would run a project. See {L("/services/it-consulting", "IT consulting services")} for how we scope work.</p>
           </GoDeeper>
         </BridgePlate>
 
@@ -159,7 +159,7 @@ export default function Zendesk() {
             level={3}
             headingId="h-wrong"
             title="Where Zendesk projects go wrong"
-            lede="Most Zendesk problems are not Zendesk problems; configuring the tool before settling ownership just automates the confusion."
+            lede="Most Zendesk problems start with ownership, and configuring the tool before settling it automates the confusion."
             points={["No owner for tickets that cross teams", "Customer data split across systems", "Dashboards built before targets were agreed"]}
             delay={0.08}
           >
@@ -173,7 +173,7 @@ export default function Zendesk() {
           <HoverCards
             cols={2}
             items={[
-              { glyph: "link", kicker: "CRM side", title: "Zendesk and Salesforce", body: "An agent sees the account and its open opportunities, and a rep sees the open tickets. Standard integration; middleware only where the data models differ.", to: "/services/salesforce-integration", cta: "Salesforce integration" },
+              { glyph: "link", kicker: "CRM side", title: "Zendesk and Salesforce", body: "An agent sees the account and its open opportunities, and a rep sees the open tickets. Standard integration, with middleware only where the data models differ.", to: "/services/salesforce-integration", cta: "Salesforce integration" },
               { glyph: "mail", kicker: "Mailbox side", title: "Zendesk and Microsoft 365", body: "Shared mailboxes routed in, side conversations out to Outlook and Teams, and a path for people who are not agents but must still answer.", to: "/services/it-consulting", cta: "IT consulting services" },
             ]}
           />
@@ -183,7 +183,7 @@ export default function Zendesk() {
           id="vs"
           tone="surface"
           title="Zendesk or Salesforce Service Cloud?"
-          lede="Zendesk is built for support teams that want to be live quickly; Service Cloud suits organizations already running on Salesforce."
+          lede="Zendesk is built for support teams that want to be live quickly, and Service Cloud suits organizations already running on Salesforce."
           caption="Zendesk compared with Salesforce Service Cloud"
           head={["Compared", "Zendesk", "Service Cloud"]}
           rows={[
@@ -225,7 +225,7 @@ export default function Zendesk() {
             headingId="h-cost"
             title="What a Zendesk implementation costs"
             lede="Cost follows scope: channels, groups, automations, integrations and how much existing data comes across."
-            lead="Zendesk publishes its own plan prices; our work is scoped in writing once we know the setup, and we publish no rate card."
+            lead="Zendesk publishes its own plan prices. Our work is scoped in writing once we know the setup, and we publish no rate card."
             points={["Channels and groups to configure", "Integrations with Salesforce and Microsoft 365", "Data coming from another help desk"]}
           />
         </SmartSection>

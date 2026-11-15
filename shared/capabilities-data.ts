@@ -152,7 +152,7 @@ export const differentiators: Differentiator[] = [
     title: "We tell you what we do not do",
     icon: "checkCircle",
     description:
-      "We build to NIST and DFARS requirements as part of delivery, but we are not a standalone cybersecurity provider. We hold no federal prime contract and no CPARS record, and we say so.",
+      "We build to NIST and DFARS requirements as part of delivery, but we are not a standalone cybersecurity provider. We hold no federal prime contract and no CPARS record.",
   },
 ];
 
@@ -200,7 +200,7 @@ export const projectHighlights: ProjectHighlight[] = [
     items: [
       "End client: Credit One Bank.",
       "Java/Spring Boot, Angular, PostgreSQL, Docker, Jenkins/GitLab CI-CD, AWS ECS/EKS.",
-      "6/2024–present · $185K",
+      "6/2024 to present · $185K",
     ],
   },
   {
@@ -208,14 +208,14 @@ export const projectHighlights: ProjectHighlight[] = [
     items: [
       "End client: T-Mobile.",
       "Software engineering support in an enterprise telecom environment.",
-      "11/2024–present · $135K",
+      "11/2024 to present · $135K",
     ],
   },
   {
     title: "radius180, LLC",
     items: [
       "IT consulting and software engineering.",
-      "5/2024–10/2024 · $120K",
+      "5/2024 to 10/2024 · $120K",
     ],
   },
   {
@@ -230,7 +230,7 @@ export const projectHighlights: ProjectHighlight[] = [
     items: [
       "End client: Willis Towers Watson, via Cognizant.",
       "Enterprise Java, SQL, application support.",
-      "10/2023–6/2024 · $106K",
+      "10/2023 to 6/2024 · $106K",
     ],
   },
   {
@@ -250,7 +250,7 @@ export const projectHighlights: ProjectHighlight[] = [
     items: [
       "End client: PepsiCo, via UST Global.",
       "Azure, SQL Server, enterprise application support.",
-      "10/2023–6/2024 · $104K",
+      "10/2023 to 6/2024 · $104K",
     ],
   },
 ];
@@ -284,7 +284,7 @@ export const complianceProfile: ComplianceProfile = {
     { name: "Nassau County, NY MWBE", detail: "OMA-26-086 · valid through 10 Jun 2029" },
     {
       name: "Small Disadvantaged Business",
-      detail: "self-certified in SAM.gov — not an SBA-issued certification",
+      detail: "self-certified in SAM.gov, not an SBA-issued certification",
     },
   ],
   // Westfield Insurance Company bonding reference letter, 5 December 2025:

@@ -169,7 +169,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "What is a Salesforce Integration user license?",
-    a: "A Salesforce license for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce includes a limited number of these licenses with supported editions; Setup > Company Information shows how many your org has. We run each integration as its own user.",
+    a: "A Salesforce license for system-to-system access. The user works only through Salesforce's APIs, never the screens, and gets its object access from permission sets. Salesforce includes a limited number of these licenses with supported editions. Setup > Company Information shows how many your org has. We run each integration as its own user.",
   },
   {
     q: "Can you fix an integration that already exists?",
@@ -196,7 +196,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Can Salesforce integrate with QuickBooks?",
-    a: "Yes, usually through an AppExchange connector rather than custom code, since the common need is simple: let sales see invoice and payment status without logging into accounting. Check what a connector syncs, which direction, and how often before you buy it; most problems we hear about come from assuming a connector does something it does not.",
+    a: "Yes, usually through an AppExchange connector rather than custom code, since the common need is simple: let sales see invoice and payment status without logging into accounting. Check what a connector syncs, which direction, and how often before you buy it. Most problems we hear about come from assuming a connector does something it does not.",
   },
   {
     q: "Does Salesforce integrate with HubSpot?",
@@ -204,7 +204,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Is Salesforce an integration platform?",
-    a: "Salesforce itself is a CRM and application platform with strong APIs, Platform Events for publishing changes, and Salesforce Connect for external data. Salesforce also owns MuleSoft, which is a dedicated integration platform sold separately. Many integrations need nothing beyond the core platform; some justify middleware. That is a scoping decision, not a default.",
+    a: "Salesforce itself is a CRM and application platform with strong APIs, Platform Events for publishing changes, and Salesforce Connect for external data. Salesforce also owns MuleSoft, which is a dedicated integration platform sold separately. Many integrations need nothing beyond the core platform. Some justify middleware. Scoping decides which.",
   },
 ];
 
@@ -291,7 +291,7 @@ export default function SalesforceIntegration() {
                 Salesforce integration services connect Salesforce to the other systems a business runs, such as SAP and other ERPs, finance and e-commerce, using Salesforce's APIs, Platform Events, Salesforce Connect or middleware, so each record has one agreed owner and changes move on a schedule you choose.
               </p>
               <p><span className="sf-lead-in">What we do:</span> We agree which system owns each record, build the lightest route that holds up, and give every failed record a log a named person reads.</p>
-              <p><span className="sf-lead-in">What it costs:</span> It turns on how many objects move, which direction, how often, and any middleware license. The cost guide cites published ranges; the free one-week health check reviews the integrations you already run.</p>
+              <p><span className="sf-lead-in">What it costs:</span> It turns on how many objects move, which direction, how often, and any middleware license. The cost guide cites published ranges. The free one-week health check reviews the integrations you already run.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
                 <Link className="sf-link" to={HUB}>Salesforce consulting services</Link>
@@ -314,7 +314,7 @@ export default function SalesforceIntegration() {
             <GoDeeper label="copy into Salesforce or view in place">
               <h3>Copy into Salesforce, or view in place</h3>
               <p className="sf-rule">
-                Data Salesforce never edits can stay where it is and show through Salesforce Connect, which displays external data inside Salesforce without copying it: reps get a read-only view, not a second copy anyone can edit. Large scheduled loads run on the Bulk API; a nightly batch is simple, cheap and easy to rerun.
+                Data Salesforce never edits can stay where it is and show through Salesforce Connect, which displays external data inside Salesforce without copying it: reps get a read-only view, not a second copy anyone can edit. Large scheduled loads run on the Bulk API. A nightly batch is simple, cheap and easy to rerun.
               </p>
               <p>Moving off the old system rather than keeping it? That is a data migration, which is simpler.</p>
               <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
@@ -341,7 +341,7 @@ export default function SalesforceIntegration() {
             className="sf-c4"
             kicker="ECC · S/4HANA · Business One"
             title="SAP: which SAP you run changes the route"
-            lede="ECC, S/4HANA and Business One expose different interfaces; the ownership and failure rules stay the same."
+            lede="ECC, S/4HANA and Business One expose different interfaces, but the ownership and failure rules stay the same."
             leadIn="What we do:"
             lead="Tell us your SAP version and what reps need to see, and we tell you which route we would look at first."
           >
@@ -349,9 +349,9 @@ export default function SalesforceIntegration() {
               <p className="sf-rule">In the usual pattern, customers, products and prices move into Salesforce on a schedule, won deals become sales orders in SAP with status sent back, and every failed record lands in a log a named person reads.</p>
               <ul className="sf-points" style={{ marginTop: 0 }}>
                 <li><b>SAP ECC:</b> usually reached through IDocs, BAPIs or RFC calls, normally through middleware.</li>
-                <li><b>SAP S/4HANA:</b> mainly OData and REST APIs, in the cloud or on premise; IDocs and BAPIs are still available.</li>
-                <li><b>SAP Business One:</b> the Service Layer (REST and OData) or the older DI API; third-party connectors exist.</li>
-                <li><b>Middleware:</b> SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's; MuleSoft is Salesforce's, sold separately.</li>
+                <li><b>SAP S/4HANA:</b> mainly OData and REST APIs, in the cloud or on premise. IDocs and BAPIs are still available.</li>
+                <li><b>SAP Business One:</b> the Service Layer (REST and OData) or the older DI API. Third-party connectors exist.</li>
+                <li><b>Middleware:</b> SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's. MuleSoft is Salesforce's, sold separately.</li>
               </ul>
             </GoDeeper>
           </SmartUnit>
@@ -361,7 +361,7 @@ export default function SalesforceIntegration() {
             delay={0.08}
             kicker="Accounting and ERP"
             title="NetSuite and QuickBooks"
-            lede="Both connect through APIs or AppExchange connectors; check what a connector syncs, which direction and how often before you buy."
+            lede="Both connect through APIs or AppExchange connectors, so check what a connector syncs, which direction and how often before you buy."
             leadIn="Yes, but:"
             lead="Most problems we hear about come from assuming a connector does something it does not."
           />
@@ -373,7 +373,7 @@ export default function SalesforceIntegration() {
             title="Microsoft Dynamics 365"
             lede="Microsoft Dynamics 365 gets the same approach: agree which system owns customers, orders and invoices, then pick the lightest route."
             leadIn="The bottom line:"
-            lead="The system shapes the route; ownership, timing and failure handling stay the same."
+            lead="The system shapes the route. Ownership, timing and failure handling stay the same."
           />
         </SmartSection>
 
@@ -387,7 +387,7 @@ export default function SalesforceIntegration() {
             lede: "HubSpot, Mailchimp and Marketo connect to Salesforce through their own connectors or the APIs; the work is deciding which system owns each field.",
           }}
         >
-          <SmartUnit level={3} className="sf-c4" title="HubSpot" lede="HubSpot's own Salesforce integration is the usual start; the work is the field rules you set before switching it on."
+          <SmartUnit level={3} className="sf-c4" title="HubSpot" lede="HubSpot's own Salesforce integration is the usual start, and the work is the field rules you set before switching it on."
             points={["Which system owns each field", "Which records sync at all", "What happens to duplicates"]} />
           <SmartUnit level={3} className="sf-c4" delay={0.08} title="Mailchimp and Marketo" lede="Both connect through their own Salesforce connector or the APIs, under the same rules as any integration."
             points={["Which direction each field moves", "How often it syncs", "Who reads the failures"]} />
@@ -445,7 +445,7 @@ export default function SalesforceIntegration() {
             </p>
             <GoDeeper label="when each route fails, and the sixth pattern">
               <p className="sf-rule">Real time earns its extra moving parts only when a rep or a customer is waiting on the answer. A nightly batch is simple, cheap and easy to rerun, and for most finance data it is enough.</p>
-              <p>Salesforce counts API requests across the whole org over a rolling 24 hours, and the allowance comes from your edition and licenses. It lets an org run somewhat over its allocation, then a hard cap blocks further calls; regular overage is not something to rely on. A sync that polls every minute can starve your other tools, so we size the route against your org's allocation before choosing it.</p>
+              <p>Salesforce counts API requests across the whole org over a rolling 24 hours, and the allowance comes from your edition and licenses. It lets an org run somewhat over its allocation, then a hard cap blocks further calls. Regular overage is not something to rely on. A sync that polls every minute can starve your other tools, so we size the route against your org's allocation before choosing it.</p>
               <p>The sixth pattern, Data Virtualization, shows data that stays in the other system, such as invoices, through Salesforce Connect and an OData or custom adapter.</p>
             </GoDeeper>
           </LedgerRule>
@@ -455,13 +455,13 @@ export default function SalesforceIntegration() {
             delay={0.08}
             kicker="Tools and platforms"
             title="Middleware and MuleSoft"
-            lede="Many integrations run on Salesforce's own APIs and a scheduled job; middleware earns its license when many systems or heavy transformation are involved."
+            lede="Many integrations run on Salesforce's own APIs and a scheduled job, and middleware earns its license when many systems or heavy transformation are involved."
             leadIn="What we do:"
             lead="We tell you which side of that line you are on before you buy anything."
           >
             <GoDeeper label="MuleSoft, CloudHub and SAP Integration Suite">
               <p className="sf-rule">Where a managed runtime is worth paying for, we scope and build on CloudHub; where it is not, we say so and keep the moving parts down.</p>
-              <p>MuleSoft is Salesforce's integration platform, sold separately; SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's. Either earns its license when many systems or heavy transformation are involved.</p>
+              <p>MuleSoft is Salesforce's integration platform, sold separately. SAP Integration Suite (Cloud Integration, formerly CPI) is SAP's.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
@@ -479,20 +479,20 @@ export default function SalesforceIntegration() {
         >
           <SmartUnit level={3} className="sf-c4" title="Decide which system owns each record" lede="Agreed field by field, so the two systems never overwrite each other.">
             <GoDeeper label="two-way records, conflicts and timing">
-              <p className="sf-rule">When both systems can edit the same record, someone has to decide who wins a conflict. We write that rule down with you before building, because code only enforces a decision a person made.</p>
+              <p className="sf-rule">When both systems can edit the same record, someone has to decide who wins a conflict. We write that rule down with you before building.</p>
               <p>Timing is part of the same decision: real time, scheduled batches, or on demand. Real time earns its extra moving parts only when someone is waiting on the answer.</p>
             </GoDeeper>
           </SmartUnit>
           <SmartUnit level={3} className="sf-c4" delay={0.08} title="Build as a least-access integration user" lede="Its own API-only user, with access to only the objects and fields the job needs, so a leaked credential cannot read the whole org.">
             <GoDeeper label="the Salesforce Integration user license">
-              <p className="sf-rule">Salesforce sells an Integration user license for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Supported editions include a limited number of these licenses; Setup &gt; Company Information shows how many your org has.</p>
+              <p className="sf-rule">Salesforce sells an Integration user license for system-to-system access only: the user reaches the org through the APIs, cannot sign in to the screens, and gets its object access from permission sets. Supported editions include a limited number of these licenses. Setup &gt; Company Information shows how many your org has.</p>
               <p>Each integration can run as its own least-access user, often without buying another license.</p>
               <p className="sf-mono" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
                 Salesforce Help, read {SF_VERIFIED_LABEL} · <SourcesChip />
               </p>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Go live with a failure log" lede="Every failure writes somewhere a person will see it; a silent failure is the expensive kind.">
+          <SmartUnit level={3} className="sf-c4" delay={0.16} title="Go live with a failure log" lede="Every failure writes somewhere a person will see it.">
             <GoDeeper label="who reads the log and what they do">
               <p className="sf-rule">A named person reads the log, reruns what failed and notices when the other system changes a field. The build is designed for the record that fails, because one always does.</p>
             </GoDeeper>
@@ -601,7 +601,7 @@ export default function SalesforceIntegration() {
           <SourcesDialog
             id={SOURCES_ID}
             title="Where these facts come from"
-            intro="Salesforce and SAP facts on this page name their source and when a person at OneAlgorithm read it. The source pages are listed here; nothing in the page body links off-site."
+            intro="Salesforce and SAP facts on this page name their source and when a person at OneAlgorithm read it. The source pages are listed here."
             sources={SOURCES}
           />
         </SmartSection>

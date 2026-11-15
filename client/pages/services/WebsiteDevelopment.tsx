@@ -130,7 +130,7 @@ export default function WebsiteDevelopment() {
         <SmartSection id={U.work.id} tone="night" grid labelledBy="h-work">
           <SmartUnit className="sf-c12" headingId="h-work" title={U.work.title} lede={U.work.lede} leadIn={U.work.leadIn} lead={U.work.lead}>
             <GoDeeper label={U.work.deep!}>
-              <p className="sf-rule">The live site loads inside a sandboxed frame on this page, so you use it without leaving. A site that refuses framing shows our full-page capture, with its date in the stamp. The sandbox blocks top navigation and downloads; the framed site's own scripts, fonts and media are its own and load only when you press Preview. The domain link under each window opens the site itself in a new tab.</p>
+              <p className="sf-rule">The live site loads inside a sandboxed frame on this page, so you use it without leaving. A site that refuses framing shows our full-page capture, with its date in the stamp. The sandbox blocks top navigation and downloads. The framed site's own scripts, fonts and media are its own and load only when you press Preview. The domain link under each window opens the site itself in a new tab.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c12 wd-windows-6">
@@ -168,8 +168,8 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.build.deep!}>
-              <p className="sf-rule">Which of the six sites is which: Phantom Arcades is a web application and a shop, with an eight-cabinet 3D configurator that prices the machine as you build it. The Gorband and Atlas Peptides are online stores; The Gorband runs on Square, one catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites, with online scheduling, booking and a quote form that lands in the office inbox.</p>
-              <p>Every build includes the forms, the analytics and the search groundwork; the integrations are named in the written scope.</p>
+              <p className="sf-rule">Which of the six sites is which: Phantom Arcades is a web application and a shop, with an eight-cabinet 3D configurator that prices the machine as you build it. The Gorband and Atlas Peptides are online stores. The Gorband runs on Square, one catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites, with online scheduling, booking and a quote form that lands in the office inbox.</p>
+              <p>Every build includes the forms, the analytics and the search groundwork. The integrations are named in the written scope.</p>
               <div className="sf-links"><Verify id="phantom-configurator">The Phantom configurator, with figures</Verify></div>
             </GoDeeper>
           </SmartUnit>
@@ -183,7 +183,7 @@ export default function WebsiteDevelopment() {
               <h3>How a redesign keeps your rankings</h3>
               <p className="sf-rule">We crawl the old site first and map every address to its new one, so the redirect list exists before the first screen is designed. The content audit keeps what ranks and rewrites what does not. The redirects are tested before launch, and Search Console is read after it.</p>
               <h3>Working with the site you already have</h3>
-              <p>Often, yes. Sometimes the honest answer is that rebuilding is cheaper than fixing, and we tell you which one you are looking at rather than quoting whichever is bigger.</p>
+              <p>Often, yes. Sometimes rebuilding is cheaper than fixing, and we tell you which one you are looking at.</p>
               <p><Link className="sf-link" to="/services/website-redesign">Website redesign that keeps your rankings</Link></p>
             </GoDeeper>
           </SmartUnit>
@@ -197,7 +197,7 @@ export default function WebsiteDevelopment() {
               <h3>What a small business site has to do</h3>
               <ul className="sf-points" style={{ marginTop: 0 }}>
                 <li>Business Profile linked, titles and schema written, Search Console and analytics connected at launch</li>
-                <li>Forms to the inbox and the CRM; booking where the business books; the phone one tap away</li>
+                <li>Forms to the inbox and the CRM, booking where the business books, the phone one tap away</li>
                 <li>Service pages in the owner's words, and a page per area where the work is local</li>
               </ul>
               <h3>Three small-business sites we built</h3>
@@ -220,7 +220,7 @@ export default function WebsiteDevelopment() {
             title="Diagram of the five stages of a custom website build"
             desc="A rail runs through five stations: agree what the site is for; scope, price and schedule in writing; design in the browser; build and wire it up; launch, hand over and stay on."
             stamp="The five stages · in the order they run"
-            caption="The five stages in the order they run. The scope, price and schedule are in writing before stage three; the site is in your own accounts at stage five."
+            caption="The five stages in the order they run. The scope, price and schedule are in writing before stage three. The site is in your own accounts at stage five."
           />
           <StageUnits items={WD_STAGES} className="wd-stages-5" />
         </SmartSection>
@@ -301,7 +301,7 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.after.deep!}>
-              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. HTTPS and the security headers are set at launch; this site runs the same way.</p>
+              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. HTTPS and the security headers are set at launch. This site runs the same way.</p>
               <p>Support after launch is scoped in the written proposal, project by project: there is no standard plan, so no standard price, response time or term is printed here. Updates, content changes and the checks after a browser or platform change are agreed the same way.</p>
             </GoDeeper>
           </SmartUnit>
@@ -321,7 +321,7 @@ export default function WebsiteDevelopment() {
           <SmartUnit className="sf-c5" headingId="h-own" title={U.own.title} lede={U.own.lede} leadIn={U.own.leadIn} lead={U.own.lead} measure={false}>
             <GoDeeper label={U.own.deep!}>
               <h3>Platforms we build on</h3>
-              <p className="sf-rule">HTML, CSS and TypeScript, and three.js where a 3D configurator earns it. Stores run on the platform that fits the business: The Gorband is on Square; Atlas Peptides checks out through Stripe.</p>
+              <p className="sf-rule">HTML, CSS and TypeScript, and three.js where a 3D configurator earns it. Stores run on the platform that fits the business: The Gorband is on Square, and Atlas Peptides checks out through Stripe.</p>
               <h3>What transfers to you</h3>
               <p>“Written so another developer can pick it up” means a README, the build scripts and the deploy steps in the repository, no proprietary builder in the chain, and nothing that stops working when we are not in the room.</p>
             </GoDeeper>
@@ -361,7 +361,7 @@ export default function WebsiteDevelopment() {
           </SmartUnit>
           <SmartUnit className="sf-c6" headingId="h-choose" id={U.choose.id} delay={0.08} title={U.choose.title} lede={U.choose.lede} leadIn={U.choose.leadIn} lead={U.choose.lead} points={U.choose.points} measure={false}>
             <GoDeeper label={U.choose.deep!}>
-              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates. The price against that scope. Ownership: the repository, the domain and the hosting account in your name, named in the proposal. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms. A firm that will not write these down is asking you to take its word.</p>
+              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates. The price against that scope. Ownership: the repository, the domain and the hosting account in your name, named in the proposal. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
@@ -423,7 +423,7 @@ export default function WebsiteDevelopment() {
               key={w.slug}
               id={reviewId(w)!}
               title={`${r.author}’s review of OneAlgorithm on Google`}
-              intro={r.text ? `Five stars on OneAlgorithm's Google listing, quoted as posted. Read ${READ_LISTING}.` : `Five stars on OneAlgorithm's Google listing; the review text is on Google, behind the link below. Read ${READ_LISTING}.`}
+              intro={r.text ? `Five stars on OneAlgorithm's Google listing, quoted as posted. Read ${READ_LISTING}.` : `Five stars on OneAlgorithm's Google listing. The review text is on Google, behind the link below. Read ${READ_LISTING}.`}
               rows={[
                 { th: "Reviewer", td: r.authorLine },
                 { th: "Rating", td: "5 of 5" },
@@ -461,7 +461,7 @@ export default function WebsiteDevelopment() {
         <EvidenceDialog
           id="google-listing"
           title="OneAlgorithm's Google listing"
-          intro="What Google's Places record for our listing said when a person at OneAlgorithm read it. We quote the figures; we do not mark them up as a rating."
+          intro="What Google's Places record for our listing said when a person at OneAlgorithm read it. We quote the figures. We do not mark them up as a rating."
           rows={[
             { th: "Listing", td: GOOGLE_LISTING.name },
             { th: "Rating", td: GOOGLE_LISTING.rating },

@@ -77,12 +77,12 @@ export default function Capabilities() {
             Economically Disadvantaged Women-Owned Small Business (EDWOSB)
             and Minority Business Enterprise (MBE) certified, delivering
             secure, standards-aligned technology and compliance solutions to
-            commercial clients nationwide — and registered, certified and
+            commercial clients nationwide, and registered, certified and
             eligible to do the same for government buyers.
           </p>
           <p>
             Mission: enable government and enterprise customers to modernize
-            securely, efficiently, and accessibly—meeting all compliance and
+            securely, efficiently, and accessibly, meeting all compliance and
             mission objectives.
           </p>
         </div>
@@ -112,7 +112,7 @@ export default function Capabilities() {
 
       <CTABand
         title="Ready to discuss a requirement?"
-        body="Send us the requirement or solicitation you are working on and we will tell you, plainly, what we can support and what we cannot."
+        body="Send us the requirement or solicitation you are working on and we will tell you what we can support and what we cannot."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
       />
     </Layout>

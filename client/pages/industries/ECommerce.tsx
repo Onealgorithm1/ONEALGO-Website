@@ -22,7 +22,7 @@ const UNITS: IndUnit[] = [
   {
     id: "what", title: "Ecommerce website development we do",
     lede: "We build WooCommerce and custom stores, and join them to the stock, payment and accounting systems behind them.",
-    lead: "The store is rarely the broken part; what breaks is the joins to stock, payments and support.",
+    lead: "The store is rarely the broken part. What breaks is the joins to stock, payments and support.",
     points: ["Storefront builds on WooCommerce or custom", "Joins to stock, payments and the ledger", "Code, hosting and accounts in your name"],
     deepLabel: "what an ecommerce build covers",
     deep: (<>
@@ -32,21 +32,21 @@ const UNITS: IndUnit[] = [
   },
   {
     id: "builds", title: "Stores we have built",
-    lede: "Phantom Arcades runs on WooCommerce with a configurator; Atlas Peptides is a client site we built.",
+    lede: "Phantom Arcades runs on WooCommerce with a configurator, and Atlas Peptides is a client site we built.",
     lead: "Both are client sites we built, and one has a measured result we can print.",
     points: ["Phantom Arcades: WooCommerce store and configurator", "Atlas Peptides: a client site we built", "Phantom Google clicks up 92% year on year"],
     deepLabel: "the Phantom Arcades and Atlas builds",
     deep: (<>
-      <p className="sf-rule">For Phantom Arcades we built the WooCommerce store and its arcade configurator. In Google Search Console, clicks rose 92 percent year on year and non-brand clicks 231 percent. The result is clicks, not sales; we report no revenue.</p>
-      <p>Atlas Peptides is a client site we built. We make no further claim about it here.</p>
+      <p className="sf-rule">For Phantom Arcades we built the WooCommerce store and its arcade configurator. In Google Search Console, clicks rose 92 percent year on year and non-brand clicks 231 percent. The result is clicks, not sales.</p>
+      <p>Atlas Peptides is a client site we built.</p>
       <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className={L} to="/blog/product-configurator-case-study-phantom-arcades">3D product configurator case study</Link></div>
     </>),
   },
   {
     id: "platform", title: "WooCommerce or a custom build?",
-    lede: "WooCommerce suits most catalogues; a custom build suits unusual checkout or configuration rules.",
+    lede: "WooCommerce suits most catalogues, and a custom build suits unusual checkout or configuration rules.",
     lead: "We have built no Shopify store and hold no Shopify partnership, so we compare only what we build.",
-    points: ["WooCommerce: faster, familiar, plugin-led", "Custom: when rules or options interact", "A replatform, when that is the honest answer"],
+    points: ["WooCommerce: faster, familiar, plugin-led", "Custom: when rules or options interact", "A replatform, when that is the right answer"],
     deepLabel: "how we choose between them",
     deep: (<>
       <p className="sf-rule">The choice depends on the catalogue, the checkout rules and who will maintain the store. A product configurator with interacting options leans custom; a plain catalogue leans WooCommerce. If a hosted platform fits better, we will say so.</p>
@@ -80,7 +80,7 @@ const UNITS: IndUnit[] = [
     lead: "We work on WooCommerce and custom builds, and on the systems around the store.",
     deepLabel: "platforms we do and do not work on",
     deep: (<>
-      <p className="sf-rule">A page that implied a partnership would be easy to check. Sometimes a replatform is the right answer, and we will say so. The team that would build it is introduced on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">Sometimes a replatform is the right answer, and we will say so. The team that would build it is introduced on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
@@ -88,13 +88,13 @@ const UNITS: IndUnit[] = [
 const FAQS: SfFaqItem[] = [
   { q: "Do you build Shopify stores?", a: "No. We have not built a Shopify store and are not a Shopify partner. We build on WooCommerce and custom code, and we integrate the systems around the store. If Shopify is the plan, we will tell you early that we are not the right team." },
   { q: "How long does an ecommerce website take?", a: "It depends on the catalogue, the integrations and the migration, and we set the plan only after discovery. Content usually arrives slower than code, so we agree dates for both in writing and report progress on the dates we agreed." },
-  { q: "Can you connect the store to inventory and accounting?", a: "Yes, in principle. Integration is scoped per system, and stock, payments and the ledger are the usual three. We agree which system owns each record first, then build a sync that reports its own failures to a person. The sync is built to flag a failed order or stock update to a person, not drop it.", link: { to: "/services/application-development", label: "Custom software development" } },
-  { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. The Phantom Arcades build is our reference example, and its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
+  { q: "Can you connect the store to inventory and accounting?", a: "Yes, in principle. Integration is scoped per system, and stock, payments and the ledger are the usual three. We agree which system owns each record first, then build a sync that reports its own failures to a person.", link: { to: "/services/application-development", label: "Custom software development" } },
+  { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. Its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
   { q: "Will we own the store?", a: "Yes. The code, the hosting account and the payment accounts are in your name from day one, and we hand over documentation. If you leave us, nothing is held back, and another developer can pick the work up. That includes the domain, so you can move hosting or developers without asking us." },
-  { q: "Do you do SEO for online stores?", a: "Yes, through our SEO service. Our measured example is Phantom Arcades, an online store where Google clicks rose 92 percent year on year. That result is clicks, not sales, and we make no revenue claim. Product and category page structure is usually the first thing we would look at.", link: { to: "/services/seo", label: "SEO services" } },
-  { q: "Can you migrate our store from another platform?", a: "It is a scoped project. We start with an inventory of the catalogue, customers and order history, then agree what moves and what is retired. We make no claim about past migrations, and we plan the redirects before launch. Order history and customer accounts are checked after the move, not assumed to have carried over.", link: { to: "/services/website-development", label: "Website development" } },
+  { q: "Do you do SEO for online stores?", a: "Yes, through our SEO service. Our measured example is Phantom Arcades, an online store where Google clicks rose 92 percent year on year. That result is clicks, not sales. Product and category page structure is usually the first thing we would look at.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "Can you migrate our store from another platform?", a: "It is a scoped project. We start with an inventory of the catalogue, customers and order history, then agree what moves and what is retired. We plan the redirects before launch. Order history and customer accounts are checked after the move, not assumed to have carried over.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "How do payments work?", a: "Your payment processor holds the card data, and we connect the storefront to it. That keeps PCI scope with the processor. We set up checkout, refunds and reconciliation to the ledger, with the payment account in your name. Test orders run end to end before launch, so refunds and reconciliation are checked early." },
-  { q: "Do you provide support after launch?", a: "Yes. Every build has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. A person reads what you send, and the same team that built the store looks after it. Support starts at go-live, so there is no gap between the build and its upkeep." },
+  { q: "Do you provide support after launch?", a: "Yes. Every build has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. A person reads what you send, and the same team that built the store looks after it." },
   { q: "What does an ecommerce build need from us?", a: "Your catalogue, brand assets, the accounting system, the payment provider and your shipping rules. If any of these are not ready, we say so in week one and plan around it, rather than discovering the gap at launch. A short checklist in the first week shows exactly which of these items are still missing." },
 ];
 
@@ -145,15 +145,15 @@ export default function ECommerce() {
         }}
         proof="seo"
         offer1={{ heading: "Which two numbers never match?", line: "Stock against the warehouse, or orders against the ledger. Tell us.", label: "Tell us which two numbers never match" }}
-        offer2={{ heading: "Planning a store or a replatform?", line: "Tell us the catalogue and the systems; we say how we would approach it.", label: "Talk to a consultant" }}
+        offer2={{ heading: "Planning a store or a replatform?", line: "Tell us the catalogue and the systems, and we say how we would approach it.", label: "Talk to a consultant" }}
         units={UNITS}
         after={{
           builds: (tone) => (
             <CaseBand id="work" tone={tone()} heading="Work we can show"
-              lede="Two stores we built. One has a measured search result, and we print no revenue."
+              lede="Two stores we built. One has a measured search result."
               cases={[
                 { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator.", result: "Google clicks +92%, non-brand +231% (Search Console)", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
-                { title: "Atlas Peptides", built: "A client site we built. We make no further claim about it here." },
+                { title: "Atlas Peptides", built: "A client site we built." },
               ]} />
           ),
         }}
@@ -173,7 +173,7 @@ export default function ECommerce() {
             { num: "54,707", label: "Online-only retail establishments (NAICS 4541), 2023" },
           ],
           read: "U.S. Census Bureau, read 31 October 2026",
-          note: "The 54,707 count covers only retailers classed as online-only; most online sales come from stores classed elsewhere. The Census page carries a 28 September 2026 revision notice; the Q3 release is due 19 November 2026.",
+          note: "The 54,707 count covers only retailers classed as online-only. Most online sales come from stores classed elsewhere. The Census page carries a 28 September 2026 revision notice. The Q3 release is due 19 November 2026.",
           sources: [
             { name: "U.S. Census Bureau, Quarterly Retail E-Commerce Sales, Q2 2026", what: "Seasonally adjusted $340.2 billion, 17.1 percent of retail ($1,986.5 billion), up 12.2 percent year on year; the page carries a 28 September 2026 revision notice", read: "read 31 October 2026", page: "https://www.census.gov/retail/ecommerce.html" },
             { name: "U.S. Census Bureau, County Business Patterns 2023", what: "NAICS 4541, electronic shopping and mail-order houses: 54,707 establishments", read: "read 31 October 2026", page: "https://www.census.gov/programs-surveys/cbp.html" },

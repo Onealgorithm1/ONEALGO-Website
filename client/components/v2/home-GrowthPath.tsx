@@ -5,7 +5,7 @@ import { GhostNum } from "./industries-Visuals";
 /* The three-step growth path (Louis 2026-10-31, oa-growth-strategy-and-page-rules): results without ad spend first.
    Used on the home page and /services; the dental card on /industries describes the same path. Approach copy only: no results claimed. */
 const STEPS = [
-  { t: "The website and the message", p: "A site that says plainly what you do, for whom and what to do next. Everything else rests on it." },
+  { t: "The website and the message", p: "A site that says what you do, for whom and what to do next. Everything else rests on it." },
   { t: "Traction without ad spend", p: "SEO, blog posts, email campaigns and site authority, so people find you and keep coming back." },
   { t: "Automation", p: "Social posts, Google Business Profile posts, and review requests and replies, run on a schedule." },
 ];

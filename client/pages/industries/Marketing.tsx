@@ -26,7 +26,7 @@ const UNITS: IndUnit[] = [
     points: ["Social media management services on your accounts", "MarTech consulting: campaign platform to CRM", "Marketing automation consulting, inside one platform"],
     deepLabel: "where each marketing job is described",
     deep: (<>
-      <p className="sf-rule">This page is a short signpost. Each job links to the page that owns the detail, so nothing is said twice in two places.</p>
+      <p className="sf-rule">This page is a short signpost. Each job links to the page that owns the detail.</p>
       <div className="sf-links">
         <Link className={L} to="/services/marketing">Social media management services</Link>
         <Link className={L} to="/services/martech">MarTech consulting</Link>
@@ -37,7 +37,7 @@ const UNITS: IndUnit[] = [
   {
     id: "social", title: "Channels managed by nobody in particular",
     lede: "We manage the Facebook Pages and Instagram business accounts our clients own.",
-    lead: "Accounts stay in your name, so the channels belong to you, not to us.",
+    lead: "Accounts stay in your name, so the channels belong to you.",
     points: ["Planning and publishing content", "Profiles kept current", "A report of what each channel delivered"],
     deepLabel: "how social media management works",
     deep: (<>
@@ -80,14 +80,14 @@ const UNITS: IndUnit[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Do you offer white-label web development for agencies?", a: "No. We do not sell white-label web development, and we have no agency-partner program. We work under our own name with the clients we serve directly. If you are an agency with a specific integration need, send the detail and we will say honestly whether it fits." },
+  { q: "Do you offer white-label web development for agencies?", a: "No. We do not sell white-label web development, and we have no agency-partner program. We work under our own name with the clients we serve directly. If you are an agency with a specific integration need, send the detail and we will say whether it fits." },
   { q: "Do you manage social media for businesses?", a: "Yes. We manage Facebook Pages and Instagram business accounts, always on accounts you own. Gorband is a client site we built. We publish no social media results, so we will not quote a number, but we will report what each channel delivered.", link: { to: "/services/marketing", label: "Social media management services" } },
   { q: "Can you connect our campaign platform to our CRM?", a: "Yes, in principle. Our pattern is Salesforce Marketing Cloud, with about 18 months of recurring support for one client we do not name. We agree which system owns each field, build the sync and report its failures. We do not work on HubSpot.", link: { to: "/services/martech", label: "MarTech consulting" } },
-  { q: "Can you show marketing results?", a: "One: for Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. It is one result, not a pattern, and we claim no revenue. We publish no other client marketing results. The Search Console figures are the source, and the case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
-  { q: "Do you run paid search or social ads?", a: "We offer a method and an audit for Google Ads, explained on our paid media page. We have no ad-account results to show, so we make no claim about them. If you want a review of an account, we will say what we would check.", link: { to: "/services/google-ads", label: "Google Ads management" } },
+  { q: "Can you show marketing results?", a: "One: for Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. It is one result, not a pattern, and we claim no revenue. We publish no other client marketing results. The case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
+  { q: "Do you run paid search or social ads?", a: "We offer a method and an audit for Google Ads, explained on our paid media page. We have no ad-account results to show. If you want a review of an account, we will say what we would check.", link: { to: "/services/google-ads", label: "Google Ads management" } },
   { q: "What drives the cost of a MarTech integration?", a: "The number of tools, whether each has an API, how much data moves, the rate limits and who owns each account. Nothing starts without a written scope, and we quote only once we have seen the tools involved." },
   { q: "Who owns the accounts and the data?", a: "You do. Accounts stay in your name from the first day, and integrations are documented and handed over. We work inside your accounts as a partner, and nothing is held in ours that you would need to get back. Ad accounts, analytics properties and CRM records all remain yours if we part ways." },
-  { q: "Do you do SEO for marketing teams?", a: "Yes. SEO is a general service, and our measured example is Phantom Arcades. We cover technical SEO, content structure and a measured result, and we report clicks, not revenue. It is described in full on the SEO page. The SEO page lists exactly what a review covers and what it does not.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "Do you do SEO for marketing teams?", a: "Yes. SEO is a general service, and our measured example is Phantom Arcades. We cover technical SEO, content structure and a measured result, and we report clicks, not revenue. The SEO page lists what a review covers and what it does not.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "What is the difference between a marketing automation consultant and a MarTech consultant?", a: "Marketing automation builds journeys and sends inside one platform. MarTech designs the stack around it: which tools you run, how they connect and which one owns each record. Most teams need the second before the first pays off. A short call is enough to tell which of the two your team needs first.", link: { to: "/services/martech", label: "MarTech consulting" } },
 ];
 
@@ -112,7 +112,7 @@ export default function Marketing() {
             <span className="text-oa-orange">not an industry</span>
           </>
         }
-        lede="This page exists because marketing teams buy technology like everyone else. The work itself is described in full on two service pages, and those are the ones to read — this is a short account of what a marketing team gets and where to go next."
+        lede="This page exists because marketing teams buy technology like everyone else. The work itself is described in full on two service pages, and those are the ones to read. This is a short account of what a marketing team gets and where to go next."
         panel={{
           title: "What a marketing team gets",
           items: [
@@ -136,7 +136,7 @@ export default function Marketing() {
         }}
         proof="seo"
         offer1={{ heading: "What can your reporting not answer?", line: "Usually which spend produced which revenue. Tell us yours.", label: "Tell us what your reporting cannot answer" }}
-        offer2={{ heading: "Talk to a marketing specialist", line: "Tell us what the campaign needs to do; we say how we would set it up.", label: "Talk to a marketing specialist" }}
+        offer2={{ heading: "Talk to a marketing specialist", line: "Tell us what the campaign needs to do, and we say how we would set it up.", label: "Talk to a marketing specialist" }}
         units={UNITS}
         after={{
           spend: (tone) => (

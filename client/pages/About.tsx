@@ -167,7 +167,7 @@ export default function About() {
             <span className="text-oa-orange">One Algorithm</span>
           </>
         }
-        lede="Four people run this firm. Between them they spent their careers building and running enterprise systems — Salesforce, ERP, integration, federal compliance — inside large organizations, as employees, before starting One Algorithm in 2020. Their names, roles and public profiles are below."
+        lede="Four people run this firm. Between them they spent their careers building and running enterprise systems (Salesforce, ERP, integration, federal compliance) inside large organizations, as employees, before starting One Algorithm in 2020. Their names, roles and public profiles are below."
         primary={{ label: "Talk to an expert", to: "/contact" }}
         secondary={{ label: "See what we do", to: "/services" }}
       />
@@ -232,7 +232,7 @@ export default function About() {
                   </Link>{" "}
                   are places members of this team have worked, before this firm
                   existed. They are prior employment, not clients of One
-                  Algorithm, and we do not present them as clients.
+                  Algorithm.
                 </p>
               </Prose>
 
@@ -303,9 +303,9 @@ export default function About() {
                   not been awarded a government contract, and the page should
                   not let that misreading stand. */}
               <p className="mt-6 border-t border-oa-hairline pt-5 text-sm leading-relaxed text-oa-ink2">
-                These are certifications and registrations — they make the firm
+                These are certifications and registrations. They make the firm
                 eligible to bid on set-aside work. They are not contract awards,
-                and we don't claim any.
+                and the firm has not been awarded one.
               </p>
             </Card>
           }
@@ -314,7 +314,7 @@ export default function About() {
 
       <CTABand
         title="Talk to the people on this page"
-        body="Tell us what is slowing you down. Whoever picks it up is one of the four people above — the same people who would scope the work and build it."
+        body="Tell us what is slowing you down. Whoever picks it up is one of the four people above, who would also scope the work and build it."
         primary={{ label: "Talk to an expert", to: "/contact" }}
         secondary={{ label: "View capabilities", to: "/capabilities" }}
       />

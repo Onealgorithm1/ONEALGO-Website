@@ -43,14 +43,14 @@ const SOURCES: SfSource[] = [
   { name: "Google Play Console, registration", what: "One-time registration fee: US$25. Publisher: Google.", read: READ, page: "https://support.google.com/googleplay/android-developer/answer/6112435" },
   { name: "App Store Review Guidelines, 4.2 Minimum Functionality", what: "An app should include features and content that elevate it beyond a repackaged website. Publisher: Apple.", read: READ, page: "https://developer.apple.com/app-store/review/guidelines/" },
   { name: "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics", what: "Software developers (SOC 15-1252), May 2025 estimates: 1,687,890 employed in the United States; 28,480 in the Philadelphia-Camden-Wilmington area (area code 37980).", read: READ, page: "https://www.bls.gov/oes/" },
-  { name: "Salesforce AppExchange, OneAlgorithm consulting partner listing", what: `Consulting Partner, Select tier. Salesforce's record, not ours; listing ${SF_LISTING_ID}.`, read: `read ${SF_VERIFIED_LABEL}`, page: SF_APPEXCHANGE_URL },
+  { name: "Salesforce AppExchange, OneAlgorithm consulting partner listing", what: `Consulting Partner, Select tier. Salesforce's record, listing ${SF_LISTING_ID}.`, read: `read ${SF_VERIFIED_LABEL}`, page: SF_APPEXCHANGE_URL },
 ];
 
 const FAQS: SfFaqItem[] = [
   { q: "How much does custom software development cost?", a: "Cost depends on scope, integrations, the number of users, compliance needs, hosting and support. A number quoted before discovery is a guess, so we scope the work first and put it in writing. We print no price list, and you keep the findings and the written quote whether or not you hire us.", link: { to: "#cost", label: "What drives the cost" } },
   { q: "How long does custom software development take?", a: "It depends on the size of the system: user roles, integrations and screens decide it. After a short discovery we give you a written plan with dates. You also see working software in a preview environment as it is built, so progress is visible every week instead of being revealed at launch.", link: { to: "#process", label: "How a project runs" } },
   { q: "Who owns the code and the cloud accounts?", a: "You do, from day one. The repository, cloud accounts, domain and database are created in your company's name with your billing, and any Apple or Google developer accounts a project needs belong in your name too. We work inside them as your team, so handover is a non-event.", link: { to: "#own", label: "What you own when we finish" } },
-  { q: "Can you take over an app someone else built?", a: "Yes, after an audit. We check who controls the code and the accounts, where security stands and what launching would take. The findings decide whether to take it over, rebuild it or extend it, and you keep them whether or not you hire us. We do not assume any particular prototype tool.", link: { to: "#own", label: "Already have an app?" } },
+  { q: "Can you take over an app someone else built?", a: "Yes, after an audit. We check who controls the code and the accounts, where security stands and what launching would take. The findings decide whether to take it over, rebuild it or extend it, and you keep them whether or not you hire us.", link: { to: "#own", label: "Already have an app?" } },
   { q: "What is custom application development?", a: "Custom application development is software built for one organization's process rather than bought off the shelf. It covers internal tools, customer portals, web applications and apps on platforms such as Salesforce. The code is written for you and held by you, so the software can change when your business does." },
   { q: "What happens after launch?", a: "The application keeps running and keeps changing. We provide 24/7 support and a hypercare period after go-live, when fixes arrive fastest. A written runbook means your own team can also deploy, restore and respond without us, so you are never locked in to our availability." },
   { q: "Can you build a customer portal?", a: "Yes. A portal is mostly sign-in, roles and permissions done carefully: who sees which records, what each role can change and what gets logged. We build that foundation first, then the screens, and test that one customer can never open another customer's data. For a web build we have shipped, see the Phantom Arcades configurator.", link: { to: CONFIGURATOR, label: "3D product configurator case study" } },
@@ -175,7 +175,7 @@ export default function ApplicationDevelopment() {
 
         {/* 3 · proof band (night) */}
         <SmartSection id="work" tone="night" labelledBy="h-work"
-          heading={{ id: "h-work", kicker: "Proof", title: "Work we have shipped", lede: "Things you can open or read about, described as what they are." }}>
+          heading={{ id: "h-work", kicker: "Proof", title: "Work we have shipped", lede: "Things you can open or read about." }}>
           <div style={{ marginTop: 40 }}><ConfiguratorPlate fig={2} /></div>
           <div className="sf-grid" style={{ marginTop: 40 }}>
             <div className="sf-c6"><CaseCard title="A 3D product configurator" built="For Phantom Arcades we built the eight-cabinet 3D configurator in three.js." to={CONFIGURATOR} linkLabel="Read the configurator case study" /></div>
@@ -187,11 +187,11 @@ export default function ApplicationDevelopment() {
         <SmartSection id="own" grid labelledBy="h-own">
           <SmartUnit className="sf-c7" headingId="h-own" title="What you own when we finish"
             lede="The code, the cloud accounts and the domain are created in your name on day one, not transferred at the end."
-            lead="The costliest problem in custom software is rarely the code; it is finding out later that nobody at your company can log in."
+            lead="The costliest problem in custom software is finding out later that nobody at your company can log in."
             points={["Source code in a repository your company owns", "Cloud accounts in your name, with your billing", "A written runbook: deploy, restore, what to do at 2am"]}>
             <GoDeeper label="the five things you hold at handover">
               <ul className="sf-rule">{OWNERSHIP.map((o) => <li key={o}>{o}</li>)}</ul>
-              <p>We are specific because we have audited projects where none of this was true, and repairing it costs far more than doing it right at the start.</p>
+              <p>We have audited projects where none of this was true, and repairing it costs far more than doing it right at the start.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c5">
@@ -248,7 +248,7 @@ export default function ApplicationDevelopment() {
           </GoDeeper>
         </SmartSection>
 
-        <OfferBand heading="Want a written quote?" line="Tell us what it must do; we reply with the questions that decide scope." label="Ask for a written quote" />
+        <OfferBand heading="Want a written quote?" line="Tell us what it must do and we reply with the questions that decide scope." label="Ask for a written quote" />
 
         {/* 7 · web or mobile: decision plate */}
         <SmartSection id="web-or-mobile" labelledBy="h-web"
@@ -263,13 +263,13 @@ export default function ApplicationDevelopment() {
 
         {/* 8 · local: readout band */}
         <SmartSection id="local" tone="surface" labelledBy="h-local"
-          heading={{ id: "h-local", kicker: "Local", title: "Custom software in Philadelphia and Chester County", lede: "We work from Malvern, PA, so a first conversation can be a coffee rather than a screen share." }}>
+          heading={{ id: "h-local", kicker: "Local", title: "Custom software in Philadelphia and Chester County", lede: "We work from Malvern, PA, so a first conversation can happen over coffee." }}>
           <Readouts withEvidence={false} items={[
             { value: 28480, label: "software developers in the Philadelphia area, May 2025", source: "U.S. Bureau of Labor Statistics" },
             { value: 99, label: "dollars a year for an Apple developer account, held in your name", source: "Apple Developer Program" },
             { value: 25, label: "dollars, once, for a Google Play account, held in your name", source: "Google Play Console" },
           ]} />
-          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> Plenty of developers are nearby; the difference is whether the one you hire hands you the keys.</p>
+          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> Plenty of developers are nearby. Ask whether the one you hire hands you the keys.</p>
           <div className="sf-links" style={{ marginTop: 16 }}>
             <Link className="sf-link" to="/services">Services</Link>
             <Link className="sf-link" to="/services/it-consulting">IT consulting services</Link>
@@ -284,7 +284,7 @@ export default function ApplicationDevelopment() {
         <SmartSection id="faq" grid labelledBy="h-faq">
           <div className="sf-c4">
             <h2 className="sf-h2" id="h-faq">Custom software questions</h2>
-            <p className="sf-lede" data-lede="">Straight answers on cost, ownership, timing and what happens after launch.</p>
+            <p className="sf-lede" data-lede="">Answers on cost, ownership, timing and what happens after launch.</p>
           </div>
           <div className="sf-c7 sf-faq-col"><FAQ items={FAQS} /></div>
         </SmartSection>

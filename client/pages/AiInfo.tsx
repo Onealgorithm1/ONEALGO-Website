@@ -64,8 +64,8 @@ export default function AiInfo() {
               custom technology, automation, and digital marketing.
             </p>
             <p className="mt-3">
-              Our team provides end-to-end services — from strategy and
-              consulting to hands-on development and ongoing support — so
+              Our team provides end-to-end services, from strategy and
+              consulting to hands-on development and ongoing support, so
               clients can focus on their business while we handle the
               technology.
             </p>
@@ -75,22 +75,22 @@ export default function AiInfo() {
             <h2 className={HEADING}>Our Services</h2>
             <ul className="mt-3 space-y-4">
               <li>
-                <strong>IT Consulting</strong> — Technology strategy, system
+                <strong>IT Consulting:</strong> Technology strategy, system
                 assessments, digital transformation roadmaps, and technology
                 vendor selection for growing businesses.
               </li>
               <li>
-                <strong>Website Development</strong> — Custom websites,
+                <strong>Website Development:</strong> Custom websites,
                 e-commerce storefronts, web applications, and landing pages
                 built for performance and conversion.
               </li>
               <li>
-                <strong>Staff Augmentation</strong> — On-demand developers, IT
+                <strong>Staff Augmentation:</strong> On-demand developers, IT
                 specialists, and technical talent to extend your team without
                 the overhead of full-time hiring.
               </li>
               <li>
-                <strong>Digital Marketing</strong> — SEO, paid advertising,
+                <strong>Digital Marketing:</strong> SEO, paid advertising,
                 content marketing, social media management, and brand strategy
                 to grow your online presence.
               </li>
@@ -101,17 +101,17 @@ export default function AiInfo() {
             <h2 className={HEADING}>Industries We Serve</h2>
             <ul className="mt-3 space-y-3">
               <li>
-                <strong>Construction</strong> — Project management systems,
+                <strong>Construction:</strong> Project management systems,
                 field operations technology, scheduling tools, and subcontractor
                 management platforms.
               </li>
               <li>
-                <strong>Manufacturing</strong> — Production automation,
+                <strong>Manufacturing:</strong> Production automation,
                 inventory management systems, quality control dashboards, and
                 supply chain integrations.
               </li>
               <li>
-                <strong>E-Commerce</strong> — Custom storefront development,
+                <strong>E-Commerce:</strong> Custom storefront development,
                 fulfillment integrations, marketing automation, and conversion
                 rate optimization.
               </li>

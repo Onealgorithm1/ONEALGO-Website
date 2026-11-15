@@ -117,9 +117,9 @@ export default function Services() {
         }
         lede={
           <>
-            From strategy through execution and beyond. We deliver expert
+            From strategy through execution and beyond. We deliver
             consulting and implementation across website development, IT
-            consulting, Salesforce and enterprise systems —
+            consulting, Salesforce and enterprise systems,
             specialized for{" "}
             <Link
               to="/industries/construction"

@@ -67,7 +67,7 @@ const FAQS: SfFaqItem[] = [
   },
   {
     q: "Why do Salesforce implementations fail, and how do we avoid it?",
-    a: "The usual causes are adoption and data, not configuration: the org is set up around a template instead of how the team works, old data arrives unreconciled so nobody trusts the reports, and nobody owns the org after go-live. We start from your current process, workarounds included; we reconcile record counts and totals before go-live; and we agree who owns the org before the build starts.",
+    a: "The usual causes are adoption and data, not configuration: the org is set up around a template instead of how the team works, old data arrives unreconciled so nobody trusts the reports, and nobody owns the org after go-live. We start from your current process, workarounds included, reconcile record counts and totals before go-live, and agree who owns the org before the build starts.",
   },
   {
     q: "Salesforce or HubSpot: which should we choose?",
@@ -116,7 +116,7 @@ const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your org stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
   { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
   { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first. <Link className="sf-link" to={COST}>What Salesforce work costs</Link></> },
-  { q: "You are not in our city.", a: <>Malvern, PA; the work happens inside your org, remotely; in person when a meeting needs it. <Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultants for Philadelphia companies</Link></> },
+  { q: "You are not in our city.", a: <>We work from Malvern, PA. The work happens inside your org, remotely, and in person when a meeting needs it. <Link className="sf-link" to="/services/salesforce-consultant-philadelphia">Salesforce consultants for Philadelphia companies</Link></> },
 ];
 
 const CITY_NAV = SF_CITY_LINKS.filter((c) => !c.to.endsWith("-houston"));
@@ -186,7 +186,7 @@ export default function Salesforce() {
                 Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day: choosing the edition and license count, configuring Sales Cloud and Service Cloud, automating manual steps with Flow, migrating and reconciling data, connecting other systems such as an ERP, and supporting the team after go-live.
               </p>
               <p><span className="sf-lead-in">What we do:</span> All four stages, or any one on its own, with the person who scopes your org staying on it through delivery.</p>
-              <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign; the market's published ranges are in our cost guide.</p>
+              <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign. The market's published ranges are in our cost guide.</p>
               <p><span className="sf-lead-in">Editions:</span> Starter Suite, Pro Suite, Core, Advanced and Max (Salesforce's current names, read {SF_VERIFIED_LABEL}). We tell you which one does the job before you buy.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HC}>Start with the free health check</Link>
@@ -219,7 +219,7 @@ export default function Salesforce() {
             measure={false}
           >
             <GoDeeper label="how we configure an org around the team">
-              <p className="sf-rule">Sales and Service Cloud get configured around how your people actually work, not the reverse. The reports your leadership will open get built from the questions they ask, and every integration gets an alert for the day it stops.</p>
+              <p className="sf-rule">Sales and Service Cloud get configured around how your people actually work. The reports your leadership will open get built from the questions they ask, and every integration gets an alert for the day it stops.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={HC}>What the free week covers</Link>
                 <Link className="sf-link" to={MS}>Weekly administration and development</Link>
@@ -238,7 +238,7 @@ export default function Salesforce() {
             measure={false}
           >
             <GoDeeper label="how the edition decision is made before the license order">
-              <p className="sf-rule">Clouds bought together because they were quoted together are the most common line on a first invoice. Starter Suite and Pro Suite exist for smaller teams; Core, Advanced and Max for the rest. The edition decision is made with you before the license order, and that is a cheaper thing to find out now than in month four.</p>
+              <p className="sf-rule">Clouds bought together because they were quoted together are the most common line on a first invoice. Starter Suite and Pro Suite exist for smaller teams. Core, Advanced and Max cover the rest. The edition decision is made with you before the license order.</p>
               <div className="sf-links"><Link className="sf-link" to={COST}>What Salesforce costs, edition by edition</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -277,13 +277,13 @@ export default function Salesforce() {
             lede: "We work in Sales Cloud, Service Cloud, the Salesforce Platform (Flow and Apex) and Marketing Cloud.",
           }}
         >
-          <SmartUnit level={3} className="sf-c4" title="Sales Cloud and Service Cloud consulting" lede="Sales Cloud runs the work of winning business; Service Cloud runs support after the sale." measure={false}>
+          <SmartUnit level={3} className="sf-c4" title="Sales Cloud and Service Cloud consulting" lede="Sales Cloud runs the work of winning business, and Service Cloud runs support after the sale." measure={false}>
             <GoDeeper label="what we configure in Sales Cloud and Service Cloud">
               <p className="sf-rule">Sales Cloud runs leads, opportunities and pipeline. Service Cloud runs cases, queues and escalation. We configure both around how your team actually works. Sreenivas Amirisetti holds the Agentforce Sales Consultant and Agentforce Service Consultant certifications, formerly Sales Cloud and Service Cloud Consultant.</p>
               <div className="sf-links"><Link className="sf-link" to={HC}>Check the org you have, free</Link></div>
             </GoDeeper>
           </SmartUnit>
-          <SmartUnit level={3} className="sf-c4" delay={0.08} title="Flow, Apex and platform development" lede="The manual steps your team repeats every week, handed to Flow; Apex where clicks can't do the job." measure={false}>
+          <SmartUnit level={3} className="sf-c4" delay={0.08} title="Flow, Apex and platform development" lede="The manual steps your team repeats every week, handed to Flow, with Apex where clicks can't do the job." measure={false}>
             <GoDeeper label="the platform work: Flow, Apex, permissions, integrations">
               <p className="sf-rule">Permissions rebuilt so the right people see the right records, and integrations that tell someone when they fail. Salesforce's AppExchange record lists {SF_CERTIFICATIONS} certifications (read {SF_VERIFIED_LABEL}).</p>
               <div className="sf-links"><Link className="sf-link" to={MS}>Weekly Salesforce development</Link></div>
@@ -341,7 +341,7 @@ export default function Salesforce() {
               <DeliveredLedger />
               <p className="sf-mono" style={{ marginTop: 10 }}>Industries: lending (current engagement)</p>
               <GoDeeper label="the competency rows and how to check any partner">
-                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them; ask who will do your work and look them up on Trailblazer.</p>
+                <p className="sf-rule">Salesforce's listing breaks the {SF_CERTIFICATIONS} certifications down by competency, including 7 on Agentforce (read {SF_VERIFIED_LABEL}). Open any partner's listing and read the same box before you hire them. Ask who will do your work and look them up on Trailblazer.</p>
                 <div className="sf-links"><Link className="sf-link" to={PA}>How to check any Salesforce partner</Link></div>
               </GoDeeper>
             </SmartUnit>

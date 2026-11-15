@@ -36,11 +36,11 @@ const SOURCES: SfSource[] = [
 
 const FEATURES = [
   { title: "Campaign Management", body: "Campaign calendars, builds and launches for the channels you ask us to run, planned far enough ahead that nothing ships the morning it is due." },
-  { title: "AI-Driven Insights", body: "A plain-language read of what your numbers show and what to try next month. A person decides what actually goes out." },
+  { title: "AI-Driven Insights", body: "A plain-language read of what your numbers show and what to try next month. A person decides what goes out." },
   { title: "Customer Journeys", body: "The sequence someone sees from first click to enquiry, written down and built in your CRM rather than held in one person's head." },
-  { title: "ROI Tracking", body: "Spend, leads and cost per lead in one place, tied back to the CRM record — so the numbers hold up when somebody disputes them." },
-  { title: "Lead Nurturing", body: "Automated follow-up that stops the moment someone replies. Most nurture sequences fail on exactly that detail." },
-  { title: "Marketing Automation", body: <>The repetitive work — list uploads, tagging, assignment, the weekly report — handed to the tool instead of to a person on Friday afternoon. <Link className="sf-link" to={MARTECH}>MarTech consulting</Link></> },
+  { title: "ROI Tracking", body: "Spend, leads and cost per lead in one place, tied back to the CRM record, so the numbers hold up when somebody disputes them." },
+  { title: "Lead Nurturing", body: "Automated follow-up that stops the moment someone replies." },
+  { title: "Marketing Automation", body: <>List uploads, tagging, assignment and the weekly report, handed to the tool instead of to a person on Friday afternoon. <Link className="sf-link" to={MARTECH}>MarTech consulting</Link></> },
 ];
 
 /* Compliance wording, verbatim. */
@@ -59,18 +59,18 @@ const HOW_IT_WORKS = [
 ];
 
 const BENEFITS = [
-  { title: "You own the accounts", body: "Your Pages, your ad accounts, your CRM. We work inside them as a partner, and you can withdraw that access whenever you like — including the day we stop working together." },
+  { title: "You own the accounts", body: "Your Pages, your ad accounts, your CRM. We work inside them as a partner, and you can withdraw that access whenever you like, including the day we stop working together." },
   { title: "Reporting in plain numbers", body: "Reach, leads and spend in one place, in language you can repeat to someone else without opening the tool. Not a screenshot of a dashboard." },
   { title: "The routine work runs itself", body: "Scheduling, list handling and the recurring report are automated. Your team's time goes to the parts that need a judgment call." },
-  { title: "No case studies to show you", body: "We have not published client marketing results, and we are not going to invent any. Ask us what we would run in your first ninety days and judge the answer instead." },
+  { title: "No case studies to show you", body: "We have not published client marketing results. Ask us what we would run in your first ninety days and judge the answer." },
 ];
 
 const FAQS: SfFaqItem[] = [
   { q: "How much does social media management cost?", a: "Social media management is priced by scope: the accounts, channels and content you need decide the work. We scope it in writing and print no price list. For comparison, the U.S. Bureau of Labor Statistics puts an average in-house marketing specialist salary at $89,490 and a marketing manager at $177,770, salary only.", link: { to: "#cost", label: "What it costs, and why it varies" } },
-  { q: "Is social media management worth it?", a: "It is when your customers use Facebook or Instagram and nobody on your team has time to plan, publish and report. We measure in plain numbers and promise no growth figure. We show no case study on this page, because we would rather say so than invent one." },
+  { q: "Is social media management worth it?", a: "It is when your customers use Facebook or Instagram and nobody on your team has time to plan, publish and report. We measure in plain numbers and promise no growth figure. We show no case study on this page." },
   { q: "Do I keep ownership of my accounts?", a: "Yes. Your Facebook and Instagram business accounts stay in your name. You grant us access through Meta's business tools, we manage and measure, and you can remove that access whenever you choose. We never need your personal password, and you can see everything we do." },
   { q: "Do you need my passwords?", a: "No. You add us to your business assets with the access level you choose, so we never hold your login. That keeps the accounts yours and lets you see exactly what we can do. We walk you through the steps when you start." },
-  { q: "Do you manage both Facebook and Instagram?", a: "Yes. We manage Facebook and Instagram business accounts together, with one content plan, one publishing schedule and one report. Other channels are scoped separately, and we say so before we agree the work, so you are never billed for a channel nobody discussed." },
+  { q: "Do you manage both Facebook and Instagram?", a: "Yes. We manage Facebook and Instagram business accounts together, with one content plan, one publishing schedule and one report. Other channels are scoped separately before we agree the work, so you are never billed for a channel nobody discussed." },
   { q: "Are paid ads included in management?", a: "Not unless agreed. Management covers planning, publishing and reporting. Paid ads are scoped separately, and the ad budget is paid to the platform, not to us. If you want ads, we set the goal and the tracking first, so spend is judged on enquiries, not on clicks.", link: { to: "/services/google-ads", label: "Google Ads management" } },
   { q: "How do you report on results?", a: "In plain numbers you can check: what was published, who it reached and what they did next. We name what changed and what we will do next month. We do not report vanity figures as results, and growth that comes from people who already knew you is labelled as brand." },
   { q: "What does a digital marketing agency do for a small business?", a: "It plans and runs the channels that bring in customers: search, ads, social, email and the tracking that ties them together. We cover social media management on this page, with SEO, Google Ads and MarTech on their own pages, and we tell you which channel to start with.", link: { to: "/services/seo", label: "SEO services" } },
@@ -233,17 +233,17 @@ export default function Marketing() {
                 { label: "Marketing manager, median", value: 166790, text: "$166,790", accent: true },
               ]} />
           </div>
-          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> An in-house hire is the honest comparison, and the wage data is public.</p>
+          <p className="sf-measure" style={{ marginTop: 32 }}><span className="sf-lead-in">Why it matters:</span> The comparison is an in-house hire, and the wage data is public.</p>
           <GoDeeper label="what sets the price">
             <p className="sf-rule">Three things move it: the number of accounts and channels we run, how much content is planned and published, and how much reporting and approval you want. We do not publish prices, and we scope your work in a conversation first.</p>
           </GoDeeper>
         </SmartSection>
 
-        <OfferBand heading="Not sure what to hand off?" line="Tell us the goal; we say what we would run first." label="Talk to a marketing specialist" />
+        <OfferBand heading="Not sure what to hand off?" line="Tell us the goal and we say what we would run first." label="Talk to a marketing specialist" />
 
         {/* 7 · what this is, and what it isn't (verbatim) */}
         <SmartSection id="why" labelledBy="h-why"
-          heading={{ id: "h-why", kicker: "Straight talk", title: "What this is, and what it isn't", lede: "Four plain statements about how we work, including the case studies we do not have." }}>
+          heading={{ id: "h-why", kicker: "Straight talk", title: "What this is, and what it isn't", lede: "Four statements about how we work, including the case studies we do not have." }}>
           <HoverCards cols={2} items={BENEFITS} />
           <div className="sf-links" style={{ marginTop: 32 }}>
             <Link className="sf-link" to="/services/salesforce-marketing-cloud-consulting">Salesforce Marketing Cloud consulting</Link>
