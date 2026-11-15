@@ -119,6 +119,13 @@ export const WORK: WorkItem[] = [
     shot: "2026-10-01",
     embed: true, // sends no X-Frame-Options and no CSP (curl, 2026-10-01)
     marker: "Gorband",
+    review: {
+      author: "Gaurav",
+      // Gaurav Kanungo (owner), 5 stars, posted 2026-11-05 as "G K" on OUR listing (OneAlgorithm Consulting): "We started
+      // working with Louis a month ago ... for my website." Link = the review's own googleMapsUri from the Places API
+      // (read 2026-11-14); its place id 0x218ca530a72f1726 is OneAlgorithm Consulting, as on Dennis's.
+      url: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25Cd1pWcFRPRXc0YTFvNFlVdHZVbnAyU0hCd00yYxAB!2m1!1s0x89c6f327d5340c9d:0x218ca530a72f1726",
+    },
   },
   {
     slug: "starzi-bros",

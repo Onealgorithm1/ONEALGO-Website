@@ -51,6 +51,14 @@ export const REVIEWS: Record<string, { author: string; authorLine: string; text?
     // No verified text on file: the dialog links to the review and quotes nothing (Codex review finding 6).
     url: "https://maps.app.goo.gl/ssMbAsPBu5wBcgNu6",
   },
+  gorband: {
+    author: "Gaurav",
+    authorLine: "Gaurav Kanungo, The Gorband (posts on Google as “G K”)",
+    // Verbatim from OneAlgorithm's Google listing via the Places API, read 2026-11-14 (5 stars, posted 2026-11-05).
+    text: "We started working with Louis a month ago and so far I have truly learnt a lot from him and his colleagues. They are very professional and have upto date knowledge on what we aligned to work for my website. Planning to explore more opportunities to grow my business with one algorithms support.",
+    textNote: "Quoted as posted, spelling included.",
+    url: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25Cd1pWcFRPRXc0YTFvNFlVdHZVbnAyU0hCd00yYxAB!2m1!1s0x89c6f327d5340c9d:0x218ca530a72f1726",
+  },
 };
 
 /** U2: how the hero was built (HeroSlides.tsx; never "invented here"). */
