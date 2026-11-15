@@ -69,7 +69,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Will I need to buy another marketing tool?", a: "Not necessarily. The audit compares what you pay for with what you use, and the cancel list names tools you could drop. We recommend a new tool only when an existing one cannot do the job, and we tell you why before you spend anything." },
   { q: "Can my team run the integrations after you finish?", a: "Yes, that is the aim. We document every connection and hand over: what moves, where it is configured and what to check when it breaks. The accounts stay in your name, so you are never locked in to us, and you can bring us back for changes." },
   { q: "How many MarTech tools do we really need?", a: "As few as cover your jobs: a CRM, a way to send and automate email, ad accounts, analytics and reporting. The right number is the one with no overlap. Our audit lists each tool, what it costs and how much it is used, so overlap and unused tools become visible." },
-  { q: "Do you work with HubSpot?", a: "Our MarTech work centres on Salesforce, including Marketing Cloud, and the CRM. We do not offer HubSpot implementation. If HubSpot sits in your stack, the audit will still inventory it and show how it connects to everything else. Building inside HubSpot is outside what we sell." },
+  { q: "Do you work with HubSpot?", a: "Our MarTech work centres on Salesforce, including Marketing Cloud, and the CRM. If HubSpot sits in your stack, the audit inventories it and shows how it connects to everything else, and we wire it to Salesforce and the rest. Building inside HubSpot is outside what we sell." },
 ];
 
 const TITLE = "MarTech Consulting and Stack Audit | One Algorithm";

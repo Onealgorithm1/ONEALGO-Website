@@ -217,9 +217,7 @@ export default function About() {
                     web design
                   </Link>
                   . We build to NIST and
-                  DFARS requirements where a contract calls for them, but we are
-                  not a dedicated cybersecurity provider and do not take
-                  standalone security engagements.
+                  DFARS requirements where a contract calls for them.
                 </p>
                 <p>
                   The experience behind that work was earned as employees. The

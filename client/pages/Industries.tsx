@@ -18,7 +18,7 @@ import { IndBody, CaseBand, CBP, type IndUnit } from "../components/v2/industrie
 const INDUSTRIES = [
   { icon: Building2, title: "Construction", h3: "Construction software integration", body: "Connecting the field app, the estimating tool and the accounting package a firm already bought, so a job number means one thing in all three.", to: "/industries/construction" },
   { icon: Factory, title: "Manufacturing", h3: "Manufacturing ERP integration", body: "ERP, reporting and integration work behind the plant, joined to Salesforce and the storefront.", to: "/industries/manufacturing" },
-  { icon: ShoppingCart, title: "Ecommerce", h3: "Ecommerce website development", body: "WooCommerce and custom store builds, and the joins between the store and stock, payments and the ledger.", to: "/industries/ecommerce" },
+  { icon: ShoppingCart, title: "Ecommerce", h3: "Ecommerce website development", body: "Shopify, WooCommerce and custom store builds, and the joins between the store and stock, payments and the ledger.", to: "/industries/ecommerce" },
   { icon: Landmark, title: "Government", h3: "Government IT services", body: "Set-aside eligible and SAM registered, with identifiers and NAICS codes published for market research.", to: "/industries/government" },
   { icon: Megaphone, title: "Marketing", h3: "Technology for marketing teams", body: "A function, not an industry: a short signpost to the social media, MarTech and SEO service pages.", to: "/industries/marketing" },
 ];
@@ -34,7 +34,7 @@ const UNITS: IndUnit[] = [
     points: ["Construction, manufacturing, ecommerce, government", "Marketing is a function, not a sector", "Each page says how the work lands"],
     deepLabel: "how the five pages are organised",
     deep: (<>
-      <p className="sf-rule">We are not a sector specialist and these are not five practices. Each page says how the work lands in that industry, and the marketing page is kept short and points at the service pages that own the detail.</p>
+      <p className="sf-rule">One team does the same integration, platform and web work in every industry here. Each page says how the work lands in that industry, and the marketing page is kept short and points at the service pages that own the detail.</p>
       <p>Looking for a service rather than a sector? Start with <Link className="sf-link" to="/services">our services</Link>, or go straight to <Link className="sf-link" to="/services/website-development">website development</Link>.</p>
     </>),
   },
@@ -57,7 +57,7 @@ const FAQS: SfFaqItem[] = [
   { q: "Are you a construction or manufacturing specialist?", a: "We are an IT consultancy that connects systems, builds websites and implements Salesforce. The construction and manufacturing pages say where that work lands in each sector. Tell us the two systems that disagree and we will say what we would check first." },
   { q: "Do you have industry case studies?", a: "One measured result: for Phantom Arcades, an ecommerce store we built, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, read from Search Console.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
   { q: "Can you work with government agencies?", a: "Yes. We are registered in SAM.gov and certified by the SBA, which makes us eligible for set-aside work. The government page lists every identifier a contracting officer can check.", link: { to: "/industries/government", label: "Government IT services" } },
-  { q: "Do you build ecommerce stores?", a: "Yes, on WooCommerce and custom builds, joined to stock, payments and your accounting system. Phantom Arcades, with its 3D product configurator, is a store we built.", link: { to: "/industries/ecommerce", label: "Ecommerce website development" } },
+  { q: "Do you build ecommerce stores?", a: "Yes, on Shopify, WooCommerce and custom builds, joined to stock, payments and your accounting system. Phantom Arcades, with its 3D product configurator, is a store we built.", link: { to: "/industries/ecommerce", label: "Ecommerce website development" } },
   { q: "Where are you based?", a: "We are based in Malvern, Pennsylvania, and you can reach us on (610) 890-9711. Most work is remote across the United States, with in-person sessions when a project calls for them. The office address and hours are on the contact page.", link: { to: "/contact", label: "Contact us" } },
   { q: "What if my industry is not listed?", a: "The same services still apply. Integration, Salesforce, websites and SEO do not change much from one sector to the next. What changes is the system on the other end. Start from the problem on our services page, or send us a note and we will say which service fits.", link: { to: "/services", label: "Services" } },
   { q: "Can you add a developer or analyst to our team during a project?", a: "Yes. Developers, integration engineers and analysts can work inside your team for a sprint or a year, on your tools. We scope the role and the length in writing first, and the same people stay on from start to finish.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
@@ -93,7 +93,7 @@ export default function Industries() {
             <span className="text-oa-orange">in five different rooms</span>
           </>
         }
-        lede="We are not a sector specialist and these are not five practices. It is one small IT consultancy doing the same integration, platform and web work, and each page below says how that lands in that industry."
+        lede="One IT consultancy does the same integration, platform and web work in every industry here, and each page says how it lands in yours."
         // The panel is the same five verticals the grid below lists, read off the
         // one array so the two can never disagree. No new sectors or claims.
         panel={{
