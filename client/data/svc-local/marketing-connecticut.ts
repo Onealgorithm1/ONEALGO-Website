@@ -390,7 +390,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Social questions dominate",
     "paras": [
-     "Advertisers bid $5.42 per click on \"marketing agency connecticut\"; the digital phrasing shows no bid data. Neither figure is our price.",
+     "Advertisers bid $5.42 per click on \"marketing agency connecticut\". The digital phrasing shows no bid data. Neither figure is our price.",
      "Autocomplete leans hard toward social media: \"social media marketing agency connecticut\", \"social media manager connecticut\", even \"state of connecticut social media policy\". Social gets the attention, so we make sure it leads to a site and an offer that close."
     ]
    },
@@ -508,7 +508,7 @@ export const PLACE: LocalPlace = {
    "h2": "Where Connecticut growth comes from",
    "lede": "Each layer of the plan makes the next one work harder, starting with the site and ending with paid media.",
    "leadIn": "The bottom line:",
-   "lead": "organic search, email and reviews carry the early growth; ads add reach only after those pages convert.",
+   "lead": "organic search, email and reviews carry the early growth, and ads add reach only after those pages convert.",
    "points": [
     "Site and offer, then SEO and blog posts.",
     "Email and reviews for repeat business.",
@@ -616,12 +616,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a social media manager in Connecticut or outsource?",
-     "a": "Outsource when you need more than posting. A social media manager handles one channel; an agency also fixes the site, email and reviews those posts send people to. With retail at 13.1% of Connecticut establishments, coordinated promotions across channels usually outperform daily posts alone.",
+     "a": "Outsource when you need more than posting. A social media manager handles one channel. An agency also fixes the site, email and reviews those posts send people to. With retail at 13.1% of Connecticut establishments, coordinated promotions across channels usually outperform daily posts alone.",
      "from": "autocomplete: social media manager connecticut"
     },
     {
      "q": "How do I choose a digital marketing agency for a Connecticut business?",
-     "a": "Ask for a written plan, measurable results and confirmed account ownership before signing. Connecticut ranks 27th of 37 places for marketing firm density, so local options are limited; remote agencies with a clear process and verifiable numbers widen the shortlist considerably.",
+     "a": "Ask for a written plan, measurable results and confirmed account ownership before signing. Connecticut ranks 27th of 37 places for marketing firm density, so local options are limited. Remote agencies with a clear process and verifiable numbers widen the shortlist considerably.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

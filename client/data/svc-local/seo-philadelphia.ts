@@ -322,7 +322,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What scale does to search",
     "paras": [
-     "A metro this large spreads demand across dozens of towns that each have their own name in a search box. Someone in Cherry Hill rarely types Philadelphia; someone in Media might. Mapping those patterns decides which location pages are worth building.",
+     "A metro this large spreads demand across dozens of towns that each have their own name in a search box. Someone in Cherry Hill rarely types Philadelphia. Someone in Media might. Mapping those patterns decides which location pages are worth building.",
      "Professional, scientific and technical firms make up 12.7% of establishments, 34th of the 59 places and just under the 13% median. Health care edges them out as the largest sector, which shapes where search demand sits."
     ]
    },
@@ -342,7 +342,7 @@ export const PLACE: LocalPlace = {
    "h2": "Health care leads, narrowly",
    "lede": "Health care holds 19,759 establishments, just ahead of 19,559 professional firms and 18,474 retailers, a near three-way tie at the top.",
    "leadIn": "Why it matters:",
-   "lead": "with three sectors this close, there is no single playbook for Philadelphia; each needs its own page strategy.",
+   "lead": "with three sectors this close, there is no single playbook for Philadelphia. Each needs its own page strategy.",
    "points": [
     "Construction: 14,143 establishments, 9.2% of the base.",
     "Finance and insurance: 8,765 establishments, 5.7%.",
@@ -392,11 +392,11 @@ export const PLACE: LocalPlace = {
    "h2": "Three phrasings Philadelphia uses",
    "lede": "Semrush lists 1,600 monthly searches for “seo company philadelphia”, 1,000 for “seo philadelphia” and 720 for “seo services philadelphia”.",
    "leadIn": "By the numbers:",
-   "lead": "the 3 phrasings total 3,320 searches, and advertisers pay $13.60 per click on the company phrase, Google's price, not ours.",
+   "lead": "the 3 phrasings total 3,320 searches, and advertisers pay $13.60 per click on the company phrase, Google's price.",
    "deeper": {
     "label": "Difficulty, cost and intent",
     "paras": [
-     "Keyword difficulty clusters tightly at 29, 33 and 34. The short phrase costs advertisers $8.23 a click; the services phrase had no bid data, which usually means fewer advertisers chase it.",
+     "Keyword difficulty clusters tightly at 29, 33 and 34. The short phrase costs advertisers $8.23 a click. The services phrase had no bid data, which usually means fewer advertisers chase it.",
      "Autocomplete includes “best seo company in philadelphia” and “local seo philadelphia”, so buyers compare providers and care about map results. We plan your pages the same way: real phrasings first, then intent, then difficulty."
     ]
    },
@@ -442,7 +442,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading a mid-density market",
     "paras": [
-     "Lower density does not mean easy rankings; it means fewer local agencies relative to the size of the economy. National firms also compete for Philadelphia searches, so the field in the results is wider than the Census count.",
+     "Lower density does not mean easy rankings. It means fewer local agencies relative to the size of the economy. National firms also compete for Philadelphia searches, so the field in the results is wider than the Census count.",
      "Custom programming runs at 114.8 per 10,000, above the 86.9 median, so the region has plenty of firms that build software. A search plan tied to real phrasings is the part worth checking hardest."
     ]
    },
@@ -548,14 +548,14 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "A Philadelphia SEO project, stage by stage",
-   "lede": "The method is fixed; the details change with your towns, your sector and how your buyers phrase their searches.",
+   "lede": "The method is fixed, and the details change with your towns, your sector and how your buyers phrase their searches.",
    "leadIn": "What you get:",
    "lead": "a written audit, an approved page plan with volumes, the fixes and builds, authority work and monthly reports.",
    "deeper": {
     "label": "Regional details we plan for",
     "paras": [
      "We decide early whether Pennsylvania, New Jersey and Delaware towns need separate pages, since buyers in Camden County and Montgomery County often use different place names.",
-     "Reports track the exact phrases in your plan, so progress is measured against what you agreed to target, not against vanity totals."
+     "Reports track the exact phrases in your plan, so progress is measured against what you agreed to target."
     ]
    },
    "cards": [
@@ -618,12 +618,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What should Philadelphia SEO services include?",
-     "a": "Philadelphia SEO services should include a technical audit, a page plan built from search data, content and link work, and monthly reporting. “Seo services philadelphia” alone draws 720 searches a month, so buyers know what they want; a good proposal spells out each deliverable rather than bundling vague hours.",
+     "a": "Philadelphia SEO services should include a technical audit, a page plan built from search data, content and link work, and monthly reporting. “Seo services philadelphia” alone draws 720 searches a month, so buyers know what they want. A good proposal spells out each deliverable rather than bundling vague hours.",
      "from": "autocomplete: seo services philadelphia"
     },
     {
      "q": "Is a Philadelphia SEO agency better than a national one?",
-     "a": "Not automatically; method matters more than address. Our team sits in Malvern, inside the Philadelphia metro, but delivers remotely like a national firm. With 153,791 establishments across four states, what counts is understanding how your towns search and proving results with your own data.",
+     "a": "Not automatically. Method matters more than address. Our team sits in Malvern, inside the Philadelphia metro, but delivers remotely like a national firm. With 153,791 establishments across four states, what counts is understanding how your towns search and proving results with your own data.",
      "from": "autocomplete: philadelphia seo agency"
     },
     {
@@ -638,7 +638,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What does SEO stand for in marketing?",
-     "a": "SEO stands for search engine optimization: improving a website so search engines show it for relevant queries. For Philadelphia firms, it sits alongside paid ads and email; a click on “seo philadelphia” costs advertisers $8.23, which shows why organic visibility has lasting value.",
+     "a": "SEO stands for search engine optimization: improving a website so search engines show it for relevant queries. For Philadelphia firms, it sits alongside paid ads and email. A click on “seo philadelphia” costs advertisers $8.23, which shows why organic visibility has lasting value.",
      "from": "questionBank: what does seo stand for in marketing"
     }
    ]

@@ -352,7 +352,7 @@ export const PLACE: LocalPlace = {
     "label": "Policy and conversion by sector",
     "paras": [
      "Housing, employment and credit ads fall under Google policies that limit targeting by age, gender or ZIP code. Campaigns in those sectors have to be built around the restrictions from the start, or they get disapproved.",
-     "We define the conversion before writing an ad. For a contractor it is often a phone call of a minimum length; for a retailer, a purchase with its value passed back to Google so bidding can learn."
+     "We define the conversion before writing an ad. For a contractor it is often a phone call of a minimum length. For a retailer, it is a purchase with its value passed back to Google so bidding can learn."
     ]
    },
    "table": {
@@ -524,7 +524,7 @@ export const PLACE: LocalPlace = {
     "label": "Paid and organic together",
     "paras": [
      "Search ads buy immediate visibility while SEO builds traffic that does not stop when the budget does. Running both lets the ad data show which phrasings convert, which then guides the pages SEO should build.",
-     "If the site is weak, we say so and fix it first; sending $25.76 clicks to a page that cannot convert just burns money."
+     "If the site is weak, we fix it first. Sending $25.76 clicks to a page that cannot convert burns money."
     ]
    },
    "links": [
@@ -553,7 +553,7 @@ export const PLACE: LocalPlace = {
     "label": "Weekly and monthly rhythm",
     "paras": [
      "Weekly, we read search terms, adjust bids and pause what wastes money. Monthly, you get spend, conversions and cost per conversion, with what we plan to change next.",
-     "Decisions on budget are yours; we recommend, with the data attached."
+     "Decisions on budget are yours. We recommend, with the data attached."
     ]
    },
    "cards": [
@@ -616,7 +616,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire an ad agency in Denver or a remote Google Ads team?",
-     "a": "Either can work; what matters is who owns the account and how results are tracked. Denver has 248 advertising agencies to choose from. A remote team like ours works inside your account, shares every report online and talks by video, so location makes little difference.",
+     "a": "Either can work. What matters is who owns the account and how results are tracked. Denver has 248 advertising agencies to choose from. A remote team like ours works inside your account, shares every report online and talks by video, so location makes little difference.",
      "from": "autocomplete: ad agencies in denver"
     },
     {
@@ -641,7 +641,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is Google Ads, in plain terms?",
-     "a": "Google Ads is Google's auction system for showing paid results above and beside the free ones, plus ads on YouTube, Maps and partner sites. For a Denver business, search ads usually matter most; the 390 monthly searches for \"ppc agency denver\" show owners actively look for help running them.",
+     "a": "Google Ads is Google's auction system for showing paid results above and beside the free ones, plus ads on YouTube, Maps and partner sites. For a Denver business, search ads usually matter most. The 390 monthly searches for \"ppc agency denver\" show owners actively look for help running them.",
      "from": "questionBank: what is google ads"
     }
    ]

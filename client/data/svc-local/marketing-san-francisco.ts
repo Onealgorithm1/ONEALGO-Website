@@ -338,7 +338,7 @@ export const PLACE: LocalPlace = {
    "h2": "Marketing across San Francisco's sectors",
    "lede": "Professional firms lead by a wide margin, but health care, retail and construction each need a very different marketing mix.",
    "leadIn": "Why it matters:",
-   "lead": "professional services count 23,140 establishments, and those buyers respond to expertise, not volume of posts.",
+   "lead": "professional services count 23,140 establishments, and those buyers respond to expertise.",
    "points": [
     "Construction: 10,836 establishments, an 8.1% share.",
     "Real estate: 8,556 establishments, a 6.4% share.",
@@ -347,7 +347,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "One market, several playbooks",
     "paras": [
-     "An architecture studio in SoMa needs portfolio pages, thoughtful articles and a newsletter. A contractor in the East Bay needs project photos, reviews and a quote form that works on a phone. Both are marketing; neither uses the other's tools well.",
+     "An architecture studio in SoMa needs portfolio pages, thoughtful articles and a newsletter. A contractor in the East Bay needs project photos, reviews and a quote form that works on a phone.",
      "Health care providers sit between: reviews and a current Google Business Profile drive new patients, while email reminders protect the ones they have.",
      "Real estate's 8,556 establishments compete hard on neighborhoods. Useful local guides and listing-driven social give agents and property managers something portals cannot copy."
     ]
@@ -393,7 +393,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What else searchers reveal",
     "paras": [
-     "\"marketing agency san francisco\" adds 480 searches at $5.66 a click, for 1,200 across the table; its difficulty score is 26, against 29 for the digital phrase. Those prices are Google ad bids, not what we charge.",
+     "\"marketing agency san francisco\" adds 480 searches at $5.66 a click, for 1,200 across the table. Its difficulty score is 26, against 29 for the digital phrase. Those prices are Google ad bids, not what we charge.",
      "Autocomplete hints at how the city buys: \"digital marketing san francisco events\" and \"san francisco marketing networking\" show a community that meets in person, while \"web design agency in san francisco\" shows many buyers start with the site.",
      "That instinct is right. We often begin with the website, and our [web design in San Francisco](/services/web-design-san-francisco) page covers that work in detail."
     ]
@@ -512,9 +512,9 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "growth",
    "h2": "The San Francisco growth sequence",
-   "lede": "We add channels in a set order so each new one amplifies what already works instead of fighting it for budget.",
+   "lede": "We add channels in a set order so each new one amplifies what already works.",
    "leadIn": "The bottom line:",
-   "lead": "the website and message carry everything; search, content and authority compound; automation and ads scale what is proven.",
+   "lead": "the website and message carry everything. Search, content and authority compound. Automation and ads scale what is proven.",
    "points": [
     "Website and message first, built for skeptical buyers.",
     "Then search, a blog, email and earned authority.",
@@ -637,7 +637,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a digital marketing agency in San Francisco?",
-     "a": "Look for one that explains its sequence, reports honestly and leaves you owning everything. San Francisco runs 114.8 agencies and consultancies per 10,000 establishments, above the median, so judge by the plan they write for you, not their client logos.",
+     "a": "Look for one that explains its sequence, shares its reports and leaves you owning everything. San Francisco runs 114.8 agencies and consultancies per 10,000 establishments, above the median, so judge by the plan they write for you, not their client logos.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

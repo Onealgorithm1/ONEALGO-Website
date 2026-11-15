@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
     "label": "Why the ratio shapes marketing",
     "paras": [
      "A low resident-per-business ratio means the average buyer sees many options for the same service. Marketing has to earn recall: a name people remember, reviews they trust, and a site that answers questions before a competitor's does.",
-     "The professional share helps here. At 17%, Denver ranks 5th of 37 on that measure, against a median of 13.3, and professional buyers respond well to useful content and email rather than loud ads."
+     "The professional share helps here. At 17%, Denver ranks 5th of 37 on that measure, against a median of 13.3, and professional buyers respond well to useful content and email."
     ]
    },
    "readouts": [
@@ -473,7 +473,7 @@ export const PLACE: LocalPlace = {
    "h2": "Search results we can show you",
    "lede": "Our documented result is SEO for Phantom Arcades, an arcade manufacturer in Florida, using the same website-first order we follow everywhere.",
    "leadIn": "Why it matters:",
-   "lead": "non-brand Google clicks, from people who never typed the company name, grew 231%; total clicks grew 92% year over year.",
+   "lead": "non-brand Google clicks, from people who never typed the company name, grew 231%, and total clicks grew 92% year over year.",
    "deeper": {
     "label": "Situation, work, result",
     "paras": [

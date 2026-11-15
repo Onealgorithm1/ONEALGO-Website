@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "What Cleveland types into Google",
    "lede": "“seo cleveland” draws 720 searches a month and “seo company cleveland” 480, for 1,200 in our Semrush pull.",
    "leadIn": "By the numbers:",
-   "lead": "advertisers pay $11.40 a click on “seo cleveland”; that is the market price of a click, not a fee of ours.",
+   "lead": "advertisers pay $11.40 a click on “seo cleveland”, the market price of a click, not a fee of ours.",
    "deeper": {
     "label": "Difficulty and noisy autocomplete",
     "paras": [
@@ -422,7 +422,7 @@ export const PLACE: LocalPlace = {
    "h2": "How crowded Cleveland's field is",
    "lede": "The Census counts 104 advertising agencies and 273 marketing consultancies in the metro, 377 in all.",
    "leadIn": "Yes, but:",
-   "lead": "that is a ceiling on possible rivals; only some offer SEO, and fewer show their results in Search Console.",
+   "lead": "that is a ceiling on possible rivals, since only some offer SEO, and fewer show their results in Search Console.",
    "points": [
     "73.3 firms per 10,000 establishments, under the 90.1 median.",
     "Density ranks 46th of 59 SEO places.",
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Cleveland specifics",
     "paras": [
-     "Service areas often stretch across Cuyahoga, Lake, Lorain and other nearby counties. Location pages are written for the suburbs you serve, each with its own detail rather than a swapped place name.",
+     "Service areas often stretch across Cuyahoga, Lake, Lorain and other nearby counties. Location pages are written for the suburbs you serve, each with its own detail.",
      "We filter out impressions for Cleveland, Tennessee and unrelated names in reporting, so the numbers you see reflect buyers in northeast Ohio."
     ]
    },
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What do Cleveland SEO services usually include?",
-     "a": "Technical fixes, page titles and structure, new service and location pages, Business Profile work, content and link building, plus monthly reporting. For Cleveland's 6,468 retail establishments, local pages and the map pack usually come first; professional firms often lead with question-answering content.",
+     "a": "Technical fixes, page titles and structure, new service and location pages, Business Profile work, content and link building, plus monthly reporting. For Cleveland's 6,468 retail establishments, local pages and the map pack usually come first. Professional firms often lead with question-answering content.",
      "from": "autocomplete: cleveland seo services"
     },
     {
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What does SEO stand for, and why should a Cleveland firm care?",
-     "a": "SEO stands for search engine optimization: improving your site so search engines show it to the right people. A Cleveland firm should care because advertisers pay $11.40 per click on “seo cleveland”; ranking organically earns comparable visits without paying for each one.",
+     "a": "SEO stands for search engine optimization: improving your site so search engines show it to the right people. A Cleveland firm should care because advertisers pay $11.40 per click on “seo cleveland”. Ranking organically earns comparable visits without paying for each one.",
      "from": "questionBank: what does seo stand for"
     },
     {
@@ -683,7 +683,7 @@ export const PLACE: LocalPlace = {
  ],
  "desk": {
   "h2": "Start your Cleveland SEO project",
-  "lede": "Send your site and the Cleveland suburbs you serve, and we will reply with a plain read of what Google sees.",
+  "lede": "Send your site and the Cleveland suburbs you serve, and we will reply with a read of what Google sees.",
   "covers": [
    "Your website address",
    "Search Console or Analytics access",

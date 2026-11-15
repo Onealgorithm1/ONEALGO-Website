@@ -608,7 +608,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a Birmingham SEO expert who works locally?",
-     "a": "Not necessarily. SEO is done in Search Console, your site and your listings, all of which work remotely. The metro has only 166 advertising and marketing consulting establishments, so local choice is limited; what counts is a written plan, monthly reporting and someone who knows Birmingham's neighborhoods by name.",
+     "a": "Not necessarily. SEO is done in Search Console, your site and your listings, all of which work remotely. The metro has only 166 advertising and marketing consulting establishments, so local choice is limited. What counts is a written plan, monthly reporting and someone who knows Birmingham's neighborhoods by name.",
      "from": "autocomplete: birmingham seo expert"
     },
     {

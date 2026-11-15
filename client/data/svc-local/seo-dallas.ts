@@ -297,7 +297,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How the work runs",
     "paras": [
-     "Everything happens remotely from Malvern, Pennsylvania: audits, keyword plans, page edits and monthly reviews, all on calls and shared screens. You never need to host us, and you see every change before it goes live.",
+     "Everything happens remotely from Malvern, Pennsylvania: audits, keyword plans, page edits and monthly reviews, all on calls and shared screens. You see every change before it goes live.",
      "We start with what Google already knows about your site, then match it against real Dallas search phrasings. The gap between the two is usually the plan: missing service pages, thin location signals, slow templates, and titles that describe the company instead of the job a buyer needs done."
     ]
    },
@@ -355,7 +355,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Matching SEO to the sector",
     "paras": [
-     "A roofer in Plano and a wealth adviser in Uptown both need SEO, but not the same SEO. The contractor needs a Google Business Profile that converts and service-area pages; the adviser needs proof of expertise, named authors and pages that answer careful questions.",
+     "A roofer in Plano and a wealth adviser in Uptown both need SEO, but not the same SEO. The contractor needs a Google Business Profile that converts and service-area pages. The adviser needs proof of expertise, named authors and pages that answer careful questions.",
      "We map your sector's search behaviour before writing a single page, so the plan fits how your customers actually look for you."
     ]
    },
@@ -401,7 +401,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the table",
     "paras": [
      "A click on \"seo company dallas\" costs advertisers about $16.85, and on \"seo dallas\" about $11.36. That is the market's price for one visitor, not our fee, and it is a useful way to value a page that earns the same visitor for free.",
-     "Autocomplete adds texture. People type \"best seo company in dallas\" and \"dallas tx local seo company\", which tells us buyers compare options and care about local presence. Pages that answer those comparisons honestly, with clear scope and proof, tend to earn the click."
+     "Autocomplete adds texture. People type \"best seo company in dallas\" and \"dallas tx local seo company\", which tells us buyers compare options and care about local presence. Pages that answer those comparisons with clear scope and proof, tend to earn the click."
     ]
    },
    "table": {
@@ -447,7 +447,7 @@ export const PLACE: LocalPlace = {
     "label": "Who you are really up against",
     "paras": [
      "The firms you compete with in Google are rarely the agencies on that list. They are the other plumbers, clinics or law practices in your service area who already hold the top results for your phrases. We pull those results, study what they do well, and plan pages that answer the query better.",
-     "Dallas also carries a deep bench of software and systems firms, which raises the technical bar. Clean code, fast pages and correct structured data are table stakes here, not extras."
+     "Dallas also carries a deep bench of software and systems firms, which raises the technical bar. Clean code, fast pages and correct structured data are table stakes here."
     ]
    },
    "table": {
@@ -641,7 +641,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire an SEO consultant or an agency in Dallas?",
-     "a": "Hire whoever will own the outcome and show their work. A consultant may advise while your team implements; we do both, planning and making the changes. With 27,552 professional services firms in the metro, many Dallas buyers prefer one accountable partner over juggling a strategist and a separate developer.",
+     "a": "Hire whoever will own the outcome and show their work. A consultant may advise while your team implements. We do both, planning and making the changes. With 27,552 professional services firms in the metro, many Dallas buyers prefer one accountable partner over juggling a strategist and a separate developer.",
      "from": "autocomplete: seo consultant dallas"
     },
     {

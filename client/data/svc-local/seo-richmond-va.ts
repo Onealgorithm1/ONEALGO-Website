@@ -320,7 +320,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Mid-sized and manageable",
     "paras": [
-     "Among 59 places with an SEO page on our site, Richmond ranks 44th for establishments and 44th for population. It is a mid-sized market, not a giant one, and local results reflect that.",
+     "Among 59 places with an SEO page on our site, Richmond ranks 44th for establishments and 44th for population. It is a mid-sized market, and local results reflect that.",
      "Professional services make up 11.8% of establishments, 43rd of 59 and below the 13% median. The economy tilts toward retail, care and building trades."
     ]
    },
@@ -349,7 +349,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Planning for a balanced mix",
     "paras": [
-     "With no dominant sector, there is no standard Richmond SEO plan. A roofer in Chesterfield needs area pages and reviews; a boutique in Carytown needs product schema; a practice in the West End needs treatment pages.",
+     "With no dominant sector, there is no standard Richmond SEO plan. A roofer in Chesterfield needs area pages and reviews, a boutique in Carytown needs product schema, and a practice in the West End needs treatment pages.",
      "Finance and insurance hold 5.8% and real estate 5.7%. Both rely on trust and local knowledge, which content and well-earned links help prove."
     ]
    },

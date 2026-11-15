@@ -287,7 +287,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Seattle SEO, run from across the country",
-   "lede": "Seattle businesses hire us to make Google understand their site, match their pages to local searches, and report results without spin.",
+   "lede": "Seattle businesses hire us to make Google understand their site, match their pages to local searches, and report results from Search Console.",
    "leadIn": "Why it matters:",
    "lead": "two Seattle phrases each pull 1,300 searches a month, and the businesses ranking for them collect those visits free.",
    "deeper": {
@@ -355,7 +355,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Trades search is urgent and local. Someone with a leak in Ballard wants a contractor who serves that neighborhood today, so service-area pages, reviews and a current Google Business Profile do most of the work.",
      "Health care search mixes urgency with research. Patients compare providers, read reviews and check insurance, so practices need pages that answer those questions before the phone call.",
-     "Real estate's 8,104 establishments create a lot of competition for neighborhood terms. Agents and property managers who publish genuinely useful local pages tend to outlast those relying on portals alone."
+     "Real estate's 8,104 establishments create a lot of competition for neighborhood terms. Agents and property managers who publish useful local pages tend to outlast those relying on portals alone."
     ]
    },
    "table": {
@@ -525,11 +525,11 @@ export const PLACE: LocalPlace = {
    "h2": "What comes after Seattle SEO basics",
    "lede": "Once the site converts and ranks for its core terms, growth comes from layering channels in a fixed order.",
    "leadIn": "The bottom line:",
-   "lead": "blogs, email and authority extend the reach of good pages; automation keeps the profile fresh without extra staff time.",
+   "lead": "blogs, email and authority extend the reach of good pages, and automation keeps the profile fresh without extra staff time.",
    "points": [
     "A converting website and sharp message come before anything else.",
     "Next: SEO, a blog, email and earned mentions.",
-    "Then automated posts and reviews; ads once organic converts."
+    "Then automated posts and reviews. Ads once organic converts."
    ],
    "deeper": {
     "label": "Layering the channels",
@@ -624,7 +624,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I find the best SEO company in Seattle?",
-     "a": "Ask every candidate for a written audit, a page plan and sample reports pulled from Search Console. Seattle has 1,019 agencies and consultancies, so the shortlist is long; the firms worth hiring show their method and let you own every account they touch.",
+     "a": "Ask every candidate for a written audit, a page plan and sample reports pulled from Search Console. Seattle has 1,019 agencies and consultancies, so the shortlist is long. The firms worth hiring show their method and let you own every account they touch.",
      "from": "autocomplete: best seo company seattle"
     },
     {

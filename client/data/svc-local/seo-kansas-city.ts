@@ -287,8 +287,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "The state-line problem",
     "paras": [
-     "Kansas City straddles Missouri and Kansas, and Google treats the suburbs as separate places. A plumber in Lee's Summit who wants Olathe work needs a page that earns that search, not just a footer mention.",
-     "We map which towns send real searches, check what already ranks, and plan service-area pages that read as genuinely useful rather than copies with the city name swapped."
+     "Kansas City straddles Missouri and Kansas, and Google treats the suburbs as separate places. A plumber in Lee's Summit who wants Olathe work needs a page that earns that search.",
+     "We map which towns send real searches, check what already ranks, and plan service-area pages with detail specific to each town."
     ]
    },
    "cards": [
@@ -316,7 +316,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What a roomier ratio means",
     "paras": [
-     "More residents per business means each company has a larger potential customer base. The challenge is not saturation but discovery: making sure those customers find you before they find the next result.",
+     "More residents per business means each company has a larger potential customer base. The challenge is discovery: making sure those customers find you before they find the next result.",
      "Professional firms make up 12.2% of establishments, 41st of 59 and a little under the 13 median. Health care holds the top spot, with retail and construction close behind, so most local searches here come from customers, not consultants."
     ]
    },
@@ -346,7 +346,7 @@ export const PLACE: LocalPlace = {
     "label": "Trades deserve special attention",
     "paras": [
      "Construction has 5,392 establishments in the metro, and autocomplete even suggests \"contractor seo kansas city\". Contractors win on local intent: roof repair near me, basement finishing, kitchen remodel. Each service and each town worth serving should have its own page.",
-     "Health care leads the count at 12.8%. Practices there depend on Google Business Profile, steady reviews and treatment pages that answer patient questions plainly."
+     "Health care leads the count at 12.8%. Practices there depend on Google Business Profile, steady reviews and treatment pages that answer patient questions."
     ]
    },
    "table": {
@@ -392,7 +392,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The word company signals a buyer ready to hire, and the click price shows advertisers know it. Organic pages that rank for that phrase capture the same buyers without paying the auction.",
      "Keyword difficulty is 29 and 22, which is moderate. A focused page with clear service detail and a few strong local references can compete.",
-     "Autocomplete also surfaces \"kansas city web design & seo\", a sign that many buyers want both together. Those click prices are market bids, not our fees."
+     "Autocomplete also surfaces \"kansas city web design & seo\", a sign that many buyers want both together. Those click prices are market bids."
     ]
    },
    "table": {
@@ -423,7 +423,7 @@ export const PLACE: LocalPlace = {
    "h2": "Kansas City's thinner field of SEO competitors",
    "lede": "The Census lists 114 advertising agencies and 345 marketing consultants in the Kansas City metro, 459 in total.",
    "leadIn": "Yes, but:",
-   "lead": "that total is a ceiling; plenty of those firms do print, events or branding and never touch search.",
+   "lead": "that total is a ceiling. Plenty of those firms do print, events or branding and never touch search.",
    "points": [
     "83.3 ad and marketing firms per 10,000 establishments, 35th of 59.",
     "Median across SEO pages: 90.1 per 10,000.",
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "h2": "Building search traffic that lasts",
    "lede": "We grow organic traffic in layers, starting with a site that explains the offer and loads quickly.",
    "leadIn": "The bottom line:",
-   "lead": "a clear website comes first, then SEO, blog, email and authority, then automation; paid ads wait until organic traction shows.",
+   "lead": "a clear website comes first, then SEO, blog, email and authority, then automation, and paid ads wait until organic traction shows.",
    "points": [
     "Service and town pages built from real searches.",
     "Blog posts for Google, email to bring past customers back.",
@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How the work reaches you",
     "paras": [
-     "Our only office is in Malvern, Pennsylvania, and we work with Kansas City businesses over video, shared screens and drafts you open in your own browser.",
+     "Our office is in Malvern, Pennsylvania, and we work with Kansas City businesses over video, shared screens and drafts you open in your own browser.",
      "Support is available around the clock, so a broken page or a sudden ranking drop does not wait for Monday."
     ]
    }

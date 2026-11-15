@@ -340,9 +340,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "these sectors buy on referrals and timing, so staying visible between projects matters more than one big campaign.",
    "points": [
-    "Construction: 8,325 firms; project photos and reviews sell the next job.",
-    "Real estate: 7,245 firms; email and social keep past clients referring.",
-    "Information: 1,645 firms; content and community, not discounts."
+    "Construction: 8,325 firms. Project photos and reviews sell the next job.",
+    "Real estate: 7,245 firms. Email and social keep past clients referring.",
+    "Information: 1,645 firms. Content and community."
    ],
    "deeper": {
     "label": "Marketing habits that pay",
@@ -435,7 +435,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the firm count",
     "paras": [
-     "A firm count is a ceiling, not a list of rivals. Some of the 1,233 marketing consultancies may serve a single industry or only brand strategy, and some of the 267 ad agencies may only buy media for large accounts.",
+     "A firm count is a ceiling. Some of the 1,233 marketing consultancies may serve a single industry or only brand strategy, and some of the 267 ad agencies may only buy media for large accounts.",
      "Still, a business owner here has many options, which means the deciding factor is usually clarity: what exactly happens each month, who does it and how results are reported.",
      "We answer that in writing before work starts. The plan names the channels, the cadence of posts and emails, and the numbers we will report."
     ]
@@ -525,7 +525,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "San Diego buyers are pitched constantly, so the first job is a website that makes the offer obvious. We rewrite the homepage and key service pages before anything else.",
      "Search content and email come next, followed by authority work: guest articles, directory listings and mentions from industry sites. Each piece points back to pages that already convert.",
-     "Then we automate the routine: Google Business Profile posts, scheduled social posts, review requests and replies. Paid campaigns join once organic results show what works, and they run alongside it rather than replacing it."
+     "Then we automate the routine: Google Business Profile posts, scheduled social posts, review requests and replies. Paid campaigns join once organic results show what works, and they run alongside it."
     ]
    },
    "links": [

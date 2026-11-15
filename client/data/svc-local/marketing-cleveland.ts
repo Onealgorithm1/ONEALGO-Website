@@ -390,7 +390,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Hiring signals in autocomplete",
     "paras": [
-     "Autocomplete is full of “social media manager cleveland” and job-related phrasings. Many owners weigh hiring an in-house social media manager against an agency; the answer depends on whether social is the whole job or one part of a plan.",
+     "Autocomplete is full of “social media manager cleveland” and job-related phrasings. Many owners weigh hiring an in-house social media manager against an agency. The answer depends on whether social is the whole job or one part of a plan.",
      "Difficulty is 50 for the digital phrase and 48 for the shorter one, so these terms are contested. Your own customers' searches are usually a better target than agency keywords."
     ]
    },
@@ -432,7 +432,7 @@ export const PLACE: LocalPlace = {
     "label": "What it means for buyers",
     "paras": [
      "A below-median density means fewer full-service options locally. Many Cleveland businesses run marketing through a mix of a web designer, a freelancer for social and occasional ads, with nobody owning the overall plan.",
-     "The 374 custom programming firms, at 72.7 per 10,000 and ranking 30th, add web builders to the mix. A built site is the start; marketing is what sends the right people to it."
+     "The 374 custom programming firms, at 72.7 per 10,000 and ranking 30th, add web builders to the mix. A built site is the start. Marketing is what sends the right people to it."
     ]
    },
    "table": {
@@ -479,7 +479,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Phantom Arcades, an arcade cabinet manufacturer in Valrico, Florida, needed a website built for search. We designed and rebuilt it, including a 3D cabinet configurator, and mapped 80+ old addresses to their new pages with redirects.",
      "Search Console then compared a 68-day window in 2026 with the same dates in 2025. Clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The period of equal length just before it was flat.",
-     "For a Cleveland business, the same sequence would start with your own message and your own customers, not the manufacturer's."
+     "For a Cleveland business, the same sequence would start with your own message and your own customers."
     ]
    },
    "cards": [
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is a marketing agency, and how is it different from an ad agency?",
-     "a": "A marketing agency plans how a business wins and keeps customers across every channel; an ad agency focuses on creating and placing ads. In Cleveland, advertisers pay $5.07 a click on “marketing agency cleveland”, and a good marketing agency makes sure the site converts before buying such clicks.",
+     "a": "A marketing agency plans how a business wins and keeps customers across every channel. An ad agency focuses on creating and placing ads. In Cleveland, advertisers pay $5.07 a click on “marketing agency cleveland”, and a good marketing agency makes sure the site converts before buying such clicks.",
      "from": "questionBank: what is a marketing agency"
     },
     {

@@ -387,7 +387,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Utahns search for marketing agencies",
    "lede": "Utah searchers add \"digital\" more often than not, and the phrase with it is more than twice as busy.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency utah\" gets 1,600 searches a month at $6.84 per click; \"marketing agency utah\" gets 720 at $6.91.",
+   "lead": "\"digital marketing agency utah\" gets 1,600 searches a month at $6.84 per click. \"marketing agency utah\" gets 720 at $6.91.",
    "deeper": {
     "label": "Difficulty and the long tail",
     "paras": [
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "h2": "Utah's dense marketing agency field",
    "lede": "The Census puts 231 advertising agencies and 1,115 marketing consulting firms in Utah, for 1,346 establishments in total.",
    "leadIn": "Yes, but:",
-   "lead": "a NAICS code also counts consultants who never chase your customers, so 1,346 is a ceiling on rivals, not a list.",
+   "lead": "a NAICS code also counts consultants who never chase your customers, so 1,346 is a ceiling on rivals.",
    "points": [
     "Density of 141 per 10,000 establishments, against a 96.6 median.",
     "Utah ranks 7th of 37 marketing pages on agency density.",
@@ -511,7 +511,7 @@ export const PLACE: LocalPlace = {
    "h2": "The Utah growth path, step by step",
    "lede": "We add channels only when the one before it is working, which keeps spend tied to results.",
    "leadIn": "The bottom line:",
-   "lead": "first the website and message, then search, blog, email and authority, then social and review automation; ads come once organic converts.",
+   "lead": "first the website and message, then search, blog, email and authority, then social and review automation. Ads come once organic converts.",
    "points": [
     "Fix the offer on the site before buying any attention.",
     "Automate social, profile posts and review replies once content flows.",
@@ -521,7 +521,7 @@ export const PLACE: LocalPlace = {
     "label": "Automation for lean Utah teams",
     "paras": [
      "Plenty of Utah businesses run marketing with one person or none. Automation fills that gap: scheduled social posts built from your own articles and project photos, Google Business Profile updates, and review requests that go out after every completed job, with draft replies waiting for approval.",
-     "Paid ads come after the organic channels show which offers and pages convert. That way, ad money scales something proven instead of testing an unproven site at full price."
+     "Paid ads come after the organic channels show which offers and pages convert. That way, ad money scales something proven."
     ]
    },
    "links": [
@@ -634,7 +634,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why hire a digital marketing agency in Utah instead of a full-time marketer?",
-     "a": "An agency brings writing, design, search, automation and analytics together without you hiring each role. Utah ranks 17th of our marketing pages by establishments, and most firms here need that combined output, not one generalist stretched thin. You also keep every account if you leave.",
+     "a": "An agency brings writing, design, search, automation and analytics together without you hiring each role. Utah ranks 17th of our marketing pages by establishments, and most firms here need that combined output. You also keep every account if you leave.",
      "from": "questionBank: why hire a digital marketing agency"
     }
    ]

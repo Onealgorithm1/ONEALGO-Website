@@ -549,7 +549,7 @@ export const PLACE: LocalPlace = {
     "label": "Local adjustments",
     "paras": [
      "The first stage reflects the metro mix: with health care and retail leading San Antonio establishments, early work usually targets reviews, repeat visits and local search before broader content.",
-     "Reporting ties every channel to calls, forms and sales, so the following month's effort shifts toward whatever produced customers rather than whatever produced likes."
+     "Reporting ties every channel to calls, forms and sales, so the following month's effort shifts toward whatever produced customers."
     ]
    },
    "cards": [
@@ -603,7 +603,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What does a digital marketing agency in San Antonio do for a local business?",
-     "a": "It plans and runs the channels that win customers: the website, search, email, social and reviews, and later ads. For San Antonio, where health care and retail lead the 52,088 establishments, much of the work is reputation and repeat business, not just new traffic.",
+     "a": "It plans and runs the channels that win customers: the website, search, email, social and reviews, and later ads. For San Antonio, where health care and retail lead the 52,088 establishments, much of the work is reputation and repeat business.",
      "from": "autocomplete: digital marketing agency san antonio",
      "link": {
       "to": "/services/marketing",
@@ -617,12 +617,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How are San Antonio advertising agencies different from a marketing partner?",
-     "a": "Advertising agencies usually focus on creating and buying ads; a marketing partner also fixes the website, search, email and automation. The metro has 84 advertising agencies and 213 marketing consultancies. We start with the site and message, then add paid ads once organic channels convert.",
+     "a": "Advertising agencies usually focus on creating and buying ads. A marketing partner also fixes the website, search, email and automation. The metro has 84 advertising agencies and 213 marketing consultancies. We start with the site and message, then add paid ads once organic channels convert.",
      "from": "autocomplete: san antonio advertising agencies"
     },
     {
      "q": "How do I choose a digital marketing agency in San Antonio?",
-     "a": "Ask what they fix first, which accounts you will own, and how they report results. With about 57 marketing firms per 10,000 businesses, San Antonio ranks 36th of 37 on density, so options are fewer; remote partners widen the choice without losing a Central-time working day.",
+     "a": "Ask what they fix first, which accounts you will own, and how they report results. With about 57 marketing firms per 10,000 businesses, San Antonio ranks 36th of 37 on density, so options are fewer. Remote partners widen the choice without losing a Central-time working day.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

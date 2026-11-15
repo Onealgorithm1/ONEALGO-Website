@@ -288,7 +288,7 @@ export const PLACE: LocalPlace = {
     "label": "How we approach a new account",
     "paras": [
      "We start by listening to how your best customers describe you, then make the website say the same thing. That message becomes the backbone of every email, post and ad that follows.",
-     "Next comes a short channel plan. For some Kansas City companies that is email and reviews; for others it is social and search. We pick by where your buyers already are."
+     "Next comes a short channel plan. For some Kansas City companies that is email and reviews, for others social and search. We pick by where your buyers already are."
     ]
    },
    "cards": [
@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
     "label": "Why the ratio helps",
     "paras": [
      "With 40.9 residents per establishment, each business has a sizable pool of potential customers. Marketing here is less about shouting over rivals and more about staying visible and easy to choose.",
-     "That suits steady, repeatable work: a monthly email, regular social posts, fresh reviews. Small efforts compound when the market is not saturated."
+     "That suits steady, repeatable work: a monthly email, regular social posts, fresh reviews."
     ]
    },
    "readouts": [
@@ -538,7 +538,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Running marketing for Kansas City clients",
-   "lede": "The stage cards below set the order; the details change with your sector and your side of the state line.",
+   "lede": "The stage cards below set the order, and the details change with your sector and your side of the state line.",
    "leadIn": "What you get:",
    "lead": "a rewritten message, a month-ahead content calendar, and lead-focused reports you can read in minutes.",
    "deeper": {
@@ -618,7 +618,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a marketing firm in Kansas City?",
-     "a": "Choose one that explains in writing what it will do first and how results are measured. The metro has 345 marketing consulting firms, so ask about account ownership, lead tracking and what monthly reports contain. A firm that answers plainly is usually one that works plainly.",
+     "a": "Choose one that explains in writing what it will do first and how results are measured. The metro has 345 marketing consulting firms, so ask about account ownership, lead tracking and what monthly reports contain. Ask to see a sample monthly report before you sign.",
      "from": "autocomplete: marketing firms kansas city"
     },
     {
@@ -628,7 +628,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is the difference between an advertising agency and a digital marketing agency?",
-     "a": "An advertising agency usually focuses on creative and media buying; a digital marketing agency runs online channels such as search, email and social. Kansas City has 114 advertising agencies in the Census count. Many businesses need ongoing digital work more than occasional campaigns.",
+     "a": "An advertising agency usually focuses on creative and media buying. A digital marketing agency runs online channels such as search, email and social. Kansas City has 114 advertising agencies in the Census count. Many businesses need ongoing digital work more than occasional campaigns.",
      "from": "autocomplete: advertising agency kansas city"
     },
     {

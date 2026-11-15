@@ -294,11 +294,11 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Professional services",
-     "line": "Lawyers, accountants and consultants win on expertise pages; buyers even type “law firm seo las vegas”."
+     "line": "Lawyers, accountants and consultants win on expertise pages. Buyers even type “law firm seo las vegas”."
     },
     {
      "h3": "Health care",
-     "line": "Clinics need location pages, accurate profile details and service pages that answer patient questions plainly."
+     "line": "Clinics need location pages, accurate profile details and service pages that answer patient questions."
     },
     {
      "h3": "Retail",
@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
     "label": "What these counts mean for search",
     "paras": [
      "A count of establishments is also a count of websites competing for attention. At 44.3 residents per business, each company shares its local customers with many neighbours, so being found for the right query matters more than being found for every query.",
-     "The 7,876 professional firms form the biggest single group, and their clients buy on trust. That pushes SEO toward pages that prove knowledge, such as practice-area pages, explainers and clear bios, rather than thin pages that only swap a city name.",
+     "The 7,876 professional firms form the biggest single group, and their clients buy on trust. That pushes SEO toward pages that prove knowledge, such as practice-area pages, explainers and clear bios.",
      "Figures come from the Census County Business Patterns for 2023 and the American Community Survey for 2024."
     ]
    },
@@ -346,7 +346,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Sector by sector",
     "paras": [
-     "Patients search with symptoms and insurance names; shoppers search with product names and “near me”. Contractors and agents get fewer searches, but each lead is worth far more. We weigh those differences before choosing which pages to build first.",
+     "Patients search with symptoms and insurance names. Shoppers search with product names and “near me”. Contractors and agents get fewer searches, but each lead is worth far more. We weigh those differences before choosing which pages to build first.",
      "For real estate and construction, one strong service page per trade or neighbourhood often beats a blog calendar. For health care, structured location data and reviews come first, because map results sit above the organic links on those searches."
     ]
    },
@@ -387,7 +387,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Las Vegas searches for SEO help",
    "lede": "Semrush records 1,900 monthly searches for “seo las vegas” and 1,000 for “seo company las vegas”, a combined 2,900 across both phrasings.",
    "leadIn": "By the numbers:",
-   "lead": "advertisers pay about $12.12 per click on the shorter phrase and $18.44 on the company phrase, the price of a click, not ours.",
+   "lead": "advertisers pay about $12.12 per click on the shorter phrase and $18.44 on the company phrase, in Google's ad auction.",
    "deeper": {
     "label": "Reading the keyword table",
     "paras": [
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "h2": "Las Vegas: the densest agency field we track",
    "lede": "Las Vegas has 171.9 advertising and marketing firms per 10,000 establishments, 1st of 59 places against a median of 90.1.",
    "leadIn": "Yes, but:",
-   "lead": "those 932 firms are a ceiling, not a rival list; many may not offer SEO at all.",
+   "lead": "those 932 firms are a ceiling, not a rival list. Many may not offer SEO at all.",
    "points": [
     "133 advertising agencies, or 24.5 per 10,000 establishments.",
     "799 marketing consultancies, or 147.4 per 10,000.",
@@ -434,7 +434,7 @@ export const PLACE: LocalPlace = {
     "label": "What a crowded field changes",
     "paras": [
      "A dense agency market means buyers have heard plenty of pitches. The firms that stand out show their method and their numbers, which is why we put the plan in writing and report from your own Search Console data.",
-     "Agency websites also compete with each other for “seo agency las vegas”. You are not buying their rankings; you are buying the process that produced them, so ask any firm to explain exactly how it would handle your site."
+     "Agency websites also compete with each other for “seo agency las vegas”. You are buying the process that produced their rankings, so ask any firm to explain exactly how it would handle your site."
     ]
    },
    "table": {

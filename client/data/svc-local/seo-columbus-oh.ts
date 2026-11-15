@@ -345,7 +345,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Sector notes",
     "paras": [
-     "The top three sectors together hold 37.2% of Columbus establishments. Health care practices gain most from treatment-level pages; retailers from local listings kept consistent everywhere they appear.",
+     "The top three sectors together hold 37.2% of Columbus establishments. Health care practices gain most from treatment-level pages, and retailers from local listings kept consistent everywhere they appear.",
      "Real estate, with 2,797 establishments, and finance, with 2,782, both depend on trust content, written plainly and checked for accuracy."
     ]
    },
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "Columbus SEO searches, read closely",
    "lede": "\"Seo company columbus\" draws 880 searches a month in Semrush, and \"seo columbus\" another 590.",
    "leadIn": "By the numbers:",
-   "lead": "the two total 1,470 monthly searches; \"seo columbus\" costs advertisers $12.02 a click, while the first had no bid data.",
+   "lead": "the two total 1,470 monthly searches, and \"seo columbus\" costs advertisers $12.02 a click, while the first had no bid data.",
    "deeper": {
     "label": "Difficulty and phrasing",
     "paras": [

@@ -380,15 +380,15 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care",
-     "line": "293,543 paid employees across 13,890 establishments in 2023; a site here needs online booking, intake forms and an accessible path for every patient."
+     "line": "293,543 paid employees across 13,890 establishments in 2023, and a site here needs online booking, intake forms and an accessible path for every patient."
     },
     {
      "h3": "Manufacturing",
-     "line": "240,214 paid employees across 5,103 establishments in 2023; a site here needs spec sheets, distributor lookups and request-for-quote forms."
+     "line": "240,214 paid employees across 5,103 establishments in 2023, and a site here needs spec sheets, distributor lookups and request-for-quote forms."
     },
     {
      "h3": "Professional services",
-     "line": "221,378 paid employees across 11,783 establishments in 2023; a site here needs proof of expertise, case pages and a routed enquiry form."
+     "line": "221,378 paid employees across 11,783 establishments in 2023, and a site here needs proof of expertise, case pages and a routed enquiry form."
     }
    ],
    "deeper": {
@@ -411,8 +411,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the previews work",
     "paras": [
-     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
-     "None of the six is presented as a Detroit business; each one shows a job a site has to do, whatever the city.",
+     "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
+     "Each of the six shows a job a website has to do, for a Detroit business as for any other.",
      "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout."
     ]
    }
@@ -438,7 +438,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Of the 102,430 establishments, 86,498 had fewer than 20 people and 13,066 employed 20 to 99. Another 2,537 employed 100 to 499, and 329 employed 500 or more.",
      "Within the 20-to-99 band, 9,744 establishments had 20 to 49 people and 3,322 had 50 to 99. The average establishment employed 18 of the 1,846,717 paid staff.",
-     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 102,430; that is one establishment for every 43 residents.",
+     "County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the 102,430. That is one establishment for every 43 residents.",
      "NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so 75.1 per 10,000 businesses is a ceiling on web-design firms in the metro."
     ]
    }
@@ -451,9 +451,9 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "who a site talks to follows the sector mix, and manufacturing comes next at 240,214 employees.",
    "points": [
-    "Health care: 21.1 employees per establishment; booking and intake matter most.",
-    "Manufacturing: 47.1 employees per establishment; spec sheets and RFQ forms carry the site.",
-    "Professional services: 18.8 employees per establishment; expertise must be easy to check."
+    "Health care: 21.1 employees per establishment, and booking and intake matter most.",
+    "Manufacturing: 47.1 employees per establishment, and spec sheets and RFQ forms carry the site.",
+    "Professional services: 18.8 employees per establishment, and expertise must be easy to check."
    ],
    "table": {
     "caption": "The Detroit metro: the four largest of 12 sectors by paid employees, Census CBP 2023",
@@ -491,7 +491,7 @@ export const PLACE: LocalPlace = {
      "13,890 health care and social assistance establishments in the metro need online booking, intake forms and an accessible path for every patient. The 5,103 in manufacturing need spec sheets, distributor lookups and request-for-quote forms.",
      "Professional, scientific and technical services counts 11,783 establishments that need proof of expertise, case pages and a routed enquiry form, and retail trade, fourth at 200,705 employees, needs stock that matches the till and a phone checkout.",
      "Accommodation and food services ranks fifth at 171,440 employees, and the 12 sectors we read cover 1,586,667 of the 1,846,717 paid employees in the metro.",
-     "Together the four employ 955,840 people, 51.8% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work."
+     "Together the four employ 955,840 people, 51.8% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work."
     ]
    }
   },
@@ -519,7 +519,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "how the concentration figure is worked out",
     "paras": [
-     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023; 1.0 would mean the same mix as the country."
+     "Each figure divides the subsector's share of paid employees in the metro by its share of paid employees nationally, both from County Business Patterns for 2023, and 1.0 would mean the same mix as the country."
     ]
    },
    "sources": [
@@ -595,7 +595,7 @@ export const PLACE: LocalPlace = {
    "h2": "769 custom programming firms in the metro",
    "lede": "769 custom computer programming establishments (NAICS 541511) operated in the metro in 2023, +1.3% since 2018.",
    "leadIn": "Yes, but:",
-   "lead": "that code also covers all custom software, so 75.1 per 10,000 businesses is a ceiling on web-design firms, not a count.",
+   "lead": "that code also covers all custom software, so 75.1 per 10,000 businesses is a ceiling on web-design firms.",
    "points": [
     "Graphic design (NAICS 541430): 163 establishments in 2023.",
     "Marketing consulting (NAICS 541613): 554 establishments in 2023.",
@@ -643,7 +643,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what the change means for a website",
     "paras": [
-     "Construction went from 7,931 to 8,503 establishments between 2018 and 2023; information went from 1,890 to 1,743.",
+     "Construction went from 7,931 to 8,503 establishments between 2018 and 2023, and information went from 1,890 to 1,743.",
      "Accommodation and food services came second, +6.5%, and health care and social assistance third, +5.6%.",
      "That is a net gain of 2,175 establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.",
      "Paid employees went from 1,801,262 to 1,846,717 over the same years, +2.5%. Population moved +1.9% from 2019 to 2024, to 4,400,578."
@@ -692,7 +692,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Every place page uses the same Census tables, so these ranks compare like with like: 102,430 establishments here against the 64 places' own counts, 47th for their change since 2018.",
      "Programming firms run 75.1 per 10,000 businesses here against a median of 85.2. The under-20 share is 84.4% against 84.4%.",
-     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws 680, 57th of the 134 places we measured nationwide."
+     "The 64 are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws 680, 57th of the 134 places we measured nationwide."
     ]
    }
   },
@@ -702,7 +702,7 @@ export const PLACE: LocalPlace = {
    "h2": "Licenses, filings and data rules",
    "lede": "Michigan's February statement and its breach statute are the state rules a site's footer details and contact forms answer to.",
    "leadIn": "Why it matters:",
-   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it; the sources list names every page.",
+   "lead": "Two of the state's rules are shown here, each quoted from the office that publishes it, and the sources list names every page.",
    "cards": [
     {
      "h3": "Breach notice under MCL 445.72",
@@ -744,7 +744,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "what happens at each stage",
     "paras": [
-     "Stage one fixes who the site talks to; in the metro, where health care and social assistance employs 293,543 people, that answer often sets the integrations.",
+     "Stage one fixes who the site talks to, and in the metro, where health care and social assistance employs 293,543 people, that answer often sets the integrations.",
      "Stage five hands the site over in your own accounts, a handover any of the 1,766 systems design establishments in the metro could pick up from.",
      "For the 5,103 manufacturing establishments here, stage two usually lists spec sheets, distributor lookups and request-for-quote forms."
     ]
@@ -759,13 +759,13 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day 769 programming firms here keep.",
    "question": {
-    "q": "Do you have an office in Detroit?",
-    "a": "No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser."
+    "q": "Can you work with a Detroit business?",
+    "a": "Yes. Our team works from Malvern, PA, by video call and screen-share, and you review every stage of the work in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
     "paras": [
-     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between."
+     "Calls and screen-shares cover the whole build, and you review the work in your own browser between them."
     ]
    }
   },
@@ -782,7 +782,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does web design cost in Detroit?",
-     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 86,498 small establishments here or a larger one. You get the price and schedule in writing first; advertisers paid about $9.50 a click for the main web design phrasing here (Semrush).",
+     "a": "The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the 86,498 small establishments here or a larger one, and you get the price and schedule in writing first. Advertisers paid about $9.50 a click for the main web design phrasing here (Semrush).",
      "from": "query-clusters: how much does a website cost (largest question score)",
      "link": {
       "to": "/services/website-development#cost",
@@ -791,7 +791,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should we hire a website designer or use a builder?",
-     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In the metro, 84.4% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
+     "a": "Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In the metro, 84.4% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.",
      "from": "suggest-base: should i hire a website designer",
      "link": {
       "to": "/services/website-development#builder-or-custom",
@@ -827,7 +827,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you build accessible websites in Detroit?",
-     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the 13,890 health care and social assistance establishments in the metro, whose patients include people of every ability.",
+     "a": "Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the 13,890 health care and social assistance establishments in the metro, whose patients include people of every ability.",
      "from": "suggest-base: why is accessibility important in web design",
      "link": {
       "to": "/services/website-development#accessibility",

@@ -294,7 +294,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Health care and social assistance",
-     "line": "The metro's largest sector by establishments; clinics win on location pages, provider bios and accurate profiles."
+     "line": "The metro's largest sector by establishments. Clinics win on location pages, provider bios and accurate profiles."
     },
     {
      "h3": "Retail trade",
@@ -390,7 +390,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "An expensive click, a reachable ranking",
     "paras": [
-     "Advertisers pay $39.52 for a single click on \"seo company indianapolis\". That is Google's price per visit, not ours. Paired with difficulty scores of 20 and 18, it means organic positions here are both valuable and realistically winnable.",
+     "Advertisers pay $39.52 for a single click on \"seo company indianapolis\". That is Google's price per visit. Paired with difficulty scores of 20 and 18, it means organic positions here are both valuable and realistically winnable.",
      "Autocomplete shows buyers phrasing it several ways: \"seo services indianapolis\", \"indianapolis seo agency\", \"seo company in indianapolis\". Those variants belong on one strong page, not scattered across thin ones."
     ]
    },
@@ -612,7 +612,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire an Indianapolis SEO agency or a freelancer?",
-     "a": "Pick whoever will commit to a written plan and give you full data access. A freelancer suits a narrow fix; an agency suits ongoing pages and links. Professional services hold 11.4% of Indianapolis establishments, below the 13% median of our SEO markets, so specialists are fewer.",
+     "a": "Pick whoever will commit to a written plan and give you full data access. A freelancer suits a narrow fix. An agency suits ongoing pages and links. Professional services hold 11.4% of Indianapolis establishments, below the 13% median of our SEO markets, so specialists are fewer.",
      "from": "autocomplete: indianapolis seo agency"
     },
     {
@@ -632,7 +632,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need an SEO company in Indianapolis itself?",
-     "a": "No. SEO is done on your website and in Google's tools, not in person, so location matters less than method. We work remotely from Malvern, PA, in your Eastern time zone. The metro ranks 37th by establishments among our markets, and our process works the same at every size.",
+     "a": "No. SEO is done on your website and in Google's tools, so location matters less than method. We work remotely from Malvern, PA, in your Eastern time zone. The metro ranks 37th by establishments among our markets, and our process works the same at every size.",
      "from": "autocomplete: seo company in indianapolis"
     }
    ]

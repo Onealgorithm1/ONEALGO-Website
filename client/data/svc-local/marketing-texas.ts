@@ -316,7 +316,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Scale changes the marketing problem",
     "paras": [
-     "In a state this big, reach is rarely the constraint; focus is. A company trying to market everywhere at once spreads its budget too thin to register anywhere.",
+     "In a state this big, a company trying to market everywhere at once spreads its budget too thin to register anywhere.",
      "Texas's professional share, 12.5%, ranks 25th of 37 and sits below the 13.3 median. Retail, health care and construction together far outnumber professional firms, and those are sectors where local reputation and reviews drive the sale."
     ]
    },
@@ -426,7 +426,7 @@ export const PLACE: LocalPlace = {
    "points": [
     "Ad agencies: 18.8 per 10,000 establishments.",
     "Consultancies: 55.4 per 10,000, nearly three times as common.",
-    "A count of firms caps the field; it is not a rival list."
+    "A count of firms caps the field."
    ],
    "deeper": {
     "label": "What the count leaves out",
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings across a big state",
     "paras": [
      "We meet over video at times that suit Central or Mountain hours, share drafts as links and review reports on screen.",
-     "Our one office is in Malvern, Pennsylvania, reachable at (610) 890-9711 with support around the clock."
+     "Our team works from Malvern, Pennsylvania, reachable at (610) 890-9711 with support around the clock."
     ]
    }
   },
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I look for in a digital marketing agency in Texas?",
-     "a": "Look for one that can manage several locations under one plan and report results city by city. \"digital marketing agency texas\" draws 720 searches a month, and the state has 4,983 advertising and marketing firms; ask how each would handle your Google profiles, reviews and email across every branch.",
+     "a": "Look for one that can manage several locations under one plan and report results city by city. \"digital marketing agency texas\" draws 720 searches a month, and the state has 4,983 advertising and marketing firms. Ask how each would handle your Google profiles, reviews and email across every branch.",
      "from": "autocomplete: digital marketing agency texas",
      "link": {
       "to": "/services/marketing",

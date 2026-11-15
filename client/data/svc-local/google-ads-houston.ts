@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
     "label": "What the count does and does not say",
     "paras": [
      "Census codes group every ad agency together: TV buyers, outdoor billboard firms, print studios. Only a share manage Google Ads, and fewer still set up conversion tracking properly.",
-     "The thin field is useful context. Houston has the lowest agency and consultant density of the places we cover for Google Ads. A firm count is a ceiling, not a list of rivals."
+     "Houston has the lowest agency and consultant density of the places we cover for Google Ads. A firm count is a ceiling, not a list of rivals."
     ]
    },
    "table": {
@@ -490,13 +490,13 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Who owns the account? Ours are set up under your Google login, and we work as managers you can remove at any time.",
      "What counts as a conversion? We list each tracked action, such as a call over a set length or a submitted form, and test them in front of you before spend starts.",
-     "What did you pay for? The search terms report shows every phrase that triggered an ad, and we review it with you rather than summarising it away."
+     "What did you pay for? The search terms report shows every phrase that triggered an ad, and we review it with you."
     ]
    },
    "cards": [
     {
      "h3": "Your account, your login",
-     "line": "We manage access; ownership and billing stay with your business."
+     "line": "We manage access. Ownership and billing stay with your business."
     },
     {
      "h3": "Tracking tested live",
@@ -523,7 +523,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Paid and organic together",
     "paras": [
-     "Paid search buys visibility immediately; SEO earns it over time. Running both lets ad data reveal which terms convert, so organic pages target proven phrases.",
+     "Paid search buys visibility immediately. SEO earns it over time. Running both lets ad data reveal which terms convert, so organic pages target proven phrases.",
      "We also tie ads to the rest of the funnel: Google Business Profile posts, review replies and follow-up email. A searcher who clicks an ad and finds strong reviews is easier to turn into a call."
     ]
    },
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I expect from a Google Ads agency in Houston?",
-     "a": "Expect tracking set up before spend, an account in your name and reports showing cost per lead. Advertisers bid $56.75 a click on \"google ads agency houston\", so agencies know how valuable a client is; ask yours to prove what each of your clicks returns.",
+     "a": "Expect tracking set up before spend, an account in your name and reports showing cost per lead. Advertisers bid $56.75 a click on \"google ads agency houston\", so agencies know how valuable a client is. Ask yours to prove what each of your clicks returns.",
      "from": "autocomplete: google ads agency houston",
      "link": {
       "to": "/services/google-ads",

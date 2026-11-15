@@ -320,8 +320,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the business base",
     "paras": [
-     "A big customer base cuts both ways. There are millions of potential buyers, but every one of them sees messages from many local competitors each day.",
-     "Professional, scientific and technical firms make up 18% of establishments here, 2nd highest of the 37, against a median of 13.3%. Business-to-business marketing is therefore a large share of the Miami market, not a niche."
+     "There are millions of potential buyers, but every one of them sees messages from many local competitors each day.",
+     "Professional, scientific and technical firms make up 18% of establishments here, 2nd highest of the 37, against a median of 13.3%. Business-to-business marketing is therefore a large share of the Miami market."
     ]
    },
    "readouts": [
@@ -340,7 +340,7 @@ export const PLACE: LocalPlace = {
    "h2": "Health care and retail set the tone",
    "lede": "After professional services, health care with 26,082 establishments and retail with 23,737 are the biggest groups in the metro.",
    "leadIn": "Why it matters:",
-   "lead": "these consumer sectors live on reviews, map listings and repeat visits, which is where marketing automation earns its keep.",
+   "lead": "these consumer sectors live on reviews, map listings and repeat visits, which marketing automation handles.",
    "points": [
     "Health care: reputation and appointment reminders.",
     "Retail: seasonal email and social posts.",
@@ -390,12 +390,12 @@ export const PLACE: LocalPlace = {
    "h2": "How Miami looks for an agency",
    "lede": "Semrush records 2,020 monthly searches across the two main agency phrasings for Miami.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency miami\" leads with 1,300 searches; \"marketing agency miami\" follows with 720 and a difficulty of 20.",
+   "lead": "\"digital marketing agency miami\" leads with 1,300 searches. \"marketing agency miami\" follows with 720 and a difficulty of 20.",
    "deeper": {
     "label": "Social media dominates autocomplete",
     "paras": [
-     "Bidders pay $6.36 a click for the first phrase and $5.42 for the second; those are ad auction prices, not what we charge.",
-     "Google's suggestions are telling. Typing the agency phrase surfaces \"social media marketing agency miami\" and \"digital marketing agency in miami for small business\", so many local buyers start with social and small budgets. We plan for that, then show where search and email outperform posts."
+     "Bidders pay $6.36 a click for the first phrase and $5.42 for the second. Those are ad auction prices, not what we charge.",
+     "Typing the agency phrase surfaces \"social media marketing agency miami\" and \"digital marketing agency in miami for small business\", so many local buyers start with social and small budgets. We plan for that, then show where search and email outperform posts."
     ]
    },
    "table": {
@@ -435,7 +435,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the count does and does not say",
     "paras": [
-     "The 3,706 firms in those two codes range from solo consultants and media buyers to full-service agencies. They set an upper bound on competition for your budget; they are not a list of rivals for your plan.",
+     "The 3,706 firms in those two codes range from solo consultants and media buyers to full-service agencies. They set an upper bound on competition for your budget.",
      "The useful question is narrower: who can build the site, write the content, run the automation and show the numbers in one place?"
     ]
    },
@@ -510,7 +510,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "growth",
    "h2": "The order that saves budget",
-   "lede": "We build in layers so each channel feeds the next instead of competing for the same dollar.",
+   "lede": "We build in layers so each channel feeds the next.",
    "leadIn": "The bottom line:",
    "lead": "website and message first, then search, blog and email, then authority, then automated posts, and paid ads last.",
    "points": [
@@ -522,7 +522,7 @@ export const PLACE: LocalPlace = {
     "label": "Why ads wait",
     "paras": [
      "Ads sent to a weak page buy expensive bounces. Once search traffic is converting, we know which message works and can put money behind it with confidence.",
-     "For the search side of the plan see [SEO in Miami](/services/seo-miami); for paid search once you are ready, see [Google Ads in Miami](/services/google-ads-miami)."
+     "For the search side of the plan see [SEO in Miami](/services/seo-miami). For paid search once you are ready, see [Google Ads in Miami](/services/google-ads-miami)."
     ]
    },
    "links": [
@@ -540,7 +540,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Running your Miami marketing plan",
-   "lede": "The stage cards below set the order; this is how we fit them to a Miami business with real competition.",
+   "lede": "The stage cards below set the order, and this is how we fit them to a Miami business with real competition.",
    "leadIn": "What you get:",
    "lead": "a written plan, one monthly report covering every channel, and accounts that stay in your name.",
    "deeper": {
@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "Can a digital marketing agency in Miami work with a small business budget?",
-     "a": "Yes, if the plan starts with the pieces that keep paying: the website, search pages and email. Miami searchers already type \"digital marketing agency in miami for small business\", and with 222,388 establishments nearby, small firms win by being clearer and more consistent rather than by outspending anyone.",
+     "a": "Yes, if the plan starts with the pieces that keep paying: the website, search pages and email. Miami searchers already type \"digital marketing agency in miami for small business\", and with 222,388 establishments nearby, small firms win by being clearer and more consistent.",
      "from": "autocomplete: digital marketing agency in miami for small business",
      "link": {
       "to": "/services/marketing",
@@ -625,7 +625,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is the best digital marketing agency in Miami for my industry?",
-     "a": "The best fit is the agency whose plan matches how your customers buy. Professional firms make up 18% of Miami establishments and sell on trust; shops and clinics sell on reviews and convenience. Ask any agency to show which channels it would start with for your sector, and why.",
+     "a": "The best fit is the agency whose plan matches how your customers buy. Professional firms make up 18% of Miami establishments and sell on trust. Shops and clinics sell on reviews and convenience. Ask any agency to show which channels it would start with for your sector, and why.",
      "from": "autocomplete: best digital marketing agency in miami"
     },
     {
@@ -635,7 +635,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why hire a digital marketing agency instead of doing it in-house in Miami?",
-     "a": "Hire one when you need several skills at once: development, writing, search and analytics. An in-house hire rarely covers all four. Miami ranks 2nd of 37 places for agency density, so expect strong rivals; a remote team with the full skill set keeps you competitive without a payroll line.",
+     "a": "Hire one when you need several skills at once: development, writing, search and analytics. An in-house hire rarely covers all four. Miami ranks 2nd of 37 places for agency density, so expect strong rivals. A remote team with the full skill set keeps you competitive without a payroll line.",
      "from": "questionBank: why hire a digital marketing agency"
     }
    ]

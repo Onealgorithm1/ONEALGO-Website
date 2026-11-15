@@ -294,7 +294,7 @@ export const PLACE: LocalPlace = {
     "label": "Planning for a sprawling metro",
     "paras": [
      "Phoenix is a metro of separate cities that share one search market. Mesa, Chandler, Gilbert and Glendale each generate their own near-me searches, and Google weighs distance heavily.",
-     "We start by finding which of those cities actually send you customers, then decide where a dedicated page earns its place. Every page carries real detail, not a template with the town swapped in."
+     "We start by finding which of those cities actually send you customers, then decide where a dedicated page earns its place. Every page carries real detail."
     ]
    },
    "cards": [
@@ -398,7 +398,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Click prices are almost identical: $9.44 for \"seo phoenix\" and $9.45 for \"seo company phoenix\". Difficulty is where they split. The company phrasing takes far more authority to rank, while \"seo services phoenix\" draws 880 searches at difficulty 28, a far easier target.",
      "Autocomplete phrasings include \"seo services phoenix az\" and \"seo company in phoenix arizona\", so buyers often add the state. Pages should mention Arizona naturally.",
-     "Those click prices are what advertisers pay Google, not our fees."
+     "Those click prices are what advertisers pay Google."
     ]
    },
    "table": {
@@ -520,7 +520,7 @@ export const PLACE: LocalPlace = {
    "h2": "How organic traffic builds",
    "lede": "We grow search traffic in a fixed order so each layer has something solid underneath it.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first, then SEO, blog, email and authority, then automation; paid ads only after organic traction.",
+   "lead": "website and message first, then SEO, blog, email and authority, then automation, with paid ads only after organic traction.",
    "points": [
     "City and service pages for the Valley towns you serve.",
     "Articles and email that keep Google and customers engaged.",
@@ -548,7 +548,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "SEO in Phoenix, from audit onward",
-   "lede": "The stage cards below set the sequence; here is what it looks like for a Phoenix site.",
+   "lede": "The stage cards below set the sequence, and here is what it looks like for a Phoenix site.",
    "leadIn": "What you get:",
    "lead": "a page plan for the Valley cities you serve, shipped fixes you can check, and monthly reports in plain numbers.",
    "deeper": {
@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we work together",
     "paras": [
-     "Our one office is in Malvern, Pennsylvania, and Phoenix projects run over video calls, shared screens and drafts you review in your browser.",
+     "Our office is in Malvern, Pennsylvania, and Phoenix projects run over video calls, shared screens and drafts you review in your browser.",
      "Support requests are answered around the clock, by people who already know your site and your plan."
     ]
    }
@@ -628,7 +628,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What makes the best SEO company in Phoenix for a local business?",
-     "a": "The best fit understands local search across the Valley, not just one city. With 114,586 establishments in the metro, a local business needs city pages, a complete Google Business Profile and steady reviews. Look for a company that explains those plans plainly and reports results monthly.",
+     "a": "The best fit understands local search across the Valley, not just one city. With 114,586 establishments in the metro, a local business needs city pages, a complete Google Business Profile and steady reviews. Look for a company that explains those plans and reports results monthly.",
      "from": "autocomplete: best seo company in phoenix"
     },
     {
@@ -638,7 +638,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How long does it take to learn SEO well enough to do it myself?",
-     "a": "The basics can be learned quickly; doing it well across a whole site takes ongoing practice. Many Phoenix owners start with titles and their Google Business Profile, then bring in help as competition grows. Phoenix has 127.4 marketing firms per 10,000 establishments, so many choose to outsource.",
+     "a": "The basics can be learned quickly. Doing it well across a whole site takes ongoing practice. Many Phoenix owners start with titles and their Google Business Profile, then bring in help as competition grows. Phoenix has 127.4 marketing firms per 10,000 establishments, so many choose to outsource.",
      "from": "questionBank: how to learn seo"
     },
     {

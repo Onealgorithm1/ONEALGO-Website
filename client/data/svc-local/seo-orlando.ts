@@ -390,12 +390,12 @@ export const PLACE: LocalPlace = {
    "h2": "Orlando's SEO searches, by volume",
    "lede": "\"Seo company orlando\" draws 1,600 searches a month in Semrush, nearly double the 880 for \"seo orlando\".",
    "leadIn": "By the numbers:",
-   "lead": "together the two phrasings total 2,480 monthly searches; the shorter one costs advertisers $15.31 a click, the longer $8.68.",
+   "lead": "together the two phrasings total 2,480 monthly searches. The shorter one costs advertisers $15.31 a click, the longer $8.68.",
    "deeper": {
     "label": "What buyers add to the search",
     "paras": [
      "Autocomplete shows Orlando buyers getting specific: \"ai seo orlando\", \"orthopedic seo orlando\" and \"seo company orlando florida\" all appear. Niche phrasings like these usually signal a buyer ready to talk.",
-     "The click prices are what Google charges advertisers, not our pricing. They show that ranking organically for these terms saves real money over buying the same visits."
+     "The click prices are what Google charges advertisers. They show that ranking organically for these terms saves real money over buying the same visits."
     ]
    },
    "table": {
@@ -426,7 +426,7 @@ export const PLACE: LocalPlace = {
    "h2": "Orlando's marketing firms, by Census code",
    "lede": "Orlando counts 159 advertising agencies and 802 marketing consulting firms, 961 in all, or 123.3 per 10,000 establishments.",
    "leadIn": "Yes, but:",
-   "lead": "the codes cover consultants, agencies and freelancers who never touch search, so 961 sets an upper limit on competitors rather than naming them.",
+   "lead": "the codes cover consultants, agencies and freelancers who never touch search, so 961 sets an upper limit on competitors.",
    "points": [
     "That density ranks 13th of 59, above the 90.1 median.",
     "Custom programming, 664 firms, is just 85.2 per 10,000.",
@@ -515,7 +515,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "site first, then SEO, blog and email, then automated posts and reviews, and ads after organic traffic converts.",
    "points": [
-    "A site that states the offer plainly on every page.",
+    "A site that states the offer on every page.",
     "Blog posts and links that build authority over time.",
     "Automated Business Profile posts and review replies."
    ],
@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose an SEO company in Orlando, Florida?",
-     "a": "Choose a company that audits before it promises and reports from your own Search Console. Orlando has 961 establishments in the advertising and marketing consulting codes, so ask each one how they pick pages to build and how they measure clicks; vague answers usually mean vague work.",
+     "a": "Choose a company that audits before it promises and reports from your own Search Console. Orlando has 961 establishments in the advertising and marketing consulting codes, so ask each one how they pick pages to build and how they measure clicks. Vague answers usually mean vague work.",
      "from": "autocomplete: seo company orlando florida"
     },
     {
@@ -631,7 +631,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for construction companies in Orlando?",
-     "a": "Because buyers search by trade and place before they call. Orlando has 8,635 construction establishments, 11.1% of the metro's businesses, and the ones with pages for each area they serve appear for those searches. Paid clicks on similar terms cost money every time; rankings do not.",
+     "a": "Because buyers search by trade and place before they call. Orlando has 8,635 construction establishments, 11.1% of the metro's businesses, and the ones with pages for each area they serve appear for those searches. Paid clicks on similar terms cost money every time. Rankings do not.",
      "from": "questionBank: why is seo important"
     }
    ]

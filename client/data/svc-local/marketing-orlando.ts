@@ -340,7 +340,7 @@ export const PLACE: LocalPlace = {
    "h2": "Retail and trades shape Orlando marketing",
    "lede": "Retail's 9,017 establishments and construction's 8,635 sit just behind professional services, a mix that rewards local, visual marketing.",
    "leadIn": "What we do:",
-   "lead": "match each sector to the channels its buyers already use, instead of running the same campaign for everyone.",
+   "lead": "match each sector to the channels its buyers already use.",
    "points": [
     "Retail at 11.6%: email offers and Business Profile updates.",
     "Construction at 11.1%: reviews, before-and-after posts, local pages.",
@@ -394,7 +394,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Low click prices, hard rankings",
     "paras": [
-     "Clicks cost advertisers $4.12 and $5.00, modest prices next to their difficulty. The lesson for Orlando businesses is the same one we follow: win the specific searches in your own niche rather than fighting over broad terms.",
+     "Clicks cost advertisers $4.12 and $5.00, modest prices next to their difficulty. For Orlando businesses, that points to the specific searches in your own niche.",
      "Autocomplete is full of social media phrasings, from \"social media marketing agency orlando\" to \"social media management orlando\", so many buyers start by looking for help with posts."
     ]
    },
@@ -426,7 +426,7 @@ export const PLACE: LocalPlace = {
    "h2": "Counting Orlando's marketing competition",
    "lede": "Census records show 802 marketing consulting firms and 159 advertising agencies across the Orlando metro.",
    "leadIn": "Yes, but:",
-   "lead": "solo consultants and media resellers fill those codes, so the 961 total marks the most rivals possible, not the real field.",
+   "lead": "solo consultants and media resellers fill those codes, so the 961 total marks the most rivals possible.",
    "points": [
     "Density is 123.3 per 10,000, 11th of 37 marketing pages.",
     "The median across those pages is 96.6.",
@@ -539,7 +539,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Your Orlando marketing plan in practice",
-   "lede": "The stage cards set the order; for Orlando we size each step against 77,951 local establishments and your sector.",
+   "lede": "The stage cards set the order, and for Orlando we size each step against 77,951 local establishments and your sector.",
    "leadIn": "What you get:",
    "lead": "a written plan, rewritten site copy, running email and review flows, and a monthly report on leads by channel.",
    "deeper": {
@@ -600,12 +600,12 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should a digital marketing agency in Orlando deliver?",
-     "a": "A clear message, a site that carries it, and channels that bring measurable leads. Orlando's agency phrases carry keyword difficulty of 74 and 70, so a good agency helps you win niche searches instead. Expect a written plan, accounts in your name and monthly reports on leads, not just impressions.",
+     "a": "A clear message, a site that carries it, and channels that bring measurable leads. Orlando's agency phrases carry keyword difficulty of 74 and 70, so a good agency helps you win niche searches instead. Expect a written plan, accounts in your name and monthly reports on leads.",
      "from": "autocomplete: digital marketing agency orlando"
     },
     {
      "q": "Is a social media marketing agency in Orlando worth hiring?",
-     "a": "It depends on where your buyers decide. Retailers, 11.6% of Orlando's establishments, often benefit from social posts; many professional firms get more from email and search. We usually add scheduled social posting as automation once the website and core channels already convert.",
+     "a": "It depends on where your buyers decide. Retailers, 11.6% of Orlando's establishments, often benefit from social posts. Many professional firms get more from email and search. We usually add scheduled social posting as automation once the website and core channels already convert.",
      "from": "autocomplete: social media marketing agency orlando"
     },
     {
@@ -615,12 +615,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is a digital marketing agency?",
-     "a": "It is a firm that plans and runs online marketing: websites, search, content, email, social and ads. For an Orlando business competing among 77,951 establishments, the value lies in running those channels as one plan so each one supports the others rather than pulling apart.",
+     "a": "It is a firm that plans and runs online marketing: websites, search, content, email, social and ads. For an Orlando business competing among 77,951 establishments, the value lies in running those channels as one plan so each one supports the others.",
      "from": "questionBank: what is a digital marketing agency"
     },
     {
      "q": "Why hire a digital marketing agency for social media management in Orlando?",
-     "a": "Because posting is easy to start and hard to sustain. Autocomplete shows Orlando searches for \"social media management orlando\" alongside agency terms. An agency schedules posts, ties them to offers on your site, and reports results, so the effort turns into leads rather than likes.",
+     "a": "Because posting is easy to start and hard to sustain. Autocomplete shows Orlando searches for \"social media management orlando\" alongside agency terms. An agency schedules posts, ties them to offers on your site, and reports results, so the effort turns into leads.",
      "from": "autocomplete: social media management orlando"
     },
     {

@@ -443,7 +443,7 @@ export const PLACE: LocalPlace = {
     "label": "What density means for you",
     "paras": [
      "A busy field of agencies does not decide who ranks for your services. What decides it is which pages Google already shows for the phrases your customers type, and how well those pages answer the search.",
-     "So the practical question is not how many agencies exist, but which pages currently hold your target phrases and where they fall short. That is the first thing our audit answers."
+     "Our audit starts with which pages currently hold your target phrases and where they fall short."
     ]
    },
    "table": {
@@ -530,7 +530,7 @@ export const PLACE: LocalPlace = {
     "label": "Why ads come last",
     "paras": [
      "Paid search in Chicago is expensive per click, as the Semrush rows show. Running ads before the site converts means paying full price to send people to a page that loses them.",
-     "Once organic traffic is steady, automation keeps it compounding: Google Business Profile posts, review requests after each job and prompt replies to every review. Ads then fill specific gaps rather than carrying the whole load."
+     "Once organic traffic is steady, automation keeps it compounding: Google Business Profile posts, review requests after each job and prompt replies to every review. Ads then fill specific gaps."
     ]
    },
    "links": [
@@ -554,7 +554,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Chicago specifics",
     "paras": [
-     "For a metro this size we usually decide early which parts of Chicagoland you truly serve. A page for every suburb is rarely right; a page for each area that sends real customers usually is.",
+     "For a metro this size we usually decide early which parts of Chicagoland you truly serve. A page for every suburb is rarely right. A page for each area that sends real customers usually is.",
      "We also check the Indiana side of the metro, since the Census area crosses the state line and some customers search from there."
     ]
    },
@@ -623,12 +623,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a Chicago SEO consultant or an agency?",
-     "a": "Hire whoever will put the plan in writing and give you full access to the data. A consultant suits one focused fix; an agency suits ongoing pages and links. We work as a small team, remotely, across a metro of 248,519 establishments, so you get both depth and a direct contact.",
+     "a": "Hire whoever will put the plan in writing and give you full access to the data. A consultant suits one focused fix. An agency suits ongoing pages and links. We work as a small team, remotely, across a metro of 248,519 establishments, so you get both depth and a direct contact.",
      "from": "autocomplete: seo consultant chicago"
     },
     {
      "q": "Is SEO or SEM better for a Chicago business?",
-     "a": "SEO is better for lasting traffic; SEM, meaning paid search, is better for instant visibility. A click on \"seo services chicago\" costs advertisers $42.30, so earning that spot organically saves real money over time. Most firms do best starting with SEO and adding ads later.",
+     "a": "SEO is better for lasting traffic. SEM, meaning paid search, is better for instant visibility. A click on \"seo services chicago\" costs advertisers $42.30, so earning that spot organically saves real money over time. Most firms do best starting with SEO and adding ads later.",
      "from": "autocomplete: chicago seo vs sem marketing",
      "link": {
       "to": "/services/google-ads",

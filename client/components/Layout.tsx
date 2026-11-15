@@ -1167,7 +1167,7 @@ function Layout({ children }: LayoutProps) {
                   (610) 890-9711
                 </a>
                 <span aria-hidden="true"> · </span>
-                Mon–Fri 9–5
+                Mon to Fri, 9 to 5
               </p>
 
               {/* Certifications. SBA WOSB/EDWOSB, PA COSTARS and Virginia SWaM

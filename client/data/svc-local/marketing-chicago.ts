@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Chicago searches for marketing agencies",
    "lede": "Two agency phrasings in our Semrush table add up to 2,600 exact-match US searches each month.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency chicago\" pulls 1,600 searches at a keyword difficulty of 43; \"marketing agency chicago\" pulls 1,000.",
+   "lead": "\"digital marketing agency chicago\" pulls 1,600 searches at a keyword difficulty of 43, and \"marketing agency chicago\" pulls 1,000.",
    "deeper": {
     "label": "Clicks, costs and social intent",
     "paras": [
@@ -422,7 +422,7 @@ export const PLACE: LocalPlace = {
    "h2": "Counting Chicago's marketing competition",
    "lede": "Census codes show 2,400 advertising and marketing consulting establishments, a density that exactly matches the median of our marketing pages.",
    "leadIn": "Yes, but:",
-   "lead": "a count like this is a ceiling, not a rival list; many of those establishments never compete for digital work.",
+   "lead": "a count like this is a ceiling, not a rival list, and many of those establishments never compete for digital work.",
    "points": [
     "Advertising agencies run at 23.9 per 10,000 establishments.",
     "Marketing consultants run at 72.6 per 10,000.",
@@ -431,8 +431,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What to make of 96.6",
     "paras": [
-     "A density of 96.6 per 10,000 sits right at the middle of the pack. Chicago is not oversupplied with agencies for its size; it just has a lot of everything.",
-     "For a buyer, that means choice and noise. Ask any agency, us included, which channel they would cut first and why. A good answer tells you they think in systems, not retainers."
+     "A density of 96.6 per 10,000 sits right at the middle of the pack. Chicago is not oversupplied with agencies for its size. It just has a lot of everything.",
+     "For a buyer, that means choice and noise. Ask any agency, us included, which channel they would cut first and why."
     ]
    },
    "table": {
@@ -508,7 +508,7 @@ export const PLACE: LocalPlace = {
    "h2": "Building a Chicago marketing system",
    "lede": "We grow marketing in layers, and each layer only goes on once the one beneath it is pulling its weight.",
    "leadIn": "The bottom line:",
-   "lead": "organic channels you own come first; paid campaigns arrive once they have a converting site to land on.",
+   "lead": "organic channels you own come first, and paid campaigns arrive once they have a converting site to land on.",
    "points": [
     "Layer one: website and message that convert visitors.",
     "Layer two: SEO, blog, email and authority.",
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
     "label": "Where automation helps most",
     "paras": [
      "Automation is where a small team looks big. Scheduled social posts from your own content, Google Business Profile updates, automatic review requests after each sale and prompt replies keep Chicago customers seeing you without daily effort.",
-     "Paid ads come after organic traction. By then you know which messages work, so every ad dollar goes to a proven offer instead of an experiment."
+     "Paid ads come after organic traction. By then you know which messages work, so every ad dollar goes to a proven offer."
     ]
    },
    "links": [
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
     "label": "Chicago adjustments",
     "paras": [
      "For B2B firms in the Loop or the suburbs, we usually weight email and LinkedIn-style content. For consumer businesses, reviews, local search and social carry more of the load.",
-     "Either way, we agree on what counts as a lead before any channel goes live, so reports show work coming in rather than vanity numbers."
+     "Either way, we agree on what counts as a lead before any channel goes live, so reports show work coming in."
     ]
    },
    "cards": [
@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings, reviews, approvals",
     "paras": [
-     "We work with Chicago companies over video, with drafts and reports shared as links you review in a browser. Approvals happen in comments, not in long email chains.",
+     "We work with Chicago companies over video, with drafts and reports shared as links you review in a browser. Approvals happen in comments.",
      "We keep a single office, in Malvern, Pennsylvania. Support is around the clock when something breaks."
     ]
    }
@@ -606,7 +606,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do I need a social media marketing agency in Chicago?",
-     "a": "You need social media only if it connects to a site and an offer that convert. Social works best as one layer in a system. The Chicago metro has 595 advertising agency establishments, and some sell social on its own; we build it alongside search, email and reviews so it produces work.",
+     "a": "You need social media only if it connects to a site and an offer that convert. Social works best as one layer in a system. The Chicago metro has 595 advertising agency establishments, and some sell social on its own. We build it alongside search, email and reviews so it produces work.",
      "from": "autocomplete: social media marketing agency chicago"
     },
     {

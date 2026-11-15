@@ -293,9 +293,9 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "New York app development, scoped before build",
-   "lede": "We build the portals, internal tools and customer apps New York firms need, starting with a written scope rather than a guess.",
+   "lede": "We build the portals, internal tools and customer apps New York firms need, starting with a written scope.",
    "leadIn": "Why it matters:",
-   "lead": "software that solves the wrong problem is the most expensive kind, whatever the metro.",
+   "lead": "the scope lists users, screens, data and integrations before any build.",
    "deeper": {
     "label": "What we build",
     "paras": [
@@ -357,7 +357,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Matching the build to the sector",
     "paras": [
-     "Information businesses are only 2.1% of the base, which is why most New York custom software is commissioned by firms outside tech. Those clients need plain-language scoping, not jargon, and a product their staff can learn quickly.",
+     "Information businesses are only 2.1% of the base, which is why most New York custom software is commissioned by firms outside tech. Those clients need plain-language scoping and a product their staff can learn quickly.",
      "We ask about the data first: where it lives, who may see it and what it must connect to. That answer decides the architecture far more than the screens do."
     ]
    },
@@ -535,7 +535,7 @@ export const PLACE: LocalPlace = {
     "label": "Growth around the product",
     "paras": [
      "For customer-facing tools, we plan the marketing site alongside the build, so launch has a page to send people to. Internal tools need training notes and support, which we provide.",
-     "If the app serves customers, our [SEO in New York](/services/seo-new-york) page covers the organic side; paid ads come later, once the sign-up page converts."
+     "If the app serves customers, our [SEO in New York](/services/seo-new-york) page covers the organic side. Paid ads come later, once the sign-up page converts."
     ]
    },
    "links": [
@@ -557,7 +557,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Building a New York app, step by step",
-   "lede": "Each stage below ends with something you can review, so decisions are made on evidence rather than promises.",
+   "lede": "Each stage below ends with something you can review.",
    "leadIn": "What you get:",
    "lead": "a signed scope, approved designs, tested builds and a release in your own accounts, with support afterwards.",
    "deeper": {

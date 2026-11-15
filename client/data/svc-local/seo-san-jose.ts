@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the table and autocomplete",
     "paras": [
-     "That $14.08 is the price advertisers pay Google for a click, not our fee. The shorter \"seo san jose\" adds 390 searches with a difficulty of 16 and no bid data; together the two phrases come to 1,110 monthly searches.",
+     "That $14.08 is the price advertisers pay Google for a click, not our fee. The shorter \"seo san jose\" adds 390 searches with a difficulty of 16 and no bid data. Together the two phrases come to 1,110 monthly searches.",
      "Autocomplete shows how varied the demand is: \"local seo san jose\", \"san jose seo expert\", \"seo consultant san jose\" and the Spanish-language \"agencia seo san jose\". That last phrasing shows some searchers look in Spanish, and a Spanish page can target it directly."
     ]
    },
@@ -427,7 +427,7 @@ export const PLACE: LocalPlace = {
    "h2": "Fewer marketers, many more programmers",
    "lede": "San Jose has 58 advertising agencies and 389 marketing consulting firms, a combined 447 establishments, below the median density.",
    "leadIn": "Yes, but:",
-   "lead": "447 is a ceiling, not a list of rivals, and in San Jose some technical SEO work may sit with in-house engineers instead.",
+   "lead": "447 is a ceiling, not a list of rivals, and in San Jose some technical SEO work may sit with in-house engineers.",
    "points": [
     "88.8 agencies and consultants per 10,000, just under the 90.1 median.",
     "That ranks 31st of 59.",
@@ -514,7 +514,7 @@ export const PLACE: LocalPlace = {
    "h2": "How San Jose sites grow in search",
    "lede": "We build growth on a technically sound site, then add depth, authority and automation in that order.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first, then pages, blog, email and authority, then automated profile posts and review replies; paid ads after organic traction.",
+   "lead": "website and message first, then pages, blog, email and authority, then automated profile posts and review replies, and paid ads after organic traction.",
    "points": [
     "Fix rendering, speed and structure before writing new content.",
     "Deep solution pages for national B2B terms, local pages for services.",

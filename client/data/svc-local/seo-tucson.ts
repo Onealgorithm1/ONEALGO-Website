@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "Tucson's search volume for SEO",
    "lede": "Semrush counts 1,990 searches a month across the two leading SEO phrasings for Tucson.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo tucson\" alone draws 1,600 searches at a difficulty of 17; \"seo company tucson\" gets 390 at just 6.",
+   "lead": "\"seo tucson\" alone draws 1,600 searches at a difficulty of 17, and \"seo company tucson\" gets 390 at just 6.",
    "deeper": {
     "label": "Prices and phrasing",
     "paras": [

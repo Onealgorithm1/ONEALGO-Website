@@ -291,7 +291,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What we focus on here",
     "paras": [
-     "In Fort Myers, Cape Coral, Bonita Springs and Lehigh Acres, buyers search by service and by town. A roofer serving all four needs a page that earns each search, not one generic service page.",
+     "In Fort Myers, Cape Coral, Bonita Springs and Lehigh Acres, buyers search by service and by town. A roofer serving all four needs a page that earns each search.",
      "We read Search Console, crawl the site and map the searches that already bring visitors. Then we plan pages around the jobs and towns that matter most to your business."
     ]
    },
@@ -396,7 +396,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "\"seo company fort myers\" draws 720 searches a month with difficulty 14, and \"seo fort myers\" draws 390. Both difficulty scores are low, so a well-built local page can compete for these phrasings without years of catch-up.",
      "Autocomplete includes \"seo north fort myers\" and \"fort myers seo services\", a reminder that buyers name specific communities. Pages should do the same.",
-     "The $10.40 click price is what advertisers bid on Google, not our fee."
+     "The $10.40 click price is what advertisers bid on Google."
     ]
    },
    "table": {
@@ -427,7 +427,7 @@ export const PLACE: LocalPlace = {
    "h2": "How many firms offer marketing here",
    "lede": "The Census counts 183 marketing consultants and 33 advertising agencies in the Fort Myers metro, 216 together.",
    "leadIn": "Yes, but:",
-   "lead": "that count is a ceiling; many of those firms handle print, events or design rather than search.",
+   "lead": "that count is a ceiling. Many of those firms handle print, events or design rather than search.",
    "points": [
     "94.9 ad and marketing firms per 10,000 establishments, 27th of 59.",
     "Median across SEO pages: 90.1.",
@@ -513,7 +513,7 @@ export const PLACE: LocalPlace = {
    "h2": "Growing from site to steady leads",
    "lede": "We build organic traffic in order, starting with a site that loads quickly and explains the offer.",
    "leadIn": "The bottom line:",
-   "lead": "message and website first, then SEO, blog, email and authority, then automation; paid ads after organic gains.",
+   "lead": "message and website first, then SEO, blog, email and authority, then automation, and paid ads after organic gains.",
    "points": [
     "Service and town pages for Lee County communities.",
     "Posts and email that keep past customers returning.",
@@ -541,14 +541,14 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Our SEO process for Fort Myers",
-   "lede": "The stage cards below describe the cycle; here is how it fits a Fort Myers business.",
+   "lede": "The stage cards below describe the cycle as it fits a Fort Myers business.",
    "leadIn": "What you get:",
    "lead": "pages for the Lee County towns you serve, shipped fixes you can see, and monthly Search Console reports.",
    "deeper": {
     "label": "Same clock, easy calls",
     "paras": [
      "Fort Myers and Malvern share Eastern time, so calls fit any working hour. Drafts arrive as links, you comment, and we publish once you approve.",
-     "Our [Florida SEO page](/services/seo-florida) covers the statewide picture; this page focuses on what changes in Lee County."
+     "Our [Florida SEO page](/services/seo-florida) covers the statewide picture. This page focuses on what changes in Lee County."
     ]
    },
    "cards": [
@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay connected",
     "paras": [
-     "The work runs from our one office in Malvern, Pennsylvania, over video calls, shared screens and drafts you review in your browser.",
+     "The work runs from our office in Malvern, Pennsylvania, over video calls, shared screens and drafts you review in your browser.",
      "Support requests are answered at any hour, which matters when a storm knocks a site's booking form offline."
     ]
    }
@@ -602,7 +602,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should an SEO company in Fort Myers do first?",
-     "a": "It should audit what Google already sees: Search Console data, a crawl and the queries where you nearly rank. \"seo company fort myers\" draws 720 searches a month, and the right company starts with your data rather than a package, then plans pages around your services and towns.",
+     "a": "It should audit what Google already sees: Search Console data, a crawl and the queries where you nearly rank. \"seo company fort myers\" draws 720 searches a month, and the right company starts with your data, then plans pages around your services and towns.",
      "from": "autocomplete: seo company fort myers",
      "link": {
       "to": "/services/seo",
@@ -631,7 +631,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for Fort Myers contractors?",
-     "a": "Homeowners search when something breaks, and they call the first credible result. Construction is 17.1% of Fort Myers establishments, so competition is real. Ranked pages bring those calls without a per-click cost; for comparison, advertisers pay $10.40 a click just for \"seo fort myers\".",
+     "a": "Homeowners search when something breaks, and they call the first credible result. Construction is 17.1% of Fort Myers establishments, so competition is real. Ranked pages bring those calls without a per-click cost. For comparison, advertisers pay $10.40 a click just for \"seo fort myers\".",
      "from": "questionBank: why is seo important"
     },
     {

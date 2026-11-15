@@ -295,7 +295,7 @@ export const PLACE: LocalPlace = {
    "h2": "Custom app development for Los Angeles firms",
    "lede": "We build the web application your Los Angeles team keeps asking for, from a customer portal to the dashboard that replaces a pile of spreadsheets.",
    "leadIn": "Why it matters:",
-   "lead": "off-the-shelf software forces your process to fit its screens; custom software fits the process you already run.",
+   "lead": "off-the-shelf software forces your process to fit its screens. Custom software fits the process you already run.",
    "deeper": {
     "label": "What we usually build",
     "paras": [
@@ -348,7 +348,7 @@ export const PLACE: LocalPlace = {
    "h2": "Where custom apps earn their keep",
    "lede": "Health care, retail and real estate each run on records and requests, but each needs a very different kind of tool.",
    "leadIn": "By the numbers:",
-   "lead": "the sector table shows the four largest groups; the right first app differs for each of them.",
+   "lead": "the sector table shows the four largest groups, and the right first app differs for each of them.",
    "points": [
     "Health care, 13.1%: intake, scheduling and staff coordination tools.",
     "Retail, 9.4%: order, stock and customer dashboards.",
@@ -403,7 +403,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the query mix",
     "paras": [
      "The largest phrasing is \"software development company los angeles\" at 480 searches and $12.60 a click. \"app development company los angeles\" adds 260 at $16.24, with keyword difficulty of just 12, so the field is less contested than its click price suggests.",
-     "Autocomplete adds \"app developers los angeles ca\" and \"iphone app developers los angeles\". Many people ask for a mobile app when a responsive web app covers the need, and we say so during scoping.",
+     "Autocomplete adds \"app developers los angeles ca\" and \"iphone app developers los angeles\". Many people ask for a mobile app when a responsive web app covers the need, and we raise that during scoping.",
      "Click prices are what advertisers pay Google, not what a build costs."
     ]
    },
@@ -501,7 +501,7 @@ export const PLACE: LocalPlace = {
     "label": "The safeguards",
     "paras": [
      "Every project starts with an agreed list of what the app must do and what it will not do yet. That list becomes a written scope with clear acceptance points, so neither side argues later about what was promised.",
-     "During the build you get a working link to test, not screenshots. Bugs and changes are logged where you can see them.",
+     "During the build you get a working link to test. Bugs and changes are logged where you can see them.",
      "At launch the repository, hosting and domain sit in accounts you control. If you ever want another team to take over, nothing is held back."
     ]
    },
@@ -535,7 +535,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Linking app and marketing",
     "paras": [
-     "A portal can trigger review requests after a job closes, send follow-up emails and feed data to your website. Those links turn software from a cost into part of how you win customers.",
+     "A portal can trigger review requests after a job closes, send follow-up emails and feed data to your website.",
      "We usually pair app work with a clear website message and search pages, so new users find the product and understand it. Paid promotion comes after organic interest shows the offer works."
     ]
    },

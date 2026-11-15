@@ -298,7 +298,7 @@ export const PLACE: LocalPlace = {
    "cards": [
     {
      "h3": "Professional firms",
-     "line": "Advisers and agencies need pages that answer client questions in depth, so Google sees expertise rather than a brochure."
+     "line": "Advisers and agencies need pages that answer client questions in depth, so Google sees expertise."
     },
     {
      "h3": "Retail trade",
@@ -340,7 +340,7 @@ export const PLACE: LocalPlace = {
    "h2": "Four sectors at almost equal size",
    "lede": "Professional services, retail, health care and construction each hold between 11.5% and 12.9% of Jacksonville establishments.",
    "leadIn": "Why it matters:",
-   "lead": "no single sector dominates, so a page plan has to be cut to your trade rather than borrowed from a template.",
+   "lead": "no single sector dominates, so a page plan has to be cut to your trade.",
    "points": [
     "Retail: 5,351 establishments, 12.1% share.",
     "Health care: 5,184 establishments, 11.7% share.",
@@ -390,12 +390,12 @@ export const PLACE: LocalPlace = {
    "h2": "The phrases Jacksonville buyers use",
    "lede": "Two Semrush phrasings for SEO in Jacksonville add up to 2,300 searches every month.",
    "leadIn": "By the numbers:",
-   "lead": "\"seo jacksonville\" gets 1,300 searches at a keyword difficulty of 35; \"seo company jacksonville\" gets 1,000 at 39.",
+   "lead": "\"seo jacksonville\" gets 1,300 searches at a keyword difficulty of 35, and \"seo company jacksonville\" gets 1,000 at 39.",
    "deeper": {
     "label": "Local intent shows up clearly",
     "paras": [
      "Google suggests \"local seo jacksonville\" and \"seo agency jacksonville fl\", which tells us buyers here care about map results as much as the regular listings. That shapes our plan: Business Profile and location pages come early.",
-     "The click price on \"seo company jacksonville\" is $21.88. Like the $23.35 figure, it is what advertisers bid in Google's auction, not our price."
+     "The click price on \"seo company jacksonville\" is $21.88. Like the $23.35 figure, it is what advertisers bid in Google's auction."
     ]
    },
    "table": {
@@ -512,7 +512,7 @@ export const PLACE: LocalPlace = {
    "h2": "Building steady growth after the fixes",
    "lede": "Once Google can read the site and the message is clear, a blog, email and reviews keep traffic rising.",
    "leadIn": "The bottom line:",
-   "lead": "save paid ads until the organic pages convert; at Jacksonville click prices, that order protects the budget.",
+   "lead": "save paid ads until the organic pages convert. At Jacksonville click prices, that order protects the budget.",
    "points": [
     "Website and message first.",
     "Then content, email and links.",
@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
     "label": "Day-to-day contact",
     "paras": [
      "We meet by video or phone and share screens to walk through audits and reports. Drafts arrive as links, so you can approve pages from the job site or the office.",
-     "Our only office is in Malvern, Pennsylvania; Jacksonville work is handled from there."
+     "Our team works from Malvern, Pennsylvania, and a Jacksonville project runs by video call."
     ]
    }
   },

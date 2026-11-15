@@ -407,7 +407,7 @@ export const PLACE: LocalPlace = {
     "label": "What the searches say about buyers",
     "paras": [
      "Advertisers pay $17.83 for a click on \"app development company houston\" and $16.60 on the mobile phrase, which is the price of an ad click, not of building anything. \"custom software development houston\" draws 320 searches with no CPC data in Semrush.",
-     "Autocomplete adds \"ai software development company in houston\" next to the standard developer searches. Buyers are asking about AI features; we discuss where they help and where a plain rule does the job better."
+     "Autocomplete adds \"ai software development company in houston\" next to the standard developer searches. Buyers are asking about AI features. We discuss where they help and where a plain rule does the job better."
     ]
    },
    "table": {
@@ -458,7 +458,7 @@ export const PLACE: LocalPlace = {
     "label": "What lower density means for you",
     "paras": [
      "Relative to its size, Houston has fewer custom programming firms than most of the metros we cover. That can mean fewer nearby options for a small or mid-sized project.",
-     "Remote work removes the constraint. A Houston business can hire any capable team, and the questions worth asking are about scope, ownership and testing, not distance."
+     "Remote work removes the constraint. A Houston business can hire any capable team, and the questions worth asking are about scope, ownership and testing."
     ]
    },
    "table": {
@@ -503,8 +503,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Checks you can run yourself",
     "paras": [
-     "Ask to see the scope document before work starts; ours lists every screen, role and integration in plain language. Ask where the code lives; ours sits in a repository you own from the first commit.",
-     "Ask how changes are tested; we test each feature on a staging copy and share the link before release. If any of that is vague from a vendor, the project will be vague too."
+     "Ask to see the scope document before work starts. Ours lists every screen, role and integration in plain language. Ask where the code lives. Ours sits in a repository you own from the first commit.",
+     "Ask how changes are tested. We test each feature on a staging copy and share the link before release."
     ]
    },
    "cards": [
@@ -650,7 +650,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What does mobile app development involve for a Houston company?",
-     "a": "It is designing and building software people use on phones. Many needs are met by a web app that works on any phone without a store download. \"mobile app development houston\" gets 720 searches a month; we help those buyers decide which route fits before anything is built.",
+     "a": "It is designing and building software people use on phones. Many needs are met by a web app that works on any phone without a store download. \"mobile app development houston\" gets 720 searches a month. We help those buyers decide which route fits before anything is built.",
      "from": "questionBank: what is mobile app development"
     }
    ]

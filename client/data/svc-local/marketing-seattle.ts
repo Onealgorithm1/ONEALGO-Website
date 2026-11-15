@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the counts imply",
     "paras": [
-     "The population is the Census ACS 2024 estimate; establishments come from County Business Patterns 2023. That gives roughly 37.5 residents per establishment, a market where most businesses serve a crowded local customer pool.",
+     "The population is the Census ACS 2024 estimate. Establishments come from County Business Patterns 2023. That gives roughly 37.5 residents per establishment, a market where most businesses serve a crowded local customer pool.",
      "Professional, scientific and technical services are 13.4% of establishments, just above the 13.3 median for our marketing pages, and Seattle ranks 18th on that share.",
      "In practice that means a sizeable slice of local businesses sell knowledge rather than products. Their marketing has to teach before it sells, which is where content and email earn their place."
     ]
@@ -389,7 +389,7 @@ export const PLACE: LocalPlace = {
    "h2": "Seattle searches for marketing agencies",
    "lede": "The digital version of the agency search is both more popular and far easier to rank for than the plain version.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency seattle\" draws 1,000 searches a month at difficulty 18; \"marketing agency seattle\" scores 55.",
+   "lead": "\"digital marketing agency seattle\" draws 1,000 searches a month at difficulty 18. \"marketing agency seattle\" scores 55.",
    "deeper": {
     "label": "Click costs and what buyers type",
     "paras": [
@@ -525,7 +525,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Automation handles the jobs that slip when a team gets busy: weekly social posts drawn from real work, Google Business Profile updates, and review requests with replies written for you.",
      "For a Seattle retailer that might mean product posts every week and a review request after each order. For a professional firm it might be a monthly newsletter and a reply to every review within a day of it landing.",
-     "Paid ads come once organic traffic shows which pages and offers convert, so the ad budget amplifies a winner rather than testing a guess."
+     "Paid ads come once organic traffic shows which pages and offers convert, so the ad budget amplifies a winner."
     ]
    },
    "links": [
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "What a Seattle engagement looks like",
-   "lede": "The stage order is fixed; the Seattle plan decides which buyers, sectors and channels get attention first.",
+   "lede": "The stage order is fixed, and the Seattle plan decides which buyers, sectors and channels get attention first.",
    "leadIn": "What you get:",
    "lead": "a written plan, a reworked message and site, a channel calendar, and monthly reports drawn from your own accounts.",
    "deeper": {
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
     "label": "Pacific time, remote delivery",
     "paras": [
      "We schedule calls to suit Pacific hours, usually your morning, and share social calendars and campaign drafts as links you can review whenever suits you.",
-     "Our one office is in Malvern, PA. Urgent site or campaign problems reach our support line at any hour."
+     "Our team works from Malvern, PA. Urgent site or campaign problems reach our support line at any hour."
     ]
    }
   },

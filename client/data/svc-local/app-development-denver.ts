@@ -358,7 +358,7 @@ export const PLACE: LocalPlace = {
     "label": "Picking the first workflow",
     "paras": [
      "We ask which task gets done by hand most often, who does it, and what goes wrong. In a clinic that is often intake; for a contractor, job updates; for a shop, stock that never matches between systems.",
-     "That one workflow becomes the first release. Once it is in daily use, we extend it with the next most painful task, so each stage is in daily use before the next one starts."
+     "That one workflow becomes the first release. Once it is in daily use, we extend it with the next most painful task."
     ]
    },
    "table": {
@@ -453,8 +453,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How to compare builders",
     "paras": [
-     "With this many programming firms nearby, the question is not whether someone can write code but whether they will scope it clearly and hand it over cleanly. Ask any builder who owns the repository, where the app is hosted, and what happens if you part ways.",
-     "Our answers: you own the code and the hosting accounts, the scope is written before work starts, and documentation ships with the app. The 1,365 advertising and marketing firms in the same metro are a separate field; most do not build software."
+     "With this many programming firms nearby, the question is whether they will scope it clearly and hand it over cleanly. Ask any builder who owns the repository, where the app is hosted, and what happens if you part ways.",
+     "Our answers: you own the code and the hosting accounts, the scope is written before work starts, and documentation ships with the app. The 1,365 advertising and marketing firms in the same metro are a separate field. Most do not build software."
     ]
    },
    "table": {
@@ -493,7 +493,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work, and what you can check",
-   "lede": "Instead of screenshots, we offer a method you can audit: written scope, visible progress and code that belongs to you.",
+   "lede": "We offer a method you can audit: written scope, visible progress and code that belongs to you.",
    "leadIn": "What you get:",
    "lead": "a signed scope, a clickable prototype on your devices, tested code in your repository, and accounts in your name.",
    "deeper": {
@@ -623,7 +623,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can you build a mobile app for a Denver business?",
-     "a": "Yes, usually as a web app that installs on the home screen and works on any phone, which avoids app-store reviews and lets fixes ship the same day. \"mobile app development denver\" draws 480 searches a month, so plenty of local businesses ask; we scope the right format first.",
+     "a": "Yes, usually as a web app that installs on the home screen and works on any phone, which avoids app-store reviews and lets fixes ship the same day. \"mobile app development denver\" draws 480 searches a month, so plenty of local businesses ask. We scope the right format first.",
      "from": "autocomplete: mobile app developers in denver"
     },
     {
@@ -633,7 +633,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What should I ask a software development company in Denver?",
-     "a": "Ask who owns the code, where it is hosted, how changes to scope are priced, and what support looks like after launch. With 2,471 computer design and related establishments in the metro, you can afford to be choosy; a builder who hesitates on ownership is a warning sign.",
+     "a": "Ask who owns the code, where it is hosted, how changes to scope are priced, and what support looks like after launch. With 2,471 computer design and related establishments in the metro, you can afford to be choosy. A builder who hesitates on ownership is a warning sign.",
      "from": "autocomplete: software development company denver",
      "link": {
       "to": "/services/application-development",
@@ -652,7 +652,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do Denver web development companies also build web apps?",
-     "a": "Some do, and we build both. A website informs and converts visitors; a web app does work for them, like booking, ordering or tracking a job. A Denver contractor, one of 9,143 construction firms in the metro, might start with a website and add a crew portal once volume justifies it.",
+     "a": "Some do, and we build both. A website informs and converts visitors. A web app does work for them, like booking, ordering or tracking a job. A Denver contractor, one of 9,143 construction firms in the metro, might start with a website and add a crew portal once volume justifies it.",
      "from": "autocomplete: denver web development companies",
      "link": {
       "to": "/services/website-development",

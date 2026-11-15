@@ -317,7 +317,7 @@ export const PLACE: LocalPlace = {
     "label": "What a low ratio means",
     "paras": [
      "With 32.6 residents per establishment, each Colorado business draws on a modest pool of nearby customers. Small firms cannot outspend rivals, so they need to be found for precise searches where intent is high.",
-     "The 28,143 professional firms are the biggest group. Many are small practices that rely on referrals; a site that answers the questions referrals ask turns word of mouth into a search result too."
+     "The 28,143 professional firms are the biggest group. Many are small practices that rely on referrals. A site that answers the questions referrals ask turns word of mouth into a search result too."
     ]
    },
    "readouts": [
@@ -391,7 +391,7 @@ export const PLACE: LocalPlace = {
     "label": "Where the volume really sits",
     "paras": [
      "Keyword difficulty is 28 for the short phrase and 36 for the company phrase, which had no bid data. Many buyers also search by city: “seo companies colorado springs” and “seo colorado springs” both show in autocomplete.",
-     "That pattern repeats for your own customers. A plumber rarely types the state; they type the town. Our page plans start from those city-level phrasings and use statewide pages to tie them together."
+     "That pattern repeats for your own customers. A plumber rarely types the state. They type the town. Our page plans start from those city-level phrasings and use statewide pages to tie them together."
     ]
    },
    "table": {
@@ -422,7 +422,7 @@ export const PLACE: LocalPlace = {
    "h2": "A busy field of Colorado marketers",
    "lede": "Colorado has 123.6 advertising and marketing firms per 10,000 establishments, 12th of 59 places, above the 90.1 median.",
    "leadIn": "Yes, but:",
-   "lead": "2,255 firms is a ceiling; many are freelancers or branding studios, not SEO providers.",
+   "lead": "2,255 firms is a ceiling, since many are freelancers or branding studios, not SEO providers.",
    "points": [
     "1,854 marketing consultancies, 101.6 per 10,000.",
     "401 advertising agencies, 22 per 10,000.",
@@ -431,7 +431,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Standing out among many",
     "paras": [
-     "Plenty of choice means plenty of claims. The useful filter is evidence: a written audit of your site, a plan naming target phrases, and reporting pulled from your own Search Console rather than a proprietary dashboard.",
+     "The useful filter is evidence: a written audit of your site, a plan naming target phrases, and reporting pulled from your own Search Console.",
      "Programming density of 117.6 per 10,000, above the 86.9 median, means developers are easy to hire in Colorado. Our job is the layer above that: deciding which pages to build and why."
     ]
    },
@@ -473,7 +473,7 @@ export const PLACE: LocalPlace = {
    "h2": "One result, start to finish",
    "lede": "Our documented SEO case is an arcade manufacturer in Florida, served remotely, which is how we would work with a Colorado firm.",
    "leadIn": "By the numbers:",
-   "lead": "Google clicks climbed 92% year over year; non-brand clicks climbed 231%, both in Search Console.",
+   "lead": "Google clicks climbed 92% year over year, and non-brand clicks climbed 231%, both in Search Console.",
    "deeper": {
     "label": "What changed and why",
     "paras": [
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "h2": "Growing Colorado search visibility",
    "lede": "We build organic growth in layers, each one resting on a site that already converts the visitors it gets.",
    "leadIn": "The bottom line:",
-   "lead": "message and site first, then content and links, then automation; ads only after organic traction.",
+   "lead": "message and site first, then content and links, then automation, and ads only after organic traction.",
    "points": [
     "Core pages and message before anything else.",
     "City pages, blog, email and links next.",
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Seasonality, ads and automation",
     "paras": [
-     "Colorado demand swings with the seasons, from ski towns to storm-repair trades. Organic pages built ahead of those swings capture demand without paying $13.29 a click; ads can then fill gaps once pages prove they convert.",
+     "Colorado demand swings with the seasons, from ski towns to storm-repair trades. Organic pages built ahead of those swings capture demand without paying $13.29 a click. Ads can then fill gaps once pages prove they convert.",
      "Automated Google Business Profile posts, review requests and replies keep listings active across multiple towns with little manual effort."
     ]
    },
@@ -539,7 +539,7 @@ export const PLACE: LocalPlace = {
    "h2": "A Colorado SEO project in practice",
    "lede": "The stages never change, but a statewide Colorado plan decides early which towns and metros deserve their own pages.",
    "leadIn": "What you get:",
-   "lead": "a written audit, a page plan with volumes by city, the build, authority work and plain reports every month.",
+   "lead": "a written audit, a page plan with volumes by city, the build, authority work and reports every month.",
    "deeper": {
     "label": "Planning around geography",
     "paras": [
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do Colorado Springs businesses need separate SEO?",
-     "a": "Usually yes; Colorado Springs buyers search with their own city name, as “seo companies colorado springs” in autocomplete shows. A statewide page alone rarely ranks there. We build city-level pages where demand justifies it, and our Colorado Springs page covers that metro in detail.",
+     "a": "Usually yes. Colorado Springs buyers search with their own city name, as “seo companies colorado springs” in autocomplete shows. A statewide page alone rarely ranks there. We build city-level pages where demand justifies it, and our Colorado Springs page covers that metro in detail.",
      "from": "autocomplete: seo companies colorado springs"
     },
     {

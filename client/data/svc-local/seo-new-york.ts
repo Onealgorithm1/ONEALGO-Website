@@ -294,7 +294,7 @@ export const PLACE: LocalPlace = {
     "label": "How the remote work runs",
     "paras": [
      "Every engagement starts with what Google already sees: the crawl, the Search Console history and the phrases you rank for today. From there we decide which pages to fix, which to write and which to retire.",
-     "The work is delivered remotely from our one office in Malvern, PA. You review drafts, titles and new pages in your browser, and every change is logged so you can see what moved and why.",
+     "The work is delivered remotely from our office in Malvern, PA. You review drafts, titles and new pages in your browser, and every change is logged so you can see what moved and why.",
      "New York buyers rarely search without a place attached. They type a neighbourhood, a borough or “near me”, so the page plan maps your service areas before a single word is written."
     ]
    },
@@ -324,7 +324,7 @@ export const PLACE: LocalPlace = {
     "label": "What the base means for SEO",
     "paras": [
      "Population ranks New York 4th of the 59 places we write SEO pages for. A large base means demand exists for almost any service, but it also means almost every query already has several capable sites competing for it.",
-     "The ratio of residents to establishments matters more than it looks. Each business is chasing a thinner slice of local demand than in a smaller metro, so ranking for broad terms rarely pays; ranking for the precise service and area does.",
+     "The ratio of residents to establishments matters more than it looks. Each business is chasing a thinner slice of local demand than in a smaller metro, so ranking for broad terms rarely pays. Ranking for the precise service and area does.",
      "These counts come from the Census County Business Patterns for 2023 and the American Community Survey for 2024, covering the New York-Newark-Jersey City metro area on both sides of the Hudson."
     ]
    },
@@ -353,7 +353,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the table",
     "paras": [
-     "Professional services and retail tie at 12.6% each, with health care close behind at 11.7%. That near-tie means no single industry owns the local results; the field is wide open by sector.",
+     "Professional services and retail tie at 12.6% each, with health care close behind at 11.7%. That near-tie means no single industry owns the local results.",
      "Real estate, at 35,431 establishments or 6.3%, and finance and insurance, at 25,005 or 4.4%, are smaller shares but high-value searches. A single well-ranked page in either can carry a large share of a firm's new enquiries."
     ]
    },
@@ -394,13 +394,13 @@ export const PLACE: LocalPlace = {
    "h2": "What New York actually types",
    "lede": "Three phrasings in our Semrush pull add up to 5,400 searches a month, and two of them tie at 1,900.",
    "leadIn": "By the numbers:",
-   "lead": "a click on “seo new york” costs advertisers $10.70; that is the price of one ad click, not our fee.",
+   "lead": "a click on “seo new york” costs advertisers $10.70, the price of one ad click.",
    "deeper": {
     "label": "Phrases, difficulty and autocomplete",
     "paras": [
      "“seo company new york” carries a keyword difficulty of 43, “seo new york” 44 and “seo services new york” 47. Those are middle-weight scores: hard enough that thin pages lose, open enough that a focused page can compete.",
      "Google's autocomplete shows how buyers narrow the search. People type “local seo company new york”, “seo expert new york city” and “ai seo services new york”. Each is a different intent, and each deserves its own answer on the page that targets it.",
-     "We build page plans from this data, not from guesses. A phrase with volume and a reachable difficulty gets a page; a phrase that only students type, like “seo course in new york”, does not."
+     "We build page plans from this data. A phrase with volume and a reachable difficulty gets a page. A phrase that only students type, like “seo course in new york”, does not."
     ]
    },
    "table": {
@@ -436,7 +436,7 @@ export const PLACE: LocalPlace = {
    "h2": "How many firms sell this here",
    "lede": "The Census counts 5,614 advertising and marketing consulting establishments in the metro, about 99.8 for every 10,000 businesses.",
    "leadIn": "Yes, but:",
-   "lead": "that count is a ceiling, not a rival list; many of those firms do print, events or brand work, not SEO.",
+   "lead": "that count is a ceiling. Many of those firms do print, events or brand work, not SEO.",
    "points": [
     "Advertising agencies (541810): 1,626, or 28.9 per 10,000.",
     "Marketing consulting (541613): 3,988, or 70.9 per 10,000.",
@@ -445,9 +445,9 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What density tells you",
     "paras": [
-     "Proportionally, the metro is busier than most of our SEO places, but it is not the most crowded market on the list. Big absolute numbers hide a field that is ordinary per business.",
+     "Proportionally, the metro is busier than most of our SEO places, but it is not the most crowded market on the list.",
      "Custom programming adds 5,121 establishments, or 91 per 10,000, which ranks 26th. Plenty of these build websites, and a site that looks good but cannot be crawled is one of the most common problems we fix.",
-     "The practical read: you will not stand out by hiring any agency at all. You stand out by picking specific searches, building the best page for each, and proving it in Search Console."
+     "You stand out by picking specific searches, building the best page for each, and proving it in Search Console."
     ]
    },
    "table": {
@@ -559,7 +559,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What changes for New York",
     "paras": [
-     "Large metros reward precision. In New York the page plan usually maps boroughs, neighbourhoods or nearby New Jersey towns you serve, so each location page targets a real search instead of repeating the same text.",
+     "Large metros reward precision. In New York the page plan usually maps boroughs, neighbourhoods or nearby New Jersey towns you serve, so each location page targets a real search.",
      "We also check how your site appears in AI answers and Google’s AI Overviews, since some buyers now ask an assistant which firm to call. Clear facts, schema and consistent business details help those systems cite you."
     ]
    },
@@ -614,7 +614,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose an SEO company in New York City?",
-     "a": "Choose one that shows its method and its measurement. Ask for an audit of what Google sees today, a page plan tied to search data, and Search Console reporting. With 5,614 marketing and advertising firms in the metro, a vague promise is easy to find; a written plan is rarer.",
+     "a": "Choose one that shows its method and its measurement. Ask for an audit of what Google sees today, a page plan tied to search data, and Search Console reporting. With 5,614 marketing and advertising firms in the metro, a vague promise is easy to find. A written plan is rarer.",
      "from": "autocomplete: seo company new york city",
      "link": {
       "to": "/services/seo",
@@ -643,7 +643,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important in a market as big as New York?",
-     "a": "Because buyers search before they call, and there are 562,802 establishments competing for their attention. A site that ranks for the specific service and area gets found by people already looking. Ads stop when the budget does; a ranking page keeps working, which is why we build organic first.",
+     "a": "Because buyers search before they call, and there are 562,802 establishments competing for their attention. A site that ranks for the specific service and area gets found by people already looking. Ads stop when the budget does. A ranking page keeps working, which is why we build organic first.",
      "from": "questionBank: why is seo important"
     },
     {

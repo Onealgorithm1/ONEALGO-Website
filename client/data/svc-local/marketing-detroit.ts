@@ -338,7 +338,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "when repeat visits drive revenue, email, reviews and reminders matter more than chasing new followers.",
    "points": [
-    "Construction: 8,503 establishments; autocomplete even shows \"contractors digital marketing detroit mi\".",
+    "Construction: 8,503 establishments. Autocomplete even shows \"contractors digital marketing detroit mi\".",
     "Finance and insurance: 5,310 establishments that sell on trust.",
     "Information: 1,743 establishments, 1.7% of the base."
    ],
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "Detroit marketing agency searches, sized",
    "lede": "Our Semrush pull finds 1,070 monthly searches across two agency phrasings, both at moderate difficulty.",
    "leadIn": "By the numbers:",
-   "lead": "\"digital marketing agency detroit\" gets 590 searches at KD 26 and an $8.51 click; \"marketing agency detroit\" gets 480 at $5.19.",
+   "lead": "\"digital marketing agency detroit\" gets 590 searches at KD 26 and an $8.51 click, and \"marketing agency detroit\" gets 480 at $5.19.",
    "deeper": {
     "label": "Interpreting the searches",
     "paras": [
@@ -424,7 +424,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "Yes, but:",
    "lead": "that density, 74.4 per 10,000 establishments, ranks 28th of 37 and trails the 96.6 median for our marketing pages.",
    "points": [
-    "Marketing consultancies run 54.1 per 10,000; ad agencies 20.3.",
+    "Marketing consultancies run 54.1 per 10,000, ad agencies 20.3.",
     "A firm count is a ceiling, not a list of rivals.",
     "Custom programming density is 75.1 per 10,000, 27th of 37."
    ],
@@ -432,7 +432,7 @@ export const PLACE: LocalPlace = {
     "label": "What a thinner field means",
     "paras": [
      "Fewer marketing firms per business suggests many Detroit companies run their own marketing, or none. Competitors who post sporadically and never ask for reviews are easy to outpace with a consistent program.",
-     "The 762 figure is an upper bound, not a list of rivals. Your real competition for attention is the other clinics, shops or contractors your customers might choose instead."
+     "The 762 figure is an upper bound. Your real competition for attention is the other clinics, shops or contractors your customers might choose instead."
     ]
    },
    "table": {
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should a digital marketing agency in Detroit deliver?",
-     "a": "It should deliver measurable leads: a clear message, a website that converts, search visibility, email and steady automation. \"Digital marketing agency detroit\" draws 590 searches a month, so local firms shop actively; insist on monthly reports tied to calls and sales, and accounts kept in your own name.",
+     "a": "It should deliver measurable leads: a clear message, a website that converts, search visibility, email and steady automation. \"Digital marketing agency detroit\" draws 590 searches a month, so local firms shop actively. Insist on monthly reports tied to calls and sales, and accounts kept in your own name.",
      "from": "autocomplete: digital marketing agency detroit",
      "link": {
       "to": "/services/marketing",
@@ -612,7 +612,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Can you handle video marketing for a Detroit business?",
-     "a": "Yes, we plan video for websites, social posts and Google Business Profile and place it where it earns attention, using footage you or a videographer capture. For Detroit's 14,016 retail establishments, product and store clips work well; for contractors, finished-project walkthroughs. We focus on video that answers buyer questions, not brand films.",
+     "a": "Yes, we plan video for websites, social posts and Google Business Profile and place it where it earns attention, using footage you or a videographer capture. For Detroit's 14,016 retail establishments, product and store clips work well, and for contractors, finished-project walkthroughs. We focus on video that answers buyer questions, not brand films.",
      "from": "autocomplete: video marketing detroit agency"
     },
     {
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose a digital marketing agency in Detroit?",
-     "a": "Choose by asking how the agency would sequence the work, what it measures and who owns the accounts. Detroit has only 74.4 marketing firms per 10,000 establishments, so options are narrower than in some metros; a remote partner widens the choice without losing access, since everything runs online.",
+     "a": "Choose by asking how the agency would sequence the work, what it measures and who owns the accounts. Detroit has only 74.4 marketing firms per 10,000 establishments, so options are narrower than in some metros. A remote partner widens the choice without losing access, since everything runs online.",
      "from": "questionBank: how to choose a digital marketing agency"
     },
     {

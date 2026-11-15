@@ -336,7 +336,7 @@ export const PLACE: LocalPlace = {
    "h2": "Trades and finance shape the plan",
    "lede": "Construction counts 14,143 establishments and finance and insurance 8,765, two sectors where one customer can be worth a season of sales.",
    "leadIn": "The bottom line:",
-   "lead": "high-value sectors need marketing that nurtures slowly, not campaigns that shout once.",
+   "lead": "high-value sectors need marketing that nurtures slowly.",
    "points": [
     "Retail: 18,474 establishments, 12% of the metro's businesses.",
     "Health care: 19,759 establishments, the largest sector.",
@@ -391,7 +391,7 @@ export const PLACE: LocalPlace = {
     "label": "Click costs and social intent",
     "paras": [
      "Advertisers pay $6.86 per click on the digital phrase and $4.10 on the shorter one. Those are Google's auction prices, not our fees.",
-     "Autocomplete adds “marketing firms in philadelphia” and several social media searches, including “social media management philadelphia”. Owners want help with posting; we fold that into a plan where posts point to a site built to convert."
+     "Autocomplete adds “marketing firms in philadelphia” and several social media searches, including “social media management philadelphia”. Owners want help with posting. We fold that into a plan where posts point to a site built to convert."
     ]
    },
    "table": {
@@ -612,7 +612,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is social media management in Philadelphia worth outsourcing?",
-     "a": "Yes, if posting keeps slipping and your website can turn visitors into enquiries. Shops among the metro's 18,474 retail establishments often gain most. We automate scheduled posts and Google Business Profile updates inside a wider plan, so social supports sales rather than standing alone.",
+     "a": "Yes, if posting keeps slipping and your website can turn visitors into enquiries. Shops among the metro's 18,474 retail establishments often gain most. We automate scheduled posts and Google Business Profile updates inside a wider plan, so social supports sales.",
      "from": "autocomplete: social media management philadelphia"
     },
     {

@@ -269,7 +269,7 @@ export default function Contact() {
                 </a>
               </div>
               <p className="sf-mono" style={{ marginTop: 20 }}>
-                OneAlgorithm · 625 Swedesford Rd, Unit B, Malvern, PA 19355 · Mon–Fri 9–5 ·{" "}
+                OneAlgorithm · 625 Swedesford Rd, Unit B, Malvern, PA 19355 · Mon to Fri, 9 to 5 ·{" "}
                 <a className="sf-link" href={`mailto:${EMAIL}`} onClick={() => window.trackContactClick?.("email", "contact-hero")}>{EMAIL}</a>
               </p>
             </div>
@@ -304,7 +304,7 @@ export default function Contact() {
               </ul>
               <p style={{ marginTop: 32 }}>Prefer to talk it through?</p>
               <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="desk" onClick={() => window.trackContactClick?.("phone", "contact-desk")}>{SF_PHONE.display}</a>
-              <p className="sf-mono" style={{ marginTop: 16 }}>Mon–Fri 9–5 Eastern · {EMAIL}</p>
+              <p className="sf-mono" style={{ marginTop: 16 }}>Mon to Fri, 9 to 5 Eastern · {EMAIL}</p>
             </div>
             <div className="sf-c7">
               <div className="desk-card sf-desk-panel">

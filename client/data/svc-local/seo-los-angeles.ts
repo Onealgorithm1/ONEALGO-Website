@@ -293,12 +293,12 @@ export const PLACE: LocalPlace = {
    "h2": "Los Angeles SEO for a crowded metro",
    "lede": "We find the phrasings Los Angeles buyers already type into Google, then fix and build the pages that should answer them.",
    "leadIn": "Why it matters:",
-   "lead": "in a metro of 12,927,614 people, the business Google shows first gets the first phone call, not the best one.",
+   "lead": "in a metro of 12,927,614 people, the business Google shows first gets the first phone call.",
    "deeper": {
     "label": "How an engagement opens",
     "paras": [
      "Every project starts with what Google already thinks of your site. We read Search Console, crawl the pages, and list the queries where you appear on page two or three. Those near misses are usually the quickest wins, because Google has already decided you are relevant.",
-     "From there we plan pages around demand rather than guesses. A dental group in Pasadena and a law firm downtown need different pages, different titles and different proof, even when both say they want to rank in Los Angeles. You approve the plan before anything is written."
+     "From there we plan pages around demand. A dental group in Pasadena and a law firm downtown need different pages, different titles and different proof, even when both say they want to rank in Los Angeles. You approve the plan before anything is written."
     ]
    },
    "cards": [
@@ -401,8 +401,8 @@ export const PLACE: LocalPlace = {
     "label": "Difficulty and the shape of the query",
     "paras": [
      "\"seo company los angeles\" and \"seo los angeles\" each draw 2,900 searches a month, with keyword difficulty of 44 and 47. That is a hard field: established domains hold the top spots, and new pages need links and depth before they move.",
-     "Google's own autocomplete shows how people refine the search. Phrasings like \"local seo services los angeles\" and \"ai seo company los angeles\" tell us buyers already know what they want, so pages should name the service plainly rather than hide it behind a slogan.",
-     "The cost-per-click figures are what advertisers bid for the same words, not what we charge. They show what a single visitor is worth to the market."
+     "Google's own autocomplete shows how people refine the search. Phrasings like \"local seo services los angeles\" and \"ai seo company los angeles\" tell us buyers already know what they want, so pages should name the service.",
+     "The cost-per-click figures are what advertisers bid for the same words. They show what a single visitor is worth to the market."
     ]
    },
    "table": {
@@ -438,7 +438,7 @@ export const PLACE: LocalPlace = {
    "h2": "How many Los Angeles firms sell marketing",
    "lede": "Census codes for ad agencies and marketing consultants put 6,271 establishments in the metro, a density few places match.",
    "leadIn": "Yes, but:",
-   "lead": "a firm count is a ceiling, not a list of rivals; many of those firms never touch search.",
+   "lead": "a firm count is a ceiling, not a list of rivals. Many of those firms never touch search.",
    "points": [
     "152.2 marketing firms per 10,000 establishments, 5th of 59 SEO pages.",
     "The median across those 59 pages is 90.1.",
@@ -448,7 +448,7 @@ export const PLACE: LocalPlace = {
     "label": "What density means for you",
     "paras": [
      "Marketing consultants alone run at 118.2 per 10,000 establishments, and advertising agencies add 34 more. Buyers in Los Angeles have seen plenty of pitches, so the bar for proof is high and vague promises get ignored.",
-     "That is why we show the work: the audit findings, the page plan and the Search Console numbers each month. You can judge progress on clicks and queries, not on our say-so."
+     "That is why we show the work: the audit findings, the page plan and the Search Console numbers each month. You can judge progress on clicks and queries."
     ]
    },
    "table": {
@@ -525,7 +525,7 @@ export const PLACE: LocalPlace = {
    "h2": "From a working site to compounding traffic",
    "lede": "SEO pays best when the site already explains the offer clearly, so the message gets fixed before anything else.",
    "leadIn": "The bottom line:",
-   "lead": "organic growth compounds when pages, posts and reviews keep adding signals; paid ads come later, once the site converts.",
+   "lead": "organic growth compounds when pages, posts and reviews keep adding signals. Paid ads come later, once the site converts.",
    "points": [
     "First: a fast site with a clear message and working contact paths.",
     "Next: service pages, a blog, email and trusted outside mentions.",
@@ -614,7 +614,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose an SEO company in Los Angeles?",
-     "a": "Ask to see the audit before you sign anything long term. With 6,271 advertising and marketing firms in the metro, the useful filter is method: who reads your Search Console first, who explains which pages they will build, and who reports clicks and queries rather than vague rankings each month.",
+     "a": "Ask to see the audit before you sign anything long term. With 6,271 advertising and marketing firms in the metro, the useful filter is method: who reads your Search Console first, who explains which pages they will build, and who reports clicks and queries each month.",
      "from": "autocomplete: seo company los angeles",
      "link": {
       "to": "/services/seo",
@@ -633,7 +633,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you handle AI search as part of SEO for Los Angeles firms?",
-     "a": "Yes. AI answers draw on the same clear, well-structured pages Google ranks, so we write direct answers, add schema and keep facts consistent. Buyers already type \"ai seo company los angeles\", and with 4,870 marketing consultancies in the metro, the firms that explain this plainly stand out.",
+     "a": "Yes. AI answers draw on the same clear, well-structured pages Google ranks, so we write direct answers, add schema and keep facts consistent. Buyers already type \"ai seo company los angeles\", and with 4,870 marketing consultancies in the metro, the firms that explain this stand out.",
      "from": "autocomplete: ai seo company los angeles",
      "link": {
       "to": "/services/seo",

@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Those click prices are Google advertiser bids, not our fees. The difficulty scores tell the bigger story: 60 on “marketing agency new jersey” means established sites hold that result, so a new page needs real substance and links.",
      "Autocomplete adds social intent. People search “social media marketing agency new jersey”, “social media management new jersey” and even ask about price, which shows many owners want posting and community work handled for them.",
-     "It also surfaces “top digital marketing agency in new jersey” and “best digital marketing agency in new jersey”. Buyers who type those want comparison, so we show what we do in writing rather than claim a title."
+     "It also surfaces “top digital marketing agency in new jersey” and “best digital marketing agency in new jersey”. Buyers who type those want comparison, so we show what we do in writing."
     ]
    },
    "table": {
@@ -435,7 +435,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Beyond the in-state count",
     "paras": [
-     "Fewer firms per business than the median does not mean an easy market. The 1,760 in-state firms are a ceiling, not a list of rivals, and agencies from both neighbouring cities can pitch for the same accounts.",
+     "Fewer firms per business than the median does not mean an easy market. The 1,760 in-state firms are a ceiling, and agencies from both neighbouring cities can pitch for the same accounts.",
      "A plan here has to cover the state's geography: it should work for a practice in Morristown and a shop in Toms River without two separate efforts.",
      "We plan that from Malvern, PA, on the same Eastern clock, and deliver it remotely with every step written down."
     ]
@@ -485,7 +485,7 @@ export const PLACE: LocalPlace = {
      "Phantom Arcades, an arcade cabinet manufacturer in Valrico, Florida, had flat Google clicks in the period just before the window we measured.",
      "We designed and rebuilt its website for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects so existing links still landed.",
      "Google Search Console then compared a window from August to October 2026 with the same dates in 2025: clicks rose from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions climbed 63%.",
-     "For a New Jersey business the lesson is the order of work: a site built for search comes first, and every other channel points back to it."
+     "For a New Jersey business, a site built for search comes first, and every other channel points back to it."
     ]
    },
    "cards": [
@@ -515,7 +515,7 @@ export const PLACE: LocalPlace = {
    "h2": "Where New Jersey marketing should start",
    "lede": "Start with the website and message, then add search, authority and automation, and save paid campaigns for last.",
    "leadIn": "The bottom line:",
-   "lead": "paid ads amplify what already works, so they follow organic traction instead of replacing it.",
+   "lead": "paid ads amplify what already works, so they follow organic traction.",
    "points": [
     "First: a site that explains the offer in each county.",
     "Next: search content, email lists and earned mentions.",
@@ -552,7 +552,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The first review covers your website, Google profiles, social accounts and email list, measured against New Jersey search and social intent.",
      "From there we write the plan: which channels, what cadence and which numbers we report. Content is drafted for approval, then scheduled and published.",
-     "Reports count calls, forms and bookings, not just likes. If a channel does not bring leads after a fair trial, we say so and move effort elsewhere."
+     "Reports count calls, forms and bookings. If a channel does not bring leads after a fair trial, we move effort elsewhere."
     ]
    },
    "cards": [
@@ -615,7 +615,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How much does social media management in New Jersey cost?",
-     "a": "It depends on the number of channels, posting cadence and whether community replies are included, so we quote after a short review rather than list prices. What we can say is what drives the scope. For New Jersey's 29,729 retail establishments, product-led posting and comment replies are usually the core.",
+     "a": "It depends on the number of channels, posting cadence and whether community replies are included, so we quote after a short review rather than list prices. For New Jersey's 29,729 retail establishments, product-led posting and comment replies are usually the core.",
      "from": "autocomplete: social media management new jersey price"
     },
     {

@@ -281,9 +281,9 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Marketing that starts with your message",
-   "lede": "Most New York campaigns fail at the message, not the channel, so we fix what your site says before buying anyone's attention.",
+   "lede": "Most New York campaigns fail at the message, so we fix what your site says before buying anyone's attention.",
    "leadIn": "Why it matters:",
-   "lead": "the metro's 19,940,274 residents are shown competing offers all day, so a vague message simply gets ignored.",
+   "lead": "the metro's 19,940,274 residents are shown competing offers all day, so a vague message gets ignored.",
    "deeper": {
     "label": "What we take on",
     "paras": [
@@ -336,7 +336,7 @@ export const PLACE: LocalPlace = {
    "h2": "Sectors that shape the marketing mix",
    "lede": "Retail and professional services each hold 12.6% of establishments, and they need opposite kinds of marketing.",
    "leadIn": "The bottom line:",
-   "lead": "retail sells on frequency and offers; professional firms sell on trust built over several touches.",
+   "lead": "retail sells on frequency and offers. Professional firms sell on trust built over several touches.",
    "points": [
     "Health care, at 11.7%, runs on reviews and reminders.",
     "Construction's 50,911 firms win on photos, proof and referrals.",
@@ -345,8 +345,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Channel by sector",
     "paras": [
-     "A retailer in Brooklyn and an accounting firm in Midtown can share a metro and almost nothing else. One needs social posts and Business Profile offers weekly; the other needs a newsletter and articles that answer client questions.",
-     "Information businesses are a small 2.1% slice, but finance and insurance add 25,005 establishments. Both sell complex services, and both respond to content that explains rather than shouts."
+     "A retailer in Brooklyn and an accounting firm in Midtown can share a metro and almost nothing else. One needs social posts and Business Profile offers weekly. The other needs a newsletter and articles that answer client questions.",
+     "Information businesses are a small 2.1% slice, but finance and insurance add 25,005 establishments. Both sell complex services, and both respond to content that explains."
     ]
    },
    "table": {
@@ -386,12 +386,12 @@ export const PLACE: LocalPlace = {
    "h2": "How New York searches for an agency",
    "lede": "Two agency phrasings in our Semrush pull total 2,900 searches a month, led by “digital marketing agency new york” at 1,900.",
    "leadIn": "By the numbers:",
-   "lead": "an advertiser pays $5.78 per click on that phrase; it is the market price of attention, not what we charge.",
+   "lead": "an advertiser pays $5.78 per click on that phrase. It is the market price of attention, not what we charge.",
    "deeper": {
     "label": "Social media leads the autocomplete",
     "paras": [
      "Google's autocomplete for New York is dominated by social: “social media marketing agency new york city”, “social media management new york” and similar. Buyers here often start with social because it is visible, even when search would bring better leads.",
-     "“marketing agency new york” draws 1,000 searches at a difficulty of 43, while the longer phrase sits at 51. We treat social as one channel inside a plan, not the plan itself, and we say so up front."
+     "“marketing agency new york” draws 1,000 searches at a difficulty of 43, while the longer phrase sits at 51. We treat social as one channel inside a plan."
     ]
    },
    "table": {
@@ -432,7 +432,7 @@ export const PLACE: LocalPlace = {
     "label": "How to read the count",
     "paras": [
      "Advertising agencies run at 28.9 per 10,000 businesses and consultancies at 70.9. The consultancy number is the bigger one, which tells you how many solo marketers and small shops operate here.",
-     "A firm count is a ceiling, not a list of rivals. What separates one provider from another is whether it starts with your website and message or jumps straight to spending your budget on a channel."
+     "A firm count is a ceiling. What separates one provider from another is whether it starts with your website and message or jumps straight to spending your budget on a channel."
     ]
    },
    "table": {
@@ -512,7 +512,7 @@ export const PLACE: LocalPlace = {
    "lead": "spending on ads before the site converts pays New York click prices to fill a leaky bucket.",
    "points": [
     "Message and website: the foundation every channel points back to.",
-    "Search, blog and email: traffic you earn rather than rent.",
+    "Search, blog and email: traffic you earn.",
     "Automation: social, Business Profile posts and review replies on schedule."
    ],
    "deeper": {
@@ -544,7 +544,7 @@ export const PLACE: LocalPlace = {
     "label": "New York specifics",
     "paras": [
      "In a metro with this much competition for attention, we test the message on the website and in email before it goes anywhere expensive. A headline that does not convert organic visitors will not convert paid ones.",
-     "Reporting ties each channel to enquiries, not likes. You see which pages, posts and emails produced calls and forms, so the next month's effort goes where it paid off."
+     "Reporting ties each channel to enquiries. You see which pages, posts and emails produced calls and forms, so the next month's effort goes where it paid off."
     ]
    },
    "cards": [
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should a digital marketing agency in New York City do first?",
-     "a": "It should fix your website and message before running any campaign. In a metro with 562,802 establishments, buyers compare quickly; a clear offer on a fast site makes every later channel cheaper. We audit the site, rewrite the core pages, then build search, content and email on top.",
+     "a": "It should fix your website and message before running any campaign. In a metro with 562,802 establishments, buyers compare quickly. A clear offer on a fast site makes every later channel cheaper. We audit the site, rewrite the core pages, then build search, content and email on top.",
      "from": "autocomplete: digital marketing agency new york city",
      "link": {
       "to": "/services/marketing",
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Do you handle social media marketing for New York businesses?",
-     "a": "Yes, as part of a wider plan rather than on its own. We schedule social posts, Google Business Profile updates and review replies once the website carries a clear message. For the metro's 70,682 retail establishments, steady social activity matters; for professional firms, email and search usually bring better leads.",
+     "a": "Yes, as part of a wider plan rather than on its own. We schedule social posts, Google Business Profile updates and review replies once the website carries a clear message. For the metro's 70,682 retail establishments, steady social activity matters. For professional firms, email and search usually bring better leads.",
      "from": "autocomplete: social media marketing agency new york"
     },
     {

@@ -31,7 +31,7 @@ export const PLACE: LocalPlace = {
  "hero": {
   "kicker": "Application development",
   "h1": "App development for Austin businesses",
-  "lede": "Austin has no shortage of developers; we offer written scope, browser previews and code you own, built remotely from Malvern, PA."
+  "lede": "Austin has no shortage of developers, and we offer written scope, browser previews and code you own, built remotely from Malvern, PA."
  },
  "areaServed": {
   "@type": "City",
@@ -458,7 +458,7 @@ export const PLACE: LocalPlace = {
     "label": "Choosing in a crowded field",
     "paras": [
      "Plenty of choice does not make choosing easier. Compare on scope, ownership and testing: does the developer put the plan in writing, register the code to you, and let you see a working build before launch?",
-     "A remote team like ours competes on those terms, not on proximity. Austin firms can judge us on the same written scope they would ask of anyone down the street."
+     "A remote team like ours competes on those terms. Austin firms can judge us on the same written scope they would ask of anyone down the street."
     ]
    },
    "table": {
@@ -539,7 +539,7 @@ export const PLACE: LocalPlace = {
     "label": "From launch to adoption",
     "paras": [
      "We can support adoption after launch with SEO for help pages, onboarding email sequences and Google Business Profile posts announcing features.",
-     "Paid promotion waits until organic sign-ups show people stick with the app. Spending to acquire users who leave in a week teaches you little."
+     "Paid promotion waits until organic sign-ups show people stick with the app."
     ]
    },
    "links": [
@@ -636,7 +636,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire mobile app developers in Austin or build a web app?",
-     "a": "Most Austin businesses need a web application that works well on phones, not a store app. It is faster to update and needs no download. \"mobile app development austin\" draws 880 monthly searches; we help those buyers decide honestly before anything is designed.",
+     "a": "Most Austin businesses need a web application that works well on phones, not a store app. It is faster to update and needs no download. \"mobile app development austin\" draws 880 monthly searches. We help those buyers decide before anything is designed.",
      "from": "autocomplete: mobile app developers austin"
     },
     {

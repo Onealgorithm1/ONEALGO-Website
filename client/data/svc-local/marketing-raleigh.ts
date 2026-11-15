@@ -338,7 +338,7 @@ export const PLACE: LocalPlace = {
    "h2": "Smaller sectors, specific marketing needs",
    "lede": "Health care, real estate and finance follow the top three, and each depends on trust more than reach.",
    "leadIn": "The bottom line:",
-   "lead": "trust-driven sectors grow through reviews, referrals and steady email, not through occasional bursts of advertising.",
+   "lead": "trust-driven sectors grow through reviews, referrals and steady email.",
    "points": [
     "Health care: 4,184 establishments that live on reviews.",
     "Real estate: 2,616 establishments that live on referrals.",
@@ -395,7 +395,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Low difficulty means a well-built page can rank without years of links. For a Raleigh marketing firm, or any local service business watching these numbers, that is an opening worth taking early.",
      "The click prices are Google advertiser bids, not our fees, and together the two phrasings add up to 1,200 searches a month.",
-     "Autocomplete adds detail Semrush skips: “marketing firms raleigh nc”, “social media management raleigh nc” and “social media manager raleigh”. Many owners are looking for someone to run their social accounts, not just a strategy deck."
+     "Autocomplete adds detail Semrush skips: “marketing firms raleigh nc”, “social media management raleigh nc” and “social media manager raleigh”. Many owners are looking for someone to run their social accounts."
     ]
    },
    "table": {
@@ -435,9 +435,9 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What separates firms here",
     "paras": [
-     "Raleigh sits above the median, so owners do get pitched. What tends to separate firms is not channel expertise but follow-through: does the work continue month after month, and is it reported honestly?",
-     "The metro also has 529 custom programming firms, 134.8 per 10,000 and 6th of 37. Websites here are often built by capable developers; the gap is usually the message on them and the marketing around them.",
-     "We fill that gap remotely from Malvern, PA, with a written plan and shared reporting rather than a local storefront."
+     "Raleigh sits above the median, so owners do get pitched. What tends to separate firms is follow-through: does the work continue month after month, and do the reports keep coming?",
+     "The metro also has 529 custom programming firms, 134.8 per 10,000 and 6th of 37. Websites here are often built by capable developers. The gap is usually the message on them and the marketing around them.",
+     "We fill that gap remotely from Malvern, PA, with a written plan and shared reporting."
     ]
    },
    "table": {
@@ -516,7 +516,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "paid campaigns come last in Raleigh too, once organic channels show which pages and offers turn into leads.",
    "points": [
-    "Base: website copy that states your offer plainly.",
+    "Base: website copy that states your offer.",
     "Middle: search pages, email and earned mentions.",
     "Top: automated social, profile posts and review replies."
    ],
@@ -525,7 +525,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "A Raleigh builder and a Raleigh consultancy both start in the same place: a website a stranger understands in seconds. Every later channel depends on it.",
      "Search content, email and authority come next, drawing on Triangle business groups, trade associations and industry publications for mentions and links.",
-     "Then automation: scheduled social posts, Google Business Profile updates, review requests and replies. Ads are added when organic results show what converts, and then they run alongside the rest rather than in its place."
+     "Then automation: scheduled social posts, Google Business Profile updates, review requests and replies. Ads are added when organic results show what converts, and then they run alongside the rest."
     ]
    },
    "links": [
@@ -551,7 +551,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "We begin by reviewing your website, Google profile, social accounts and email list against Raleigh search intent, including the social-management phrasings locals type.",
      "The plan names channels, cadence and the numbers we will report. Drafts are approved before publishing, and automations such as review requests run inside accounts you own.",
-     "Monthly reports show calls, form fills and bookings next to traffic. If a channel is not producing, we say so plainly and shift the effort."
+     "Monthly reports show calls, form fills and bookings next to traffic. If a channel is not producing, we shift the effort."
     ]
    },
    "cards": [
@@ -614,7 +614,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "How do I choose between marketing firms in Raleigh, NC?",
-     "a": "Ask each for a written scope, a sample report and confirmation that accounts stay in your name. With 364 marketing consultancies in the metro, many specialise in one channel, so check that the firm can connect website, search and social rather than run one in isolation.",
+     "a": "Ask each for a written scope, a sample report and confirmation that accounts stay in your name. With 364 marketing consultancies in the metro, many specialise in one channel, so check that the firm can connect website, search and social.",
      "from": "autocomplete: marketing firms raleigh nc"
     },
     {
@@ -639,7 +639,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What is a digital marketing company, and how does it differ from a web developer?",
-     "a": "A developer builds the site; a digital marketing company makes it bring in customers through message, search, email and social. Raleigh has 529 custom programming firms, so well-built sites are common there. The difference is usually what the site says and how many people find it.",
+     "a": "A developer builds the site. A digital marketing company makes it bring in customers through message, search, email and social. Raleigh has 529 custom programming firms, so well-built sites are common there. The difference is usually what the site says and how many people find it.",
      "from": "questionBank: what is a digital marketing company"
     }
    ]

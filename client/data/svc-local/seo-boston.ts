@@ -323,7 +323,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading these counts",
     "paras": [
-     "The population figure is the Census ACS 2024 one-year estimate; the establishment counts come from County Business Patterns for 2023. Together they put the Boston metro 16th for establishments and 17th for population among the 59 places where we publish SEO pages.",
+     "The population figure is the Census ACS 2024 one-year estimate. The establishment counts come from County Business Patterns for 2023. Together they put the Boston metro 16th for establishments and 17th for population among the 59 places where we publish SEO pages.",
      "Professional, scientific and technical services make up 13.3% of local establishments, against a median of 13 across those pages. That lands Boston 27th on professional share: a big market, not an unusually specialist one.",
      "For SEO, size sets how many sites chase each query. A metro this large means more competitors for broad terms, and more room for specific pages that answer narrow ones."
     ]
@@ -347,7 +347,7 @@ export const PLACE: LocalPlace = {
    "lead": "the top three sectors together hold 36.2% of establishments, so no single industry owns the local results.",
    "points": [
     "Construction adds 14,628 establishments, nearly level with retail and health care.",
-    "Finance and insurance counts 7,165; real estate counts 6,366.",
+    "Finance and insurance counts 7,165, and real estate counts 6,366.",
     "Information firms are a small slice at 2.2%."
    ],
    "deeper": {
@@ -495,7 +495,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The client: Phantom Arcades, an arcade cabinet manufacturer in Valrico, Florida. We designed and rebuilt their website for search, including a 3D cabinet configurator.",
      "During the rebuild we mapped 80+ old addresses to new ones with redirects, so the pages Google already knew pointed to the right place on the new site.",
-     "The result, in Google Search Console for a 68-day window against the same dates in 2025: clicks rose from 1,112 to 2,130 (+92%), non-brand clicks from 95 to 314 (+231%), and impressions climbed 63%. The period just before was flat. That is one client in one industry, not a forecast for yours."
+     "The result, in Google Search Console for a 68-day window against the same dates in 2025: clicks rose from 1,112 to 2,130 (+92%), non-brand clicks from 95 to 314 (+231%), and impressions climbed 63%. The period just before was flat."
     ]
    },
    "cards": [
@@ -554,7 +554,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "How a Boston SEO engagement runs",
-   "lede": "The stages below stay the same for every client; the Boston detail lives in the keyword plan and the pages.",
+   "lede": "The stages below stay the same for every client, and the Boston detail lives in the keyword plan and the pages.",
    "leadIn": "What you get:",
    "lead": "a written audit, a page plan mapped to Boston phrasings, and a monthly report pulled from your own Search Console.",
    "deeper": {
@@ -633,12 +633,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a Boston SEO consultant or an agency?",
-     "a": "Hire whoever will do the specific work your site needs and report it plainly. The metro has 828 marketing consultancies and 212 ad agencies, and size matters less than method. With us, the people who audit your site also plan and review its pages.",
+     "a": "Hire whoever will do the specific work your site needs and report it. The metro has 828 marketing consultancies and 212 ad agencies, and size matters less than method. With us, the people who audit your site also plan and review its pages.",
      "from": "autocomplete: boston seo consultants"
     },
     {
      "q": "Why is SEO important for a Boston business?",
-     "a": "Because every organic click is one you do not pay for. Advertisers bid about $27.31 per click on \"seo boston\"; a page that ranks for a phrase like that earns the visit free. Rankings also keep reaching the Boston metro's 5,025,517 residents without a per-click bill.",
+     "a": "Because every organic click is one you do not pay for. Advertisers bid about $27.31 per click on \"seo boston\". A page that ranks for a phrase like that earns the visit free. Rankings also keep reaching the Boston metro's 5,025,517 residents without a per-click bill.",
      "from": "questionBank: why is seo important"
     },
     {

@@ -446,7 +446,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Where the real competition is",
     "paras": [
-     "Marketing firm density sits below the 90.1 median, so on paper the agency field is thinner than average. The count is a ceiling in any case; many of these firms do communications and public affairs rather than SEO.",
+     "Marketing firm density sits below the 90.1 median, so on paper the agency field is thinner than average. The count is a ceiling in any case. Many of these firms do communications and public affairs rather than SEO.",
      "The programming figure is the bigger signal. Computer systems design firms number 10,829, or 681.1 per 10,000. Sites in this market are frequently well engineered, so technical fixes rarely decide rankings on their own. Content quality and authority do.",
      "We work from Malvern, PA, and serve Washington remotely, with written plans and reports in your own accounts."
     ]
@@ -528,7 +528,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "in an expert market, authority comes from substance, so content and earned mentions get most of the effort.",
    "points": [
-    "Site and message that state your expertise plainly.",
+    "Site and message that state your expertise.",
     "Expert pages, articles, email and earned citations.",
     "Automated profile posts, social posts and review replies."
    ],

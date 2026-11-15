@@ -27,7 +27,7 @@ export const PLACE: LocalPlace = {
  "hero": {
   "kicker": "SEO and search visibility",
   "h1": "SEO services for Boise businesses",
-  "lede": "Boise contractors, clinics and firms get SEO from us delivered remotely from Malvern, PA: audits, service-area pages and plain monthly reports."
+  "lede": "Boise contractors, clinics and firms get SEO from us delivered remotely from Malvern, PA: audits, service-area pages and monthly reports."
  },
  "areaServed": {
   "@type": "City",
@@ -288,7 +288,7 @@ export const PLACE: LocalPlace = {
     "label": "How we work from the East Coast",
     "paras": [
      "Audits, page builds and fixes happen online from Malvern, PA, and each change arrives as a staging link you approve before it goes live.",
-     "We plan from data: Semrush volumes, Boise autocomplete and, once connected, your own Search Console queries. That keeps the plan tied to what Treasure Valley customers actually type rather than to a template."
+     "We plan from data: Semrush volumes, Boise autocomplete and, once connected, your own Search Console queries. That keeps the plan tied to what Treasure Valley customers actually type."
     ]
    },
    "cards": [
@@ -613,12 +613,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Should I hire a Boise SEO consultant or an SEO team?",
-     "a": "A consultant advises; a team also builds and ships the fixes. The Census counts 191 marketing consulting establishments in the Boise metro. If you have someone to implement changes, a consultant may be enough. If not, a team that audits, builds pages and reports monthly saves the hand-off.",
+     "a": "A consultant advises. A team also builds and ships the fixes. The Census counts 191 marketing consulting establishments in the Boise metro. If you have someone to implement changes, a consultant may be enough. If not, a team that audits, builds pages and reports monthly saves the hand-off.",
      "from": "autocomplete: seo consultant boise"
     },
     {
      "q": "How do I find the best SEO company in Boise?",
-     "a": "Look for one that shows its method: a written audit, a page plan tied to real search volume, and monthly reports from your own Search Console. With \"seo company boise\" costing advertisers $18.35 a click, plenty of firms bid for your attention; choose on evidence, not on ranking promises.",
+     "a": "Look for one that shows its method: a written audit, a page plan tied to real search volume, and monthly reports from your own Search Console. With \"seo company boise\" costing advertisers $18.35 a click, plenty of firms bid for your attention. Choose on evidence, not on ranking promises.",
      "from": "autocomplete: best seo company boise",
      "link": {
       "to": "/services/seo",

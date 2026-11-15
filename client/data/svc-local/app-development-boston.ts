@@ -295,7 +295,7 @@ export const PLACE: LocalPlace = {
    "h2": "Custom software for Boston operators",
    "lede": "We build the software a Boston business actually runs on: customer portals, booking flows, dashboards and the internal tools that replace spreadsheets.",
    "leadIn": "Why it matters:",
-   "lead": "an app that fits how your team already works saves hours every week; one that does not gets abandoned.",
+   "lead": "an app that fits how your team already works saves hours every week. One that does not gets abandoned.",
    "deeper": {
     "label": "What we build and how",
     "paras": [
@@ -331,7 +331,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Establishment counts come from Census County Business Patterns for 2023, and population from the ACS 2024 estimate. That works out to about 37.6 residents per business.",
      "Professional, scientific and technical services make up 13.3% of establishments, a touch under the 13.7 median for our app pages. Those firms are often the first to want custom tools: client portals, quoting engines, reporting dashboards.",
-     "Size also shapes the build. A tool for a single clinic looks very different from one that must serve a regional chain, so we size the first release to the business, not to the metro."
+     "Size also shapes the build. A tool for a single clinic looks very different from one that must serve a regional chain, so we size the first release to the business."
     ]
    },
    "readouts": [
@@ -350,7 +350,7 @@ export const PLACE: LocalPlace = {
    "h2": "Which Boston sectors need custom apps",
    "lede": "Boston's top sectors each run on different workflows, so the software that pays back differs sharply between them.",
    "leadIn": "Why it matters:",
-   "lead": "the three largest sectors hold 36.2% of establishments; the next tier has workflows off-the-shelf tools handle badly.",
+   "lead": "the three largest sectors hold 36.2% of establishments. The next tier has workflows off-the-shelf tools handle badly.",
    "points": [
     "Construction (14,628): job tracking, estimates and crew scheduling tools.",
     "Finance and insurance (7,165): secure client portals and document intake.",
@@ -458,7 +458,7 @@ export const PLACE: LocalPlace = {
     "label": "Reading the density",
     "paras": [
      "NAICS 541511 counts custom programming shops of every size, from freelancers to large consultancies. Many only take enterprise contracts, and many only build one kind of product, so 1,483 overstates who you would really compare.",
-     "Density cuts both ways. Boston buyers have plenty of options, which means they can afford to be picky. The firms that win tend to be the ones that put scope, price and ownership in writing before the build starts.",
+     "Boston buyers have plenty of options, which means they can afford to be picky. The firms that win tend to be the ones that put scope, price and ownership in writing before the build starts.",
      "That is how we work by default, from one office in Malvern, PA, with every review held on a call or screen-share."
     ]
    },
@@ -506,7 +506,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Scope comes first and comes in writing: what the app does, what it does not do, who uses it and what data it touches. If the scope changes, the change is written down too.",
      "Design happens in the browser, so you click through real screens before anything is built. Development follows in short cycles, each one deployed to a test address you can open yourself.",
-     "Tracking is part of the build, not an afterthought, so you can see how people use the app once it launches. The code repository, hosting and third-party accounts sit in your name throughout."
+     "Tracking is part of the build, so you can see how people use the app once it launches. The code repository, hosting and third-party accounts sit in your name throughout."
     ]
    },
    "cards": [
@@ -530,7 +530,7 @@ export const PLACE: LocalPlace = {
    "h2": "After your Boston app launches",
    "lede": "An app only pays back once people find it and use it, so launch is where the growth work begins.",
    "leadIn": "The bottom line:",
-   "lead": "a strong website and clear message bring users to the app; search, email and automation keep them coming back.",
+   "lead": "a strong website and clear message bring users to the app, and search, email and automation keep them coming back.",
    "points": [
     "Website and message first, so new users understand the app instantly.",
     "Then SEO, help content and email to drive adoption.",
@@ -563,7 +563,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Building a Boston app, start to launch",
-   "lede": "The stage cards below are the same for every project; what changes for Boston is the workflow, the users and the integrations.",
+   "lede": "The stage cards below are the same for every project, and what changes for Boston is the workflow, the users and the integrations.",
    "leadIn": "What you get:",
    "lead": "one written scope, one design you approve in the browser, tested releases, and support after launch.",
    "deeper": {
@@ -624,7 +624,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I find good app developers in Boston?",
-     "a": "Ask each developer for a written scope, a clickable design before code, and proof that you will own the repository. Boston has 1,483 custom programming firms, so the shortlist is long; how a developer handles scope and ownership separates them faster than a portfolio does.",
+     "a": "Ask each developer for a written scope, a clickable design before code, and proof that you will own the repository. Boston has 1,483 custom programming firms, so the shortlist is long. How a developer handles scope and ownership separates them faster than a portfolio does.",
      "from": "autocomplete: app developers boston",
      "link": {
       "to": "/services/application-development",
@@ -638,7 +638,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "What should I look for in a custom software development company in Boston?",
-     "a": "Look for written scope, test builds you can open, and code and accounts in your name. \"custom software development boston\" draws 90 searches a month, so plenty of buyers are comparing; ask each firm to put those deliverables on paper before they start.",
+     "a": "Look for written scope, test builds you can open, and code and accounts in your name. \"custom software development boston\" draws 90 searches a month, so plenty of buyers are comparing. Ask each firm to put those deliverables on paper before they start.",
      "from": "autocomplete: custom software development company in boston",
      "link": {
       "to": "/contact",

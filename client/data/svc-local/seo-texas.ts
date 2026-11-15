@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I choose an SEO company in Texas?",
-     "a": "Choose one that plans city by city and shows you the audit and page plan in writing. \"seo company texas\" draws 1,000 searches a month at keyword difficulty 9, so plenty of firms compete for your call; ask each how they avoid duplicate city pages.",
+     "a": "Choose one that plans city by city and shows you the audit and page plan in writing. \"seo company texas\" draws 1,000 searches a month at keyword difficulty 9, so plenty of firms compete for your call. Ask each how they avoid duplicate city pages.",
      "from": "autocomplete: seo company texas",
      "link": {
       "to": "/services/seo",

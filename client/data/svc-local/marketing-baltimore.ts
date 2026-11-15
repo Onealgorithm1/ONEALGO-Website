@@ -283,12 +283,12 @@ export const PLACE: LocalPlace = {
    "h2": "A marketing system for Baltimore companies",
    "lede": "We build one connected marketing system for Baltimore firms, starting with the website message and ending with automation that runs weekly.",
    "leadIn": "Why it matters:",
-   "lead": "scattered tactics produce scattered results; a single sequence lets each channel feed the next and shows which one brought the inquiry.",
+   "lead": "a single sequence lets each channel feed the next and shows which one brought the inquiry.",
    "deeper": {
     "label": "Close by, still remote",
     "paras": [
      "Malvern sits in the same Eastern time zone as Baltimore, so meetings fall in your working day. We still work remotely: drafts, calendars and dashboards are shared online, and decisions happen over video.",
-     "That setup keeps the budget on the work itself, not on travel, and every asset lives in accounts you own."
+     "That setup keeps the budget on the work itself, and every asset lives in accounts you own."
     ]
    },
    "cards": [
@@ -345,7 +345,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "One calendar, different emphasis",
     "paras": [
-     "The same system serves each sector with different weights. A practice gets automated review requests after visits; a contractor gets job photos posted to Google and social; a consultancy gets a monthly article and an email that shares it.",
+     "The same system serves each sector with different weights. A practice gets automated review requests after visits, a contractor gets job photos posted to Google and social, and a consultancy gets a monthly article and an email that shares it.",
      "We set the weights from where your customers come from today and adjust them as the reports show which channel brings inquiries."
     ]
    },
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "How Baltimore searches for marketing agencies",
    "lede": "Two Baltimore phrasings add up to 1,310 monthly US searches for marketing help, and the shorter one is far harder to rank for.",
    "leadIn": "By the numbers:",
-   "lead": "\"marketing agency baltimore\" has a keyword difficulty of 68 and a $3.65 click; \"digital marketing agency baltimore\" scores 31 at $5.09.",
+   "lead": "\"marketing agency baltimore\" has a keyword difficulty of 68 and a $3.65 click, and \"digital marketing agency baltimore\" scores 31 at $5.09.",
    "deeper": {
     "label": "What the difficulty gap says",
     "paras": [
@@ -518,8 +518,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "The automation layer",
     "paras": [
-     "Once content and search are running, we automate the repetitive work: Google Business Profile posts, social updates, review requests after each job, and replies to new reviews. You approve the templates; the schedule does the rest.",
-     "Ads come last, pointed at pages that already convert, so the budget amplifies what works instead of testing guesses."
+     "Once content and search are running, we automate the repetitive work: Google Business Profile posts, social updates, review requests after each job, and replies to new reviews. You approve the templates. The schedule does the rest.",
+     "Ads come last, pointed at pages that already convert, so the budget amplifies what works."
     ]
    },
    "links": [
@@ -598,7 +598,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I expect from a digital marketing agency serving Baltimore?",
-     "a": "Expect a written plan, clear ownership of your accounts, and monthly reports that tie each channel to inquiries. In Baltimore, \"digital marketing agency baltimore\" draws 720 searches a month at $5.09 a click, so agencies compete for your attention; insist on the plan before signing anything.",
+     "a": "Expect a written plan, clear ownership of your accounts, and monthly reports that tie each channel to inquiries. In Baltimore, \"digital marketing agency baltimore\" draws 720 searches a month at $5.09 a click, so agencies compete for your attention. Insist on the plan before signing anything.",
      "from": "autocomplete: digital marketing agency baltimore",
      "link": {
       "to": "/services/marketing",
@@ -617,7 +617,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Are advertising agencies in Baltimore, MD the same as digital marketing agencies?",
-     "a": "Not quite. Many advertising agencies focus on media buying and creative campaigns, while digital marketing covers the website, search, content, email and automation too. The Census counts 108 advertising agencies and 351 marketing consulting firms in the Baltimore metro; ask any of them which channels they actually run.",
+     "a": "Not quite. Many advertising agencies focus on media buying and creative campaigns, while digital marketing covers the website, search, content, email and automation too. The Census counts 108 advertising agencies and 351 marketing consulting firms in the Baltimore metro. Ask any of them which channels they actually run.",
      "from": "autocomplete: advertising agencies in baltimore md"
     },
     {

@@ -316,7 +316,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What the figures suggest",
     "paras": [
-     "Professional firms make up 13% of establishments, matching the 13 median and ranking 31st of 59. The region's economy is broad rather than tilted toward any one sector, so SEO plans here need to start from your niche, not from a regional stereotype.",
+     "Professional firms make up 13% of establishments, matching the 13 median and ranking 31st of 59. The region's economy is broad rather than tilted toward any one sector, so SEO plans here need to start from your niche.",
      "At 37.8 residents per business, local competition is real but not extreme. Precise pages for the services you actually sell tend to outperform broad pages that try to cover everything."
     ]
    },
@@ -386,7 +386,7 @@ export const PLACE: LocalPlace = {
    "h2": "What Minneapolis types into Google",
    "lede": "“Seo company minneapolis” and “seo minneapolis” each draw 590 monthly searches on Semrush, 1,180 between them.",
    "leadIn": "By the numbers:",
-   "lead": "clicks cost advertisers $10.97 and $10.48 respectively, which is Google's price, not ours.",
+   "lead": "clicks cost advertisers $10.97 and $10.48 respectively, which is Google's price.",
    "deeper": {
     "label": "Intent, timing and difficulty",
     "paras": [
@@ -431,7 +431,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reading the field",
     "paras": [
-     "A field this size includes agencies built around large corporate accounts. Smaller businesses can find themselves pitched enterprise processes they do not need; ask for a plan scaled to your site and goals.",
+     "A field this size includes agencies built around large corporate accounts. Smaller businesses can find themselves pitched enterprise processes they do not need. Ask for a plan scaled to your site and goals.",
      "Custom programming density of 121 per 10,000 sits well above the 86.9 median, so developer talent is plentiful. The scarcer skill is deciding which pages deserve building, which is where our page plans start."
     ]
    },
@@ -509,7 +509,7 @@ export const PLACE: LocalPlace = {
    "h2": "Building search growth that lasts",
    "lede": "Organic growth holds when each layer rests on a site that already persuades visitors to get in touch.",
    "leadIn": "The bottom line:",
-   "lead": "website and message first; content, links and automation after; ads once organic results show what converts.",
+   "lead": "website and message first, then content, links and automation, then ads once organic results show what converts.",
    "points": [
     "Clear site and message, then demand-led pages.",
     "Blog, email and authority links second.",
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "On ads and automation",
     "paras": [
-     "With clicks on “seo company minneapolis” at $10.97, paying for traffic before the site converts burns budget. Organic work identifies the winning pages; ads then push more people toward them.",
+     "With clicks on “seo company minneapolis” at $10.97, paying for traffic before the site converts burns budget. Organic work identifies the winning pages. Ads then push more people toward them.",
      "Automating Google Business Profile posts and review replies keeps listings fresh across Hennepin, Ramsey and the outer counties with minimal manual effort."
     ]
    },
@@ -544,7 +544,7 @@ export const PLACE: LocalPlace = {
     "label": "Local details we account for",
     "paras": [
      "We check whether customers treat Minneapolis and St. Paul as one market or two, and whether suburbs like Bloomington, Edina or Plymouth deserve their own pages.",
-     "Reports follow the exact phrases from your plan, so progress is judged on the searches you chose, not on totals that look good but bring no customers."
+     "Reports follow the exact phrases from your plan, so progress is judged on the searches you chose."
     ]
    },
    "cards": [

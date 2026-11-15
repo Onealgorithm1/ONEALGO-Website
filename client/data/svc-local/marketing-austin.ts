@@ -291,7 +291,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Built for owners without a marketing department",
     "paras": [
-     "Most small businesses do not need a dozen specialists. They need someone to sharpen the message, keep the website current, publish regularly, send the email and answer the reviews, and to tell them plainly what worked.",
+     "Most small businesses do not need a dozen specialists. They need someone to sharpen the message, keep the website current, publish regularly, send the email and answer the reviews, and to tell them what worked.",
      "That is the job we do, remotely from Pennsylvania. You meet us on video, approve drafts in your browser, and see results in a monthly summary you can read in minutes."
     ]
    },
@@ -320,8 +320,8 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Why that share matters for marketing",
     "paras": [
-     "The median professional share across our marketing pages is 13.3%. Austin's is far above it, which means more businesses here sell knowledge and relationships rather than products off a shelf.",
-     "That kind of business grows through reputation: content that demonstrates expertise, email that keeps contacts warm and reviews that confirm the promise. Austin ranks 27th of 37 by population, so it is not the largest market, but it is the most professional-heavy one we serve."
+     "The median professional share across our marketing pages is 13.3%. Austin's is far above it, which means more businesses here sell knowledge and relationships.",
+     "That kind of business grows through reputation: content that demonstrates expertise, email that keeps contacts warm and reviews that confirm the promise. Austin ranks 27th of 37 by population and is the most professional-heavy one we serve."
     ]
    },
    "readouts": [

@@ -436,7 +436,7 @@ export const PLACE: LocalPlace = {
     "label": "A technically capable market",
     "paras": [
      "The metro runs 85.4 marketing consultants per 10,000 establishments, alongside deep technical capacity: 229 custom programming establishments and 520 in computer systems design and related services.",
-     "For a business owner, that means competitors may well have decent websites built by capable people. Winning search here comes from content depth, clean structure and steady authority rather than quick fixes."
+     "For a business owner, that means competitors may well have decent websites built by capable people. Winning search here comes from content depth, clean structure and steady authority."
     ]
    },
    "table": {
@@ -522,7 +522,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Copy matters here",
     "paras": [
-     "The appearance of \"seo copywriting services colorado springs\" in autocomplete is telling. In an expertise-led market, the words on a page do much of the ranking and converting, so we treat copy as part of SEO, not an afterthought.",
+     "The appearance of \"seo copywriting services colorado springs\" in autocomplete is telling. In an expertise-led market, the words on a page do much of the ranking and converting, so we treat copy as part of SEO.",
      "Once organic traffic holds, automated Google Business Profile posts and review handling keep local signals active. Paid ads can then target the services that already convert."
     ]
    },
@@ -543,7 +543,7 @@ export const PLACE: LocalPlace = {
    "h2": "How a Colorado Springs SEO project runs",
    "lede": "Inside each stage, the Colorado Springs plan reflects your services and the parts of the metro you actually serve.",
    "leadIn": "What you get:",
-   "lead": "an audit with priorities, a page and copy plan, and plain monthly reports on clicks and inquiries.",
+   "lead": "an audit with priorities, a page and copy plan, and monthly reports on clicks and inquiries.",
    "deeper": {
     "label": "Local planning notes",
     "paras": [
@@ -621,12 +621,12 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "When should I hire Colorado Springs SEO consulting instead of an agency?",
-     "a": "Hire consulting when your team can implement and needs direction; hire an agency when you need the work done too. We do both remotely. With 116.4 custom programming establishments per 10,000, the metro has deep technical talent, so a clear plan is sometimes all a firm needs.",
+     "a": "Hire consulting when your team can implement and needs direction. Hire an agency when you need the work done too. We do both remotely. With 116.4 custom programming establishments per 10,000, the metro has deep technical talent, so a clear plan is sometimes all a firm needs.",
      "from": "autocomplete: colorado springs seo consulting"
     },
     {
      "q": "What makes a good Colorado Springs SEO agency?",
-     "a": "A good agency audits first, writes a plan tied to search demand and reports on clicks and inquiries rather than vague rankings. \"seo colorado springs\" draws 1,000 searches a month, so you will see many offers; ask each to show you a sample audit before you commit.",
+     "a": "A good agency audits first, writes a plan tied to search demand and reports on clicks and inquiries rather than vague rankings. \"seo colorado springs\" draws 1,000 searches a month, so you will see many offers. Ask each to show you a sample audit before you commit.",
      "from": "autocomplete: colorado springs seo agency"
     },
     {

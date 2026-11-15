@@ -281,7 +281,7 @@ export const PLACE: LocalPlace = {
    "kind": "intro",
    "id": "intro",
    "h2": "Atlanta marketing built in the right order",
-   "lede": "Plenty of Atlanta firms already post, advertise and email; what is often missing is one message tying those channels together.",
+   "lede": "Plenty of Atlanta firms already post, advertise and email, and what is often missing is one message tying those channels together.",
    "leadIn": "Why it matters:",
    "lead": "channels only add up when the website they point to says the same thing, so that is where our marketing work begins.",
    "deeper": {
@@ -316,7 +316,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Why audience size changes the plan",
     "paras": [
-     "A market this large rarely runs out of buyers; it runs out of attention. With 25,159 professional, scientific and technical firms alone, a generic campaign disappears, while a narrow offer to a defined group still gets noticed.",
+     "A market this large rarely runs out of buyers. It runs out of attention. With 25,159 professional, scientific and technical firms alone, a generic campaign disappears, while a narrow offer to a defined group still gets noticed.",
      "Atlanta's professional share is 15.4%, 7th among our marketing pages and above their 13.3 percent median. Plenty of your buyers are themselves service firms, which suits email and content that teach before they sell."
     ]
    },
@@ -338,14 +338,14 @@ export const PLACE: LocalPlace = {
    "leadIn": "Why it matters:",
    "lead": "each of those sectors buys on trust and timing, which favours email and reviews over one-off campaigns.",
    "points": [
-    "Construction at 8.6% runs on referrals; reviews and project stories feed them.",
+    "Construction at 8.6% runs on referrals. Reviews and project stories feed them.",
     "Real estate at 6.5% lives on listings, local content and fast follow-up.",
     "Information firms, 3,549 of them, expect polished content and clean analytics."
    ],
    "deeper": {
     "label": "Matching channels to sectors",
     "paras": [
-     "Retail, with 18,625 establishments, and health care, with 18,435, both have customers who come back. For them the least costly growth is a repeat visit, driven by email, reminders and an up-to-date Business Profile rather than new ad spend.",
+     "Retail, with 18,625 establishments, and health care, with 18,435, both have customers who come back. For them the least costly growth is a repeat visit, driven by email, reminders and an up-to-date Business Profile.",
      "Finance and insurance firms face strict rules about what they can say. Their marketing leans on educational posts and newsletters, written carefully and reviewed before anything is published."
     ]
    },
@@ -431,7 +431,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "What that means for you",
     "paras": [
-     "A busy agency market is good news for buyers who know what to ask. Request a written plan, ask which channel comes first and why, and ask who owns the accounts afterwards; the answers separate firms quickly.",
+     "A busy agency market is good news for buyers who know what to ask. Request a written plan, ask which channel comes first and why, and ask who owns the accounts afterwards. The answers separate firms quickly.",
      "Our answer is the same for every client: you own the website, the analytics, the email list and the social profiles, and we work inside them."
     ]
    },
@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
     "label": "Where paid ads fit",
     "paras": [
      "Ads come last for a reason. With Atlanta advertisers already paying $5.47 to $7.29 per click on agency phrases, sending paid traffic to an untested page wastes most of it.",
-     "Once organic visitors convert, ads become a lever rather than a gamble, and they can be measured with the same tracking already in place. Social automation and Business Profile posts keep running in the background while that happens."
+     "Once organic visitors convert, ads can be measured with the same tracking already in place. Social automation and Business Profile posts keep running in the background while that happens."
     ]
    },
    "links": [
@@ -536,7 +536,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "process",
    "h2": "Running an Atlanta marketing plan",
-   "lede": "The stage cards below show the sequence; for an Atlanta firm the emphasis usually lands on message and email.",
+   "lede": "The stage cards below show the sequence, and for an Atlanta firm the emphasis usually lands on message and email.",
    "leadIn": "What you get:",
    "lead": "a written marketing plan, a site that carries it, and a monthly report on traffic, leads and channel performance.",
    "deeper": {
@@ -597,7 +597,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "What should I look for in a digital marketing agency in Atlanta?",
-     "a": "Look for a written plan, clear account ownership and reporting you can check yourself. Atlanta has 1,974 establishments in the advertising and marketing consulting codes, so compare how each one decides which channel comes first; an agency that starts with your website and message usually wastes less of your budget.",
+     "a": "Look for a written plan, clear account ownership and reporting you can check yourself. Atlanta has 1,974 establishments in the advertising and marketing consulting codes, so compare how each one decides which channel comes first. An agency that starts with your website and message usually wastes less of your budget.",
      "from": "autocomplete: digital marketing agency atlanta"
     },
     {
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Who is the best marketing agency in Atlanta?",
-     "a": "The best agency is the one whose method fits your business, not the one with the loudest claims. Ask each candidate for a written plan, who owns the accounts, and how results are measured. With 322 advertising agencies in the metro, those three answers narrow the list fast.",
+     "a": "The best agency is the one whose method fits your business. Ask each candidate for a written plan, who owns the accounts, and how results are measured. With 322 advertising agencies in the metro, those three answers narrow the list fast.",
      "from": "autocomplete: best marketing agency in atlanta"
     },
     {
@@ -617,7 +617,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why hire a digital marketing agency instead of doing it in-house?",
-     "a": "An agency brings the whole sequence at once, from website copy to email and search, which a single hire rarely covers. In Atlanta, advertisers pay up to $7.29 for one click on \"digital marketing agency atlanta\", which shows how contested this work is; outsourcing it keeps your team on its own job.",
+     "a": "An agency brings the whole sequence at once, from website copy to email and search, which a single hire rarely covers. In Atlanta, advertisers pay up to $7.29 for one click on \"digital marketing agency atlanta\", which shows how contested this work is. Outsourcing it keeps your team on its own job.",
      "from": "questionBank: why hire a digital marketing agency"
     },
     {
@@ -627,7 +627,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Is an Atlanta based marketing agency better than a remote one?",
-     "a": "Not necessarily; location matters less than method. Marketing for Atlanta happens online, in Google, inboxes and social feeds. A remote agency that studies Atlanta's sector mix, such as its 18,435 health care establishments, can plan as well as one down the street, and you approve everything in your browser.",
+     "a": "Not necessarily. Location matters less than method. Marketing for Atlanta happens online, in Google, inboxes and social feeds. A remote agency that studies Atlanta's sector mix, such as its 18,435 health care establishments, can plan as well as one down the street, and you approve everything in your browser.",
      "from": "autocomplete: atlanta based marketing agencies"
     }
    ]

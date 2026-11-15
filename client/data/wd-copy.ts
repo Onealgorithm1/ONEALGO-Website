@@ -208,7 +208,7 @@ export const NAP = {
   l1: "625 Swedesford Rd, Unit B",
   l2: "Malvern, PA 19355",
   phone: { display: "(610) 890-9711", href: "tel:+16108909711" },
-  hours: "Mon–Fri 9–5",
+  hours: "Mon to Fri, 9 to 5",
   counties: ["Chester County, PA", "Delaware County, PA", "Montgomery County, PA", "Bucks County, PA", "Philadelphia County, PA", "New Castle County, DE"],
   travel: "Most work runs remotely, with in-person sessions when the project calls for them, easiest across the Philadelphia region.",
 };

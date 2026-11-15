@@ -349,7 +349,7 @@ function build(name, all) {
     : m.tz === "AZ"
       ? `${P} keeps Mountain Standard Time all year, so our Eastern office day starts at 7 a.m. there in winter.`
       : m.tz === "HT"
-        ? `${P} keeps Hawaii-Aleutian time all year, so our Eastern office day starts before dawn there; calls are booked for your morning.`
+        ? `${P} keeps Hawaii-Aleutian time all year, so our Eastern office day starts before dawn there, and calls are booked for your morning.`
         : `${m.most ? "Most of " : ""}${P} runs on ${tz.name} time, so our 9-to-5 Eastern day is ${tz.hours} there.`;
   const hoursLead = m.tz === "ET"
     ? `the office answers (610) 890-9711 Monday to Friday, 9 to 5, the same day ${fmt(N511)} programming firms here keep.`
@@ -366,13 +366,13 @@ function build(name, all) {
     lede: `We take on website work for ${P} businesses remotely from Malvern, PA, and every stage is reviewed in your own browser.`,
     leadIn: "Why it matters:",
     lead: `${fmt(E23)} business establishments operated in ${area} in 2023, and ${U20P}% of them employed fewer than 20 people.`,
-    cards: [s1, s2, s3].map((s) => ({ h3: SHORT[s.code], line: `${fmt(s.emp)} paid employees across ${fmt(s.est)} establishments in 2023; a site here needs ${s.needs}.` })),
+    cards: [s1, s2, s3].map((s) => ({ h3: SHORT[s.code], line: `${fmt(s.emp)} paid employees across ${fmt(s.est)} establishments in 2023, and a site here needs ${s.needs}.` })),
     deeper: {
       label: "how a remote build runs, stage by stage",
       paras: [
         `${cap(s1.label)} alone holds ${r1((s1.emp / EMP23) * 100)}% of the ${fmt(EMP23)} paid employees counted in ${area} in 2023.`,
         inPhilly
-          ? ({ "Pennsylvania": "Most of a build runs remotely; in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them. For a business in Chester County, where our office is, see [web design in Chester County](/services/web-design-chester-county).", "New Jersey": "Most of a build runs remotely; South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.", "Delaware": "Most of a build runs remotely; New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them." })[name]
+          ? ({ "Pennsylvania": "Most of a build runs remotely, and in the state's south-east, around Philadelphia, in-person sessions are easiest when the project calls for them. For a business in Chester County, where our office is, see [web design in Chester County](/services/web-design-chester-county).", "New Jersey": "Most of a build runs remotely, and South Jersey sits inside the Philadelphia region, where in-person sessions are easiest when the project calls for them.", "Delaware": "Most of a build runs remotely, and New Castle County is one of the six counties in our Business Profile, so in-person sessions there are easiest when a project calls for them." })[name]
           : `${cap(s2.label)} adds ${r1((s2.emp / EMP23) * 100)}% and ${s3.label} ${r1((s3.emp / EMP23) * 100)}%, so three sectors hold ${r1(((s1.emp + s2.emp + s3.emp) / EMP23) * 100)}% of the payroll count.`,
         `The three cards above are the three largest of the ${sectors.length} sectors we read for ${area}, by paid employees: ${s1.label}, ${s2.label} and ${s3.label}.`,
         `${SHORT[s4.code]} is fourth, with ${fmt(s4.emp)} paid employees in ${fmt(s4.est)} establishments.`,
@@ -392,10 +392,10 @@ function build(name, all) {
     deeper: {
       label: "how the previews work",
       paras: [
-        "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot instead.",
+        "Preview opens the live site inside a sandboxed frame on this page. Atlas Peptides blocks framing, so its preview is a dated screenshot.",
         name === "Pennsylvania"
-          ? "Starzi Brothers moved off Squarespace to a site with a page for each service and the quote form that lands in the office inbox; it is the one Pennsylvania business among the six."
-          : `None of the six is presented as ${aP} ${P} business; each one shows a job a site has to do, whatever the city.`,
+          ? "Starzi Brothers moved off Squarespace to a site with a page for each service and the quote form that lands in the office inbox. It is the one Pennsylvania business among the six."
+          : `Each of the six shows a job a website has to do, for ${aP} ${P} business as for any other.`,
         "Between them they cover a configurator that prices as you build, online scheduling, booking with reviews pulled in, a shared stock count, a quote form and a checkout.",
       ],
     },
@@ -413,7 +413,7 @@ function build(name, all) {
       paras: [
         `Of the ${fmt(E23)} establishments, ${fmt(U20)} had fewer than 20 people and ${fmt(S20_99)} employed 20 to 99. Another ${fmt(S100)} employed 100 to 499, and ${fmt(S500)} employed 500 or more.`,
         `Within the 20-to-99 band, ${fmt(S20_49)} establishments had 20 to 49 people and ${fmt(S50_99)} had 50 to 99. The average establishment employed ${AVG} of the ${fmt(EMP23)} paid staff.`,
-        `County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the ${fmt(E23)}; that is one establishment for every ${PPE} residents.`,
+        `County Business Patterns counts employer establishments, locations with paid staff, so a sole owner with no employees is not in the ${fmt(E23)}. That is one establishment for every ${PPE} residents.`,
         `NAICS 541511, custom computer programming, includes custom web page design and all other custom software, so ${PER511} per 10,000 businesses is a ceiling on web-design firms in ${area}.`,
       ],
     },
@@ -425,7 +425,7 @@ function build(name, all) {
     lede: `${cap(s1.label)} employed ${fmt(s1.emp)} people in ${area} in 2023, the most of the ${sectors.length} sectors we read.`,
     leadIn: "Why it matters:",
     lead: `who a site talks to follows the sector mix, and ${s2.label} comes next at ${fmt(s2.emp)} employees.`,
-    points: [s1, s2, s3].map((s) => `${SHORT[s.code]}: ${s.avg} employees per establishment; ${CUE[s.code]}.`),
+    points: [s1, s2, s3].map((s) => `${SHORT[s.code]}: ${s.avg} employees per establishment, and ${CUE[s.code]}.`),
     table: { caption: `${cap(areaLong)}: the four largest of ${sectors.length} sectors by paid employees, Census CBP 2023`, cols: ["Sector", "Paid employees, 2023", "Establishments, 2023"], rows: top.map((s) => [SHORT[s.code], fmt(s.emp), fmt(s.est)]) },
     deeper: {
       label: "who these pages are written for",
@@ -433,7 +433,7 @@ function build(name, all) {
         `${fmt(s1.est)} ${s1.label} establishments in ${area} need ${s1.needs}. The ${fmt(s2.est)} in ${s2.label} need ${s2.needs}.`,
         `${cap(s3.label)} counts ${fmt(s3.est)} establishments that need ${s3.needs}, and ${s4.label}, fourth at ${fmt(s4.emp)} employees, needs ${s4.needs}.`,
         `${cap(sectors[4].label)} ranks fifth at ${fmt(sectors[4].emp)} employees, and the ${sectors.length} sectors we read cover ${fmt(sectors.reduce((a, x) => a + x.emp, 0))} of the ${fmt(EMP23)} paid employees in ${area}.`,
-        `Together the four employ ${fmt(top.reduce((a, s) => a + s.emp, 0))} people, ${r1((top.reduce((a, s) => a + s.emp, 0) / EMP23) * 100)}% of the payroll count; the sector figures shape the scope, and the six sites above are our delivered work.`,
+        `Together the four employ ${fmt(top.reduce((a, s) => a + s.emp, 0))} people, ${r1((top.reduce((a, s) => a + s.emp, 0) / EMP23) * 100)}% of the payroll count, so the sector figures shape the scope, and the six sites above are our delivered work.`,
       ],
     },
   };
@@ -446,7 +446,7 @@ function build(name, all) {
     lede: shared ? `Semrush counts “${topP.phrase}” at ${fmt(topP.volume)} US searches a month, one figure for the city and the rest of the state together.` : `The top phrasing, “${topP.phrase}”, draws ${fmt(topP.volume)} US searches a month by Semrush’s exact count.`,
     leadIn: "By the numbers:",
     lead: shared
-      ? `the ${S.own.length} phrasings total ${fmt(S.ownSum)} a month, and our city page reads the same count, so neither page claims it alone.`
+      ? `the ${S.own.length} phrasings total ${fmt(S.ownSum)} a month, and our city page reads the same count.`
       : isState
       ? `the state’s own phrasings add up to ${fmt(S.ownSum)} a month, and ${fmt(S.rankSum)} with the ${S.folded.length} places folded into this page.`
       : `the ${S.own.length} phrasings add up to ${fmt(S.ownSum)} searches a month, ${fmt(topP.volume)} of them on the top one${S.folded.length ? `, and ${S.folded.map((f) => f.place).join(" and ")} adds ${fmt(S.foldedSum)} more` : ""}.`,
@@ -458,8 +458,8 @@ function build(name, all) {
         `We rank every place in the country by the same measure, the sum of these phrasings, and this page sits ${S.rank} of the ${S.of} places we measured, at ${fmt(S.rankSum)} searches a month.`,
         ...(() => { const dv = S.own.find((x) => x.phrase.startsWith("website development")), de = S.own.find((x) => x.phrase.startsWith("web developer")); return dv && de ? [`The development phrasing draws ${fmt(dv.volume)} a month and the developer phrasing ${fmt(de.volume)}, phrasings that often signal a build beyond a brochure site.`] : []; })(),
         ...(() => { const c = S.own.find((x) => x.phrase.startsWith("web design company")); return c && c.volume > 0 && shared ? [`A buyer anywhere in ${P} types the same company-intent string, “${c.phrase}”, counted at ${fmt(c.volume)} searches a month for the whole state.`] : c && c.volume > 0 ? [`The company-intent phrasing draws ${fmt(c.volume)} searches a month${c.cpc != null ? ` at about $${c.cpc.toFixed(2)} a click` : ""}, the buyer already looking for a firm.`] : []; })(),
-        shared && wdPhrase.cpc != null ? `Bids on “${wdPhrase.phrase}” ran about $${wdPhrase.cpc.toFixed(2)} a click, one price for the phrase wherever in the state the searcher sits.` : wdPhrase.cpc != null ? `Advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for “${wdPhrase.phrase}”, which is what a search costs to buy, not the price of a website.` : `Semrush recorded no advertiser bids for “${wdPhrase.phrase}”, so its cost per click is left blank rather than guessed.`,
-        isState && S.folded.length > 3 ? `The other ${T(String(S.folded.length - 3), "count of folded places beyond the three in the table")} folded places add the rest of the ${fmt(S.foldedSum)}; none is big enough for a page of its own.` : shared && topP.kd != null ? `Its keyword difficulty, ${topP.kd} out of 100, is the same contest our city page enters, so this page leads with statewide facts.` : topP.kd != null ? `The top phrasing, at ${fmt(topP.volume)} searches, carries a Semrush keyword difficulty of ${topP.kd} out of 100.` : `Semrush gives no keyword difficulty for the top phrasing at ${fmt(topP.volume)} searches.`,
+        shared && wdPhrase.cpc != null ? `Bids on “${wdPhrase.phrase}” ran about $${wdPhrase.cpc.toFixed(2)} a click, one price for the phrase wherever in the state the searcher sits.` : wdPhrase.cpc != null ? `Advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for “${wdPhrase.phrase}”, which is what a search costs to buy, not the price of a website.` : `Semrush recorded no advertiser bids for “${wdPhrase.phrase}”, so the table shows no bid data for it.`,
+        isState && S.folded.length > 3 ? `The other ${T(String(S.folded.length - 3), "count of folded places beyond the three in the table")} folded places add the rest of the ${fmt(S.foldedSum)}, and none is big enough for a page of its own.` : shared && topP.kd != null ? `Its keyword difficulty, ${topP.kd} out of 100, is the same contest our city page enters, so this page leads with statewide facts.` : topP.kd != null ? `The top phrasing, at ${fmt(topP.volume)} searches, carries a Semrush keyword difficulty of ${topP.kd} out of 100.` : `Semrush gives no keyword difficulty for the top phrasing at ${fmt(topP.volume)} searches.`,
       ],
     },
     source: `Semrush US exact match · ${fmt(S.ownSum)} a month in all, top ${fmt(topP.volume)} · pulled ${fmtDate(TODAY)}`,
@@ -470,7 +470,7 @@ function build(name, all) {
     h2: `${fmt(N511)} custom programming firms ${isState ? "statewide" : "in the metro"}`,
     lede: `${fmt(N511)} custom computer programming establishments (NAICS 541511) operated in ${area} in 2023, ${signedPct(C511)} since 2018.`,
     leadIn: "Yes, but:",
-    lead: `that code also covers all custom software, so ${PER511} per 10,000 businesses is a ceiling on web-design firms, not a count.`,
+    lead: `that code also covers all custom software, so ${PER511} per 10,000 businesses is a ceiling on web-design firms.`,
     points: [`Graphic design (NAICS 541430): ${fmt(N430)} establishments in 2023.`, `Marketing consulting (NAICS 541613): ${fmt(N613)} establishments in 2023.`, `Advertising agencies (NAICS 541810): ${fmt(N810)} establishments in 2023.`],
     links: [{ to: `${HUB}#choose`, label: "How to choose a web design company" }],
     deeper: {
@@ -504,7 +504,7 @@ function build(name, all) {
     deeper: {
       label: "what the change means for a website",
       paras: [
-        `${cap(fastest.label)} went from ${fmt(fastest.est18)} to ${fmt(fastest.est)} establishments between 2018 and 2023; ${slowest.label} went from ${fmt(slowest.est18)} to ${fmt(slowest.est)}.`,
+        `${cap(fastest.label)} went from ${fmt(fastest.est18)} to ${fmt(fastest.est)} establishments between 2018 and 2023, and ${slowest.label} went from ${fmt(slowest.est18)} to ${fmt(slowest.est)}.`,
         `${cap(growth[1].label)} came second, ${signedPct(growth[1].chg)}, and ${growth[2].label} third, ${signedPct(growth[2].chg)}.`,
         `That is ${EDIFF >= 0 ? "a net gain" : "a net loss"} of ${fmt(Math.abs(EDIFF))} establishments: each new one needs a first site, and each established one carries addresses and rankings a rebuild must keep.`,
         `Paid employees went from ${fmt(EMP18)} to ${fmt(EMP23)} over the same years, ${signedPct(EMPCHG)}. Population moved ${signedPct(PCHG)} from 2019 to 2024, to ${fmt(POP24)}.`,
@@ -534,7 +534,7 @@ function build(name, all) {
       paras: [
         `Every place page uses the same Census tables, so these ranks compare like with like: ${fmt(E23)} establishments here against the ${N} places' own counts, ${ordinal(rk.estabChg)} for their change since 2018.`,
         `Programming firms run ${PER511} per 10,000 businesses here against a median of ${med.per511}. The under-20 share is ${U20P}% against ${med.u20}%.`,
-        `The ${N} are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in; this one draws ${fmt(S.rankSum)}, ${ordinal(S.rank)} of the ${S.of} places we measured nationwide.`,
+        `The ${N} are the places whose web design searches clear 500 a month in Semrush's exact data, state pages counted with any places folded in, and this one draws ${fmt(S.rankSum)}, ${ordinal(S.rank)} of the ${S.of} places we measured nationwide.`,
       ],
     },
   };
@@ -548,7 +548,7 @@ function build(name, all) {
     deeper: {
       label: "what happens at each stage",
       paras: [
-        `Stage one fixes who the site talks to; in ${area}, where ${s1.label} employs ${fmt(s1.emp)} people, that answer often sets the integrations.`,
+        `Stage one fixes who the site talks to, and in ${area}, where ${s1.label} employs ${fmt(s1.emp)} people, that answer often sets the integrations.`,
         `Stage five hands the site over in your own accounts, a handover any of the ${fmt(N5415)} systems design establishments in ${area} could pick up from.`,
         `For the ${fmt(s2.est)} ${s2.label} establishments here, stage two usually lists ${s2.needs}.`,
       ],
@@ -563,14 +563,14 @@ function build(name, all) {
     lead: hoursLead,
     question: name === "Pennsylvania"
       ? { q: "Where is your office?", a: "At 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most work runs remotely, and in-person sessions are easiest across the Philadelphia region when a project calls for them." }
-      : { q: `Do you have an office in ${P}?`, a: `No. Our one office is in Malvern, PA, and projects here run remotely, with every stage reviewed in your own browser.` },
+      : { q: `Can you work with a ${P} business?`, a: `Yes. Our team works from Malvern, PA, by video call and screen-share, and you review every stage of the work in your own browser.` },
     ...(inPhilly ? { plateNote: "SIX COUNTIES IN OUR BUSINESS PROFILE" } : {}),
     deeper: {
       label: "calls, reviews and where the work happens",
       paras: [
         inPhilly
-          ? `Calls and screen-shares cover most of ${aP} ${P} build; when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule.`
-          : "Calls and screen-shares cover the whole build, and you review the work in your own browser between them; no branch office or answering service sits in between.",
+          ? `Calls and screen-shares cover most of ${aP} ${P} build, and when a decision is easier in a room, such as a kickoff with several people, we plan the session into the schedule.`
+          : "Calls and screen-shares cover the whole build, and you review the work in your own browser between them.",
       ],
     },
   };
@@ -582,10 +582,10 @@ function build(name, all) {
     `Yes. We take on website work for ${P} businesses remotely from Malvern, PA, and every stage is reviewed in your own browser. You deal directly with the people designing and coding the site, and calls are set in ${m.tz === "ET" ? "Eastern" : m.tz === "AZ" ? "Arizona" : m.tz === "HT" ? "Hawaii" : tz.name} hours, the clock ${area}'s ${fmt(E23)} establishments keep.`,
     "suggest-base: can web design be outsourced / do web designers work from home");
   add(`How much does web design cost in ${P}?`,
-    `The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the ${fmt(U20)} small establishments here or a larger one. You get the price and schedule in writing first${wdPhrase.cpc != null ? `; advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for the main web design phrasing here (Semrush)` : `; Semrush recorded no advertiser bids for the main web design phrasing here`}.`,
+    `The scope sets the price, not the ZIP code: pages, integrations and what the site must do, for one of the ${fmt(U20)} small establishments here or a larger one, and you get the price and schedule in writing first. ${wdPhrase.cpc != null ? `Advertisers paid about $${wdPhrase.cpc.toFixed(2)} a click for the main web design phrasing here (Semrush)` : `Semrush recorded no advertiser bids for the main web design phrasing here`}.`,
     hasWord(/cost|price/) ? `suggest-places: ${hasWord(/cost|price/)}` : "query-clusters: how much does a website cost (largest question score)", { to: `${HUB}#cost`, label: "How much does a website cost?" });
   add("Should we hire a website designer or use a builder?",
-    `Hire a designer when the site has to book, quote, sell or connect to a CRM; a builder fits a site a standard template can serve. In ${area}, ${U20P}% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.`,
+    `Hire a designer when the site has to book, quote, sell or connect to a CRM, and use a builder when a standard template can serve. In ${area}, ${U20P}% of establishments employ fewer than 20 people, so we say which route fits before quoting anything.`,
     "suggest-base: should i hire a website designer", { to: `${HUB}#builder-or-custom`, label: "Squarespace, Wix or WordPress versus custom" });
   if (shared) add("Does website design affect SEO?",
     `Yes. Titles, headings, page speed and schema go in during the build, and Search Console is connected at launch. A statewide site competes for “${wdPhrase.phrase}” (${fmt(wdPhrase.volume)} a month by Semrush’s count) with every firm in the city, so the page leans on what is true of the ${fmt(E23)} establishments across ${P}.`,
@@ -607,7 +607,7 @@ function build(name, all) {
   }
   const fl = hasWord(/freelanc/);
   if (fl) add(`Should ${aP} ${P} business hire a freelancer or a web design firm?`,
-    `Either can work; what matters is live sites you can open, who owns the code and a written scope. ${cap(area)} had ${fmt(N511)} custom programming and ${fmt(N430)} graphic design establishments in 2023, and a firm keeps the work moving when one person is away.`,
+    `Either can work. What matters is live sites you can open, who owns the code and a written scope. ${cap(area)} had ${fmt(N511)} custom programming and ${fmt(N430)} graphic design establishments in 2023, and a firm keeps the work moving when one person is away.`,
     `suggest-places: ${fl}`, { to: `${HUB}#choose`, label: "How to choose a web design company" });
   const best = hasWord(/\b(best|top)\b/) || hasWord(/agenc|firm|compan/);
   if (best && faq.length < 8) add(`How do I choose a web design company in ${P}?`,
@@ -622,13 +622,13 @@ function build(name, all) {
       `Yes. ${fmt(U20)} of the ${fmt(E23)} establishments in ${area} had fewer than 20 employees in 2023, and every one of the six sites above is for an owner-led business. The scope starts with the one job the site must do, booked, quoted or sold.`,
       hasWord(/small business|business website/) ? `suggest-places: ${hasWord(/small business|business website/)}` : "query-clusters: small business website design", { to: "/services/small-business-website-design", label: "Small business website design" }),
     () => add("Is website design tax deductible?",
-      `Your accountant decides how to book it, under federal and ${m.state} rules. Our proposals separate design, development, hosting and support, so each line can be booked on its own; ${fmt(E23)} establishments in ${area} face the same question, and we do not give tax advice.`,
+      `Your accountant decides how to book it, under federal and ${m.state} rules, and we do not give tax advice. Our proposals separate design, development, hosting and support for any of the ${fmt(E23)} establishments in ${area}, so each line can be booked on its own.`,
       m.st === "TX" ? "suggest-base: is website design taxable in texas / is website design tax deductible" : "suggest-base: is website design tax deductible / should website design be capitalized"),
     () => add(`Will a redesign hurt my ${P} site's rankings?`,
       `Not when every old address is mapped to its new page and redirected before launch, so rankings and links carry over. For any of the ${fmt(E23)} establishments in ${area}, that map is the first thing a rebuild of ours produces.`,
       "suggest-base: does website redesign affect seo", { to: "/services/website-redesign", label: "Website redesign" }),
     () => add(`Do you build accessible websites in ${P}?`,
-      `Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay and no certificate claimed. It matters most for the ${fmt(sectors.find((x) => x.code === "62").est)} health care and social assistance establishments in ${area}, whose patients include people of every ability.`,
+      `Yes. We build to WCAG 2.1 AA: keyboard paths, contrast, labels and headings checked before launch, with no overlay. It matters most for the ${fmt(sectors.find((x) => x.code === "62").est)} health care and social assistance establishments in ${area}, whose patients include people of every ability.`,
       "suggest-base: why is accessibility important in web design", { to: `${HUB}#accessibility`, label: "ADA compliance and accessible websites" }),
   ];
   // rotate the fill order by slug so siblings do not share one FAQ list

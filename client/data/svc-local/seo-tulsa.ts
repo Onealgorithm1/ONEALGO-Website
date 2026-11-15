@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "items": [
     {
      "q": "How do I pick a Tulsa SEO company?",
-     "a": "Pick one that audits your site first and reports from your own Search Console. Tulsa has only 153 establishments in the advertising and marketing consulting codes, so the list is short; ask each what it would fix first and which searches it would target.",
+     "a": "Pick one that audits your site first and reports from your own Search Console. Tulsa has only 153 establishments in the advertising and marketing consulting codes, so the list is short. Ask each what it would fix first and which searches it would target.",
      "from": "autocomplete: tulsa seo company"
     },
     {
@@ -616,7 +616,7 @@ export const PLACE: LocalPlace = {
     },
     {
      "q": "Why is SEO important for Tulsa businesses?",
-     "a": "Because search buyers are ready to act, and organic clicks cost nothing per visit. Advertisers pay $14.38 a click on \"seo company tulsa\"; ranking for the same search brings that visitor at no cost per click. In a metro of 1,060,423 people, a few strong pages can bring steady leads.",
+     "a": "Because search buyers are ready to act, and organic clicks cost nothing per visit. Advertisers pay $14.38 a click on \"seo company tulsa\". Ranking for the same search brings that visitor at no cost per click. In a metro of 1,060,423 people, a few strong pages can bring steady leads.",
      "from": "questionBank: why is seo important"
     },
     {
