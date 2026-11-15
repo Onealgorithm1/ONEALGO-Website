@@ -53,7 +53,7 @@ const CONNECT: EUnit[] = [
     lead: "This is integration work, not control-system work.",
     leadIn: "Yes, but:",
     points: ["Order, inventory and shipment data in one place", "Reports sales and finance both trust", "No control-system programming"],
-    label: "what we do and do not do",
+    label: "what the integration work covers",
     deep: <p className="sf-rule">The one delivery pattern we describe is an unnamed SAP-to-Salesforce sync. Manufacturers and distributors often re-key order and inventory figures between the ERP, spreadsheets and the CRM. That is the problem it addresses. See {L("/industries/manufacturing", "manufacturing")} and {L("/services/salesforce-integration", "Salesforce integration")}. We do not program control systems or safety systems.</p>,
   },
 ];
