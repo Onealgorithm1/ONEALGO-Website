@@ -138,7 +138,7 @@ export function HomeBody() {
       </SmartSection>
 
       {/* 6. Sectors as lift tiles. */}
-      <SmartSection id="industries" tone="night" className="ind-sec" heading={{ kicker: "Industries", title: "Industries we serve", id: "h-industries", lede: "Each page says what we have done in that industry." }}>
+      <SmartSection id="industries" tone="night" className="ind-sec" heading={{ kicker: "Industries", title: "Industries we serve", id: "h-industries", lede: "Each page says what we do in that industry." }}>
         <GhostNum>05</GhostNum>
         <ul className="ind-row3" style={{ listStyle: "none", padding: 0, gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))" }}>
           {SECTORS.map((x, i) => (
