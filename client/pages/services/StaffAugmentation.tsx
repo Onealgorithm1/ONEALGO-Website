@@ -40,7 +40,7 @@ const ROLES: EUnit[] = [
   {
     id: "h-roles", title: "Roles we place",
     lede: "Salesforce administrators, developers and architects first, then other technical roles on request, and we say where we are light.",
-    lead: "If what you need is not on this list, we will not send someone who read the documentation last week.",
+    lead: "If what you need is not on this list, we tell you. We do not send someone who read the documentation last week.",
     points: ["Salesforce administrator", "Salesforce developer", "Salesforce architect"],
     label: "how we handle other roles",
     deep: <p className="sf-rule">Salesforce is where our delivery evidence is, so it is where we lead. Other technical roles are considered on request, case by case, and we tell you whether we have the right person before you spend an hour interviewing. For the Salesforce side, see {L("/services/salesforce", "Salesforce consulting")} and {L("/services/salesforce-managed-services", "Salesforce managed services")}. For a whole product, see {L("/services/application-development", "custom software development")}.</p>,
@@ -57,7 +57,7 @@ const COST_COMPLIANCE: EUnit[] = [
   {
     id: "h-compliance", title: "Compliance and E-Verify for our employees",
     lede: "Our E-Verify account, enrolled since 2024, verifies our own employees and does not cover subcontractors.",
-    lead: "A client taking on contract staff carries risk, so ask us who employs the person placed.",
+    lead: "A client taking on contract staff carries risk, so we state the limit.",
     leadIn: "Yes, but:",
     points: ["E-Verify: our own employees only", "Registered in the federal SAM system", "Not a claim about subcontractors"],
     label: "what we do and do not claim",

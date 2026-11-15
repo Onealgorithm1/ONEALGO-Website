@@ -107,7 +107,7 @@ const MC_STAGES: Stage[] = [
   { k: "s2", num: "02", title: "A one-week review of the Salesforce side", short: "One-week review, Salesforce side", sub: "free · the org that feeds Marketing Cloud", line: "What syncs through Marketing Cloud Connect, how often, and whether opt-outs agree in both systems.",
     details: ["Which Salesforce objects and fields sync, and how often", "Whether Email Opt Out and unsubscribes agree in both systems", "Whether the fields marketing filters on are filled in"] },
   { k: "s3", num: "03", title: "A written list", sub: "ranked by what to fix first", line: "What is still running, what it sends, and whether anyone would miss it if it stopped, ranked by what to fix first.",
-    details: ["Ranked by what to fix first", "Yours to keep, whether or not you hire us", "If the org is basically fine, the list says that"] },
+    details: ["Ranked by what to fix first", "Yours to keep, whether or not you hire us", "If the org is basically fine, we say so"] },
   { k: "s4", num: "04", title: "Ongoing support", sub: "optional · scoped first", line: "If you want it, we take the requests one at a time, each scoped in writing first.",
     details: ["Changes, fixes and data checks, month by month", "Journeys and automations switched off when nobody needs them", "Problems traced to Marketing Cloud or to the CRM data behind it"] },
 ];
@@ -158,7 +158,7 @@ const FAQS: SfFaqItem[] = [
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Our account was built by someone who has left.", a: <>We start there: a list of what is still running, what it sends, and whether anyone would miss it if it stopped. Fewer moving parts make every later change cheaper and safer.</> },
   { q: "Will we get senior people, or whoever is free?", a: <>The person who scopes your account stays on it through delivery, and you deal with the people doing the work directly: no hand-off after the sales call. Sreenivas Amirisetti leads the practice; his credentials are under <a className="sf-link" href="#record">our record</a>.</> },
-  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, the list says that.</> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
   { q: "You are not in our city.", a: <>Most of the work is remote, inside your accounts, from Malvern, PA. In-person sessions happen when the project calls for them, easiest across the Philadelphia region; for larger projects elsewhere, on-site visits such as kickoff or training are planned into the project.</> },
 ];
 

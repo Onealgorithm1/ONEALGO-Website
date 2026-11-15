@@ -171,7 +171,7 @@ const PA_ROUTES = [
 /* Objection questions (H3), answers in Go deeper. None repeats a FAQ question. */
 const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Will we get a junior team after the sale?", a: <>You work directly with the certified people doing the work, with no hand-off after the sale. Sreenivas Amirisetti leads our Salesforce practice; his credentials are listed under <a className="sf-link" href="#record">our record</a>.</> },
-  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, the list says that.</> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so.</> },
   { q: "What does it cost after the free week?", a: <>Fixes are scoped in writing first. <Link className="sf-link" to={COST}>What Salesforce work costs</Link></> },
   { q: "You are not in our part of Pennsylvania.", a: <>Most of the work runs remotely inside your org, and on-site visits are planned into larger projects. <a className="sf-link" href="#pennsylvania">Salesforce consultants across Pennsylvania</a></> },
 ];

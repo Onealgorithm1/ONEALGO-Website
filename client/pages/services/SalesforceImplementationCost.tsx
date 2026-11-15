@@ -193,7 +193,7 @@ const CONCERNS: { q: string; a: React.ReactNode }[] = [
   { q: "Will the price grow once the work starts?", a: <>Every piece of work is scoped in writing before it starts: a written scope, then the work, then a handover. A late request becomes its own scoped piece of work, not a surprise line on this one.</> },
   { q: "How do we know you are a real Salesforce partner?", a: <>Check Salesforce's record: the AppExchange lists OneAlgorithm as a Select Consulting Partner with {SF_CERTIFIED_PEOPLE} Salesforce-certified people and {SF_CERTIFICATIONS} certifications, read {SF_VERIFIED_LABEL}. <Verify id="appexchange">Check the record</Verify></> },
   { q: "Will you sell us more Salesforce than we need?", a: <>We give you a license count and a rough cost before you sign, and tell you when a smaller edition does the job. <a className="sf-link" href="#licenses">Salesforce pricing per user per month</a></> },
-  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, the list says that. <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link></> },
+  { q: "Will the free week turn into a sales pitch?", a: <>The list is yours. If the org is basically fine, we say so. <Link className="sf-link" to={HC}>Free one-week Salesforce health check</Link></> },
 ];
 
 /** A visible comparison table (the spec keeps the cost tables visible: the table IS the answer). Page-local until
@@ -347,7 +347,7 @@ export default function SalesforceImplementationCost() {
             className="sf-c7"
             headingId="h-answer"
             title="How much does Salesforce implementation cost?"
-            lede="Four published guides put small-business Salesforce implementation at $15,000 to $50,000 (one from $10,000) and mid-market at $50,000 to $150,000 or to $250,000, before licenses."
+            lede="Four published guides put small-business Salesforce implementation at $15,000 to $50,000 (one from $10,000), mid-market at $50,000 to $150,000 or up to $250,000, before licenses."
             leadIn="By the numbers:"
             lead="Enterprise runs $150,000 to $500,000 or more in three guides, and to $1,000,000 or more in Groviya's multi-cloud band."
             points={[
