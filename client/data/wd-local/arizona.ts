@@ -744,7 +744,7 @@ export const PLACE: LocalPlace = {
    "lead": "the office answers (610) 890-9711 Monday to Friday: 7 a.m. to 3 p.m. Arizona time in winter, 6 a.m. to 2 p.m. in summer.",
    "question": {
     "q": "Can you work with a Arizona business?",
-    "a": "Yes. Our team works from Malvern, PA, by video call, and you review every stage in your own browser."
+    "a": "Yes. Our team works from Malvern, PA, by video call and screen-share, and you review every stage of the work in your own browser."
    },
    "deeper": {
     "label": "calls, reviews and where the work happens",
