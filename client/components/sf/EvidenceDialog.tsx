@@ -127,7 +127,7 @@ export function AppExchangeEvidence() {
     <EvidenceDialog
       id="appexchange"
       title="Salesforce's AppExchange record of OneAlgorithm"
-      intro="What the listing's stat box said when a person at OneAlgorithm read it. We quote the figures; we do not reproduce Salesforce's page."
+      intro="What the listing's stat box said when a person at OneAlgorithm read it."
       rows={[
         { th: "Partner type", td: "Consulting Partner" },
         { th: "Partner tier", td: SF_PARTNER_TIER },

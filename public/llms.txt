@@ -27,6 +27,7 @@
 - [SEO services](https://onealgorithm.com/services/seo): SEO and AI-search visibility for small businesses, with the method and a measured case study.
 - [Google Ads management](https://onealgorithm.com/services/google-ads): Google Ads management that starts with an audit, with the account kept in the client's name.
 - [Marketing and social media](https://onealgorithm.com/services/marketing): social media and marketing management on accounts the client owns.
+- [AI automation services](https://onealgorithm.com/services/ai-automation): AI consulting, AI agents and workflow automation connected to the systems a business already runs, with a person reviewing what the AI does; counts from our own running systems are on the page.
 - [Custom application development](https://onealgorithm.com/services/application-development): portals, internal tools and web applications, with the code and cloud accounts in the client's name from day one.
 - [MarTech integration](https://onealgorithm.com/services/martech): marketing technology integration between campaign tools, CRM and analytics.
 - [IT consulting](https://onealgorithm.com/services/it-consulting): IT consulting for small and mid-size companies.
@@ -47,6 +48,7 @@ one-week Salesforce health check.
 - Salesforce implementation cost guide: published market ranges, named and dated, before licenses: https://onealgorithm.com/services/salesforce-implementation-cost
 - Salesforce data migration: QuickBase, Kissflow, another CRM or another org, reconciled before go-live: https://onealgorithm.com/services/salesforce-data-migration
 - Salesforce integration with SAP and ERP: which system owns each record, agreed before anything is built: https://onealgorithm.com/services/salesforce-integration
+- Salesforce Agentforce consulting: a free one-week check of the data and permissions an agent would use, then one job built and tested: https://onealgorithm.com/services/salesforce-agentforce
 - Salesforce managed services: weekly administration and development, with hours reported every week: https://onealgorithm.com/services/salesforce-managed-services
 - Marketing Cloud consulting: support for Marketing Cloud accounts already running: https://onealgorithm.com/services/salesforce-marketing-cloud-consulting
 - Salesforce consultants for Philadelphia and Chester County companies: https://onealgorithm.com/services/salesforce-consultant-philadelphia
