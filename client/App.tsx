@@ -106,6 +106,8 @@ const GoogleAdsPhiladelphia = lazy(
 const SalesforceCity = lazy(() => import("./pages/services/SalesforceCity"));
 const SalesforceDataMigration = lazy(() => import("./pages/services/SalesforceDataMigration"));
 const SalesforceIntegration = lazy(() => import("./pages/services/SalesforceIntegration"));
+const SalesforceAgentforce = lazy(() => import("./pages/services/SalesforceAgentforce"));
+const AiAutomation = lazy(() => import("./pages/services/AiAutomation"));
 const SalesforceManagedServices = lazy(() => import("./pages/services/SalesforceManagedServices"));
 const SalesforceHealthCheck = lazy(() => import("./pages/services/SalesforceHealthCheck"));
 const SalesforceMarketingCloud = lazy(() => import("./pages/services/SalesforceMarketingCloud"));
@@ -227,6 +229,8 @@ const App = () => (
               {/* Salesforce service pages, 2026-10-22 */}
               <Route path="/services/salesforce-data-migration" element={<SalesforceDataMigration />} />
               <Route path="/services/salesforce-integration" element={<SalesforceIntegration />} />
+              <Route path="/services/salesforce-agentforce" element={<SalesforceAgentforce />} />
+              <Route path="/services/ai-automation" element={<AiAutomation />} />
               <Route path="/services/salesforce-managed-services" element={<SalesforceManagedServices />} />
               <Route path="/services/salesforce-health-check" element={<SalesforceHealthCheck />} />
               <Route path="/services/salesforce-marketing-cloud-consulting" element={<SalesforceMarketingCloud />} />

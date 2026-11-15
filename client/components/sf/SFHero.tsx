@@ -40,7 +40,7 @@ function CertMarquee() {
  * ("Photo: King of Hearts · CC BY-SA 3.0") opens the credits dialog `ev-photo-credit` (render <PhotoCreditDialog>).
  *   <SFHero title="Salesforce consultants in Dallas" lede="…" photo={SF_CITY_HEROES.dallas} />
  */
-export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1" }: {
+export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1", salesforce = true }: {
   kicker?: React.ReactNode;
   title: React.ReactNode;
   lede: React.ReactNode;
@@ -53,6 +53,8 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
   photo?: SfCityHero;
   split?: "6/6" | "7/5";
   id?: string;
+  /** false on kit pages that are not about Salesforce (AI automation, 2026-11-15): no Salesforce logo, no certification strip. */
+  salesforce?: boolean;
 }) {
   const files = photo ? sfCityFiles(photo.slug) : null;
   const cls = ["sf-hero", split === "7/5" ? "sf-hero-75" : "", photo ? "sf-hero-photo" : "", !figure && !photo ? "sf-hero-wide" : ""].filter(Boolean).join(" ");
@@ -61,7 +63,7 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
     <section className={cls} aria-labelledby={id}>
       <div className="sf-wrap sf-grid">
         <div className="sf-hero-text">
-          <img className="sf-hero-logo" src="/media/salesforce/salesforce-logo.svg" alt="Salesforce" width={92} height={64} decoding="async" />
+          {salesforce && <img className="sf-hero-logo" src="/media/salesforce/salesforce-logo.svg" alt="Salesforce" width={92} height={64} decoding="async" />}
           {kicker && <p className="sf-kicker">{kicker}</p>}
           <h1 className="sf-h1" id={id}>{title}</h1>
           <p className="sf-lede sf-measure" data-lede="">{lede}</p>
@@ -89,7 +91,7 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
         )}
       </div>
     </section>
-    <CertMarquee />
+    {salesforce && <CertMarquee />}
     </>
   );
 }
