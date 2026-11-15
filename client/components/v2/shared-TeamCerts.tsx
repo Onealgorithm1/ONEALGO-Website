@@ -27,15 +27,34 @@ export function certsFor(pathname: string): CertRow[] {
   return [];
 }
 
-/** One line under a call to action: "Our team is certified in: Google Ads (…) · Google Analytics · …". Renders nothing
- *  on pages with no matching rows. Inherits the text colour of where it sits (works on the night band and on light). */
+/** "Certified team" badge row under the hero buttons (2026-11-14, Louis: "right in your face"). Badges are styled text,
+ *  NOT vendor logos, on purpose: Google's brand rules forbid its logo to anyone outside a formal partner program and
+ *  allow an accurate plain-text reference (about.google/brand-resource-center/guidance/partnerships, read 2026-11-14).
+ *  ponytail: one inline-styled component; if a vendor partner badge is ever earned, swap that pill for its official snippet.
+ *  Renders nothing on pages with no matching rows. */
 export function TeamCertsLine({ pathname, className = "", tone }: { pathname: string; className?: string; tone?: "dark" | "light" }) {
   const rows = certsFor(pathname);
   if (!rows.length) return null;
+  const dark = tone === "dark";
+  const ink = dark ? "#fff" : "#0f172a";
+  const pill: React.CSSProperties = {
+    display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 14px", borderRadius: 999,
+    border: `1px solid ${dark ? "rgba(255,255,255,.35)" : "rgba(15,23,42,.18)"}`,
+    background: dark ? "rgba(255,255,255,.08)" : "#fff", color: ink, fontSize: 15, fontWeight: 600, lineHeight: 1.2,
+  };
   return (
-    <p className={`team-certs ${className}`} style={{ marginTop: tone ? 24 : 10, fontSize: 14, lineHeight: 1.5, opacity: tone ? 1 : 0.85, color: tone === "dark" ? "rgba(255,255,255,.85)" : undefined }}>
-      <strong>Our team is certified in:</strong>{" "}
-      {rows.map((r) => (r.detail && r.platform !== "Google Analytics" ? `${r.platform} (${r.detail})` : r.platform)).join(" · ")}
-    </p>
+    <div className={`team-certs ${className}`} style={{ marginTop: tone ? 28 : 14 }}>
+      <p style={{ margin: "0 0 10px", fontSize: 13, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: dark ? "rgba(255,255,255,.85)" : "#334155" }}>
+        Certified team
+      </p>
+      <ul aria-label="Certifications held by our team" style={{ display: "flex", flexWrap: "wrap", gap: 10, listStyle: "none", margin: 0, padding: 0 }}>
+        {rows.map((r) => (
+          <li key={r.platform} style={pill} title={r.detail}>
+            <svg aria-hidden="true" className="text-oa-orange shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1L2.7 15.5l1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.3z" /><path d="M8.5 12l2.3 2.3 4.7-4.7" /></svg>
+            {r.platform} certified
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
