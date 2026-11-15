@@ -183,7 +183,7 @@ export default function Salesforce() {
           >
             <GoDeeper label="the four stages, what we do and what it costs">
               <p className="sf-rule">
-                Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day.
+                Salesforce implementation services take a company from deciding to buy Salesforce to running on it every day: choosing the edition and license count, configuring Sales Cloud and Service Cloud, automating manual steps with Flow, migrating and reconciling data, connecting other systems such as an ERP, and supporting the team after go-live.
               </p>
               <p><span className="sf-lead-in">What we do:</span> All four stages, or any one on its own.</p>
               <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign.</p>

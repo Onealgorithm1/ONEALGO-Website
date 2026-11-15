@@ -26,12 +26,12 @@ export const COMPARE: { row: string; builder: string; custom: string; builderWin
 /** U6: the five stages (k = s1…s5 for the rail highlight; `short` fits the five-station drawing). */
 export const WD_STAGES: Stage[] = [
   { k: "s1", num: "01", title: "Agree what the site is for", short: "What the site is for", sub: "who · what it must do · what it connects to", line: "Who it is for, what it must do, and what it connects to, agreed before anything is designed.",
-    details: ["Who the site talks to, and what they should do", "The systems it connects to: CRM, booking, payments, inventory", "What exists today: domain, hosting, content, logins", "Whether a smaller site does the job"] },
-  { k: "s2", num: "02", title: "Scope, price and schedule in writing", short: "Scope, price, schedule", sub: "the proposal", line: "The proposal, signed before the build starts.",
+    details: ["Who the site talks to, and what they should do", "The systems it connects to: CRM, booking, payments, inventory", "What exists today: domain, hosting, content, logins", "Whether a smaller site does the job, and we tell you if it does"] },
+  { k: "s2", num: "02", title: "Scope, price and schedule in writing", short: "Scope, price, schedule", sub: "the proposal", line: "The proposal: pages, integrations, price and dates, signed before the build starts.",
     details: ["Pages and layouts, named", "Integrations and the content you supply", "The price against that list, and the dates", "What we would cut if the number is wrong for you"] },
   { k: "s3", num: "03", title: "Design in the browser", short: "Design in the browser", sub: "real content · real widths", line: "Real content at real widths, reviewed in your own browser.",
     details: ["Designed at 390 pixels wide first, then opened out", "Your text and photos, not placeholders", "A link you open on your own phone", "Changes made in the browser, where you see them"] },
-  { k: "s4", num: "04", title: "Build and wire it up", short: "Build and wire it up", sub: "code · forms · CRM · checks", line: "Code, forms, CRM, analytics and the accessibility checks.",
+  { k: "s4", num: "04", title: "Build and wire it up", short: "Build and wire it up", sub: "code · forms · CRM · checks", line: "Code, forms, CRM, analytics and the accessibility checks, with the site in your repository throughout.",
     details: ["Forms to the inbox and the CRM, with a record when one fails", "Analytics, Search Console and the Business Profile connected", "WCAG 2.1 AA: automated rules, then a keyboard pass", "Source in your repository from the first commit"] },
   { k: "s5", num: "05", title: "Launch, hand over, stay on", short: "Launch, hand over, stay on", sub: "your repo · domain · hosting", line: "Your repository, domain and hosting, with support under the proposal's terms.",
     details: ["DNS, HTTPS and security headers set at launch", "Repository, domain and hosting in your accounts", "Written notes another developer can follow", "Support scoped in the proposal"] },

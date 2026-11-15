@@ -70,7 +70,7 @@ export function HomeBody() {
           <SmartUnit className="sf-c5" headingId="h-proof" kicker="Proof" title="An SEO result you can check"
             lede="For an arcade manufacturer in Florida, Google clicks rose 92 percent over the same 68 days a year apart."
             lead="Non-brand clicks rose 231 percent, which is new customers finding the site."
-            points={["Measured in Google Search Console", "The prior 68 days were flat", "The client owns the property"]}>
+            points={["Measured in Google Search Console", "The prior 68 days were flat", "Non-brand clicks up 231 percent"]}>
             <p className="sf-links" style={{ marginTop: 14 }}><Link className="sf-link" to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link></p>
           </SmartUnit>
           <div className="sf-c7">

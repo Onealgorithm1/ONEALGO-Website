@@ -144,6 +144,12 @@ export default function GoogleAds() {
             headingId="h-audit"
             title="What a Google Ads audit covers"
             lede="A Google Ads audit finds where spend leaks and what is not being counted, ranked by what to fix first."
+            lead="An audit checks the four places wasted spend tends to hide, and shows which one is yours."
+            points={[
+              "Search terms and negatives: what to cut",
+              "Conversion tracking counted once",
+              "Geography, structure and landing pages",
+            ]}
           />
           <div className="sf-c7"><AuditPlate fig={1} /></div>
           <div className="sf-c12"><GaLedger items={AUDIT_AREAS} /></div>

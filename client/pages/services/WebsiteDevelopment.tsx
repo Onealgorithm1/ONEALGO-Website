@@ -130,7 +130,7 @@ export default function WebsiteDevelopment() {
         <SmartSection id={U.work.id} tone="night" grid labelledBy="h-work">
           <SmartUnit className="sf-c12" headingId="h-work" title={U.work.title} lede={U.work.lede} leadIn={U.work.leadIn} lead={U.work.lead}>
             <GoDeeper label={U.work.deep!}>
-              <p className="sf-rule">The live site loads in a sandboxed frame on this page, and its own scripts, fonts and media load only when you press Preview. The sandbox blocks top navigation and downloads. A site that refuses framing shows our dated full-page capture.</p>
+              <p className="sf-rule">The live site loads in a sandboxed frame on this page, and its own scripts, fonts and media load only when you press Preview. The sandbox blocks top navigation and downloads. A site that refuses framing shows our dated full-page capture. The domain link under each window opens the site itself in a new tab.</p>
             </GoDeeper>
           </SmartUnit>
           <div className="sf-c12 wd-windows-6">
@@ -168,7 +168,7 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.build.deep!}>
-              <p className="sf-rule">Phantom Arcades is a web application and a shop: its eight-cabinet 3D configurator prices the machine as you build it. The Gorband and Atlas Peptides are online stores, and The Gorband runs one Square catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites.</p>
+              <p className="sf-rule">Phantom Arcades is a web application and a shop: its eight-cabinet 3D configurator prices the machine as you build it. The Gorband and Atlas Peptides are online stores, and The Gorband runs one Square catalogue for the website and the market stall. Inspect This Home Inspections, The Boards Professor and Starzi Brothers are lead-generation sites, with online scheduling, booking and a quote form that lands in the office inbox.</p>
               <p>Every build includes the forms, the analytics and the search groundwork. The integrations are named in the written scope.</p>
               <div className="sf-links"><Verify id="phantom-configurator">The Phantom configurator, with figures</Verify></div>
             </GoDeeper>
@@ -181,7 +181,7 @@ export default function WebsiteDevelopment() {
             <p className="sf-mono wd-verify-line">Measured on one redesign · <Verify id="phantom-redesign">Phantom redesign figures</Verify></p>
             <GoDeeper label={U.redesign.deep!}>
               <h3>How a redesign keeps your rankings</h3>
-              <p className="sf-rule">We crawl the old site and map every address to its new one. The redirects are tested before launch, and Search Console is read after it.</p>
+              <p className="sf-rule">We crawl the old site first and map every address to its new one, so the redirect list exists before the first screen is designed. The content audit keeps what ranks and rewrites what does not. The redirects are tested before launch, and Search Console is read after it.</p>
               <h3>Working with the site you already have</h3>
               <p>Often, yes. When rebuilding is cheaper than fixing, we tell you.</p>
               <p><Link className="sf-link" to="/services/website-redesign">Website redesign that keeps your rankings</Link></p>
@@ -283,7 +283,7 @@ export default function WebsiteDevelopment() {
               <h3>Do websites have to be ADA compliant?</h3>
               <p className="sf-rule">For state and local governments, yes. The Department of Justice's 2024 Title II rule adopts WCAG 2.1 AA, with compliance dates of 26 April 2027 for entities of 50,000 people or more and 26 April 2028 for smaller entities and special districts, after the Interim Final Rule published on 20 April 2026. For private businesses the Department has no regulation setting out detailed standards and calls WCAG helpful guidance (its web guidance of 18 March 2022). Ask counsel about your obligations. We build to WCAG 2.1 AA either way.</p>
               <h3>How we test accessibility</h3>
-              <p>Press Tab now: the ring you see is the one in the figure. The keyboard pass checks what no automated rule catches: order, focus and names. Text contrast is 4.5:1 or better.</p>
+              <p>Press Tab now: the ring you see is the one in the figure. Every build runs the automated rules an auditor runs, then a keyboard pass for what no rule catches: order, focus, names, and text contrast at 4.5:1 or better.</p>
               <div className="sf-links"><Verify id="wcag">Sources: WCAG 2.1 and the DOJ rules</Verify></div>
             </GoDeeper>
           </SmartUnit>
@@ -301,7 +301,7 @@ export default function WebsiteDevelopment() {
               ))}
             </ul>
             <GoDeeper label={U.after.deep!}>
-              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. This site runs the same way.</p>
+              <p className="sf-rule">At handover you hold the repository, the domain and its DNS, the hosting account and the written notes another developer would need. HTTPS and the security headers are set at launch. This site runs the same way.</p>
               <p>Support after launch is scoped in the written proposal, project by project: updates, content changes and the checks after a browser or platform change.</p>
             </GoDeeper>
           </SmartUnit>
@@ -361,7 +361,7 @@ export default function WebsiteDevelopment() {
           </SmartUnit>
           <SmartUnit className="sf-c6" headingId="h-choose" id={U.choose.id} delay={0.08} title={U.choose.title} lede={U.choose.lede} leadIn={U.choose.leadIn} lead={U.choose.lead} points={U.choose.points} measure={false}>
             <GoDeeper label={U.choose.deep!}>
-              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates, with the price against it. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms.</p>
+              <p className="sf-rule">The scope: pages and layouts, integrations, the content you supply, and the dates, with the price against it. Ownership: the repository, the domain and the hosting account in your name, named in the proposal. The standards: WCAG 2.1 AA and the performance budget, and how both are checked before launch. Support: what happens after launch, and on what terms.</p>
             </GoDeeper>
           </SmartUnit>
         </SmartSection>
