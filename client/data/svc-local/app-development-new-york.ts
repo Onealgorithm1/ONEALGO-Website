@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls, demos and support",
     "paras": [
-     "There is no New York office; our team works from Malvern, PA. Demos happen over screen-share, and every staging build has a link you can open anywhere.",
+     "Our team works from Malvern, PA. Demos happen over screen-share, and every staging build has a link you can open anywhere.",
      "After launch, support runs around the clock for production issues, so an outage at night is not left until morning."
     ]
    }

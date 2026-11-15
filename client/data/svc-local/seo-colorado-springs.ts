@@ -590,7 +590,7 @@ export const PLACE: LocalPlace = {
     "label": "Remote by design",
     "paras": [
      "We work with Colorado Springs businesses over video calls and screen-shares, and send drafts and reports as links you review in a browser.",
-     "There is no Colorado office. Our one location is 625 Swedesford Rd, Unit B, Malvern, PA 19355, and our phone is (610) 890-9711."
+     "Our one location is 625 Swedesford Rd, Unit B, Malvern, PA 19355, and our phone is (610) 890-9711."
     ]
    }
   },

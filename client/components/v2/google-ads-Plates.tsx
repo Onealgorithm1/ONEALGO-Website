@@ -352,7 +352,7 @@ export const GOOGLE_SOURCES: SfSource[] = [
   { name: `${HELP}: Quality Score`, what: "A 1 to 10 diagnostic at keyword level, not an input in the ad auction", read: READ, page: "https://support.google.com/google-ads/answer/6167118" },
   { name: `${HELP}: how the auction works`, what: "Relevant keywords and ads can win a higher position at a lower price", read: READ, page: "https://support.google.com/google-ads/answer/142918" },
   { name: `${HELP}: Performance Max`, what: "A goal-based campaign across YouTube, Display, Search, Discover, Gmail and Maps", read: READ, page: "https://support.google.com/google-ads/answer/10724817" },
-  { name: `${HELP}: Partner and Premier Partner`, what: "Requirements for the badges. OneAlgorithm holds neither", read: READ, page: "https://support.google.com/google-ads/answer/9702452" },
+  { name: `${HELP}: Partner and Premier Partner`, what: "Requirements for the Partner and Premier Partner badges", read: READ, page: "https://support.google.com/google-ads/answer/9702452" },
   { name: `${HELP}: conversion types`, what: "Website, app, phone call and offline conversions", read: READ, page: "https://support.google.com/google-ads/answer/1722022" },
 ];
 export const PHILLY_SOURCES: SfSource[] = [

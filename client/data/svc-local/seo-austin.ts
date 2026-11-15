@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
     "label": "Remote by design",
     "paras": [
      "Calls happen on video at a time that suits Central hours. Drafts, audits and reports arrive as links you open in your browser, with comments left right on the page.",
-     "We have no Austin office. One team in Malvern, PA, handles your account from audit to report, and support runs around the clock."
+     "One team in Malvern, PA, handles your account from audit to report, and support runs around the clock."
     ]
    }
   },

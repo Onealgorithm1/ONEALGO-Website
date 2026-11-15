@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls, reviews and approvals",
     "paras": [
-     "We do not keep an Atlanta branch. Strategy calls, copy reviews and campaign approvals happen online, with drafts in shared documents and pages on links you open from your desk or phone.",
+     "We work with Atlanta businesses from Malvern, PA. Strategy calls, copy reviews and campaign approvals happen online, with drafts in shared documents and pages on links you open from your desk or phone.",
      "Urgent problems, such as a broken form during a campaign, get attention around the clock."
     ]
    }

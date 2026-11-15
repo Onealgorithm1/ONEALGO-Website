@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "How collaboration feels",
     "paras": [
      "We share your Eastern working hours, so video calls and screen-shares land at sensible times. Drafts and calendars arrive as browser links you can comment on directly.",
-     "We keep one office, in Malvern, Pennsylvania, and no Indianapolis branch. Support is there around the clock if something breaks."
+     "We keep one office, in Malvern, Pennsylvania. Support is there around the clock if something breaks."
     ]
    }
   },

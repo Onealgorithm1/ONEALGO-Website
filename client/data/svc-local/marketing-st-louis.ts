@@ -584,7 +584,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How contact works",
     "paras": [
-     "There is no St. Louis office; planning calls, draft reviews and campaign approvals happen online. Calls fit your Central-time day, and you can comment on drafts whenever suits you."
+     "Planning calls, draft reviews and campaign approvals happen online. Calls fit your Central-time day, and you can comment on drafts whenever suits you."
     ]
    }
   },

@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Distance is not a problem",
     "paras": [
-     "There is no Texas branch and no need for one. Kick-off calls, strategy reviews and content approvals all happen on video and shared screens, with notes sent after every session.",
+     "We work with Texas companies from Malvern, PA. Kick-off calls, strategy reviews and content approvals all happen on video and shared screens, with notes sent after every session.",
      "Our team works from Malvern, PA, on Eastern hours, and urgent support is there day and night."
     ]
    }

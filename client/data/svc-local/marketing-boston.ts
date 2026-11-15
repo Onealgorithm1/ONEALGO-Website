@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "How the remote work runs",
     "paras": [
      "We keep the same Eastern hours you do, so a Boston kickoff call can happen first thing in the morning. Campaign drafts, social calendars and reports are shared as links you open in your browser.",
-     "We have one office, in Malvern, PA, and no Boston branch. Support is available around the clock if a site or campaign issue cannot wait."
+     "We have one office, in Malvern, PA. Support is available around the clock if a site or campaign issue cannot wait."
     ]
    }
   },

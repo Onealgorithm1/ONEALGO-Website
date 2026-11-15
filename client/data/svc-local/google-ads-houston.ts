@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Our method, open to inspection",
-   "lede": "We publish no ad account results, so what we offer instead is a method you can verify at every step.",
+   "lede": "What we offer is a method you can verify at every step.",
    "leadIn": "What you get:",
    "lead": "the ad account in your name, tracking you can test yourself, and search term reports you can read.",
    "deeper": {
@@ -595,7 +595,7 @@ export const PLACE: LocalPlace = {
     "label": "Reviewing the account together",
     "paras": [
      "We walk through the Google Ads account on a shared screen, so you see exactly what we see. Reports arrive by email and open in your browser.",
-     "There is no Houston office; our team works from Malvern, PA, by phone at (610) 890-9711, with support around the clock."
+     "Our team works from Malvern, PA, by phone at (610) 890-9711, with support around the clock."
     ]
    }
   },

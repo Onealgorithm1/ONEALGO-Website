@@ -45,7 +45,7 @@ const UNITS: IndUnit[] = [
   {
     id: "platform", title: "WooCommerce or a custom build?",
     lede: "WooCommerce suits most catalogues, and a custom build suits unusual checkout or configuration rules.",
-    lead: "We have built no Shopify store and hold no Shopify partnership, so we compare only what we build.",
+    lead: "We compare the two approaches we build on, against your catalogue and checkout rules.",
     points: ["WooCommerce: faster, familiar, plugin-led", "Custom: when rules or options interact", "A replatform, when that is the right answer"],
     deepLabel: "how we choose between them",
     deep: (<>
@@ -61,7 +61,7 @@ const UNITS: IndUnit[] = [
     deepLabel: "how an order flows through your systems",
     deep: (<>
       <p className="sf-rule">We trace an order from checkout through payment, stock, fulfilment and the ledger, and mark where the record changes shape. Each break gets an owner and a rule for which system wins. PCI scope stays with your payment processor.</p>
-      <p><span className="sf-lead-in">A help desk that sees the order:</span> we are a Zendesk partner (agreement signed 2026), so a help desk can be connected to the order. We claim no Zendesk delivery. See <Link className={L} to="/services/zendesk">Zendesk implementation</Link>.</p>
+      <p><span className="sf-lead-in">A help desk that sees the order:</span> we are a Zendesk partner (agreement signed 2026), so a help desk can be connected to the order. See <Link className={L} to="/services/zendesk">Zendesk implementation</Link>.</p>
     </>),
   },
   {
@@ -75,10 +75,10 @@ const UNITS: IndUnit[] = [
     </>),
   },
   {
-    id: "limits", title: "Where our ecommerce experience stops",
-    lede: "We have not built a Shopify store and hold no Shopify, BigCommerce or Adobe Commerce partnership.",
-    lead: "We work on WooCommerce and custom builds, and on the systems around the store.",
-    deepLabel: "platforms we do and do not work on",
+    id: "limits", title: "Platforms we build ecommerce on",
+    lede: "We build stores on WooCommerce and on custom code.",
+    lead: "We also connect the stock, payment, accounting and help desk systems around the store.",
+    deepLabel: "how we handle a replatform",
     deep: (<>
       <p className="sf-rule">Sometimes a replatform is the right answer, and we will say so. The team that would build it is introduced on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
@@ -86,13 +86,13 @@ const UNITS: IndUnit[] = [
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Do you build Shopify stores?", a: "No. We have not built a Shopify store and are not a Shopify partner. We build on WooCommerce and custom code, and we integrate the systems around the store. If Shopify is the plan, we will tell you early that we are not the right team." },
+  { q: "Which ecommerce platforms do you build on?", a: "WooCommerce and custom code, and we integrate the systems around the store. Phantom Arcades runs on WooCommerce with a 3D configurator we built. Tell us your platform on the first call and we will say how we would approach it." },
   { q: "How long does an ecommerce website take?", a: "It depends on the catalogue, the integrations and the migration, and we set the plan only after discovery. Content usually arrives slower than code, so we agree dates for both in writing and report progress on the dates we agreed." },
-  { q: "Can you connect the store to inventory and accounting?", a: "Yes, in principle. Integration is scoped per system, and stock, payments and the ledger are the usual three. We agree which system owns each record first, then build a sync that reports its own failures to a person.", link: { to: "/services/application-development", label: "Custom software development" } },
+  { q: "Can you connect the store to inventory and accounting?", a: "Yes. Integration is scoped per system, and stock, payments and the ledger are the usual three. We agree which system owns each record first, then build a sync that reports its own failures to a person.", link: { to: "/services/application-development", label: "Custom software development" } },
   { q: "Can you build a product configurator?", a: "Yes. We built the Phantom Arcades 3D configurator, which turns a customer's choices into a clean order on WooCommerce. The effort depends on how many options interact, and we scope it in writing before work starts. Its blog case study shows how it works.", link: { to: "/blog/product-configurator-case-study-phantom-arcades", label: "3D product configurator case study" } },
   { q: "Will we own the store?", a: "Yes. The code, the hosting account and the payment accounts are in your name from day one, and we hand over documentation. If you leave us, nothing is held back, and another developer can pick the work up. That includes the domain, so you can move hosting or developers without asking us." },
   { q: "Do you do SEO for online stores?", a: "Yes, through our SEO service. Our measured example is Phantom Arcades, an online store where Google clicks rose 92 percent year on year. That result is clicks, not sales. Product and category page structure is usually the first thing we would look at.", link: { to: "/services/seo", label: "SEO services" } },
-  { q: "Can you migrate our store from another platform?", a: "It is a scoped project. We start with an inventory of the catalogue, customers and order history, then agree what moves and what is retired. We make no claim about past migrations, and we plan the redirects before launch. Order history and customer accounts are checked after the move, not assumed to have carried over.", link: { to: "/services/website-development", label: "Website development" } },
+  { q: "Can you migrate our store from another platform?", a: "It is a scoped project. We start with an inventory of the catalogue, customers and order history, then agree what moves and what is retired. We plan the redirects before launch. Order history and customer accounts are checked after the move, not assumed to have carried over.", link: { to: "/services/website-development", label: "Website development" } },
   { q: "How do payments work?", a: "Your payment processor holds the card data, and we connect the storefront to it. That keeps PCI scope with the processor. We set up checkout, refunds and reconciliation to the ledger, with the payment account in your name. Test orders run end to end before launch, so refunds and reconciliation are checked early." },
   { q: "Do you provide support after launch?", a: "Yes. Every build has a hypercare period right after go-live, followed by 24/7 technical support and maintenance. A person reads what you send, and the same team that built the store looks after it." },
   { q: "What does an ecommerce build need from us?", a: "Your catalogue, brand assets, the accounting system, the payment provider and your shipping rules. If any of these are not ready, we say so in week one and plan around it, rather than discovering the gap at launch. A short checklist in the first week shows exactly which of these items are still missing." },

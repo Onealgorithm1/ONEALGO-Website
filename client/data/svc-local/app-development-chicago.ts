@@ -493,7 +493,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work and what to check",
-   "lede": "We do not publish client results for app builds, so here is the method you can hold us to instead.",
+   "lede": "Here is the method behind every app build, written so you can hold us to each step.",
    "leadIn": "What you get:",
    "lead": "a written scope, browser previews at each stage, and full ownership of code, hosting and accounts.",
    "deeper": {
@@ -606,7 +606,7 @@ export const PLACE: LocalPlace = {
     "label": "How collaboration runs",
     "paras": [
      "Workshops, design reviews and test sessions all happen on video with screen sharing. You review builds in your own browser and leave comments where the issue is.",
-     "We have no Chicago office and do not pretend to. Our team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355."
+     "Chicago projects run by video call and screen-share. Our team works from 625 Swedesford Rd, Unit B, Malvern, PA 19355."
     ]
    }
   },

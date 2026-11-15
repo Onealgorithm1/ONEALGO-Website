@@ -112,7 +112,7 @@ export default function Capabilities() {
 
       <CTABand
         title="Ready to discuss a requirement?"
-        body="Send us the requirement or solicitation you are working on and we will tell you what we can support and what we cannot."
+        body="Send us the requirement or solicitation you are working on and we will tell you how we can support it."
         primary={{ label: "Talk to an Expert", to: "/contact" }}
       />
     </Layout>

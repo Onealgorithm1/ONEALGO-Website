@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we collaborate",
     "paras": [
-     "There is no Orlando branch; projects run online from Malvern, PA. Drafts arrive as shared documents, campaigns are approved before launch, and monthly reviews happen on a video call with the dashboards on screen.",
+     "Projects run online from Malvern, PA. Drafts arrive as shared documents, campaigns are approved before launch, and monthly reviews happen on a video call with the dashboards on screen.",
      "Firms marketing statewide can also see our Marketing in Florida page."
     ]
    }

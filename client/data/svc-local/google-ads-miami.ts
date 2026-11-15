@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we work and what you can verify",
-   "lede": "We publish no Google Ads client results, so here is the method you can check for yourself.",
+   "lede": "Here is the Google Ads method we follow, which you can check for yourself.",
    "leadIn": "What you get:",
    "lead": "admin access to your own account, written scope, tracking you can test and reports drawn straight from Google.",
    "deeper": {
@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
     "label": "Reviews on a shared screen",
     "paras": [
      "Account reviews happen over video with the Google Ads interface on screen, so you see the same numbers we do.",
-     "There is no Miami location; the account is managed from our office in Malvern, Pennsylvania."
+     "The account is managed from our office in Malvern, Pennsylvania."
     ]
    }
   },

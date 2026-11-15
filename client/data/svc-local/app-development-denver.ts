@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Talking to the builders",
     "paras": [
-     "You talk to the people building your app, by video, with screens shared for every demo. There is no Colorado branch; the work is remote from Malvern, PA, and every build is reviewed in your browser or on your phone.",
+     "You talk to the people building your app, by video, with screens shared for every demo. The work is remote from Malvern, PA, and every build is reviewed in your browser or on your phone.",
      "Support after launch is round the clock for anything that stops the app working."
     ]
    }

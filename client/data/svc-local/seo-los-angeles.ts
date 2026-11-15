@@ -601,7 +601,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls, screens and reviews",
     "paras": [
-     "We have no Los Angeles branch. Calls run over video, audits are walked through on a shared screen, and every page draft opens in your own browser before it goes live.",
+     "We work with Los Angeles businesses from Malvern, PA. Calls run over video, audits are walked through on a shared screen, and every page draft opens in your own browser before it goes live.",
      "Support requests reach us around the clock, and every change is logged so you can see what moved and when."
     ]
    }

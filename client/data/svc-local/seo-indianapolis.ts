@@ -583,10 +583,10 @@ export const PLACE: LocalPlace = {
     "a": "No. Our one office is in Malvern, PA, and SEO work for Indianapolis runs remotely, with every stage reviewed in your own browser."
    },
    "deeper": {
-    "label": "Same clock, no branch",
+    "label": "Same clock, one team",
     "paras": [
      "Indianapolis and our Malvern office both run on Eastern time, so meetings are easy to schedule. We use video calls and screen-shares, and you review drafts in your browser.",
-     "There is no Indianapolis office. You reach the team at (610) 890-9711 or at 625 Swedesford Rd, Unit B, Malvern, PA 19355."
+     "You reach the team at (610) 890-9711 or at 625 Swedesford Rd, Unit B, Malvern, PA 19355."
     ]
    }
   },

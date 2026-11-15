@@ -452,7 +452,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The median density across our SEO pages is 90.1 per 10,000, so San Diego's agency field is far thicker than typical. Buyers here get pitched often, and they have learned to ask for evidence.",
      "Custom programming adds 120.2 firms per 10,000, ranking 14th. Many of those build websites, which is why the sites you compete against are often technically sound. Winning means better content and stronger authority, not just a faster theme.",
-     "We work from Malvern, PA, and we say so. What we bring instead of a local storefront is a written plan, access to your own Search Console data and monthly reports you can check."
+     "We work from Malvern, PA. What we bring is a written plan, access to your own Search Console data and monthly reports you can check."
     ]
    },
    "table": {
@@ -491,7 +491,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Proof from a Florida manufacturer",
-   "lede": "Our clearest SEO result comes from Phantom Arcades, an arcade manufacturer in Florida, not from San Diego, and we tell it plainly.",
+   "lede": "Our clearest SEO result comes from Phantom Arcades, an arcade manufacturer in Florida.",
    "leadIn": "By the numbers:",
    "lead": "Google clicks rose 92% year over year and non-brand clicks rose 231%, measured in Google Search Console.",
    "deeper": {
@@ -607,7 +607,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How remote SEO works day to day",
     "paras": [
-     "There is no San Diego branch. Calls run on Teams or Zoom, screen-shares replace site visits, and drafts are reviewed in your own browser before anything is published.",
+     "We serve San Diego from Malvern, PA. Calls run on Teams or Zoom, screen-shares replace site visits, and drafts are reviewed in your own browser before anything is published.",
      "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Support is available around the clock for anything urgent on a live site."
     ]
    }

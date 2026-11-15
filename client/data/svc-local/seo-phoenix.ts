@@ -596,7 +596,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we work together",
     "paras": [
-     "We do not have a Phoenix office. Our one office is in Malvern, Pennsylvania, and Phoenix projects run over video calls, shared screens and drafts you review in your browser.",
+     "Our one office is in Malvern, Pennsylvania, and Phoenix projects run over video calls, shared screens and drafts you review in your browser.",
      "Support requests are answered around the clock, by people who already know your site and your plan."
     ]
    }

@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How collaboration happens",
     "paras": [
-     "There is no Los Angeles office to visit; our single office is in Malvern, Pennsylvania. Strategy sessions run on video, campaign drafts are shared as links, and you approve every post and email in your browser.",
+     "Our single office is in Malvern, Pennsylvania. Strategy sessions run on video, campaign drafts are shared as links, and you approve every post and email in your browser.",
      "Support is available around the clock for anything that breaks, from a form that stops sending to a social account that gets locked."
     ]
    }

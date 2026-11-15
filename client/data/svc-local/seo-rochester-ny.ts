@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "A firm count is a ceiling rather than a list of rivals: the Census codes cover every ad agency and marketing consultancy, not only those doing search work.",
      "Custom programming is thin too, ranking 44th at 67.7 per 10,000 against an 86.9 median. With fewer developers nearby, slow pages, missing structured data and crawl errors can linger, so a technical audit is worth doing first.",
-     "We serve Rochester remotely from Malvern, PA, with written plans and reporting in your accounts, not a local storefront."
+     "We serve Rochester remotely from Malvern, PA, with written plans and reporting in your accounts."
     ]
    },
    "table": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Video calls, browser reviews",
     "paras": [
      "Rochester and Malvern share Eastern time, so meetings fit normal hours. We work by video call and screen-share, and you review every change in your own browser.",
-     "There is no Rochester or upstate New York office; our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent problems are answered at any hour."
+     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent problems are answered at any hour."
     ]
    }
   },

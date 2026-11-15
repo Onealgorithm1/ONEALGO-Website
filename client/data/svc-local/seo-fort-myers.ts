@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How we stay connected",
     "paras": [
-     "We have no Fort Myers office. The work runs from our one office in Malvern, Pennsylvania, over video calls, shared screens and drafts you review in your browser.",
+     "The work runs from our one office in Malvern, Pennsylvania, over video calls, shared screens and drafts you review in your browser.",
      "Support requests are answered at any hour, which matters when a storm knocks a site's booking form offline."
     ]
    }

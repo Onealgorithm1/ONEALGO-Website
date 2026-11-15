@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings across time zones",
     "paras": [
      "Calls are scheduled for your Tucson morning, and we walk through audits and reports on a shared screen. Drafts arrive as links you can review anytime.",
-     "Our one office is in Malvern, Pennsylvania; there is no Arizona location."
+     "Our one office is in Malvern, Pennsylvania."
     ]
    }
   },

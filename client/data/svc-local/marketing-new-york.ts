@@ -471,7 +471,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "One client, one clear result",
-   "lede": "We have no New York client to cite, so here is Phantom Arcades, a Florida arcade manufacturer whose growth came from organic search.",
+   "lede": "Here is Phantom Arcades, a Florida arcade manufacturer whose growth came from organic search.",
    "leadIn": "The bottom line:",
    "lead": "after we rebuilt its website for search, Google clicks grew 92% and non-brand clicks grew 231% year over year.",
    "deeper": {
@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings and reviews",
     "paras": [
-     "We do not keep a desk in Manhattan. Planning calls happen by video, drafts are reviewed in your browser, and campaign dashboards are shared so you can check them any time.",
+     "We work with New York firms from Malvern, PA. Planning calls happen by video, drafts are reviewed in your browser, and campaign dashboards are shared so you can check them any time.",
      "If something breaks on a weekend, round-the-clock support covers the live site and running campaigns."
     ]
    }

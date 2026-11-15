@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls, screen-shares and reviews",
     "paras": [
-     "We work with Nashville teams over video calls and screen-shares, and every page change goes to a preview link you can open in your browser before it goes live. There is no branch office in Tennessee and you do not need one: the work, the reporting and the support all happen online.",
+     "We work with Nashville teams over video calls and screen-shares, and every page change goes to a preview link you can open in your browser before it goes live. Our team works from Malvern, PA, and the work, the reporting and the support all happen online.",
      "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and the phone is (610) 890-9711."
     ]
    }

@@ -150,7 +150,7 @@ export default function Martech() {
             points={["Journeys triggered by what someone did, not a send date", "Follow-up that stops the moment someone replies", "Automation wired to the CRM record, not beside it"]}>
             <GoDeeper label="where the experience comes from">
               <p className="sf-rule">We supported one client&rsquo;s Salesforce Marketing Cloud account on a recurring basis for about 18 months. The client is not named.</p>
-              <p>We also built and run our own Salesforce email outreach platform, with a send governor and reply matching. It is our own platform, not a client result.</p>
+              <p>We also built and run our own Salesforce email outreach platform, with a send governor and reply matching.</p>
               <div className="sf-links">
                 <Link className="sf-link" to={MC}>Salesforce Marketing Cloud consulting</Link>
                 <Link className="sf-link" to="/services/salesforce-integration">Salesforce integration services</Link>
@@ -188,10 +188,10 @@ export default function Martech() {
 
         {/* 4b · NEW: work delivered */}
         <SmartSection id="delivered" labelledBy="h-delivered"
-          heading={{ id: "h-delivered", kicker: "Proof", title: "MarTech work we have delivered", lede: "Two pieces of work, with no client named." }}>
+          heading={{ id: "h-delivered", kicker: "Proof", title: "MarTech work we have delivered", lede: "Two pieces of work: Marketing Cloud support and our own email outreach platform." }}>
           <div className="sf-grid" style={{ marginTop: 40 }}>
             <div className="sf-c6"><CaseCard title="Marketing Cloud support" built="Recurring support for one client's Salesforce Marketing Cloud account for about 18 months. The client is not named." to={MC} linkLabel="Salesforce Marketing Cloud consulting" /></div>
-            <div className="sf-c6"><CaseCard title="Our own email outreach platform" built="A Salesforce email outreach platform with a send governor and reply matching. It is our own system, not a client result." to="/services/salesforce-integration" linkLabel="Salesforce integration services" /></div>
+            <div className="sf-c6"><CaseCard title="Our own email outreach platform" built="A Salesforce email outreach platform with a send governor and reply matching. It is our own system." to="/services/salesforce-integration" linkLabel="Salesforce integration services" /></div>
           </div>
         </SmartSection>
 

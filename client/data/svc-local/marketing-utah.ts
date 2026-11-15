@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings and approvals",
     "paras": [
-     "We meet Utah businesses on video, review drafts by screen-share and send pages and posts as links to approve in the browser. There is no Utah branch: the team sits in Malvern, Pennsylvania, and support reaches you online.",
+     "We meet Utah businesses on video, review drafts by screen-share and send pages and posts as links to approve in the browser. The team sits in Malvern, Pennsylvania, and support reaches you online.",
      "Mountain mornings line up with Eastern afternoons, which leaves plenty of shared hours for calls."
     ]
    }

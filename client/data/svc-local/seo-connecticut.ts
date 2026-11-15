@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
     "label": "How collaboration works",
     "paras": [
      "We meet by video or phone, walk through findings on a shared screen and send drafts as links. You can review pages from Waterbury, Danbury or anywhere in the state.",
-     "There is no Connecticut office; our single office is in Malvern, Pennsylvania."
+     "Our single office is in Malvern, Pennsylvania."
     ]
    }
   },

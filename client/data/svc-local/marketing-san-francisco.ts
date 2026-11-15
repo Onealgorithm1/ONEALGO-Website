@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
     "label": "How collaboration works",
     "paras": [
      "Calls are set for Pacific mornings, which is midday for our team in Malvern, PA. Campaign drafts and calendars are shared links you can review when it suits you.",
-     "You will not find a San Francisco branch: we keep one office and deliver remotely, with support around the clock for urgent issues."
+     "We keep one office and deliver remotely, with support around the clock for urgent issues."
     ]
    }
   },

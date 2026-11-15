@@ -149,10 +149,10 @@ export const differentiators: Differentiator[] = [
       "The people who scope the work are the people who build it. Named engineers in the staffing plan, no substitution after award.",
   },
   {
-    title: "We tell you what we do not do",
+    title: "NIST and DFARS built into delivery",
     icon: "checkCircle",
     description:
-      "We build to NIST and DFARS requirements as part of delivery, but we are not a standalone cybersecurity provider. We hold no federal prime contract and no CPARS record.",
+      "We build to NIST and DFARS requirements as part of delivery, on the cloud modernization and systems integration work we take on.",
   },
 ];
 

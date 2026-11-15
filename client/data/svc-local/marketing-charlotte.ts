@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How collaboration works",
     "paras": [
-     "Our team is not in North Carolina, and the program does not need us to be. Workshops, content reviews and monthly reporting all run over video and shared screens.",
+     "Our team runs the program from Malvern, PA. Workshops, content reviews and monthly reporting all run over video and shared screens.",
      "We keep Eastern hours from Malvern, PA, the same clock as Charlotte, with emergency support whenever you need it."
     ]
    }

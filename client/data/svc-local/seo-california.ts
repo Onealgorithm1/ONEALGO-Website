@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Density is above the 90.1 median but not extreme for a state this size. The firms cluster in the big metros, so competition for an SEO provider in Los Angeles or San Francisco feels far heavier than in the Central Valley.",
      "Custom programming ranks 20th at 106.5 per 10,000, and computer systems design and related firms number 20,696. Many California sites are well engineered, which shifts the battle toward content and authority.",
-     "We are not a California firm and do not claim to be. We work from Malvern, PA, three time zones east, and deliver statewide work remotely with written plans and shared reports."
+     "SEO is done on your site and in Google's tools. We work from Malvern, PA, three time zones east, and deliver statewide work remotely with written plans and shared reports."
     ]
    },
    "table": {
@@ -476,7 +476,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "What our SEO has done",
-   "lede": "The case we can document is an arcade manufacturer in Florida, which we tell straight rather than invent a California story.",
+   "lede": "The case we can document is an arcade manufacturer in Florida, measured in Search Console.",
    "leadIn": "By the numbers:",
    "lead": "Google clicks rose 92% year over year and non-brand clicks rose 231%, measured in Search Console.",
    "deeper": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Across three time zones",
     "paras": [
      "We are three hours ahead of you, so a morning call in California is a late-morning call for us, and questions sent at the end of your day are usually answered by your next morning.",
-     "There is no California office. Calls run over video, reviews happen in your browser, and urgent site issues are handled at any hour from Malvern, PA."
+     "Calls run over video, reviews happen in your browser, and urgent site issues are handled at any hour from Malvern, PA."
     ]
    }
   },

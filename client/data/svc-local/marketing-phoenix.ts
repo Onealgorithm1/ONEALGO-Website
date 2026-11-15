@@ -480,7 +480,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The rebuild included a 3D cabinet configurator, and we mapped 80+ old addresses to new ones with redirects so old links landed on the right pages.",
      "Over a 68-day window in 2026, against the same dates in 2025, clicks went from 1,112 to 2,130 and non-brand clicks from 95 to 314. Impressions rose 63%.",
-     "The comparable stretch before that window was flat, so the lift lines up with the new site. It is a Florida case, not a Phoenix one, and we follow the same site-first order for every client."
+     "The comparable stretch before that window was flat, so the lift lines up with the new site. It is a Florida case, and we follow the same site-first order for every client."
     ]
    },
    "cards": [
@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Our setup",
     "paras": [
-     "Our only office is in Malvern, Pennsylvania; there is no Phoenix branch. Strategy calls happen on video, reports are walked through on a shared screen, and campaigns are approved in your browser.",
+     "Our only office is in Malvern, Pennsylvania. Strategy calls happen on video, reports are walked through on a shared screen, and campaigns are approved in your browser.",
      "Urgent issues, such as a broken form or a locked social account, reach us at any hour."
     ]
    }

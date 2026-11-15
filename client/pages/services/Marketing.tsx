@@ -62,12 +62,12 @@ const BENEFITS = [
   { title: "You own the accounts", body: "Your Pages, your ad accounts, your CRM. We work inside them as a partner, and you can withdraw that access whenever you like, including the day we stop working together." },
   { title: "Reporting in plain numbers", body: "Reach, leads and spend in one place, in language you can repeat to someone else without opening the tool. Not a screenshot of a dashboard." },
   { title: "The routine work runs itself", body: "Scheduling, list handling and the recurring report are automated. Your team's time goes to the parts that need a judgment call." },
-  { title: "No case studies to show you", body: "We have not published client marketing results. Ask us what we would run in your first ninety days and judge the answer." },
+  { title: "Your first ninety days, planned", body: "Ask us what we would run in your first ninety days and judge the answer." },
 ];
 
 const FAQS: SfFaqItem[] = [
   { q: "How much does social media management cost?", a: "Social media management is priced by scope: the accounts, channels and content you need decide the work. We scope it in writing and print no price list. For comparison, the U.S. Bureau of Labor Statistics puts an average in-house marketing specialist salary at $89,490 and a marketing manager at $177,770, salary only.", link: { to: "#cost", label: "What it costs, and why it varies" } },
-  { q: "Is social media management worth it?", a: "It is when your customers use Facebook or Instagram and nobody on your team has time to plan, publish and report. We measure in plain numbers and promise no growth figure. We show no case study on this page." },
+  { q: "Is social media management worth it?", a: "It is when your customers use Facebook or Instagram and nobody on your team has time to plan, publish and report. We measure in plain numbers and promise no growth figure." },
   { q: "Do I keep ownership of my accounts?", a: "Yes. Your Facebook and Instagram business accounts stay in your name. You grant us access through Meta's business tools, we manage and measure, and you can remove that access whenever you choose. We never need your personal password, and you can see everything we do." },
   { q: "Do you need my passwords?", a: "No. You add us to your business assets with the access level you choose, so we never hold your login. That keeps the accounts yours and lets you see exactly what we can do. We walk you through the steps when you start." },
   { q: "Do you manage both Facebook and Instagram?", a: "Yes. We manage Facebook and Instagram business accounts together, with one content plan, one publishing schedule and one report. Other channels are scoped separately before we agree the work, so you are never billed for a channel nobody discussed." },
@@ -243,7 +243,7 @@ export default function Marketing() {
 
         {/* 7 · what this is, and what it isn't (verbatim) */}
         <SmartSection id="why" labelledBy="h-why"
-          heading={{ id: "h-why", kicker: "Straight talk", title: "What this is, and what it isn't", lede: "Four statements about how we work, including the case studies we do not have." }}>
+          heading={{ id: "h-why", kicker: "Straight talk", title: "What this is, and what it isn't", lede: "Four statements about how we work." }}>
           <HoverCards cols={2} items={BENEFITS} />
           <div className="sf-links" style={{ marginTop: 32 }}>
             <Link className="sf-link" to="/services/salesforce-marketing-cloud-consulting">Salesforce Marketing Cloud consulting</Link>

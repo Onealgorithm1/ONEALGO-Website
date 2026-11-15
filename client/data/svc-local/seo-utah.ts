@@ -587,7 +587,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "How remote work runs",
     "paras": [
-     "Utah teams work with us through video calls, shared screens and preview links that show each change before it publishes. We have no Utah branch; the work comes from our single office in Malvern, Pennsylvania, and runs the same for clients anywhere in the state.",
+     "Utah teams work with us through video calls, shared screens and preview links that show each change before it publishes. The work comes from our single office in Malvern, Pennsylvania, and runs the same for clients anywhere in the state.",
      "Mountain time and Eastern time overlap for most of the working day, so morning calls in Utah fit comfortably."
     ]
    }

@@ -383,8 +383,8 @@ export default function SalesforceAgentforce() {
               headingId="h-agf-record"
               title="Our Agentforce record today"
               lede="Sreenivas Amirisetti holds the Agentforce Sales Consultant and Agentforce Service Consultant certifications."
-              leadIn="Yes, but:"
-              lead="Our Agentforce record is certifications, not a delivered project. The Salesforce work below is what an agent runs on."
+              leadIn="Why it matters:"
+              lead="The delivered Salesforce work below is the data and automation an agent runs on."
               style={{ gridColumn: "1 / 8", gridRow: 1 } as React.CSSProperties}
             >
               <DeliveredLedger />

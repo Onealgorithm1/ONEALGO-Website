@@ -41,7 +41,7 @@ const UNITS: IndUnit[] = [
     points: ["Planning and publishing content", "Profiles kept current", "A report of what each channel delivered"],
     deepLabel: "how social media management works",
     deep: (<>
-      <p className="sf-rule">We plan and publish content, keep profiles current and report what each channel delivered. Gorband is a client site we built. We publish no social media results.</p>
+      <p className="sf-rule">We plan and publish content, keep profiles current and report what each channel delivered. Gorband is a client site we built.</p>
       <div className="sf-links"><Link className={L} to="/services/marketing">Social media management services</Link></div>
     </>),
   },
@@ -61,33 +61,33 @@ const UNITS: IndUnit[] = [
     id: "spend", title: "Nobody can tell what the spend did",
     lede: "Search visibility and analytics underneath it, so results can be read instead of argued about.",
     lead: "Our one measured example is Phantom Arcades, where Google clicks rose 92 percent year on year.",
-    points: ["Non-brand clicks up 231% year on year", "Measured in Google Search Console", "No revenue claimed"],
+    points: ["Non-brand clicks up 231% year on year", "Measured in Google Search Console", "Compared with the same 68 days in 2025"],
     deepLabel: "the Phantom Arcades result",
     deep: (<>
-      <p className="sf-rule">The figures are Google Search Console clicks for the Phantom Arcades site: clicks up 92 percent and non-brand clicks up 231 percent, 13 August to 19 October 2026 against the same 68 days a year earlier. We do not report revenue.</p>
+      <p className="sf-rule">The figures are Google Search Console clicks for the Phantom Arcades site: clicks up 92 percent and non-brand clicks up 231 percent, 13 August to 19 October 2026 against the same 68 days a year earlier. The figures are clicks, not sales.</p>
       <div className="sf-links"><Link className={L} to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className={L} to="/services/seo">SEO services</Link></div>
     </>),
   },
   {
-    id: "limits", title: "Where our marketing work stops",
-    lede: "We do not sell white-label web development to agencies.",
-    lead: "We have no ad-account results to show and no HubSpot work, and we hold no client testimonials.",
+    id: "limits", title: "How we work with marketing teams",
+    lede: "We work under our own name, directly with the clients we serve.",
+    lead: "Accounts, data and integrations stay in your name, documented and handed over.",
     deepLabel: "what that means for you",
     deep: (<>
-      <p className="sf-rule">We work under our own name with the clients we serve directly. Our paid media page explains a method and an audit, not client results. See our <Link className={L} to="/services/website-development">website development</Link> and the four people who would do the work on the <Link className={L} to="/about">about page</Link>.</p>
+      <p className="sf-rule">Our paid media page explains the method and the account audit. See our <Link className={L} to="/services/website-development">website development</Link> and the four people who would do the work on the <Link className={L} to="/about">about page</Link>.</p>
     </>),
   },
 ];
 
 const FAQS: SfFaqItem[] = [
-  { q: "Do you offer white-label web development for agencies?", a: "No. We do not sell white-label web development, and we have no agency-partner program. We work under our own name with the clients we serve directly. If you are an agency with a specific integration need, send the detail and we will say whether it fits." },
-  { q: "Do you manage social media for businesses?", a: "Yes. We manage Facebook Pages and Instagram business accounts, always on accounts you own. Gorband is a client site we built. We publish no social media results, so we will not quote a number, but we will report what each channel delivered.", link: { to: "/services/marketing", label: "Social media management services" } },
-  { q: "Can you connect our campaign platform to our CRM?", a: "Yes, in principle. Our pattern is Salesforce Marketing Cloud, with about 18 months of recurring support for one client we do not name. We agree which system owns each field, build the sync and report its failures. We do not work on HubSpot.", link: { to: "/services/martech", label: "MarTech consulting" } },
-  { q: "Can you show marketing results?", a: "One: for Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. It is one result, not a pattern, and we claim no revenue. We publish no other client marketing results. The case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
-  { q: "Do you run paid search or social ads?", a: "We offer a method and an audit for Google Ads, explained on our paid media page. We have no ad-account results to show. If you want a review of an account, we will say what we would check.", link: { to: "/services/google-ads", label: "Google Ads management" } },
+  { q: "Do you offer white-label web development for agencies?", a: "No. We do not sell white-label web development. We work under our own name with the clients we serve directly. If you are an agency with a specific integration need, send the detail and we will say whether it fits." },
+  { q: "Do you manage social media for businesses?", a: "Yes. We manage Facebook Pages and Instagram business accounts, always on accounts you own. Gorband is a client site we built, with social media managed on accounts the client owns. We report what each channel delivered.", link: { to: "/services/marketing", label: "Social media management services" } },
+  { q: "Can you connect our campaign platform to our CRM?", a: "Yes. Our pattern is Salesforce Marketing Cloud, with about 18 months of recurring support for one client. We agree which system owns each field, build the sync and report its failures.", link: { to: "/services/martech", label: "MarTech consulting" } },
+  { q: "Can you show marketing results?", a: "Yes. For Phantom Arcades, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, from Search Console. The figures are clicks, not sales. The case study on our blog shows the method.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
+  { q: "Do you run paid search or social ads?", a: "We offer a method and an audit for Google Ads, explained on our paid media page. If you want a review of an account, we will say what we would check.", link: { to: "/services/google-ads", label: "Google Ads management" } },
   { q: "What drives the cost of a MarTech integration?", a: "The number of tools, whether each has an API, how much data moves, the rate limits and who owns each account. Nothing starts without a written scope, and we quote only once we have seen the tools involved." },
   { q: "Who owns the accounts and the data?", a: "You do. Accounts stay in your name from the first day, and integrations are documented and handed over. We work inside your accounts as a partner, and nothing is held in ours that you would need to get back. Ad accounts, analytics properties and CRM records all remain yours if we part ways." },
-  { q: "Do you do SEO for marketing teams?", a: "Yes. SEO is a general service, and our measured example is Phantom Arcades. We cover technical SEO, content structure and a measured result, and we report clicks, not revenue. The SEO page lists what a review covers and what it does not.", link: { to: "/services/seo", label: "SEO services" } },
+  { q: "Do you do SEO for marketing teams?", a: "Yes. SEO is a general service, and our measured example is Phantom Arcades. We cover technical SEO, content structure and a measured result, and we report clicks, not revenue. The SEO page lists what a review covers.", link: { to: "/services/seo", label: "SEO services" } },
   { q: "What is the difference between a marketing automation consultant and a MarTech consultant?", a: "Marketing automation builds journeys and sends inside one platform. MarTech designs the stack around it: which tools you run, how they connect and which one owns each record. Most teams need the second before the first pays off. A short call is enough to tell which of the two your team needs first.", link: { to: "/services/martech", label: "MarTech consulting" } },
 ];
 
@@ -141,7 +141,7 @@ export default function Marketing() {
         after={{
           spend: (tone) => (
             <CaseBand id="work" tone={tone()} heading="Marketing work we can show"
-              lede="One measured search result and one site we built. No other client results are published."
+              lede="One measured search result and one site we built."
               cases={[
                 { title: "An arcade manufacturer in Florida", built: "Organic search for a store we built, measured in Google Search Console.", result: "Google clicks +92%, non-brand +231%", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
                 { title: "Gorband", built: "A client site we built, with social media managed on accounts the client owns." },

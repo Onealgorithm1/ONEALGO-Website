@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Across the state, online",
     "paras": [
-     "Meetings are video calls with screens shared, and every draft is a link you review in your browser. We are across the state in Malvern, PA, with no Pittsburgh branch, so all work is delivered remotely.",
+     "Meetings are video calls with screens shared, and every draft is a link you review in your browser. We are across the state in Malvern, PA, and all work is delivered remotely.",
      "Urgent problems get support around the clock."
     ]
    }

@@ -603,7 +603,7 @@ export const PLACE: LocalPlace = {
     "label": "Across three time zones",
     "paras": [
      "Our day starts before yours, so overnight requests are often handled by the time you log in. Calls go in your morning or early afternoon, Pacific time.",
-     "We have no Seattle branch. You review drafts and reports in your browser, and support runs around the clock for anything urgent."
+     "Our team works from Malvern, PA. You review drafts and reports in your browser, and support runs around the clock for anything urgent."
     ]
    }
   },

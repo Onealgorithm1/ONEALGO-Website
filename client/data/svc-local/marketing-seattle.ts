@@ -476,7 +476,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "Proof the sequence works",
-   "lede": "Our clearest marketing evidence comes from an arcade manufacturer in Florida, not a Seattle client, and it starts with the website.",
+   "lede": "Our clearest marketing evidence comes from an arcade manufacturer in Florida, and it starts with the website.",
    "leadIn": "The bottom line:",
    "lead": "after the rebuild, Google clicks grew 92% year over year and non-brand clicks rose 231%.",
    "deeper": {
@@ -592,7 +592,7 @@ export const PLACE: LocalPlace = {
     "label": "Pacific time, remote delivery",
     "paras": [
      "We schedule calls to suit Pacific hours, usually your morning, and share social calendars and campaign drafts as links you can review whenever suits you.",
-     "There is no Seattle office; our one office is in Malvern, PA. Urgent site or campaign problems reach our support line at any hour."
+     "Our one office is in Malvern, PA. Urgent site or campaign problems reach our support line at any hour."
     ]
    }
   },

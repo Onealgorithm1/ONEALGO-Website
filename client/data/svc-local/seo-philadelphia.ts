@@ -490,7 +490,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "Phantom Arcades builds arcade cabinets in Valrico, Florida. We designed and rebuilt its website for search, including a 3D cabinet configurator, and mapped 80+ old addresses to new ones with redirects.",
      "Search Console then compared a 68-day window with the same dates a year earlier: clicks went from 1,112 to 2,130, non-brand clicks from 95 to 314, and impressions rose 63%. The equal stretch before that window was flat.",
-     "Our own SEO is run in-house for One Algorithm on the same method; we publish no numbers for it."
+     "Our own SEO is run in-house for One Algorithm on the same method."
     ]
    },
    "cards": [

@@ -586,7 +586,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings across a big state",
     "paras": [
      "We meet over video at times that suit Central or Mountain hours, share drafts as links and review reports on screen.",
-     "There is no Texas branch; our one office is in Malvern, Pennsylvania, reachable at (610) 890-9711 with support around the clock."
+     "Our one office is in Malvern, Pennsylvania, reachable at (610) 890-9711 with support around the clock."
     ]
    }
   },

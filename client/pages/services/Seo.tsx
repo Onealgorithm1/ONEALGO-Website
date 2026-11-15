@@ -214,9 +214,9 @@ export default function Seo() {
               "Impressions up 63%, to 52,226",
             ]}
           >
-            <GoDeeper label="what we changed and what we are not claiming">
+            <GoDeeper label="what we changed and how we measured it">
               <p className="sf-rule">The window is 13 August to 19 October 2026, against the same dates in 2025. The 68 days before it were flat, with clicks down 6%, so the lift is not a trend that was already running.</p>
-              <p>We do not quote revenue. This is one client, and it is the only SEO result we publish.</p>
+              <p>These are Search Console figures for one client. We do not quote revenue.</p>
               <div className="sf-links"><Link className="sf-link" to={CASE}>Phantom Arcades SEO case study</Link></div>
             </GoDeeper>
           </SmartUnit>
@@ -281,7 +281,6 @@ export default function Seo() {
               <p className="sf-kicker">The team</p>
               <h3 className="sf-h3">Four of us, starting with what is broken</h3>
               <p>24/7 support and hypercare after launch. 5.0 from 6 Google reviews, read {READ_ON}.</p>
-              <p className="sf-mono">We make no ranking claim for our own site: our Search Console clicks are almost all brand so far.</p>
             </article>
           </div>
         </SmartSection>
@@ -344,7 +343,7 @@ export default function Seo() {
             <article className="seo-lift" data-reveal="">
               <p className="sf-kicker">Nearby</p>
               <h3 className="sf-h3" id="h-nearby">Based in Malvern, PA</h3>
-              <p>Our office is in Malvern, inside Chester County. We serve Philadelphia businesses from Malvern. We have no Philadelphia client result to show.</p>
+              <p>Our office is in Malvern, inside Chester County. We serve Philadelphia businesses from Malvern.</p>
               <div className="sf-links">
                 <Link className="sf-link" to="/services/seo-chester-county">SEO company in Chester County</Link>
                 <Link className="sf-link" to="/services/google-ads">Google Ads management</Link>

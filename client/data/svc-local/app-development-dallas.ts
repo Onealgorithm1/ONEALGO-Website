@@ -609,7 +609,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote by design",
     "paras": [
-     "We have no Texas office; projects run on video calls, screen-shares and browser previews of the app itself, so your team can test from their own desks.",
+     "Projects run on video calls, screen-shares and browser previews of the app itself, so your team can test from their own desks.",
      "Everything is coordinated from Malvern, PA, and post-launch support covers nights and weekends."
     ]
    }

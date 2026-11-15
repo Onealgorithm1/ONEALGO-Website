@@ -448,7 +448,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "NAICS 541810 and 541613 cover every agency and consultancy registered in the metro, from one-person shops to full-service firms. Many never touch SEO, so 1,040 is the upper bound on who you would be comparing us with.",
      "The density figure is the more useful one. Fewer firms per business than the median means Boston buyers are not drowning in options, but the ones they find tend to be established. Specific, documented work stands out in that field.",
-     "We do not claim to be local. We offer a process you can watch, monthly numbers from your own Search Console, and accounts that stay in your name."
+     "We work remotely from Malvern, PA. We offer a process you can watch, monthly numbers from your own Search Console, and accounts that stay in your name."
     ]
    },
    "table": {
@@ -603,7 +603,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screen-shares and reviews",
     "paras": [
      "Boston shares our Eastern time zone, so calls land inside your working day without juggling clocks. Most reviews happen on a screen-share where we walk through the changes live.",
-     "There is no Boston branch. Drafts, reports and staging pages open in your browser, and our support line answers around the clock when something breaks."
+     "Drafts, reports and staging pages open in your browser, and our support line answers around the clock when something breaks."
     ]
    }
   },

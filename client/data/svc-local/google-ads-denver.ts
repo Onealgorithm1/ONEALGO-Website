@@ -482,7 +482,7 @@ export const PLACE: LocalPlace = {
    "kind": "text",
    "id": "proof",
    "h2": "How we run accounts, and what to verify",
-   "lede": "We do not publish Google Ads client results, so judge us on the setup, which you can inspect line by line.",
+   "lede": "Judge us on the setup, which you can inspect line by line.",
    "leadIn": "What you get:",
    "lead": "admin access to your own account, tested conversion tracking, a weekly search terms review and spend reported against conversions.",
    "deeper": {
@@ -594,7 +594,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Reviews on screen",
     "paras": [
-     "Account reviews happen by video with the dashboard on screen, and you can open the account yourself at any time. We have no office in Colorado; management is remote from Malvern, PA.",
+     "Account reviews happen by video with the dashboard on screen, and you can open the account yourself at any time. Management is remote from Malvern, PA.",
      "For an urgent problem, such as a campaign overspending, support runs round the clock."
     ]
    }

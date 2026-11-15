@@ -437,7 +437,7 @@ export const PLACE: LocalPlace = {
     "paras": [
      "The median across our SEO pages is 90.1 per 10,000, so on paper New Jersey is less crowded than most. In practice, neighbouring metros export agencies into the state, and a count is a ceiling rather than a list of SEO rivals.",
      "Programming firms are more common: 124.6 per 10,000, 12th of 59. Many New Jersey sites are built by capable developers, so technical basics are often fine and the gap is usually content and authority.",
-     "We work from Malvern, PA, just outside Philadelphia, and serve New Jersey remotely. That proximity helps with a shared time zone and regional knowledge; it does not mean a New Jersey office."
+     "We work from Malvern, PA, just outside Philadelphia, and serve New Jersey remotely. That proximity helps with a shared time zone and regional knowledge."
     ]
    },
    "table": {
@@ -593,7 +593,7 @@ export const PLACE: LocalPlace = {
     "label": "Close by, delivered remotely",
     "paras": [
      "Malvern is a short drive from the Delaware River, and we share your Eastern time zone, but the work runs remotely: calls, screen-shares and reviews in your own browser.",
-     "There is no New Jersey branch. Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent site issues get a response at any hour."
+     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent site issues get a response at any hour."
     ]
    }
   },

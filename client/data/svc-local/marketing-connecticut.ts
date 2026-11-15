@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
     "label": "Meetings and approvals",
     "paras": [
      "We meet over video or phone and share our screen for reviews. Social calendars, drafts and reports arrive as links you can approve from Hartford, New Haven or the shoreline.",
-     "We keep no Connecticut office; everything runs from Malvern, Pennsylvania."
+     "Everything runs from Malvern, Pennsylvania."
     ]
    }
   },

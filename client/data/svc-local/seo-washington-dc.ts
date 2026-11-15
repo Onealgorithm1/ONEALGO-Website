@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
     "label": "Remote by design",
     "paras": [
      "Washington and Malvern share Eastern time and sit a few hours apart by train, but the work runs online: calls, screen-shares and reviews in your browser.",
-     "We have no Washington office. Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent live-site issues are answered at any hour."
+     "Our one office is at 625 Swedesford Rd, Unit B, Malvern, PA 19355, and urgent live-site issues are answered at any hour."
     ]
    }
   },

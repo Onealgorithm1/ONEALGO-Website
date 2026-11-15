@@ -32,6 +32,18 @@ different card styles, which is the state it was just rescued from.
 - Run `node scripts/contrast-check.mjs` after any colour change. It is 20/20 now;
   keep it there.
 
+## Owner rule: the site never says we have not done the work
+
+Louis, 2026-11-15: "a website is never to tell clients that we've not done the work. Even if we're advertising it, it's
+because we're confident on our capabilities and we want to bring in new work."
+
+- Never write that we have not done, built, delivered, won or been awarded something, or that we have no client, case
+  study, results, testimonial or office somewhere, or that "we make no claim". Say what we do and how we do it, and show
+  the proof we hold.
+- A FAQ question whose only truthful answer is "no" is reworded or dropped.
+- This removes admissions. It does not allow inventing past work: the section below still holds in full.
+- All copy goes through the `humanize` skill (~/.claude/skills/humanize/SKILL.md).
+
 ## Facts that must NOT be invented or overstated
 
 These have been checked and are easy to get wrong:

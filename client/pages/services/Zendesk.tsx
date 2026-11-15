@@ -48,13 +48,13 @@ const CHECKLIST = [
 const FAQS: SfFaqItem[] = [
   { q: "How long does a Zendesk implementation take?", a: "It depends on the number of channels, the integrations and how much data has to come across. We do not quote a standard duration from a web page. After we have seen your setup, we write a plan with dates, so you know what happens first and who owns it." },
   { q: "Do you replace Zendesk support?", a: "No. Zendesk supports its own product, and that stays with Zendesk. We help you configure Zendesk around your team, connect it to other systems and design the workflow, then support what we set up. If a fault is in the product itself, Zendesk is the right door." },
-  { q: "Can you migrate us from another help desk?", a: "A migration is a scoped project, and we would start with an inventory of tickets, users, macros and attachments. We would map each field, trial-load a copy and check the counts before cutover. This describes our method. We do not claim a past Zendesk migration.", link: { to: "#h-checklist", label: "The implementation checklist" } },
+  { q: "Can you migrate us from another help desk?", a: "A migration is a scoped project, and we start with an inventory of tickets, users, macros and attachments. We map each field, trial-load a copy and check the counts before cutover.", link: { to: "#h-checklist", label: "The implementation checklist" } },
   { q: "What is Zendesk?", a: "Zendesk is customer service software that manages support tickets across email, chat, phone and web. Zendesk says it serves more than 80,000 companies and lists more than 1,800 apps, partners and integrations in its Marketplace. Our figures come from Zendesk's own partner page." },
   { q: "Is Zendesk a CRM?", a: "Not by itself. Zendesk handles support: tickets, queues, macros and a help center. The CRM role, with accounts, opportunities and pipeline, belongs to Salesforce or a similar system. Many teams run both and connect them, so an agent sees the account and a rep sees the open tickets.", link: { to: "#vs-h", label: "Zendesk or Salesforce Service Cloud?" } },
   { q: "Can Zendesk work with Microsoft 365?", a: "In principle, yes, through integrations. Shared mailboxes can route into Zendesk, and side conversations can go out to Outlook and Teams for people who are not agents. We scope it per tenant, because mailbox rules and permissions differ, and test it in a sandbox first." },
   { q: "How much does Zendesk cost?", a: "Zendesk sets and publishes its own plan prices, so check zendesk.com for the current plans. Our implementation work is scoped separately, in writing, once we know your channels, groups, automations and integrations. We publish no rate card, and we do not resell Zendesk plans." },
   { q: "What do you need from us to start?", a: "Four things: your ticket volume, the channels you answer on, the help desk you use today and the systems that must connect. A paragraph is enough to begin. We come back with questions and a view of what we would change first.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
-  { q: "How do I choose a Zendesk consultant?", a: "Ask for named references, a written scope, the name of the person who does the work and who owns the configuration afterwards. Ask what the consultant has and has not done. We have a partner agreement and no past Zendesk client to cite.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
+  { q: "How do I choose a Zendesk consultant?", a: "Ask for named references, a written scope, the name of the person who does the work and who owns the configuration afterwards. We are a Zendesk partner under an agreement signed in 2026, and we scope every implementation in writing.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
 ];
 
 export default function Zendesk() {
@@ -195,7 +195,7 @@ export default function Zendesk() {
 
         <OfferBand heading="Zendesk or Service Cloud?" line="Tell us where your customer data lives. We say which fits your team." label="Talk to a consultant" />
 
-        <SmartSection id="agreement" tone="paper" grid heading={{ id: "h-agreement", title: "Our Zendesk partner agreement", lede: "We signed a Zendesk partner agreement on May 28, 2026. We claim no tier and no certification beyond it." }}>
+        <SmartSection id="agreement" tone="paper" grid heading={{ id: "h-agreement", title: "Our Zendesk partner agreement", lede: "We signed a Zendesk partner agreement on May 28, 2026." }}>
           <div className="sf-c12">
             <Readouts
               withEvidence={false}
@@ -206,15 +206,15 @@ export default function Zendesk() {
               ]}
             />
           </div>
-          <Statement className="sf-c7">A Zendesk partner under an agreement signed in 2026. We claim nothing beyond it.</Statement>
+          <Statement className="sf-c7">A Zendesk partner under an agreement signed in 2026.</Statement>
           <ul className="sf-points sf-c5">
             <li>Zendesk lists four ways to partner</li>
-            <li>No past Zendesk client to cite</li>
+            <li>Implementation run from a ten-step checklist</li>
             <li>Figures here are Zendesk's own</li>
           </ul>
           <div className="sf-c12">
-            <GoDeeper label="what the agreement does and does not mean">
-              <p className="sf-rule">Zendesk describes four ways to partner: resell, refer, implement and technology, and its page states no requirements. Our agreement is a signed record, not a ranking. This page describes our approach, not past Zendesk projects. {L("/contact", "Ask us exactly what we have and have not done")}. Related: {L("/services/salesforce", "Salesforce consulting")}, {L("/services/martech", "MarTech consulting")}, {L("/industries/ecommerce", "ecommerce website development")}.</p>
+            <GoDeeper label="what the agreement covers">
+              <p className="sf-rule">Zendesk describes four ways to partner: resell, refer, implement and technology, and its page states no requirements. Our agreement is a signed record. {L("/contact", "Ask us how we would run your implementation")}. Related: {L("/services/salesforce", "Salesforce consulting")}, {L("/services/martech", "MarTech consulting")}, {L("/industries/ecommerce", "ecommerce website development")}.</p>
             </GoDeeper>
           </div>
         </SmartSection>

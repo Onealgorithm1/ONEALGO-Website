@@ -28,7 +28,7 @@ import { StructuredData, createServiceSchema, createWebPageSchema } from "../../
 const PATH = "/services/staff-augmentation";
 const URL_ = "https://onealgorithm.com" + PATH;
 const TITLE = "IT Staff Augmentation Services | One Algorithm";
-const DESCRIPTION = "IT staff augmentation services: specialists who work inside your team, under your lead. We say where each candidate is light. Call (610) 890-9711.";
+const DESCRIPTION = "IT staff augmentation services: specialists who work inside your team, under your lead. We tell you what each candidate has worked on. Call (610) 890-9711.";
 
 const SOURCES: SfSource[] = [
   { name: "U.S. Bureau of Labor Statistics: Occupational Employment and Wage Statistics", what: "Computer occupations, all other (15-1299), May 2025: 435,370 employed nationally; 7,360 in the Philadelphia-Camden-Wilmington area. BLS publishes no staff-augmentation series, so these counts are nearby context, not the size of the market", read: "read 31 October 2026", page: "https://www.bls.gov/oes/current/oes151299.htm" },
@@ -39,8 +39,8 @@ const L = (to: string, t: string) => <Link className="sf-link" to={to}>{t}</Link
 const ROLES: EUnit[] = [
   {
     id: "h-roles", title: "Roles we place",
-    lede: "Salesforce administrators, developers and architects first, then other technical roles on request, and we say where we are light.",
-    lead: "If what you need is not on this list, we tell you. We do not send someone who read the documentation last week.",
+    lede: "Salesforce administrators, developers and architects first, then other technical roles on request.",
+    lead: "We send people who have done the work, and we tell you up front whether we have the right person.",
     points: ["Salesforce administrator", "Salesforce developer", "Salesforce architect"],
     label: "how we handle other roles",
     deep: <p className="sf-rule">Salesforce is where our delivery evidence is, so it is where we lead. Other technical roles are considered on request, case by case, and we tell you whether we have the right person before you spend an hour interviewing. For the Salesforce side, see {L("/services/salesforce", "Salesforce consulting")} and {L("/services/salesforce-managed-services", "Salesforce managed services")}. For a whole product, see {L("/services/application-development", "custom software development")}.</p>,
@@ -59,9 +59,9 @@ const COST_COMPLIANCE: EUnit[] = [
     lede: "Our E-Verify account, enrolled since 2024, verifies our own employees and does not cover subcontractors.",
     lead: "A client taking on contract staff carries risk, so we state the limit.",
     leadIn: "Yes, but:",
-    points: ["E-Verify: our own employees only", "Registered in the federal SAM system", "Not a claim about subcontractors"],
-    label: "what we do and do not claim",
-    deep: <p className="sf-rule">The account is configured to verify our own employees. We do not say everyone placed on your team is covered, because subcontractors are their own employers' hires. Our SAM registration is active; see our {L("/capabilities", "capabilities page")} for the company record.</p>,
+    points: ["E-Verify: our own employees only", "Registered in the federal SAM system", "Subcontractors are their own employers' hires"],
+    label: "what the E-Verify account covers",
+    deep: <p className="sf-rule">The account is configured to verify our own employees. Subcontractors are their own employers' hires, and we tell you in writing who employs each person. Our SAM registration is active; see our {L("/capabilities", "capabilities page")} for the company record.</p>,
   },
 ];
 
@@ -71,8 +71,8 @@ const FAQS: SfFaqItem[] = [
   { q: "Who manages the people you place?", a: "You do. Your lead sets their priorities, and they work in your repository, your ticket queue and your standups. We stay available to the person and to you, and we raise problems early." },
   { q: "How is staff augmentation different from managed services?", a: "With managed services a vendor runs a function for you and is accountable for the service. With staff augmentation you manage the people, and they work inside your team. If you want a plan or a build instead of hours, that is consulting.", link: { to: "/services/it-consulting", label: "IT consulting services" } },
   { q: "What is in a staff augmentation contract?", a: "A staff augmentation contract normally covers the role and scope, the term, notice, intellectual property assignment and confidentiality. It also states who employs the person placed. We agree it in writing before work starts, and we are happy to review yours." },
-  { q: "Do you E-Verify the people you place?", a: "Our E-Verify account covers our own employees only, and we have been enrolled since 2024. It does not cover subcontractors, so we do not claim that everyone placed on your team is verified. Ask us who employs the person, and we will tell you in writing." },
-  { q: "Can you place people outside Salesforce?", a: "Our delivery record is Salesforce, so that is where we lead. Other technical roles are discussed case by case, and we say where we are light before you interview anyone. If we are not the right fit, we tell you rather than send a candidate we cannot stand behind." },
+  { q: "Do you E-Verify the people you place?", a: "Our E-Verify account covers our own employees only, and we have been enrolled since 2024. It does not cover subcontractors. Ask us who employs the person, and we will tell you in writing." },
+  { q: "Can you place people outside Salesforce?", a: "Our delivery record is Salesforce, so that is where we lead. Other technical roles are discussed case by case, and we tell you whether we have the right person before you interview anyone." },
   { q: "Do you work with companies outside Pennsylvania?", a: "Yes. Our office is in Malvern, Pennsylvania, and most placements work remotely with teams across the United States. Where a project needs people in the room, we plan it with you, in writing, before anyone travels." },
   { q: "What do you need from us to start?", a: "Four things: the role, the stack, the team the person joins, and the window in which you need them to start. A paragraph is enough. We reply with whether we have the right person and what we would want to know next.", link: { to: "/contact#need=enterprise", label: "Talk to a consultant" } },
   { q: "What is the difference between staff augmentation and a software development company?", a: "A software development company takes a product and is accountable for building it. Staff augmentation gives you skilled people to direct yourself. If you want a finished product, see our custom software development work. If you want hands on your own backlog, this is the page.", link: { to: "/services/application-development", label: "Custom software development" } },
@@ -121,7 +121,7 @@ export default function StaffAugmentation() {
             "Your tools, your process, your lead setting priorities",
             "Senior practitioners, not a rotating bench",
             "Salesforce admins, developers and architects",
-            "We tell you where each candidate is light",
+            "We tell you what each candidate has worked on",
           ],
         }}
         primary={{ label: "Talk to an Expert", to: "/contact" }}
@@ -135,9 +135,9 @@ export default function StaffAugmentation() {
           tone="surface"
           heading={{ id: "h-what", title: "What IT staff augmentation is", lede: "IT staff augmentation adds outside specialists to your team, working in your tools under your lead, for as long as the work lasts." }}
           title="Where an augmented specialist sits"
-          desc="Four boxes joined by arrows: your lead sets priorities, your tools and process stay as they are, our specialist works inside your team, and we say where each candidate is light."
+          desc="Four boxes joined by arrows: your lead sets priorities, your tools and process stay as they are, our specialist works inside your team, and we say what each candidate has worked on."
           stamp="Inside your team"
-          caption="You keep control of the work. We tell you where a candidate is light before you interview."
+          caption="You keep control of the work. We tell you what a candidate has worked on before you interview."
           nodes={[
             { num: "01", title: "Your lead", sub: "sets the priorities" },
             { num: "02", title: "Your tools", sub: "repo, board, standups" },
@@ -181,13 +181,13 @@ export default function StaffAugmentation() {
           fig={2}
           stations={[
             { k: "s1", num: "01", title: "What you need", sub: "the work, not the job ad" },
-            { k: "s2", num: "02", title: "Candidates", sub: "gaps stated up front" },
+            { k: "s2", num: "02", title: "Candidates", sub: "experience stated up front" },
             { k: "s3", num: "03", title: "Onboarding", sub: "access, accounts, context" },
             { k: "s4", num: "04", title: "While they stay", sub: "check-ins with you" },
           ]}
           steps={[
             { k: "s1", num: "01", title: "What you actually need", line: "Not the job description but the work: which system, which stack, who they report to." },
-            { k: "s2", num: "02", title: "Candidates, gaps stated", line: "You interview them, and we tell you where each one is light before you find out in week three." },
+            { k: "s2", num: "02", title: "Candidates, experience stated", line: "You interview them, and we tell you what each one has worked on, so nothing surprises you in week three." },
             { k: "s3", num: "03", title: "Onboarding", line: "Access, accounts, environment and context, agreed with your lead before day one." },
             { k: "s4", num: "04", title: "While they are with you", line: "We check in with you, not only with them, and raise problems early." },
           ]}
@@ -219,7 +219,7 @@ export default function StaffAugmentation() {
           <div className="sf-c12">
             <div className="sf-links">{L("/services/hire-salesforce-developers", "Hire Salesforce developers, admins and architects")}</div>
             <GoDeeper label="what Salesforce augmentation looks like">
-              <p className="sf-rule">The client is a lending company and stays unnamed. We publish no figures from the work. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
+              <p className="sf-rule">The client is a lending company and stays unnamed. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
               <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce consulting")} practice also holds Salesforce's AppExchange record of 16 people and 53 certifications.</p>
             </GoDeeper>
           </div>

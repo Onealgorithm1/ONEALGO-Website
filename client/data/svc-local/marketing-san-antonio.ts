@@ -590,7 +590,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Meetings across time zones",
     "paras": [
-     "No San Antonio office exists; the team works from Malvern, PA, an hour ahead. Morning calls on Central time fit easily into our day, and drafts arrive as browser links.",
+     "The team works from Malvern, PA, an hour ahead. Morning calls on Central time fit easily into our day, and drafts arrive as browser links.",
      "Live campaigns and websites have support at any hour, including weekends."
     ]
    }

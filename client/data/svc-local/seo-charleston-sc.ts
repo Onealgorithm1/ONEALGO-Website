@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Video calls, browser reviews",
     "paras": [
-     "There is no Charleston office; everything runs from Malvern, PA. Charleston keeps Eastern time like us, so calls and screen-shares happen in a shared working day.",
+     "Everything runs from Malvern, PA. Charleston keeps Eastern time like us, so calls and screen-shares happen in a shared working day.",
      "Support for live-site issues, such as a page vanishing from Google, is available around the clock."
     ]
    }

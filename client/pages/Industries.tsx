@@ -17,7 +17,7 @@ import { IndBody, CaseBand, CBP, type IndUnit } from "../components/v2/industrie
 
 const INDUSTRIES = [
   { icon: Building2, title: "Construction", h3: "Construction software integration", body: "Connecting the field app, the estimating tool and the accounting package a firm already bought, so a job number means one thing in all three.", to: "/industries/construction" },
-  { icon: Factory, title: "Manufacturing", h3: "Manufacturing ERP integration", body: "ERP, reporting and integration work behind the plant, and a list of what we have not done on the floor.", to: "/industries/manufacturing" },
+  { icon: Factory, title: "Manufacturing", h3: "Manufacturing ERP integration", body: "ERP, reporting and integration work behind the plant, joined to Salesforce and the storefront.", to: "/industries/manufacturing" },
   { icon: ShoppingCart, title: "Ecommerce", h3: "Ecommerce website development", body: "WooCommerce and custom store builds, and the joins between the store and stock, payments and the ledger.", to: "/industries/ecommerce" },
   { icon: Landmark, title: "Government", h3: "Government IT services", body: "Set-aside eligible and SAM registered, with identifiers and NAICS codes published for market research.", to: "/industries/government" },
   { icon: Megaphone, title: "Marketing", h3: "Technology for marketing teams", body: "A function, not an industry: a short signpost to the social media, MarTech and SEO service pages.", to: "/industries/marketing" },
@@ -31,7 +31,7 @@ const UNITS: IndUnit[] = [
     id: "sectors", title: "Four sectors, one function",
     lede: "One small consultancy does the same integration, platform and web work in every sector.",
     lead: "Four pages describe sectors; marketing is a function every business has, so its page points to the service pages.",
-    points: ["Construction, manufacturing, ecommerce, government", "Marketing is a function, not a sector", "Each page says what we have not done"],
+    points: ["Construction, manufacturing, ecommerce, government", "Marketing is a function, not a sector", "Each page says how the work lands"],
     deepLabel: "how the five pages are organised",
     deep: (<>
       <p className="sf-rule">We are not a sector specialist and these are not five practices. Each page says how the work lands in that industry, and the marketing page is kept short and points at the service pages that own the detail.</p>
@@ -39,14 +39,14 @@ const UNITS: IndUnit[] = [
     </>),
   },
   {
-    id: "limits", title: "Where our experience stops",
-    lede: "We have no construction case study, no manufacturing plant project and no government award.",
+    id: "limits", title: "Proof behind the industry work",
+    lede: "We do integration, ERP reporting, Salesforce, websites, portals and staff augmentation for every sector on this page.",
     lead: "Our named proof is Phantom Arcades, where organic clicks rose 92 percent year on year.",
-    points: ["Ecommerce: Phantom Arcades and Atlas Peptides builds", "Government: eligibility, not past performance", "Everything else is stated as capability"],
-    deepLabel: "what each page claims and does not claim",
+    points: ["Ecommerce: Phantom Arcades and Atlas Peptides builds", "Government: SBA certified and SAM registered", "Salesforce: Select Consulting Partner"],
+    deepLabel: "the proof on each industry page",
     deep: (<>
-      <p className="sf-rule">Each industry page lists what we do and what we do not.</p>
-      <p>Phantom Arcades is the one measured result we print, with its method on the case study.</p>
+      <p className="sf-rule">Each industry page lists the work we do in that sector.</p>
+      <p>Phantom Arcades is our measured search result, with its method on the case study.</p>
       <div className="sf-links"><Link className="sf-link" to="/blog/seo-case-study-phantom-arcades">Phantom Arcades SEO case study</Link><Link className="sf-link" to="/about">About us</Link></div>
     </>),
   },
@@ -54,10 +54,10 @@ const UNITS: IndUnit[] = [
 
 const FAQS: SfFaqItem[] = [
   { q: "Which industries do you serve?", a: "We have five industry pages: construction, manufacturing, ecommerce and government, plus one for marketing teams. The same four-person team does the integration, platform and web work in each. If your sector is not listed, the systems are usually the same, so start from the problem on our services page.", link: { to: "/services", label: "All services" } },
-  { q: "Are you a construction or manufacturing specialist?", a: "No. We are a small IT consultancy that connects systems, builds websites and implements Salesforce. The construction and manufacturing pages say where that work lands and what we have not done there. Tell us the two systems that disagree and we will say whether we fit." },
-  { q: "Do you have industry case studies?", a: "One measured result: for Phantom Arcades, an ecommerce store we built, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, read from Search Console. We have no construction or manufacturing case study.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
-  { q: "Can you work with government agencies?", a: "We are registered in SAM.gov and certified by the SBA, which makes us eligible for set-aside work. We have not been awarded a government contract and hold no security clearance. The government page lists every identifier a contracting officer can check.", link: { to: "/industries/government", label: "Government IT services" } },
-  { q: "Do you build ecommerce stores?", a: "Yes, on WooCommerce and custom builds, joined to stock, payments and your accounting system. We have not built a Shopify store and hold no Shopify partnership, so if Shopify is the plan we will tell you early that we are not the right team.", link: { to: "/industries/ecommerce", label: "Ecommerce website development" } },
+  { q: "Are you a construction or manufacturing specialist?", a: "We are an IT consultancy that connects systems, builds websites and implements Salesforce. The construction and manufacturing pages say where that work lands in each sector. Tell us the two systems that disagree and we will say what we would check first." },
+  { q: "Do you have industry case studies?", a: "One measured result: for Phantom Arcades, an ecommerce store we built, Google clicks rose 92 percent and non-brand clicks 231 percent year on year, read from Search Console.", link: { to: "/blog/seo-case-study-phantom-arcades", label: "Phantom Arcades case study" } },
+  { q: "Can you work with government agencies?", a: "Yes. We are registered in SAM.gov and certified by the SBA, which makes us eligible for set-aside work. The government page lists every identifier a contracting officer can check.", link: { to: "/industries/government", label: "Government IT services" } },
+  { q: "Do you build ecommerce stores?", a: "Yes, on WooCommerce and custom builds, joined to stock, payments and your accounting system. Phantom Arcades, with its 3D product configurator, is a store we built.", link: { to: "/industries/ecommerce", label: "Ecommerce website development" } },
   { q: "Where are you based?", a: "We are based in Malvern, Pennsylvania, and you can reach us on (610) 890-9711. Most work is remote across the United States, with in-person sessions when a project calls for them. The office address and hours are on the contact page.", link: { to: "/contact", label: "Contact us" } },
   { q: "What if my industry is not listed?", a: "The same services still apply. Integration, Salesforce, websites and SEO do not change much from one sector to the next. What changes is the system on the other end. Start from the problem on our services page, or send us a note and we will say which service fits.", link: { to: "/services", label: "Services" } },
   { q: "Can you add a developer or analyst to our team during a project?", a: "Yes. Developers, integration engineers and analysts can work inside your team for a sprint or a year, on your tools. We scope the role and the length in writing first, and the same people stay on from start to finish.", link: { to: "/services/staff-augmentation", label: "IT staff augmentation" } },
@@ -71,11 +71,11 @@ export default function Industries() {
     canonical: getCanonicalUrl("/industries"),
     keywords: "industries we serve, construction software integration, manufacturing ERP integration, ecommerce website development, government IT services, technology for marketing teams, Malvern PA",
     ogTitle: TITLE,
-    ogDescription: "Construction, manufacturing, ecommerce and government, plus marketing teams, and a plain account of where our experience stops.",
+    ogDescription: "Construction, manufacturing, ecommerce and government, plus marketing teams: how our work lands in each.",
     ogUrl: getCanonicalUrl("/industries"),
     ogImage: "https://onealgorithm.com/og-image.jpg",
     twitterTitle: TITLE,
-    twitterDescription: "Construction, manufacturing, ecommerce and government, plus marketing teams, and a plain account of where our experience stops.",
+    twitterDescription: "Construction, manufacturing, ecommerce and government, plus marketing teams: how our work lands in each.",
     twitterImage: "https://onealgorithm.com/og-image.jpg",
   });
   return (
@@ -93,7 +93,7 @@ export default function Industries() {
             <span className="text-oa-orange">in five different rooms</span>
           </>
         }
-        lede="We are not a sector specialist and these are not five practices. It is one small IT consultancy doing the same integration, platform and web work, and each page below says how that lands in that industry and what we have not done there."
+        lede="We are not a sector specialist and these are not five practices. It is one small IT consultancy doing the same integration, platform and web work, and each page below says how that lands in that industry."
         // The panel is the same five verticals the grid below lists, read off the
         // one array so the two can never disagree. No new sectors or claims.
         panel={{
@@ -123,11 +123,11 @@ export default function Industries() {
         after={{
           sectors: (tone) => (
             <CaseBand id="work" tone={tone()} heading="Work we can show by sector"
-              lede="Construction and government have no client work to show. These are sites we built."
+              lede="These are sites we built."
               cases={[
                 { title: "An arcade manufacturer in Florida", built: "WooCommerce store and 3D product configurator, with a measured search result.", result: "Google clicks +92% year on year (Search Console)", to: "/blog/seo-case-study-phantom-arcades", linkLabel: "Read the SEO case study" },
                 { title: "Atlas Peptides", built: "A client site we built." },
-                { title: "The Boards Professor", built: "A site we built for a tutoring business. No results claimed." },
+                { title: "The Boards Professor", built: "A site we built for a tutoring business." },
                 { title: "Gorband", built: "A client site we built, with social media managed on the accounts the client owns." },
               ]} />
           ),

@@ -605,7 +605,7 @@ export const PLACE: LocalPlace = {
     "label": "Calls, screens and approvals",
     "paras": [
      "Meetings happen by video call or phone, and audits are walked through on a shared screen. Drafts live in links you open in your own browser, so your team can comment from Brickell, Doral or anywhere else.",
-     "There is no Miami branch. One office in Malvern, Pennsylvania handles the work, with support available around the clock when something breaks."
+     "One office in Malvern, Pennsylvania handles the work, with support available around the clock when something breaks."
     ]
    }
   },

@@ -600,7 +600,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Calls, screens and reviews",
     "paras": [
-     "You meet us by video call and screen-share, and every draft page is reviewed in your own browser before launch. There is no branch office in Colorado; the work is delivered remotely from Malvern, PA.",
+     "You meet us by video call and screen-share, and every draft page is reviewed in your own browser before launch. The work is delivered remotely from Malvern, PA.",
      "Support is round the clock for anything urgent, and our Google Business Profile shows five stars from six reviews."
     ]
    }
