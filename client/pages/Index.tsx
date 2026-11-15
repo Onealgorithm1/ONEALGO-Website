@@ -341,7 +341,7 @@ export default function Index() {
     // 2026-11-01: brand spelled "One Algorithm" (with the space) once, the way most brand searches type it (GSC: 480 vs 380 impr).
     title: "Salesforce Consulting, Websites, SEO & Google Ads | One Algorithm",
     description:
-      "Websites and marketing for small businesses in Chester County and Philadelphia: web development, SEO, Google Ads and CRM. Based in Malvern PA.",
+      "Salesforce Consulting Partner in Malvern, PA: free health check, migration, integration and managed services. Plus websites, SEO and Google Ads.",
     canonical: getCanonicalUrl("/"),
     // The LCP element on this page is the hero video poster (measured with
     // Lighthouse and PageSpeed Insights, 2026-08-25). Nothing told the browser to
