@@ -66,6 +66,7 @@ export function TeamCertsLine({ pathname, className = "", tone }: { pathname: st
               ) : (
                 <span>{r.platform}</span>
               )}
+              <span className="sr-only">: {r.detail}</span>
             </li>
           );
         })}
