@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { TeamCertsLine } from "./v2/shared-TeamCerts";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -1273,6 +1274,10 @@ export function PageHero({
           )}
         </div>
       )}
+
+      {/* Team certifications right under the hero buttons (Louis 2026-11-14: "up higher so people see it right away").
+          Renders only on Google Ads, SEO and marketing paths (shared-TeamCerts certsFor); nothing elsewhere. */}
+      <TeamCertsLine pathname={path} />
 
       {children}
 
