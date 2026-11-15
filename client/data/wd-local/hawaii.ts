@@ -705,7 +705,7 @@ export const PLACE: LocalPlace = {
    "leadIn": "The bottom line:",
    "lead": "the office answers (610) 890-9711 Monday to Friday, from 4 a.m. Hawaii time in winter and 3 a.m. in summer.",
    "question": {
-    "q": "Do you work with businesses in Hawaii?",
+    "q": "Do you work with businesses in our area?",
     "a": "Yes. Our team works from Malvern, PA, with businesses here by video call, and you review every stage in your own browser."
    },
    "deeper": {
