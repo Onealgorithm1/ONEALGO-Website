@@ -295,7 +295,7 @@ export const PLACE: LocalPlace = {
    "h2": "New York app development, scoped before build",
    "lede": "We build the portals, internal tools and customer apps New York firms need, starting with a written scope.",
    "leadIn": "Why it matters:",
-   "lead": "the scope lists users, screens, data, integrations, schedule and price before any build.",
+   "lead": "the scope lists users, screens, data and integrations before any build.",
    "deeper": {
     "label": "What we build",
     "paras": [

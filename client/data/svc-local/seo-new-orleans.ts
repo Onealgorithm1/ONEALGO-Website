@@ -518,7 +518,7 @@ export const PLACE: LocalPlace = {
    "points": [
     "Website and message first, so visits become calls.",
     "Then SEO, a blog, email and local authority.",
-    "Automation next, paid ads only after organic traffic converts."
+    "Automation comes next. Paid ads follow only after organic traffic converts."
    ],
    "deeper": {
     "label": "Building past the first rankings",

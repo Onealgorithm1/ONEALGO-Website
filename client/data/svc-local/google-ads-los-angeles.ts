@@ -444,7 +444,7 @@ export const PLACE: LocalPlace = {
     "label": "Comparing managers",
     "paras": [
      "When you compare Google Ads managers, ask three things: who owns the account, how conversions are tracked, and how often search terms are reviewed. The answers separate active management from set-and-forget.",
-     "We report spend, conversions and cost per conversion in plain numbers. If a campaign is not working, the report shows what we are changing."
+     "We report spend, conversions and cost per conversion in plain numbers. If a campaign is not working, the report says so, along with what we are changing."
     ]
    },
    "table": {

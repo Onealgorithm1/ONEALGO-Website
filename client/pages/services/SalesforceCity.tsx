@@ -182,7 +182,7 @@ function buildFaqs(c: City, who: string): CityFaqRow[] {
   const copy = CITY_COPY[c.slug];
   return [
     {
-      q: `Do you work with companies in ${c.name}?`,
+      q: `Can you work with a company in ${c.name}?`,
       a: `Yes. We take on Salesforce work for ${who} remotely from our office at 625 Swedesford Rd, Unit B, Malvern, PA 19355. Most of the work runs inside your org over video and screen-share, and on larger projects on-site visits for kickoff, go-live or training are planned into the project.`,
       schema: false,
     },

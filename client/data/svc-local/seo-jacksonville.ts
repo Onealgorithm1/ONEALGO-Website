@@ -589,7 +589,7 @@ export const PLACE: LocalPlace = {
     "label": "Day-to-day contact",
     "paras": [
      "We meet by video or phone and share screens to walk through audits and reports. Drafts arrive as links, so you can approve pages from the job site or the office.",
-     "Our team works from Malvern, Pennsylvania, with Jacksonville businesses by video call."
+     "Our team works from Malvern, Pennsylvania, and a Jacksonville project runs by video call."
     ]
    }
   },

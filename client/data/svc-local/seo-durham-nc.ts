@@ -585,7 +585,7 @@ export const PLACE: LocalPlace = {
    "deeper": {
     "label": "Remote, with a paper trail",
     "paras": [
-     "Our team works from Malvern, PA, with Durham businesses by video call. Screen-shares and browser reviews cover every page change, with notes after each one.",
+     "Our team works from Malvern, PA. For a Durham business, calls, screen-shares and browser reviews cover every page change, with notes after each one.",
      "Durham keeps Eastern time like we do, and support is reachable at any hour."
     ]
    }
