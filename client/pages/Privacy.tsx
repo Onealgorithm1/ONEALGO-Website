@@ -182,8 +182,8 @@ export default function Privacy() {
                 Salesforce CRM and we email or call you back.
               </li>
               <li>
-                We do not sell your information, run advertising pixels, or
-                record your screen.
+                We do not sell your information. Our one ad tag, Google Ads, shows
+                us which of our ads led to an enquiry.
               </li>
               <li>
                 You can ask us to delete anything we hold about you by emailing{" "}
@@ -231,9 +231,10 @@ export default function Privacy() {
             <strong className="text-oa-ink">Salesforce Web-to-Lead</strong>.
           </p>
           <p>
-            That forwarding happens server to server, so Salesforce receives
-            what you typed but not your IP address and not the page you were
-            reading. The result is a Lead record in our Salesforce CRM. We use
+            That forwarding happens server to server. Salesforce receives what
+            you typed, the page you sent it from, the page you first landed on,
+            the site that sent you, and any ad click ID or campaign tags. It
+            does not receive your IP address. The result is a Lead record in our Salesforce CRM. We use
             it to reply to you, to work out whether we can help, and to keep
             track of the conversation if one follows. If you are in the EU or
             UK, the legal basis is taking steps at your request before entering
@@ -291,6 +292,7 @@ export default function Privacy() {
                 } catch (e) {
                   /* private mode: nothing can be stored */
                 }
+                document.cookie = "oa_ad=; Max-Age=0; Path=/; SameSite=Lax; Secure";
                 location.reload();
               }}
             >
@@ -309,6 +311,18 @@ export default function Privacy() {
             anything you typed into the form. Analytics only runs on
             onealgorithm.com and www.onealgorithm.com — preview and staging
             copies of this site are silent.
+          </p>
+          {/* Google Ads tag + oa_ad cookie, added 2026-11-16. Checked against index.html (GOOGLE_ADS_ID config with
+              allow_ad_personalization_signals: false, inside oaLoadAnalytics; the oa_ad cookie), lib/lead.ts
+              (readAdClick, swapToAdPhone) and functions/api/lead.js ("Ad click:" description line). */}
+          <p>
+            We also load the <strong className="text-oa-ink">Google Ads</strong>{" "}
+            tag, under the same rules as analytics, to see which of our ads
+            led to an enquiry. Ad personalisation is turned off. If you arrive
+            through one of our ads or a tagged link, a first-party cookie called
+            oa_ad keeps the click ID and campaign tags for 90 days. They reach
+            our CRM only if you send the form. Visitors from a Google ad see our
+            ad phone line, (610) 561-5004, which rings the same office.
           </p>
           <p>
             There is no cookie banner on this site, so these cookies are set
@@ -505,13 +519,15 @@ export default function Privacy() {
           <ul className={LIST}>
             <li>
               <strong className="text-oa-ink">Salesforce</strong> — everything
-              you type into the contact form, but not your IP address and not
-              the page you submitted from. It is our CRM.
+              you type into the contact form, the page you sent it from, the
+              page you first landed on, the site that sent you, and any ad click
+              ID or campaign tags, but not your IP address. It is our CRM.
             </li>
             <li>
               <strong className="text-oa-ink">Google</strong> — analytics about
-              your visit, and, if you scroll to the map on the contact page, the
-              request that loads it.
+              your visit; through the Google Ads tag, whether a visit from one of
+              our ads led to an enquiry; and, if you scroll to the map on the
+              contact page, the request that loads it.
             </li>
             <li>
               <strong className="text-oa-ink">Cloudflare</strong> — every
@@ -566,8 +582,9 @@ export default function Privacy() {
               We do not sell or rent personal information, and we never have.
             </li>
             <li>
-              There are no advertising or social pixels on this site — no Meta,
-              no LinkedIn, no TikTok, no retargeting tags.
+              The only advertising tag is Google Ads, and we use it to see which
+              ads led to an enquiry. There are no social pixels: no Meta, no
+              LinkedIn, no TikTok, and no retargeting tags.
             </li>
             <li>
               There is no chat widget watching what you type, and no tool that
@@ -642,7 +659,8 @@ export default function Privacy() {
             deleted, to have it corrected, and not to be discriminated against
             for asking. You may use an authorised agent. We do not sell personal
             information, and we do not share it for cross-context behavioural
-            advertising — this site runs no advertising tags. We do not use or
+            advertising. The Google Ads tag only measures which ads led to an
+            enquiry, with ad personalisation turned off. We do not use or
             disclose sensitive personal information beyond what is needed to
             provide what you asked for.
           </p>

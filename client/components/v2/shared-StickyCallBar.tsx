@@ -32,7 +32,7 @@ export function StickyCallBar() {
         className={`fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-white/10 bg-oa-night/95 px-4 pt-3 backdrop-blur transition-transform duration-200 motion-reduce:transition-none ${hidden ? "translate-y-full" : "translate-y-0"}`}
         style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
       >
-        <a href="tel:+16108909711" data-cta="sticky" aria-label="Call (610) 890-9711" className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk">
+        <a href="tel:+16108909711" data-cta="sticky" className="flex min-h-12 flex-1 items-center justify-center rounded-lg border border-white/25 text-sm font-semibold text-oa-nightInk">
           Call (610) 890-9711
         </a>
         <Link to={offer.href} data-cta="sticky" onClick={() => track(offer.label)} className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange px-2 text-center text-sm font-semibold leading-tight text-oa-ink">

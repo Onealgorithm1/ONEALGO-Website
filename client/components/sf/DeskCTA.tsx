@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SfButton } from "./SfPage";
+import { LeadForm } from "./LeadForm";
 import { SF_PHONE } from "../../data/salesforceShared";
 
 const HC = "/services/salesforce-health-check";
@@ -51,7 +52,7 @@ export function contactHref(topicLabel: string, from: string, need = "salesforce
  *                    prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
  * `heading` defaults to the hub's; a service page passes its own 8-word H2 and lede.
  */
-export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next = DEFAULT_NEXT, hcLink = true }: {
+export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next = DEFAULT_NEXT, hcLink = true, inline }: {
   form: DeskForm;
   heading?: string;
   headingId?: string;
@@ -62,6 +63,9 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
   next?: string[];
   /** The one body link to the health-check page ("What the free health check covers"); off on the HC page itself. */
   hcLink?: boolean;
+  /** Ad landing pages (2026-11-16): the short contact form (LeadForm) in the panel, sending `inline` as the
+   *  service, instead of the button to /contact. The visitor never leaves the page. */
+  inline?: string;
 }) {
   const { pathname } = useLocation();
   return (
@@ -92,10 +96,16 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
         </div>
         <div className="sf-c6">
           <div className="desk-card sf-desk-panel">
-            <h3 className="sf-h3" id="start-title">{form.heading}</h3>
-            <p className="sf-topic-chip">Topic · {form.topicLabel}</p>
-            <p style={{ marginTop: 18 }}>{form.prompt} Tell us on the contact page; the topic is already filled in.</p>
-            <SfButton to={contactHref(form.topicLabel, pathname, form.need)} magnet cta="desk" className="sf-desk-btn">{form.submitLabel}</SfButton>
+            {inline ? (
+              <LeadForm short idPrefix="desk-" formId={form.formId || "sf-desk"} heading={form.heading} headingId="start-title" topic={form.topicLabel} need={inline} submitLabel={form.submitLabel} placeholder={form.prompt} />
+            ) : (
+              <>
+                <h3 className="sf-h3" id="start-title">{form.heading}</h3>
+                <p className="sf-topic-chip">Topic · {form.topicLabel}</p>
+                <p style={{ marginTop: 18 }}>{form.prompt} Tell us on the contact page; the topic is already filled in.</p>
+                <SfButton to={contactHref(form.topicLabel, pathname, form.need)} magnet cta="desk" className="sf-desk-btn">{form.submitLabel}</SfButton>
+              </>
+            )}
             <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
             <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="desk">{SF_PHONE.display}</a>
             <p className="sf-mono" style={{ marginTop: 16 }}>

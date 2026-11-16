@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { PageHero } from "../../components/site";
-import { SfPage, SmartSection, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, DeskCTA, type SfFaqItem } from "../../components/sf";
+import { SfPage, SmartSection, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, DeskCTA, LeadForm, type SfFaqItem } from "../../components/sf";
+import { SF_PHONE } from "../../data/salesforceShared";
 import { EnterpriseTable, EnterpriseFaq } from "../../components/v2/enterprise-Units";
 import { EVStyles, BridgePlate, HoverCards, StepRail, Statement } from "../../components/v2/enterprise-Visuals";
 import { OfferBand } from "../../components/v2/shared-OfferBand";
@@ -87,12 +88,27 @@ export default function HireSalesforceDevelopers() {
             "Certifications you can check on Salesforce's own record",
           ],
         }}
-        primary={{ label: "Talk to an Expert", to: "/contact#need=staff-augmentation" }}
+        primary={{ label: "Talk to an Expert", href: "#enquire" }}
         secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
       />
 
       <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: "Hire Salesforce developers" }]}>
         <EVStyles />
+        {/* Google Ads landing (2026-11-16): the short contact form right under the hero, so an ad visitor can
+            ask without leaving the page. The same form closes the page in the DeskCTA below. */}
+        <SmartSection id="enquire" tone="night" grid compact labelledBy="h-enquire">
+          <div className="sf-c5 sf-desk-copy">
+            <h2 className="sf-h2" id="h-enquire">Ask about a Salesforce developer</h2>
+            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies within one business day.</p>
+            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
+            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
+          </div>
+          <div className="sf-c7">
+            <div className="desk-card sf-desk-panel">
+              <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Tell us about the role" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" submitLabel="Talk to an expert" placeholder="What is the Salesforce role, and how long do you need it?" />
+            </div>
+          </div>
+        </SmartSection>
         <BridgePlate
           id="what"
           fig={1}
@@ -192,9 +208,10 @@ export default function HireSalesforceDevelopers() {
           lede="The Flow backlog, the integration nobody on staff has built, or the release that needs two more pairs of hands."
           covers={["The org, the clouds and who they report to", "How long you need the person", "The start window", "Whether we have the right person"]}
           coversLabel="What to have ready"
-          next={["Send the short form on the contact page, or call.", "A person at OneAlgorithm reads it and replies.", "We tell you whether we have the person."]}
+          next={["Send the short form, or call.", "A person at OneAlgorithm reads it and replies.", "We tell you whether we have the person."]}
           hcLink={false}
-          form={{ topic: "hire-salesforce-developers", topicLabel: "Hire Salesforce developers", need: "staff-augmentation", heading: "Talk to an expert", prompt: "What is the Salesforce role, and how long do you need it?", submitLabel: "Talk to an expert" }}
+          inline="Staff Augmentation"
+          form={{ topic: "hire-salesforce-developers", topicLabel: "Hire Salesforce developers", need: "staff-augmentation", heading: "Talk to an expert", prompt: "What is the Salesforce role, and how long do you need it?", submitLabel: "Talk to an expert", formId: "hire-sf-end" }}
         />
       </SfPage>
     </Layout>

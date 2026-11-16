@@ -55,6 +55,16 @@
       // domain it will never execute this, and the entry can be dropped.
       const ANALYTICS_HOSTS = ["onealgorithm.com", "www.onealgorithm.com"];
 
+      /* Google Ads (2026-11-16). The ONE place its ids live: the account's tag id and the label of the
+         "Submitted lead" conversion action. Public by design (like the GA4 id), so they sit here rather than in
+         an env var. Empty either one and the Ads tag / the conversion stops. Same gate as GA4: production hosts
+         only, never with Global Privacy Control or the /privacy opt-out. Ad personalisation is off: the tag
+         measures which ads led to an enquiry, it does not build remarketing audiences (Privacy.tsx says so). */
+      const GOOGLE_ADS_ID = "AW-17336277732";
+      const GOOGLE_ADS_LABEL = "mszkCL-_27kdEOS1yspA";
+      const ADS_ON = /^AW-\d+$/.test(GOOGLE_ADS_ID);
+      const ADS_CONVERSION = ADS_ON && /^[\w-]+$/.test(GOOGLE_ADS_LABEL);
+
       /* Consent gate. Deliberately small: one analytics tool, so one yes/no
          decision. No category toggles, no vendor list, no consent-management
          platform — none of that is required to be lawful here, and each piece
@@ -71,6 +81,7 @@
         if (window.oaGaScheduled) return;
         window.oaGaScheduled = true;
         gtag("config", "G-RC48CMQ05T");
+        if (ADS_ON) gtag("config", GOOGLE_ADS_ID, { allow_ad_personalization_signals: false });
         /* 2026-10-26: the 193KB gtag script used to start before the page had painted, so Lighthouse
            (and Semrush, which grades with it) charged it to the headline: LCP "Poor" at 8s on the
            Salesforce pages while a real phone painted them in 0.4s. It now starts right after the first
@@ -168,6 +179,8 @@
           form_id: formId || "contact",
           page_location: location.href
         }, extra || {}));
+        // Google Ads conversion: only once the ids are set AND the consent gate above loaded the tags.
+        if (ADS_CONVERSION && window.oaGaScheduled) gtag("event", "conversion", { send_to: GOOGLE_ADS_ID + "/" + GOOGLE_ADS_LABEL });
       };
 
       // Phone and email clicks, added 2026-08-12.
@@ -226,6 +239,21 @@
             campaign: ["utm_source", "utm_medium", "utm_campaign"].map(function (k) { return u.searchParams.get(k); }).filter(Boolean).join(" / ")
           }));
         }
+      } catch (x) {}
+
+      // Ad click, 2026-11-16: Google Ads click ids and UTM tags from the landing URL, kept 90 days in a
+      // first-party cookie. The contact forms send them with a lead (client/lib/lead.ts -> "Ad click:" line in
+      // Salesforce), and a click id switches the visible phone number to the ad line (Layout.tsx). Read by our
+      // own code only; nothing leaves the browser unless the visitor sends the form. The last tagged link wins.
+      try {
+        var q = new URL(location.href).searchParams, ad = {}, any = false;
+        ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
+          var v = q.get(k);
+          if (v) { ad[k] = v.slice(0, 200); any = true; }
+        });
+        var ok = ANALYTICS_HOSTS.indexOf(location.hostname) !== -1 && navigator.globalPrivacyControl !== true &&
+          (function () { try { return localStorage.getItem("oa-consent") !== "denied"; } catch (e) { return true; } })();
+        if (any && ok) document.cookie = "oa_ad=" + encodeURIComponent(JSON.stringify(ad)) + "; Max-Age=7776000; Path=/; SameSite=Lax; Secure";
       } catch (x) {}
 
     </script>

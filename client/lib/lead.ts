@@ -95,6 +95,9 @@ export async function submitLead(
           return null;
         }
       })(),
+      // The ad click (gclid/gbraid/wbraid + utm_*) index.html kept in the oa_ad cookie; functions/api/lead.js
+      // writes it into the Lead description as "Ad click:".
+      adClick: readAdClick(),
     }),
   });
   if (res.ok) return { ok: true, error: "" };
@@ -118,5 +121,69 @@ export async function submitBlogSubscription(email: string, slug: string, turnst
   });
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.error || "We could not save your request. Please try again.");
+}
+
+/* ---- Google Ads click attribution -------------------------------------------------------------------------
+   index.html stores gclid, gbraid, wbraid and utm_* from the landing URL in the first-party cookie `oa_ad`
+   (90 days, SameSite=Lax, Secure). submitLead() sends it with every lead. */
+
+const AD_KEYS = ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+export function readAdClick(): Record<string, string> | null {
+  try {
+    const raw = document.cookie.split("; ").find((c) => c.startsWith("oa_ad="));
+    if (!raw) return null;
+    const v = JSON.parse(decodeURIComponent(raw.slice(6)));
+    const out: Record<string, string> = {};
+    for (const k of AD_KEYS) if (typeof v?.[k] === "string" && v[k]) out[k] = v[k];
+    return Object.keys(out).length ? out : null;
+  } catch {
+    return null;
+  }
+}
+
+/** The visitor came from a Google ad: a click id, not just UTM tags. */
+export const isAdVisitor = () => {
+  const a = readAdClick();
+  return !!(a && (a.gclid || a.gbraid || a.wbraid));
+};
+
+/**
+ * Ad visitors see the ad line (610) 561-5004 (a Twilio tracking number that rings the office) in place of
+ * (610) 890-9711. Everyone else, the prerendered HTML and the structured data keep the office number.
+ * Swaps every visible 890-9711 under `root` for 561-5004, tel: links included, and keeps doing
+ * it as React renders more of the page. Layout calls it from an effect, i.e. AFTER hydration, so React's first
+ * render still matches the prerendered HTML. Script and style text (JSON-LD) is left alone. Returns the cleanup.
+ * ponytail: a text-node rewrite instead of threading the number through ~40 components that hard-code it.
+ * Ceiling: the number in an attribute other than href (aria-label, title) is not swapped, so no phone link may carry one (the sticky call bar's was removed 2026-11-16).
+ */
+export function swapToAdPhone(root: HTMLElement): () => void {
+  const NUM = /890([-.\s]?)9711/g;
+  const run = () => {
+    root.querySelectorAll<HTMLAnchorElement>('a[href^="tel:"]').forEach((a) => {
+      const h = a.getAttribute("href") || "";
+      const next = h.replace(NUM, "561$15004");
+      if (next !== h) a.setAttribute("href", next);
+    });
+    const walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+      const tag = n.parentElement?.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || !n.nodeValue?.includes("9711")) continue;
+      const next = n.nodeValue.replace(NUM, "561$15004");
+      if (next !== n.nodeValue) n.nodeValue = next;
+    }
+  };
+  run();
+  let queued = false;
+  const mo = new MutationObserver(() => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      run();
+    });
+  });
+  mo.observe(root, { childList: true, subtree: true, characterData: true });
+  return () => mo.disconnect();
 }
 

@@ -59,6 +59,18 @@ describe("POST /api/lead", () => {
     expect(new URLSearchParams(calls[1].init.body).get("description")).not.toContain("Landing page");
   });
 
+  it("writes the Google Ads click as one 'Ad click:' line, known keys only", async () => {
+    const calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, adClick: { gclid: "TEST123", utm_campaign: "sf-dev\nX", evil: "nope", utm_term: 5 } }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body).get("description");
+    expect(sent).toContain("Ad click: gclid=TEST123 | utm_campaign=sf-devX");
+    expect(sent).not.toContain("evil");
+    expect(sent).not.toContain("utm_term");
+  });
+
   it("forwards the optional phone, and prepends the topic and page lines", async () => {
     const calls = stubFetch();
     await onRequest({

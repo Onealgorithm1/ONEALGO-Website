@@ -14,6 +14,7 @@ export type { Readout } from "./Readouts";
 export { FAQ } from "./FAQ";
 export type { SfFaqItem } from "./FAQ";
 export { DeskCTA } from "./DeskCTA";
+export { LeadForm } from "./LeadForm";
 export { ServiceCards, HUB_SERVICE_CARDS } from "./ServiceCards";
 export type { ServiceCard } from "./ServiceCards";
 export { StageRail, StageUnits, HUB_STAGES } from "./StageRail";
