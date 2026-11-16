@@ -48,7 +48,7 @@ import { siteConfig } from "../../shared/companyProfile";
  * close. They are honest gaps. Do not close them by inventing an answer.
  */
 
-const LAST_UPDATED = "October 13, 2026";
+const LAST_UPDATED = "November 16, 2026";
 
 const HEADING = "text-h3 font-semibold text-oa-ink scroll-mt-24 pt-6";
 const SUBHEADING = "text-lg font-semibold text-oa-ink pt-2";
@@ -65,6 +65,7 @@ const SECTIONS = [
   { id: "browsing", title: "What we collect when you are just reading" },
   { id: "cookies", title: "Cookies and analytics" },
   { id: "embeds", title: "The map and the blog" },
+  { id: "calls", title: "Phone calls and text messages" },
   { id: "social", title: "Instagram and Facebook comments and messages we handle for clients" },
   { id: "data-deletion", title: "How to request deletion of your data" },
   { id: "processors", title: "Who else sees your information" },
@@ -361,6 +362,39 @@ export default function Privacy() {
               established from the code here. Add it to the processor list below
               once confirmed. */}
 
+          {/* Calls and texts: added 2026-11-16 with the Twilio tracking number (610) 561-5004.
+              Checked against the hub code (lib/connectors/twilio.js): calls play "This call may be
+              recorded", ring our office line, record, then voicemail; each call or text sender
+              becomes one Salesforce Lead. The SMS wording follows what US carriers require for
+              A2P 10DLC registration: no sharing of mobile numbers for marketing, STOP/HELP,
+              frequency and rates. Keep it in step if the call flow changes. */}
+          <H2 id="calls" />
+          <p>
+            Some of our phone numbers, including the one shown in our ads, run
+            on <strong className="text-oa-ink">Twilio</strong>. When you call
+            one, a short message tells you the call may be recorded before it
+            connects to our office. If nobody answers, you can leave a voicemail.
+          </p>
+          <p>
+            We keep your phone number, the time and length of the call, the
+            recording and any voicemail. They go into our Salesforce CRM as an
+            enquiry so we can call you back. Recordings are stored with Twilio.
+          </p>
+          <p>
+            <strong className="text-oa-ink">Text messages.</strong> If you text
+            one of these numbers, we keep your number and what you wrote, and we
+            reply to you about your enquiry. How many texts you get depends on
+            the conversation. Message and data rates may apply. Reply{" "}
+            <strong className="text-oa-ink">STOP</strong> at any time to stop
+            texts, or <strong className="text-oa-ink">HELP</strong> for help.
+          </p>
+          <p>
+            We do not sell, rent or share your mobile number or your text
+            messages with anyone for their marketing, and we do not share your
+            consent to receive texts with any third party. Twilio and Salesforce
+            handle them only to run the service for us.
+          </p>
+
           <H2 id="social" />
           <p>
             Some businesses hire us to answer comments and messages on their own
@@ -494,6 +528,12 @@ export default function Privacy() {
               Microsoft 365; and, unless you turned analytics off, how you used
               the page, through Microsoft Clarity. Clarity passes what it collects
               to Microsoft's advertising network as well as to us.
+            </li>
+            <li>
+              <strong className="text-oa-ink">Twilio</strong>: calls and texts to
+              our tracking numbers, including call recordings and voicemail, as
+              set out in{" "}
+              <a href="#calls" className={LINK}>Phone calls and text messages</a>.
             </li>
             <li>
               <strong className="text-oa-ink">Railway and OpenRouter</strong> —
