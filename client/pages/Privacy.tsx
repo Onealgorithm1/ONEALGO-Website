@@ -377,21 +377,23 @@ export default function Privacy() {
           </p>
           <p>
             We keep your phone number, the time and length of the call, the
-            recording and any voicemail. They go into our Salesforce CRM as an
-            enquiry so we can call you back. Recordings are stored with Twilio.
+            recording and any voicemail. Each call becomes an enquiry in our
+            Salesforce CRM, with a link to the recording, so we can call you
+            back. The recordings themselves stay with Twilio.
           </p>
           <p>
             <strong className="text-oa-ink">Text messages.</strong> If you text
             one of these numbers, we keep your number and what you wrote, and we
-            reply to you about your enquiry. How many texts you get depends on
+            may text you back about your enquiry. How many texts you get depends on
             the conversation. Message and data rates may apply. Reply{" "}
             <strong className="text-oa-ink">STOP</strong> at any time to stop
             texts, or <strong className="text-oa-ink">HELP</strong> for help.
           </p>
           <p>
             We do not sell, rent or share your mobile number or your text
-            messages with anyone for their marketing, and we do not share your
-            consent to receive texts with any third party. Twilio and Salesforce
+            messages with third parties or affiliates for marketing or
+            promotional purposes, and we do not share your consent to receive
+            texts with any third party. Twilio and Salesforce
             handle them only to run the service for us.
           </p>
 
