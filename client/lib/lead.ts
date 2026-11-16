@@ -155,7 +155,7 @@ export const isAdVisitor = () => {
  * it as React renders more of the page. Layout calls it from an effect, i.e. AFTER hydration, so React's first
  * render still matches the prerendered HTML. Script and style text (JSON-LD) is left alone. Returns the cleanup.
  * ponytail: a text-node rewrite instead of threading the number through ~40 components that hard-code it.
- * Ceiling: the number in an attribute other than href (aria-label, title) is not swapped; none exists today.
+ * Ceiling: the number in an attribute other than href (aria-label, title) is not swapped, so no phone link may carry one (the sticky call bar's was removed 2026-11-16).
  */
 export function swapToAdPhone(root: HTMLElement): () => void {
   const NUM = /890([-.\s]?)9711/g;

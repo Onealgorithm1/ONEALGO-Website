@@ -251,7 +251,9 @@
           var v = q.get(k);
           if (v) { ad[k] = v.slice(0, 200); any = true; }
         });
-        if (any) document.cookie = "oa_ad=" + encodeURIComponent(JSON.stringify(ad)) + "; Max-Age=7776000; Path=/; SameSite=Lax; Secure";
+        var ok = ANALYTICS_HOSTS.indexOf(location.hostname) !== -1 && navigator.globalPrivacyControl !== true &&
+          (function () { try { return localStorage.getItem("oa-consent") !== "denied"; } catch (e) { return true; } })();
+        if (any && ok) document.cookie = "oa_ad=" + encodeURIComponent(JSON.stringify(ad)) + "; Max-Age=7776000; Path=/; SameSite=Lax; Secure";
       } catch (x) {}
 
     </script>

@@ -140,7 +140,8 @@ for (const [name, type, opts, tap] of [
     const dl = await dataLayer(s.page);
     check("GPC: no request to any Google tag host", s.google.length === 0, s.google.join(","));
     check("GPC: no Google Ads config, no conversion", !dl.some((a) => (a[0] === "config" && String(a[1]).startsWith("AW-")) || a[1] === "conversion"));
-    check("GPC: the lead still posts", s.leads.length === 1 && s.leads[0].adClick?.gclid === "TEST123");
+    check("GPC: the lead still posts, with no ad click (the cookie is never set)", s.leads.length === 1 && !s.leads[0].adClick?.gclid);
+    check("GPC: no oa_ad cookie", !(await s.page.context().cookies()).some((c) => c.name === "oa_ad"));
     await s.browser.close();
   }
 }

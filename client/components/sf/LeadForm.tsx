@@ -46,12 +46,14 @@ type Field = keyof typeof EMPTY;
  * guard, the GA4 generate_lead event (index.html also fires the Google Ads conversion from it), and the
  * gclid/UTM cookie, which submitLead adds to every post.
  */
-export function LeadForm({ short, idPrefix = "", formId, heading, headingId, topic, from, need = "", submitLabel, placeholder }: {
+export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId, topic, from, need = "", submitLabel, placeholder }: {
   short?: boolean;
   /** Prefix for every id, so two forms can share a page. /contact passes none (its ids are linked to). */
   idPrefix?: string;
   /** GA4 form_id. */
   formId: string;
+  /** GA4 placement name for the submit button; defaults to formId. /contact keeps its old "desk-form". */
+  cta?: string;
   heading: string;
   headingId: string;
   /** Shown as the topic chip and sent as the Lead's "Topic:" line. */
@@ -288,7 +290,7 @@ export function LeadForm({ short, idPrefix = "", formId, heading, headingId, top
           <div ref={widgetHost} style={{ minHeight: 65 }} />
           <p className="sf-form-note" style={{ marginTop: 8 }}>Protected by Cloudflare Turnstile; no traffic-light puzzles.</p>
         </div>
-        <SfButton type="submit" cta={formId} disabled={isSubmitting}>
+        <SfButton type="submit" cta={cta ?? formId} disabled={isSubmitting}>
           {isSubmitting ? "Sending…" : submitLabel}
         </SfButton>
       </form>

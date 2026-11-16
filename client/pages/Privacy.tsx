@@ -182,8 +182,8 @@ export default function Privacy() {
                 Salesforce CRM and we email or call you back.
               </li>
               <li>
-                We do not sell your information or record your screen. Our one
-                ad tag, Google Ads, only counts enquiries that came from our ads.
+                We do not sell your information. Our one ad tag, Google Ads, shows
+                us which of our ads led to an enquiry.
               </li>
               <li>
                 You can ask us to delete anything we hold about you by emailing{" "}
@@ -231,9 +231,10 @@ export default function Privacy() {
             <strong className="text-oa-ink">Salesforce Web-to-Lead</strong>.
           </p>
           <p>
-            That forwarding happens server to server, so Salesforce receives
-            what you typed, the page you sent it from and, if you arrived from
-            one of our ads, which ad, but not your IP address. The result is a Lead record in our Salesforce CRM. We use
+            That forwarding happens server to server. Salesforce receives what
+            you typed, the page you sent it from, the page you first landed on,
+            the site that sent you, and any ad click ID or campaign tags. It
+            does not receive your IP address. The result is a Lead record in our Salesforce CRM. We use
             it to reply to you, to work out whether we can help, and to keep
             track of the conversation if one follows. If you are in the EU or
             UK, the legal basis is taking steps at your request before entering
@@ -291,6 +292,7 @@ export default function Privacy() {
                 } catch (e) {
                   /* private mode: nothing can be stored */
                 }
+                document.cookie = "oa_ad=; Max-Age=0; Path=/; SameSite=Lax; Secure";
                 location.reload();
               }}
             >
@@ -319,8 +321,8 @@ export default function Privacy() {
             led to an enquiry. Ad personalisation is turned off. If you arrive
             through one of our ads or a tagged link, a first-party cookie called
             oa_ad keeps the click ID and campaign tags for 90 days. They reach
-            our CRM only if you send the form, and visitors from a Google ad see
-            our ad phone line, (610) 561-5004, which rings the same office.
+            our CRM only if you send the form. Visitors from a Google ad see our
+            ad phone line, (610) 561-5004, which rings the same office.
           </p>
           <p>
             There is no cookie banner on this site, so these cookies are set
@@ -517,8 +519,9 @@ export default function Privacy() {
           <ul className={LIST}>
             <li>
               <strong className="text-oa-ink">Salesforce</strong> — everything
-              you type into the contact form, the page you sent it from and
-              the ad you came from, if any, but not your IP address. It is our CRM.
+              you type into the contact form, the page you sent it from, the
+              page you first landed on, the site that sent you, and any ad click
+              ID or campaign tags, but not your IP address. It is our CRM.
             </li>
             <li>
               <strong className="text-oa-ink">Google</strong> — analytics about
@@ -579,8 +582,8 @@ export default function Privacy() {
               We do not sell or rent personal information, and we never have.
             </li>
             <li>
-              The only advertising tag is Google Ads, and it only counts
-              enquiries from our ads. There are no social pixels: no Meta, no
+              The only advertising tag is Google Ads, and we use it to see which
+              ads led to an enquiry. There are no social pixels: no Meta, no
               LinkedIn, no TikTok, and no retargeting tags.
             </li>
             <li>
