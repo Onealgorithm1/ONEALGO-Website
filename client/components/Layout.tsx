@@ -8,6 +8,7 @@ import { RailSeenContext, StructuredData, createBreadcrumbSchema } from "./Struc
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { SF_CITY_LINKS } from "../data/salesforceShared";
 import * as React from "react";
+import { isAdVisitor, swapToAdPhone } from "../lib/lead";
 
 /*
   Footer link tap target.
@@ -227,6 +228,8 @@ function Layout({ children }: LayoutProps) {
   // Shown once the hero's own buttons have scrolled away, so a phone's first
   // screen never carries the same two buttons twice.
   const [showSfBar, setShowSfBar] = React.useState(false);
+  // Google Ads visitors (click id in the oa_ad cookie) see the ad phone line. After hydration, client-side only.
+  React.useEffect(() => (isAdVisitor() ? swapToAdPhone(document.body) : undefined), []);
   React.useEffect(() => {
     if (!isSalesforce) return;
     const onScroll = () => setShowSfBar(window.scrollY > 520);
