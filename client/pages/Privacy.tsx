@@ -232,8 +232,8 @@ export default function Privacy() {
           </p>
           <p>
             That forwarding happens server to server, so Salesforce receives
-            what you typed but not your IP address and not the page you were
-            reading. The result is a Lead record in our Salesforce CRM. We use
+            what you typed, the page you sent it from and, if you arrived from
+            one of our ads, which ad, but not your IP address. The result is a Lead record in our Salesforce CRM. We use
             it to reply to you, to work out whether we can help, and to keep
             track of the conversation if one follows. If you are in the EU or
             UK, the legal basis is taking steps at your request before entering
@@ -517,8 +517,8 @@ export default function Privacy() {
           <ul className={LIST}>
             <li>
               <strong className="text-oa-ink">Salesforce</strong> — everything
-              you type into the contact form, but not your IP address and not
-              the page you submitted from. It is our CRM.
+              you type into the contact form, the page you sent it from and
+              the ad you came from, if any, but not your IP address. It is our CRM.
             </li>
             <li>
               <strong className="text-oa-ink">Google</strong> — analytics about
