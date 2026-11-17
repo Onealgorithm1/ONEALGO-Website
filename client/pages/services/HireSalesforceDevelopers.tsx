@@ -220,7 +220,7 @@ function HireHero() {
         </div>
 
         <figure className="hsd-plate sf-stage" aria-labelledby="hsd-plate-cap">
-          <ul className="hsd-badges" aria-label={`${p.name}'s active Salesforce certifications`}>
+          <ul className="hsd-badges" aria-label="Active Salesforce certifications held by the One Algorithm team">
             {p.badges.map((b) => (
               <li key={b.slug}>
                 <img src={badgeSrc(b)} alt={b.name} title={b.name} width={160} height={157} decoding="async" {...({ fetchpriority: "low" } as object)} />
@@ -228,8 +228,8 @@ function HireHero() {
             ))}
           </ul>
           <figcaption id="hsd-plate-cap">
-            <b>{p.name}</b>, our Salesforce practice lead, holds all {p.badges.length} of these Salesforce certifications.{" "}
-            <Verify id={`trailblazer-${p.slug}`}>Check his record</Verify>
+            One Algorithm's <b>Salesforce-certified team</b> holds these certifications.{" "}
+            <Verify id="appexchange">See our AppExchange listing</Verify>
           </figcaption>
           <p className="stamp"><span>Official Salesforce certification logos</span><span>Trailblazer record read {p.verifiedLabel}</span></p>
           <span className="sf-tick" aria-hidden="true" />
