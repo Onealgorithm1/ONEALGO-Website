@@ -211,8 +211,12 @@ function HireHero() {
           </ul>
           <div className="hsd-ctas">
             <SfButton href="#enquire" cta="hero" className="hsd-jump">Tell us about the role</SfButton>
-            <a className="sf-phone" href={SF_PHONE.href} data-cta="hero">Call {SF_PHONE.display}</a>
+            <SfButton ghost href={SF_PHONE.href} cta="hero" className="hsd-tel">Call {SF_PHONE.display}</SfButton>
           </div>
+          <p className="sf-mono hsd-record">
+            Salesforce's AppExchange listing: <b>{SF_CERTIFIED_PEOPLE}</b> certified people, <b>{SF_CERTIFICATIONS}</b> certifications{" "}
+            <Verify id="appexchange" />
+          </p>
         </div>
 
         <figure className="hsd-plate sf-stage" aria-labelledby="hsd-plate-cap">
@@ -237,10 +241,6 @@ function HireHero() {
             <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Tell us about the role" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" submitLabel="Talk to an expert" placeholder="What is the Salesforce role, and how long do you need it?" />
             <p className="hsd-reply">A person at OneAlgorithm reads it and replies within one business day.</p>
           </div>
-          <p className="sf-mono hsd-record">
-            Salesforce's AppExchange listing: <b>{SF_CERTIFIED_PEOPLE}</b> certified people, <b>{SF_CERTIFICATIONS}</b> certifications{" "}
-            <Verify id="appexchange" />
-          </p>
         </div>
       </div>
     </section>
@@ -252,8 +252,8 @@ function HireHero() {
 const HERO_CSS = `
 /* impeccable-disable side-tab: the orange top rule is the Salesforce pages' form-card mark (desk-card), signature 2 of this hero */
 /* impeccable-disable kicker-above-heading: the kicker is the paid search phrase "Salesforce staff augmentation", not decoration */
-.sfv2 .hsd-hero { background: var(--paper); padding: 40px 0 80px; border-bottom: 1px solid var(--hair); }
-.sfv2 .hsd-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gap); row-gap: 36px; align-items: start; }
+.sfv2 .hsd-hero { background: var(--paper); padding: 32px 0 80px; border-bottom: 1px solid var(--hair); }
+.sfv2 .hsd-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gap); row-gap: 28px; align-items: start; }
 .sfv2 .hsd-text { grid-column: 1 / 8; grid-row: 1; }
 .sfv2 .hsd-plate { grid-column: 1 / 8; grid-row: 2; }
 .sfv2 .hsd-desk { grid-column: 8 / 13; grid-row: 1 / 3; scroll-margin-top: 96px; }
@@ -272,11 +272,13 @@ const HERO_CSS = `
 .sfv2 .hsd-terms li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 7px; height: 7px; background: var(--orange); }
 .sfv2 .hsd-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 22px; }
 @media (min-width: 1024px) { .sfv2 .hsd-jump { display: none; } }
+@media (max-width: 767px) { .sfv2 .hsd-tel { display: none; } } /* the sticky call bar (md:hidden) carries Call on phones */
 @media (max-width: 639px) {
   .sfv2 .hsd-terms { gap: 4px 16px; margin-top: 16px; }
   .sfv2 .hsd-terms li { font-size: 15px; }
   .sfv2 .hsd-ctas { margin-top: 18px; }
   .sfv2 .hsd-jump { width: 100%; justify-content: center; }
+  .sfv2 .hsd-record { display: none; } /* phones: the same figures sit in "Salesforce's record of our team" below; here they pushed the logos under the call bar */
   .sfv2 .hsd-plate .stamp { display: none; }
 }
 
