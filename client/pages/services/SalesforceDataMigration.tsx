@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
   SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
-  FAQ, DeskCTA, StageRail, StageUnits, SourcesDialog, Verify, type SfFaqItem, type Stage, type SfSource,
+  FAQ, DeskCTA, LeadForm, StageRail, StageUnits, SourcesDialog, Verify, type SfFaqItem, type Stage, type SfSource,
 } from "../../components/sf";
 import { DataMigration } from "../../components/sf/illus";
 import { SF_PHONE } from "../../data/salesforceShared";
@@ -220,6 +220,22 @@ export default function SalesforceDataMigration() {
           proof
           figure={<DataMigration fig={1} hero className="sf-hero-fig" />}
         />
+
+        {/* Google Ads landing (2026-11-17): the short form under the hero owns #start, so the hero, header and call
+            bar buttons land on it. The same form closes the page in the DeskCTA (#book). */}
+        <SmartSection id="start" tone="night" grid compact labelledBy="h-book-top">
+          <div className="sf-c5 sf-desk-copy">
+            <h2 className="sf-h2" id="h-book-top">Book the free health check</h2>
+            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies.</p>
+            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
+            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
+          </div>
+          <div className="sf-c7">
+            <div className="desk-card sf-desk-panel">
+              <LeadForm short idPrefix="top-" formId="sf-migration-top" heading="Tell us about the migration" headingId="start-title" topic="Salesforce data migration" need="Salesforce / CRM" submitLabel="Book a free health check" placeholder="Source system and roughly how much is in it" />
+            </div>
+          </div>
+        </SmartSection>
 
         {/* 2 WHAT IT IS (spec row 1) + what you get (the contract's 3 visible bullets; the old 14px H2 is now a label). */}
         <SmartSection id="what" tone="surface" grid labelledBy="h-what">
@@ -550,7 +566,10 @@ export default function SalesforceDataMigration() {
           heading="Scope your Salesforce data migration"
           lede="Name the source system and roughly how much is in it, and data already in Salesforce starts with the free one-week health check."
           next={["Call or send the form.", "A person at OneAlgorithm reads it and replies.", "We tell you what we would check first."]}
+          id="book"
+          inline="Salesforce / CRM"
           form={{
+            formId: "sf-migration-end",
             topic: "data-migration",
             topicLabel: "Salesforce data migration",
             heading: "Book a free health check",

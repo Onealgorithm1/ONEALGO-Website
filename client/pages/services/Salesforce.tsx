@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
   SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
-  FAQ, DeskCTA, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, HUB_STAGES, type SfFaqItem,
+  FAQ, DeskCTA, LeadForm, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, HUB_STAGES, type SfFaqItem,
 } from "../../components/sf";
 import { HubComposition, FlowMigration } from "../../components/sf/illus";
 import {
@@ -166,6 +166,22 @@ export default function Salesforce() {
           proof
           figure={<HubComposition fig={1} hero className="sf-hero-fig" />}
         />
+
+        {/* Google Ads landing (2026-11-17): the short form under the hero owns #start, so the hero, header and call
+            bar buttons land on it. The same form closes the page in the DeskCTA (#book). */}
+        <SmartSection id="start" tone="night" grid compact labelledBy="h-book-top">
+          <div className="sf-c5 sf-desk-copy">
+            <h2 className="sf-h2" id="h-book-top">Book the free health check</h2>
+            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies.</p>
+            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
+            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
+          </div>
+          <div className="sf-c7">
+            <div className="desk-card sf-desk-panel">
+              <LeadForm short idPrefix="top-" formId="sf-consult-top" heading="What is your Salesforce doing wrong?" headingId="start-title" topic="Salesforce consulting" need="Salesforce / CRM" submitLabel="Book a free health check" />
+            </div>
+          </div>
+        </SmartSection>
 
         {/* 2 ANSWER UNIT + FIG. 2 beside it (the 7/5 spread). Spec §4 row 1. */}
         <SmartSection id="what" tone="surface" grid labelledBy="h-what">
@@ -370,7 +386,7 @@ export default function Salesforce() {
         </SmartSection>
 
         {/* 9 DESK: the one form. Spec §4 row 9. */}
-        <DeskCTA form={{ topic: "hub", topicLabel: "Salesforce implementation", heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
+        <DeskCTA id="book" inline="Salesforce / CRM" form={{ topic: "hub", topicLabel: "Salesforce consulting", heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check", formId: "sf-consult-end" }} />
 
         {/* 10 FAQ: questions visible, answers in the HTML behind native disclosures. Spec §4 row 10. */}
         <SmartSection id="faq" tone="surface" grid labelledBy="h-faq" className="sf-faq-section">
