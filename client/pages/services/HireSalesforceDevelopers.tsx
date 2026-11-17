@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { PageHero } from "../../components/site";
-import { SfPage, SmartSection, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, DeskCTA, LeadForm, type SfFaqItem } from "../../components/sf";
+import { SfPage, SmartSection, GoDeeper, Readouts, DeliveredLedger, PersonCredentials, DeskCTA, LeadForm, Verify, SfButton, type SfFaqItem } from "../../components/sf";
 import { SF_PHONE } from "../../data/salesforceShared";
+import { SREENIVAS, badgeSrc } from "../../data/sfPeople";
 import { EnterpriseTable, EnterpriseFaq } from "../../components/v2/enterprise-Units";
 import { EVStyles, BridgePlate, HoverCards, StepRail, Statement } from "../../components/v2/enterprise-Visuals";
 import { OfferBand } from "../../components/v2/shared-OfferBand";
@@ -70,45 +70,10 @@ export default function HireSalesforceDevelopers() {
       />
       <StructuredData data={createWebPageSchema(TITLE, DESCRIPTION, URL_, { dateModified: "2026-11-01" })} />
 
-      <PageHero
-        eyebrow="Salesforce staff augmentation"
-        title={
-          <>
-            Hire Salesforce developers —{" "}
-            <span className="text-oa-orange">inside your team</span>
-          </>
-        }
-        lede="Salesforce developers, admins and architects who join your standups, work in your org and your sandboxes, and take direction from your lead. From a listed Salesforce Consulting Partner in Malvern, PA."
-        panel={{
-          title: "How it works",
-          items: [
-            "Your org, your backlog, your lead setting priorities",
-            "Salesforce developers, admins and architects",
-            "We tell you what each candidate has worked on",
-            "Certifications you can check on Salesforce's own record",
-          ],
-        }}
-        primary={{ label: "Talk to an Expert", href: "#enquire" }}
-        secondary={{ label: "Call (610) 890-9711", href: "tel:+16108909711" }}
-      />
-
       <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: "Hire Salesforce developers" }]}>
         <EVStyles />
-        {/* Google Ads landing (2026-11-16): the short contact form right under the hero, so an ad visitor can
-            ask without leaving the page. The same form closes the page in the DeskCTA below. */}
-        <SmartSection id="enquire" tone="night" grid compact labelledBy="h-enquire">
-          <div className="sf-c5 sf-desk-copy">
-            <h2 className="sf-h2" id="h-enquire">Ask about a Salesforce developer</h2>
-            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies within one business day.</p>
-            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
-            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
-          </div>
-          <div className="sf-c7">
-            <div className="desk-card sf-desk-panel">
-              <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Tell us about the role" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" submitLabel="Talk to an expert" placeholder="What is the Salesforce role, and how long do you need it?" />
-            </div>
-          </div>
-        </SmartSection>
+        <HireHero />
+
         <BridgePlate
           id="what"
           fig={1}
@@ -217,3 +182,125 @@ export default function HireSalesforceDevelopers() {
     </Layout>
   );
 }
+
+/* The hero (2026-11-17, Louis: "add salesforce logos ... needs to be more visually appealing to convert").
+ * Google Ads traffic lands here, so the ask sits in the first screen: the short form docked on the right
+ * (data-form "hire-sf-top", same props as the 11-16 enquiry section it replaces), the call as the second action.
+ * The Salesforce logos are the OFFICIAL certification logos Sreenivas earned (files in public/media/salesforce/
+ * badges, provenance in redesign-v2/badges/badges.md), shown as his, next to his name and his Trailblazer
+ * evidence. Salesforce's Trademark & Copyright Usage Guidelines, "Certified Professionals": the holder may use
+ * the credential designation and logo he earned. ⛔ No stand-alone Salesforce cloud logo and no partner badge
+ * here: the partner badge files sit behind the Partner Community login and no permitting source is on record.
+ * Styles live in this file (HERO_CSS) so the first screen never waits on a stylesheet. */
+function HireHero() {
+  const p = SREENIVAS;
+  return (
+    <section className="hsd-hero" aria-labelledby="h1">
+      <style>{HERO_CSS}</style>
+      <div className="sf-wrap hsd-grid">
+        <div className="hsd-text">
+          <p className="sf-kicker">Salesforce staff augmentation</p>
+          <h1 className="sf-h1" id="h1">
+            Hire Salesforce developers <span className="hsd-mark">inside your team</span>
+          </h1>
+          <p className="sf-lede sf-measure" data-lede="">Developers, admins and architects who work in your org and sandboxes and take direction from your lead.</p>
+          <ul className="hsd-terms" aria-label="Terms">
+            <li>Hourly or monthly contracts</li>
+            <li>Team in the US and India</li>
+            <li>Women-owned, SBA-certified EDWOSB</li>
+          </ul>
+          <div className="hsd-ctas">
+            <SfButton href="#enquire" cta="hero" className="hsd-jump">Tell us about the role</SfButton>
+            <SfButton ghost href={SF_PHONE.href} cta="hero" className="hsd-tel">Call {SF_PHONE.display}</SfButton>
+          </div>
+          <p className="sf-mono hsd-record">
+            Salesforce's AppExchange listing: <b>{SF_CERTIFIED_PEOPLE}</b> certified people, <b>{SF_CERTIFICATIONS}</b> certifications{" "}
+            <Verify id="appexchange" />
+          </p>
+        </div>
+
+        <figure className="hsd-plate sf-stage" aria-labelledby="hsd-plate-cap">
+          <ul className="hsd-badges" aria-label="Active Salesforce certifications held by the One Algorithm team">
+            {p.badges.map((b) => (
+              <li key={b.slug}>
+                <img src={badgeSrc(b)} alt={b.name} title={b.name} width={160} height={157} decoding="async" {...({ fetchpriority: "low" } as object)} />
+              </li>
+            ))}
+          </ul>
+          <figcaption id="hsd-plate-cap">
+            One Algorithm's <b>Salesforce-certified team</b> holds these certifications.{" "}
+            <Verify id="appexchange">See our AppExchange listing</Verify>
+          </figcaption>
+          <p className="stamp"><span>Official Salesforce certification logos</span><span>Trailblazer record read {p.verifiedLabel}</span></p>
+          <span className="sf-tick" aria-hidden="true" />
+        </figure>
+
+        <div className="hsd-desk" id="enquire">
+          <div className="desk-card sf-desk-panel">
+            <h2 className="sr-only" id="h-enquire">Ask about a Salesforce developer</h2>
+            <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Tell us about the role" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" submitLabel="Talk to an expert" placeholder="What is the Salesforce role, and how long do you need it?" />
+            <p className="hsd-reply">A person at OneAlgorithm reads it and replies within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ponytail: page-only CSS as a string, the EVStyles pattern. Tokens are sf.css's (.sfv2). Radius 0 on the plate,
+ * buttons keep sf.css's 6px. Nothing above the fold animates; the badge lift is hover-only and motion-gated. */
+const HERO_CSS = `
+/* impeccable-disable side-tab: the orange top rule is the Salesforce pages' form-card mark (desk-card), signature 2 of this hero */
+/* impeccable-disable kicker-above-heading: the kicker is the paid search phrase "Salesforce staff augmentation", not decoration */
+.sfv2 .hsd-hero { background: var(--paper); padding: 32px 0 80px; border-bottom: 1px solid var(--hair); }
+.sfv2 .hsd-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gap); row-gap: 28px; align-items: start; }
+.sfv2 .hsd-text { grid-column: 1 / 8; grid-row: 1; }
+.sfv2 .hsd-plate { grid-column: 1 / 8; grid-row: 2; }
+.sfv2 .hsd-desk { grid-column: 8 / 13; grid-row: 1 / 3; scroll-margin-top: 96px; }
+@media (max-width: 1279px) { .sfv2 .hsd-text, .sfv2 .hsd-plate { grid-column: 1 / 7; } .sfv2 .hsd-desk { grid-column: 7 / 13; } }
+@media (max-width: 1023px) {
+  .sfv2 .hsd-hero { padding: 24px 0 56px; }
+  .sfv2 .hsd-grid { grid-template-rows: none; row-gap: 28px; }
+  .sfv2 .hsd-text, .sfv2 .hsd-plate, .sfv2 .hsd-desk { grid-column: 1 / -1; grid-row: auto; }
+}
+.sfv2 .hsd-hero .sf-h1 { margin-top: 16px; }
+.sfv2 .hsd-mark { text-decoration: underline 0.14em var(--orange); text-underline-offset: 0.12em; text-decoration-skip-ink: none; }
+.sfv2 .hsd-hero .sf-lede { margin-top: 20px; font-size: 20px; color: var(--ink2); }
+@media (max-width: 639px) { .sfv2 .hsd-hero .sf-lede { font-size: 18px; } }
+.sfv2 .hsd-terms { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 22px; }
+.sfv2 .hsd-terms li { font: 500 16px/1.4 var(--body); color: var(--ink); padding-left: 16px; position: relative; }
+.sfv2 .hsd-terms li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 7px; height: 7px; background: var(--orange); }
+.sfv2 .hsd-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 22px; }
+@media (min-width: 1024px) { .sfv2 .hsd-jump { display: none; } }
+@media (max-width: 767px) { .sfv2 .hsd-tel { display: none; } } /* the sticky call bar (md:hidden) carries Call on phones */
+@media (max-width: 639px) {
+  .sfv2 .hsd-terms { gap: 4px 16px; margin-top: 16px; }
+  .sfv2 .hsd-terms li { font-size: 15px; }
+  .sfv2 .hsd-ctas { margin-top: 18px; }
+  .sfv2 .hsd-jump { width: 100%; justify-content: center; }
+  .sfv2 .hsd-plate .stamp { display: none; }
+}
+
+.sfv2 .hsd-plate { background: var(--surface); }
+.sfv2 .hsd-badges { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 14px 12px; padding: 24px 24px 8px; }
+@media (max-width: 1279px) { .sfv2 .hsd-badges { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 1023px) { .sfv2 .hsd-badges { grid-template-columns: repeat(8, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .sfv2 .hsd-badges { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 10px; padding: 16px 14px 4px; } }
+.sfv2 .hsd-badges img { width: 100%; height: auto; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .sfv2 .hsd-badges img { transition: transform 0.18s var(--arrive); }
+  .sfv2 .hsd-badges li:hover img { transform: translateY(-2px); }
+}
+.sfv2 .hsd-plate figcaption { padding: 12px 24px 16px; font-size: 16px; line-height: 1.5; color: var(--ink2); }
+@media (max-width: 639px) { .sfv2 .hsd-plate figcaption { padding: 10px 12px 14px; } }
+.sfv2 .hsd-plate figcaption b { color: var(--ink); font-weight: 600; }
+.sfv2 .hsd-plate .sf-verify { margin-left: 4px; }
+
+.sfv2 .hsd-desk .desk-card { border-top: 4px solid var(--orange); }
+.sfv2 .hsd-desk .sf-h3 { font-size: 26px; }
+.sfv2 .hsd-reply { margin-top: 16px; font-size: 15px; color: var(--n-ink2); }
+.sfv2 .hsd-record { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.sfv2 .hsd-record b { color: var(--ink); font-weight: 700; }
+/* phones: the same figures sit in "Salesforce's record of our team" below; here they pushed the logos under the call bar */
+@media (max-width: 639px) { .sfv2 .hsd-record { display: none; } }
+`;
