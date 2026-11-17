@@ -418,7 +418,7 @@ export const CITY_COPY: Record<string, CityCopy> = {
       ],
     },
     faqs: [
-      { q: "Why choose a focused Salesforce partner over a large firm?", a: "You deal directly with the people who scope and do the work, and the scope stays fixed to what you need. Salesforce's AppExchange record of OneAlgorithm lists 16 Salesforce-certified people holding 53 certifications." },
+      { q: "Why choose a focused Salesforce partner over a large firm?", a: "You deal directly with the people who scope and do the work, and the scope stays fixed to what you need. Salesforce's AppExchange record of OneAlgorithm lists 16 Salesforce-certified people holding 55 certifications." },
       { q: "Do you take on short, fixed-scope Salesforce projects?", a: "Yes. A defined migration, integration, health check or clean-up is often the best way to start. You get a written scope first, then the work, then a handover." },
       { q: "Do you work with software companies that sell on Salesforce?", a: "Yes. Software companies need Salesforce to keep sales, billing and product usage data in step, and that integration and data work is the core of what we deliver." },
     ],

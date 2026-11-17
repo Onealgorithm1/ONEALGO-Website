@@ -485,7 +485,7 @@ export default function SalesforceHealthCheck() {
           heading={{
             id: "h-review",
             title: "Who reviews your Salesforce org",
-            lede: "The week is run by our Salesforce practice, led by Sreenivas Amirisetti; Salesforce's AppExchange record lists 16 certified people and 53 certifications.",
+            lede: "The week is run by our Salesforce practice, led by Sreenivas Amirisetti; Salesforce's AppExchange record lists 16 certified people and 55 certifications.",
           }}
         >
           <Readouts />

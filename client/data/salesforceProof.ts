@@ -1,10 +1,10 @@
 /* One source for the AppExchange figures the Salesforce pages quote.
  * Read from appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EV7SwUAL,
- * last verified 2026-09-02 (certifications 52 -> 53, a new Agentforce cert; people
+ * last verified 2026-11-17 by OA-1 (certifications 53 -> 55; people 16; tier not shown on the listing that day). Before: 2026-09-02 (52 -> 53; people
  * unchanged). Six pages built 2026-10-22 still typed "52"; this file ends that.
  * Change the numbers here and nowhere else. */
 export const SF_CERTIFIED_PEOPLE = 16;
-export const SF_CERTIFICATIONS = 53;
+export const SF_CERTIFICATIONS = 55;
 export const SF_PLATFORM_CERTS = 38;
 /** The partner tier Salesforce's AppExchange listing shows (read SF_VERIFIED_ON). Owner decision 2026-10-23 ~19:05: state it. */
 export const SF_PARTNER_TIER = "Select";
@@ -13,7 +13,7 @@ export const SF_LISTING_ID = "a0N3A00000EV7SwUAL";
 export const SF_APPEXCHANGE_URL = `https://appexchange.salesforce.com/appxListingDetail?listingId=${SF_LISTING_ID}`;
 
 /** Date a PERSON last re-read the listing's stat box. Change only after re-reading it. */
-export const SF_VERIFIED_ON = "2026-10-23";
+export const SF_VERIFIED_ON = "2026-11-17";
 export const SF_VERIFIED_LABEL = new Date(`${SF_VERIFIED_ON}T12:00:00Z`).toLocaleDateString("en-GB", {
   day: "numeric",
   month: "long",

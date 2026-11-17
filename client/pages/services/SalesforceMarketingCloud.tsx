@@ -35,7 +35,7 @@ import {
 const PAGE_PATH = "/services/salesforce-marketing-cloud-consulting";
 const PAGE_URL = `https://onealgorithm.com${PAGE_PATH}`;
 const PAGE_UPDATED = "2026-10-23";
-const READ_ON = "23 October 2026";
+const READ_ON = "17 November 2026";
 const TITLE = "Salesforce Marketing Cloud Consultants | One Algorithm";
 const DESCRIPTION =
   "Salesforce Marketing Cloud consulting for running accounts: Connect sync, journeys, opt-outs. Free health check from a listed partner. Call (610) 890-9711.";
@@ -426,7 +426,7 @@ export default function SalesforceMarketingCloud() {
           >
             <GoDeeper label="how to check a consultant's credentials">
               <p className="sf-rule">
-                Salesforce publishes each person's active certifications on their public Trailblazer profile, and anyone can check a credential on Salesforce's verification page. A company's AppExchange listing shows its total certified people and certifications. It does not tell you who will do your work. Ours lists 16 certified people and 53 certifications (read {READ_ON}).
+                Salesforce publishes each person's active certifications on their public Trailblazer profile, and anyone can check a credential on Salesforce's verification page. A company's AppExchange listing shows its total certified people and certifications. It does not tell you who will do your work. Ours lists 16 certified people and 55 certifications (read {READ_ON}).
               </p>
               <div className="sf-links"><Link className="sf-link" to={PA}>How to check any Salesforce partner</Link></div>
             </GoDeeper>
