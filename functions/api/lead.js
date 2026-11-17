@@ -83,6 +83,28 @@ export const adClick = (a) => {
   return parts.length ? `Ad click: ${parts.join(" | ")}` : "";
 };
 
+/** The same ad-click values as Web-to-Lead custom fields, so Salesforce reports and the hub's ads KPI can find the
+ *  lead (Description is a long text field and cannot be filtered in SOQL). Field ids are this org's (00Dbn00000plgUf),
+ *  read with the Tooling API 2026-11-17; Web-to-Lead accepted them in a live test that day (lead 00QPn00001DmA0HMAV).
+ *  ponytail: ids are hard-coded; a field recreated in Salesforce gets a new id and silently stops filling. Upgrade path:
+ *  move them to an env var and add a check that reads one back. */
+const AD_FIELD_IDS = {
+  gclid: "00NPn00000JUTmQ",
+  gbraid: "00NPn00000JUTmR",
+  wbraid: "00NPn00000JUTmS",
+  utm_source: "00NPn00000JUTmX",
+  utm_medium: "00NPn00000JUTmW",
+  utm_campaign: "00NPn00000JUTmU",
+  utm_term: "00NPn00000JUTmY",
+  utm_content: "00NPn00000JUTmV",
+};
+export const adFields = (a) => {
+  if (!a || typeof a !== "object") return [];
+  return AD_KEYS.filter((k) => typeof a[k] === "string")
+    .map((k) => [AD_FIELD_IDS[k], a[k].replace(/[\u0000-\u001f\u007f]/g, "").trim().slice(0, 200)])
+    .filter(([id, v]) => id && v);
+};
+
 const json = (status, body) =>
   new Response(JSON.stringify(body), {
     status,
@@ -189,6 +211,7 @@ export async function onRequest({ request, env }) {
       .join("\n\n"),
   );
   lead.set("lead_source", "Web");
+  for (const [id, v] of adFields(body.adClick)) lead.set(id, v);
 
   const sent = await fetch(SALESFORCE_ENDPOINT, {
     method: "POST",
