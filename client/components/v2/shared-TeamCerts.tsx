@@ -8,7 +8,7 @@ import * as React from "react";
 export type CertRow = { platform: string; detail: string };
 
 export const TEAM_CERTS: Record<"salesforce" | "googleAds" | "analytics" | "gmp" | "microsoft" | "semrush", CertRow> = {
-  salesforce: { platform: "Salesforce", detail: "16 certified people, 53 certifications" },
+  salesforce: { platform: "Salesforce", detail: "16 certified people, 55 certifications" },
   googleAds: { platform: "Google Ads", detail: "Search, Display, Video, Measurement, Apps, Creative, Shopping" },
   analytics: { platform: "Google Analytics", detail: "Google Analytics certification" },
   gmp: { platform: "Google Marketing Platform", detail: "Campaign Manager 360, Search Ads 360, Display & Video 360" },

@@ -220,7 +220,7 @@ export default function StaffAugmentation() {
             <div className="sf-links">{L("/services/hire-salesforce-developers", "Hire Salesforce developers, admins and architects")}</div>
             <GoDeeper label="what Salesforce augmentation looks like">
               <p className="sf-rule">The client is a lending company and stays unnamed. The model is the one this page describes: our person, working to the client's backlog under the client's lead.</p>
-              <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce consulting")} practice also holds Salesforce's AppExchange record of 16 people and 53 certifications.</p>
+              <p>Salesforce administrators and architects follow the same model. Our {L("/services/salesforce", "Salesforce consulting")} practice also holds Salesforce's AppExchange record of 16 people and 55 certifications.</p>
             </GoDeeper>
           </div>
         </SmartSection>

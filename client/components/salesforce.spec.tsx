@@ -136,7 +136,7 @@ describe("Salesforce primitives", () => {
       expect(html).toContain(`read ${SF_VERIFIED_LABEL}`);
       expect(html).toContain("a0N3A00000EV7SwUAL");
     }
-    expect(SF_VERIFIED_LABEL).toBe("23 October 2026");
+    expect(SF_VERIFIED_LABEL).toBe("17 November 2026");
   });
 
   it("DataTable shows a next-step row only for our own column", () => {
