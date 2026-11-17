@@ -278,7 +278,6 @@ const HERO_CSS = `
   .sfv2 .hsd-terms li { font-size: 15px; }
   .sfv2 .hsd-ctas { margin-top: 18px; }
   .sfv2 .hsd-jump { width: 100%; justify-content: center; }
-  .sfv2 .hsd-record { display: none; } /* phones: the same figures sit in "Salesforce's record of our team" below; here they pushed the logos under the call bar */
   .sfv2 .hsd-plate .stamp { display: none; }
 }
 
@@ -302,4 +301,6 @@ const HERO_CSS = `
 .sfv2 .hsd-reply { margin-top: 16px; font-size: 15px; color: var(--n-ink2); }
 .sfv2 .hsd-record { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 .sfv2 .hsd-record b { color: var(--ink); font-weight: 700; }
+/* phones: the same figures sit in "Salesforce's record of our team" below; here they pushed the logos under the call bar */
+@media (max-width: 639px) { .sfv2 .hsd-record { display: none; } }
 `;
