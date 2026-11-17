@@ -333,7 +333,7 @@ export default function Privacy() {
             tag, under the same rules, to see whether our Bing ads lead to
             enquiries. It sets Microsoft's own cookies. It is off when you turn
             analytics off above or your browser sends Global Privacy Control.
-            When you send the form, the tag tells Microsoft that a form was sent.
+            It tells Microsoft which pages you view, and when you send the form, that a form was sent.
             We do not send Microsoft your name, email or message. If you arrive
             from a Bing ad, oa_ad also keeps its click ID.
           </p>
