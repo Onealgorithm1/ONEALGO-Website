@@ -71,6 +71,29 @@ describe("POST /api/lead", () => {
     expect(sent).not.toContain("utm_term");
   });
 
+  it("also sends the ad click as Salesforce custom fields, known keys only", async () => {
+    const calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, adClick: { gclid: "TEST123", gbraid: "GB1", utm_source: "google", utm_medium: "cpc", utm_campaign: "sf-dev\nX", evil: "nope", utm_term: 5 } }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect(sent.get("00NPn00000JUTmQ")).toBe("TEST123");
+    expect(sent.get("00NPn00000JUTmR")).toBe("GB1");
+    expect(sent.get("00NPn00000JUTmX")).toBe("google");
+    expect(sent.get("00NPn00000JUTmW")).toBe("cpc");
+    expect(sent.get("00NPn00000JUTmU")).toBe("sf-devX");
+    expect(sent.has("00NPn00000JUTmY")).toBe(false);
+    expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(5);
+  });
+
+  it("sends no custom ad fields when there is no ad click", async () => {
+    const calls = stubFetch();
+    await onRequest({ request: post(GOOD), env: ENV });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(0);
+  });
+
   it("forwards the optional phone, and prepends the topic and page lines", async () => {
     const calls = stubFetch();
     await onRequest({
