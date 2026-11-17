@@ -182,8 +182,8 @@ export default function Privacy() {
                 Salesforce CRM and we email or call you back.
               </li>
               <li>
-                We do not sell your information. Our one ad tag, Google Ads, shows
-                us which of our ads led to an enquiry.
+                We do not sell your information. Our two ad tags, Google Ads and
+                Microsoft Advertising, show us which of our ads led to an enquiry.
               </li>
               <li>
                 You can ask us to delete anything we hold about you by emailing{" "}
@@ -277,8 +277,8 @@ export default function Privacy() {
           </p>
           <p>
             Analytics loads when the page loads. If your browser sends a Global
-            Privacy Control signal, nothing from Google or Microsoft Clarity
-            loads at all. You can also turn analytics off on this site:
+            Privacy Control signal, nothing from Google, Microsoft Clarity or
+            Microsoft Advertising loads at all. You can also turn analytics off on this site:
           </p>
           {/* Opt-out control. Sets the "oa-consent" key that index.html reads
               (denied = load nothing). Keep the key in step if either changes. */}
@@ -321,8 +321,21 @@ export default function Privacy() {
             led to an enquiry. Ad personalisation is turned off. If you arrive
             through one of our ads or a tagged link, a first-party cookie called
             oa_ad keeps the click ID and campaign tags for 90 days. They reach
-            our CRM only if you send the form. Visitors from a Google ad see our
-            ad phone line, (610) 561-5004, which rings the same office.
+            our CRM only if you send the form. Visitors from a Google or Bing ad
+            see our ad phone line, (610) 561-5004, which rings the same office.
+          </p>
+          {/* Microsoft Advertising UET, added 2026-11-17. Checked against index.html (UET_TAG_ID inside
+              oaLoadAnalytics, the same gate as Google Ads; trackFormSubmission pushes "submit_lead_form" with no
+              data) and the oa_ad cookie (msclkid). */}
+          <p>
+            We also use the{" "}
+            <strong className="text-oa-ink">Microsoft Advertising</strong> UET
+            tag, under the same rules, to see whether our Bing ads lead to
+            enquiries. It sets Microsoft's own cookies. It is off when you turn
+            analytics off above or your browser sends Global Privacy Control.
+            When you send the form, the tag tells Microsoft that a form was sent.
+            We do not send Microsoft your name, email or message. If you arrive
+            from a Bing ad, oa_ad also keeps its click ID.
           </p>
           <p>
             There is no cookie banner on this site, so these cookies are set
@@ -545,7 +558,9 @@ export default function Privacy() {
               calls you send us directly, because our company email runs on
               Microsoft 365; and, unless you turned analytics off, how you used
               the page, through Microsoft Clarity. Clarity passes what it collects
-              to Microsoft's advertising network as well as to us.
+              to Microsoft's advertising network as well as to us. Through the
+              Microsoft Advertising tag, whether a visit from one of our Bing ads
+              led to an enquiry.
             </li>
             <li>
               <strong className="text-oa-ink">Twilio</strong>: calls and texts to
@@ -582,8 +597,8 @@ export default function Privacy() {
               We do not sell or rent personal information, and we never have.
             </li>
             <li>
-              The only advertising tag is Google Ads, and we use it to see which
-              ads led to an enquiry. There are no social pixels: no Meta, no
+              The only advertising tags are Google Ads and Microsoft
+              Advertising, and we use them to see which ads led to an enquiry. There are no social pixels: no Meta, no
               LinkedIn, no TikTok, and no retargeting tags.
             </li>
             <li>
@@ -660,7 +675,8 @@ export default function Privacy() {
             for asking. You may use an authorised agent. We do not sell personal
             information, and we do not share it for cross-context behavioural
             advertising. The Google Ads tag only measures which ads led to an
-            enquiry, with ad personalisation turned off. We do not use or
+            enquiry, with ad personalisation turned off. We use the Microsoft
+            Advertising tag for the same purpose with our Bing ads. We do not use or
             disclose sensitive personal information beyond what is needed to
             provide what you asked for.
           </p>

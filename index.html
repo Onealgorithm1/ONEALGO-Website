@@ -65,6 +65,15 @@
       const ADS_ON = /^AW-\d+$/.test(GOOGLE_ADS_ID);
       const ADS_CONVERSION = ADS_ON && /^[\w-]+$/.test(GOOGLE_ADS_LABEL);
 
+      /* Microsoft Advertising UET (2026-11-17), the Bing twin of the Google Ads tag above. Tag 187299094 in ad
+         account G107PYY6; its "Submitted lead" goal (177003029) counts the custom event action "submit_lead_form"
+         that trackFormSubmission pushes. Public like the AW id. Same gate: production hosts only, never with Global
+         Privacy Control or the /privacy opt-out, so those visitors get no tag at all (Microsoft's "Basic" consent
+         mode: nothing fires without consent; a denied default would still load bat.js and send cookieless hits).
+         Empty the id and UET stops. */
+      const UET_TAG_ID = "187299094";
+      const UET_ON = /^\d+$/.test(UET_TAG_ID);
+
       /* Consent gate. Deliberately small: one analytics tool, so one yes/no
          decision. No category toggles, no vendor list, no consent-management
          platform — none of that is required to be lawful here, and each piece
@@ -99,6 +108,22 @@
         }
         requestAnimationFrame(function () { setTimeout(loadGa, 0); });
         setTimeout(loadGa, 1500);
+
+        /* UET: Microsoft's own snippet, verbatim apart from the guard and the tag id constant, from "Everything you need to know about
+           setting up UET" (github.com/MicrosoftDocs/Advertising, msa-help/hlp_BA_CONC_UET_Setup_Master.md, 2026-06-11).
+           enableAutoSpaTracking sends a page view on each React Router navigation. uetq exists from here on, so a
+           lead sent before bat.js arrives still queues its event.
+           ponytail: started on `load`, like Clarity, not on the first frame like gtag. Measured 2026-11-17 (mobile
+           Lighthouse, 7 runs, local prerendered build): on the first frame it raised the median LCP of
+           /services/hire-salesforce-developers by ~70ms (1004 to 1074). Ceiling: a visitor who leaves
+           before `load` sends Microsoft no page view, so that click is not matched to a later conversion. */
+        if (UET_ON) {
+          window.uetq = window.uetq || [];
+          const loadUet = function () {
+            (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:UET_TAG_ID, enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+          };
+          if (document.readyState === "complete") loadUet(); else addEventListener("load", loadUet);
+        }
 
         /* Clarity rides the same gate. It used to load unconditionally on the
            window load event, which meant a session recorder -- it sets _clck
@@ -181,6 +206,8 @@
         }, extra || {}));
         // Google Ads conversion: only once the ids are set AND the consent gate above loaded the tags.
         if (ADS_CONVERSION && window.oaGaScheduled) gtag("event", "conversion", { send_to: GOOGLE_ADS_ID + "/" + GOOGLE_ADS_LABEL });
+        // Microsoft Ads "Submitted lead" goal: same condition (oaGaScheduled = the gate let the tags load).
+        if (UET_ON && window.oaGaScheduled) window.uetq.push("event", "submit_lead_form", {});
       };
 
       // Phone and email clicks, added 2026-08-12.
@@ -241,13 +268,13 @@
         }
       } catch (x) {}
 
-      // Ad click, 2026-11-16: Google Ads click ids and UTM tags from the landing URL, kept 90 days in a
+      // Ad click, 2026-11-16: Google Ads click ids (msclkid, Microsoft Ads, 2026-11-17) and UTM tags from the landing URL, kept 90 days in a
       // first-party cookie. The contact forms send them with a lead (client/lib/lead.ts -> "Ad click:" line in
       // Salesforce), and a click id switches the visible phone number to the ad line (Layout.tsx). Read by our
       // own code only; nothing leaves the browser unless the visitor sends the form. The last tagged link wins.
       try {
         var q = new URL(location.href).searchParams, ad = {}, any = false;
-        ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
+        ["gclid", "gbraid", "wbraid", "msclkid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
           var v = q.get(k);
           if (v) { ad[k] = v.slice(0, 200); any = true; }
         });
