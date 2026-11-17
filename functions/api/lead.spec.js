@@ -87,6 +87,18 @@ describe("POST /api/lead", () => {
     expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(5);
   });
 
+  it("writes a Bing msclkid into the 'Ad click:' line but sends it as no custom field", async () => {
+    const calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, adClick: { msclkid: "BING123", utm_source: "bing", utm_medium: "cpc", utm_campaign: "oa-salesforce" } }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect(sent.get("description")).toContain("Ad click: msclkid=BING123 | utm_source=bing | utm_medium=cpc | utm_campaign=oa-salesforce");
+    expect([...sent.values()]).not.toContain("BING123");
+    expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(3);
+  });
+
   it("sends no custom ad fields when there is no ad click", async () => {
     const calls = stubFetch();
     await onRequest({ request: post(GOOD), env: ENV });

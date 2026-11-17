@@ -95,7 +95,7 @@ export async function submitLead(
           return null;
         }
       })(),
-      // The ad click (gclid/gbraid/wbraid + utm_*) index.html kept in the oa_ad cookie; functions/api/lead.js
+      // The ad click (gclid/gbraid/wbraid/msclkid + utm_*) index.html kept in the oa_ad cookie; functions/api/lead.js
       // writes it into the Lead description as "Ad click:".
       adClick: readAdClick(),
     }),
@@ -123,11 +123,11 @@ export async function submitBlogSubscription(email: string, slug: string, turnst
   if (!response.ok) throw new Error(result.error || "We could not save your request. Please try again.");
 }
 
-/* ---- Google Ads click attribution -------------------------------------------------------------------------
-   index.html stores gclid, gbraid, wbraid and utm_* from the landing URL in the first-party cookie `oa_ad`
+/* ---- Google Ads and Microsoft Ads click attribution ------------------------------------------------------
+   index.html stores gclid, gbraid, wbraid, msclkid and utm_* from the landing URL in the first-party cookie `oa_ad`
    (90 days, SameSite=Lax, Secure). submitLead() sends it with every lead. */
 
-const AD_KEYS = ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+const AD_KEYS = ["gclid", "gbraid", "wbraid", "msclkid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 export function readAdClick(): Record<string, string> | null {
   try {
@@ -142,10 +142,10 @@ export function readAdClick(): Record<string, string> | null {
   }
 }
 
-/** The visitor came from a Google ad: a click id, not just UTM tags. */
+/** The visitor came from a Google or Microsoft (Bing) ad: a click id, not just UTM tags. */
 export const isAdVisitor = () => {
   const a = readAdClick();
-  return !!(a && (a.gclid || a.gbraid || a.wbraid));
+  return !!(a && (a.gclid || a.gbraid || a.wbraid || a.msclkid));
 };
 
 /**

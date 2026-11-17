@@ -9,11 +9,16 @@
 //   b) the phone reads 610-561-5004 (text and tel: links, footer included) only with a gclid; without one, and in the
 //      prerendered HTML, it is the office number;
 //   c) with Global Privacy Control on, nothing Google loads: no request to Google tag hosts, no AW config, no conversion.
-// Google's scripts and Turnstile are stubbed; no request leaves the machine.
+//   d) Microsoft Ads UET (2026-11-17): bat.js loads once with ti 187299094 on the live host; a successful send pushes
+//      exactly one "submit_lead_form" event; with GPC, with the /privacy opt-out, and on a non-production host
+//      nothing from Bing loads; landing with ?msclkid=BING123 swaps the phone, posts adClick.msclkid, and the
+//      server's "Ad click:" Description line (functions/api/lead.js adClick) carries it.
+// Google's and Microsoft's scripts and Turnstile are stubbed; no request leaves the machine.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { adClick } from "../functions/api/lead.js";
 
 const PW = process.env.PLAYWRIGHT_PATH || "C:/Users/louis/scripts/playwright-mcp/node_modules/playwright";
 const { webkit, chromium, devices } = createRequire(import.meta.url)(PW);
@@ -26,6 +31,10 @@ const PAGES = [
   { route: "/services/salesforce-data-migration", top: "sf-migration-top", end: "sf-migration-end", need: "Salesforce / CRM", topic: "Salesforce data migration", start: true },
 ];
 const SEND_TO = "AW-17336277732/mszkCL-_27kdEOS1yspA";
+const UET_TI = "187299094";
+const BING = /bat\.bing\.(com|net)|c\.bing\.com/;
+// bat.js stand-in: records the tag id it was built with and every "event" pushed, queued or live.
+const UET_STUB = `window.__uet={ti:[],events:[]};window.UET=function(o){window.__uet.ti.push(o.ti);var q=o.q||[];for(var i=0;i<q.length;i++)if(q[i]==="event")window.__uet.events.push(q[i+1]);};window.UET.prototype.push=function(){if(arguments[0]==="event")window.__uet.events.push(arguments[1]);};`;
 const GOOGLE = /googletagmanager\.com|googleadservices\.com|doubleclick\.net|google-analytics\.com|google\.com\/(pagead|ccm)/;
 
 let failed = 0;
@@ -43,15 +52,16 @@ function fileFor(pathname) {
 }
 const TURNSTILE_STUB = `window.turnstile={render:function(el,o){setTimeout(function(){o.callback("stub-token")},20);return "w"+Math.random()},reset:function(){},remove:function(){}};window.onloadTurnstileCallback&&window.onloadTurnstileCallback();`;
 
-async function session(browserType, contextOpts, { gclid, gpc, route = "/" }) {
+async function session(browserType, contextOpts, { gclid, msclkid, gpc, optout, route = "/", host = "onealgorithm.com" }) {
   const browser = await browserType.launch();
   const context = await browser.newContext(contextOpts);
   if (gpc) await context.addInitScript(() => Object.defineProperty(Navigator.prototype, "globalPrivacyControl", { get: () => true }));
-  const google = [], leads = [], errors = [];
+  if (optout) await context.addInitScript(() => { try { localStorage.setItem("oa-consent", "denied"); } catch (e) {} });
+  const google = [], bing = [], leads = [], errors = [];
   await context.route("**/*", async (route) => {
     const req = route.request();
     const url = new URL(req.url());
-    if (url.hostname === "onealgorithm.com") {
+    if (url.hostname === host) {
       if (url.pathname === "/api/lead") {
         leads.push(JSON.parse(req.postData() || "{}"));
         return route.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
@@ -62,14 +72,32 @@ async function session(browserType, contextOpts, { gclid, gpc, route = "/" }) {
     }
     if (url.hostname === "challenges.cloudflare.com") return route.fulfill({ status: 200, contentType: "text/javascript", body: TURNSTILE_STUB });
     if (GOOGLE.test(req.url())) { google.push(req.url()); return route.fulfill({ status: 200, contentType: "text/javascript", body: "" }); }
+    if (BING.test(req.url())) { bing.push(req.url()); return route.fulfill({ status: 200, contentType: "text/javascript", body: url.pathname === "/bat.js" ? UET_STUB : "" }); }
     return route.fulfill({ status: 204, body: "" }); // Clarity, fonts CDN, anything else third-party
   });
   const page = await context.newPage();
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-  await page.goto(`https://onealgorithm.com${route}${gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : ""}`, { waitUntil: "load" });
+  const q = gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : msclkid ? "?msclkid=BING123&utm_source=bing&utm_medium=cpc&utm_campaign=oa-salesforce" : "";
+  await page.goto(`https://${host}${route}${q}`, { waitUntil: "load" });
   await page.waitForTimeout(1500); // hydration, the phone swap's rAF, the 1.5s GA backstop
-  return { browser, context, page, google, leads, errors };
+  return { browser, context, page, google, bing, leads, errors };
+}
+
+// The UET tag ids bat.js was started with, and how many "submit_lead_form" events reached uetq (queued or live).
+const uetState = (page) => page.evaluate(() => {
+  const ev = (window.__uet?.events || []).concat(Array.isArray(window.uetq) ? window.uetq : []);
+  return { ti: window.__uet?.ti || [], leads: ev.filter((e) => e === "submit_lead_form").length, uetq: typeof window.uetq !== "undefined" };
+});
+const batLoads = (s) => s.bing.filter((u) => new URL(u).pathname === "/bat.js").length;
+async function submitTop(s, P, tap) {
+  await s.page.fill("#top-name", "Test Person");
+  await s.page.fill("#top-email", "test@example.com");
+  await s.page.fill("#top-company", "Example Co");
+  const btn = s.page.locator(`form[data-form="${P.top}"] button[type="submit"]`);
+  if (tap) await btn.tap(); else await btn.click();
+  await s.page.getByText("Received.").first().waitFor({ timeout: 10000 });
+  await s.page.waitForTimeout(300);
 }
 
 const phoneState = (page) => page.evaluate(() => ({
@@ -102,6 +130,9 @@ for (const P of PAGES) {
       const p = await phoneState(s.page);
       check("no gclid: office number shown", p.text.includes("890-9711") && !p.text.includes("561-5004"));
       check("no gclid: tel links unchanged", p.tels.length > 0 && p.tels.every((t) => !t.includes("5615004")), p.tels.join(","));
+      const u = await uetState(s.page);
+      check(`UET loads on the live host: bat.js once, ti ${UET_TI}`, batLoads(s) === 1 && u.ti.length === 1 && u.ti[0] === UET_TI, JSON.stringify({ bat: s.bing, ti: u.ti }));
+      check("UET: no submit_lead_form without a send", u.leads === 0);
       await s.browser.close();
     }
 
@@ -142,6 +173,9 @@ for (const P of PAGES) {
       const dl = await dataLayer(s.page);
       check("generate_lead sent", dl.some((a) => a[0] === "event" && a[1] === "generate_lead" && a[2]?.form_id === P.top));
       check(`Ads conversion sent (${SEND_TO})`, dl.filter((a) => a[0] === "event" && a[1] === "conversion" && a[2]?.send_to === SEND_TO).length === 1);
+      await s.page.waitForTimeout(300);
+      const u = await uetState(s.page);
+      check("UET: exactly one submit_lead_form after one send", u.leads === 1 && batLoads(s) === 1, JSON.stringify(u));
       check("no page errors from our code", s.errors.length === 0, s.errors.join(" | "));
       await s.browser.close();
     }
@@ -161,9 +195,46 @@ for (const P of PAGES) {
       check("GPC: no Google Ads config, no conversion", !dl.some((a) => (a[0] === "config" && String(a[1]).startsWith("AW-")) || a[1] === "conversion"));
       check("GPC: the lead still posts, with no ad click (the cookie is never set)", s.leads.length === 1 && !s.leads[0].adClick?.gclid);
       check("GPC: no oa_ad cookie", !(await s.page.context().cookies()).some((c) => c.name === "oa_ad"));
+      const u = await uetState(s.page);
+      check("GPC: nothing from Bing (no bat.js, no uetq, no lead event)", s.bing.length === 0 && !u.uetq && u.leads === 0, s.bing.join(","));
+      await s.browser.close();
+    }
+
+    // (d) msclkid (Microsoft Ads click), no GPC: swap, post with msclkid, Description line, one UET lead event
+    {
+      const s = await session(type, opts, { msclkid: true, gpc: false, route: ROUTE });
+      const p = await phoneState(s.page);
+      check("msclkid: ad line in the body", p.text.includes("(610) 561-5004") && !p.text.includes("890-9711"));
+      check("msclkid: every tel: link is the ad line", p.tels.length > 0 && p.tels.every((t) => t.includes("5615004")), p.tels.join(","));
+      await submitTop(s, P, tap);
+      const lead = s.leads[0] || {};
+      check("msclkid: posted once with msclkid + bing utm", s.leads.length === 1 && lead.adClick?.msclkid === "BING123" && lead.adClick?.utm_source === "bing" && lead.adClick?.utm_campaign === "oa-salesforce" && !lead.adClick?.gclid, JSON.stringify(lead.adClick));
+      const line = adClick(lead.adClick);
+      check("msclkid: Description line carries it", line === "Ad click: msclkid=BING123 | utm_source=bing | utm_medium=cpc | utm_campaign=oa-salesforce", line);
+      const u = await uetState(s.page);
+      check("msclkid: exactly one submit_lead_form", u.leads === 1, JSON.stringify(u));
       await s.browser.close();
     }
   }
+}
+
+// Opt-out from /privacy ("oa-consent" = "denied") and a non-production host: nothing from Google or Bing, once each.
+{
+  const P = PAGES[0];
+  console.log("\nopt-out and preview host (Chromium)");
+  const o = await session(chromium, { viewport: { width: 1440, height: 900 } }, { msclkid: true, optout: true, route: P.route });
+  await submitTop(o, P, false);
+  const uo = await uetState(o.page);
+  check("opt-out: nothing from Bing (no bat.js, no uetq, no lead event)", o.bing.length === 0 && !uo.uetq && uo.leads === 0, o.bing.join(","));
+  check("opt-out: no Google tag request, no oa_ad cookie", o.google.length === 0 && !(await o.context.cookies()).some((c) => c.name === "oa_ad"), o.google.join(","));
+  check("opt-out: the lead still posts, with no ad click", o.leads.length === 1 && !o.leads[0].adClick);
+  await o.browser.close();
+
+  const h = await session(chromium, { viewport: { width: 1440, height: 900 } }, { msclkid: true, route: P.route, host: "onealgorithm-staging.pages.dev" });
+  await submitTop(h, P, false);
+  const uh = await uetState(h.page);
+  check("preview host: nothing from Bing or Google", h.bing.length === 0 && h.google.length === 0 && !uh.uetq, [...h.bing, ...h.google].join(","));
+  await h.browser.close();
 }
 
 // /contact: the same component in its full form (moved out of Contact.tsx), #need prefill, post.
