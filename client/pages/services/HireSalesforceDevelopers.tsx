@@ -250,6 +250,8 @@ function HireHero() {
 /* ponytail: page-only CSS as a string, the EVStyles pattern. Tokens are sf.css's (.sfv2). Radius 0 on the plate,
  * buttons keep sf.css's 6px. Nothing above the fold animates; the badge lift is hover-only and motion-gated. */
 const HERO_CSS = `
+/* impeccable-disable side-tab: the orange top rule is the Salesforce pages' form-card mark (desk-card), signature 2 of this hero */
+/* impeccable-disable kicker-above-heading: the kicker is the paid search phrase "Salesforce staff augmentation", not decoration */
 .sfv2 .hsd-hero { background: var(--paper); padding: 40px 0 80px; border-bottom: 1px solid var(--hair); }
 .sfv2 .hsd-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gap); row-gap: 36px; align-items: start; }
 .sfv2 .hsd-text { grid-column: 1 / 8; grid-row: 1; }
