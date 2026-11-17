@@ -52,7 +52,7 @@ export function contactHref(topicLabel: string, from: string, need = "salesforce
  *                    prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
  * `heading` defaults to the hub's; a service page passes its own 8-word H2 and lede.
  */
-export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next = DEFAULT_NEXT, hcLink = true, inline }: {
+export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next, hcLink = true, inline, id = "start" }: {
   form: DeskForm;
   heading?: string;
   headingId?: string;
@@ -66,10 +66,14 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
   /** Ad landing pages (2026-11-16): the short contact form (LeadForm) in the panel, sending `inline` as the
    *  service, instead of the button to /contact. The visitor never leaves the page. */
   inline?: string;
+  /** Section id. "start" unless the page's top form owns #start (ad landing pages put the form under the hero). */
+  id?: string;
 }) {
   const { pathname } = useLocation();
+  // The default steps point at the contact page; with the form inline they point here.
+  const steps = next ?? (inline ? ["Call, or send the form.", ...DEFAULT_NEXT.slice(1)] : DEFAULT_NEXT);
   return (
-    <section className="sf-section sf-night" id="start" aria-labelledby={headingId}>
+    <section className="sf-section sf-night" id={id} aria-labelledby={headingId}>
       <div className="sf-wrap sf-grid">
         <div className="sf-c6 sf-desk-copy">
           <h2 className="sf-h2" id={headingId}>{heading}</h2>
@@ -86,7 +90,7 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
           )}
           <h3 className="sf-h4" style={{ marginTop: 32 }}>What happens next</h3>
           <ol style={{ marginTop: 10, display: "grid", gap: 8 }}>
-            {next.map((s, i) => (
+            {steps.map((s, i) => (
               <li key={i} style={{ display: "flex", gap: 12 }}>
                 <span className="sf-mono" style={{ color: "var(--orange)", paddingTop: 4 }}>{String(i + 1).padStart(2, "0")}</span>
                 <span>{s}</span>
@@ -97,10 +101,10 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
         <div className="sf-c6">
           <div className="desk-card sf-desk-panel">
             {inline ? (
-              <LeadForm short idPrefix="desk-" formId={form.formId || "sf-desk"} heading={form.heading} headingId="start-title" topic={form.topicLabel} need={inline} submitLabel={form.submitLabel} placeholder={form.prompt} />
+              <LeadForm short idPrefix="desk-" formId={form.formId || "sf-desk"} heading={form.heading} headingId={`${id}-title`} topic={form.topicLabel} need={inline} submitLabel={form.submitLabel} placeholder={form.prompt} />
             ) : (
               <>
-                <h3 className="sf-h3" id="start-title">{form.heading}</h3>
+                <h3 className="sf-h3" id={`${id}-title`}>{form.heading}</h3>
                 <p className="sf-topic-chip">Topic · {form.topicLabel}</p>
                 <p style={{ marginTop: 18 }}>{form.prompt} Tell us on the contact page; the topic is already filled in.</p>
                 <SfButton to={contactHref(form.topicLabel, pathname, form.need)} magnet cta="desk" className="sf-desk-btn">{form.submitLabel}</SfButton>

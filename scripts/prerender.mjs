@@ -35,6 +35,36 @@ const withFallbacks = (html) => {
     .flatMap((n) => fs.readFileSync(path.join(DIST, "assets", n), "utf8").match(/@font-face\{font-family:[^;}]*Fallback[^}]*\}/g) || []))].join("");
   return html.replace("<style>", `<style>${fontFallbacks}`);
 };
+/* 2026-11-17, Salesforce kit routes (Google Ads landings): the app JS and the full stylesheet load AFTER the first
+   contentful paint. The static HTML already paints the whole first screen (critical CSS inlined above), but on a fast
+   server the 170 KB of modules and the stylesheet finished and ran before Chrome's first frame, so Lighthouse counted
+   them as LCP dependencies: /services/salesforce mobile LCP 4.29s -> 2.25s in the lab run on the same build, CLS 0.
+   The @font-face rules move inline so the first paint keeps its web fonts; the noscript stylesheet stays.
+   ponytail: boot = FCP (paint timing) AND DOMContentLoaded, 3s safety net for a tab that never paints (background).
+   Upgrade path: widen POST_PAINT to every hydrated route once their gates have run against it.
+   Philadelphia stays out: its page-local `max-lg:[&_.sf-hero-photo_.sf-photo]:!mt-8` sits in an
+   `@media not all and (...)` rule Beasties does not inline, so the hero would move 32px when the stylesheet lands
+   (first paint vs settled: 38% of the first screen; the other 23 Salesforce routes: 0%). Include it once sf.css
+   carries that fix, as the comment on its <SfPage> asks. */
+const POST_PAINT = (r) => (r.startsWith("/services/salesforce") || r === "/services/hire-salesforce-developers") && r !== "/services/salesforce-consultant-philadelphia";
+const bootAfterPaint = (html) => {
+  const entry = html.match(/<script type="module"[^>]*src="([^"]+)"[^>]*><\/script>/);
+  if (!entry) throw new Error("bootAfterPaint: no module entry script");
+  const tags = [];
+  for (const [tag, href] of html.matchAll(/<link rel="preload" crossorigin href="(\/assets\/[^"]+\.css)" onload="this.rel='stylesheet'" as="style">/g)) {
+    html = html.replace(tag, "");
+    tags.push(["link", { rel: "stylesheet", crossorigin: "", href }]);
+    const faces = fs.readFileSync(path.join(DIST, href), "utf8").match(/@font-face\{font-family:[^;}]*;src:url[^}]*\}/g) || [];
+    html = html.replace("<style>", `<style>${faces.join("")}`);
+  }
+  for (const [tag, href] of html.matchAll(/<link rel="modulepreload"[^>]*href="([^"]+)"[^>]*>/g)) {
+    html = html.replace(tag, "");
+    tags.push(["link", { rel: "modulepreload", crossorigin: "", href }]);
+  }
+  tags.push(["script", { type: "module", crossorigin: "", src: entry[1] }]);
+  const boot = `<script>(function(){var done=0,fcp=0,dcl=0,go=function(){if(done++)return;${JSON.stringify(tags)}.forEach(function(t){var e=document.createElement(t[0]);for(var k in t[1])e.setAttribute(k,t[1][k]);document.head.appendChild(e)})},check=function(){if(fcp&&dcl)setTimeout(go,0)};try{if(PerformanceObserver.supportedEntryTypes.indexOf("paint")<0)throw 0;new PerformanceObserver(function(l){if(l.getEntriesByName("first-contentful-paint").length){fcp=1;check()}}).observe({type:"paint",buffered:true})}catch(e){fcp=1}document.addEventListener("DOMContentLoaded",function(){dcl=1;check();setTimeout(go,3000)})})()</script>`;
+  return html.replace(entry[0], boot);
+};
 // 0 lets the OS hand out a free port, and the real one is read back from the
 // listening server below. A fixed 5055 meant a stale process from an earlier run,
 // or a second build on the same machine, failed the whole thing with EADDRINUSE.
@@ -391,7 +421,8 @@ async function main() {
       // Written copy only: the hidden-content guard below must keep scanning the page's own
       // markup, not the inlined stylesheet rules (.opacity-0, keyframes) beasties adds.
       fs.mkdirSync(path.dirname(outFile), { recursive: true });
-      fs.writeFileSync(outFile, withFallbacks(await beasties.process(html)));
+      const out = withFallbacks(await beasties.process(html));
+      fs.writeFileSync(outFile, hydrated(route) && POST_PAINT(route) ? bootAfterPaint(out) : out);
 
       // Fail the build if a page is about to ship content that is invisible
       // without JavaScript. This is not hypothetical: adding scroll reveals put

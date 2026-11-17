@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
   SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
-  FAQ, DeskCTA, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, SourcesDialog, Verify,
+  FAQ, DeskCTA, LeadForm, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, SourcesDialog, Verify,
   type SfFaqItem, type ServiceCard, type Stage, type SfSource,
 } from "../../components/sf";
 import { HealthCheck, FlowMigration } from "../../components/sf/illus";
@@ -307,6 +307,22 @@ export default function SalesforceHealthCheck() {
           figure={<HealthCheck fig={1} hero className="sf-hero-fig" />}
         />
 
+        {/* Google Ads landing (2026-11-17): the short form under the hero owns #start, so the hero, header and call
+            bar buttons land on it. The same form closes the page in the DeskCTA (#book). */}
+        <SmartSection id="start" tone="night" grid compact labelledBy="h-book-top">
+          <div className="sf-c5 sf-desk-copy">
+            <h2 className="sf-h2" id="h-book-top">Book the free health check</h2>
+            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies.</p>
+            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
+            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
+          </div>
+          <div className="sf-c7">
+            <div className="desk-card sf-desk-panel">
+              <LeadForm short idPrefix="top-" formId="sf-health-top" heading="What is the symptom?" headingId="start-title" topic="Salesforce health check" need="Salesforce / CRM" submitLabel="Request the free health check" />
+            </div>
+          </div>
+        </SmartSection>
+
         {/* 2 THE ANSWER (spec §6.2 row 1) beside what the week produces (row 6, GATED: no columns, score or effort). */}
         <SmartSection id="what" tone="surface" grid labelledBy="h-what">
           <SmartUnit
@@ -532,7 +548,9 @@ export default function SalesforceHealthCheck() {
           heading="Book the free one-week Salesforce health check"
           lede="Tell us the symptom, and we spend one week in your org with a read-only user you create, then walk you through the ranked list."
           hcLink={false}
-          form={{ topic: "hc", topicLabel: "Salesforce health check", heading: "Book the free week", prompt: "What is the symptom?", submitLabel: "Request the free health check" }}
+          id="book"
+          inline="Salesforce / CRM"
+          form={{ topic: "hc", topicLabel: "Salesforce health check", heading: "Book the free week", prompt: "What is the symptom?", submitLabel: "Request the free health check", formId: "sf-health-end" }}
         />
 
         {/* 11 FAQ (row 11): questions visible, answers in the HTML behind native disclosures; sources in the pop-up. */}

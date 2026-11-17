@@ -1,4 +1,5 @@
-// Google Ads landing gate for /services/hire-salesforce-developers (2026-11-16), on the PRERENDERED build.
+// Google Ads landing gate for every page in PAGES (hire-salesforce-developers 2026-11-16; the Salesforce hub, health
+// check and data migration 2026-11-17), on the PRERENDERED build.
 //   pnpm build && node scripts/prerender.mjs && node scripts/ads-landing-check.mjs
 // Serves dist/spa AS https://onealgorithm.com (request interception, so the production-host analytics gate and the
 // Secure cookie behave as live) in WebKit iPhone 13 and Chromium desktop, and FAILS (exit 1) unless:
@@ -17,7 +18,13 @@ import { createRequire } from "node:module";
 const PW = process.env.PLAYWRIGHT_PATH || "C:/Users/louis/scripts/playwright-mcp/node_modules/playwright";
 const { webkit, chromium, devices } = createRequire(import.meta.url)(PW);
 const DIST = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "dist", "spa");
-const ROUTE = "/services/hire-salesforce-developers";
+// route, the top form's data-form id (the one submitted), the end form's id, and what the lead must carry.
+const PAGES = [
+  { route: "/services/hire-salesforce-developers", top: "hire-sf-top", end: "hire-sf-end", need: "Staff Augmentation", topic: "Hire Salesforce developers" },
+  { route: "/services/salesforce", top: "sf-consult-top", end: "sf-consult-end", need: "Salesforce / CRM", topic: "Salesforce consulting", start: true },
+  { route: "/services/salesforce-health-check", top: "sf-health-top", end: "sf-health-end", need: "Salesforce / CRM", topic: "Salesforce health check", start: true },
+  { route: "/services/salesforce-data-migration", top: "sf-migration-top", end: "sf-migration-end", need: "Salesforce / CRM", topic: "Salesforce data migration", start: true },
+];
 const SEND_TO = "AW-17336277732/mszkCL-_27kdEOS1yspA";
 const GOOGLE = /googletagmanager\.com|googleadservices\.com|doubleclick\.net|google-analytics\.com|google\.com\/(pagead|ccm)/;
 
@@ -36,7 +43,7 @@ function fileFor(pathname) {
 }
 const TURNSTILE_STUB = `window.turnstile={render:function(el,o){setTimeout(function(){o.callback("stub-token")},20);return "w"+Math.random()},reset:function(){},remove:function(){}};window.onloadTurnstileCallback&&window.onloadTurnstileCallback();`;
 
-async function session(browserType, contextOpts, { gclid, gpc }) {
+async function session(browserType, contextOpts, { gclid, gpc, route = "/" }) {
   const browser = await browserType.launch();
   const context = await browser.newContext(contextOpts);
   if (gpc) await context.addInitScript(() => Object.defineProperty(Navigator.prototype, "globalPrivacyControl", { get: () => true }));
@@ -60,89 +67,102 @@ async function session(browserType, contextOpts, { gclid, gpc }) {
   const page = await context.newPage();
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-  await page.goto(`https://onealgorithm.com${ROUTE}${gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : ""}`, { waitUntil: "load" });
+  await page.goto(`https://onealgorithm.com${route}${gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : ""}`, { waitUntil: "load" });
   await page.waitForTimeout(1500); // hydration, the phone swap's rAF, the 1.5s GA backstop
   return { browser, context, page, google, leads, errors };
 }
 
 const phoneState = (page) => page.evaluate(() => ({
   text: document.body.innerText,
-  footer: document.querySelector("footer")?.innerText || "",
+  // The site footer is the page's last <footer>; figures carry their own (the health-check scene's .hc-foot).
+  footer: [...document.querySelectorAll("footer")].pop()?.innerText || "",
   tels: [...document.querySelectorAll('a[href^="tel:"]')].map((a) => a.getAttribute("href")),
 }));
 const dataLayer = (page) => page.evaluate(() => JSON.parse(JSON.stringify((window.dataLayer || []).map((a) => Array.from(a)))));
 
-const html = fs.readFileSync(fileFor(ROUTE), "utf8");
-console.log("prerendered HTML");
-check("carries the office number", html.includes("890-9711") && html.includes("tel:+16108909711"));
-check("never the ad line", !html.includes("561-5004") && !html.includes("5615004"));
-check("both forms are in the static HTML", html.includes('id="top-name"') && html.includes('id="desk-name"'));
-check("no Turnstile error baked in", !html.includes("could not load"));
+for (const P of PAGES) {
+  const ROUTE = P.route;
+  const html = fs.readFileSync(fileFor(ROUTE), "utf8");
+  console.log(`\n===== ${ROUTE}\nprerendered HTML`);
+  check("carries the office number", html.includes("890-9711") && html.includes("tel:+16108909711"));
+  check("never the ad line", !html.includes("561-5004") && !html.includes("5615004"));
+  check("both forms are in the static HTML", html.includes('id="top-name"') && html.includes('id="desk-name"') && html.includes(`data-form="${P.top}"`) && html.includes(`data-form="${P.end}"`));
+  check("no Turnstile error baked in", !html.includes("could not load"));
+  if (P.start) check("#start is the top form (one #start, one start-title)", html.split('id="start"').length === 2 && html.split('id="start-title"').length === 2 && html.indexOf('id="start"') < html.indexOf(`data-form="${P.top}"`) && html.indexOf(`data-form="${P.top}"`) < html.indexOf(`data-form="${P.end}"`));
 
-for (const [name, type, opts, tap] of [
-  ["WebKit iPhone 13", webkit, { ...devices["iPhone 13"] }, true],
-  ["Chromium desktop 1440", chromium, { viewport: { width: 1440, height: 900 } }, false],
-]) {
-  console.log(`\n${name}`);
+  for (const [name, type, opts, tap] of [
+    ["WebKit iPhone 13", webkit, { ...devices["iPhone 13"] }, true],
+    ["Chromium desktop 1440", chromium, { viewport: { width: 1440, height: 900 } }, false],
+  ]) {
+    console.log(`\n${name}`);
 
-  // (b) no gclid: office number
-  {
-    const s = await session(type, opts, { gclid: false, gpc: false });
-    const p = await phoneState(s.page);
-    check("no gclid: office number shown", p.text.includes("890-9711") && !p.text.includes("561-5004"));
-    check("no gclid: tel links unchanged", p.tels.length > 0 && p.tels.every((t) => !t.includes("5615004")), p.tels.join(","));
-    await s.browser.close();
-  }
+    // (b) no gclid: office number
+    {
+      const s = await session(type, opts, { gclid: false, gpc: false, route: ROUTE });
+      const p = await phoneState(s.page);
+      check("no gclid: office number shown", p.text.includes("890-9711") && !p.text.includes("561-5004"));
+      check("no gclid: tel links unchanged", p.tels.length > 0 && p.tels.every((t) => !t.includes("5615004")), p.tels.join(","));
+      await s.browser.close();
+    }
 
-  // (a)+(b) gclid, no GPC: swap, post with ad fields, conversion fired
-  {
-    const s = await session(type, opts, { gclid: true, gpc: false });
-    const p = await phoneState(s.page);
-    check("gclid: ad line in the body", p.text.includes("(610) 561-5004") && !p.text.includes("890-9711"), p.text.match(/.{20}890-9711.{0,10}/)?.[0]);
-    check("gclid: ad line in the footer", p.footer.includes("561-5004"));
-    check("gclid: every tel: link is the ad line", p.tels.length > 0 && p.tels.every((t) => t.includes("5615004")), p.tels.join(","));
-    const cookie = (await s.context.cookies()).find((c) => c.name === "oa_ad");
-    // Playwright's WebKit build for Windows has no SameSite support (reports every cookie as "None"); there the
-    // attribute is checked in the cookie string the page writes instead.
-    const lax = cookie?.sameSite === "Lax" || (tap && process.platform === "win32" && /SameSite=Lax; Secure/.test(html));
-    check("oa_ad cookie: Secure, SameSite=Lax, ~90 days", !!cookie && cookie.secure && lax && Math.abs(cookie.expires - Date.now() / 1000 - 7776000) < 120, JSON.stringify(cookie));
-    check("both short forms render", await s.page.locator("#top-name").isVisible() && (await s.page.locator("#desk-name").count()) === 1);
-    check("Google Ads configured (no GPC)", (await dataLayer(s.page)).some((a) => a[0] === "config" && a[1] === "AW-17336277732"));
+    // (a)+(b) gclid, no GPC: swap, post with ad fields, conversion fired
+    {
+      const s = await session(type, opts, { gclid: true, gpc: false, route: ROUTE });
+      const p = await phoneState(s.page);
+      check("gclid: ad line in the body", p.text.includes("(610) 561-5004") && !p.text.includes("890-9711"), p.text.match(/.{20}890-9711.{0,10}/)?.[0]);
+      check("gclid: ad line in the footer", p.footer.includes("561-5004"));
+      check("gclid: every tel: link is the ad line", p.tels.length > 0 && p.tels.every((t) => t.includes("5615004")), p.tels.join(","));
+      const cookie = (await s.context.cookies()).find((c) => c.name === "oa_ad");
+      // Playwright's WebKit build for Windows has no SameSite support (reports every cookie as "None"); there the
+      // attribute is checked in the cookie string the page writes instead.
+      const lax = cookie?.sameSite === "Lax" || (tap && process.platform === "win32" && /SameSite=Lax; Secure/.test(html));
+      check("oa_ad cookie: Secure, SameSite=Lax, ~90 days", !!cookie && cookie.secure && lax && Math.abs(cookie.expires - Date.now() / 1000 - 7776000) < 120, JSON.stringify(cookie));
+      check("both short forms render", await s.page.locator("#top-name").isVisible() && (await s.page.locator("#desk-name").count()) === 1);
+      check("Google Ads configured (no GPC)", (await dataLayer(s.page)).some((a) => a[0] === "config" && a[1] === "AW-17336277732"));
 
-    await s.page.fill("#top-name", "Test Person");
-    await s.page.fill("#top-email", "test@example.com");
-    await s.page.fill("#top-company", "Example Co");
-    await s.page.fill("#top-message", "A Salesforce developer for three months.");
-    const btn = s.page.locator('form[data-form="hire-sf-top"] button[type="submit"]');
-    if (tap) await btn.tap(); else await btn.click();
-    await s.page.getByText("Received.").first().waitFor({ timeout: 10000 });
-    const lead = s.leads[0] || {};
-    check("form posted once to /api/lead (stubbed)", s.leads.length === 1);
-    check("posted gclid + utm as hidden fields", lead.adClick?.gclid === "TEST123" && lead.adClick?.utm_campaign === "sf-dev", JSON.stringify(lead.adClick));
-    check("posted name split, service, topic, page", lead.firstName === "Test" && lead.lastName === "Person" && lead.whatYouNeed === "Staff Augmentation" && lead.topic === "Hire Salesforce developers" && lead.page === ROUTE, JSON.stringify(lead));
-    const dl = await dataLayer(s.page);
-    check("generate_lead sent", dl.some((a) => a[0] === "event" && a[1] === "generate_lead" && a[2]?.form_id === "hire-sf-top"));
-    check(`Ads conversion sent (${SEND_TO})`, dl.filter((a) => a[0] === "event" && a[1] === "conversion" && a[2]?.send_to === SEND_TO).length === 1);
-    check("no page errors from our code", s.errors.length === 0, s.errors.join(" | "));
-    await s.browser.close();
-  }
+      await s.page.fill("#top-name", "Test Person");
+      await s.page.fill("#top-email", "test@example.com");
+      await s.page.fill("#top-company", "Example Co");
+      if (P.start) {
+        // The hero's "#start" button lands on the top form (instant jump in Layout; GSAP may replay it smoothly).
+        const hero = s.page.locator('.sf-hero a[href="#start"]').first();
+        if (tap) await hero.tap(); else await hero.click();
+        await s.page.waitForTimeout(1200);
+        const top = await s.page.locator(`form[data-form="${P.top}"]`).boundingBox();
+        check("hero #start button scrolls to the top form", !!top && top.y < (opts.viewport?.height || 844) && top.y + top.height > 0, JSON.stringify(top));
+      }
+      await s.page.fill("#top-message", "A Salesforce developer for three months.");
+      const btn = s.page.locator(`form[data-form="${P.top}"] button[type="submit"]`);
+      if (tap) await btn.tap(); else await btn.click();
+      await s.page.getByText("Received.").first().waitFor({ timeout: 10000 });
+      const lead = s.leads[0] || {};
+      check("form posted once to /api/lead (stubbed)", s.leads.length === 1);
+      check("posted gclid + utm as hidden fields", lead.adClick?.gclid === "TEST123" && lead.adClick?.utm_campaign === "sf-dev", JSON.stringify(lead.adClick));
+      check("posted name split, service, topic, page", lead.firstName === "Test" && lead.lastName === "Person" && lead.whatYouNeed === P.need && lead.topic === P.topic && lead.page === ROUTE, JSON.stringify(lead));
+      const dl = await dataLayer(s.page);
+      check("generate_lead sent", dl.some((a) => a[0] === "event" && a[1] === "generate_lead" && a[2]?.form_id === P.top));
+      check(`Ads conversion sent (${SEND_TO})`, dl.filter((a) => a[0] === "event" && a[1] === "conversion" && a[2]?.send_to === SEND_TO).length === 1);
+      check("no page errors from our code", s.errors.length === 0, s.errors.join(" | "));
+      await s.browser.close();
+    }
 
-  // (c) GPC: nothing Google, even after a successful submit
-  {
-    const s = await session(type, opts, { gclid: true, gpc: true });
-    await s.page.fill("#top-name", "Test Person");
-    await s.page.fill("#top-email", "test@example.com");
-    await s.page.fill("#top-company", "Example Co");
-    const btn = s.page.locator('form[data-form="hire-sf-top"] button[type="submit"]');
-    if (tap) await btn.tap(); else await btn.click();
-    await s.page.getByText("Received.").first().waitFor({ timeout: 10000 });
-    await s.page.waitForTimeout(500);
-    const dl = await dataLayer(s.page);
-    check("GPC: no request to any Google tag host", s.google.length === 0, s.google.join(","));
-    check("GPC: no Google Ads config, no conversion", !dl.some((a) => (a[0] === "config" && String(a[1]).startsWith("AW-")) || a[1] === "conversion"));
-    check("GPC: the lead still posts, with no ad click (the cookie is never set)", s.leads.length === 1 && !s.leads[0].adClick?.gclid);
-    check("GPC: no oa_ad cookie", !(await s.page.context().cookies()).some((c) => c.name === "oa_ad"));
-    await s.browser.close();
+    // (c) GPC: nothing Google, even after a successful submit
+    {
+      const s = await session(type, opts, { gclid: true, gpc: true, route: ROUTE });
+      await s.page.fill("#top-name", "Test Person");
+      await s.page.fill("#top-email", "test@example.com");
+      await s.page.fill("#top-company", "Example Co");
+      const btn = s.page.locator(`form[data-form="${P.top}"] button[type="submit"]`);
+      if (tap) await btn.tap(); else await btn.click();
+      await s.page.getByText("Received.").first().waitFor({ timeout: 10000 });
+      await s.page.waitForTimeout(500);
+      const dl = await dataLayer(s.page);
+      check("GPC: no request to any Google tag host", s.google.length === 0, s.google.join(","));
+      check("GPC: no Google Ads config, no conversion", !dl.some((a) => (a[0] === "config" && String(a[1]).startsWith("AW-")) || a[1] === "conversion"));
+      check("GPC: the lead still posts, with no ad click (the cookie is never set)", s.leads.length === 1 && !s.leads[0].adClick?.gclid);
+      check("GPC: no oa_ad cookie", !(await s.page.context().cookies()).some((c) => c.name === "oa_ad"));
+      await s.browser.close();
+    }
   }
 }
 
