@@ -74,6 +74,16 @@
       const UET_TAG_ID = "187299094";
       const UET_ON = /^\d+$/.test(UET_TAG_ID);
 
+      /* LinkedIn Insight Tag (2026-11-17), the LinkedIn twin of the two tags above. Partner id 10417956 in ad
+         account 515963223; its event-specific conversion 32268186 ("Submitted lead (website form)", type LEAD)
+         counts the lintrk("track") call trackFormSubmission makes. Public like the AW id. Same gate: production
+         hosts only, never with Global Privacy Control or the /privacy opt-out. No <noscript> pixel: everything here
+         is consent-gated JavaScript. Empty the partner id and LinkedIn stops; empty the conversion id and only the
+         lead event stops. */
+      const LI_PARTNER_ID = "10417956";
+      const LI_CONVERSION_ID = 32268186;
+      const LI_ON = /^\d+$/.test(LI_PARTNER_ID);
+
       /* Consent gate. Deliberately small: one analytics tool, so one yes/no
          decision. No category toggles, no vendor list, no consent-management
          platform — none of that is required to be lawful here, and each piece
@@ -123,6 +133,31 @@
             (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:UET_TAG_ID, enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
           };
           if (document.readyState === "complete") loadUet(); else addEventListener("load", loadUet);
+        }
+
+        /* LinkedIn Insight Tag: LinkedIn's base code (Campaign Manager > Signals manager > Insight Tag), split in
+           two. The partner id and the lintrk queue stub run here, so a lead sent before insight.min.js arrives
+           still queues its "track" call; the script itself starts on `load`, like UET and for the same reason
+           (off the LCP path). Ceiling: a visitor who leaves before `load` sends LinkedIn no page view. */
+        if (LI_ON) {
+          window._linkedin_partner_id = LI_PARTNER_ID;
+          window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+          window._linkedin_data_partner_ids.push(LI_PARTNER_ID);
+          if (!window.lintrk) {
+            window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); };
+            window.lintrk.q = [];
+          }
+          const loadLi = function () {
+            if (document.getElementById("li-insight-tag")) return;
+            const s = document.getElementsByTagName("script")[0];
+            const b = document.createElement("script");
+            b.id = "li-insight-tag";
+            b.type = "text/javascript";
+            b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);
+          };
+          if (document.readyState === "complete") loadLi(); else addEventListener("load", loadLi);
         }
 
         /* Clarity rides the same gate. It used to load unconditionally on the
@@ -208,6 +243,8 @@
         if (ADS_CONVERSION && window.oaGaScheduled) gtag("event", "conversion", { send_to: GOOGLE_ADS_ID + "/" + GOOGLE_ADS_LABEL });
         // Microsoft Ads "Submitted lead" goal: same condition (oaGaScheduled = the gate let the tags load).
         if (UET_ON && window.oaGaScheduled) window.uetq.push("event", "submit_lead_form", {});
+        // LinkedIn "Submitted lead (website form)" conversion: same condition; lintrk exists only once the gate ran.
+        if (LI_ON && LI_CONVERSION_ID && window.oaGaScheduled && window.lintrk) window.lintrk("track", { conversion_id: LI_CONVERSION_ID });
       };
 
       // Phone and email clicks, added 2026-08-12.
@@ -268,13 +305,13 @@
         }
       } catch (x) {}
 
-      // Ad click, 2026-11-16: Google Ads click ids (msclkid, Microsoft Ads, 2026-11-17) and UTM tags from the landing URL, kept 90 days in a
+      // Ad click, 2026-11-16: Google Ads click ids (msclkid, Microsoft Ads, and li_fat_id, LinkedIn, 2026-11-17) and UTM tags from the landing URL, kept 90 days in a
       // first-party cookie. The contact forms send them with a lead (client/lib/lead.ts -> "Ad click:" line in
       // Salesforce), and a click id switches the visible phone number to the ad line (Layout.tsx). Read by our
       // own code only; nothing leaves the browser unless the visitor sends the form. The last tagged link wins.
       try {
         var q = new URL(location.href).searchParams, ad = {}, any = false;
-        ["gclid", "gbraid", "wbraid", "msclkid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
+        ["gclid", "gbraid", "wbraid", "msclkid", "li_fat_id", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (k) {
           var v = q.get(k);
           if (v) { ad[k] = v.slice(0, 200); any = true; }
         });

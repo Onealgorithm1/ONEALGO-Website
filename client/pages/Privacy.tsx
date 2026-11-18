@@ -48,7 +48,7 @@ import { siteConfig } from "../../shared/companyProfile";
  * close. They are honest gaps. Do not close them by inventing an answer.
  */
 
-const LAST_UPDATED = "November 16, 2026";
+const LAST_UPDATED = "November 17, 2026";
 
 const HEADING = "text-h3 font-semibold text-oa-ink scroll-mt-24 pt-6";
 const SUBHEADING = "text-lg font-semibold text-oa-ink pt-2";
@@ -182,8 +182,9 @@ export default function Privacy() {
                 Salesforce CRM and we email or call you back.
               </li>
               <li>
-                We do not sell your information. Our two ad tags, Google Ads and
-                Microsoft Advertising, show us which of our ads led to an enquiry.
+                We do not sell your information. Our three ad tags, Google Ads,
+                Microsoft Advertising and LinkedIn, show us which of our ads led
+                to an enquiry.
               </li>
               <li>
                 You can ask us to delete anything we hold about you by emailing{" "}
@@ -277,8 +278,8 @@ export default function Privacy() {
           </p>
           <p>
             Analytics loads when the page loads. If your browser sends a Global
-            Privacy Control signal, nothing from Google, Microsoft Clarity or
-            Microsoft Advertising loads at all. You can also turn analytics off on this site:
+            Privacy Control signal, nothing from Google, Microsoft Clarity,
+            Microsoft Advertising or LinkedIn loads at all. You can also turn analytics off on this site:
           </p>
           {/* Opt-out control. Sets the "oa-consent" key that index.html reads
               (denied = load nothing). Keep the key in step if either changes. */}
@@ -321,8 +322,8 @@ export default function Privacy() {
             led to an enquiry. Ad personalisation is turned off. If you arrive
             through one of our ads or a tagged link, a first-party cookie called
             oa_ad keeps the click ID and campaign tags for 90 days. They reach
-            our CRM only if you send the form. Visitors from a Google or Bing ad
-            see our ad phone line, (610) 561-5004, which rings the same office.
+            our CRM only if you send the form. Visitors from a Google, Bing or
+            LinkedIn ad see our ad phone line, (610) 561-5004, which rings the same office.
           </p>
           {/* Microsoft Advertising UET, added 2026-11-17. Checked against index.html (UET_TAG_ID inside
               oaLoadAnalytics, the same gate as Google Ads; trackFormSubmission pushes "submit_lead_form" with no
@@ -336,6 +337,20 @@ export default function Privacy() {
             It tells Microsoft which pages you view, and when you send the form, that a form was sent.
             We do not send Microsoft your name, email or message. If you arrive
             from a Bing ad, oa_ad also keeps its click ID.
+          </p>
+          {/* LinkedIn Insight Tag, added 2026-11-17. Checked against index.html (LI_PARTNER_ID inside
+              oaLoadAnalytics, the same gate as Google Ads; trackFormSubmission calls lintrk("track") with only the
+              conversion id) and the oa_ad cookie (li_fat_id). */}
+          <p>
+            We also use the{" "}
+            <strong className="text-oa-ink">LinkedIn Insight Tag</strong>,
+            under the same rules, to see whether our LinkedIn ads lead to
+            enquiries. It sets LinkedIn's own cookies, and LinkedIn can match
+            your visit to a LinkedIn account. It is off when you turn analytics
+            off above or your browser sends Global Privacy Control. It tells
+            LinkedIn which pages you view, and when you send the form, that a
+            form was sent. We do not send LinkedIn your name, email or message.
+            If you arrive from a LinkedIn ad, oa_ad also keeps its click ID.
           </p>
           <p>
             There is no cookie banner on this site, so these cookies are set
@@ -563,6 +578,12 @@ export default function Privacy() {
               led to an enquiry.
             </li>
             <li>
+              <strong className="text-oa-ink">LinkedIn</strong>: through the
+              LinkedIn Insight Tag, unless you turned analytics off, the pages
+              you view and whether a visit from one of our LinkedIn ads led to
+              an enquiry.
+            </li>
+            <li>
               <strong className="text-oa-ink">Twilio</strong>: calls and texts to
               our tracking numbers, including call recordings and voicemail, as
               set out in{" "}
@@ -597,9 +618,9 @@ export default function Privacy() {
               We do not sell or rent personal information, and we never have.
             </li>
             <li>
-              The only advertising tags are Google Ads and Microsoft
-              Advertising, and we use them to see which ads led to an enquiry. There are no social pixels: no Meta, no
-              LinkedIn, no TikTok, and no retargeting tags.
+              The only advertising tags are Google Ads, Microsoft Advertising
+              and the LinkedIn Insight Tag, and we use them to see which ads led
+              to an enquiry. There is no Meta or TikTok pixel.
             </li>
             <li>
               There is no chat widget watching what you type, and no tool that
@@ -676,7 +697,8 @@ export default function Privacy() {
             information, and we do not share it for cross-context behavioural
             advertising. The Google Ads tag only measures which ads led to an
             enquiry, with ad personalisation turned off. We use the Microsoft
-            Advertising tag for the same purpose with our Bing ads. We do not use or
+            Advertising tag and the LinkedIn Insight Tag for the same purpose
+            with our Bing and LinkedIn ads. We do not use or
             disclose sensitive personal information beyond what is needed to
             provide what you asked for.
           </p>

@@ -13,7 +13,11 @@
 //      exactly one "submit_lead_form" event; with GPC, with the /privacy opt-out, and on a non-production host
 //      nothing from Bing loads; landing with ?msclkid=BING123 swaps the phone, posts adClick.msclkid, and the
 //      server's "Ad click:" Description line (functions/api/lead.js adClick) carries it.
-// Google's and Microsoft's scripts and Turnstile are stubbed; no request leaves the machine.
+//   e) LinkedIn Insight Tag (2026-11-17): insight.min.js loads once with partner id 10417956 on the live host; a
+//      successful send makes exactly one lintrk("track", { conversion_id: 32268186 }); with GPC, with the /privacy
+//      opt-out, and on a non-production host nothing from LinkedIn loads; landing with ?li_fat_id=LIFAT123 swaps the
+//      phone, posts adClick.li_fat_id, and the "Ad click:" Description line carries it.
+// Google's, Microsoft's and LinkedIn's scripts and Turnstile are stubbed; no request leaves the machine.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -35,6 +39,11 @@ const UET_TI = "187299094";
 const BING = /bat\.bing\.(com|net)|c\.bing\.com/;
 // bat.js stand-in: records the tag id it was built with and every "event" pushed, queued or live.
 const UET_STUB = `window.__uet={ti:[],events:[]};window.UET=function(o){window.__uet.ti.push(o.ti);var q=o.q||[];for(var i=0;i<q.length;i++)if(q[i]==="event")window.__uet.events.push(q[i+1]);};window.UET.prototype.push=function(){if(arguments[0]==="event")window.__uet.events.push(arguments[1]);};`;
+const LI_PID = "10417956";
+const LI_CONVERSION = 32268186;
+const LINKEDIN = /licdn\.com|linkedin\.com/;
+// insight.min.js stand-in: records the partner ids it saw and every "track" call, queued before it or made after.
+const LI_STUB = `window.__li={pids:(window._linkedin_data_partner_ids||[]).slice(),tracks:[]};((window.lintrk&&window.lintrk.q)||[]).forEach(function(c){if(c[0]==="track")window.__li.tracks.push(c[1]);});window.lintrk=function(a,b){if(a==="track")window.__li.tracks.push(b);};`;
 const GOOGLE = /googletagmanager\.com|googleadservices\.com|doubleclick\.net|google-analytics\.com|google\.com\/(pagead|ccm)/;
 
 let failed = 0;
@@ -52,12 +61,13 @@ function fileFor(pathname) {
 }
 const TURNSTILE_STUB = `window.turnstile={render:function(el,o){setTimeout(function(){o.callback("stub-token")},20);return "w"+Math.random()},reset:function(){},remove:function(){}};window.onloadTurnstileCallback&&window.onloadTurnstileCallback();`;
 
-async function session(browserType, contextOpts, { gclid, msclkid, gpc, optout, route = "/", host = "onealgorithm.com" }) {
+async function session(browserType, contextOpts, { gclid, msclkid, lifat, holdLi, gpc, optout, route = "/", host = "onealgorithm.com" }) {
   const browser = await browserType.launch();
   const context = await browser.newContext(contextOpts);
   if (gpc) await context.addInitScript(() => Object.defineProperty(Navigator.prototype, "globalPrivacyControl", { get: () => true }));
   if (optout) await context.addInitScript(() => { try { localStorage.setItem("oa-consent", "denied"); } catch (e) {} });
-  const google = [], bing = [], leads = [], errors = [];
+  const google = [], bing = [], linkedin = [], leads = [], errors = [];
+  let releaseLi; const liGate = new Promise((r) => { releaseLi = r; }); // holdLi: insight.min.js waits for releaseLi()
   await context.route("**/*", async (route) => {
     const req = route.request();
     const url = new URL(req.url());
@@ -73,15 +83,16 @@ async function session(browserType, contextOpts, { gclid, msclkid, gpc, optout, 
     if (url.hostname === "challenges.cloudflare.com") return route.fulfill({ status: 200, contentType: "text/javascript", body: TURNSTILE_STUB });
     if (GOOGLE.test(req.url())) { google.push(req.url()); return route.fulfill({ status: 200, contentType: "text/javascript", body: "" }); }
     if (BING.test(req.url())) { bing.push(req.url()); return route.fulfill({ status: 200, contentType: "text/javascript", body: url.pathname === "/bat.js" ? UET_STUB : "" }); }
+    if (LINKEDIN.test(req.url())) { linkedin.push(req.url()); if (holdLi) await liGate; return route.fulfill({ status: 200, contentType: "text/javascript", body: url.pathname.endsWith("/insight.min.js") ? LI_STUB : "" }); }
     return route.fulfill({ status: 204, body: "" }); // Clarity, fonts CDN, anything else third-party
   });
   const page = await context.newPage();
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-  const q = gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : msclkid ? "?msclkid=BING123&utm_source=bing&utm_medium=cpc&utm_campaign=oa-salesforce" : "";
+  const q = gclid ? "?gclid=TEST123&utm_source=google&utm_campaign=sf-dev" : msclkid ? "?msclkid=BING123&utm_source=bing&utm_medium=cpc&utm_campaign=oa-salesforce" : lifat ? "?li_fat_id=LIFAT123&utm_source=linkedin&utm_medium=paid&utm_campaign=oa-salesforce" : "";
   await page.goto(`https://${host}${route}${q}`, { waitUntil: "load" });
   await page.waitForTimeout(1500); // hydration, the phone swap's rAF, the 1.5s GA backstop
-  return { browser, context, page, google, bing, leads, errors };
+  return { browser, context, page, google, bing, linkedin, leads, errors, releaseLi };
 }
 
 // The UET tag ids bat.js was started with, and how many "submit_lead_form" events reached uetq (queued or live).
@@ -89,6 +100,12 @@ const uetState = (page) => page.evaluate(() => {
   const ev = (window.__uet?.events || []).concat(Array.isArray(window.uetq) ? window.uetq : []);
   return { ti: window.__uet?.ti || [], leads: ev.filter((e) => e === "submit_lead_form").length, uetq: typeof window.uetq !== "undefined" };
 });
+// The partner ids insight.min.js saw, and how many lead conversions reached lintrk (queued or live).
+const liState = (page) => page.evaluate((cid) => {
+  const t = (window.__li?.tracks || []).concat(((window.lintrk && window.lintrk.q) || []).filter((c) => c[0] === "track").map((c) => c[1]));
+  return { pids: window.__li?.pids || [], leads: t.filter((x) => x && x.conversion_id === cid).length, other: t.filter((x) => !x || x.conversion_id !== cid).length, lintrk: typeof window.lintrk !== "undefined" };
+}, LI_CONVERSION);
+const liLoads = (s) => s.linkedin.filter((u) => new URL(u).pathname === "/li.lms-analytics/insight.min.js").length;
 const batLoads = (s) => s.bing.filter((u) => new URL(u).pathname === "/bat.js").length;
 async function submitTop(s, P, tap) {
   await s.page.fill("#top-name", "Test Person");
@@ -133,6 +150,9 @@ for (const P of PAGES) {
       const u = await uetState(s.page);
       check(`UET loads on the live host: bat.js once, ti ${UET_TI}`, batLoads(s) === 1 && u.ti.length === 1 && u.ti[0] === UET_TI, JSON.stringify({ bat: s.bing, ti: u.ti }));
       check("UET: no submit_lead_form without a send", u.leads === 0);
+      const l = await liState(s.page);
+      check(`LinkedIn loads on the live host: insight.min.js once, partner ${LI_PID}`, liLoads(s) === 1 && l.pids.length === 1 && l.pids[0] === LI_PID, JSON.stringify({ li: s.linkedin, pids: l.pids }));
+      check("LinkedIn: no lead conversion without a send", l.leads === 0 && l.other === 0, JSON.stringify(l));
       await s.browser.close();
     }
 
@@ -176,6 +196,8 @@ for (const P of PAGES) {
       await s.page.waitForTimeout(300);
       const u = await uetState(s.page);
       check("UET: exactly one submit_lead_form after one send", u.leads === 1 && batLoads(s) === 1, JSON.stringify(u));
+      const l = await liState(s.page);
+      check(`LinkedIn: exactly one track { conversion_id: ${LI_CONVERSION} } after one send`, l.leads === 1 && l.other === 0 && liLoads(s) === 1, JSON.stringify(l));
       check("no page errors from our code", s.errors.length === 0, s.errors.join(" | "));
       await s.browser.close();
     }
@@ -197,6 +219,8 @@ for (const P of PAGES) {
       check("GPC: no oa_ad cookie", !(await s.page.context().cookies()).some((c) => c.name === "oa_ad"));
       const u = await uetState(s.page);
       check("GPC: nothing from Bing (no bat.js, no uetq, no lead event)", s.bing.length === 0 && !u.uetq && u.leads === 0, s.bing.join(","));
+      const l = await liState(s.page);
+      check("GPC: nothing from LinkedIn (no insight.min.js, no lintrk, no lead event)", s.linkedin.length === 0 && !l.lintrk && l.leads === 0, s.linkedin.join(","));
       await s.browser.close();
     }
 
@@ -215,6 +239,22 @@ for (const P of PAGES) {
       check("msclkid: exactly one submit_lead_form", u.leads === 1, JSON.stringify(u));
       await s.browser.close();
     }
+
+    // (e) li_fat_id (LinkedIn Ads click), no GPC: swap, post with li_fat_id, Description line, one LinkedIn conversion
+    {
+      const s = await session(type, opts, { lifat: true, gpc: false, route: ROUTE });
+      const p = await phoneState(s.page);
+      check("li_fat_id: ad line in the body", p.text.includes("(610) 561-5004") && !p.text.includes("890-9711"));
+      check("li_fat_id: every tel: link is the ad line", p.tels.length > 0 && p.tels.every((t) => t.includes("5615004")), p.tels.join(","));
+      await submitTop(s, P, tap);
+      const lead = s.leads[0] || {};
+      check("li_fat_id: posted once with li_fat_id + linkedin utm", s.leads.length === 1 && lead.adClick?.li_fat_id === "LIFAT123" && lead.adClick?.utm_source === "linkedin" && !lead.adClick?.gclid && !lead.adClick?.msclkid, JSON.stringify(lead.adClick));
+      const line = adClick(lead.adClick);
+      check("li_fat_id: Description line carries it", line === "Ad click: li_fat_id=LIFAT123 | utm_source=linkedin | utm_medium=paid | utm_campaign=oa-salesforce", line);
+      const l = await liState(s.page);
+      check("li_fat_id: exactly one LinkedIn lead conversion", l.leads === 1 && l.other === 0, JSON.stringify(l));
+      await s.browser.close();
+    }
   }
 }
 
@@ -226,6 +266,8 @@ for (const P of PAGES) {
   await submitTop(o, P, false);
   const uo = await uetState(o.page);
   check("opt-out: nothing from Bing (no bat.js, no uetq, no lead event)", o.bing.length === 0 && !uo.uetq && uo.leads === 0, o.bing.join(","));
+  const lo = await liState(o.page);
+  check("opt-out: nothing from LinkedIn (no insight.min.js, no lintrk, no lead event)", o.linkedin.length === 0 && !lo.lintrk && lo.leads === 0, o.linkedin.join(","));
   check("opt-out: no Google tag request, no oa_ad cookie", o.google.length === 0 && !(await o.context.cookies()).some((c) => c.name === "oa_ad"), o.google.join(","));
   check("opt-out: the lead still posts, with no ad click", o.leads.length === 1 && !o.leads[0].adClick);
   await o.browser.close();
@@ -233,8 +275,20 @@ for (const P of PAGES) {
   const h = await session(chromium, { viewport: { width: 1440, height: 900 } }, { msclkid: true, route: P.route, host: "onealgorithm-staging.pages.dev" });
   await submitTop(h, P, false);
   const uh = await uetState(h.page);
-  check("preview host: nothing from Bing or Google", h.bing.length === 0 && h.google.length === 0 && !uh.uetq, [...h.bing, ...h.google].join(","));
+  const lh = await liState(h.page);
+  check("preview host: nothing from Bing, Google or LinkedIn", h.bing.length === 0 && h.google.length === 0 && h.linkedin.length === 0 && !uh.uetq && !lh.lintrk, [...h.bing, ...h.google, ...h.linkedin].join(","));
   await h.browser.close();
+
+  // A lead sent before insight.min.js arrives: the conversion waits in the lintrk stub queue, and the tag replays it once.
+  const d = await session(chromium, { viewport: { width: 1440, height: 900 } }, { holdLi: true, route: P.route });
+  await submitTop(d, P, false);
+  const queued = await d.page.evaluate(() => ({ q: (window.lintrk?.q || []).length, loaded: !!window.__li }));
+  check("LinkedIn tag held back: the conversion sits in the lintrk queue", queued.q === 1 && !queued.loaded, JSON.stringify(queued));
+  d.releaseLi();
+  await d.page.waitForFunction(() => !!window.__li, null, { timeout: 5000 }).catch(() => {});
+  const ld = await liState(d.page);
+  check("LinkedIn tag arrives late: exactly one conversion delivered", (await d.page.evaluate(() => (window.__li?.tracks || []).length)) === 1 && ld.leads === 1 && ld.other === 0, JSON.stringify(ld));
+  await d.browser.close();
 }
 
 // /contact: the same component in its full form (moved out of Contact.tsx), #need prefill, post.
