@@ -52,7 +52,24 @@ export function contactHref(topicLabel: string, from: string, need = "salesforce
  *                    prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check" }} />
  * `heading` defaults to the hub's; a service page passes its own 8-word H2 and lede.
  */
-export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next, hcLink = true, inline, id = "start" }: {
+/** "What happens next": numbered steps in the desk's mono numerals. Also under the hero form (SFHero `form`). */
+export function NextSteps({ steps, headingClass = "sf-h4" }: { steps: string[]; headingClass?: string }) {
+  return (
+    <>
+      <h3 className={headingClass} style={{ marginTop: 32 }}>What happens next</h3>
+      <ol style={{ marginTop: 10, display: "grid", gap: 8 }}>
+        {steps.map((s, i) => (
+          <li key={i} style={{ display: "flex", gap: 12 }}>
+            <span className="sf-mono" style={{ color: "var(--orange)", paddingTop: 4 }}>{String(i + 1).padStart(2, "0")}</span>
+            <span>{s}</span>
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+}
+
+export function DeskCTA({ form, heading = "Start with a free one-week Salesforce health check", headingId = "h-start", lede = "We spend a week in your org, free, and you keep the written list ranked by what to fix first.", covers = DEFAULT_COVERS, coversLabel = "What the week covers", next, hcLink = true, inline, pick, id = "start" }: {
   form: DeskForm;
   heading?: string;
   headingId?: string;
@@ -66,6 +83,8 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
   /** Ad landing pages (2026-11-16): the short contact form (LeadForm) in the panel, sending `inline` as the
    *  service, instead of the button to /contact. The visitor never leaves the page. */
   inline?: string;
+  /** With `inline`: LeadForm's `pick` (the "What do you need?" select, preselected). */
+  pick?: string;
   /** Section id. "start" unless the page's top form owns #start (ad landing pages put the form under the hero). */
   id?: string;
 }) {
@@ -88,20 +107,12 @@ export function DeskCTA({ form, heading = "Start with a free one-week Salesforce
               <Link className="sf-link" to={HC}>What the free health check covers</Link>
             </p>
           )}
-          <h3 className="sf-h4" style={{ marginTop: 32 }}>What happens next</h3>
-          <ol style={{ marginTop: 10, display: "grid", gap: 8 }}>
-            {steps.map((s, i) => (
-              <li key={i} style={{ display: "flex", gap: 12 }}>
-                <span className="sf-mono" style={{ color: "var(--orange)", paddingTop: 4 }}>{String(i + 1).padStart(2, "0")}</span>
-                <span>{s}</span>
-              </li>
-            ))}
-          </ol>
+          <NextSteps steps={steps} />
         </div>
         <div className="sf-c6">
           <div className="desk-card sf-desk-panel">
             {inline ? (
-              <LeadForm short idPrefix="desk-" formId={form.formId || "sf-desk"} heading={form.heading} headingId={`${id}-title`} topic={form.topicLabel} need={inline} submitLabel={form.submitLabel} placeholder={form.prompt} />
+              <LeadForm short idPrefix="desk-" formId={form.formId || "sf-desk"} heading={form.heading} headingId={`${id}-title`} topic={form.topicLabel} need={inline} pick={pick} submitLabel={form.submitLabel} placeholder={form.prompt} />
             ) : (
               <>
                 <h3 className="sf-h3" id={`${id}-title`}>{form.heading}</h3>

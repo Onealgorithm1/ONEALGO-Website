@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
   SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
-  FAQ, DeskCTA, LeadForm, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, HUB_STAGES, type SfFaqItem,
+  FAQ, DeskCTA, LeadForm, NextSteps, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, HUB_STAGES, type SfFaqItem,
 } from "../../components/sf";
-import { HubComposition, FlowMigration } from "../../components/sf/illus";
+import { FlowMigration } from "../../components/sf/illus";
 import {
   SF_CERTIFICATIONS, SF_CERTIFIED_PEOPLE, SF_LISTING_ID, SF_PAGES, SF_PHONE, SF_PLATFORM_CERTS, SF_VERIFIED_LABEL,
 } from "../../data/salesforceProof";
@@ -157,33 +157,27 @@ export default function Salesforce() {
       <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
 
       <SfPage crumbs={[{ label: "Salesforce" }]}>
-        {/* 1 HERO. H1 = the LCP; FIG. 1 (the layered desk) is dealt by CSS 250ms after first paint. 6/6 split. */}
+        {/* 1 HERO. H1 = the LCP. Ads path B, the free call (final-plan-2026-11-17 "Landing Funnel", 2026-11-18): the
+            form is docked in the hero and owns #start, so the header and call-bar buttons land on it. No health-check
+            button above the fold: the health check closes the page in the DeskCTA (#book). No Salesforce cloud logo
+            and no team-location claim in the hero (owner decisions 2026-11-17). The hub illustration left the hero
+            for the form, so the figures below are FIG. 1 and 2. */}
         <SFHero
           kicker={<>Select Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
           title="Salesforce consulting and implementation services"
-          lede="We set up, fix and support Salesforce for US companies, starting with a free one-week health check of the org you already own."
-          primary={{ href: "#start", label: "Book the free health check" }}
+          lede="Certified Salesforce consultants and developers. Start with a free call, then work with us by the hour or month."
+          logo={false}
           proof
-          figure={<HubComposition fig={1} hero className="sf-hero-fig" />}
+          form={
+            <div className="desk-card sf-desk-panel">
+              <LeadForm short idPrefix="top-" formId="sf-consult-top" heading="Talk to our Salesforce team" headingId="start-title" topic="Salesforce consulting" pick="Free call" submitLabel="Request a free call" />
+              {/* Step 1 names no person until Louis names who takes the calls (OWNER INPUT). */}
+              <NextSteps steps={["Book a call with our Salesforce team.", "We talk through your org, timeline and budget.", "We propose the people and the hours."]} />
+            </div>
+          }
         />
 
-        {/* Google Ads landing (2026-11-17): the short form under the hero owns #start, so the hero, header and call
-            bar buttons land on it. The same form closes the page in the DeskCTA (#book). */}
-        <SmartSection id="start" tone="night" grid compact labelledBy="h-book-top">
-          <div className="sf-c5 sf-desk-copy">
-            <h2 className="sf-h2" id="h-book-top">Book the free health check</h2>
-            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies.</p>
-            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
-            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
-          </div>
-          <div className="sf-c7">
-            <div className="desk-card sf-desk-panel">
-              <LeadForm short idPrefix="top-" formId="sf-consult-top" heading="What is your Salesforce doing wrong?" headingId="start-title" topic="Salesforce consulting" need="Salesforce / CRM" submitLabel="Book a free health check" />
-            </div>
-          </div>
-        </SmartSection>
-
-        {/* 2 ANSWER UNIT + FIG. 2 beside it (the 7/5 spread). Spec §4 row 1. */}
+        {/* 2 ANSWER UNIT + FIG. 1 beside it (the 7/5 spread). Spec §4 row 1. */}
         <SmartSection id="what" tone="surface" grid labelledBy="h-what">
           <SmartUnit
             className="sf-c7"
@@ -210,7 +204,7 @@ export default function Salesforce() {
               </div>
             </GoDeeper>
           </SmartUnit>
-          <FlowMigration fig={2} className="sf-c5" />
+          <FlowMigration fig={1} className="sf-c5" />
         </SmartSection>
 
         {/* 3 THE SPLIT: two buyers, two H3 units, one night band. Spec §4 row 7. */}
@@ -259,7 +253,7 @@ export default function Salesforce() {
           </SmartUnit>
         </SmartSection>
 
-        {/* 4 HOW IT RUNS: FIG. 3 (scroll choreography) + four stage units wired to their stations. Spec §4 row 5. */}
+        {/* 4 HOW IT RUNS: FIG. 2 (scroll choreography) + four stage units wired to their stations. Spec §4 row 5. */}
         <SmartSection
           id="how"
           heading={{
@@ -269,7 +263,7 @@ export default function Salesforce() {
           }}
         >
           <StageRail
-            fig={3}
+            fig={2}
             stations={HUB_STAGES}
             ledger
             className="sf-rail-top"
@@ -386,7 +380,7 @@ export default function Salesforce() {
         </SmartSection>
 
         {/* 9 DESK: the one form. Spec §4 row 9. */}
-        <DeskCTA id="book" inline="Salesforce / CRM" form={{ topic: "hub", topicLabel: "Salesforce consulting", heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check", formId: "sf-consult-end" }} />
+        <DeskCTA id="book" inline="Salesforce / CRM" pick="Free health check" form={{ topic: "hub", topicLabel: "Salesforce consulting", heading: "Book a free health check", prompt: "What is your Salesforce doing wrong?", submitLabel: "Book a free health check", formId: "sf-consult-end" }} />
 
         {/* 10 FAQ: questions visible, answers in the HTML behind native disclosures. Spec §4 row 10. */}
         <SmartSection id="faq" tone="surface" grid labelledBy="h-faq" className="sf-faq-section">

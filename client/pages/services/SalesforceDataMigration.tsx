@@ -217,6 +217,7 @@ export default function SalesforceDataMigration() {
           kicker={<>Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
           title="Salesforce data migration services, reconciled row by row"
           lede="We move US companies off QuickBase, Kissflow or another CRM into Salesforce, reconciled before go-live, and existing orgs start with a free one-week health check."
+          logo={false}
           proof
           figure={<DataMigration fig={1} hero className="sf-hero-fig" />}
         />

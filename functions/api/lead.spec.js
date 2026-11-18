@@ -134,6 +134,13 @@ describe("POST /api/lead", () => {
     expect(description.indexOf("Submitted on:")).toBeLessThan(description.indexOf(GOOD.message));
   });
 
+  it("writes the start window as a 'Start:' line right after the service", async () => {
+    const calls = stubFetch();
+    await onRequest({ request: post({ ...GOOD, whatYouNeed: "Free call", startWhen: "1 to 3 months" }), env: ENV });
+    const description = new URLSearchParams(calls[1].init.body).get("description");
+    expect(description.startsWith("Service: Free call\n\nStart: 1 to 3 months")).toBe(true);
+  });
+
   it("sends no phone, topic or page lines when they are not given", async () => {
     const calls = stubFetch();
     await onRequest({ request: post(GOOD), env: ENV });
@@ -141,6 +148,7 @@ describe("POST /api/lead", () => {
     expect(sent.has("phone")).toBe(false);
     expect(sent.get("description")).not.toContain("Topic:");
     expect(sent.get("description")).not.toContain("Submitted on:");
+    expect(sent.get("description")).not.toContain("Start:");
   });
 
   it("forwards to Salesforce only after the token verifies", async () => {

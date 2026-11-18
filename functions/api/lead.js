@@ -48,6 +48,9 @@ const LIMITS = {
   phone: 40,
   topic: 60,
   page: 200,
+  // Salesforce ad landing forms (2026-11-18): "When do you want to start?". No Lead field holds it, so it is a
+  // "Start:" line in the description, read by whoever qualifies the lead (start within 6 months).
+  startWhen: 40,
 };
 
 /** Where the lead came from, as plain lines for the Lead description: the page
@@ -203,6 +206,7 @@ export async function onRequest({ request, env }) {
     "description",
     [
       need && `Service: ${need}`,
+      field("startWhen") && `Start: ${field("startWhen")}`,
       field("topic") && `Topic: ${field("topic")}`,
       field("page") && `Submitted on: ${field("page")}`,
       message,

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
 import {
   SfPage, SFHero, SmartSection, SmartUnit, LedgerRule, GoDeeper, Readouts, DeliveredLedger, PersonCredentials,
-  FAQ, DeskCTA, LeadForm, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, SourcesDialog, Verify,
+  FAQ, DeskCTA, LeadForm, NextSteps, ServiceCards, HUB_SERVICE_CARDS, StageRail, StageUnits, SourcesDialog, Verify,
   type SfFaqItem, type ServiceCard, type Stage, type SfSource,
 } from "../../components/sf";
 import { HealthCheck, FlowMigration } from "../../components/sf/illus";
@@ -297,31 +297,24 @@ export default function SalesforceHealthCheck() {
       <StructuredData data={createLocalBusinessSchema("ProfessionalService")} />
 
       <SfPage crumbs={[{ label: "Salesforce", to: "/services/salesforce" }, { label: "Health check" }]}>
-        {/* 1 HERO. H1 = the LCP; FIG. 1 (the ranked list the week produces) is dealt by CSS 250ms after first paint. */}
+        {/* 1 HERO. H1 = the LCP. Ads path A (final-plan-2026-11-17 "Landing Funnel", 2026-11-18): the form is docked
+            in the hero and owns #start, so the header and call-bar buttons land on it. FIG. 1, the sample report,
+            moved under "What the written health check list includes" (#sample); the hero links to it. No Salesforce
+            cloud logo. ⛔ OWNER INPUT before adding: Sreenivas's access steps and the mutual NDA line. */}
         <SFHero
           kicker="Free · one week · read-only access"
           title={<>Salesforce health check: a free <span style={{ whiteSpace: "nowrap" }}>one-week</span> org review</>}
-          lede="The free one-week health check reviews your Salesforce org's licenses, data, automation, permissions and integrations, then ranks every finding by what to fix first."
-          primary={{ href: "#start", label: "Book the free health check" }}
+          lede="With read-only access, we review your licenses, data, automation, permissions and integrations. You get a written report within a week of access, and you keep it."
+          logo={false}
           proof
-          figure={<HealthCheck fig={1} hero className="sf-hero-fig" />}
-        />
-
-        {/* Google Ads landing (2026-11-17): the short form under the hero owns #start, so the hero, header and call
-            bar buttons land on it. The same form closes the page in the DeskCTA (#book). */}
-        <SmartSection id="start" tone="night" grid compact labelledBy="h-book-top">
-          <div className="sf-c5 sf-desk-copy">
-            <h2 className="sf-h2" id="h-book-top">Book the free health check</h2>
-            <p className="sf-lede sf-measure" style={{ marginTop: 14 }} data-lede="">A person at OneAlgorithm reads it and replies.</p>
-            <p style={{ marginTop: 28 }}>Prefer to talk it through?</p>
-            <a className="sf-phone-xl" href={SF_PHONE.href} data-cta="enquire">{SF_PHONE.display}</a>
-          </div>
-          <div className="sf-c7">
+          more={<a className="sf-link" href="#sample">See a sample report</a>}
+          form={
             <div className="desk-card sf-desk-panel">
-              <LeadForm short idPrefix="top-" formId="sf-health-top" heading="What is the symptom?" headingId="start-title" topic="Salesforce health check" need="Salesforce / CRM" submitLabel="Request the free health check" />
+              <LeadForm short idPrefix="top-" formId="sf-health-top" heading="What is the symptom?" headingId="start-title" topic="Salesforce health check" pick="Free health check" submitLabel="Request the free health check" />
+              <NextSteps steps={["Book a kickoff call.", "Give us read-only access.", "Your report arrives within one week of access, and we walk you through it."]} />
             </div>
-          </div>
-        </SmartSection>
+          }
+        />
 
         {/* 2 THE ANSWER (spec §6.2 row 1) beside what the week produces (row 6, GATED: no columns, score or effort). */}
         <SmartSection id="what" tone="surface" grid labelledBy="h-what">
@@ -361,6 +354,10 @@ export default function SalesforceHealthCheck() {
               <p className="sf-rule">Act on it with us, with your own admin, or not at all. Fixes are scoped in writing first.</p>
               <div className="sf-links"><a className="sf-link" href="#how">How the free Salesforce health check runs</a></div>
             </GoDeeper>
+            {/* The hero's "See a sample report" lands here: the SAMPLE DATA panel. */}
+            <div id="sample" className="scroll-mt-28" style={{ marginTop: 28 }}>
+              <HealthCheck fig={1} />
+            </div>
           </SmartUnit>
         </SmartSection>
 
@@ -550,6 +547,7 @@ export default function SalesforceHealthCheck() {
           hcLink={false}
           id="book"
           inline="Salesforce / CRM"
+          pick="Free health check"
           form={{ topic: "hc", topicLabel: "Salesforce health check", heading: "Book the free week", prompt: "What is the symptom?", submitLabel: "Request the free health check", formId: "sf-health-end" }}
         />
 

@@ -127,6 +127,19 @@ describe("Salesforce primitives", () => {
     expect(html).not.toMatch(/opacity:s*0(?![.d])/);
   });
 
+  it("DeskCTA with a picked need renders the ad-landing selects: required need (preselected), optional start, no free text", () => {
+    const html = at(
+      "/services/salesforce",
+      <DeskCTA id="book" inline="Salesforce / CRM" pick="Free call" form={{ topic: "hub", topicLabel: "Salesforce consulting", heading: "Talk", prompt: "x", submitLabel: "Request a free call" }} />,
+    );
+    expect(html).toMatch(/<select id="desk-whatYouNeed" name="whatYouNeed" required="">/);
+    expect(html).toContain('<option value="Free call" selected="">Free call</option>');
+    expect(html).toMatch(/<select id="desk-startWhen" name="startWhen">/);
+    for (const o of ["This month", "1 to 3 months", "3 to 6 months", "Just researching"]) expect(html).toContain(`>${o}</option>`);
+    expect(html).not.toContain("<textarea");
+    expect(html).toContain('name="company_website"'); // honeypot kept
+  });
+
   it("HcLink is absent on the health check page", () => {
     expect(at("/services/salesforce-health-check", <HcLink />)).toBe("");
   });

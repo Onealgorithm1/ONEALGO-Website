@@ -40,7 +40,7 @@ function CertMarquee() {
  * ("Photo: King of Hearts · CC BY-SA 3.0") opens the credits dialog `ev-photo-credit` (render <PhotoCreditDialog>).
  *   <SFHero title="Salesforce consultants in Dallas" lede="…" photo={SF_CITY_HEROES.dallas} />
  */
-export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1", salesforce = true }: {
+export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1", salesforce = true, logo = salesforce, form, more }: {
   kicker?: React.ReactNode;
   title: React.ReactNode;
   lede: React.ReactNode;
@@ -55,24 +55,34 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
   id?: string;
   /** false on kit pages that are not about Salesforce (AI automation, 2026-11-15): no Salesforce logo, no certification strip. */
   salesforce?: boolean;
+  /** The Salesforce cloud logo over the kicker. Off on the ad landing pages (final-plan-2026-11-17, Salesforce
+   *  rules: no corporate logo in those heroes); the certification strip below stays. */
+  logo?: boolean;
+  /** Ad landing pages (2026-11-18): the form panel docked right, id="start", in place of `figure`/`photo`. The hero
+   *  then has no primary button (the form's submit is the ask), only the phone link and `more`. */
+  form?: React.ReactNode;
+  /** An extra text link beside the phone, e.g. "See a sample report". */
+  more?: React.ReactNode;
 }) {
   const files = photo ? sfCityFiles(photo.slug) : null;
-  const cls = ["sf-hero", split === "7/5" ? "sf-hero-75" : "", photo ? "sf-hero-photo" : "", !figure && !photo ? "sf-hero-wide" : ""].filter(Boolean).join(" ");
+  const cls = ["sf-hero", split === "7/5" ? "sf-hero-75" : "", photo ? "sf-hero-photo" : "", !figure && !photo && !form ? "sf-hero-wide" : "", form ? "sf-hero-formed" : ""].filter(Boolean).join(" ");
   return (
     <>
     <section className={cls} aria-labelledby={id}>
       <div className="sf-wrap sf-grid">
         <div className="sf-hero-text">
-          {salesforce && <img className="sf-hero-logo" src="/media/salesforce/salesforce-logo.svg" alt="Salesforce" width={92} height={64} decoding="async" />}
+          {logo && <img className="sf-hero-logo" src="/media/salesforce/salesforce-logo.svg" alt="Salesforce" width={92} height={64} decoding="async" />}
           {kicker && <p className="sf-kicker">{kicker}</p>}
           <h1 className="sf-h1" id={id}>{title}</h1>
           <p className="sf-lede sf-measure" data-lede="">{lede}</p>
           <div className="sf-ctas">
-            <SfButton href={primary.href} to={primary.to} magnet cta="hero">{primary.label}</SfButton>
+            {!form && <SfButton href={primary.href} to={primary.to} magnet cta="hero">{primary.label}</SfButton>}
             {phone && <a className="sf-phone" href={SF_PHONE.href} data-cta="hero">Call {SF_PHONE.display}</a>}
+            {more}
           </div>
         </div>
-        {figure}
+        {form && <div className="sf-hero-desk" id="start">{form}</div>}
+        {!form && figure}
         {photo && files && (
           <figure className="sf-hero-fig sf-stage sf-photo" style={{ "--fx": `${photo.focal.x}%`, "--fy": `${photo.focal.y}%` } as React.CSSProperties}>
             <picture>
