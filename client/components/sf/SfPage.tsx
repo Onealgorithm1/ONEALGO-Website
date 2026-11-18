@@ -94,5 +94,5 @@ export function SfButton({ href, to, children, magnet, cta, ghost, className = "
   const magnetAttr = magnet ? { "data-magnet": "" } : {};
   if (to) return <Link to={to} className={cls} data-cta={cta} data-primary={ghost ? undefined : ""} {...magnetAttr}>{inner}</Link>;
   if (href) return <a href={href} className={cls} data-cta={cta} data-primary={ghost ? undefined : ""} {...magnetAttr}>{inner}</a>;
-  return <button type={type || "button"} className={cls} data-cta={cta} onClick={onClick} disabled={disabled} aria-busy={disabled || undefined} {...magnetAttr}>{inner}</button>;
+  return <button type={type || "button"} className={cls} data-cta={cta} data-primary={ghost ? undefined : ""} onClick={onClick} disabled={disabled} aria-busy={disabled || undefined} {...magnetAttr}>{inner}</button>;
 }

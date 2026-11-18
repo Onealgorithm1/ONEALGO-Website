@@ -64,6 +64,8 @@ export type LeadPayload = {
   phone?: string;
   company?: string;
   whatYouNeed?: string;
+  /** "When do you want to start?" (Salesforce ad landing forms); the Lead's "Start:" line. */
+  startWhen?: string;
   message?: string;
   topic?: string;
   page?: string;

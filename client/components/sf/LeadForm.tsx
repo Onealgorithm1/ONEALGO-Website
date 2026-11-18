@@ -30,7 +30,13 @@ export const SERVICES = [
 ];
 const SERVICE_LABEL: Record<string, string> = { "IT Consulting": "IT Consulting & Strategy" };
 
-const EMPTY = { name: "", firstName: "", lastName: "", email: "", phone: "", company: "", whatYouNeed: "", message: "" };
+/* Salesforce ad landing forms (final-plan-2026-11-17, "FORM"): the required "What do you need?" and the
+   optional "When do you want to start?" (the qualified rule is a start within 6 months). Both land in the
+   Lead description as "Service:" and "Start:" lines (functions/api/lead.js). */
+export const SF_NEEDS = ["Free health check", "Free call", "Developer by the hour or month", "Implementation", "Data migration", "Other"];
+const START_WHEN = ["This month", "1 to 3 months", "3 to 6 months", "Just researching"];
+
+const EMPTY = { name: "", firstName: "", lastName: "", email: "", phone: "", company: "", whatYouNeed: "", startWhen: "", message: "" };
 type Field = keyof typeof EMPTY;
 
 /**
@@ -40,13 +46,15 @@ type Field = keyof typeof EMPTY;
  *   full  (/contact): first + last name, work email, phone, company, the service dropdown, "tell us more".
  *   short (landing pages): four visible fields: name, work email, company, what you need. `need` is sent as
  *         the service; the one name box is split at the last space (Web-to-Lead requires a last name).
+ *   short + pick (Salesforce ad landing pages): "what you need" is the SF_NEEDS select, preselected to `pick`,
+ *         plus the optional start-window select; no free-text box.
  *
  * Kept from the contact page: the honeypot, Turnstile (loaded here, so form-less pages do not pay for it; not
  * at all during prerender, so the static HTML carries no "check could not load" alert), the beforeunload
  * guard, the GA4 generate_lead event (index.html also fires the Google Ads conversion from it), and the
  * gclid/UTM cookie, which submitLead adds to every post.
  */
-export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId, topic, from, need = "", submitLabel, placeholder }: {
+export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId, topic, from, need: needProp = "", pick, submitLabel, placeholder }: {
   short?: boolean;
   /** Prefix for every id, so two forms can share a page. /contact passes none (its ids are linked to). */
   idPrefix?: string;
@@ -62,9 +70,12 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
   from?: string;
   /** Full: preselects the dropdown. Short: the service sent with every lead. */
   need?: string;
+  /** Short form only: show the SF_NEEDS and start-window selects, with this option preselected. */
+  pick?: string;
   submitLabel: string;
   placeholder?: string;
 }) {
+  const need = pick ?? needProp;
   const [formData, setFormData] = React.useState({ ...EMPTY, whatYouNeed: need });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
@@ -115,7 +126,7 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
   }, [isSubmitted]);
 
   /* Warn before losing a part-filled form: arms once something is typed, disarms on submit. */
-  const hasContent = (Object.keys(EMPTY) as Field[]).some((k) => k !== "whatYouNeed" && formData[k].trim() !== "");
+  const hasContent = (Object.keys(EMPTY) as Field[]).some((k) => k !== "whatYouNeed" && k !== "startWhen" && formData[k].trim() !== "");
   React.useEffect(() => {
     if (!hasContent || isSubmitted) return;
     const warn = (e: BeforeUnloadEvent) => {
@@ -177,6 +188,7 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
           phone: formData.phone || undefined,
           company: formData.company,
           whatYouNeed: formData.whatYouNeed,
+          startWhen: formData.startWhen || undefined,
           message: formData.message,
           topic: topic || undefined,
           page: from || window.location.pathname,
@@ -253,10 +265,30 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
               {emailField}
             </div>
             {companyField}
-            <div>
-              <label htmlFor={id("message")}>What do you need?</label>
-              <textarea id={id("message")} name="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} placeholder={placeholder} />
-            </div>
+            {pick !== undefined ? (
+              <>
+                {/* Stacked, not a row: "Developer by the hour or month" is cut off in a half-width select. */}
+                <div>
+                  <label htmlFor={id("whatYouNeed")}>What do you need?{req}</label>
+                  <select id={id("whatYouNeed")} name="whatYouNeed" required value={formData.whatYouNeed} onChange={handleChange} disabled={isSubmitting}>
+                    <option value="">Pick one</option>
+                    {SF_NEEDS.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor={id("startWhen")}>When do you want to start?</label>
+                  <select id={id("startWhen")} name="startWhen" value={formData.startWhen} onChange={handleChange} disabled={isSubmitting}>
+                    <option value="">Pick one (optional)</option>
+                    {START_WHEN.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </div>
+              </>
+            ) : (
+              <div>
+                <label htmlFor={id("message")}>What do you need?</label>
+                <textarea id={id("message")} name="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} placeholder={placeholder} />
+              </div>
+            )}
           </>
         ) : (
           <>

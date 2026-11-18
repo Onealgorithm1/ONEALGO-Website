@@ -209,6 +209,12 @@ function Layout({ children }: LayoutProps) {
   // Salesforce pages exist to make the office phone ring or the contact form
   // fill. On a phone the CTAs scroll away, so these pages carry a fixed bar.
   const isSalesforce = location.pathname.startsWith("/services/salesforce");
+  // Pages that use Salesforce marks and so carry the trademark attribution in the footer. The hire page sits
+  // outside /services/salesforce* and had none (final-plan-2026-11-17, Salesforce rules).
+  // The hub is the free-call landing page (ads path B): its header and call-bar button must not offer the health
+  // check above the fold (final-plan-2026-11-17). Every other Salesforce page keeps "Free health check".
+  const sfCtaLabel = location.pathname.replace(/\/+$/, "") === "/services/salesforce" ? "Request a free call" : "Free health check";
+  const usesSfMarks = isSalesforce || location.pathname.startsWith("/services/hire-salesforce-developers");
   const pageOffer = offerFor(location.pathname);
   // Salesforce pages use the wide frame (addendum 2026-10-23). Header, footer
   // and every Section/PageHero inside <main> read this one value, so their
@@ -747,11 +753,11 @@ function Layout({ children }: LayoutProps) {
                   </a>
                   {hasDesk ? (
                     <PrimaryCTA href="#start" cta="header" tone="light" className="h-10 px-5">
-                      Free health check
+                      {sfCtaLabel}
                     </PrimaryCTA>
                   ) : (
                     <PrimaryCTA to="/contact#need=salesforce" cta="header" tone="light" className="h-10 px-5">
-                      Free health check
+                      {sfCtaLabel}
                     </PrimaryCTA>
                   )}
                 </>
@@ -1340,7 +1346,7 @@ function Layout({ children }: LayoutProps) {
               </ul>
             </nav>
           )}
-          {isSalesforce && (
+          {usesSfMarks && (
             <p className="mt-4 max-w-[75ch] text-[11px] leading-relaxed text-oa-nightInk3">
               Salesforce, AppExchange, Sales Cloud, Service Cloud, Marketing
               Cloud, Experience Cloud, Commerce Cloud, Field Service, Account
@@ -1385,7 +1391,7 @@ function Layout({ children }: LayoutProps) {
               data-cta="bar"
               className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
             >
-              Free health check
+              {sfCtaLabel}
             </a>
           ) : (
             <Link
@@ -1393,7 +1399,7 @@ function Layout({ children }: LayoutProps) {
               data-cta="bar"
               className="flex min-h-12 flex-1 items-center justify-center rounded-lg bg-oa-orange text-sm font-semibold text-oa-ink"
             >
-              Free health check
+              {sfCtaLabel}
             </Link>
           )}
         </div>
