@@ -99,6 +99,18 @@ describe("POST /api/lead", () => {
     expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(3);
   });
 
+  it("writes a LinkedIn li_fat_id into the 'Ad click:' line but sends it as no custom field", async () => {
+    const calls = stubFetch();
+    await onRequest({
+      request: post({ ...GOOD, adClick: { li_fat_id: "LI-FAT-123", utm_source: "linkedin", utm_medium: "paid", utm_campaign: "oa-salesforce" } }),
+      env: ENV,
+    });
+    const sent = new URLSearchParams(calls[1].init.body);
+    expect(sent.get("description")).toContain("Ad click: li_fat_id=LI-FAT-123 | utm_source=linkedin | utm_medium=paid | utm_campaign=oa-salesforce");
+    expect([...sent.values()]).not.toContain("LI-FAT-123");
+    expect([...sent.keys()].filter((k) => k.startsWith("00N"))).toHaveLength(3);
+  });
+
   it("sends no custom ad fields when there is no ad click", async () => {
     const calls = stubFetch();
     await onRequest({ request: post(GOOD), env: ENV });

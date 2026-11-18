@@ -70,11 +70,12 @@ export const source = (t) => {
     .join("\n");
 };
 
-/** The Google Ads / Microsoft Ads click and UTM tags (client/lib/lead.ts readAdClick, from the oa_ad cookie) as ONE line of the
+/** The Google Ads / Microsoft Ads / LinkedIn Ads click and UTM tags (client/lib/lead.ts readAdClick, from the oa_ad cookie) as ONE line of the
  *  Lead description. The org's Web-to-Lead form maps no gclid/UTM field, so it rides in the description,
  *  labelled "Ad click:". Untrusted: known keys only, control characters stripped, values capped. */
-// msclkid (Microsoft Ads) has no Salesforce field: it rides in this line only (adFields skips keys without an id).
-const AD_KEYS = ["gclid", "gbraid", "wbraid", "msclkid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+// msclkid (Microsoft Ads) and li_fat_id (LinkedIn Ads) have no Salesforce field: they ride in this line only
+// (adFields skips keys without an id).
+const AD_KEYS = ["gclid", "gbraid", "wbraid", "msclkid", "li_fat_id", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 export const adClick = (a) => {
   if (!a || typeof a !== "object") return "";
   const parts = AD_KEYS.filter((k) => typeof a[k] === "string")

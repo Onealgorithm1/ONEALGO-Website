@@ -228,7 +228,7 @@ function Layout({ children }: LayoutProps) {
   // Shown once the hero's own buttons have scrolled away, so a phone's first
   // screen never carries the same two buttons twice.
   const [showSfBar, setShowSfBar] = React.useState(false);
-  // Google and Bing ad visitors (gclid/gbraid/wbraid/msclkid in the oa_ad cookie) see the ad phone line. After hydration, client-side only.
+  // Google, Bing and LinkedIn ad visitors (gclid/gbraid/wbraid/msclkid/li_fat_id in the oa_ad cookie) see the ad phone line. After hydration, client-side only.
   React.useEffect(() => (isAdVisitor() ? swapToAdPhone(document.body) : undefined), []);
   React.useEffect(() => {
     if (!isSalesforce) return;
