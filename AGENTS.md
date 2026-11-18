@@ -29,6 +29,9 @@ different card styles, which is the state it was just rescued from.
 
 - ⚠️ **`#ffa634` is 1.95:1 on white.** It fails contrast badly. Never use it for
   text, icons or borders on a light background. It is an accent on dark only.
+  One exception, by Louis's decision (2026-11-17): the "One" in the header wordmark uses the
+  footer's `text-onealgo-orange-500` on white. It is a logo (WCAG 1.4.3 exempts logotypes).
+  Lighthouse flags it under color-contrast; do not change it back to a darker orange.
 - Run `node scripts/contrast-check.mjs` after any colour change. It is 20/20 now;
   keep it there.
 
