@@ -5,16 +5,12 @@ interface OneAlgorithmTextProps {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   showGlobe?: boolean;
-  /** "contrast" = orange-600 for "One" (3.16:1 on white). The Salesforce header uses it (fix round
-   *  A11Y-1, Lighthouse color-contrast); the rest of the site keeps the brand orange until Louis decides. */
-  oneTone?: "brand" | "contrast";
 }
 
 export default function OneAlgorithmText({
   size = "md",
   className = "",
   showGlobe = true,
-  oneTone = "brand",
 }: OneAlgorithmTextProps) {
   const sizeClasses = {
     sm: "text-lg",
@@ -51,7 +47,10 @@ export default function OneAlgorithmText({
       <span
         className={`logo font-bold inline-flex items-center ${sizeClasses[size]} ${className}`}
       >
-        <span className={`logo-one text-[#a85a00]`}>One</span>
+        {/* Same class as the footer "One" above, so header and footer cannot drift apart (Louis, 2026-11-17).
+            The token renders #ffad33, 1.86:1 on white: Lighthouse/axe color-contrast flags it; WCAG 1.4.3 exempts
+            text that is part of a logo. */}
+        <span className="logo-one text-onealgo-orange-500">One</span>
         <span className="logo-algorithm text-onealgo-blue-950">Alg</span>
         {showGlobe ? (
           <BinaryGlobeSVG
