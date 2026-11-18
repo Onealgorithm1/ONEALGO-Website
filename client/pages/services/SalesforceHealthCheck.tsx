@@ -304,14 +304,15 @@ export default function SalesforceHealthCheck() {
         <SFHero
           kicker="Free · one week · read-only access"
           title={<>Salesforce health check: a free <span style={{ whiteSpace: "nowrap" }}>one-week</span> org review</>}
-          lede="With read-only access, we review your licenses, data, automation, permissions and integrations. You get a written report within a week of access, and you keep it."
+          lede="With read-only access, we review your licenses, data, automation, permissions and integrations, and you keep the written report, sent within a week of access."
           logo={false}
           proof
           more={<a className="sf-link" href="#sample">See a sample report</a>}
           form={
             <div className="desk-card sf-desk-panel">
-              <LeadForm short idPrefix="top-" formId="sf-health-top" heading="What is the symptom?" headingId="start-title" topic="Salesforce health check" pick="Free health check" submitLabel="Request the free health check" />
-              <NextSteps steps={["Book a kickoff call.", "Give us read-only access.", "Your report arrives within one week of access, and we walk you through it."]} />
+              <h2 className="sr-only">Request the free health check</h2>
+              <LeadForm short idPrefix="top-" formId="sf-health-top" cta="hero" heading="Book the free health check" headingId="start-title" topic="Salesforce health check" pick="Free health check" submitLabel="Request the free health check" />
+              <NextSteps steps={["We reply and set up a kickoff call.", "Give us read-only access.", "Your report arrives within one week of access, and we walk you through it."]} />
             </div>
           }
         />

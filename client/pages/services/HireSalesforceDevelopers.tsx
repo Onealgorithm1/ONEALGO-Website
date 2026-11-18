@@ -177,7 +177,7 @@ export default function HireSalesforceDevelopers() {
           hcLink={false}
           inline="Staff Augmentation"
           pick="Developer by the hour or month"
-          form={{ topic: "hire-salesforce-developers", topicLabel: "Hire Salesforce developers", need: "staff-augmentation", heading: "Tell us about the role", prompt: "What is the Salesforce role, and how long do you need it?", submitLabel: "Request a free call", formId: "hire-sf-end" }}
+          form={{ topic: "hire-salesforce-developers", topicLabel: "Hire Salesforce developers", need: "staff-augmentation", heading: "Ask about a Salesforce developer", prompt: "What is the Salesforce role, and how long do you need it?", submitLabel: "Request a free call", formId: "hire-sf-end" }}
         />
       </SfPage>
     </Layout>
@@ -239,7 +239,7 @@ function HireHero() {
         <div className="hsd-desk" id="enquire">
           <div className="desk-card sf-desk-panel">
             <h2 className="sr-only" id="h-enquire">Ask about a Salesforce developer</h2>
-            <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Tell us about the role" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" pick="Developer by the hour or month" submitLabel="Request a free call" />
+            <LeadForm short idPrefix="top-" formId="hire-sf-top" heading="Ask about a Salesforce developer" headingId="h-enquire-form" topic="Hire Salesforce developers" need="Staff Augmentation" pick="Developer by the hour or month" submitLabel="Request a free call" />
             <p className="hsd-reply">A person at OneAlgorithm reads it and replies within one business day.</p>
           </div>
         </div>

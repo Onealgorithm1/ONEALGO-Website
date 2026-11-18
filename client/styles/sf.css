@@ -204,6 +204,7 @@
 /* Ad landing heroes (SFHero `form`, 2026-11-18): text + proof on 7 columns, the form panel docked on 5 (the
    hire page's hsd-hero layout). Phones: text, form, proof, in DOM order. */
 .sfv2 .sf-hero-formed .sf-hero-text, .sfv2 .sf-hero-formed .sf-hero-proof { grid-column: 1 / 8; }
+.sfv2 .sf-hero-formed .sf-hero-proof { align-self: start; } /* under the call link, in the first screen; not stranded at the foot of the tall form */
 .sfv2 .sf-hero-desk { grid-column: 8 / 13; grid-row: 1 / 3; align-self: start; scroll-margin-top: 96px; }
 .sfv2 .sf-hero-desk .desk-card { border-top: 4px solid var(--orange); }
 .sfv2 .sf-hero-desk .sf-h3 { font-size: 26px; }

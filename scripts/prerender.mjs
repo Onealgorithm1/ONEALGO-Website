@@ -398,6 +398,12 @@ async function main() {
         });
       }
 
+      /* A select's chosen option is a DOM property, not an attribute, so page.content() drops it, and React's
+         hydration does not set it again: a preselected "What do you need?" (LeadForm `pick`) shipped blank
+         (found on the PR #71 preview, 2026-11-18). Write the choice out as the `selected` attribute. */
+      await page.evaluate(() => {
+        for (const o of document.querySelectorAll("select option")) o.toggleAttribute("selected", o.selected && o.value !== "");
+      });
       let html = "<!doctype html>\n" + (await page.content());
       /* Fix round PERF-3, hydrated (Salesforce) routes only: their first paint is
          the static HTML, so the app JS is not needed for it. At High priority the

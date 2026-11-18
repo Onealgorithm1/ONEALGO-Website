@@ -63,7 +63,7 @@ const FAQS: SfFaqItem[] = [
   {
     q: "What do Salesforce consulting services include?",
     a: "Advice and hands-on work across the life of a Salesforce org, from deciding what to buy to running it afterwards. Ours are the free one-week health check, implementation, data migration, integration with SAP and other ERPs, managed services, Marketing Cloud support and staff augmentation.",
-    link: { to: HC, label: "Start with the free health check" },
+    link: { to: HC, label: "See the free health check" },
   },
   {
     q: "Why do Salesforce implementations fail, and how do we avoid it?",
@@ -165,14 +165,15 @@ export default function Salesforce() {
         <SFHero
           kicker={<>Select Salesforce Consulting Partner<span className="sf-kicker-loc"> · Malvern, PA</span></>}
           title="Salesforce consulting and implementation services"
-          lede="Certified Salesforce consultants and developers. Start with a free call, then work with us by the hour or month."
+          lede="Certified Salesforce consultants and developers: start with a free call, then work with us by the hour or month."
           logo={false}
           proof
           form={
             <div className="desk-card sf-desk-panel">
-              <LeadForm short idPrefix="top-" formId="sf-consult-top" heading="Talk to our Salesforce team" headingId="start-title" topic="Salesforce consulting" pick="Free call" submitLabel="Request a free call" />
+              <h2 className="sr-only">Request a free call</h2>
+              <LeadForm short idPrefix="top-" formId="sf-consult-top" cta="hero" heading="Talk to our Salesforce team" headingId="start-title" topic="Salesforce consulting" pick="Free call" submitLabel="Request a free call" />
               {/* Step 1 names no person until Louis names who takes the calls (OWNER INPUT). */}
-              <NextSteps steps={["Book a call with our Salesforce team.", "We talk through your org, timeline and budget.", "We propose the people and the hours."]} />
+              <NextSteps steps={["We reply and set up the call.", "We talk through your org, timeline and budget.", "We propose the people and the hours."]} />
             </div>
           }
         />
@@ -199,7 +200,7 @@ export default function Salesforce() {
               <p><span className="sf-lead-in">What it costs:</span> The first week is free. Build work is scoped in writing before you sign.</p>
               <p><span className="sf-lead-in">Editions:</span> Starter Suite, Pro Suite, Core, Advanced and Max (Salesforce's current names, read {SF_VERIFIED_LABEL}).</p>
               <div className="sf-links">
-                <Link className="sf-link" to={HC}>Start with the free health check</Link>
+                <Link className="sf-link" to={HC}>See the free health check</Link>
                 <Link className="sf-link" to={COST}>Salesforce implementation cost guide</Link>
               </div>
             </GoDeeper>
