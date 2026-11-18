@@ -300,7 +300,7 @@ export default function SalesforceHealthCheck() {
         {/* 1 HERO. H1 = the LCP. Ads path A (final-plan-2026-11-17 "Landing Funnel", 2026-11-18): the form is docked
             in the hero and owns #start, so the header and call-bar buttons land on it. FIG. 1, the sample report,
             moved under "What the written health check list includes" (#sample); the hero links to it. No Salesforce
-            cloud logo. ⛔ OWNER INPUT before adding: Sreenivas's access steps and the mutual NDA line. */}
+            cloud logo. Step 2: access method tested 2026-11-18 (onealgo-icm-oa salesforce-health-check-access-2026-11-18.md). ⛔ OWNER INPUT: the mutual NDA line. */}
         <SFHero
           kicker="Free · one week · read-only access"
           title={<>Salesforce health check: a free <span style={{ whiteSpace: "nowrap" }}>one-week</span> org review</>}
@@ -312,7 +312,7 @@ export default function SalesforceHealthCheck() {
             <div className="desk-card sf-desk-panel">
               <h2 className="sr-only">Request the free health check</h2>
               <LeadForm short idPrefix="top-" formId="sf-health-top" cta="hero" heading="Book the free health check" headingId="start-title" topic="Salesforce health check" pick="Free health check" submitLabel="Request the free health check" />
-              <NextSteps steps={["We reply and set up a kickoff call.", "Give us read-only access.", "Your report arrives within one week of access, and we walk you through it."]} />
+              <NextSteps steps={["We reply and set up a kickoff call.", "Give us read-only access: one user with four setup permissions. It can't see your customer records.", "Your report arrives within one week of access, and we walk you through it."]} />
             </div>
           }
         />
