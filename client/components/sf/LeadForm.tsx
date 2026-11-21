@@ -143,6 +143,8 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Consent is for the number it was given against: a changed number needs the box ticked again (blind review, PR #72).
+    if (name === "phone") setSmsConsent(false);
     setSubmitError(null);
   };
 
@@ -308,9 +310,9 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
             <label htmlFor={id("smsConsent")} className="sf-form-note" style={{ display: "flex", gap: 8, alignItems: "flex-start", fontWeight: 400 }}>
               <input id={id("smsConsent")} name="smsConsent" type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)} disabled={isSubmitting} style={{ marginTop: 3, width: "auto" }} />
               <span>
-                Optional: text me at this number about my enquiry, such as answers and call times. Message frequency varies.
-                Message and data rates may apply. Reply STOP to unsubscribe or HELP for help.
-                See our <a href="/privacy#calls">privacy policy</a>.
+                Optional: One Algorithm may text me at this number about my enquiry, such as answers and call times.
+                Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help.
+                See our <a href="/privacy#calls" target="_blank" rel="noopener">privacy policy</a>.
               </span>
             </label>
             <div className="sf-form-row">
