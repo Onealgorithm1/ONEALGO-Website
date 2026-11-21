@@ -207,6 +207,8 @@ export async function onRequest({ request, env }) {
     [
       need && `Service: ${need}`,
       field("startWhen") && `Start: ${field("startWhen")}`,
+      // Proof of texting consent for A2P 10DLC: when and from which page the box was ticked.
+      body.smsConsent === true && field("phone") && `Text consent: yes, ticked on the form ${new Date().toISOString()}`,
       field("topic") && `Topic: ${field("topic")}`,
       field("page") && `Submitted on: ${field("page")}`,
       message,
