@@ -62,6 +62,8 @@ export type LeadPayload = {
   lastName: string;
   email: string;
   phone?: string;
+  /** Ticked the optional texting consent box (A2P 10DLC opt-in). Only sent with a phone number. */
+  smsConsent?: boolean;
   company?: string;
   whatYouNeed?: string;
   /** "When do you want to start?" (Salesforce ad landing forms); the Lead's "Start:" line. */

@@ -79,6 +79,9 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
   const [formData, setFormData] = React.useState({ ...EMPTY, whatYouNeed: need });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  // Texting consent (A2P 10DLC, Twilio campaign review 2026-11-20): optional and unticked; it is the opt-in the
+  // campaign's message flow names, so keep the wording in step with that registration and /privacy#calls.
+  const [smsConsent, setSmsConsent] = React.useState(false);
   const [submitError, setSubmitError] = React.useState<string | null>(null);
   const honeypotRef = React.useRef<HTMLInputElement>(null);
   const [turnstileToken, setTurnstileToken] = React.useState("");
@@ -186,6 +189,7 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
           lastName,
           email: formData.email,
           phone: formData.phone || undefined,
+          smsConsent: formData.phone && smsConsent ? true : undefined,
           company: formData.company,
           whatYouNeed: formData.whatYouNeed,
           startWhen: formData.startWhen || undefined,
@@ -301,6 +305,14 @@ export function LeadForm({ short, idPrefix = "", formId, cta, heading, headingId
               {emailField}
               {field("phone", "Phone (optional; we call rather than email)", { type: "tel", autoComplete: "tel" })}
             </div>
+            <label htmlFor={id("smsConsent")} className="sf-form-note" style={{ display: "flex", gap: 8, alignItems: "flex-start", fontWeight: 400 }}>
+              <input id={id("smsConsent")} name="smsConsent" type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)} disabled={isSubmitting} style={{ marginTop: 3, width: "auto" }} />
+              <span>
+                Optional: text me at this number about my enquiry, such as answers and call times. Message frequency varies.
+                Message and data rates may apply. Reply STOP to unsubscribe or HELP for help.
+                See our <a href="/privacy#calls">privacy policy</a>.
+              </span>
+            </label>
             <div className="sf-form-row">
               {companyField}
               <div>
