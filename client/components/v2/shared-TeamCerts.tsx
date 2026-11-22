@@ -56,20 +56,31 @@ export function certsFor(pathname: string): CertRow[] {
     "/services/zendesk": [c.zendesk],
     "/industries/ecommerce": [c.googleAds, c.microsoft, c.analytics],
     "/industries/marketing": [c.googleAds, c.semrush, c.linkedin],
-    "/industries/government": [c.federal, c.pmi],
-    "/capabilities": [c.federal, c.pmi, c.aws, c.cisco],
+    "/industries/government": [c.pmi, c.aws, c.cisco],  // federal training row has no single company logo: About table only
+    "/capabilities": [c.pmi, c.aws, c.cisco],
   };
   if (BY_PATH[p]) return BY_PATH[p];
   return [];
 }
 
-/* Vendor logo files in public/certs (official marks via Wikimedia Commons, 2026-11-14). `name` is shown beside
+/* Every tile shows its company's logo (Louis 2026-11-22). Vendor logo files in public/certs (official marks via Wikimedia Commons, 2026-11-14). `name` is shown beside
  * marks that carry no wordmark of their own. Rows without a logo (Google Marketing Platform) render as a text tile. */
 const LOGOS: Record<string, { src: string; w: number; h: number; name?: string }> = {
   "Google Ads": { src: "/certs/google-ads.svg", w: 251, h: 313 },
   "Google Analytics": { src: "/certs/google-analytics.png", w: 279, h: 96 },
   "Microsoft Advertising": { src: "/certs/microsoft-advertising.png", w: 96, h: 96, name: "Microsoft Advertising" },
   Semrush: { src: "/certs/semrush.svg", w: 195, h: 26 },
+  // 2026-11-22 (Louis: "always have the company logo"): Wikimedia Commons official marks (public domain; AWS Apache-2.0;
+  // PMI CC BY-SA 4.0). name = the words the mark itself does not say.
+  "Google Marketing Platform": { src: "/certs/google-marketing-platform.svg", w: 512, h: 512, name: "Google Marketing Platform" },
+  "OpenAI Academy": { src: "/certs/openai.svg", w: 512, h: 138, name: "Academy" },
+  "Anthropic Academy": { src: "/certs/anthropic.svg", w: 1024, h: 115, name: "Academy" },
+  Zendesk: { src: "/certs/zendesk.svg", w: 363, h: 259 },
+  "Intuit QuickBooks": { src: "/certs/quickbooks.svg", w: 512, h: 131 },
+  "Project Management Institute": { src: "/certs/pmi.gif", w: 750, h: 325 },
+  "Amazon Web Services": { src: "/certs/aws.svg", w: 512, h: 307 },
+  Cisco: { src: "/certs/cisco.svg", w: 216, h: 114 },
+  "LinkedIn Marketing": { src: "/certs/linkedin.svg", w: 512, h: 125, name: "Marketing" },
 };
 
 /** "Certified team" logo row under the hero buttons (2026-11-14, Louis: logos "right in your face"). White tiles so
