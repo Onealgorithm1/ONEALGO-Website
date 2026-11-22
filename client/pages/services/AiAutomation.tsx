@@ -1,3 +1,4 @@
+import { TeamCertsLine } from "../../components/v2/shared-TeamCerts";
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout";
@@ -206,6 +207,7 @@ export default function AiAutomation() {
           lede="We build AI agents and workflow automation for US businesses, connected to the systems you already run, with a person reviewing what the AI does."
           primary={{ href: "#start", label: "Tell us the task" }}
           figure={<RunLog />}
+          after={<TeamCertsLine pathname="/services/ai-automation" />}
         />
 
         {/* 2 THE ANSWER UNITS: what it is, what an agency does. */}
