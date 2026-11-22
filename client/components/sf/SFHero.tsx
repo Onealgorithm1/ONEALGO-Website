@@ -40,7 +40,7 @@ function CertMarquee() {
  * ("Photo: King of Hearts · CC BY-SA 3.0") opens the credits dialog `ev-photo-credit` (render <PhotoCreditDialog>).
  *   <SFHero title="Salesforce consultants in Dallas" lede="…" photo={SF_CITY_HEROES.dallas} />
  */
-export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1", salesforce = true, logo = salesforce, form, more }: {
+export function SFHero({ kicker, title, lede, primary = { href: "#start", label: "Book the free health check" }, phone = true, proof = false, figure, photo, split = "6/6", id = "h1", salesforce = true, logo = salesforce, form, more, after }: {
   kicker?: React.ReactNode;
   title: React.ReactNode;
   lede: React.ReactNode;
@@ -63,6 +63,8 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
   form?: React.ReactNode;
   /** An extra text link beside the phone, e.g. "See a sample report". */
   more?: React.ReactNode;
+  /** Under the buttons, e.g. the "Certified team" row (2026-11-22). */
+  after?: React.ReactNode;
 }) {
   const files = photo ? sfCityFiles(photo.slug) : null;
   const cls = ["sf-hero", split === "7/5" ? "sf-hero-75" : "", photo ? "sf-hero-photo" : "", !figure && !photo && !form ? "sf-hero-wide" : "", form ? "sf-hero-formed" : ""].filter(Boolean).join(" ");
@@ -80,6 +82,7 @@ export function SFHero({ kicker, title, lede, primary = { href: "#start", label:
             {phone && <a className="sf-phone" href={SF_PHONE.href} data-cta="hero">Call {SF_PHONE.display}</a>}
             {more}
           </div>
+          {after}
         </div>
         {form && <div className="sf-hero-desk" id="start">{form}</div>}
         {!form && figure}
