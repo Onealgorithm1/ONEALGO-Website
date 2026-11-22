@@ -5,6 +5,7 @@ import {
   SfPage, SfButton, SmartSection, SmartUnit, LedgerRule, GoDeeper, DeskCTA, StageRail, SourcesDialog, EvidenceDialog, Verify, type Tone,
 } from "../../components/sf";
 import { contactHref } from "../../components/sf/DeskCTA";
+import { TeamCertsLine } from "../../components/v2/shared-TeamCerts";
 import { SiteWindow, DemoSheet, BuildStage, HandoverPlate, AccessibilityPlate, RegionPlate } from "../../components/wd";
 import { WdFaq } from "../../components/wd/WdFaq";
 import { Preview } from "../../components/WorkCarousel";
@@ -369,6 +370,7 @@ export function ServicePage({ page }: { page: ServicePageData }) {
                 <SfButton to={cta} magnet cta="hero">Start a project</SfButton>
                 <a className="sf-phone" href={NAP.phone.href} data-cta="hero">Call {NAP.phone.display}</a>
               </div>
+              <TeamCertsLine pathname={page.path} />
             </div>
             {page.hero.figure && <Plate kind={page.hero.figure} fig={1} className="sf-hero-fig" caption={page.hero.figureCaption} />}
           </div>
