@@ -5,14 +5,14 @@ import * as React from "react";
  * Microsoft Advertising Search + Retail, Semrush Academy; passed 2026-11-10/11, each on the holder's LinkedIn), so the
  * wording is always "our team", never "One Algorithm is certified". Microsoft Display & Video passed later (Credly 11-19).
  * One table drives every page: the Google Ads, SEO and marketing pages (main and city) and the About page. */
-export type CertRow = { platform: string; detail: string };
+export type CertRow = { platform: string; detail: string; training?: true };  // training: badges/courses, not certifications
 
 /* 2026-11-22 (Louis: "the certifications that I have on my LinkedIn on the website ... not under my name ... on the pages
  * that are needed"): rows re-checked against linkedin.com/in/louiscrubino/details/certifications (147 entries, read live
  * 2026-11-22); every row below is a certificate with a verification link there, except Microsoft Advertising (passed
  * 2026-11-11, Credly badges issued 2026-11-19, proof on file). Google Ads "Creative" removed: it is not on LinkedIn.
  * Course completions without a certificate (Google Cloud gen AI, AWS/Cisco/PMI training badges) are not listed. */
-export const TEAM_CERTS: Record<"salesforce" | "googleAds" | "analytics" | "gmp" | "microsoft" | "semrush" | "linkedin" | "openai" | "anthropic" | "zendesk", CertRow> = {
+export const TEAM_CERTS: Record<"salesforce" | "googleAds" | "analytics" | "gmp" | "microsoft" | "semrush" | "linkedin" | "openai" | "anthropic" | "zendesk" | "intuit" | "pmi" | "aws" | "cisco" | "federal", CertRow> = {
   salesforce: { platform: "Salesforce", detail: "16 certified people, 55 certifications" },
   googleAds: { platform: "Google Ads", detail: "Search, Display, Video, Measurement, Apps, Shopping ads, Conversion Optimization" },
   analytics: { platform: "Google Analytics", detail: "Google Analytics certification" },
@@ -23,18 +23,39 @@ export const TEAM_CERTS: Record<"salesforce" | "googleAds" | "analytics" | "gmp"
   openai: { platform: "OpenAI Academy", detail: "Agents and workflows, retrieval-augmented generation, evaluating and optimizing AI apps, Codex" },
   anthropic: { platform: "Anthropic Academy", detail: "Claude Code, Model Context Protocol, agent skills, subagents" },
   zendesk: { platform: "Zendesk", detail: "AI agents, Zendesk AI, Support, Messaging, Talk, Knowledge" },
+  // 2026-11-22 (Louis: "put them on whatever page will help ... spread out accordingly"): the rest of the LinkedIn list
+  // that carries an issuer record. Training badges are named as badges, never as certifications.
+  intuit: { platform: "Intuit QuickBooks", detail: "QuickBooks Online ProAdvisor, Intuit Enterprise Suite, QuickBooks Workforce" },
+  pmi: { platform: "Project Management Institute", detail: "Agile and predictive project management, AI for project managers", training: true },
+  aws: { platform: "Amazon Web Services", detail: "Cloud Essentials, Compute and Serverless knowledge badges", training: true },
+  cisco: { platform: "Cisco", detail: "Python Essentials, Networking Basics, Introduction to Cybersecurity, Data Science", training: true },
+  federal: { platform: "Federal training", detail: "SBA federal contracting, Section 508 ICT buying (GSA), DCSA information security", training: true },
 };
 
-/** Which rows a page shows, by path. Web design and Salesforce pages show none (Salesforce badges sit with the named
+/** Which rows a page shows, by path (2026-11-22: web design pages show Analytics + Semrush). Salesforce pages show none (Salesforce badges sit with the named
  *  people on those pages already). `/services/marketing` is matched as a prefix so Salesforce Marketing Cloud is not. */
 export function certsFor(pathname: string): CertRow[] {
   const p = pathname.replace(/\/$/, "");
   const c = TEAM_CERTS;
   if (p.startsWith("/services/google-ads")) return [c.googleAds, c.gmp, c.analytics, c.microsoft];
   if (p.startsWith("/services/seo")) return [c.semrush, c.analytics];
-  if (p.startsWith("/services/marketing")) return [c.googleAds, c.gmp, c.analytics, c.semrush, c.linkedin];
-  if (p === "/services/ai-automation") return [c.openai, c.anthropic];
-  if (p === "/services/zendesk") return [c.zendesk];
+  if (p.startsWith("/services/marketing")) return [c.googleAds, c.gmp, c.analytics, c.microsoft, c.semrush, c.linkedin];
+  // websites: every web design page (city pages too) and the website service pages; the main website page's hero is frozen
+  if (p.startsWith("/services/web-design-") || ["/services/website-redesign", "/services/small-business-website-design", "/services/website-cost"].includes(p)) return [c.analytics, c.semrush];
+  const BY_PATH: Record<string, CertRow[]> = {
+    "/services/martech": [c.gmp, c.analytics, c.linkedin, c.zendesk],
+    "/services/ai-automation": [c.openai, c.anthropic, c.intuit],
+    "/services/application-development": [c.openai, c.anthropic, c.aws],
+    "/services/it-consulting": [c.aws, c.cisco, c.pmi],
+    "/services/operational-transformation-consulting": [c.pmi, c.openai],
+    "/services/staff-augmentation": [c.pmi, c.cisco],
+    "/services/zendesk": [c.zendesk],
+    "/industries/ecommerce": [c.googleAds, c.microsoft, c.analytics],
+    "/industries/marketing": [c.googleAds, c.semrush, c.linkedin],
+    "/industries/government": [c.federal, c.pmi],
+    "/capabilities": [c.federal, c.pmi, c.aws, c.cisco],
+  };
+  if (BY_PATH[p]) return BY_PATH[p];
   return [];
 }
 
@@ -61,16 +82,16 @@ export function TeamCertsLine({ pathname, className = "", tone }: { pathname: st
   return (
     <div className={`team-certs ${className}`} style={{ marginTop: tone ? 28 : 14 }}>
       <p style={{ margin: "0 0 10px", fontSize: 13, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: dark ? "rgba(255,255,255,.85)" : "#334155" }}>
-        Certified team
+        {rows.some((r) => r.training) ? "Team credentials" : "Certified team"}
       </p>
       <ul aria-label="Certifications held by our team" style={{ display: "flex", flexWrap: "wrap", gap: 10, listStyle: "none", margin: 0, padding: 0 }}>
         {rows.map((r) => {
           const l = LOGOS[r.platform];
           return (
-            <li key={r.platform} style={tile} title={`${r.platform} certified: ${r.detail}`}>
+            <li key={r.platform} style={tile} title={`${r.platform}${r.training ? "" : " certified"}: ${r.detail}`}>
               {l ? (
                 <>
-                  <img src={l.src} alt={`${r.platform} certified`} width={l.w} height={l.h} loading="eager" decoding="async"
+                  <img src={l.src} alt={r.training ? r.platform : `${r.platform} certified`} width={l.w} height={l.h} loading="eager" decoding="async"
                     style={{ height: l.h > l.w ? 44 : l.w / l.h > 5 ? 20 : 36, width: "auto" }} />
                   {l.name && <span aria-hidden="true">{l.name}</span>}
                 </>
