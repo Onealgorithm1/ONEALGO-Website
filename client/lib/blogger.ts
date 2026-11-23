@@ -20,6 +20,7 @@ const KEEP_URL: Record<string, string> = {
   "build-it-price-it-send-it-what-product": "product-configurator-case-study-phantom-arcades",
   "seo-case-study-phantom-arcades-search": "seo-case-study-phantom-arcades",
   "senior-business-systems-engineer-i": "senior-business-systems-engineer",
+  "what-ai-receptionist-really-costs-our": "ai-receptionist-cost",
 };
 
 export type Post = {
