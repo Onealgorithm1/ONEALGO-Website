@@ -15,7 +15,7 @@ export type Author = {
 export const AUTHOR: Author = {
   slug: "louis-rubino",
   name: "Louis Rubino",
-  role: "Director, Business Operations & Growth, OneAlgorithm", // matches his current LinkedIn title, checked 2026-10-22
+  role: "Director of Operations and Program Manager, OneAlgorithm", // same title as /about and /capabilities (Louis 2026-11-27: change it to match)
   bio: "Federal IT modernization and contract strategy, plus web development, Salesforce, and SEO.",
   linkedin: "https://www.linkedin.com/in/louiscrubino/", // same URL already on /about's own schema
   // Louis's own headshot, supplied 2026-10-22; cropped square, 160px with a
