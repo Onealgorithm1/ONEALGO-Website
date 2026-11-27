@@ -321,7 +321,7 @@ export const keyPersonnel: KeyPerson[] = [
        credibility problem. If one changes, change both. */
     role: "Director of Operations and Program Manager",
     summary:
-      "Louis runs the day-to-day at One Algorithm. He builds AI automations, websites, and SEO for the firm and its clients, and handles the bookkeeping, contracts, and federal registrations.",
+      "Louis directs operations at One Algorithm. He builds AI automations, websites, and SEO campaigns for the firm and its clients, and handles invoicing, contracts, and federal registrations.",
   },
   {
     name: "Sreenivas Amirisetti",
