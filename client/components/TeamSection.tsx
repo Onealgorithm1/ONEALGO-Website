@@ -111,15 +111,15 @@ const teamMembers: TeamMember[] = [
        CERTIFICATES OF COMPLETION, not PMP/CAPM/PgMP. "Program oversight"
        describes work, not a credential — keep it that way. */
     expertise: [
-      "AI Systems & Automation",
-      "Business Operations",
-      "Government Contracting",
-      "Contract & Invoice Administration",
-      "Marketing Operations",
+      "AI & Automation",
+      "Web Development",
+      "SEO",
+      "Bookkeeping",
+      "Federal Contracting",
     ],
     industries: ["Construction", "Manufacturing", "E-commerce"],
     background:
-      "Runs operations and the firm's AI systems: the agents, automations and integrations its work runs on. Also handles contracts and invoicing, the federal registrations and small-business certifications the firm bids under, and marketing.",
+      "Louis runs the day-to-day at One Algorithm. He builds AI automations, websites, and SEO for the firm and its clients, and handles the bookkeeping, contracts, and federal registrations.",
     image: "/media/team-3.webp",
     linkedinUrl: "https://www.linkedin.com/in/louiscrubino/",
   },
