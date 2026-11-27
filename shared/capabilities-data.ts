@@ -321,7 +321,7 @@ export const keyPersonnel: KeyPerson[] = [
        credibility problem. If one changes, change both. */
     role: "Director of Operations and Program Manager",
     summary:
-      "Operations, contracts and invoicing, federal registrations and certifications, internal systems, and marketing.",
+      "Operations and AI systems: the agents, automations and integrations the firm runs on. Also contracts and invoicing, federal registrations and certifications, and marketing.",
   },
   {
     name: "Sreenivas Amirisetti",
